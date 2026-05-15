@@ -401,4 +401,99 @@ export default function BioGenerator({ onBack }) {
  
             {bios.map((bio,i)=>{
               const len=bio.length;
-              const col=charColor(
+              const col=charColor(len,platform);
+              const isSel=selected===i;
+              return(
+                <div key={i} className="bio-card" onClick={()=>setSelected(isSel?null:i)} style={{
+                  background:isSel?"rgba(124,58,237,0.15)":"rgba(255,255,255,0.03)",
+                  border:`1px solid ${isSel?"rgba(167,139,250,0.5)":"rgba(255,255,255,0.08)"}`,
+                  borderRadius:"16px",padding:"20px",marginBottom:"14px",
+                  cursor:"pointer",transition:"all 0.2s",position:"relative",
+                }}>
+                  <div style={{
+                    position:"absolute",top:"16px",left:"16px",
+                    width:"24px",height:"24px",borderRadius:"50%",
+                    background:isSel?"rgba(124,58,237,0.5)":"rgba(255,255,255,0.07)",
+                    display:"flex",alignItems:"center",justifyContent:"center",
+                    fontSize:"11px",fontWeight:"700",color:isSel?"#a78bfa":"#64748b",
+                  }}>{i+1}</div>
+ 
+                  <pre style={{
+                    whiteSpace:"pre-wrap",margin:"0 0 0 36px",
+                    fontSize:"14px",lineHeight:"1.75",
+                    color:isSel?"#e2e8f0":"#cbd5e1",
+                    fontFamily:"'DM Sans',sans-serif",
+                  }}>{bio}</pre>
+ 
+                  <div style={{
+                    display:"flex",alignItems:"center",justifyContent:"space-between",
+                    marginTop:"12px",paddingTop:"12px",
+                    borderTop:"1px solid rgba(255,255,255,0.06)",
+                  }}>
+                    <span style={{fontSize:"12px",color:"#475569"}}>
+                      {platform==="instagram"&&"Instagram Bio"}
+                      {platform==="linkedin"&&"LinkedIn Headline"}
+                      {platform==="twitter"&&"Twitter / X Bio"}
+                    </span>
+                    <span style={{
+                      fontSize:"12px",fontWeight:"700",color:col,
+                      background:`${col}18`,padding:"3px 10px",
+                      borderRadius:"20px",border:`1px solid ${col}33`,
+                    }}>{len} / {CHAR_LIMITS[platform].max} chars</span>
+                  </div>
+                </div>
+              );
+            })}
+ 
+            {selected!==null&&(
+              <div style={{textAlign:"center",marginTop:"8px"}}>
+                <button onClick={()=>handleCopy(bios[selected])} style={{
+                  padding:"14px 40px",
+                  background:copied
+                    ?"linear-gradient(135deg,#059669,#0891b2)"
+                    :"linear-gradient(135deg,#7c3aed,#2563eb)",
+                  border:"none",borderRadius:"12px",color:"#fff",
+                  fontSize:"16px",fontWeight:"700",cursor:"pointer",
+                  fontFamily:"'Syne',sans-serif",
+                  boxShadow:"0 4px 20px rgba(124,58,237,0.35)",transition:"all 0.2s",
+                }}>
+                  {copied?"✅ Copied!":"📋 Copy Bio"}
+                </button>
+              </div>
+            )}
+ 
+            {/* SEO Tips */}
+            <div style={{...card,marginTop:"28px"}}>
+              <h3 style={{fontSize:"16px",fontWeight:"800",fontFamily:"'Syne',sans-serif",color:"#f1f5f9",marginBottom:"16px"}}>
+                📈 SEO Tips for {platform==="instagram"?"Instagram":platform==="linkedin"?"LinkedIn":"Twitter / X"}
+              </h3>
+              <div style={{display:"grid",gap:"10px"}}>
+                {SEO_TIPS[platform].map(([t,d])=>(
+                  <div key={t} style={{display:"flex",gap:"12px",padding:"12px",background:"rgba(255,255,255,0.03)",borderRadius:"10px"}}>
+                    <span style={{fontSize:"13px",fontWeight:"700",color:"#a78bfa",minWidth:"110px"}}>{t}</span>
+                    <span style={{fontSize:"13px",color:"#64748b",lineHeight:"1.5"}}>{d}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+ 
+        {/* FAQ */}
+        <div style={{...card,marginTop:"20px"}}>
+          <h3 style={{fontSize:"16px",fontWeight:"800",fontFamily:"'Syne',sans-serif",color:"#f1f5f9",marginBottom:"16px"}}>
+            ❓ Frequently Asked Questions
+          </h3>
+          {FAQS.map(([q,a])=>(
+            <div key={q} style={{marginBottom:"14px",padding:"16px",background:"rgba(255,255,255,0.03)",borderRadius:"12px"}}>
+              <div style={{fontSize:"14px",fontWeight:"700",color:"#e2e8f0",marginBottom:"6px"}}>{q}</div>
+              <div style={{fontSize:"13px",color:"#64748b",lineHeight:"1.6"}}>{a}</div>
+            </div>
+          ))}
+        </div>
+ 
+      </div>
+    </div>
+  );
+}
+ 

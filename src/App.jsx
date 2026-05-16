@@ -3,7 +3,7 @@ import GSTCalculator from "./GSTCalculator";
 import BioGenerator from "./BioGenerator";
 import RateCalculator from "./RateCalculator";
 import InvoiceGenerator from "./InvoiceGenerator";
-import EmailGenerator from "./InvoiceGenerator";
+import EmailGenerator from "./EmailGenerator";
 
 // Custom Cursor
 function Cursor() {

@@ -3,6 +3,7 @@ import GSTCalculator from "./GSTCalculator";
 import BioGenerator from "./BioGenerator";
 import RateCalculator from "./RateCalculator";
 import InvoiceGenerator from "./InvoiceGenerator";
+import EmailGenerator from "./InvoiceGenerator";
 
 // Custom Cursor
 function Cursor() {
@@ -227,12 +228,13 @@ export default function App() {
   if (currentPage === "bio") return <BioGenerator onBack={() => setCurrentPage("home")} />;
   if (currentPage === "rate") return <RateCalculator onBack={() => setCurrentPage("home")} />;
   if (currentPage === "invoice") return <InvoiceGenerator onBack={() => setCurrentPage("home")} />;
+  if (currentPage === "email") return <EmailGenerator onBack={() => setCurrentPage("home")} />;
 
   const tools = [
     { icon: "🧮", name: "GST Calculator", description: "Calculate GST instantly. Supports all slabs — 5%, 12%, 18%, 28%.", category: "Finance", page: "gst" },
    { icon: "📄", name: "Invoice Generator", description: "Create professional GST invoices and download as PDF.", category: "Finance", page: "invoice" },
     { icon: "📝", name: "Proposal Generator", description: "Write winning freelance proposals with AI in seconds.", category: "AI Tool" },
-    { icon: "📧", name: "Email Generator", description: "Generate professional business emails instantly.", category: "AI Tool" },
+    { icon: "📧", name: "Email Generator", description: "Generate professional business emails instantly.", category: "AI Tool", page: "gst" },
     { icon: "🏢", name: "Business Name Generator", description: "Find the perfect name for your Indian business.", category: "AI Tool" },
     { icon: "📱", name: "Bio Generator", description: "Create catchy Instagram & LinkedIn bios with AI.", category: "AI Tool", page: "bio" },
     { icon: "💰", name: "Rate Calculator", description: "Calculate your perfect freelance rate in INR.", category: "Finance", page: "rate" },

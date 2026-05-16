@@ -234,7 +234,7 @@ export default function App() {
     { icon: "🧮", name: "GST Calculator", description: "Calculate GST instantly. Supports all slabs — 5%, 12%, 18%, 28%.", category: "Finance", page: "gst" },
    { icon: "📄", name: "Invoice Generator", description: "Create professional GST invoices and download as PDF.", category: "Finance", page: "invoice" },
     { icon: "📝", name: "Proposal Generator", description: "Write winning freelance proposals with AI in seconds.", category: "AI Tool" },
-    { icon: "📧", name: "Email Generator", description: "Generate professional business emails instantly.", category: "AI Tool", page: "gst" },
+    { icon: "📧", name: "Email Generator", description: "Generate professional business emails instantly.", category: "AI Tool", page: "email" },
     { icon: "🏢", name: "Business Name Generator", description: "Find the perfect name for your Indian business.", category: "AI Tool" },
     { icon: "📱", name: "Bio Generator", description: "Create catchy Instagram & LinkedIn bios with AI.", category: "AI Tool", page: "bio" },
     { icon: "💰", name: "Rate Calculator", description: "Calculate your perfect freelance rate in INR.", category: "Finance", page: "rate" },

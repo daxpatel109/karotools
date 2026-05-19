@@ -918,7 +918,7 @@ export default function EmailGenerator({ onBack }) {
           <div style={{ width: "32px", height: "32px", borderRadius: "9px", background: "linear-gradient(135deg,#7c3aed,#2563eb)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "16px" }}>⚡</div>
           <span style={{ fontSize: "20px", fontWeight: "800", fontFamily: "'Syne',sans-serif", background: "linear-gradient(135deg,#a78bfa,#60a5fa)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>KaroTools</span>
         </div>
-        <button onClick={onBack} style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "#94a3b8", padding: "8px 16px", borderRadius: "10px", fontSize: "14px", cursor: "pointer", fontWeight: "600" }}>← Back</button>
+<button onClick={() => window.location.href = "/"} style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "#94a3b8", padding: "8px 16px", borderRadius: "10px", fontSize: "14px", cursor: "pointer", fontWeight: "600" }}>← Back</button>
       </nav>
 
       <div style={{ position: "relative", zIndex: 1, maxWidth: "860px", margin: "0 auto", padding: "60px 20px 80px" }}>

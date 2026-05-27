@@ -223,7 +223,13 @@ export default function GSTCalculator() {
         <div style={{ maxWidth: "1200px", margin: "0 auto", width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif" }} className="brand-text">⚡ KaroTools</span>
           <button
-            onClick={() => navigate("/")}
+            onClick={() => {
+  if (window.history.length > 1) {
+    navigate(-1);
+  } else {
+    navigate("/");
+  }
+}}
             className="interactive-btn"
             style={{
               background: "rgba(255,255,255,0.03)",

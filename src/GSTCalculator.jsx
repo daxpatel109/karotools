@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function GSTCalculator() {
@@ -14,7 +14,6 @@ export default function GSTCalculator() {
   const [result, setResult] = useState(null);
   const [history, setHistory] = useState([]);
   const [preset, setPreset] = useState(null);
-  const animRef = useRef(null);
 
   const activeRate = isCustom ? parseFloat(customRate) || 0 : gstRate;
 
@@ -27,9 +26,13 @@ export default function GSTCalculator() {
     { label: "🏠 Real Estate", rate: 12 },
   ];
 
+  // Optimized useEffect: Removed transactionType as it doesn't affect calculation
   useEffect(() => {
     const amt = parseFloat(amount);
-    if (!amt || amt <= 0 || activeRate <= 0) { setResult(null); return; }
+    if (!amt || amt <= 0 || activeRate <= 0 || activeRate > 100) { 
+      setResult(null); 
+      return; 
+    }
 
     let base, gst, total;
     if (type === "exclusive") {
@@ -59,7 +62,7 @@ export default function GSTCalculator() {
       gstPercent: Math.round((gst / total) * 100),
     };
     setResult(r);
-  }, [amount, activeRate, type, transactionType, roundOff]);
+  }, [amount, activeRate, type, roundOff]);
 
   const addToHistory = () => {
     if (!result) return;
@@ -81,13 +84,10 @@ export default function GSTCalculator() {
       ) {
         return prev;
       }
+      // Maximum 5 entries
       return [entry, ...prev.slice(0, 4)];
     });
   };
-
-  useEffect(() => {
-    if (result) addToHistory();
-  }, [result]);
 
   const copyResult = () => {
     if (!result) return;
@@ -101,12 +101,33 @@ export default function GSTCalculator() {
         : `IGST: ₹${result.igst}`,
       `Total: ₹${result.total}`,
     ].join("\n");
-    navigator.clipboard.writeText(lines);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    
+    // Safely handle clipboard writing
+    navigator.clipboard.writeText(lines)
+      .then(() => {
+        setCopied(true);
+        addToHistory(); // Automatically save to history when copying
+        setTimeout(() => setCopied(false), 2000);
+      })
+      .catch(() => {
+        alert("Failed to copy to clipboard. Please check browser permissions.");
+      });
   };
 
-  const fmt = (val) => Number(val).toLocaleString("en-IN");
+  // Safe formatter handling NaN values
+  const fmt = (val) => isNaN(Number(val)) ? "0" : Number(val).toLocaleString("en-IN");
+
+  const clearAll = () => {
+    setAmount("");
+    setCustomRate("");
+    setResult(null);
+    setHistory([]);
+    setGstRate(18);
+    setType("exclusive");
+    setTransactionType("intra");
+    setRoundOff(false);
+    setPreset(null);
+  };
 
   return (
     <div style={{ minHeight: "100vh", background: "#05050A", fontFamily: "'DM Sans', sans-serif", color: "#f1f5f9", selectionColor: "#fff", selectionBackground: "#7c3aed" }}>
@@ -167,6 +188,15 @@ export default function GSTCalculator() {
           .responsive-grid { grid-template-columns: 1fr 1fr; }
         }
 
+        .responsive-grid-3 {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+        @media (min-width: 768px) {
+          .responsive-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+        }
+
         .responsive-grid-rates {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
@@ -224,12 +254,12 @@ export default function GSTCalculator() {
           <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif" }} className="brand-text">⚡ KaroTools</span>
           <button
             onClick={() => {
-  if (window.history.length > 1) {
-    navigate(-1);
-  } else {
-    navigate("/");
-  }
-}}
+              if (window.history.length > 1) {
+                navigate(-1);
+              } else {
+                navigate("/");
+              }
+            }}
             className="interactive-btn"
             style={{
               background: "rgba(255,255,255,0.03)",
@@ -255,7 +285,7 @@ export default function GSTCalculator() {
               e.currentTarget.style.color = "#cbd5e1";
             }}
           >
-            ← Home
+            ← Back
           </button>
         </div>
       </nav>
@@ -299,7 +329,12 @@ export default function GSTCalculator() {
             <label style={{ display: "block", fontWeight: "700", color: "#cbd5e1", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Amount (₹)</label>
             <div className="input-glow" style={{ borderRadius: "16px", border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.03)", display: "flex", alignItems: "center", padding: "4px 20px" }}>
               <span style={{ fontSize: "24px", color: "#64748b", fontWeight: "500", marginRight: "12px" }}>₹</span>
-              <input type="number" value={amount} onChange={e => setAmount(e.target.value)} placeholder="0.00"
+              <input type="number" value={amount} 
+                onChange={e => {
+                  const val = e.target.value;
+                  if (val === "" || Number(val) >= 0) setAmount(val);
+                }} 
+                placeholder="0.00"
                 style={{ width: "100%", padding: "18px 0", background: "transparent", border: "none", fontSize: "28px", color: "#f8fafc", outline: "none", fontWeight: "800", fontFamily: "'Syne',sans-serif", letterSpacing: "-0.02em" }}
               />
             </div>
@@ -339,7 +374,12 @@ export default function GSTCalculator() {
             {isCustom && (
               <div style={{ marginTop: "16px", animation: "fadeIn 0.3s ease" }}>
                 <div className="input-glow" style={{ borderRadius: "14px", border: "1px solid rgba(167,139,250,0.4)", background: "rgba(124,58,237,0.05)", display: "flex", alignItems: "center", padding: "0 16px" }}>
-                  <input type="number" value={customRate} onChange={e => setCustomRate(e.target.value)} placeholder="Enter custom percentage (e.g., 3)"
+                  <input type="number" value={customRate} 
+                    onChange={e => {
+                      const val = e.target.value;
+                      if (val === "" || (Number(val) >= 0 && Number(val) <= 100)) setCustomRate(val);
+                    }} 
+                    placeholder="Enter custom percentage (e.g., 3)"
                     style={{ width: "100%", padding: "16px 0", background: "transparent", border: "none", fontSize: "16px", color: "#f8fafc", outline: "none", fontWeight: "600" }} />
                   <span style={{ color: "#a78bfa", fontWeight: "700" }}>%</span>
                 </div>
@@ -471,49 +511,45 @@ export default function GSTCalculator() {
             </div>
 
             {/* Action Buttons */}
-            <div className="responsive-grid">
+            <div className="responsive-grid-3">
+              <button onClick={addToHistory} className="interactive-btn"
+                style={{
+                  width: "100%", padding: "18px",
+                  background: "linear-gradient(135deg, rgba(59,130,246,0.15), rgba(37,99,235,0.05))",
+                  border: "1px solid rgba(59,130,246,0.3)",
+                  borderRadius: "16px", color: "#93c5fd",
+                  fontSize: "15px", fontWeight: "700", cursor: "pointer",
+                  boxShadow: "0 4px 16px rgba(37,99,235,0.15)",
+                  display: "flex", alignItems: "center", justifyContent: "center", gap: "10px"
+                }}>
+                💾 Save Result
+              </button>
+              
               <button onClick={copyResult} className="interactive-btn"
                 style={{
                   width: "100%", padding: "18px",
                   background: copied ? "linear-gradient(135deg, rgba(16,185,129,0.2), rgba(52,211,153,0.1))" : "linear-gradient(135deg, rgba(139,92,246,0.2), rgba(124,58,237,0.1))",
                   border: `1px solid ${copied ? "rgba(52,211,153,0.4)" : "rgba(139,92,246,0.4)"}`,
                   borderRadius: "16px", color: copied ? "#6ee7b7" : "#ddd6fe",
-                  fontSize: "16px", fontWeight: "700", cursor: "pointer",
+                  fontSize: "15px", fontWeight: "700", cursor: "pointer",
                   boxShadow: copied ? "0 4px 16px rgba(16,185,129,0.2)" : "0 4px 16px rgba(124,58,237,0.2)",
                   display: "flex", alignItems: "center", justifyContent: "center", gap: "10px"
                 }}>
-                {copied ? "✓ Copied Successfully!" : "📋 Copy Results to Clipboard"}
+                {copied ? "✓ Copied!" : "📋 Copy Result"}
               </button>
               
-            <button
-  onClick={() => {
-    if (window.history.length > 1) {
-      navigate(-1);
-    } else {
-      navigate("/");
-    }
-  }}
-  style={{
-    background: "rgba(255,255,255,0.05)",
-    border: "1px solid rgba(255,255,255,0.1)",
-    color: "#94a3b8",
-    padding: "8px 16px",
-    borderRadius: "8px",
-    fontSize: "14px",
-    cursor: "pointer",
-    transition: "all 0.2s ease"
-  }}
-  onMouseEnter={(e) => {
-    e.target.style.background = "rgba(124,58,237,0.15)";
-    e.target.style.color = "#a78bfa";
-  }}
-  onMouseLeave={(e) => {
-    e.target.style.background = "rgba(255,255,255,0.05)";
-    e.target.style.color = "#94a3b8";
-  }}
->
-  ← Back
-</button>
+              <button
+                onClick={clearAll}
+                className="interactive-btn"
+                style={{
+                  width: "100%", padding: "18px",
+                  background: "linear-gradient(135deg, rgba(239,68,68,0.1), rgba(220,38,38,0.05))",
+                  border: "1px solid rgba(239,68,68,0.3)", borderRadius: "16px", color: "#fca5a5",
+                  fontSize: "15px", fontWeight: "700", cursor: "pointer",
+                  display: "flex", alignItems: "center", justifyContent: "center", gap: "10px"
+                }}>
+                🗑 Clear All
+              </button>
             </div>
           </div>
         )}
@@ -522,7 +558,7 @@ export default function GSTCalculator() {
         {history.length > 0 && (
           <div className="glass-panel" style={{ marginTop: "40px", borderRadius: "24px", padding: "32px", animation: "fadeIn 0.6s ease" }}>
             <p style={{ color: "#cbd5e1", fontSize: "14px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "20px", display: "flex", alignItems: "center", gap: "8px" }}>
-              <span>🕒</span> Recent Calculations
+              <span>🕒</span> Saved Calculations
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
               {history.map((h, i) => (

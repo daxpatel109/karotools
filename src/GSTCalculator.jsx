@@ -187,7 +187,10 @@ export default function GSTCalculator() {
           {/* Transaction Type */}
           <div style={{ marginBottom: "24px" }}>
             <label style={{ display: "block", fontWeight: "600", color: "#94a3b8", marginBottom: "10px", fontSize: "12px", letterSpacing: "0.08em", textTransform: "uppercase" }}>Transaction Type</label>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px" }}>
+            <div style={{ display: "grid", gridTemplateColumns:
+  window.innerWidth < 768
+    ? "1fr"
+    : "1fr 1fr", gap: "10px" }}>
               {[["intra", "🏙 Intra-State", "CGST + SGST"], ["inter", "🌐 Inter-State", "IGST only"]].map(([val, label, sub]) => (
                 <button key={val} onClick={() => setTransactionType(val)}
                   style={{ padding: "14px", borderRadius: "12px", border: "1px solid", borderColor: transactionType === val ? "#7c3aed" : "rgba(255,255,255,0.08)", background: transactionType === val ? "rgba(124,58,237,0.2)" : "rgba(255,255,255,0.03)", color: transactionType === val ? "#a78bfa" : "#64748b", cursor: "pointer", textAlign: "left", transition: "all 0.2s" }}>
@@ -199,7 +202,10 @@ export default function GSTCalculator() {
           </div>
 
           {/* Type + Round Off */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px" }}>
+          <div style={{ display: "grid", gridTemplateColumns:
+  window.innerWidth < 768
+    ? "1fr"
+    : "1fr 1fr", gap: "10px" }}>
             {[["exclusive", "➕ Add GST"], ["inclusive", "➖ Remove GST"]].map(([val, label]) => (
               <button key={val} onClick={() => setType(val)}
                 style={{ padding: "14px", borderRadius: "12px", border: "1px solid", borderColor: type === val ? "#2563eb" : "rgba(255,255,255,0.08)", background: type === val ? "rgba(37,99,235,0.2)" : "rgba(255,255,255,0.03)", color: type === val ? "#60a5fa" : "#64748b", fontWeight: "700", cursor: "pointer", fontSize: "14px", transition: "all 0.2s" }}>
@@ -278,6 +284,33 @@ export default function GSTCalculator() {
             <button onClick={copyResult} style={{ width: "100%", padding: "16px", background: copied ? "rgba(52,211,153,0.15)" : "rgba(124,58,237,0.15)", border: `1px solid ${copied ? "rgba(52,211,153,0.3)" : "rgba(124,58,237,0.3)"}`, borderRadius: "14px", color: copied ? "#34d399" : "#a78bfa", fontSize: "16px", fontWeight: "700", cursor: "pointer", transition: "all 0.3s" }}>
               {copied ? "✅ Copied to Clipboard!" : "📋 Copy Result"}
             </button>
+            <button
+  onClick={() => {
+    setAmount("");
+    setCustomRate("");
+    setResult(null);
+    setHistory([]);
+    setGstRate(18);
+    setType("exclusive");
+    setTransactionType("intra");
+    setRoundOff(false);
+    setPreset(null);
+  }}
+  style={{
+    width: "100%",
+    marginTop: "12px",
+    padding: "16px",
+    background: "rgba(239,68,68,0.12)",
+    border: "1px solid rgba(239,68,68,0.3)",
+    borderRadius: "14px",
+    color: "#f87171",
+    fontSize: "16px",
+    fontWeight: "700",
+    cursor: "pointer"
+  }}
+>
+  🗑 Clear Calculator
+</button>
           </div>
         )}
 

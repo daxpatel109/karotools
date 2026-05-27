@@ -485,20 +485,35 @@ export default function GSTCalculator() {
                 {copied ? "✓ Copied Successfully!" : "📋 Copy Results to Clipboard"}
               </button>
               
-              <button
-                onClick={() => {
-                  setAmount(""); setCustomRate(""); setResult(null); setHistory([]); setGstRate(18); setType("exclusive"); setTransactionType("intra"); setRoundOff(false); setPreset(null);
-                }}
-                className="interactive-btn"
-                style={{
-                  width: "100%", padding: "18px",
-                  background: "linear-gradient(135deg, rgba(239,68,68,0.1), rgba(220,38,38,0.05))",
-                  border: "1px solid rgba(239,68,68,0.3)", borderRadius: "16px", color: "#fca5a5",
-                  fontSize: "16px", fontWeight: "700", cursor: "pointer",
-                  display: "flex", alignItems: "center", justifyContent: "center", gap: "10px"
-                }}>
-                🗑 Clear All Data
-              </button>
+            <button
+  onClick={() => {
+    if (window.history.length > 1) {
+      navigate(-1);
+    } else {
+      navigate("/");
+    }
+  }}
+  style={{
+    background: "rgba(255,255,255,0.05)",
+    border: "1px solid rgba(255,255,255,0.1)",
+    color: "#94a3b8",
+    padding: "8px 16px",
+    borderRadius: "8px",
+    fontSize: "14px",
+    cursor: "pointer",
+    transition: "all 0.2s ease"
+  }}
+  onMouseEnter={(e) => {
+    e.target.style.background = "rgba(124,58,237,0.15)";
+    e.target.style.color = "#a78bfa";
+  }}
+  onMouseLeave={(e) => {
+    e.target.style.background = "rgba(255,255,255,0.05)";
+    e.target.style.color = "#94a3b8";
+  }}
+>
+  ← Back
+</button>
             </div>
           </div>
         )}

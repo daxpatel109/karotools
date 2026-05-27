@@ -113,8 +113,8 @@ export default function GSTCalculator() {
       {/* Navbar */}
       <nav style={{ position: "sticky", top: 0, zIndex: 100, padding: "0 40px", height: "70px", display: "flex", alignItems: "center", justifyContent: "space-between", background: "rgba(8,8,20,0.9)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
         <span style={{ fontSize: "20px", fontWeight: "800", fontFamily: "'Syne',sans-serif", background: "linear-gradient(135deg,#a78bfa,#60a5fa)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>⚡ KaroTools</span>
-       <button
-  onClick={() => navigate(-1)}
+    <button
+  onClick={() => navigate("/")}
   style={{
     background: "rgba(255,255,255,0.05)",
     border: "1px solid rgba(255,255,255,0.1)",
@@ -122,10 +122,19 @@ export default function GSTCalculator() {
     padding: "8px 16px",
     borderRadius: "8px",
     fontSize: "14px",
-    cursor: "pointer"
+    cursor: "pointer",
+    transition: "all 0.2s ease"
+  }}
+  onMouseEnter={(e) => {
+    e.target.style.background = "rgba(124,58,237,0.15)";
+    e.target.style.color = "#a78bfa";
+  }}
+  onMouseLeave={(e) => {
+    e.target.style.background = "rgba(255,255,255,0.05)";
+    e.target.style.color = "#94a3b8";
   }}
 >
-  ← Back
+  ← Home
 </button>
       </nav>
 

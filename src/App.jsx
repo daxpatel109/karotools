@@ -1,6 +1,4 @@
-Here's the complete new **Home.jsx:**
 
-```jsx
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -560,6 +558,4 @@ export default function Home() {
     </div>
   );
 }
-```
 
-**On GitHub → Create `src/Home.jsx` → Paste this → Commit! 😊🔥**

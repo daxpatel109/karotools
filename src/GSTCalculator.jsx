@@ -254,3 +254,354 @@ export default function GSTCalculator() {
           background: linear-gradient(135deg, #0ea5e9, #14b8a6, #0ea5e9);
           background-size: 200% auto;
           -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          animation: shine 4s linear infinite;
+        }
+
+        @keyframes shine { to { background-position: 200% center; } }
+      `}} />
+
+      {/* Ambient Premium Background */}
+      <div style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0 }}>
+        <div style={{ position: "absolute", top: "-10%", left: "-10%", width: "60%", height: "60%", background: "radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, transparent 60%)", filter: "blur(60px)" }} />
+        <div style={{ position: "absolute", bottom: "-10%", right: "-10%", width: "60%", height: "60%", background: "radial-gradient(circle, rgba(20, 184, 166, 0.06) 0%, transparent 60%)", filter: "blur(60px)" }} />
+        <div style={{ position: "absolute", top: "40%", left: "40%", width: "30%", height: "30%", background: "radial-gradient(circle, rgba(56, 189, 248, 0.03) 0%, transparent 70%)", filter: "blur(40px)" }} />
+      </div>
+
+      {/* Navbar */}
+      <nav className="glass-panel" style={{ position: "sticky", top: 0, zIndex: 100, padding: "0 24px", height: "72px", display: "flex", alignItems: "center", justifyContent: "space-between", borderTop: "none", borderLeft: "none", borderRight: "none", borderRadius: 0 }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif" }} className="brand-text">⚡ KaroTools</span>
+          
+          {/* THE FIX: Using <Link> component instead of <button> */}
+          <Link
+            to="/"
+            className="interactive-btn home-btn"
+            style={{
+              padding: "10px 20px",
+              borderRadius: "12px",
+              fontSize: "14px",
+              fontWeight: "600",
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+            }}
+          >
+            ← Home
+          </Link>
+        </div>
+      </nav>
+
+      <div style={{ maxWidth: "820px", margin: "0 auto", padding: "56px 24px 100px", position: "relative", zIndex: 1 }}>
+
+        {/* Header */}
+        <div style={{ textAlign: "center", marginBottom: "48px", animation: "fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1)" }}>
+          <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "72px", height: "72px", borderRadius: "24px", background: "linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01))", border: "1px solid rgba(255,255,255,0.1)", marginBottom: "20px", boxShadow: "0 12px 32px rgba(0,0,0,0.2)" }}>
+            <span style={{ fontSize: "36px", filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.3))" }}>🧮</span>
+          </div>
+          <h1 className="gradient-text" style={{ fontSize: "42px", fontWeight: "800", fontFamily: "'Syne',sans-serif", marginBottom: "12px", letterSpacing: "-0.02em" }}>GST Calculator</h1>
+          <p style={{ color: "#94a3b8", fontSize: "16px", fontWeight: "400", letterSpacing: "0.01em" }}>Professional GST calculation for Indian businesses • All slabs supported</p>
+        </div>
+
+        {/* Presets */}
+        <div style={{ marginBottom: "24px", animation: "fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1)" }}>
+          <p style={{ color: "#64748b", fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "12px", marginLeft: "4px" }}>Quick Presets</p>
+          <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+            {presets.map(p => (
+              <button key={p.label} onClick={() => { setPreset(p.label); setGstRate(p.rate); setIsCustom(false); }}
+                className="preset-btn"
+                style={{
+                  border: "1px solid",
+                  borderColor: preset === p.label ? "rgba(56, 189, 248, 0.6)" : "rgba(255,255,255,0.08)",
+                  background: preset === p.label ? "rgba(14, 165, 233, 0.15)" : "rgba(255,255,255,0.03)",
+                  color: preset === p.label ? "#bae6fd" : "#94a3b8",
+                  boxShadow: preset === p.label ? "0 0 20px rgba(14, 165, 233, 0.15)" : "none",
+                }}>
+                {p.label} <span style={{ opacity: 0.6, marginLeft: "4px" }}>· {p.rate}%</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Main Card */}
+        <div className="glass-panel" style={{ borderRadius: "28px", padding: "40px", marginBottom: "32px", animation: "fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1)" }}>
+
+          {/* Amount */}
+          <div style={{ marginBottom: "32px" }}>
+            <label style={{ display: "block", fontWeight: "700", color: "#cbd5e1", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Amount (₹)</label>
+            <div className="input-glow" style={{ borderRadius: "16px", border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.03)", display: "flex", alignItems: "center", padding: "4px 20px" }}>
+              <span style={{ fontSize: "24px", color: "#64748b", fontWeight: "500", marginRight: "12px" }}>₹</span>
+              <input type="number" value={amount} 
+                onChange={e => {
+                  const val = e.target.value;
+                  if (val === "" || Number(val) >= 0) setAmount(val);
+                }} 
+                placeholder="0.00"
+                style={{ width: "100%", padding: "18px 0", background: "transparent", border: "none", fontSize: "28px", color: "#f8fafc", outline: "none", fontWeight: "800", fontFamily: "'Syne',sans-serif", letterSpacing: "-0.02em" }}
+              />
+            </div>
+          </div>
+
+          {/* GST Rate */}
+          <div style={{ marginBottom: "32px" }}>
+            <label style={{ display: "block", fontWeight: "700", color: "#cbd5e1", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>GST Rate</label>
+            <div className="responsive-grid-rates">
+              {[5, 12, 18, 28].map(rate => (
+                <button key={rate} onClick={() => { setGstRate(rate); setIsCustom(false); setPreset(null); }}
+                  className="interactive-btn"
+                  style={{
+                    padding: "16px", borderRadius: "14px", border: "1px solid",
+                    borderColor: !isCustom && gstRate === rate ? "#0ea5e9" : "rgba(255,255,255,0.08)",
+                    background: !isCustom && gstRate === rate ? "linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(20, 184, 166, 0.1))" : "rgba(255,255,255,0.02)",
+                    color: !isCustom && gstRate === rate ? "#bae6fd" : "#94a3b8",
+                    fontWeight: "700", cursor: "pointer", fontSize: "16px",
+                    boxShadow: !isCustom && gstRate === rate ? "0 4px 16px rgba(14, 165, 233, 0.2), inset 0 1px 1px rgba(255,255,255,0.1)" : "none"
+                  }}>
+                  {rate}%
+                </button>
+              ))}
+              <button onClick={() => setIsCustom(true)}
+                className="interactive-btn"
+                style={{
+                  padding: "16px", borderRadius: "14px", border: "1px solid",
+                  borderColor: isCustom ? "#0ea5e9" : "rgba(255,255,255,0.08)",
+                  background: isCustom ? "linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(20, 184, 166, 0.1))" : "rgba(255,255,255,0.02)",
+                  color: isCustom ? "#bae6fd" : "#94a3b8",
+                  fontWeight: "700", cursor: "pointer", fontSize: "15px",
+                  boxShadow: isCustom ? "0 4px 16px rgba(14, 165, 233, 0.2), inset 0 1px 1px rgba(255,255,255,0.1)" : "none"
+                }}>
+                Custom
+              </button>
+            </div>
+            {isCustom && (
+              <div style={{ marginTop: "16px", animation: "fadeIn 0.3s ease" }}>
+                <div className="input-glow" style={{ borderRadius: "14px", border: "1px solid rgba(56, 189, 248, 0.4)", background: "rgba(14, 165, 233, 0.05)", display: "flex", alignItems: "center", padding: "0 16px" }}>
+                  <input type="number" value={customRate} 
+                    onChange={e => {
+                      const val = e.target.value;
+                      if (val === "" || (Number(val) >= 0 && Number(val) <= 100)) setCustomRate(val);
+                    }} 
+                    placeholder="Enter custom percentage (e.g., 3)"
+                    style={{ width: "100%", padding: "16px 0", background: "transparent", border: "none", fontSize: "16px", color: "#f8fafc", outline: "none", fontWeight: "600" }} />
+                  <span style={{ color: "#38bdf8", fontWeight: "700" }}>%</span>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Transaction Type */}
+          <div style={{ marginBottom: "32px" }}>
+            <label style={{ display: "block", fontWeight: "700", color: "#cbd5e1", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Transaction Type</label>
+            <div className="responsive-grid">
+              {[["intra", "🏙 Intra-State", "CGST + SGST"], ["inter", "🌐 Inter-State", "IGST only"]].map(([val, label, sub]) => (
+                <button key={val} onClick={() => setTransactionType(val)}
+                  className="interactive-btn"
+                  style={{
+                    padding: "16px 20px", borderRadius: "16px", border: "1px solid",
+                    borderColor: transactionType === val ? "#0ea5e9" : "rgba(255,255,255,0.08)",
+                    background: transactionType === val ? "linear-gradient(135deg, rgba(14, 165, 233, 0.15), rgba(20, 184, 166, 0.05))" : "rgba(255,255,255,0.02)",
+                    color: transactionType === val ? "#bae6fd" : "#94a3b8",
+                    cursor: "pointer", textAlign: "left",
+                    boxShadow: transactionType === val ? "0 4px 16px rgba(14, 165, 233, 0.15), inset 0 1px 1px rgba(255,255,255,0.1)" : "none"
+                  }}>
+                  <div style={{ fontWeight: "700", fontSize: "15px", marginBottom: "4px", color: transactionType === val ? "#fff" : "#cbd5e1" }}>{label}</div>
+                  <div style={{ fontSize: "13px", color: transactionType === val ? "#38bdf8" : "#64748b", fontWeight: "500" }}>{sub}</div>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Type + Round Off Grid */}
+          <div className="responsive-grid" style={{ marginBottom: "16px" }}>
+            {[["exclusive", "➕ Add GST (Exclusive)", "#3b82f6", "rgba(59,130,246,0.2)"], ["inclusive", "➖ Remove GST (Inclusive)", "#ec4899", "rgba(236,72,153,0.2)"]].map(([val, label, color, bg]) => (
+              <button key={val} onClick={() => setType(val)}
+                className="interactive-btn"
+                style={{
+                  padding: "16px 20px", borderRadius: "16px", border: "1px solid",
+                  borderColor: type === val ? color : "rgba(255,255,255,0.08)",
+                  background: type === val ? bg : "rgba(255,255,255,0.02)",
+                  color: type === val ? "#fff" : "#94a3b8",
+                  fontWeight: "700", cursor: "pointer", fontSize: "15px",
+                  boxShadow: type === val ? `0 4px 16px ${bg}, inset 0 1px 1px rgba(255,255,255,0.1)` : "none"
+                }}>
+                {label}
+              </button>
+            ))}
+          </div>
+
+          {/* Round off toggle */}
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "16px 24px", background: "rgba(255,255,255,0.02)", borderRadius: "16px", border: "1px solid rgba(255,255,255,0.06)", transition: "all 0.3s ease" }}>
+            <div>
+              <p style={{ color: "#cbd5e1", fontWeight: "700", fontSize: "15px", marginBottom: "2px" }}>Auto Round Off</p>
+              <p style={{ color: "#64748b", fontSize: "13px", fontWeight: "500" }}>e.g. ₹1180.42 → ₹1180.00</p>
+            </div>
+            <div onClick={() => setRoundOff(!roundOff)} style={{ width: "52px", height: "28px", borderRadius: "16px", background: roundOff ? "#0ea5e9" : "rgba(255,255,255,0.1)", cursor: "pointer", position: "relative", transition: "background 0.3s", boxShadow: roundOff ? "0 0 12px rgba(14, 165, 233, 0.4)" : "inset 0 2px 4px rgba(0,0,0,0.2)" }}>
+              <div style={{ position: "absolute", top: "4px", left: roundOff ? "28px" : "4px", width: "20px", height: "20px", borderRadius: "50%", background: "#fff", transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)", boxShadow: "0 2px 4px rgba(0,0,0,0.2)" }} />
+            </div>
+          </div>
+        </div>
+
+        {/* Results Section */}
+        {result && (
+          <div style={{ animation: "fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1)" }}>
+
+            {/* Total Hero */}
+            <div style={{ background: "linear-gradient(145deg, rgba(14, 165, 233, 0.15), rgba(59,130,246,0.1))", border: "1px solid rgba(14, 165, 233, 0.3)", borderRadius: "28px", padding: "48px 32px", textAlign: "center", marginBottom: "24px", position: "relative", overflow: "hidden", animation: "glowPulse 4s infinite" }}>
+              <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "1px", background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)" }} />
+              
+              <p style={{ color: "#bae6fd", fontSize: "13px", fontWeight: "800", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "16px", filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.5))" }}>Final Total Amount</p>
+              <p style={{ fontSize: "64px", fontWeight: "800", fontFamily: "'Syne',sans-serif", background: "linear-gradient(135deg, #ffffff, #bae6fd)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "countUp 0.4s cubic-bezier(0.16, 1, 0.3, 1)", lineHeight: 1, filter: "drop-shadow(0 4px 20px rgba(14, 165, 233, 0.3))" }}>
+                ₹{fmt(result.total)}
+              </p>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: "12px", background: "rgba(0,0,0,0.2)", padding: "8px 20px", borderRadius: "30px", marginTop: "24px", border: "1px solid rgba(255,255,255,0.05)" }}>
+                <span style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "500" }}><strong style={{ color: "#cbd5e1" }}>₹{fmt(result.base)}</strong> Base</span>
+                <span style={{ color: "#475569" }}>+</span>
+                <span style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "500" }}><strong style={{ color: "#cbd5e1" }}>₹{fmt(result.gst)}</strong> GST</span>
+              </div>
+            </div>
+
+            {/* Breakdown Cards */}
+            <div className="responsive-grid" style={{ gap: "16px", marginBottom: "24px" }}>
+              {[
+                { label: "Base Amount", value: result.base, color: "#93c5fd", icon: "💎" },
+                { label: `Total GST (${activeRate}%)`, value: result.gst, color: "#bae6fd", icon: "🏛" },
+                ...(transactionType === "intra"
+                  ? [{ label: "CGST (Central)", value: result.cgst, color: "#5eead4", icon: "🏛" }, { label: "SGST (State)", value: result.sgst, color: "#7dd3fc", icon: "🏛" }]
+                  : [{ label: "IGST (Integrated)", value: result.igst, color: "#fcd34d", icon: "🌐" }])
+              ].map((item, idx) => (
+                <div key={item.label} className="breakdown-card glass-panel" style={{ borderRadius: "20px", padding: "24px", display: "flex", flexDirection: "column", justifyContent: "space-between", animation: `fadeIn 0.5s ease ${(idx + 1) * 0.1}s both` }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "16px" }}>
+                    <span style={{ fontSize: "16px" }}>{item.icon}</span>
+                    <p style={{ color: "#94a3b8", fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.08em" }}>{item.label}</p>
+                  </div>
+                  <p style={{ fontSize: "28px", fontWeight: "800", color: item.color, fontFamily: "'Syne',sans-serif", textShadow: `0 4px 12px ${item.color}40` }}>₹{fmt(item.value)}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Bar */}
+            <div className="glass-panel" style={{ borderRadius: "20px", padding: "28px", marginBottom: "24px" }}>
+              <p style={{ color: "#cbd5e1", fontSize: "13px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "20px" }}>Visual Breakdown</p>
+              <div style={{ height: "14px", borderRadius: "8px", overflow: "hidden", display: "flex", gap: "4px", background: "rgba(0,0,0,0.3)", boxShadow: "inset 0 2px 4px rgba(0,0,0,0.2)" }}>
+                <div style={{ width: result.basePercent + "%", background: "linear-gradient(90deg, #2563eb, #60a5fa)", borderRadius: "8px", transition: "width 0.8s cubic-bezier(0.16, 1, 0.3, 1)", position: "relative", overflow: "hidden" }}>
+                  <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, background: "linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)" }}/>
+                </div>
+                <div style={{ width: result.gstPercent + "%", background: "linear-gradient(90deg, #0ea5e9, #14b8a6)", borderRadius: "8px", transition: "width 0.8s cubic-bezier(0.16, 1, 0.3, 1)", position: "relative", overflow: "hidden" }}>
+                  <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, background: "linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)" }}/>
+                </div>
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between", marginTop: "16px" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                  <div style={{ width: "12px", height: "12px", borderRadius: "4px", background: "#3b82f6" }} />
+                  <span style={{ fontSize: "14px", color: "#e2e8f0", fontWeight: "600" }}>Base <span style={{ color: "#94a3b8", fontWeight: "500", marginLeft: "4px" }}>{result.basePercent}%</span></span>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                  <div style={{ width: "12px", height: "12px", borderRadius: "4px", background: "#0ea5e9" }} />
+                  <span style={{ fontSize: "14px", color: "#e2e8f0", fontWeight: "600" }}>Tax <span style={{ color: "#94a3b8", fontWeight: "500", marginLeft: "4px" }}>{result.gstPercent}%</span></span>
+                </div>
+              </div>
+            </div>
+
+            {/* Formula */}
+            <div style={{ background: "rgba(255,255,255,0.01)", border: "1px dashed rgba(255,255,255,0.1)", borderRadius: "16px", padding: "20px 24px", marginBottom: "24px" }}>
+              <p style={{ color: "#64748b", fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "12px" }}>Calculation Formula Used</p>
+              <p style={{ color: "#38bdf8", fontSize: "14px", fontFamily: "monospace", letterSpacing: "0.05em", background: "rgba(0,0,0,0.2)", padding: "12px", borderRadius: "8px", border: "1px solid rgba(14, 165, 233, 0.1)" }}>
+                {type === "exclusive"
+                  ? `GST = ₹${amount} × ${activeRate} ÷ 100 = ₹${result.gst}`
+                  : `Base = ₹${amount} × 100 ÷ (100 + ${activeRate}) = ₹${result.base}`}
+              </p>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="responsive-grid-3">
+              <button onClick={addToHistory} className="interactive-btn"
+                style={{
+                  width: "100%", padding: "18px",
+                  background: "linear-gradient(135deg, rgba(59,130,246,0.15), rgba(37,99,235,0.05))",
+                  border: "1px solid rgba(59,130,246,0.3)",
+                  borderRadius: "16px", color: "#93c5fd",
+                  fontSize: "15px", fontWeight: "700", cursor: "pointer",
+                  boxShadow: "0 4px 16px rgba(37,99,235,0.15)",
+                  display: "flex", alignItems: "center", justifyContent: "center", gap: "10px"
+                }}>
+                💾 Save Result
+              </button>
+              
+              <button onClick={copyResult} className="interactive-btn"
+                style={{
+                  width: "100%", padding: "18px",
+                  background: copied ? "linear-gradient(135deg, rgba(16,185,129,0.2), rgba(52,211,153,0.1))" : "linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(20, 184, 166, 0.1))",
+                  border: `1px solid ${copied ? "rgba(52,211,153,0.4)" : "rgba(14, 165, 233, 0.4)"}`,
+                  borderRadius: "16px", color: copied ? "#6ee7b7" : "#bae6fd",
+                  fontSize: "15px", fontWeight: "700", cursor: "pointer",
+                  boxShadow: copied ? "0 4px 16px rgba(16,185,129,0.2)" : "0 4px 16px rgba(14, 165, 233, 0.2)",
+                  display: "flex", alignItems: "center", justifyContent: "center", gap: "10px"
+                }}>
+                {copied ? "✓ Copied!" : "📋 Copy Result"}
+              </button>
+              
+              <button
+                onClick={clearAll}
+                className="interactive-btn"
+                style={{
+                  width: "100%", padding: "18px",
+                  background: "linear-gradient(135deg, rgba(239,68,68,0.1), rgba(220,38,38,0.05))",
+                  border: "1px solid rgba(239,68,68,0.3)", borderRadius: "16px", color: "#fca5a5",
+                  fontSize: "15px", fontWeight: "700", cursor: "pointer",
+                  display: "flex", alignItems: "center", justifyContent: "center", gap: "10px"
+                }}>
+                🗑 Clear All
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* History */}
+        {history.length > 0 && (
+          <div className="glass-panel" style={{ marginTop: "40px", borderRadius: "24px", padding: "32px", animation: "fadeIn 0.6s ease" }}>
+            <p style={{ color: "#cbd5e1", fontSize: "14px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "20px", display: "flex", alignItems: "center", gap: "8px" }}>
+              <span>🕒</span> Saved Calculations
+            </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+              {history.map((h, i) => (
+                <div key={i + h.time} onClick={() => setAmount(h.amount)} className="breakdown-card"
+                  style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px 20px", background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "16px", cursor: "pointer" }}>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                    <span style={{ color: "#e2e8f0", fontSize: "15px", fontWeight: "600" }}>₹{fmt(h.amount)} <span style={{ color: "#64748b", fontWeight: "400" }}>@ {h.rate}%</span></span>
+                    <span style={{ color: "#64748b", fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.05em" }}>{h.type} • {h.time}</span>
+                  </div>
+                  <span style={{ color: "#bae6fd", fontWeight: "800", fontSize: "18px", fontFamily: "'Syne',sans-serif" }}>₹{fmt(h.total)}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* SEO Info Section */}
+        <div style={{ marginTop: "80px", position: "relative" }}>
+          <div style={{ position: "absolute", top: 0, left: "20%", right: "20%", height: "1px", background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)" }} />
+          <div style={{ paddingTop: "64px" }}>
+            <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "32px", textAlign: "center" }}>Frequently Asked Questions</h2>
+            <div className="responsive-grid" style={{ gap: "20px" }}>
+              {[
+                { q: "What is GST?", a: "GST (Goods and Services Tax) is India's unified indirect tax on goods and services, implemented July 1, 2017. It replaced VAT, service tax, and other cascading taxes to create a single national market." },
+                { q: "What is IGST vs CGST/SGST?", a: "For intra-state transactions (within the same state), GST is split equally into CGST (Central) and SGST (State). For inter-state transactions, IGST (Integrated GST) is charged instead and collected by the central government." },
+                { q: "What are GST slabs in India?", a: "India has 4 primary GST slabs: 5% (essential goods, restaurants), 12% (standard goods, clothing), 18% (most services, electronics, software), and 28% (luxury goods, automobiles, tobacco)." },
+                { q: "How to calculate GST on a price?", a: "To add GST: multiply amount by GST rate and divide by 100. To remove GST from an inclusive price: divide the total by (1 + GST rate/100) to get the original base price before taxes." },
+              ].map((item, i) => (
+                <div key={item.q} className="glass-panel" style={{ padding: "28px", borderRadius: "20px", transition: "all 0.3s ease" }}>
+                  <div style={{ display: "flex", alignItems: "flex-start", gap: "12px", marginBottom: "12px" }}>
+                    <div style={{ background: "rgba(14, 165, 233, 0.1)", color: "#0ea5e9", width: "24px", height: "24px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px", fontWeight: "800", flexShrink: 0, marginTop: "2px" }}>{i + 1}</div>
+                    <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#f1f5f9", fontFamily: "'Syne',sans-serif", lineHeight: "1.4" }}>{item.q}</h3>
+                  </div>
+                  <p style={{ fontSize: "14px", color: "#94a3b8", lineHeight: "1.7", paddingLeft: "36px" }}>{item.a}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  );
+}

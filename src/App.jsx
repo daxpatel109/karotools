@@ -5,7 +5,7 @@ import InvoiceGenerator from "./InvoiceGenerator";
 
 export default function App() {
   return (
-    <Routes>
+   <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/gst-calculator" element={<GSTCalculator />} />
       <Route path="/invoice-generator" element={<InvoiceGenerator />} />

@@ -1,9 +1,6 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 
-export default function GSTCalculator() {
-  const navigate = useNavigate();
-  
+export default function GSTCalculator({ onBack }) {
   const [amount, setAmount] = useState("");
   const [gstRate, setGstRate] = useState(18);
   const [customRate, setCustomRate] = useState("");
@@ -88,6 +85,7 @@ export default function GSTCalculator() {
       time: new Date().toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit" })
     };
     setHistory(prev => {
+      // Safer history handling: Avoid rapid duplicate entries
       if (
         prev.length > 0 &&
         prev[0].amount === entry.amount &&
@@ -97,6 +95,7 @@ export default function GSTCalculator() {
       ) {
         return prev;
       }
+      // Maximum 5 entries
       return [entry, ...prev.slice(0, 4)];
     });
   };
@@ -114,10 +113,11 @@ export default function GSTCalculator() {
       `Total: ₹${result.total}`,
     ].join("\n");
     
+    // Safely handle clipboard writing
     navigator.clipboard.writeText(lines)
       .then(() => {
         setCopied(true);
-        addToHistory(); 
+        addToHistory(); // Automatically save to history when copying
         setTimeout(() => setCopied(false), 2000);
       })
       .catch(() => {
@@ -125,6 +125,7 @@ export default function GSTCalculator() {
       });
   };
 
+  // Safe formatter handling NaN values
   const fmt = (val) => isNaN(Number(val)) ? "0" : Number(val).toLocaleString("en-IN");
 
   const clearAll = () => {
@@ -142,7 +143,7 @@ export default function GSTCalculator() {
   return (
     <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans', sans-serif", color: "#f8fafc", selectionColor: "#fff", selectionBackground: "#0ea5e9" }}>
       <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         ::selection { background: rgba(14, 165, 233, 0.4); color: white; }
         ::-moz-selection { background: rgba(14, 165, 233, 0.4); color: white; }
         
@@ -174,6 +175,17 @@ export default function GSTCalculator() {
         }
         .interactive-btn:active {
           transform: translateY(1px) scale(0.98);
+        }
+
+        .home-btn {
+          background: rgba(255,255,255,0.03);
+          border: 1px solid rgba(255,255,255,0.08);
+          color: #cbd5e1;
+        }
+        .home-btn:hover {
+          background: rgba(14, 165, 233, 0.15);
+          border-color: rgba(56, 189, 248, 0.4);
+          color: #38bdf8;
         }
 
         .preset-btn {
@@ -249,7 +261,7 @@ export default function GSTCalculator() {
         }
 
         @keyframes shine { to { background-position: 200% center; } }
-      `}</style>
+      `}} />
 
       {/* Ambient Premium Background */}
       <div style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0 }}>
@@ -263,12 +275,9 @@ export default function GSTCalculator() {
         <div style={{ maxWidth: "1200px", margin: "0 auto", width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif" }} className="brand-text">⚡ KaroTools</span>
           <button
-            onClick={() => navigate("/")}
-            className="interactive-btn"
+            onClick={onBack}
+            className="interactive-btn home-btn"
             style={{
-              background: "rgba(255,255,255,0.03)",
-              border: "1px solid rgba(255,255,255,0.08)",
-              color: "#cbd5e1",
               padding: "10px 20px",
               borderRadius: "12px",
               fontSize: "14px",
@@ -276,20 +285,11 @@ export default function GSTCalculator() {
               cursor: "pointer",
               display: "flex",
               alignItems: "center",
-              gap: "8px"
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "rgba(14, 165, 233, 0.15)";
-              e.currentTarget.style.borderColor = "rgba(56, 189, 248, 0.4)";
-              e.currentTarget.style.color = "#38bdf8";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "rgba(255,255,255,0.03)";
-              e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
-              e.currentTarget.style.color = "#cbd5e1";
+              gap: "8px",
+              border: "1px solid rgba(255,255,255,0.08)"
             }}
           >
-            ← Home
+            ← Back
           </button>
         </div>
       </nav>

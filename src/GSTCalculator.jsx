@@ -1,7 +1,4 @@
-"use client";
-
 import { useState, useEffect } from "react";
-import Link from "next/link";
 
 export default function GSTCalculator() {
   const [amount, setAmount] = useState("");
@@ -259,7 +256,7 @@ export default function GSTCalculator() {
       <nav className="glass-panel" style={{ position: "sticky", top: 0, zIndex: 100, padding: "0 24px", height: "72px", display: "flex", alignItems: "center", justifyContent: "space-between", borderTop: "none", borderLeft: "none", borderRight: "none", borderRadius: 0 }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif" }} className="brand-text">⚡ KaroTools</span>
-          <Link
+          <a
             href="/"
             className="interactive-btn home-btn"
             style={{
@@ -276,7 +273,7 @@ export default function GSTCalculator() {
             }}
           >
             ← Home
-          </Link>
+          </a>
         </div>
       </nav>
 

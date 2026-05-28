@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function GSTCalculator({ onBack }) {
+export default function GSTCalculator() {
+  const navigate = useNavigate();
+  
   const [amount, setAmount] = useState("");
   const [gstRate, setGstRate] = useState(18);
   const [customRate, setCustomRate] = useState("");
@@ -85,7 +88,6 @@ export default function GSTCalculator({ onBack }) {
       time: new Date().toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit" })
     };
     setHistory(prev => {
-      // Safer history handling: Avoid rapid duplicate entries
       if (
         prev.length > 0 &&
         prev[0].amount === entry.amount &&
@@ -95,7 +97,6 @@ export default function GSTCalculator({ onBack }) {
       ) {
         return prev;
       }
-      // Maximum 5 entries
       return [entry, ...prev.slice(0, 4)];
     });
   };
@@ -113,11 +114,10 @@ export default function GSTCalculator({ onBack }) {
       `Total: ₹${result.total}`,
     ].join("\n");
     
-    // Safely handle clipboard writing
     navigator.clipboard.writeText(lines)
       .then(() => {
         setCopied(true);
-        addToHistory(); // Automatically save to history when copying
+        addToHistory(); 
         setTimeout(() => setCopied(false), 2000);
       })
       .catch(() => {
@@ -125,7 +125,6 @@ export default function GSTCalculator({ onBack }) {
       });
   };
 
-  // Safe formatter handling NaN values
   const fmt = (val) => isNaN(Number(val)) ? "0" : Number(val).toLocaleString("en-IN");
 
   const clearAll = () => {
@@ -264,7 +263,7 @@ export default function GSTCalculator({ onBack }) {
         <div style={{ maxWidth: "1200px", margin: "0 auto", width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif" }} className="brand-text">⚡ KaroTools</span>
           <button
-            onClick={onBack}
+            onClick={() => navigate("/")}
             className="interactive-btn"
             style={{
               background: "rgba(255,255,255,0.03)",

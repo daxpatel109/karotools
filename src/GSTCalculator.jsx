@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import Link from "next/link";
 
 export default function GSTCalculator() {
-  const navigate = useNavigate();
   const [amount, setAmount] = useState("");
   const [gstRate, setGstRate] = useState(18);
   const [customRate, setCustomRate] = useState("");
@@ -252,8 +251,8 @@ export default function GSTCalculator() {
       <nav className="glass-panel" style={{ position: "sticky", top: 0, zIndex: 100, padding: "0 24px", height: "72px", display: "flex", alignItems: "center", justifyContent: "space-between", borderTop: "none", borderLeft: "none", borderRight: "none", borderRadius: 0 }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif" }} className="brand-text">⚡ KaroTools</span>
-          <button
-            onClick={() => navigate("/")}
+          <Link
+            href="/"
             className="interactive-btn"
             style={{
               background: "rgba(255,255,255,0.03)",
@@ -266,7 +265,9 @@ export default function GSTCalculator() {
               cursor: "pointer",
               display: "flex",
               alignItems: "center",
-              gap: "8px"
+              gap: "8px",
+              textDecoration: "none",
+              boxSizing: "border-box"
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.background = "rgba(124,58,237,0.15)";
@@ -280,7 +281,7 @@ export default function GSTCalculator() {
             }}
           >
             ← Home
-          </button>
+          </Link>
         </div>
       </nav>
 

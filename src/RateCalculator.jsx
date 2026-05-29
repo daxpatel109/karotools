@@ -8,9 +8,10 @@ export default function RateCalculator() {
   const [hoursPerDay, setHoursPerDay] = useState(6);
   const [profitMargin, setProfitMargin] = useState(20);
 
-  // SEO Injection
+  // 🚀 SEO Meta & JSON-LD Schema Injection
   useEffect(() => {
     document.title = "3D Freelance Rate & Tier Calculator | KaroTools";
+    
     let metaDescription = document.querySelector('meta[name="description"]');
     if (!metaDescription) {
       metaDescription = document.createElement('meta');
@@ -18,6 +19,30 @@ export default function RateCalculator() {
       document.head.appendChild(metaDescription);
     }
     metaDescription.content = "Calculate your exact freelance rates and auto-generate SaaS-style tiered pricing packages. Free premium tool with PDF reports.";
+
+    // Software Application Schema for Google Rich Snippets
+    const schemaScript = document.createElement('script');
+    schemaScript.type = 'application/ld+json';
+    schemaScript.innerHTML = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "KaroTools Freelance Rate Calculator",
+      "operatingSystem": "WebBrowser",
+      "applicationCategory": "BusinessApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "description": "A free, 3D interactive tool for freelancers to calculate hourly rates and auto-generate client pricing tiers."
+    });
+    document.head.appendChild(schemaScript);
+
+    return () => {
+      if (document.head.contains(schemaScript)) {
+        document.head.removeChild(schemaScript);
+      }
+    };
   }, []);
 
   // Calculation Logic
@@ -28,7 +53,7 @@ export default function RateCalculator() {
   const projectRate = Math.round(withProfit);
   const weeklyRate = Math.round(dailyRate * 5);
 
-  // 🚀 SaaS Tier Generator
+  // SaaS Tier Generator
   const tierStarter = Math.round(hourlyRate * 10);
   const tierPro = Math.round(hourlyRate * 25);
   const tierElite = Math.round(hourlyRate * 50);
@@ -52,7 +77,7 @@ export default function RateCalculator() {
 
   // 🚀 3D ENGINE
   const handleMouseMove = (e, ref) => {
-    if (!ref.current || window.innerWidth < 768) return; // Disable on mobile to prevent scrolling issues
+    if (!ref.current || window.innerWidth < 768) return; 
     const rect = ref.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
@@ -78,7 +103,7 @@ export default function RateCalculator() {
 
   const handleDownloadReport = () => window.print();
 
-  // 🚀 FLUID HYBRID INPUT (Zero-Clipping Architecture)
+  // 🚀 FLUID HYBRID INPUT
   const HybridInput = ({ label, value, setter, min, max, step, prefix = "", suffix = "", color = "#0ea5e9" }) => {
     const percentage = Math.max(0, Math.min(100, ((value - min) / (max - min)) * 100));
 
@@ -234,7 +259,7 @@ export default function RateCalculator() {
           body { background: #ffffff !important; color: #000000 !important; }
           .no-print { display: none !important; }
           .print-only { display: block !important; }
-          .glass-panel { background: #f8fafc !important; border: 1px solid #e2e8f0 !important; box-shadow: none !important; color: #0f172a !important; break-inside: avoid; }
+          .glass-panel { background: #f8fafc !important; border: 1px solid #e2e8f0 !important; box-shadow: none !important; color: #0f172a !important; break-inside: avoid; transform: none !important; }
           .brand-text, .text-gradient { -webkit-text-fill-color: #0f172a !important; background: none !important; color: #0f172a !important; }
           h1, h2, h3, p, span, div { color: #0f172a !important; }
           .print-header { border-bottom: 2px solid #0ea5e9; padding-bottom: 20px; margin-bottom: 30px; }
@@ -331,12 +356,12 @@ export default function RateCalculator() {
 
           {/* SAAS PACKAGE GENERATOR */}
           <div style={{ marginBottom: "48px" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "24px", flexWrap: "wrap", gap: "16px" }}>
+            <div className="no-print" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "24px", flexWrap: "wrap", gap: "16px" }}>
               <div style={{ flex: "1 1 300px" }}>
                 <h2 style={{ fontSize: "clamp(24px, 5vw, 28px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "8px" }}>Client Packaging Matrix</h2>
                 <p style={{ color: "#94a3b8", fontSize: "clamp(14px, 3vw, 15px)" }}>Never quote hourly again. Pitch these SaaS-style productized tiers based on your rate.</p>
               </div>
-              <button onClick={handleDownloadReport} className="interactive-btn no-print" style={{ padding: "12px 24px", background: "linear-gradient(135deg, #0ea5e9, #2563eb)", color: "#fff", border: "none", borderRadius: "12px", fontWeight: "700", fontSize: "14px", display: "flex", gap: "8px", alignItems: "center", cursor: "pointer", boxShadow: "0 4px 16px rgba(14, 165, 233, 0.3)", whiteSpace: "nowrap" }}>
+              <button onClick={handleDownloadReport} className="interactive-btn" style={{ padding: "12px 24px", background: "linear-gradient(135deg, #0ea5e9, #2563eb)", color: "#fff", border: "none", borderRadius: "12px", fontWeight: "700", fontSize: "14px", display: "flex", gap: "8px", alignItems: "center", cursor: "pointer", boxShadow: "0 4px 16px rgba(14, 165, 233, 0.3)", whiteSpace: "nowrap" }}>
                 📄 Export PDF Report
               </button>
             </div>
@@ -398,6 +423,34 @@ export default function RateCalculator() {
                   <li style={{ display: "flex", gap: "8px" }}><span style={{ color: "#14b8a6" }}>✓</span> Weekly Sync Calls</li>
                 </ul>
               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 🚀 SEO FAQ Section */}
+        <div className="no-print" style={{ position: "relative", marginTop: "40px" }}>
+          <div style={{ position: "absolute", top: 0, left: "10%", right: "10%", height: "1px", background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)" }} />
+          
+          <div style={{ paddingTop: "64px", paddingBottom: "20px" }}>
+            <h2 style={{ fontSize: "clamp(24px, 5vw, 28px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "32px", textAlign: "center" }}>Freelance Pricing FAQs</h2>
+            
+            <div className="responsive-grid" style={{ gap: "24px" }}>
+              {[
+                { q: "Why do I need a Profit Margin buffer?", a: "Traditional jobs provide paid time off, health insurance, hardware, and provident funds. Freelancers pay for this out-of-pocket. The margin covers software licenses, sick days, taxes, and ensures your freelance business can actually grow rather than just survive." },
+                { q: "What are 'Billable' vs 'Non-Billable' hours?", a: "If you work 8 hours a day, you usually only do 5-6 hours of actual client work. The rest is spent on admin, answering emails, pitching, and invoicing. You must calculate your minimum rate based only on the hours you can strictly bill to a client." },
+                { q: "Should I quote my hourly rate directly to clients?", a: "Generally, no. Use this calculator to find your internal baseline. Once you know your minimum hourly rate, estimate how long a project will take, multiply it by this rate, and pitch a Flat Project Package (like the tiers above). Clients prefer predictable flat fees over open-ended hourly contracts." },
+                { q: "Does this calculation include GST or TDS?", a: "This calculator helps you find your base take-home requirement. If you are registered for GST in India, you should add 18% GST on top of your final quoted price. Additionally, consider client TDS (Tax Deducted at Source) deductions when calculating your final cash flow." }
+              ].map((item, i) => (
+                <div key={item.q} className="glass-panel" style={{ padding: "clamp(24px, 4vw, 32px)", borderRadius: "20px" }}>
+                  <div style={{ display: "flex", alignItems: "flex-start", gap: "16px", marginBottom: "16px" }}>
+                    <div style={{ background: "rgba(14, 165, 233, 0.15)", color: "#38bdf8", width: "28px", height: "28px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", fontWeight: "800", flexShrink: 0, marginTop: "2px", boxShadow: "0 0 12px rgba(14, 165, 233, 0.2)" }}>
+                      {i + 1}
+                    </div>
+                    <h3 style={{ fontSize: "clamp(16px, 3vw, 18px)", fontWeight: "700", color: "#f1f5f9", fontFamily: "'Syne',sans-serif", lineHeight: "1.4" }}>{item.q}</h3>
+                  </div>
+                  <p style={{ fontSize: "clamp(14px, 2.5vw, 15px)", color: "#94a3b8", lineHeight: "1.8", paddingLeft: "44px" }}>{item.a}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>

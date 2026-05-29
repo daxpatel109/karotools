@@ -345,10 +345,11 @@ const presets = [
           </div>
 
           {/* GST Rate */}
+         {/* GST Rate */}
           <div style={{ marginBottom: "32px" }}>
             <label style={{ display: "block", fontWeight: "700", color: "#cbd5e1", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>GST Rate</label>
             <div className="responsive-grid-rates">
-             {[0, 3, 5, 12, 18, 28].map(rate => (
+              {[0, 3, 5, 12, 18, 28].map(rate => (
                 <button key={rate} onClick={() => { setGstRate(rate); setIsCustom(false); setPreset(null); }}
                   className="interactive-btn"
                   style={{
@@ -362,6 +363,8 @@ const presets = [
                   {rate}%
                 </button>
               ))}
+              
+              {/* Restored Custom Button */}
               <button onClick={() => setIsCustom(true)}
                 className="interactive-btn"
                 style={{
@@ -375,6 +378,8 @@ const presets = [
                 Custom
               </button>
             </div>
+            
+            {/* Restored Custom Input Field */}
             {isCustom && (
               <div style={{ marginTop: "16px", animation: "fadeIn 0.3s ease" }}>
                 <div className="input-glow" style={{ borderRadius: "14px", border: "1px solid rgba(56, 189, 248, 0.4)", background: "rgba(14, 165, 233, 0.05)", display: "flex", alignItems: "center", padding: "0 16px" }}>

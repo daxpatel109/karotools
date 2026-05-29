@@ -12,9 +12,9 @@ export default function App() {
       <Route path="/" element={<Home />} />
       <Route path="/gst-calculator" element={<GSTCalculator />} />
       <Route path="/invoice-generator" element={<InvoiceGenerator />} />
-      <Route path="/Bio-generator" element={<BioGenerator />} />
-      <Route path="/Emial-generator" element={<EmailGenerator />} />
-      <Route path="/Rate-generator" element={<RateGenerator />} />
+      <Route path="/bio-generator" element={<BioGenerator />} />
+      <Route path="/email-generator" element={<EmailGenerator />} />
+      <Route path="/rate-calculator" element={<RateCalculator />} />
     </Routes>
   );
 }

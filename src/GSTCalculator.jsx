@@ -309,7 +309,7 @@ const presets = [
         <div style={{ marginBottom: "24px", animation: "fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1)" }}>
           <p style={{ color: "#64748b", fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "12px", marginLeft: "4px" }}>Quick Presets</p>
           <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
-            {presets.map(p => (
+            {presets.(p => (
               <button key={p.label} onClick={() => { setPreset(p.label); setGstRate(p.rate); setIsCustom(false); }}
                 className="preset-btn"
                 style={{
@@ -348,7 +348,7 @@ const presets = [
           <div style={{ marginBottom: "32px" }}>
             <label style={{ display: "block", fontWeight: "700", color: "#cbd5e1", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>GST Rate</label>
             <div className="responsive-grid-rates">
-              {[5, 12, 18, 28].map(rate => (
+             {[0, 3, 5, 12, 18, 28].map(rate => (
                 <button key={rate} onClick={() => { setGstRate(rate); setIsCustom(false); setPreset(null); }}
                   className="interactive-btn"
                   style={{

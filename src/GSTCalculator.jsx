@@ -14,7 +14,6 @@ export default function GSTCalculator() {
   const [history, setHistory] = useState([]);
   const [preset, setPreset] = useState(null);
 
-  // BUG FIX: Safely parse custom rate. If the box is empty, it pauses calculation instead of crashing.
   const activeRate = isCustom ? (customRate === "" ? NaN : Number(customRate)) : Number(gstRate);
 
   const presets = [
@@ -28,7 +27,7 @@ export default function GSTCalculator() {
     { label: "🥇 Gold", rate: 3 },
   ];
 
-  // SERP SEO & Schema Injection (Invisible to UI)
+  // SERP SEO & Schema Injection
   useEffect(() => {
     document.title = "Free Online GST Calculator India | KaroTools";
     
@@ -58,7 +57,6 @@ export default function GSTCalculator() {
     };
   }, []);
 
-  // BUG FIX: Adjusted logic to allow 0% rates to calculate properly
   useEffect(() => {
     const amt = parseFloat(amount);
     
@@ -231,7 +229,6 @@ export default function GSTCalculator() {
           .responsive-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
         }
 
-        /* 🚀 Perfected Grid to fit all 7 buttons exactly like your screenshot */
         .responsive-grid-rates {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
@@ -276,14 +273,12 @@ export default function GSTCalculator() {
         @keyframes shine { to { background-position: 200% center; } }
       `}} />
 
-      {/* Ambient Premium Background */}
       <div style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0 }}>
         <div style={{ position: "absolute", top: "-10%", left: "-10%", width: "60%", height: "60%", background: "radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, transparent 60%)", filter: "blur(60px)" }} />
         <div style={{ position: "absolute", bottom: "-10%", right: "-10%", width: "60%", height: "60%", background: "radial-gradient(circle, rgba(20, 184, 166, 0.06) 0%, transparent 60%)", filter: "blur(60px)" }} />
         <div style={{ position: "absolute", top: "40%", left: "40%", width: "30%", height: "30%", background: "radial-gradient(circle, rgba(56, 189, 248, 0.03) 0%, transparent 70%)", filter: "blur(40px)" }} />
       </div>
 
-      {/* Navbar */}
       <nav className="glass-panel" style={{ position: "sticky", top: 0, zIndex: 100, padding: "0 24px", height: "72px", display: "flex", alignItems: "center", justifyContent: "space-between", borderTop: "none", borderLeft: "none", borderRight: "none", borderRadius: 0 }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif" }} className="brand-text">⚡ KaroTools</span>
@@ -308,7 +303,6 @@ export default function GSTCalculator() {
 
       <div style={{ maxWidth: "820px", margin: "0 auto", padding: "56px 24px 100px", position: "relative", zIndex: 1 }}>
 
-        {/* Header */}
         <div style={{ textAlign: "center", marginBottom: "48px", animation: "fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1)" }}>
           <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "72px", height: "72px", borderRadius: "24px", background: "linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01))", border: "1px solid rgba(255,255,255,0.1)", marginBottom: "20px", boxShadow: "0 12px 32px rgba(0,0,0,0.2)" }}>
             <span style={{ fontSize: "36px", filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.3))" }}>🧮</span>
@@ -317,7 +311,6 @@ export default function GSTCalculator() {
           <p style={{ color: "#94a3b8", fontSize: "16px", fontWeight: "400", letterSpacing: "0.01em" }}>Professional GST calculation for Indian businesses • All slabs supported</p>
         </div>
 
-        {/* Presets */}
         <div style={{ marginBottom: "24px", animation: "fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1)" }}>
           <p style={{ color: "#64748b", fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "12px", marginLeft: "4px" }}>Quick Presets</p>
           <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
@@ -337,15 +330,15 @@ export default function GSTCalculator() {
           </div>
         </div>
 
-        {/* Main Card */}
         <div className="glass-panel" style={{ borderRadius: "28px", padding: "40px", marginBottom: "32px", animation: "fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1)" }}>
 
-          {/* Amount */}
           <div style={{ marginBottom: "32px" }}>
             <label style={{ display: "block", fontWeight: "700", color: "#cbd5e1", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Amount (₹)</label>
             <div className="input-glow" style={{ borderRadius: "16px", border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.03)", display: "flex", alignItems: "center", padding: "4px 20px" }}>
               <span style={{ fontSize: "24px", color: "#64748b", fontWeight: "500", marginRight: "12px" }}>₹</span>
+              {/* 🚀 SCROLL BUG FIX APPLIED HERE */}
               <input type="number" value={amount} 
+                onWheel={(e) => e.target.blur()}
                 onChange={e => {
                   const val = e.target.value;
                   if (val === "" || Number(val) >= 0) setAmount(val);
@@ -356,7 +349,6 @@ export default function GSTCalculator() {
             </div>
           </div>
 
-          {/* GST Rate */}
           <div style={{ marginBottom: "32px" }}>
             <label style={{ display: "block", fontWeight: "700", color: "#cbd5e1", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>GST Rate</label>
             <div className="responsive-grid-rates">
@@ -392,7 +384,9 @@ export default function GSTCalculator() {
             {isCustom && (
               <div style={{ marginTop: "16px", animation: "fadeIn 0.3s ease" }}>
                 <div className="input-glow" style={{ borderRadius: "14px", border: "1px solid rgba(56, 189, 248, 0.4)", background: "rgba(14, 165, 233, 0.05)", display: "flex", alignItems: "center", padding: "0 16px" }}>
+                  {/* 🚀 SCROLL BUG FIX APPLIED HERE TOO */}
                   <input type="number" value={customRate} 
+                    onWheel={(e) => e.target.blur()}
                     onChange={e => {
                       const val = e.target.value;
                       if (val === "" || (Number(val) >= 0 && Number(val) <= 100)) setCustomRate(val);
@@ -405,7 +399,6 @@ export default function GSTCalculator() {
             )}
           </div>
 
-          {/* Transaction Type */}
           <div style={{ marginBottom: "32px" }}>
             <label style={{ display: "block", fontWeight: "700", color: "#cbd5e1", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Transaction Type</label>
             <div className="responsive-grid">
@@ -427,7 +420,6 @@ export default function GSTCalculator() {
             </div>
           </div>
 
-          {/* Type + Round Off Grid */}
           <div className="responsive-grid" style={{ marginBottom: "16px" }}>
             {[["exclusive", "➕ Add GST (Exclusive)", "#3b82f6", "rgba(59,130,246,0.2)"], ["inclusive", "➖ Remove GST (Inclusive)", "#ec4899", "rgba(236,72,153,0.2)"]].map(([val, label, color, bg]) => (
               <button key={val} onClick={() => setType(val)}
@@ -445,7 +437,6 @@ export default function GSTCalculator() {
             ))}
           </div>
 
-          {/* Round off toggle */}
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "16px 24px", background: "rgba(255,255,255,0.02)", borderRadius: "16px", border: "1px solid rgba(255,255,255,0.06)", transition: "all 0.3s ease" }}>
             <div>
               <p style={{ color: "#cbd5e1", fontWeight: "700", fontSize: "15px", marginBottom: "2px" }}>Auto Round Off</p>
@@ -457,11 +448,9 @@ export default function GSTCalculator() {
           </div>
         </div>
 
-        {/* Results Section */}
         {result && (
           <div style={{ animation: "fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1)" }}>
 
-            {/* Total Hero */}
             <div style={{ background: "linear-gradient(145deg, rgba(14, 165, 233, 0.15), rgba(59,130,246,0.1))", border: "1px solid rgba(14, 165, 233, 0.3)", borderRadius: "28px", padding: "48px 32px", textAlign: "center", marginBottom: "24px", position: "relative", overflow: "hidden", animation: "glowPulse 4s infinite" }}>
               <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "1px", background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)" }} />
               
@@ -476,7 +465,6 @@ export default function GSTCalculator() {
               </div>
             </div>
 
-            {/* Breakdown Cards */}
             <div className="responsive-grid" style={{ gap: "16px", marginBottom: "24px" }}>
               {[
                 { label: "Base Amount", value: result.base, color: "#93c5fd", icon: "💎" },
@@ -495,7 +483,6 @@ export default function GSTCalculator() {
               ))}
             </div>
 
-            {/* Bar */}
             <div className="glass-panel" style={{ borderRadius: "20px", padding: "28px", marginBottom: "24px" }}>
               <p style={{ color: "#cbd5e1", fontSize: "13px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "20px" }}>Visual Breakdown</p>
               <div style={{ height: "14px", borderRadius: "8px", overflow: "hidden", display: "flex", gap: "4px", background: "rgba(0,0,0,0.3)", boxShadow: "inset 0 2px 4px rgba(0,0,0,0.2)" }}>
@@ -518,7 +505,6 @@ export default function GSTCalculator() {
               </div>
             </div>
 
-            {/* Formula */}
             <div style={{ background: "rgba(255,255,255,0.01)", border: "1px dashed rgba(255,255,255,0.1)", borderRadius: "16px", padding: "20px 24px", marginBottom: "24px" }}>
               <p style={{ color: "#64748b", fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "12px" }}>Calculation Formula Used</p>
               <p style={{ color: "#38bdf8", fontSize: "14px", fontFamily: "monospace", letterSpacing: "0.05em", background: "rgba(0,0,0,0.2)", padding: "12px", borderRadius: "8px", border: "1px solid rgba(14, 165, 233, 0.1)" }}>
@@ -528,7 +514,6 @@ export default function GSTCalculator() {
               </p>
             </div>
 
-            {/* Action Buttons */}
             <div className="responsive-grid-3">
               <button onClick={addToHistory} className="interactive-btn"
                 style={{
@@ -572,7 +557,6 @@ export default function GSTCalculator() {
           </div>
         )}
 
-        {/* History */}
         {history.length > 0 && (
           <div className="glass-panel" style={{ marginTop: "40px", borderRadius: "24px", padding: "32px", animation: "fadeIn 0.6s ease" }}>
             <p style={{ color: "#cbd5e1", fontSize: "14px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "20px", display: "flex", alignItems: "center", gap: "8px" }}>
@@ -593,7 +577,6 @@ export default function GSTCalculator() {
           </div>
         )}
 
-        {/* SEO Info Section */}
         <div style={{ marginTop: "80px", position: "relative" }}>
           <div style={{ position: "absolute", top: 0, left: "20%", right: "20%", height: "1px", background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)" }} />
           <div style={{ paddingTop: "64px" }}>

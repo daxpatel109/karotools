@@ -16,14 +16,16 @@ export default function GSTCalculator() {
 
   const activeRate = isCustom ? parseFloat(customRate) || 0 : gstRate;
 
-  const presets = [
-    { label: "🍽 Restaurant", rate: 5 },
-    { label: "👔 Clothing", rate: 12 },
-    { label: "💻 Electronics", rate: 18 },
-    { label: "🚗 Luxury", rate: 28 },
-    { label: "💊 Medicine", rate: 5 },
-    { label: "🏠 Real Estate", rate: 12 },
-  ];
+const presets = [
+  { label: "🍽 Restaurant", rate: 5 },
+  { label: "👔 Clothing", rate: 12 },
+  { label: "💻 Electronics", rate: 18 },
+  { label: "🚗 Luxury", rate: 28 },
+  { label: "💊 Medicine", rate: 5 },
+  { label: "🏠 Real Estate", rate: 12 },
+  { label: "🥛 Milk/Food", rate: 0 },
+  { label: "🥇 Gold", rate: 3 },
+];
 
   // SERP SEO Injection
   useEffect(() => {
@@ -584,10 +586,12 @@ export default function GSTCalculator() {
             <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "32px", textAlign: "center" }}>Frequently Asked Questions</h2>
             <div className="responsive-grid" style={{ gap: "20px" }}>
               {[
-                { q: "What is GST?", a: "GST (Goods and Services Tax) is India's unified indirect tax on goods and services, implemented July 1, 2017. It replaced VAT, service tax, and other cascading taxes to create a single national market." },
-                { q: "What is IGST vs CGST/SGST?", a: "For intra-state transactions (within the same state), GST is split equally into CGST (Central) and SGST (State). For inter-state transactions, IGST (Integrated GST) is charged instead and collected by the central government." },
-                { q: "What are GST slabs in India?", a: "India has 4 primary GST slabs: 5% (essential goods, restaurants), 12% (standard goods, clothing), 18% (most services, electronics, software), and 28% (luxury goods, automobiles, tobacco)." },
-                { q: "How to calculate GST on a price?", a: "To add GST: multiply amount by GST rate and divide by 100. To remove GST from an inclusive price: divide the total by (1 + GST rate/100) to get the original base price before taxes." },
+                { q: "What are GST slabs in India 2026?", a: "India has 6 GST slabs: 0% (essential items like milk, vegetables, books), 0.25% (rough precious stones), 3% (gold, silver), 5% (essential goods, restaurants, medicines), 12% (standard goods, clothing above ₹1000), 18% (most services, electronics, software), and 28% (luxury goods, automobiles, tobacco, cement)." },
+{ q: "What is GST on restaurant food?", a: "Restaurant GST is 5% for non-AC restaurants and standalone restaurants. AC restaurants in hotels with room tariff below ₹7500 also charge 5%. No ITC (Input Tax Credit) is available on restaurant services." },
+{ q: "What is GST on gold in India?", a: "GST on gold is 3% on the value of gold, plus 5% on making charges. This applies to gold jewellery, coins, and bars across India." },
+{ q: "What is GST on freelance services?", a: "Freelance services like web development, design, content writing, and consulting are taxed at 18% GST. Freelancers with annual turnover above ₹20 lakhs must register for GST." },
+{ q: "What is IGST vs CGST/SGST?", a: "For intra-state transactions (same state), GST splits equally into CGST (Central) + SGST (State). For inter-state transactions, IGST (Integrated GST) is charged instead — collected by the central government and shared with states." },
+{ q: "What is GST on clothing?", a: "Clothing and garments below ₹1000 are taxed at 5% GST. Garments above ₹1000 are taxed at 12% GST. This applies to readymade garments and apparel sold across India." },
               ].map((item, i) => (
                 <div key={item.q} className="glass-panel" style={{ padding: "28px", borderRadius: "20px", transition: "all 0.3s ease" }}>
                   <div style={{ display: "flex", alignItems: "flex-start", gap: "12px", marginBottom: "12px" }}>

@@ -16,16 +16,16 @@ export default function GSTCalculator() {
 
   const activeRate = isCustom ? parseFloat(customRate) || 0 : gstRate;
 
-const presets = [
-  { label: "🍽 Restaurant", rate: 5 },
-  { label: "👔 Clothing", rate: 12 },
-  { label: "💻 Electronics", rate: 18 },
-  { label: "🚗 Luxury", rate: 28 },
-  { label: "💊 Medicine", rate: 5 },
-  { label: "🏠 Real Estate", rate: 12 },
-  { label: "🥛 Milk/Food", rate: 0 },
-  { label: "🥇 Gold", rate: 3 },
-];
+  const presets = [
+    { label: "🍽 Restaurant", rate: 5 },
+    { label: "👔 Clothing", rate: 12 },
+    { label: "💻 Electronics", rate: 18 },
+    { label: "🚗 Luxury", rate: 28 },
+    { label: "💊 Medicine", rate: 5 },
+    { label: "🏠 Real Estate", rate: 12 },
+    { label: "🥛 Milk/Food", rate: 0 },
+    { label: "🥇 Gold", rate: 3 },
+  ];
 
   // SERP SEO Injection
   useEffect(() => {
@@ -43,7 +43,7 @@ const presets = [
   // Calculation Logic
   useEffect(() => {
     const amt = parseFloat(amount);
-    if (!amt || amt <= 0 || activeRate <= 0 || activeRate > 100) { 
+    if (!amt || amt <= 0 || activeRate < 0 || activeRate > 100) { 
       setResult(null); 
       return; 
     }
@@ -72,8 +72,8 @@ const presets = [
       cgst: (gst / 2).toFixed(roundOff ? 0 : 2),
       sgst: (gst / 2).toFixed(roundOff ? 0 : 2),
       igst: gst.toFixed(roundOff ? 0 : 2),
-      basePercent: Math.round((base / total) * 100),
-      gstPercent: Math.round((gst / total) * 100),
+      basePercent: Math.round((base / total) * 100) || 0, // Fallback for 0% GST to avoid NaN
+      gstPercent: Math.round((gst / total) * 100) || 0,
     };
     setResult(r);
   }, [amount, activeRate, type, roundOff]);
@@ -219,13 +219,11 @@ const presets = [
           .responsive-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
         }
 
+        /* 🚀 FIX: Upgraded grid to dynamically fit all 7 buttons perfectly */
         .responsive-grid-rates {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
           gap: 10px;
-        }
-        @media (min-width: 640px) {
-          .responsive-grid-rates { grid-template-columns: repeat(5, 1fr); gap: 12px; }
         }
 
         .input-glow {
@@ -275,7 +273,6 @@ const presets = [
         <div style={{ maxWidth: "1200px", margin: "0 auto", width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif" }} className="brand-text">⚡ KaroTools</span>
           
-          {/* THE FIX: Using <Link> component instead of <button> */}
           <Link
             to="/"
             className="interactive-btn home-btn"
@@ -309,7 +306,8 @@ const presets = [
         <div style={{ marginBottom: "24px", animation: "fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1)" }}>
           <p style={{ color: "#64748b", fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "12px", marginLeft: "4px" }}>Quick Presets</p>
           <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
-            {presets.(p => (
+            {/* 🚀 FIX: Corrected syntax to map through presets */}
+            {presets.map(p => (
               <button key={p.label} onClick={() => { setPreset(p.label); setGstRate(p.rate); setIsCustom(false); }}
                 className="preset-btn"
                 style={{
@@ -345,7 +343,6 @@ const presets = [
           </div>
 
           {/* GST Rate */}
-         {/* GST Rate */}
           <div style={{ marginBottom: "32px" }}>
             <label style={{ display: "block", fontWeight: "700", color: "#cbd5e1", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>GST Rate</label>
             <div className="responsive-grid-rates">
@@ -364,7 +361,6 @@ const presets = [
                 </button>
               ))}
               
-              {/* Restored Custom Button */}
               <button onClick={() => setIsCustom(true)}
                 className="interactive-btn"
                 style={{
@@ -379,7 +375,6 @@ const presets = [
               </button>
             </div>
             
-            {/* Restored Custom Input Field */}
             {isCustom && (
               <div style={{ marginTop: "16px", animation: "fadeIn 0.3s ease" }}>
                 <div className="input-glow" style={{ borderRadius: "14px", border: "1px solid rgba(56, 189, 248, 0.4)", background: "rgba(14, 165, 233, 0.05)", display: "flex", alignItems: "center", padding: "0 16px" }}>
@@ -591,12 +586,12 @@ const presets = [
             <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "32px", textAlign: "center" }}>Frequently Asked Questions</h2>
             <div className="responsive-grid" style={{ gap: "20px" }}>
               {[
-                { q: "What are GST slabs in India 2026?", a: "India has 6 GST slabs: 0% (essential items like milk, vegetables, books), 0.25% (rough precious stones), 3% (gold, silver), 5% (essential goods, restaurants, medicines), 12% (standard goods, clothing above ₹1000), 18% (most services, electronics, software), and 28% (luxury goods, automobiles, tobacco, cement)." },
-{ q: "What is GST on restaurant food?", a: "Restaurant GST is 5% for non-AC restaurants and standalone restaurants. AC restaurants in hotels with room tariff below ₹7500 also charge 5%. No ITC (Input Tax Credit) is available on restaurant services." },
-{ q: "What is GST on gold in India?", a: "GST on gold is 3% on the value of gold, plus 5% on making charges. This applies to gold jewellery, coins, and bars across India." },
-{ q: "What is GST on freelance services?", a: "Freelance services like web development, design, content writing, and consulting are taxed at 18% GST. Freelancers with annual turnover above ₹20 lakhs must register for GST." },
-{ q: "What is IGST vs CGST/SGST?", a: "For intra-state transactions (same state), GST splits equally into CGST (Central) + SGST (State). For inter-state transactions, IGST (Integrated GST) is charged instead — collected by the central government and shared with states." },
-{ q: "What is GST on clothing?", a: "Clothing and garments below ₹1000 are taxed at 5% GST. Garments above ₹1000 are taxed at 12% GST. This applies to readymade garments and apparel sold across India." },
+                { q: "What are GST slabs in India?", a: "India has 6 GST slabs: 0% (essential items like milk, vegetables, books), 0.25% (rough precious stones), 3% (gold, silver), 5% (essential goods, restaurants, medicines), 12% (standard goods, clothing above ₹1000), 18% (most services, electronics, software), and 28% (luxury goods, automobiles, tobacco, cement)." },
+                { q: "What is GST on restaurant food?", a: "Restaurant GST is 5% for non-AC restaurants and standalone restaurants. AC restaurants in hotels with room tariff below ₹7500 also charge 5%. No ITC (Input Tax Credit) is available on restaurant services." },
+                { q: "What is GST on gold in India?", a: "GST on gold is 3% on the value of gold, plus 5% on making charges. This applies to gold jewellery, coins, and bars across India." },
+                { q: "What is GST on freelance services?", a: "Freelance services like web development, design, content writing, and consulting are taxed at 18% GST. Freelancers with annual turnover above ₹20 lakhs must register for GST." },
+                { q: "What is IGST vs CGST/SGST?", a: "For intra-state transactions (same state), GST splits equally into CGST (Central) + SGST (State). For inter-state transactions, IGST (Integrated GST) is charged instead — collected by the central government and shared with states." },
+                { q: "What is GST on clothing?", a: "Clothing and garments below ₹1000 are taxed at 5% GST. Garments above ₹1000 are taxed at 12% GST. This applies to readymade garments and apparel sold across India." },
               ].map((item, i) => (
                 <div key={item.q} className="glass-panel" style={{ padding: "28px", borderRadius: "20px", transition: "all 0.3s ease" }}>
                   <div style={{ display: "flex", alignItems: "flex-start", gap: "12px", marginBottom: "12px" }}>

@@ -2,6 +2,9 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import GSTCalculator from "./GSTCalculator";
 import InvoiceGenerator from "./InvoiceGenerator";
+import BioGenerator from "./BioGenerator";
+import EmailGenerator from "./EmailGenerator";
+import RateCalculator from "./RateCalculator";
 
 export default function App() {
   return (

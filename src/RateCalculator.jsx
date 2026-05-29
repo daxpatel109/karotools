@@ -28,10 +28,10 @@ export default function RateCalculator() {
   const projectRate = Math.round(withProfit);
   const weeklyRate = Math.round(dailyRate * 5);
 
-  // 🚀 UNIQUE FEATURE: SaaS Tier Generator based on calculated hourly rate
-  const tierStarter = Math.round(hourlyRate * 10); // 10 hours equivalent
-  const tierPro = Math.round(hourlyRate * 25);     // 25 hours equivalent
-  const tierElite = Math.round(hourlyRate * 50);   // 50 hours equivalent
+  // 🚀 SaaS Tier Generator
+  const tierStarter = Math.round(hourlyRate * 10);
+  const tierPro = Math.round(hourlyRate * 25);
+  const tierElite = Math.round(hourlyRate * 50);
 
   const fmt = (val) => isNaN(Number(val)) ? "0" : Number(val).toLocaleString("en-IN");
 
@@ -50,16 +50,16 @@ export default function RateCalculator() {
     setProfitMargin(preset.margin);
   };
 
-  // 🚀 3D TILT ENGINE
+  // 🚀 3D ENGINE
   const handleMouseMove = (e, ref) => {
-    if (!ref.current) return;
+    if (!ref.current || window.innerWidth < 768) return; // Disable on mobile to prevent scrolling issues
     const rect = ref.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
-    const rotateX = ((y - centerY) / centerY) * -10; // Max rotation 10deg
-    const rotateY = ((x - centerX) / centerX) * 10;
+    const rotateX = ((y - centerY) / centerY) * -8;
+    const rotateY = ((x - centerX) / centerX) * 8;
     
     ref.current.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
     ref.current.style.boxShadow = `${-rotateY * 2}px ${rotateX * 2}px 30px rgba(14, 165, 233, 0.3)`;
@@ -76,21 +76,18 @@ export default function RateCalculator() {
   const proRef = useRef(null);
   const eliteRef = useRef(null);
 
-  // Download Report trigger
-  const handleDownloadReport = () => {
-    window.print();
-  };
+  const handleDownloadReport = () => window.print();
 
-  // Hybrid Input Component
+  // 🚀 FLUID HYBRID INPUT (Zero-Clipping Architecture)
   const HybridInput = ({ label, value, setter, min, max, step, prefix = "", suffix = "", color = "#0ea5e9" }) => {
     const percentage = Math.max(0, Math.min(100, ((value - min) / (max - min)) * 100));
 
     return (
-      <div className="glass-panel hybrid-input-card no-print" style={{ borderRadius: "20px", padding: "24px", transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px", flexWrap: "wrap", gap: "12px" }}>
-          <label style={{ fontSize: "13px", fontWeight: "700", color: "#cbd5e1", textTransform: "uppercase", letterSpacing: "0.08em" }}>{label}</label>
+      <div className="glass-panel hybrid-input-card no-print" style={{ borderRadius: "20px", padding: "clamp(16px, 3vw, 24px)", transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px", flexWrap: "wrap", gap: "16px" }}>
+          <label style={{ fontSize: "13px", fontWeight: "700", color: "#cbd5e1", textTransform: "uppercase", letterSpacing: "0.08em", flex: "1 1 120px", wordWrap: "break-word" }}>{label}</label>
           
-          <div className="input-focus-wrap" style={{ display: "flex", alignItems: "center", background: "rgba(0,0,0,0.25)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "12px", padding: "8px 16px", transition: "all 0.3s ease", boxShadow: "inset 0 2px 4px rgba(0,0,0,0.2)" }}>
+          <div className="input-focus-wrap" style={{ display: "flex", alignItems: "center", background: "rgba(0,0,0,0.25)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "12px", padding: "8px 16px", transition: "all 0.3s ease", boxShadow: "inset 0 2px 4px rgba(0,0,0,0.2)", flex: "1 1 auto", minWidth: "160px" }}>
             {prefix && <span style={{ color: "#64748b", fontWeight: "700", marginRight: "6px", fontSize: "16px" }}>{prefix}</span>}
             <input 
               type="number" 
@@ -100,7 +97,7 @@ export default function RateCalculator() {
                 if(value < min) setter(min);
                 if(value > max) setter(max);
               }}
-              style={{ background: "transparent", border: "none", color: color, fontSize: "20px", fontWeight: "800", width: "140px", minWidth: "90px", textAlign: "right", outline: "none", fontFamily: "'Syne', sans-serif", letterSpacing: "1px" }}
+              style={{ background: "transparent", border: "none", color: color, fontSize: "clamp(16px, 4vw, 20px)", fontWeight: "800", width: "100%", flex: 1, textAlign: "right", outline: "none", fontFamily: "'Syne', sans-serif", letterSpacing: "1px" }}
             />
             {suffix && <span style={{ color: "#64748b", fontWeight: "700", marginLeft: "6px", fontSize: "14px" }}>{suffix}</span>}
           </div>
@@ -117,6 +114,10 @@ export default function RateCalculator() {
             style={{ background: `linear-gradient(90deg, ${color} ${percentage}%, rgba(255,255,255,0.1) ${percentage}%)` }} 
           />
         </div>
+        <div style={{ display: "flex", justifyContent: "space-between", fontSize: "12px", color: "#64748b", marginTop: "8px", fontWeight: "600" }}>
+          <span>{prefix}{fmt(min)}{suffix}</span>
+          <span>{prefix}{fmt(max)}{suffix}</span>
+        </div>
       </div>
     );
   };
@@ -130,7 +131,6 @@ export default function RateCalculator() {
         ::-moz-selection { background: rgba(14, 165, 233, 0.4); color: white; }
         
         @keyframes fadeIn { from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)} }
-        @keyframes glowPulse { 0%{box-shadow: 0 0 50px rgba(14, 165, 233, 0.15)} 50%{box-shadow: 0 0 80px rgba(14, 165, 233, 0.3)} 100%{box-shadow: 0 0 50px rgba(14, 165, 233, 0.15)} }
 
         input[type=number]::-webkit-outer-spin-button,
         input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
@@ -181,9 +181,7 @@ export default function RateCalculator() {
           background-size: 200% auto;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
-          animation: shine 4s linear infinite;
         }
-        @keyframes shine { to { background-position: 200% center; } }
 
         .input-focus-wrap:focus-within {
           border-color: rgba(56, 189, 248, 0.6) !important;
@@ -231,7 +229,7 @@ export default function RateCalculator() {
         .mobile-pad { padding: 40px 20px 80px; }
         @media (min-width: 640px) { .mobile-pad { padding: 56px 24px 100px; } }
 
-        /* --- PDF EXPORT STYLES (NO OTHER SITE HAS THIS) --- */
+        /* Print formatting */
         @media print {
           body { background: #ffffff !important; color: #000000 !important; }
           .no-print { display: none !important; }
@@ -249,7 +247,6 @@ export default function RateCalculator() {
         <div style={{ position: "absolute", bottom: "-10%", right: "-10%", width: "60%", height: "60%", background: "radial-gradient(circle, rgba(20, 184, 166, 0.06) 0%, transparent 60%)", filter: "blur(60px)" }} />
       </div>
 
-      {/* Navbar */}
       <nav className="glass-panel no-print" style={{ position: "sticky", top: 0, zIndex: 100, padding: "0 24px", height: "72px", display: "flex", alignItems: "center", justifyContent: "space-between", borderTop: "none", borderLeft: "none", borderRight: "none", borderRadius: 0 }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
@@ -262,26 +259,23 @@ export default function RateCalculator() {
         </div>
       </nav>
 
-      {/* Print-Only Header */}
       <div className="print-only print-header" style={{ display: "none", textAlign: "center", paddingTop: "20px" }}>
         <h1 style={{ fontSize: "32px", fontFamily: "'Syne',sans-serif", margin: "0 0 10px 0" }}>Freelance Rate Strategy & Proposal</h1>
         <p style={{ margin: 0, fontSize: "16px", color: "#64748b" }}>Generated securely via KaroTools • {new Date().toLocaleDateString('en-IN')}</p>
       </div>
 
-      <div className="mobile-pad" style={{ maxWidth: "960px", margin: "0 auto", position: "relative", zIndex: 1 }}>
+      <div className="mobile-pad" style={{ maxWidth: "1024px", margin: "0 auto", position: "relative", zIndex: 1 }}>
 
-        {/* Interactive Header */}
-        <div className="no-print" style={{ textAlign: "center", marginBottom: "48px", animation: "fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1)" }}>
+        <div className="no-print" style={{ textAlign: "center", marginBottom: "clamp(32px, 5vw, 48px)", animation: "fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1)" }}>
           <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "72px", height: "72px", borderRadius: "24px", background: "linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01))", border: "1px solid rgba(255,255,255,0.1)", marginBottom: "20px", boxShadow: "0 12px 32px rgba(0,0,0,0.2)" }}>
             <span style={{ fontSize: "36px", filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.3))" }}>💎</span>
           </div>
-          <h1 style={{ fontSize: "40px", fontWeight: "800", fontFamily: "'Syne',sans-serif", marginBottom: "12px", letterSpacing: "-0.02em", background: "linear-gradient(135deg, #ffffff 0%, #38bdf8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Rate & Tier Matrix</h1>
-          <p style={{ color: "#94a3b8", fontSize: "16px", fontWeight: "400", letterSpacing: "0.01em" }}>Design your financial baseline and auto-generate client packages.</p>
+          <h1 style={{ fontSize: "clamp(32px, 6vw, 48px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", marginBottom: "12px", letterSpacing: "-0.02em", background: "linear-gradient(135deg, #ffffff 0%, #38bdf8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Rate & Tier Matrix</h1>
+          <p style={{ color: "#94a3b8", fontSize: "clamp(14px, 3vw, 16px)", fontWeight: "400", letterSpacing: "0.01em" }}>Design your financial baseline and auto-generate client packages.</p>
         </div>
 
-        {/* Inputs Section */}
         <div className="no-print" style={{ marginBottom: "32px", animation: "fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1)" }}>
-          <div style={{ display: "flex", gap: "12px", overflowX: "auto", paddingBottom: "8px", WebkitOverflowScrolling: "touch" }}>
+          <div style={{ display: "flex", gap: "12px", overflowX: "auto", paddingBottom: "12px", WebkitOverflowScrolling: "touch" }}>
             {presets.map(p => (
               <button key={p.label} onClick={() => applyPreset(p)} className="preset-btn">
                 {p.label}
@@ -292,30 +286,29 @@ export default function RateCalculator() {
 
         <div className="no-print" style={{ animation: "fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1)", marginBottom: "40px" }}>
           <div className="responsive-grid">
-            <HybridInput label="Monthly Expenses" value={monthlyExpenses} setter={setMonthlyExpenses} min={10000} max={250000} step={1000} prefix="₹" color="#0ea5e9" />
-            <HybridInput label="Desired Savings" value={desiredSavings} setter={setDesiredSavings} min={0} max={200000} step={1000} prefix="₹" color="#14b8a6" />
+            <HybridInput label="Monthly Expenses" value={monthlyExpenses} setter={setMonthlyExpenses} min={10000} max={500000} step={1000} prefix="₹" color="#0ea5e9" />
+            <HybridInput label="Desired Savings" value={desiredSavings} setter={setDesiredSavings} min={0} max={300000} step={1000} prefix="₹" color="#14b8a6" />
             <HybridInput label="Working Days / Month" value={workingDays} setter={setWorkingDays} min={5} max={30} step={1} suffix="Days" color="#8b5cf6" />
             <HybridInput label="Billable Hrs / Day" value={hoursPerDay} setter={setHoursPerDay} min={1} max={14} step={1} suffix="Hrs" color="#f43f5e" />
           </div>
           <div style={{ marginTop: "20px" }}>
-            <HybridInput label="Profit Margin / Buffer (Sick days, Taxes, Growth)" value={profitMargin} setter={setProfitMargin} min={0} max={100} step={1} suffix="%" color="#f59e0b" />
+            <HybridInput label="Profit Margin / Buffer" value={profitMargin} setter={setProfitMargin} min={0} max={100} step={1} suffix="%" color="#f59e0b" />
           </div>
         </div>
 
-        {/* Results Section */}
+        {/* Dynamic 3D Result Section */}
         <div style={{ animation: "fadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1)" }}>
           
-          {/* 3D Main Hero Rate */}
           <div 
             ref={heroRef}
             onMouseMove={(e) => handleMouseMove(e, heroRef)}
             onMouseLeave={() => handleMouseLeave(heroRef)}
-            style={{ background: "linear-gradient(145deg, rgba(14, 165, 233, 0.15), rgba(20,184,166,0.1))", border: "1px solid rgba(14, 165, 233, 0.3)", borderRadius: "28px", padding: "48px 24px", textAlign: "center", marginBottom: "48px", position: "relative", transition: "transform 0.1s ease-out, box-shadow 0.1s ease-out", transformStyle: "preserve-3d" }}
+            style={{ background: "linear-gradient(145deg, rgba(14, 165, 233, 0.15), rgba(20,184,166,0.1))", border: "1px solid rgba(14, 165, 233, 0.3)", borderRadius: "28px", padding: "clamp(32px, 6vw, 48px) clamp(20px, 4vw, 24px)", textAlign: "center", marginBottom: "48px", position: "relative", transition: "transform 0.1s ease-out, box-shadow 0.1s ease-out", transformStyle: "preserve-3d" }}
           >
             <div className="no-print" style={{ position: "absolute", top: 0, left: 0, right: 0, height: "1px", background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)" }} />
             
-            <p style={{ color: "#bae6fd", fontSize: "14px", fontWeight: "800", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "16px", transform: "translateZ(30px)" }}>Base Minimum Hourly Rate</p>
-            <p className="text-gradient" style={{ fontSize: "72px", fontWeight: "800", fontFamily: "'Syne',sans-serif", background: "linear-gradient(135deg, #ffffff, #bae6fd)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", lineHeight: 1, filter: "drop-shadow(0 4px 20px rgba(14, 165, 233, 0.3))", transform: "translateZ(50px)" }}>
+            <p style={{ color: "#bae6fd", fontSize: "clamp(12px, 3vw, 14px)", fontWeight: "800", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "16px", transform: "translateZ(30px)", wordWrap: "break-word" }}>Base Minimum Hourly Rate</p>
+            <p className="text-gradient" style={{ fontSize: "clamp(48px, 10vw, 72px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", background: "linear-gradient(135deg, #ffffff, #bae6fd)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", lineHeight: 1, filter: "drop-shadow(0 4px 20px rgba(14, 165, 233, 0.3))", transform: "translateZ(50px)", wordBreak: "break-word" }}>
               ₹{fmt(hourlyRate)}
             </p>
             
@@ -325,25 +318,25 @@ export default function RateCalculator() {
                 { label: "Weekly Target", value: weeklyRate, color: "#a78bfa", icon: "📅" },
                 { label: "Monthly Goal", value: projectRate, color: "#fcd34d", icon: "🎯" },
               ].map((item) => (
-                <div key={item.label} style={{ background: "rgba(0,0,0,0.3)", borderRadius: "16px", padding: "16px", border: "1px solid rgba(255,255,255,0.05)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <div key={item.label} style={{ background: "rgba(0,0,0,0.3)", borderRadius: "16px", padding: "clamp(12px, 2vw, 16px)", border: "1px solid rgba(255,255,255,0.05)", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "8px" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                     <span>{item.icon}</span>
-                    <span style={{ color: "#94a3b8", fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.05em" }}>{item.label}</span>
+                    <span style={{ color: "#94a3b8", fontSize: "clamp(10px, 2vw, 12px)", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.05em" }}>{item.label}</span>
                   </div>
-                  <span style={{ fontSize: "20px", fontWeight: "800", color: item.color, fontFamily: "'Syne',sans-serif" }}>₹{fmt(item.value)}</span>
+                  <span style={{ fontSize: "clamp(16px, 4vw, 20px)", fontWeight: "800", color: item.color, fontFamily: "'Syne',sans-serif" }}>₹{fmt(item.value)}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* 🚀 WORLD FIRST FEATURE: SAAS PACKAGE GENERATOR */}
+          {/* SAAS PACKAGE GENERATOR */}
           <div style={{ marginBottom: "48px" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "24px" }}>
-              <div>
-                <h2 style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "8px" }}>Client Packaging Matrix</h2>
-                <p style={{ color: "#94a3b8", fontSize: "15px" }}>Never quote hourly again. Pitch these SaaS-style productized tiers based on your rate.</p>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "24px", flexWrap: "wrap", gap: "16px" }}>
+              <div style={{ flex: "1 1 300px" }}>
+                <h2 style={{ fontSize: "clamp(24px, 5vw, 28px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "8px" }}>Client Packaging Matrix</h2>
+                <p style={{ color: "#94a3b8", fontSize: "clamp(14px, 3vw, 15px)" }}>Never quote hourly again. Pitch these SaaS-style productized tiers based on your rate.</p>
               </div>
-              <button onClick={handleDownloadReport} className="interactive-btn no-print" style={{ padding: "12px 24px", background: "linear-gradient(135deg, #0ea5e9, #2563eb)", color: "#fff", border: "none", borderRadius: "12px", fontWeight: "700", fontSize: "14px", display: "flex", gap: "8px", alignItems: "center", cursor: "pointer", boxShadow: "0 4px 16px rgba(14, 165, 233, 0.3)" }}>
+              <button onClick={handleDownloadReport} className="interactive-btn no-print" style={{ padding: "12px 24px", background: "linear-gradient(135deg, #0ea5e9, #2563eb)", color: "#fff", border: "none", borderRadius: "12px", fontWeight: "700", fontSize: "14px", display: "flex", gap: "8px", alignItems: "center", cursor: "pointer", boxShadow: "0 4px 16px rgba(14, 165, 233, 0.3)", whiteSpace: "nowrap" }}>
                 📄 Export PDF Report
               </button>
             </div>
@@ -355,11 +348,11 @@ export default function RateCalculator() {
                 onMouseMove={(e) => handleMouseMove(e, starterRef)}
                 onMouseLeave={() => handleMouseLeave(starterRef)}
                 className="glass-panel" 
-                style={{ borderRadius: "20px", padding: "32px", borderTop: "4px solid #94a3b8", transition: "transform 0.1s ease-out", transformStyle: "preserve-3d" }}
+                style={{ borderRadius: "20px", padding: "clamp(24px, 4vw, 32px)", borderTop: "4px solid #94a3b8", transition: "transform 0.1s ease-out", transformStyle: "preserve-3d" }}
               >
-                <h3 style={{ fontSize: "20px", fontWeight: "800", color: "#f8fafc", fontFamily: "'Syne',sans-serif", transform: "translateZ(20px)" }}>Starter / Audit</h3>
-                <p style={{ fontSize: "13px", color: "#94a3b8", marginBottom: "20px", transform: "translateZ(20px)" }}>Perfect for quick audits, consultations, or minimal viable setups.</p>
-                <div style={{ fontSize: "36px", fontWeight: "800", color: "#e2e8f0", fontFamily: "'Syne',sans-serif", marginBottom: "24px", transform: "translateZ(40px)" }}>₹{fmt(tierStarter)}</div>
+                <h3 style={{ fontSize: "clamp(18px, 4vw, 20px)", fontWeight: "800", color: "#f8fafc", fontFamily: "'Syne',sans-serif", transform: "translateZ(20px)" }}>Starter / Audit</h3>
+                <p style={{ fontSize: "13px", color: "#94a3b8", marginBottom: "20px", transform: "translateZ(20px)", minHeight: "40px" }}>Perfect for quick audits or minimal viable setups.</p>
+                <div style={{ fontSize: "clamp(28px, 6vw, 36px)", fontWeight: "800", color: "#e2e8f0", fontFamily: "'Syne',sans-serif", marginBottom: "24px", transform: "translateZ(40px)", wordBreak: "break-word" }}>₹{fmt(tierStarter)}</div>
                 <ul style={{ listStyle: "none", padding: 0, margin: 0, color: "#cbd5e1", fontSize: "14px", transform: "translateZ(10px)" }}>
                   <li style={{ marginBottom: "12px", display: "flex", gap: "8px" }}><span style={{ color: "#38bdf8" }}>✓</span> ~10 Hours of Focus</li>
                   <li style={{ marginBottom: "12px", display: "flex", gap: "8px" }}><span style={{ color: "#38bdf8" }}>✓</span> Standard Delivery</li>
@@ -373,12 +366,12 @@ export default function RateCalculator() {
                 onMouseMove={(e) => handleMouseMove(e, proRef)}
                 onMouseLeave={() => handleMouseLeave(proRef)}
                 className="glass-panel" 
-                style={{ borderRadius: "20px", padding: "32px", background: "linear-gradient(180deg, rgba(14, 165, 233, 0.1) 0%, rgba(255,255,255,0.02) 100%)", borderTop: "4px solid #0ea5e9", position: "relative", transition: "transform 0.1s ease-out", transformStyle: "preserve-3d" }}
+                style={{ borderRadius: "20px", padding: "clamp(24px, 4vw, 32px)", background: "linear-gradient(180deg, rgba(14, 165, 233, 0.1) 0%, rgba(255,255,255,0.02) 100%)", borderTop: "4px solid #0ea5e9", position: "relative", transition: "transform 0.1s ease-out", transformStyle: "preserve-3d" }}
               >
-                <div className="no-print" style={{ position: "absolute", top: "-12px", left: "50%", transform: "translateX(-50%) translateZ(30px)", background: "#0ea5e9", color: "#fff", padding: "4px 12px", borderRadius: "20px", fontSize: "11px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "1px" }}>Most Popular</div>
-                <h3 style={{ fontSize: "20px", fontWeight: "800", color: "#38bdf8", fontFamily: "'Syne',sans-serif", transform: "translateZ(20px)" }}>Professional</h3>
-                <p style={{ fontSize: "13px", color: "#94a3b8", marginBottom: "20px", transform: "translateZ(20px)" }}>The standard engagement for complete project execution.</p>
-                <div style={{ fontSize: "36px", fontWeight: "800", color: "#fff", fontFamily: "'Syne',sans-serif", marginBottom: "24px", transform: "translateZ(40px)" }}>₹{fmt(tierPro)}</div>
+                <div className="no-print" style={{ position: "absolute", top: "-12px", left: "50%", transform: "translateX(-50%) translateZ(30px)", background: "#0ea5e9", color: "#fff", padding: "4px 12px", borderRadius: "20px", fontSize: "11px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "1px", whiteSpace: "nowrap" }}>Most Popular</div>
+                <h3 style={{ fontSize: "clamp(18px, 4vw, 20px)", fontWeight: "800", color: "#38bdf8", fontFamily: "'Syne',sans-serif", transform: "translateZ(20px)" }}>Professional</h3>
+                <p style={{ fontSize: "13px", color: "#94a3b8", marginBottom: "20px", transform: "translateZ(20px)", minHeight: "40px" }}>The standard engagement for complete execution.</p>
+                <div style={{ fontSize: "clamp(28px, 6vw, 36px)", fontWeight: "800", color: "#fff", fontFamily: "'Syne',sans-serif", marginBottom: "24px", transform: "translateZ(40px)", wordBreak: "break-word" }}>₹{fmt(tierPro)}</div>
                 <ul style={{ listStyle: "none", padding: 0, margin: 0, color: "#cbd5e1", fontSize: "14px", transform: "translateZ(10px)" }}>
                   <li style={{ marginBottom: "12px", display: "flex", gap: "8px" }}><span style={{ color: "#38bdf8" }}>✓</span> ~25 Hours of Focus</li>
                   <li style={{ marginBottom: "12px", display: "flex", gap: "8px" }}><span style={{ color: "#38bdf8" }}>✓</span> Priority Delivery</li>
@@ -393,11 +386,11 @@ export default function RateCalculator() {
                 onMouseMove={(e) => handleMouseMove(e, eliteRef)}
                 onMouseLeave={() => handleMouseLeave(eliteRef)}
                 className="glass-panel" 
-                style={{ borderRadius: "20px", padding: "32px", borderTop: "4px solid #14b8a6", transition: "transform 0.1s ease-out", transformStyle: "preserve-3d" }}
+                style={{ borderRadius: "20px", padding: "clamp(24px, 4vw, 32px)", borderTop: "4px solid #14b8a6", transition: "transform 0.1s ease-out", transformStyle: "preserve-3d" }}
               >
-                <h3 style={{ fontSize: "20px", fontWeight: "800", color: "#14b8a6", fontFamily: "'Syne',sans-serif", transform: "translateZ(20px)" }}>Premium Retainer</h3>
-                <p style={{ fontSize: "13px", color: "#94a3b8", marginBottom: "20px", transform: "translateZ(20px)" }}>High-touch involvement. Acts as an integrated team member.</p>
-                <div style={{ fontSize: "36px", fontWeight: "800", color: "#e2e8f0", fontFamily: "'Syne',sans-serif", marginBottom: "24px", transform: "translateZ(40px)" }}>₹{fmt(tierElite)}<span style={{ fontSize: "16px", color: "#64748b" }}>/mo</span></div>
+                <h3 style={{ fontSize: "clamp(18px, 4vw, 20px)", fontWeight: "800", color: "#14b8a6", fontFamily: "'Syne',sans-serif", transform: "translateZ(20px)" }}>Premium Retainer</h3>
+                <p style={{ fontSize: "13px", color: "#94a3b8", marginBottom: "20px", transform: "translateZ(20px)", minHeight: "40px" }}>High-touch involvement. Acts as an integrated team.</p>
+                <div style={{ fontSize: "clamp(28px, 6vw, 36px)", fontWeight: "800", color: "#e2e8f0", fontFamily: "'Syne',sans-serif", marginBottom: "24px", transform: "translateZ(40px)", wordBreak: "break-word" }}>₹{fmt(tierElite)}<span style={{ fontSize: "16px", color: "#64748b" }}>/mo</span></div>
                 <ul style={{ listStyle: "none", padding: 0, margin: 0, color: "#cbd5e1", fontSize: "14px", transform: "translateZ(10px)" }}>
                   <li style={{ marginBottom: "12px", display: "flex", gap: "8px" }}><span style={{ color: "#14b8a6" }}>✓</span> ~50 Hours of Focus</li>
                   <li style={{ marginBottom: "12px", display: "flex", gap: "8px" }}><span style={{ color: "#14b8a6" }}>✓</span> White-Glove Support</li>

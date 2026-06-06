@@ -34,46 +34,62 @@ export default function TaxCalculator() {
     let tax = 0;
     let slabBreakdown = [];
 
-    if (taxableIncome > 300000) {
-      // Slab 1: 3L to 6L @ 5%
-      const slab1 = Math.min(taxableIncome - 300000, 300000);
+    if (taxableIncome > 400000) {
+      // Slab 1: 4L to 8L @ 5%
+      const slab1 = Math.min(taxableIncome - 400000, 400000);
       tax += slab1 * 0.05;
-      slabBreakdown.push({ range: "₹3L - ₹6L", rate: "5%", tax: slab1 * 0.05 });
+      slabBreakdown.push({ range: "₹4L - ₹8L", rate: "5%", tax: slab1 * 0.05 });
 
-      if (taxableIncome > 600000) {
-        // Slab 2: 6L to 9L @ 10%
-        const slab2 = Math.min(taxableIncome - 600000, 300000);
+      if (taxableIncome > 800000) {
+        // Slab 2: 8L to 12L @ 10%
+        const slab2 = Math.min(taxableIncome - 800000, 400000);
         tax += slab2 * 0.10;
-        slabBreakdown.push({ range: "₹6L - ₹9L", rate: "10%", tax: slab2 * 0.10 });
+        slabBreakdown.push({ range: "₹8L - ₹12L", rate: "10%", tax: slab2 * 0.10 });
 
-        if (taxableIncome > 900000) {
-          // Slab 3: 9L to 12L @ 15%
-          const slab3 = Math.min(taxableIncome - 900000, 300000);
+        if (taxableIncome > 1200000) {
+          // Slab 3: 12L to 16L @ 15%
+          const slab3 = Math.min(taxableIncome - 1200000, 400000);
           tax += slab3 * 0.15;
-          slabBreakdown.push({ range: "₹9L - ₹12L", rate: "15%", tax: slab3 * 0.15 });
+          slabBreakdown.push({ range: "₹12L - ₹16L", rate: "15%", tax: slab3 * 0.15 });
 
-          if (taxableIncome > 1200000) {
-            // Slab 4: 12L to 15L @ 20%
-            const slab4 = Math.min(taxableIncome - 1200000, 300000);
+          if (taxableIncome > 1600000) {
+            // Slab 4: 16L to 20L @ 20%
+            const slab4 = Math.min(taxableIncome - 1600000, 400000);
             tax += slab4 * 0.20;
-            slabBreakdown.push({ range: "₹12L - ₹15L", rate: "20%", tax: slab4 * 0.20 });
+            slabBreakdown.push({ range: "₹16L - ₹20L", rate: "20%", tax: slab4 * 0.20 });
 
-            if (taxableIncome > 1500000) {
-              // Slab 5: Above 15L @ 30%
-              const slab5 = taxableIncome - 1500000;
-              tax += slab5 * 0.30;
-              slabBreakdown.push({ range: "Above ₹15L", rate: "30%", tax: slab5 * 0.30 });
+            if (taxableIncome > 2000000) {
+              // Slab 5: 20L to 24L @ 25%
+              const slab5 = Math.min(taxableIncome - 2000000, 400000);
+              tax += slab5 * 0.25;
+              slabBreakdown.push({ range: "₹20L - ₹24L", rate: "25%", tax: slab5 * 0.25 });
+
+              if (taxableIncome > 2400000) {
+                // Slab 6: Above 24L @ 30%
+                const slab6 = taxableIncome - 2400000;
+                tax += slab6 * 0.30;
+                slabBreakdown.push({ range: "Above ₹24L", rate: "30%", tax: slab6 * 0.30 });
+              }
             }
           }
         }
       }
     }
 
-    // Section 87A Rebate: Full rebate if income <= 7L (New Tax Regime)
+    // Section 87A Rebate (FY 2025-26): Full rebate if income <= 12L
+    // Plus Marginal Relief for income slightly above 12L
     let rebate87A = 0;
-    if (taxableIncome <= 700000) {
+    let marginalRelief = 0;
+
+    if (taxableIncome <= 1200000) {
       rebate87A = tax;
       tax = 0;
+    } else {
+      const excessIncome = taxableIncome - 1200000;
+      if (tax > excessIncome) {
+        marginalRelief = tax - excessIncome;
+        tax = excessIncome; // Tax is capped at excess income
+      }
     }
 
     const cess = tax * 0.04;
@@ -87,6 +103,7 @@ export default function TaxCalculator() {
       taxableIncome,
       slabBreakdown,
       rebate87A,
+      marginalRelief,
       taxBeforeCess: tax,
       cess,
       totalTax,
@@ -136,7 +153,7 @@ export default function TaxCalculator() {
               <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#e2e8f0", marginBottom: "24px", display: "flex", alignItems: "center", gap: "8px" }}><span>💰</span> Your Annual Income</h2>
               
               <div style={{ marginBottom: "24px" }}>
-                <label style={{ display: "block", fontSize: "13px", fontWeight: "700", color: "#94a3b8", marginBottom: "10px", textTransform: "uppercase", letterSpacing: "0.05em" }}>Gross Receipts (FY 2024-25)</label>
+                <label style={{ display: "block", fontSize: "13px", fontWeight: "700", color: "#94a3b8", marginBottom: "10px", textTransform: "uppercase", letterSpacing: "0.05em" }}>Gross Receipts (FY 2025-26)</label>
                 <div style={{ position: "relative" }}>
                   <span style={{ position: "absolute", left: "16px", top: "50%", transform: "translateY(-50%)", color: "#64748b", fontSize: "18px", fontWeight: "600" }}>₹</span>
                   <input 
@@ -239,6 +256,13 @@ export default function TaxCalculator() {
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingBottom: "16px", borderBottom: "1px dashed rgba(255,255,255,0.1)" }}>
                       <span style={{ fontSize: "15px", color: "#34d399", fontWeight: "500" }}>Section 87A Rebate</span>
                       <span style={{ fontSize: "15px", fontWeight: "600", color: "#34d399" }}>- ₹{fmt(data.rebate87A)}</span>
+                    </div>
+                  )}
+
+                  {data.marginalRelief > 0 && (
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingBottom: "16px", borderBottom: "1px dashed rgba(255,255,255,0.1)" }}>
+                      <span style={{ fontSize: "15px", color: "#34d399", fontWeight: "500" }}>Marginal Relief</span>
+                      <span style={{ fontSize: "15px", fontWeight: "600", color: "#34d399" }}>- ₹{fmt(data.marginalRelief)}</span>
                     </div>
                   )}
 

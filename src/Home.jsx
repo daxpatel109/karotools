@@ -138,6 +138,7 @@ export default function Home() {
   const [search, setSearch] = useState("");
   const [scrolled, setScrolled] = useState(false);
   const [activeFilter, setActiveFilter] = useState("All");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const heroRef = useRef(null);
 
   // SEO Setup
@@ -267,6 +268,14 @@ export default function Home() {
         .footer-link:hover { color: #0ea5e9 !important; }
         .cta-btn-primary:hover { transform: translateY(-3px) !important; box-shadow: 0 20px 48px rgba(14,165,233,0.45) !important; }
         .cta-btn-secondary:hover { background: rgba(255,255,255,0.08) !important; border-color: rgba(14,165,233,0.3) !important; }
+
+        .desktop-nav { display: flex; gap: 4px; alignItems: center; }
+        .mobile-nav-toggle { display: none; background: transparent; border: none; color: #f8fafc; font-size: 24px; cursor: pointer; padding: 4px; }
+        
+        @media (max-width: 768px) {
+          .desktop-nav { display: none !important; }
+          .mobile-nav-toggle { display: block; }
+        }
       `}</style>
 
       <Cursor />
@@ -290,8 +299,8 @@ export default function Home() {
           <span style={{ fontSize: 22, fontWeight: 800, fontFamily: "'Syne',sans-serif", background: "linear-gradient(135deg, #0ea5e9, #14b8a6, #0ea5e9)", backgroundSize: "200% auto", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "shimmer 4s linear infinite" }}>KaroTools</span>
         </div>
 
-        {/* Nav Links */}
-        <div style={{ display: "flex", gap: 4, alignItems: "center" }}>
+        {/* Desktop Nav Links */}
+        <div className="desktop-nav">
           <button className="nav-btn" onClick={() => document.getElementById("tools-section").scrollIntoView({ behavior: "smooth" })} style={{ padding: "8px 16px", background: "transparent", border: "none", color: "#64748b", fontSize: 14, fontWeight: 500, borderRadius: 8, transition: "all 0.2s", fontFamily: "'DM Sans',sans-serif" }}>Tools</button>
           <button className="nav-btn" onClick={() => navigate("/about")} style={{ padding: "8px 16px", background: "transparent", border: "none", color: "#64748b", fontSize: 14, fontWeight: 500, borderRadius: 8, transition: "all 0.2s", fontFamily: "'DM Sans',sans-serif" }}>About</button>
           <button className="nav-btn" onClick={() => navigate("/blog")} style={{ padding: "8px 16px", background: "transparent", border: "none", color: "#64748b", fontSize: 14, fontWeight: 500, borderRadius: 8, transition: "all 0.2s", fontFamily: "'DM Sans',sans-serif" }}>Blog</button>
@@ -301,7 +310,35 @@ export default function Home() {
             Try Free Tools →
           </button>
         </div>
+
+        {/* Mobile Nav Toggle */}
+        <button className="mobile-nav-toggle" onClick={() => setIsMobileMenuOpen(true)}>
+          ☰
+        </button>
       </nav>
+
+      {/* ── MOBILE MENU OVERLAY ────────────────────────────────── */}
+      {isMobileMenuOpen && (
+        <div style={{ position: "fixed", inset: 0, zIndex: 2000, background: "rgba(2,6,23,0.98)", backdropFilter: "blur(20px)", display: "flex", flexDirection: "column", animation: "slideDown 0.3s ease" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0 5vw", height: 72, borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <div style={{ width: 38, height: 38, borderRadius: 11, background: "linear-gradient(135deg, #0ea5e9, #14b8a6)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18 }}>⚡</div>
+              <span style={{ fontSize: 22, fontWeight: 800, fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>KaroTools</span>
+            </div>
+            <button onClick={() => setIsMobileMenuOpen(false)} style={{ background: "transparent", border: "none", color: "#f8fafc", fontSize: 32, cursor: "pointer", padding: "4px" }}>×</button>
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 24, padding: "40px 5vw" }}>
+            <button onClick={() => { setIsMobileMenuOpen(false); document.getElementById("tools-section").scrollIntoView({ behavior: "smooth" }); }} style={{ background: "transparent", border: "none", color: "#f1f5f9", fontSize: 24, fontWeight: 700, fontFamily: "'Syne',sans-serif", textAlign: "left" }}>Tools</button>
+            <button onClick={() => { setIsMobileMenuOpen(false); navigate("/about"); }} style={{ background: "transparent", border: "none", color: "#f1f5f9", fontSize: 24, fontWeight: 700, fontFamily: "'Syne',sans-serif", textAlign: "left" }}>About</button>
+            <button onClick={() => { setIsMobileMenuOpen(false); navigate("/blog"); }} style={{ background: "transparent", border: "none", color: "#f1f5f9", fontSize: 24, fontWeight: 700, fontFamily: "'Syne',sans-serif", textAlign: "left" }}>Blog</button>
+            <div style={{ height: 1, background: "rgba(255,255,255,0.08)", margin: "16px 0" }} />
+            <button onClick={() => { setIsMobileMenuOpen(false); document.getElementById("tools-section").scrollIntoView({ behavior: "smooth" }); }}
+              style={{ padding: "16px", background: "linear-gradient(135deg, #0ea5e9, #14b8a6)", border: "none", borderRadius: 12, color: "#fff", fontSize: 18, fontWeight: 700, fontFamily: "'Syne',sans-serif", textAlign: "center" }}>
+              Explore Free Tools →
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* ── HERO ─────────────────────────────────────────────── */}
       <section style={{ position: "relative", zIndex: 1, minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "130px 24px 80px", overflow: "hidden" }}>

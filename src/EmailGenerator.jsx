@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const CATEGORIES = [
   { id: "cold", label: "🎯 Cold Outreach", desc: "Reach new clients" },
@@ -376,11 +377,11 @@ export default function EmailGenerator() {
           <div style={{ width: 34, height: 34, borderRadius: 10, background: "linear-gradient(135deg,#0ea5e9,#14b8a6)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16, boxShadow: "0 0 16px rgba(14,165,233,0.3)" }}>⚡</div>
           <span style={{ fontSize: 20, fontWeight: 800, fontFamily: "'Syne',sans-serif", background: "linear-gradient(135deg,#0ea5e9,#14b8a6,#0ea5e9)", backgroundSize: "200% auto", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "shimmer 4s linear infinite" }}>KaroTools</span>
         </div>
-        <button onClick={() => window.location.href = "/"} style={{ padding: "9px 18px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 10, color: "#94a3b8", fontSize: 14, fontWeight: 600, cursor: "pointer", transition: "all 0.2s" }}
+        <Link to="/" style={{ padding: "9px 18px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 10, color: "#94a3b8", fontSize: 14, fontWeight: 600, textDecoration: "none", display: "inline-flex", alignItems: "center", transition: "all 0.2s" }}
           onMouseEnter={e => { e.currentTarget.style.background = "rgba(14,165,233,0.1)"; e.currentTarget.style.borderColor = "rgba(14,165,233,0.3)"; e.currentTarget.style.color = "#38bdf8"; }}
           onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.04)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)"; e.currentTarget.style.color = "#94a3b8"; }}>
           ← Home
-        </button>
+        </Link>
       </nav>
 
       <div className="main-pad" style={{ position: "relative", zIndex: 1, maxWidth: 880, margin: "0 auto", padding: "60px 24px 80px" }}>

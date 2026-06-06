@@ -232,11 +232,15 @@ export default function InvoiceGenerator() {
   return (
     <div style={{ minHeight: "100vh", background: "#080814", fontFamily: "'DM Sans',sans-serif", color: "#f1f5f9" }}>
       <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-      <style>{`
+        <style>{`
         input::placeholder,textarea::placeholder{color:#334155}
         input:focus,textarea:focus,select:focus{border-color:rgba(167,139,250,0.5)!important;outline:none}
         @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
         select option{background:#1e293b;color:#f1f5f9}
+        .inv-details-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+        .inv-items-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr auto;gap:8px;align-items:end}
+        @media(min-width:640px){.inv-details-grid{grid-template-columns:1fr 1fr 1fr 1fr}}
+        @media(max-width:639px){.inv-items-grid{grid-template-columns:1fr 1fr;gap:8px}}
       `}</style>
 
       <div style={{ position: "fixed", inset: 0, pointerEvents: "none", background: "radial-gradient(ellipse 80% 60% at 20% 20%,rgba(124,58,237,0.1) 0%,transparent 60%)" }} />
@@ -274,7 +278,7 @@ export default function InvoiceGenerator() {
         {/* Invoice Details */}
         <div style={sec}>
           <p style={{ ...lbl, marginBottom: "14px", fontSize: "12px" }}>📋 Invoice Details</p>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: "12px" }}>
+          <div className="inv-details-grid">
             <div>
               <label style={lbl}>Invoice Number</label>
               <input value={invoice.number} onChange={e => setInvoice({ ...invoice, number: e.target.value })} style={inp} />
@@ -338,7 +342,7 @@ export default function InvoiceGenerator() {
           <p style={{ ...lbl, marginBottom: "14px", fontSize: "12px" }}>📦 Items / Services</p>
           {items.map((item, i) => (
             <div key={i} style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "12px", padding: "14px", marginBottom: "10px", animation: "fadeIn 0.3s ease" }}>
-              <div style={{ display: "grid", gridTemplateColumns: "3fr 1fr 1fr 1fr 1fr auto", gap: "8px", alignItems: "end" }}>
+              <div className="inv-items-grid">
                 <div>
                   <label style={lbl}>Description</label>
                   <input value={item.desc} onChange={e => updateItem(i, "desc", e.target.value)} placeholder="Web Design Services" style={inp} />

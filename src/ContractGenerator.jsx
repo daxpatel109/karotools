@@ -63,15 +63,24 @@ export default function ContractGenerator() {
     ["cg_fName","cg_cName","cg_pName","cg_sDate","cg_eDate","cg_fee","cg_adv","cg_rev","cg_jur"].forEach(k => localStorage.removeItem(k));
   };
 
+  const fmtINR = (n) => {
+    const num = Number(n);
+    if (isNaN(num)) return n;
+    return num.toLocaleString("en-IN");
+  };
+
   const getContractText = () => {
     const fName = freelancerName || "[Freelancer Name]";
     const cName = clientName || "[Client/Company Name]";
     const pName = projectName || "[Project Description]";
     const sDate = startDate || "[Start Date]";
     const eDate = endDate || "[End Date]";
-    const fee = totalFee || "[Total Amount]";
-    const adv = advanceFee || "[Advance Amount]";
-    const bal = (Number(totalFee || 0) - Number(advanceFee || 0)) || "[Balance Amount]";
+    
+    const feeStr = totalFee ? fmtINR(totalFee) : "[Total Amount]";
+    const advStr = advanceFee ? fmtINR(advanceFee) : "[Advance Amount]";
+    const balNum = Number(totalFee || 0) - Number(advanceFee || 0);
+    const balStr = totalFee ? fmtINR(balNum) : "[Balance Amount]";
+    
     const revs = revisions || "[X]";
     const jur = jurisdiction || "[City, State]";
     const today = new Date().toLocaleDateString('en-IN');
@@ -87,9 +96,9 @@ Freelancer: ${fName} ("Freelancer")
 The Freelancer agrees to provide the following services to the Client: ${pName} (the "Services"). The Services shall commence on ${sDate} and are expected to be completed by ${eDate}.
 
 2. PAYMENT TERMS & GST
-The total fee for the Services is ₹${fee} (exclusive of GST, which shall be charged separately if the Freelancer is GST-registered).
-The Client agrees to pay an upfront advance of ₹${adv} before work commences.
-The remaining balance of ₹${bal} shall be paid upon project completion and prior to the final handover of deliverables/source code.
+The total fee for the Services is Rs. ${feeStr} (exclusive of GST, which shall be charged separately if the Freelancer is GST-registered).
+The Client agrees to pay an upfront advance of Rs. ${advStr} before work commences.
+The remaining balance of Rs. ${balStr} shall be paid upon project completion and prior to the final handover of deliverables/source code.
 In the event of overdue payments, the Freelancer reserves the right to pause all ongoing work until the outstanding balance is cleared.
 
 3. MSME PROTECTION & LATE PAYMENT
@@ -343,9 +352,9 @@ Freelancer Signature: _______________________        Date: _______________`;
 
                 <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#1e293b", marginTop: "30px", borderBottom: "1px solid #e2e8f0", paddingBottom: "8px" }}>2. PAYMENT TERMS & GST</h3>
                 <ul style={{ paddingLeft: "20px", margin: "10px 0" }}>
-                  <li>The total fee for the Services is <strong>₹{totalFee || "[Total Amount]"}</strong> (exclusive of GST, which shall be charged separately if the Freelancer is GST-registered).</li>
-                  <li>The Client agrees to pay an upfront advance of <strong>₹{advanceFee || "[Advance Amount]"}</strong> before work commences.</li>
-                  <li>The remaining balance of <strong>₹{(Number(totalFee || 0) - Number(advanceFee || 0)) || "[Balance Amount]"}</strong> shall be paid upon project completion and prior to the final handover of deliverables/source code.</li>
+                  <li>The total fee for the Services is <strong>Rs. {totalFee ? Number(totalFee).toLocaleString("en-IN") : "[Total Amount]"}</strong> (exclusive of GST, which shall be charged separately if the Freelancer is GST-registered).</li>
+                  <li>The Client agrees to pay an upfront advance of <strong>Rs. {advanceFee ? Number(advanceFee).toLocaleString("en-IN") : "[Advance Amount]"}</strong> before work commences.</li>
+                  <li>The remaining balance of <strong>Rs. {totalFee ? Number(Number(totalFee || 0) - Number(advanceFee || 0)).toLocaleString("en-IN") : "[Balance Amount]"}</strong> shall be paid upon project completion and prior to the final handover of deliverables/source code.</li>
                   <li>In the event of overdue payments, the Freelancer reserves the right to pause all ongoing work until the outstanding balance is cleared.</li>
                 </ul>
 

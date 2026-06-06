@@ -15,6 +15,24 @@ export default function TaxCalculator() {
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) { meta = document.createElement('meta'); meta.name = "description"; document.head.appendChild(meta); }
     meta.content = "Calculate your estimated income tax under Section 44ADA (Presumptive Taxation) for Indian freelancers using the New Tax Regime.";
+
+    // Software App Schema for SEO
+    const schemaScript = document.createElement('script');
+    schemaScript.type = 'application/ld+json';
+    schemaScript.innerHTML = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Freelance Tax Calculator (Section 44ADA)",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "WebBrowser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+      "description": "Calculate estimated income tax for Indian freelancers under Section 44ADA (Presumptive Taxation) using the FY 2025-26 New Tax Regime."
+    });
+    document.head.appendChild(schemaScript);
+
+    return () => {
+      if (document.head.contains(schemaScript)) document.head.removeChild(schemaScript);
+    };
   }, []);
 
   const calculateTax = () => {
@@ -210,7 +228,7 @@ export default function TaxCalculator() {
                   <p style={{ fontSize: "13px", fontWeight: "700", color: isOverLimit ? "#f87171" : "#94a3b8", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "8px" }}>
                     {isOverLimit ? "Hypothetical Tax Liability" : "Estimated Tax Liability"}
                   </p>
-                  <h2 style={{ fontSize: "clamp(40px, 6vw, 56px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: data.totalTax === 0 ? "#34d399" : (isOverLimit ? "#fca5a5" : "#f8fafc"), margin: 0, lineHeight: 1 }}>
+                  <h2 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: data.totalTax === 0 ? "#34d399" : (isOverLimit ? "#fca5a5" : "#f8fafc"), margin: 0, lineHeight: 1.1, wordBreak: "break-word", overflowWrap: "anywhere" }}>
                     ₹{fmt(data.totalTax)}
                   </h2>
                   {data.totalTax === 0 && <p style={{ fontSize: "14px", color: "#34d399", fontWeight: "600", marginTop: "12px" }}>🎉 100% Tax Free via Section 87A Rebate</p>}

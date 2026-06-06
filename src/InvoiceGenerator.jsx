@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 
-const emptyItem = () => ({ desc: "", hsn: "", qty: 1, rate: "", gst: 18 });
+const emptyItem = () => ({ desc: "", hsn: "", qty: 1, rate: "", discount: 0, gst: 18 });
 
 const genInvoiceNo = () => {
   const y = new Date().getFullYear();
@@ -24,30 +24,75 @@ export default function InvoiceGenerator() {
     let canonical = document.querySelector('link[rel="canonical"]');
     if (!canonical) { canonical = document.createElement('link'); canonical.rel = "canonical"; document.head.appendChild(canonical); }
     canonical.href = "https://karotools.vercel.app/invoice-generator";
+
+    // Software App Schema
+    const schemaScript = document.createElement('script');
+    schemaScript.type = 'application/ld+json';
+    schemaScript.innerHTML = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "KaroTools GST Invoice Generator",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "WebBrowser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+      "description": "Create professional GST invoices instantly and download as PDF."
+    });
+    document.head.appendChild(schemaScript);
+
+    // FAQ Schema
+    const faqSchemaScript = document.createElement('script');
+    faqSchemaScript.type = 'application/ld+json';
+    faqSchemaScript.innerHTML = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "What is a GST Invoice?", "acceptedAnswer": { "@type": "Answer", "text": "A GST invoice is an official document issued by a GST-registered business when selling goods or services." } },
+        { "@type": "Question", "name": "Who needs to issue a GST Invoice in India?", "acceptedAnswer": { "@type": "Answer", "text": "Any GST-registered business with turnover above ₹40 lakhs (goods) or ₹20 lakhs (services) must issue GST invoices." } },
+        { "@type": "Question", "name": "What is CGST, SGST and IGST?", "acceptedAnswer": { "@type": "Answer", "text": "CGST + SGST apply for intra-state transactions. IGST applies for inter-state transactions." } }
+      ]
+    });
+    document.head.appendChild(faqSchemaScript);
+
+    return () => {
+      if (document.head.contains(schemaScript)) document.head.removeChild(schemaScript);
+      if (document.head.contains(faqSchemaScript)) document.head.removeChild(faqSchemaScript);
+    };
   }, []);
   const [seller, setSeller] = useState({ name: "", address: "", gstin: "", phone: "", email: "" });
   const [buyer, setBuyer] = useState({ name: "", address: "", gstin: "", phone: "", email: "" });
   const [invoice, setInvoice] = useState({ number: genInvoiceNo(), date: new Date().toISOString().split("T")[0], due: "", notes: "Payment due within 15 days. Thank you for your business!", status: "pending" });
   const [items, setItems] = useState([emptyItem()]);
   const [transType, setTransType] = useState("intra");
+  const [rcm, setRcm] = useState(false);
   const [logo, setLogo] = useState(null);
   const [errors, setErrors] = useState({});
   const logoRef = useRef();
+
+  // Auto-detect Intra/Inter state based on GSTIN prefixes
+  useEffect(() => {
+    if (seller.gstin && buyer.gstin && seller.gstin.length >= 2 && buyer.gstin.length >= 2) {
+      const sCode = seller.gstin.substring(0, 2);
+      const bCode = buyer.gstin.substring(0, 2);
+      setTransType(sCode === bCode ? "intra" : "inter");
+    }
+  }, [seller.gstin, buyer.gstin]);
 
   const updateItem = (i, k, v) => { const u = [...items]; u[i] = { ...u[i], [k]: v }; setItems(u); };
   const addItem = () => setItems([...items, emptyItem()]);
   const removeItem = (i) => items.length > 1 && setItems(items.filter((_, idx) => idx !== i));
 
   const calcItem = (item) => {
-    const base = (parseFloat(item.qty) || 0) * (parseFloat(item.rate) || 0);
-    const gstAmt = (base * item.gst) / 100;
-    return { base, gstAmt, total: base + gstAmt };
+    const grossBase = (parseFloat(item.qty) || 0) * (parseFloat(item.rate) || 0);
+    const discountAmt = (grossBase * (parseFloat(item.discount) || 0)) / 100;
+    const taxableBase = grossBase - discountAmt;
+    const gstAmt = (taxableBase * item.gst) / 100;
+    return { grossBase, discountAmt, taxableBase, gstAmt, total: taxableBase + gstAmt };
   };
 
   const totals = items.reduce((a, item) => {
     const c = calcItem(item);
-    return { base: a.base + c.base, gst: a.gst + c.gstAmt, total: a.total + c.total };
-  }, { base: 0, gst: 0, total: 0 });
+    return { gross: a.gross + c.grossBase, discount: a.discount + c.discountAmt, base: a.base + c.taxableBase, gst: a.gst + c.gstAmt, total: a.total + c.total };
+  }, { gross: 0, discount: 0, base: 0, gst: 0, total: 0 });
 
   const validate = () => {
     const e = {};
@@ -88,6 +133,7 @@ export default function InvoiceGenerator() {
     doc.text(`No: ${invoice.number}`, textStart, 28);
     doc.text(`Date: ${invoice.date}`, textStart + 50, 28);
     if (invoice.due) doc.text(`Due: ${invoice.due}`, textStart + 100, 28);
+    doc.text(`Reverse Charge: ${rcm ? "Yes" : "No"}`, textStart, 34);
 
     // Status badge
     const sc = invoice.status === "paid" ? [52, 211, 153] : invoice.status === "overdue" ? [248, 113, 113] : [245, 158, 11];
@@ -133,12 +179,20 @@ export default function InvoiceGenerator() {
     if (buyer.email) { doc.text(`Email: ${buyer.email}`, 120, by); }
 
     // Items Table
+    const hasDiscount = totals.discount > 0;
+    const head = hasDiscount 
+      ? [["#", "Description", "HSN/SAC", "Qty", "Rate", "Disc%", "Taxable", "GST%", "GST Amt", "Total"]]
+      : [["#", "Description", "HSN/SAC", "Qty", "Rate (₹)", "Taxable (₹)", "GST%", "GST (₹)", "Total (₹)"]];
+
     autoTable(doc, {
       startY: 100,
-      head: [["#", "Description", "HSN/SAC", "Qty", "Rate (₹)", "GST%", "GST (₹)", "Total (₹)"]],
+      head: head,
       body: items.map((item, i) => {
         const c = calcItem(item);
-        return [i + 1, item.desc || "-", item.hsn || "-", item.qty, fmtINR(item.rate), `${item.gst}%`, fmtINR(c.gstAmt), fmtINR(c.total)];
+        if (hasDiscount) {
+          return [i + 1, item.desc || "-", item.hsn || "-", item.qty, fmtINR(item.rate), `${item.discount}%`, fmtINR(c.taxableBase), `${item.gst}%`, fmtINR(c.gstAmt), fmtINR(c.total)];
+        }
+        return [i + 1, item.desc || "-", item.hsn || "-", item.qty, fmtINR(item.rate), fmtINR(c.taxableBase), `${item.gst}%`, fmtINR(c.gstAmt), fmtINR(c.total)];
       }),
       headStyles: { fillColor: purple, textColor: 255, fontStyle: "bold", fontSize: 8, halign: "center" },
       bodyStyles: { textColor: dark, fontSize: 8, halign: "center" },
@@ -168,7 +222,7 @@ export default function InvoiceGenerator() {
     doc.setFontSize(9);
     let ty = fy + 10;
     const rows = [
-      ["Subtotal:", fmtINR(totals.base)],
+      ["Taxable Amount:", fmtINR(totals.base)],
       ...(transType === "intra"
         ? [["CGST:", fmtINR(totals.gst / 2)], ["SGST:", fmtINR(totals.gst / 2)]]
         : [["IGST:", fmtINR(totals.gst)]]),
@@ -238,7 +292,7 @@ export default function InvoiceGenerator() {
         @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
         select option{background:#1e293b;color:#f1f5f9}
         .inv-details-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-        .inv-items-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr auto;gap:8px;align-items:end}
+        .inv-items-grid{display:grid;grid-template-columns:2fr 0.8fr 0.6fr 1fr 0.8fr 0.8fr auto;gap:8px;align-items:end}
         @media(min-width:640px){.inv-details-grid{grid-template-columns:1fr 1fr 1fr 1fr}}
         @media(max-width:639px){.inv-items-grid{grid-template-columns:1fr 1fr;gap:8px}}
       `}</style>
@@ -302,9 +356,15 @@ export default function InvoiceGenerator() {
           </div>
         </div>
 
-        {/* Transaction Type */}
+        {/* Transaction Type & RCM */}
         <div style={sec}>
-          <p style={{ ...lbl, marginBottom: "12px", fontSize: "12px" }}>Transaction Type</p>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px", flexWrap: "wrap", gap: "10px" }}>
+            <p style={{ ...lbl, marginBottom: "0", fontSize: "12px" }}>Transaction Type <span style={{ color: "#34d399", fontSize: "10px", marginLeft: "8px", fontWeight: "normal", textTransform: "none" }}>{seller.gstin?.length >= 2 && buyer.gstin?.length >= 2 && "(Auto-detected from GSTINs)"}</span></p>
+            <label style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "13px", cursor: "pointer" }}>
+              <input type="checkbox" checked={rcm} onChange={e => setRcm(e.target.checked)} style={{ accentColor: "#7c3aed", width: "16px", height: "16px" }} />
+              Reverse Charge Applicable (RCM)
+            </label>
+          </div>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px" }}>
             {[["intra", "🏙 Intra-State", "CGST + SGST"], ["inter", "🌐 Inter-State", "IGST only"]].map(([val, label, sub]) => (
               <button key={val} onClick={() => setTransType(val)} style={{ padding: "12px", borderRadius: "10px", border: "1px solid", borderColor: transType === val ? "#7c3aed" : "rgba(255,255,255,0.08)", background: transType === val ? "rgba(124,58,237,0.2)" : "rgba(255,255,255,0.03)", color: transType === val ? "#a78bfa" : "#64748b", cursor: "pointer", textAlign: "left", transition: "all 0.2s" }}>
@@ -360,6 +420,10 @@ export default function InvoiceGenerator() {
                   <input type="number" value={item.rate} onChange={e => updateItem(i, "rate", e.target.value)} placeholder="5000" style={inp} />
                 </div>
                 <div>
+                  <label style={lbl}>Disc %</label>
+                  <input type="number" value={item.discount} onChange={e => updateItem(i, "discount", e.target.value)} placeholder="0" style={inp} />
+                </div>
+                <div>
                   <label style={lbl}>GST %</label>
                   <select value={item.gst} onChange={e => updateItem(i, "gst", parseInt(e.target.value))} style={{ ...inp, cursor: "pointer" }}>
                     {[0, 5, 12, 18, 28].map(r => <option key={r} value={r}>{r}%</option>)}
@@ -369,7 +433,7 @@ export default function InvoiceGenerator() {
               </div>
               {item.rate && (
                 <div style={{ marginTop: "8px", display: "flex", gap: "16px" }}>
-                  <span style={{ fontSize: "11px", color: "#64748b" }}>Base: <b style={{ color: "#60a5fa" }}>₹{fmtINR(calcItem(item).base)}</b></span>
+                  <span style={{ fontSize: "11px", color: "#64748b" }}>Taxable: <b style={{ color: "#60a5fa" }}>₹{fmtINR(calcItem(item).taxableBase)}</b></span>
                   <span style={{ fontSize: "11px", color: "#64748b" }}>GST: <b style={{ color: "#a78bfa" }}>₹{fmtINR(calcItem(item).gstAmt)}</b></span>
                   <span style={{ fontSize: "11px", color: "#64748b" }}>Total: <b style={{ color: "#34d399" }}>₹{fmtINR(calcItem(item).total)}</b></span>
                 </div>
@@ -391,7 +455,7 @@ export default function InvoiceGenerator() {
         <div style={{ ...sec, background: "linear-gradient(135deg,rgba(124,58,237,0.15),rgba(37,99,235,0.1))", border: "1px solid rgba(124,58,237,0.3)" }}>
           <p style={{ ...lbl, marginBottom: "16px", fontSize: "12px" }}>💰 Invoice Summary</p>
           {[
-            { label: "Subtotal", value: totals.base, color: "#60a5fa" },
+            { label: "Taxable Amount", value: totals.base, color: "#60a5fa" },
             ...(transType === "intra"
               ? [{ label: "CGST", value: totals.gst / 2, color: "#34d399" }, { label: "SGST", value: totals.gst / 2, color: "#f472b6" }]
               : [{ label: "IGST", value: totals.gst, color: "#fb923c" }])

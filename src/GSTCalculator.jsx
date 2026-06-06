@@ -6,6 +6,7 @@ export default function GSTCalculator() {
   const [gstRate, setGstRate] = useState(18);
   const [customRate, setCustomRate] = useState("");
   const [isCustom, setIsCustom] = useState(false);
+  const [cessRate, setCessRate] = useState(0);
   const [type, setType] = useState("exclusive");
   const [transactionType, setTransactionType] = useState("intra");
   const [roundOff, setRoundOff] = useState(false);
@@ -52,8 +53,24 @@ export default function GSTCalculator() {
     });
     document.head.appendChild(schemaScript);
 
+    // FAQ Schema
+    const faqSchemaScript = document.createElement('script');
+    faqSchemaScript.type = 'application/ld+json';
+    faqSchemaScript.innerHTML = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "What are GST slabs in India 2026?", "acceptedAnswer": { "@type": "Answer", "text": "India has 6 GST slabs: 0%, 0.25%, 3%, 5%, 12%, 18%, and 28%." } },
+        { "@type": "Question", "name": "What is GST on restaurant food?", "acceptedAnswer": { "@type": "Answer", "text": "Restaurant GST is 5% for non-AC restaurants and standalone restaurants. AC restaurants in hotels with room tariff below ₹7500 also charge 5%. No ITC is available." } },
+        { "@type": "Question", "name": "What is GST on gold in India?", "acceptedAnswer": { "@type": "Answer", "text": "GST on gold is 3% on the value of gold, plus 5% on making charges." } },
+        { "@type": "Question", "name": "What is IGST vs CGST/SGST?", "acceptedAnswer": { "@type": "Answer", "text": "For intra-state transactions, GST splits equally into CGST (Central) + SGST (State). For inter-state transactions, IGST (Integrated GST) is charged." } }
+      ]
+    });
+    document.head.appendChild(faqSchemaScript);
+
     return () => {
       if (document.head.contains(schemaScript)) document.head.removeChild(schemaScript);
+      if (document.head.contains(faqSchemaScript)) document.head.removeChild(faqSchemaScript);
     };
   }, []);
 
@@ -65,35 +82,40 @@ export default function GSTCalculator() {
       return; 
     }
 
-    let base, gst, total;
+    let base, gst, cess, total;
     if (type === "exclusive") {
       base = amt;
       gst = (amt * activeRate) / 100;
-      total = amt + gst;
+      cess = (amt * cessRate) / 100;
+      total = amt + gst + cess;
     } else {
       total = amt;
-      base = (amt * 100) / (100 + activeRate);
-      gst = total - base;
+      base = (amt * 100) / (100 + activeRate + cessRate);
+      gst = (base * activeRate) / 100;
+      cess = (base * cessRate) / 100;
     }
 
     if (roundOff) {
       base = Math.round(base);
       gst = Math.round(gst);
+      cess = Math.round(cess);
       total = Math.round(total);
     }
 
     const r = {
       base: base.toFixed(roundOff ? 0 : 2),
       gst: gst.toFixed(roundOff ? 0 : 2),
+      cess: cess.toFixed(roundOff ? 0 : 2),
       total: total.toFixed(roundOff ? 0 : 2),
       cgst: (gst / 2).toFixed(roundOff ? 0 : 2),
       sgst: (gst / 2).toFixed(roundOff ? 0 : 2),
       igst: gst.toFixed(roundOff ? 0 : 2),
       basePercent: total > 0 ? Math.round((base / total) * 100) : 0,
       gstPercent: total > 0 ? Math.round((gst / total) * 100) : 0,
+      cessPercent: total > 0 ? Math.round((cess / total) * 100) : 0,
     };
     setResult(r);
-  }, [amount, activeRate, type, roundOff]);
+  }, [amount, activeRate, type, roundOff, cessRate]);
 
   const addToHistory = () => {
     if (!result) return;
@@ -147,6 +169,7 @@ export default function GSTCalculator() {
     setRoundOff(false);
     setPreset(null);
     setIsCustom(false);
+    setCessRate(0);
   };
 
   return (
@@ -400,6 +423,23 @@ export default function GSTCalculator() {
           </div>
 
           <div style={{ marginBottom: "32px" }}>
+            <label style={{ display: "block", fontWeight: "700", color: "#cbd5e1", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Compensation Cess (Optional)</label>
+            <div className="input-glow" style={{ borderRadius: "16px", border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.03)", display: "flex", alignItems: "center", padding: "4px 20px" }}>
+              <input type="number" value={cessRate === 0 ? "" : cessRate} 
+                onWheel={(e) => e.target.blur()}
+                onChange={e => {
+                  const val = e.target.value;
+                  if (val === "" || Number(val) >= 0) setCessRate(val === "" ? 0 : Number(val));
+                }} 
+                placeholder="0"
+                style={{ width: "100%", padding: "14px 0", background: "transparent", border: "none", fontSize: "18px", color: "#f8fafc", outline: "none", fontWeight: "600", fontFamily: "'Syne',sans-serif" }}
+              />
+              <span style={{ fontSize: "18px", color: "#64748b", fontWeight: "500", marginLeft: "12px" }}>%</span>
+            </div>
+            <p style={{ color: "#64748b", fontSize: "11px", marginTop: "8px", paddingLeft: "4px" }}>Applicable mostly on 28% slab goods like automobiles, tobacco, and aerated drinks.</p>
+          </div>
+
+          <div style={{ marginBottom: "32px" }}>
             <label style={{ display: "block", fontWeight: "700", color: "#cbd5e1", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Transaction Type</label>
             <div className="responsive-grid">
               {[["intra", "🏙 Intra-State", "CGST + SGST"], ["inter", "🌐 Inter-State", "IGST only"]].map(([val, label, sub]) => (
@@ -460,10 +500,16 @@ export default function GSTCalculator() {
                   <p style={{ fontSize: "64px", fontWeight: "800", fontFamily: "'Syne',sans-serif", background: "linear-gradient(135deg, #ffffff, #bae6fd)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "countUp 0.4s cubic-bezier(0.16, 1, 0.3, 1)", lineHeight: 1, filter: "drop-shadow(0 4px 20px rgba(14, 165, 233, 0.3))" }}>
                     ₹{fmt(result.total)}
                   </p>
-                  <div style={{ display: "inline-flex", alignItems: "center", gap: "12px", background: "rgba(0,0,0,0.2)", padding: "8px 20px", borderRadius: "30px", marginTop: "24px", border: "1px solid rgba(255,255,255,0.05)" }}>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: "12px", background: "rgba(0,0,0,0.2)", padding: "8px 20px", borderRadius: "30px", marginTop: "24px", border: "1px solid rgba(255,255,255,0.05)", flexWrap: "wrap", justifyContent: "center" }}>
                     <span style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "500" }}><strong style={{ color: "#cbd5e1" }}>₹{fmt(result.base)}</strong> Base</span>
                     <span style={{ color: "#475569" }}>+</span>
                     <span style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "500" }}><strong style={{ color: "#cbd5e1" }}>₹{fmt(result.gst)}</strong> GST</span>
+                    {cessRate > 0 && (
+                      <>
+                        <span style={{ color: "#475569" }}>+</span>
+                        <span style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "500" }}><strong style={{ color: "#cbd5e1" }}>₹{fmt(result.cess)}</strong> Cess</span>
+                      </>
+                    )}
                   </div>
                 </>
               ) : (
@@ -475,10 +521,16 @@ export default function GSTCalculator() {
                   <p style={{ fontSize: "64px", fontWeight: "800", fontFamily: "'Syne',sans-serif", background: "linear-gradient(135deg, #ffffff, #99f6e4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "countUp 0.4s cubic-bezier(0.16, 1, 0.3, 1)", lineHeight: 1, filter: "drop-shadow(0 4px 20px rgba(20,184,166,0.3))" }}>
                     ₹{fmt(result.base)}
                   </p>
-                  <div style={{ display: "inline-flex", alignItems: "center", gap: "12px", background: "rgba(0,0,0,0.2)", padding: "8px 20px", borderRadius: "30px", marginTop: "24px", border: "1px solid rgba(255,255,255,0.05)" }}>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: "12px", background: "rgba(0,0,0,0.2)", padding: "8px 20px", borderRadius: "30px", marginTop: "24px", border: "1px solid rgba(255,255,255,0.05)", flexWrap: "wrap", justifyContent: "center" }}>
                     <span style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "500" }}><strong style={{ color: "#cbd5e1" }}>₹{fmt(result.base)}</strong> Base</span>
                     <span style={{ color: "#475569" }}>+</span>
                     <span style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "500" }}><strong style={{ color: "#2dd4bf" }}>₹{fmt(result.gst)}</strong> GST</span>
+                    {cessRate > 0 && (
+                      <>
+                        <span style={{ color: "#475569" }}>+</span>
+                        <span style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "500" }}><strong style={{ color: "#2dd4bf" }}>₹{fmt(result.cess)}</strong> Cess</span>
+                      </>
+                    )}
                     <span style={{ color: "#475569" }}>=</span>
                     <span style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "500" }}><strong style={{ color: "#cbd5e1" }}>₹{fmt(result.total)}</strong> Paid</span>
                   </div>
@@ -491,6 +543,7 @@ export default function GSTCalculator() {
               {[
                 { label: "Base Amount", value: result.base, color: "#93c5fd", icon: "💎" },
                 { label: `Total GST (${activeRate}%)`, value: result.gst, color: "#bae6fd", icon: "🏛" },
+                ...(cessRate > 0 ? [{ label: `Cess (${cessRate}%)`, value: result.cess, color: "#f87171", icon: "🔥" }] : []),
                 ...(transactionType === "intra"
                   ? [{ label: "CGST (Central)", value: result.cgst, color: "#5eead4", icon: "🏛" }, { label: "SGST (State)", value: result.sgst, color: "#7dd3fc", icon: "🏛" }]
                   : [{ label: "IGST (Integrated)", value: result.igst, color: "#fcd34d", icon: "🌐" }])
@@ -514,8 +567,13 @@ export default function GSTCalculator() {
                 <div style={{ width: result.gstPercent + "%", background: "linear-gradient(90deg, #0ea5e9, #14b8a6)", borderRadius: "8px", transition: "width 0.8s cubic-bezier(0.16, 1, 0.3, 1)", position: "relative", overflow: "hidden" }}>
                   <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, background: "linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)" }}/>
                 </div>
+                {cessRate > 0 && (
+                  <div style={{ width: result.cessPercent + "%", background: "linear-gradient(90deg, #ef4444, #f87171)", borderRadius: "8px", transition: "width 0.8s cubic-bezier(0.16, 1, 0.3, 1)", position: "relative", overflow: "hidden" }}>
+                    <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, background: "linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)" }}/>
+                  </div>
+                )}
               </div>
-              <div style={{ display: "flex", justifyContent: "space-between", marginTop: "16px" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", marginTop: "16px", flexWrap: "wrap", gap: "10px" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                   <div style={{ width: "12px", height: "12px", borderRadius: "4px", background: "#3b82f6" }} />
                   <span style={{ fontSize: "14px", color: "#e2e8f0", fontWeight: "600" }}>Base <span style={{ color: "#94a3b8", fontWeight: "500", marginLeft: "4px" }}>{result.basePercent}%</span></span>
@@ -524,6 +582,12 @@ export default function GSTCalculator() {
                   <div style={{ width: "12px", height: "12px", borderRadius: "4px", background: "#0ea5e9" }} />
                   <span style={{ fontSize: "14px", color: "#e2e8f0", fontWeight: "600" }}>Tax <span style={{ color: "#94a3b8", fontWeight: "500", marginLeft: "4px" }}>{result.gstPercent}%</span></span>
                 </div>
+                {cessRate > 0 && (
+                  <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                    <div style={{ width: "12px", height: "12px", borderRadius: "4px", background: "#ef4444" }} />
+                    <span style={{ fontSize: "14px", color: "#e2e8f0", fontWeight: "600" }}>Cess <span style={{ color: "#94a3b8", fontWeight: "500", marginLeft: "4px" }}>{result.cessPercent}%</span></span>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -531,8 +595,8 @@ export default function GSTCalculator() {
               <p style={{ color: "#64748b", fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "12px" }}>Calculation Formula Used</p>
               <p style={{ color: "#38bdf8", fontSize: "14px", fontFamily: "monospace", letterSpacing: "0.05em", background: "rgba(0,0,0,0.2)", padding: "12px", borderRadius: "8px", border: "1px solid rgba(14, 165, 233, 0.1)" }}>
                 {type === "exclusive"
-                  ? `GST = ₹${amount} × ${activeRate} ÷ 100 = ₹${result.gst}`
-                  : `Base = ₹${amount} × 100 ÷ (100 + ${activeRate}) = ₹${result.base}`}
+                  ? `GST = ₹${amount} × ${activeRate} ÷ 100 = ₹${result.gst}${cessRate > 0 ? `\nCess = ₹${amount} × ${cessRate} ÷ 100 = ₹${result.cess}` : ""}`
+                  : `Base = ₹${amount} × 100 ÷ (100 + ${activeRate} + ${cessRate}) = ₹${result.base}`}
               </p>
             </div>
 

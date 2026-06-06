@@ -38,10 +38,24 @@ export default function RateCalculator() {
     });
     document.head.appendChild(schemaScript);
 
+    // FAQ Schema
+    const faqSchemaScript = document.createElement('script');
+    faqSchemaScript.type = 'application/ld+json';
+    faqSchemaScript.innerHTML = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Why do I need a Profit Margin buffer?", "acceptedAnswer": { "@type": "Answer", "text": "Traditional jobs provide paid time off, health insurance, etc. Freelancers pay for this out-of-pocket. The margin covers software licenses, sick days, taxes, and ensures growth." } },
+        { "@type": "Question", "name": "What are 'Billable' vs 'Non-Billable' hours?", "acceptedAnswer": { "@type": "Answer", "text": "If you work 8 hours a day, you usually only do 5-6 hours of actual client work. The rest is spent on admin, answering emails, pitching, and invoicing. Calculate based on billable hours." } },
+        { "@type": "Question", "name": "Should I quote my hourly rate directly to clients?", "acceptedAnswer": { "@type": "Answer", "text": "Generally, no. Use this to find your internal baseline, estimate how long a project will take, multiply it by this rate, and pitch a Flat Project Package." } },
+        { "@type": "Question", "name": "Does this calculation include GST or TDS?", "acceptedAnswer": { "@type": "Answer", "text": "No, this is your base take-home requirement. Add 18% GST on top of your quoted price if registered, and account for client TDS deductions." } }
+      ]
+    });
+    document.head.appendChild(faqSchemaScript);
+
     return () => {
-      if (document.head.contains(schemaScript)) {
-        document.head.removeChild(schemaScript);
-      }
+      if (document.head.contains(schemaScript)) document.head.removeChild(schemaScript);
+      if (document.head.contains(faqSchemaScript)) document.head.removeChild(faqSchemaScript);
     };
   }, []);
 

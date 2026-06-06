@@ -200,8 +200,30 @@ export default function BioGenerator() {
     if (!meta) { meta = document.createElement('meta'); meta.name = "description"; document.head.appendChild(meta); }
     meta.content = "Generate catchy Instagram bios, LinkedIn headlines, and Twitter bios instantly. Free bio generator for Indian freelancers. No login required.";
     let canonical = document.querySelector('link[rel="canonical"]');
-    if (!canonical) { canonical = document.createElement('link'); canonical.rel = "canonical"; document.head.appendChild(canonical); }
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.rel = "canonical";
+      document.head.appendChild(canonical);
+    }
     canonical.href = "https://karotools.vercel.app/bio-generator";
+
+    // Software App Schema
+    const schemaScript = document.createElement('script');
+    schemaScript.type = 'application/ld+json';
+    schemaScript.innerHTML = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "KaroTools Bio Generator",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "WebBrowser",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+      "description": "Generate professional and creative bios for Twitter, LinkedIn, Instagram, and more using AI."
+    });
+    document.head.appendChild(schemaScript);
+
+    return () => {
+      if (document.head.contains(schemaScript)) document.head.removeChild(schemaScript);
+    };
   }, []);
   const [name,        setName]        = useState("");
   const [profession,  setProfession]  = useState("Web Developer");

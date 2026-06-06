@@ -40,10 +40,32 @@ export default function Blog() {
           We are currently writing the ultimate guides on freelancing, tax filing, and client management in India. 
         </p>
 
-        <div style={{ display: "inline-block", background: "linear-gradient(135deg, rgba(14,165,233,0.1), rgba(139,92,246,0.1))", border: "1px solid rgba(14,165,233,0.3)", borderRadius: "20px", padding: "24px 40px" }}>
-          <p style={{ fontSize: "16px", color: "#e2e8f0", fontWeight: "600", margin: 0, letterSpacing: "2px", textTransform: "uppercase" }}>
-            Coming Very Soon
-          </p>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "24px", textAlign: "left" }}>
+          
+          {/* Blog Post Card */}
+          <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "24px", padding: "32px", transition: "all 0.3s", cursor: "pointer", position: "relative", overflow: "hidden" }}
+               onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-6px)"; e.currentTarget.style.borderColor = "rgba(139,92,246,0.3)"; e.currentTarget.style.background = "rgba(139,92,246,0.05)" }}
+               onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)"; e.currentTarget.style.background = "rgba(255,255,255,0.02)" }}
+               onClick={() => window.location.href = "/blog/msme-45-day-rule"}>
+            
+            <div style={{ display: "flex", gap: "12px", marginBottom: "20px", alignItems: "center" }}>
+              <span style={{ background: "rgba(139,92,246,0.1)", color: "#a78bfa", padding: "4px 12px", borderRadius: "50px", fontSize: "11px", fontWeight: "700", letterSpacing: "0.05em" }}>LEGAL & TAX</span>
+              <span style={{ color: "#64748b", fontSize: "12px" }}>June 6, 2026</span>
+            </div>
+            
+            <h2 style={{ fontSize: "24px", fontWeight: "700", fontFamily: "'Syne',sans-serif", color: "#f1f5f9", marginBottom: "16px", lineHeight: "1.3" }}>
+              The Freelancer's Guide to the MSME 45-Day Payment Rule (Section 43B(h))
+            </h2>
+            
+            <p style={{ color: "#94a3b8", fontSize: "15px", lineHeight: "1.6", marginBottom: "24px" }}>
+              Learn how the government protects Indian freelancers from late payments, and how to enforce the 45-day rule with your clients.
+            </p>
+            
+            <div style={{ color: "#a78bfa", fontWeight: "600", fontSize: "14px", display: "flex", alignItems: "center", gap: "8px" }}>
+              Read Article <span>→</span>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>

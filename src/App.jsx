@@ -8,6 +8,7 @@ import RateCalculator from "./RateCalculator";
 import ContractGenerator from "./ContractGenerator";
 import About from "./About";
 import Blog from "./Blog";
+import BlogPost1 from "./BlogPost1";
 import { PrivacyPolicy, TermsConditions, ContactUs } from "./LegalPages";
 
 // 404 Not Found page
@@ -64,6 +65,7 @@ export default function App() {
       <Route path="/contact" element={<ContactUs />} />
       <Route path="/about" element={<About />} />
       <Route path="/blog" element={<Blog />} />
+      <Route path="/blog/msme-45-day-rule" element={<BlogPost1 />} />
       {/* 404 catch-all */}
       <Route path="*" element={<NotFound />} />
     </Routes>

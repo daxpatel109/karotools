@@ -2,18 +2,20 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default function GSTCalculator() {
-  const [amount, setAmount] = useState("");
-  const [gstRate, setGstRate] = useState(18);
-  const [customRate, setCustomRate] = useState("");
-  const [isCustom, setIsCustom] = useState(false);
-  const [cessRate, setCessRate] = useState(0);
-  const [type, setType] = useState("exclusive");
-  const [transactionType, setTransactionType] = useState("intra");
-  const [roundOff, setRoundOff] = useState(false);
+  const [amount, setAmount] = useState(() => localStorage.getItem("gst_amount") || "");
+  const [gstRate, setGstRate] = useState(() => Number(localStorage.getItem("gst_rate")) || 18);
+  const [customRate, setCustomRate] = useState(() => localStorage.getItem("gst_customRate") || "");
+  const [isCustom, setIsCustom] = useState(() => localStorage.getItem("gst_isCustom") === "true");
+  const [cessRate, setCessRate] = useState(() => Number(localStorage.getItem("gst_cessRate")) || 0);
+  const [type, setType] = useState(() => localStorage.getItem("gst_type") || "exclusive");
+  const [transactionType, setTransactionType] = useState(() => localStorage.getItem("gst_transactionType") || "intra");
+  const [roundOff, setRoundOff] = useState(() => localStorage.getItem("gst_roundOff") === "true");
   const [copied, setCopied] = useState(false);
   const [result, setResult] = useState(null);
-  const [history, setHistory] = useState([]);
-  const [preset, setPreset] = useState(null);
+  const [history, setHistory] = useState(() => {
+    try { return JSON.parse(localStorage.getItem("gst_history")) || []; } catch { return []; }
+  });
+  const [preset, setPreset] = useState(() => localStorage.getItem("gst_preset") || null);
 
   const activeRate = isCustom ? (customRate === "" ? NaN : Number(customRate)) : Number(gstRate);
 
@@ -30,6 +32,7 @@ export default function GSTCalculator() {
 
   // SERP SEO & Schema Injection
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "Free Online GST Calculator India | KaroTools";
     
     let metaDescription = document.querySelector('meta[name="description"]');
@@ -73,6 +76,19 @@ export default function GSTCalculator() {
       if (document.head.contains(faqSchemaScript)) document.head.removeChild(faqSchemaScript);
     };
   }, []);
+
+  // Save to Local Storage
+  useEffect(() => {
+    localStorage.setItem("gst_amount", amount);
+    localStorage.setItem("gst_rate", gstRate);
+    localStorage.setItem("gst_customRate", customRate);
+    localStorage.setItem("gst_isCustom", isCustom);
+    localStorage.setItem("gst_cessRate", cessRate);
+    localStorage.setItem("gst_type", type);
+    localStorage.setItem("gst_transactionType", transactionType);
+    localStorage.setItem("gst_roundOff", roundOff);
+    if (preset) localStorage.setItem("gst_preset", preset); else localStorage.removeItem("gst_preset");
+  }, [amount, gstRate, customRate, isCustom, cessRate, type, transactionType, roundOff, preset]);
 
   useEffect(() => {
     const amt = parseFloat(amount);
@@ -130,7 +146,9 @@ export default function GSTCalculator() {
       if (prev.length > 0 && prev[0].amount === entry.amount && prev[0].rate === entry.rate && prev[0].type === entry.type && prev[0].total === entry.total) {
         return prev;
       }
-      return [entry, ...prev.slice(0, 4)];
+      const newHist = [entry, ...prev.slice(0, 4)];
+      localStorage.setItem("gst_history", JSON.stringify(newHist));
+      return newHist;
     });
   };
 
@@ -170,6 +188,7 @@ export default function GSTCalculator() {
     setPreset(null);
     setIsCustom(false);
     setCessRate(0);
+    ["gst_amount", "gst_rate", "gst_customRate", "gst_isCustom", "gst_cessRate", "gst_type", "gst_transactionType", "gst_roundOff", "gst_preset", "gst_history"].forEach(k => localStorage.removeItem(k));
   };
 
   return (
@@ -304,7 +323,7 @@ export default function GSTCalculator() {
 
       <nav className="glass-panel" style={{ position: "sticky", top: 0, zIndex: 100, padding: "0 24px", height: "72px", display: "flex", alignItems: "center", justifyContent: "space-between", borderTop: "none", borderLeft: "none", borderRight: "none", borderRadius: 0 }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif" }} className="brand-text">⚡ KaroTools</span>
+          <Link to="/" style={{ textDecoration: "none" }}><span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif" }} className="brand-text">⚡ KaroTools</span></Link>
           
           <Link
             to="/"

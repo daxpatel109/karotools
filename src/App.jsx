@@ -5,6 +5,7 @@ import InvoiceGenerator from "./InvoiceGenerator";
 import BioGenerator from "./BioGenerator";
 import EmailGenerator from "./EmailGenerator";
 import RateCalculator from "./RateCalculator";
+import ContractGenerator from "./ContractGenerator";
 import { PrivacyPolicy, TermsConditions, ContactUs } from "./LegalPages";
 
 // 404 Not Found page
@@ -55,6 +56,7 @@ export default function App() {
       <Route path="/bio-generator" element={<BioGenerator />} />
       <Route path="/email-generator" element={<EmailGenerator />} />
       <Route path="/rate-calculator" element={<RateCalculator />} />
+      <Route path="/contract-generator" element={<ContractGenerator />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/terms" element={<TermsConditions />} />
       <Route path="/contact" element={<ContactUs />} />

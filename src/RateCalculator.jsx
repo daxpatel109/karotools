@@ -2,14 +2,21 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 export default function RateCalculator() {
-  const [monthlyExpenses, setMonthlyExpenses] = useState(30000);
-  const [desiredSavings, setDesiredSavings] = useState(20000);
-  const [workingDays, setWorkingDays] = useState(22);
-  const [hoursPerDay, setHoursPerDay] = useState(6);
-  const [profitMargin, setProfitMargin] = useState(20);
+  const [monthlyExpenses, setMonthlyExpenses] = useState(() => Number(localStorage.getItem("rate_expenses_total")) || 30000);
+  const [desiredSavings, setDesiredSavings] = useState(() => Number(localStorage.getItem("rate_savings")) || 20000);
+  const [workingDays, setWorkingDays] = useState(() => Number(localStorage.getItem("rate_days")) || 22);
+  const [hoursPerDay, setHoursPerDay] = useState(() => Number(localStorage.getItem("rate_hours")) || 6);
+  const [profitMargin, setProfitMargin] = useState(() => Number(localStorage.getItem("rate_margin")) || 20);
 
   // 🚀 SEO Meta & JSON-LD Schema Injection
   useEffect(() => {
+    window.scrollTo(0, 0);
+    localStorage.setItem("rate_expenses_total", monthlyExpenses);
+    localStorage.setItem("rate_savings", desiredSavings);
+    localStorage.setItem("rate_days", workingDays);
+    localStorage.setItem("rate_hours", hoursPerDay);
+    localStorage.setItem("rate_margin", profitMargin);
+
     document.title = "3D Freelance Rate & Tier Calculator | KaroTools";
     
     let metaDescription = document.querySelector('meta[name="description"]');
@@ -57,7 +64,7 @@ export default function RateCalculator() {
       if (document.head.contains(schemaScript)) document.head.removeChild(schemaScript);
       if (document.head.contains(faqSchemaScript)) document.head.removeChild(faqSchemaScript);
     };
-  }, []);
+  }, [monthlyExpenses, desiredSavings, workingDays, hoursPerDay, profitMargin]);
 
   // Calculation Logic
   const monthlyTarget = monthlyExpenses + desiredSavings;
@@ -286,16 +293,12 @@ export default function RateCalculator() {
         <div style={{ position: "absolute", bottom: "-10%", right: "-10%", width: "60%", height: "60%", background: "radial-gradient(circle, rgba(20, 184, 166, 0.06) 0%, transparent 60%)", filter: "blur(60px)" }} />
       </div>
 
-      <nav className="glass-panel no-print" style={{ position: "sticky", top: 0, zIndex: 100, padding: "0 24px", height: "72px", display: "flex", alignItems: "center", justifyContent: "space-between", borderTop: "none", borderLeft: "none", borderRight: "none", borderRadius: 0 }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-            <span style={{ fontSize: "24px" }}>⚡</span>
-            <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif" }} className="brand-text">KaroTools</span>
-          </div>
-          <Link to="/" className="interactive-btn" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", color: "#cbd5e1", textDecoration: "none", padding: "10px 20px", borderRadius: "12px", fontSize: "14px", fontWeight: "600", display: "flex", alignItems: "center", gap: "8px" }}>
-            ← Home
-          </Link>
-        </div>
+      <nav style={{ position: "sticky", top: 0, zIndex: 100, padding: "0 40px", height: "70px", display: "flex", alignItems: "center", justifyContent: "space-between", background: "rgba(8,8,20,0.9)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+        <a href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
+          <div style={{ width: "32px", height: "32px", borderRadius: "9px", background: "linear-gradient(135deg,#f59e0b,#fcd34d)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "16px" }}>⚡</div>
+          <span style={{ fontSize: "20px", fontWeight: "800", fontFamily: "'Syne',sans-serif", background: "linear-gradient(135deg,#fcd34d,#fbbf24)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>KaroTools</span>
+        </a>
+        <Link to="/" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "#94a3b8", padding: "8px 16px", borderRadius: "8px", fontSize: "14px", fontWeight: "600", textDecoration: "none" }}>← Home</Link>
       </nav>
 
       <div className="print-only print-header" style={{ display: "none", textAlign: "center", paddingTop: "20px" }}>

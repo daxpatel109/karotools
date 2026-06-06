@@ -201,8 +201,7 @@ export default function Home() {
     { icon: "📱", name: "Bio Generator", description: "Instagram, LinkedIn & Twitter bios — professional, creative & minimal styles. Template-based, instant.", category: "AI Tool", page: "/bio-generator" },
     { icon: "💰", name: "Rate Calculator", description: "Calculate your perfect freelance hourly, daily & monthly rate in INR based on your expenses.", category: "Finance", page: "/rate-calculator" },
     { icon: "📝", name: "Proposal Generator", description: "Win more clients with AI-written project proposals tailored for Indian freelancers.", category: "AI Tool" },
-    { icon: "🏢", name: "Business Name Generator", description: "Find the perfect name for your Indian startup or freelance business instantly.", category: "AI Tool" },
-    { icon: "📋", name: "Contract Generator", description: "Generate professional freelance contracts and service agreements in seconds.", category: "Legal" },
+    { icon: "📋", name: "Contract Generator", description: "Generate professional freelance contracts and service agreements in seconds.", category: "Legal", page: "/contract-generator" },
   ];
 
   const filters = ["All", "Finance", "AI Tool", "Legal"];
@@ -519,21 +518,21 @@ export default function Home() {
                 <div style={{ width: 36, height: 36, borderRadius: 10, background: "linear-gradient(135deg,#0ea5e9,#14b8a6)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16 }}>⚡</div>
                 <span style={{ fontSize: 20, fontWeight: 800, fontFamily: "'Syne',sans-serif", background: "linear-gradient(135deg,#0ea5e9,#14b8a6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>KaroTools</span>
               </div>
-              <p style={{ fontSize: 14, color: "#334155", lineHeight: 1.75, maxWidth: 300 }}>Free online GST calculator, invoice generator and business tools for Indian freelancers and small businesses. No login required.</p>
-              <p style={{ fontSize: 12, color: "#1e293b", marginTop: 16 }}>© 2026 KaroTools.in — Made with ❤️ in India 🇮🇳</p>
+              <p style={{ fontSize: 14, color: "#94a3b8", lineHeight: 1.75, maxWidth: 300 }}>Free online GST calculator, invoice generator and business tools for Indian freelancers and small businesses. No login required.</p>
+              <p style={{ fontSize: 12, color: "#64748b", marginTop: 16 }}>© 2026 KaroTools.in — Made with ❤️ in India 🇮🇳</p>
             </div>
 
             {/* Tools */}
             <div>
-              <p style={{ fontSize: 11, fontWeight: 700, color: "#334155", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 18 }}>Tools</p>
-              {["GST Calculator", "Invoice Generator", "Email Generator", "Bio Generator", "Rate Calculator"].map(t => (
-                <p key={t} className="footer-link" style={{ fontSize: 14, color: "#1e293b", marginBottom: 12, cursor: "pointer", transition: "color 0.2s" }}>{t}</p>
+              <p style={{ fontSize: 11, fontWeight: 700, color: "#cbd5e1", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 18 }}>Tools</p>
+              {["GST Calculator", "Invoice Generator", "Contract Generator", "Bio Generator", "Rate Calculator"].map(t => (
+                <p key={t} className="footer-link" style={{ fontSize: 14, color: "#94a3b8", marginBottom: 12, cursor: "pointer", transition: "color 0.2s" }}>{t}</p>
               ))}
             </div>
 
             {/* Company */}
             <div>
-              <p style={{ fontSize: 11, fontWeight: 700, color: "#334155", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 18 }}>Company</p>
+              <p style={{ fontSize: 11, fontWeight: 700, color: "#cbd5e1", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 18 }}>Company</p>
               {[
                 { name: "About Us", path: "/" },
                 { name: "Blog", path: "/" },
@@ -541,23 +540,23 @@ export default function Home() {
                 { name: "Privacy Policy", path: "/privacy-policy" },
                 { name: "Terms of Use", path: "/terms" }
               ].map(t => (
-                <Link key={t.name} to={t.path} className="footer-link" style={{ display: "block", textDecoration: "none", fontSize: 14, color: "#1e293b", marginBottom: 12, cursor: "pointer", transition: "color 0.2s" }}>{t.name}</Link>
+                <Link key={t.name} to={t.path} className="footer-link" style={{ display: "block", textDecoration: "none", fontSize: 14, color: "#94a3b8", marginBottom: 12, cursor: "pointer", transition: "color 0.2s" }}>{t.name}</Link>
               ))}
             </div>
 
             {/* Resources */}
             <div>
-              <p style={{ fontSize: 11, fontWeight: 700, color: "#334155", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 18 }}>Resources</p>
+              <p style={{ fontSize: 11, fontWeight: 700, color: "#cbd5e1", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 18 }}>Resources</p>
               {["GST Guide India", "Invoice Format", "Freelance Tips", "Rate Guide", "GST Slabs 2026"].map(t => (
-                <p key={t} className="footer-link" style={{ fontSize: 14, color: "#1e293b", marginBottom: 12, cursor: "pointer", transition: "color 0.2s" }}>{t}</p>
+                <p key={t} className="footer-link" style={{ fontSize: 14, color: "#94a3b8", marginBottom: 12, cursor: "pointer", transition: "color 0.2s" }}>{t}</p>
               ))}
             </div>
           </div>
 
           {/* Bottom bar */}
           <div style={{ borderTop: "1px solid rgba(255,255,255,0.04)", paddingTop: 24, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
-            <p style={{ fontSize: 12, color: "#0f172a" }}>Free GST Calculator India · Free Invoice Generator India · Free Business Tools for Freelancers</p>
-            <p style={{ fontSize: 12, color: "#0f172a" }}>KaroTools.in — Karo Business, Bina Hassle Ke</p>
+            <p style={{ fontSize: 12, color: "#64748b" }}>Free GST Calculator India · Free Invoice Generator India · Free Business Tools for Freelancers</p>
+            <p style={{ fontSize: 12, color: "#64748b" }}>KaroTools.in — Karo Business, Bina Hassle Ke</p>
           </div>
         </div>
       </footer>

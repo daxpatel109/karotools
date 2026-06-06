@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-// ── Template Engine ──────────────────────────────────────────────
 const TEMPLATES = {
   instagram: {
     professional: [
@@ -194,7 +193,32 @@ const selectStyle = {
  
 // ── Component ────────────────────────────────────────────────────
 export default function BioGenerator() {
+  const [name, setName] = useState(() => localStorage.getItem("bio_name") || "");
+  const [profession, setProfession] = useState(() => localStorage.getItem("bio_prof") || "Web Developer");
+  const [skills, setSkills] = useState(() => {
+    try { return JSON.parse(localStorage.getItem("bio_skills")) || []; } catch { return []; }
+  });
+  const [city, setCity] = useState(() => localStorage.getItem("bio_city") || "Ahmedabad");
+  const [experience, setExperience] = useState(() => localStorage.getItem("bio_exp") || "2");
+  const [platform, setPlatform] = useState(() => localStorage.getItem("bio_plat") || "instagram");
+  const [tone, setTone] = useState(() => localStorage.getItem("bio_tone") || "professional");
+  const [bios, setBios] = useState([]);
+  const [selected, setSelected] = useState(null);
+  const [copied, setCopied] = useState(false);
+  const [generated, setGenerated] = useState(false);
+
   useEffect(() => {
+    localStorage.setItem("bio_name", name);
+    localStorage.setItem("bio_prof", profession);
+    localStorage.setItem("bio_skills", JSON.stringify(skills));
+    localStorage.setItem("bio_city", city);
+    localStorage.setItem("bio_exp", experience);
+    localStorage.setItem("bio_plat", platform);
+    localStorage.setItem("bio_tone", tone);
+  }, [name, profession, skills, city, experience, platform, tone]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "Free Bio Generator for Instagram, LinkedIn & Twitter | KaroTools";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) { meta = document.createElement('meta'); meta.name = "description"; document.head.appendChild(meta); }
@@ -225,17 +249,6 @@ export default function BioGenerator() {
       if (document.head.contains(schemaScript)) document.head.removeChild(schemaScript);
     };
   }, []);
-  const [name,        setName]        = useState("");
-  const [profession,  setProfession]  = useState("Web Developer");
-  const [skills,      setSkills]      = useState([]);
-  const [city,        setCity]        = useState("Ahmedabad");
-  const [experience,  setExperience]  = useState("2");
-  const [platform,    setPlatform]    = useState("instagram");
-  const [tone,        setTone]        = useState("professional");
-  const [bios,        setBios]        = useState([]);
-  const [selected,    setSelected]    = useState(null);
-  const [copied,      setCopied]      = useState(false);
-  const [generated,   setGenerated]   = useState(false);
  
   const suggested = SKILLS_BY_PROFESSION[profession] || [];
   useEffect(() => { setSkills([]); }, [profession]);
@@ -287,16 +300,18 @@ export default function BioGenerator() {
         borderBottom:"1px solid rgba(255,255,255,0.05)",
       }}>
         <div style={{display:"flex",alignItems:"center",gap:"10px"}}>
-          <div style={{
-            width:"32px",height:"32px",borderRadius:"9px",
-            background:"linear-gradient(135deg,#7c3aed,#2563eb)",
-            display:"flex",alignItems:"center",justifyContent:"center",fontSize:"16px"
-          }}>⚡</div>
-          <span style={{
-            fontSize:"20px",fontWeight:"800",fontFamily:"'Syne',sans-serif",
-            background:"linear-gradient(135deg,#a78bfa,#60a5fa)",
-            WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"
-          }}>KaroTools</span>
+          <Link to="/" style={{ textDecoration: "none", display:"flex",alignItems:"center",gap:"10px" }}>
+            <div style={{
+              width:"32px",height:"32px",borderRadius:"9px",
+              background:"linear-gradient(135deg,#7c3aed,#2563eb)",
+              display:"flex",alignItems:"center",justifyContent:"center",fontSize:"16px"
+            }}>⚡</div>
+            <span style={{
+              fontSize:"20px",fontWeight:"800",fontFamily:"'Syne',sans-serif",
+              background:"linear-gradient(135deg,#a78bfa,#60a5fa)",
+              WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"
+            }}>KaroTools</span>
+          </Link>
         </div>
         <Link to="/" style={{
           background:"rgba(255,255,255,0.05)",border:"1px solid rgba(255,255,255,0.1)",

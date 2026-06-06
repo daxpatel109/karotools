@@ -16,7 +16,34 @@ const validatePhone = (p) => /^(\+91[\-\s]?)?[6-9]\d{9}$/.test(p.replace(/\s/g, 
 const fmtINR = (n) => Number(n || 0).toLocaleString("en-IN", { minimumFractionDigits: 2 });
 
 export default function InvoiceGenerator() {
+  const [invoice, setInvoice] = useState(() => {
+    const saved = localStorage.getItem("inv_data");
+    return saved ? JSON.parse(saved).invoice : { number: genInvoiceNo(), date: new Date().toISOString().split("T")[0], due: "", notes: "Payment due within 15 days. Thank you for your business!", status: "pending" };
+  });
+  const [seller, setSeller] = useState(() => {
+    const saved = localStorage.getItem("inv_data");
+    return saved ? JSON.parse(saved).seller : { name: "", address: "", gstin: "", phone: "", email: "" };
+  });
+  const [buyer, setBuyer] = useState(() => {
+    const saved = localStorage.getItem("inv_data");
+    return saved ? JSON.parse(saved).buyer : { name: "", address: "", gstin: "", phone: "", email: "" };
+  });
+  const [items, setItems] = useState(() => {
+    const saved = localStorage.getItem("inv_data");
+    return saved ? JSON.parse(saved).items : [emptyItem()];
+  });
+  const [transType, setTransType] = useState("intra");
+  const [rcm, setRcm] = useState(false);
+  const [logo, setLogo] = useState(null);
+  const [errors, setErrors] = useState({});
+  const logoRef = useRef();
+
   useEffect(() => {
+    localStorage.setItem("inv_data", JSON.stringify({ invoice, seller, buyer, items }));
+  }, [invoice, seller, buyer, items]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "Free GST Invoice Generator India — Download PDF | KaroTools";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) { meta = document.createElement('meta'); meta.name = "description"; document.head.appendChild(meta); }
@@ -58,15 +85,6 @@ export default function InvoiceGenerator() {
       if (document.head.contains(faqSchemaScript)) document.head.removeChild(faqSchemaScript);
     };
   }, []);
-  const [seller, setSeller] = useState({ name: "", address: "", gstin: "", phone: "", email: "" });
-  const [buyer, setBuyer] = useState({ name: "", address: "", gstin: "", phone: "", email: "" });
-  const [invoice, setInvoice] = useState({ number: genInvoiceNo(), date: new Date().toISOString().split("T")[0], due: "", notes: "Payment due within 15 days. Thank you for your business!", status: "pending" });
-  const [items, setItems] = useState([emptyItem()]);
-  const [transType, setTransType] = useState("intra");
-  const [rcm, setRcm] = useState(false);
-  const [logo, setLogo] = useState(null);
-  const [errors, setErrors] = useState({});
-  const logoRef = useRef();
 
   // Auto-detect Intra/Inter state based on GSTIN prefixes
   useEffect(() => {
@@ -301,7 +319,7 @@ export default function InvoiceGenerator() {
 
       {/* Navbar */}
       <nav style={{ position: "sticky", top: 0, zIndex: 100, padding: "0 40px", height: "70px", display: "flex", alignItems: "center", justifyContent: "space-between", background: "rgba(8,8,20,0.9)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-        <span style={{ fontSize: "20px", fontWeight: "800", fontFamily: "'Syne',sans-serif", background: "linear-gradient(135deg,#a78bfa,#60a5fa)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>⚡ KaroTools</span>
+        <Link to="/" style={{ textDecoration: "none" }}><span style={{ fontSize: "20px", fontWeight: "800", fontFamily: "'Syne',sans-serif", background: "linear-gradient(135deg,#a78bfa,#60a5fa)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>⚡ KaroTools</span></Link>
         <Link to="/" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "#94a3b8", padding: "8px 16px", borderRadius: "8px", fontSize: "14px", cursor: "pointer", textDecoration: "none", display: "inline-flex", alignItems: "center" }}>← Home</Link>
       </nav>
 

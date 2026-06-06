@@ -451,19 +451,41 @@ export default function GSTCalculator() {
         {result && (
           <div style={{ animation: "fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1)" }}>
 
-            <div style={{ background: "linear-gradient(145deg, rgba(14, 165, 233, 0.15), rgba(59,130,246,0.1))", border: "1px solid rgba(14, 165, 233, 0.3)", borderRadius: "28px", padding: "48px 32px", textAlign: "center", marginBottom: "24px", position: "relative", overflow: "hidden", animation: "glowPulse 4s infinite" }}>
+            <div style={{ background: type === "inclusive" ? "linear-gradient(145deg, rgba(20,184,166,0.15), rgba(16,185,129,0.1))" : "linear-gradient(145deg, rgba(14, 165, 233, 0.15), rgba(59,130,246,0.1))", border: type === "inclusive" ? "1px solid rgba(20,184,166,0.35)" : "1px solid rgba(14, 165, 233, 0.3)", borderRadius: "28px", padding: "48px 32px", textAlign: "center", marginBottom: "24px", position: "relative", overflow: "hidden", animation: "glowPulse 4s infinite" }}>
               <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "1px", background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)" }} />
-              
-              <p style={{ color: "#bae6fd", fontSize: "13px", fontWeight: "800", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "16px", filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.5))" }}>Final Total Amount</p>
-              <p style={{ fontSize: "64px", fontWeight: "800", fontFamily: "'Syne',sans-serif", background: "linear-gradient(135deg, #ffffff, #bae6fd)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "countUp 0.4s cubic-bezier(0.16, 1, 0.3, 1)", lineHeight: 1, filter: "drop-shadow(0 4px 20px rgba(14, 165, 233, 0.3))" }}>
-                ₹{fmt(result.total)}
-              </p>
-              <div style={{ display: "inline-flex", alignItems: "center", gap: "12px", background: "rgba(0,0,0,0.2)", padding: "8px 20px", borderRadius: "30px", marginTop: "24px", border: "1px solid rgba(255,255,255,0.05)" }}>
-                <span style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "500" }}><strong style={{ color: "#cbd5e1" }}>₹{fmt(result.base)}</strong> Base</span>
-                <span style={{ color: "#475569" }}>+</span>
-                <span style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "500" }}><strong style={{ color: "#cbd5e1" }}>₹{fmt(result.gst)}</strong> GST</span>
-              </div>
+
+              {type === "exclusive" ? (
+                <>
+                  <p style={{ color: "#bae6fd", fontSize: "13px", fontWeight: "800", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "16px", filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.5))" }}>Final Total Amount</p>
+                  <p style={{ fontSize: "64px", fontWeight: "800", fontFamily: "'Syne',sans-serif", background: "linear-gradient(135deg, #ffffff, #bae6fd)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "countUp 0.4s cubic-bezier(0.16, 1, 0.3, 1)", lineHeight: 1, filter: "drop-shadow(0 4px 20px rgba(14, 165, 233, 0.3))" }}>
+                    ₹{fmt(result.total)}
+                  </p>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: "12px", background: "rgba(0,0,0,0.2)", padding: "8px 20px", borderRadius: "30px", marginTop: "24px", border: "1px solid rgba(255,255,255,0.05)" }}>
+                    <span style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "500" }}><strong style={{ color: "#cbd5e1" }}>₹{fmt(result.base)}</strong> Base</span>
+                    <span style={{ color: "#475569" }}>+</span>
+                    <span style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "500" }}><strong style={{ color: "#cbd5e1" }}>₹{fmt(result.gst)}</strong> GST</span>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(20,184,166,0.12)", border: "1px solid rgba(20,184,166,0.25)", borderRadius: "50px", padding: "5px 14px", marginBottom: "20px" }}>
+                    <span style={{ fontSize: "11px", color: "#2dd4bf", fontWeight: "700", letterSpacing: "0.08em" }}>GST REMOVED FROM ₹{fmt(result.total)}</span>
+                  </div>
+                  <p style={{ color: "#99f6e4", fontSize: "13px", fontWeight: "800", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "16px", filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.5))" }}>Base Amount (GST Removed)</p>
+                  <p style={{ fontSize: "64px", fontWeight: "800", fontFamily: "'Syne',sans-serif", background: "linear-gradient(135deg, #ffffff, #99f6e4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "countUp 0.4s cubic-bezier(0.16, 1, 0.3, 1)", lineHeight: 1, filter: "drop-shadow(0 4px 20px rgba(20,184,166,0.3))" }}>
+                    ₹{fmt(result.base)}
+                  </p>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: "12px", background: "rgba(0,0,0,0.2)", padding: "8px 20px", borderRadius: "30px", marginTop: "24px", border: "1px solid rgba(255,255,255,0.05)" }}>
+                    <span style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "500" }}><strong style={{ color: "#cbd5e1" }}>₹{fmt(result.base)}</strong> Base</span>
+                    <span style={{ color: "#475569" }}>+</span>
+                    <span style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "500" }}><strong style={{ color: "#2dd4bf" }}>₹{fmt(result.gst)}</strong> GST</span>
+                    <span style={{ color: "#475569" }}>=</span>
+                    <span style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "500" }}><strong style={{ color: "#cbd5e1" }}>₹{fmt(result.total)}</strong> Paid</span>
+                  </div>
+                </>
+              )}
             </div>
+
 
             <div className="responsive-grid" style={{ gap: "16px", marginBottom: "24px" }}>
               {[

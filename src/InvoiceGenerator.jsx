@@ -1,4 +1,5 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 
@@ -15,6 +16,15 @@ const validatePhone = (p) => /^(\+91[\-\s]?)?[6-9]\d{9}$/.test(p.replace(/\s/g, 
 const fmtINR = (n) => Number(n || 0).toLocaleString("en-IN", { minimumFractionDigits: 2 });
 
 export default function InvoiceGenerator() {
+  useEffect(() => {
+    document.title = "Free GST Invoice Generator India — Download PDF | KaroTools";
+    let meta = document.querySelector('meta[name="description"]');
+    if (!meta) { meta = document.createElement('meta'); meta.name = "description"; document.head.appendChild(meta); }
+    meta.content = "Create professional GST invoices instantly and download as PDF. Free GST invoice generator for Indian freelancers and businesses. No login required.";
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) { canonical = document.createElement('link'); canonical.rel = "canonical"; document.head.appendChild(canonical); }
+    canonical.href = "https://karotools.vercel.app/invoice-generator";
+  }, []);
   const [seller, setSeller] = useState({ name: "", address: "", gstin: "", phone: "", email: "" });
   const [buyer, setBuyer] = useState({ name: "", address: "", gstin: "", phone: "", email: "" });
   const [invoice, setInvoice] = useState({ number: genInvoiceNo(), date: new Date().toISOString().split("T")[0], due: "", notes: "Payment due within 15 days. Thank you for your business!", status: "pending" });
@@ -234,7 +244,7 @@ export default function InvoiceGenerator() {
       {/* Navbar */}
       <nav style={{ position: "sticky", top: 0, zIndex: 100, padding: "0 40px", height: "70px", display: "flex", alignItems: "center", justifyContent: "space-between", background: "rgba(8,8,20,0.9)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
         <span style={{ fontSize: "20px", fontWeight: "800", fontFamily: "'Syne',sans-serif", background: "linear-gradient(135deg,#a78bfa,#60a5fa)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>⚡ KaroTools</span>
-        <button onClick={() => window.history.back()} style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "#94a3b8", padding: "8px 16px", borderRadius: "8px", fontSize: "14px", cursor: "pointer" }}>← Back</button>
+        <Link to="/" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "#94a3b8", padding: "8px 16px", borderRadius: "8px", fontSize: "14px", cursor: "pointer", textDecoration: "none", display: "inline-flex", alignItems: "center" }}>← Home</Link>
       </nav>
 
       <div style={{ maxWidth: "960px", margin: "0 auto", padding: "48px 20px 80px", position: "relative", zIndex: 1 }}>

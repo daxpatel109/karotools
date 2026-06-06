@@ -6,6 +6,8 @@ import BioGenerator from "./BioGenerator";
 import EmailGenerator from "./EmailGenerator";
 import RateCalculator from "./RateCalculator";
 import ContractGenerator from "./ContractGenerator";
+import About from "./About";
+import Blog from "./Blog";
 import { PrivacyPolicy, TermsConditions, ContactUs } from "./LegalPages";
 
 // 404 Not Found page
@@ -60,6 +62,8 @@ export default function App() {
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/terms" element={<TermsConditions />} />
       <Route path="/contact" element={<ContactUs />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/blog" element={<Blog />} />
       {/* 404 catch-all */}
       <Route path="*" element={<NotFound />} />
     </Routes>

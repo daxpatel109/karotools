@@ -291,9 +291,9 @@ export default function Home() {
 
         {/* Nav Links */}
         <div style={{ display: "flex", gap: 4, alignItems: "center" }}>
-          {["Tools", "About", "Blog"].map(item => (
-            <button key={item} className="nav-btn" style={{ padding: "8px 16px", background: "transparent", border: "none", color: "#64748b", fontSize: 14, fontWeight: 500, borderRadius: 8, transition: "all 0.2s", fontFamily: "'DM Sans',sans-serif" }}>{item}</button>
-          ))}
+          <button className="nav-btn" onClick={() => document.getElementById("tools-section").scrollIntoView({ behavior: "smooth" })} style={{ padding: "8px 16px", background: "transparent", border: "none", color: "#64748b", fontSize: 14, fontWeight: 500, borderRadius: 8, transition: "all 0.2s", fontFamily: "'DM Sans',sans-serif" }}>Tools</button>
+          <button className="nav-btn" onClick={() => navigate("/about")} style={{ padding: "8px 16px", background: "transparent", border: "none", color: "#64748b", fontSize: 14, fontWeight: 500, borderRadius: 8, transition: "all 0.2s", fontFamily: "'DM Sans',sans-serif" }}>About</button>
+          <button className="nav-btn" onClick={() => navigate("/blog")} style={{ padding: "8px 16px", background: "transparent", border: "none", color: "#64748b", fontSize: 14, fontWeight: 500, borderRadius: 8, transition: "all 0.2s", fontFamily: "'DM Sans',sans-serif" }}>Blog</button>
           <div style={{ width: 1, height: 20, background: "rgba(255,255,255,0.08)", margin: "0 8px" }} />
           <button className="cta-btn-primary" onClick={() => document.getElementById("tools-section").scrollIntoView({ behavior: "smooth" })}
             style={{ padding: "9px 22px", background: "linear-gradient(135deg, #0ea5e9, #14b8a6)", border: "none", borderRadius: 10, color: "#fff", fontSize: 14, fontWeight: 700, fontFamily: "'Syne',sans-serif", boxShadow: "0 4px 20px rgba(14,165,233,0.3)", transition: "all 0.3s", cursor: "pointer" }}>

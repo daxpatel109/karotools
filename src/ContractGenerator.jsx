@@ -86,27 +86,37 @@ Freelancer: ${fName} ("Freelancer")
 1. SCOPE OF WORK
 The Freelancer agrees to provide the following services to the Client: ${pName} (the "Services"). The Services shall commence on ${sDate} and are expected to be completed by ${eDate}.
 
-2. PAYMENT TERMS
-The total fee for the Services is ₹${fee}.
+2. PAYMENT TERMS & GST
+The total fee for the Services is ₹${fee} (exclusive of GST, which shall be charged separately if the Freelancer is GST-registered).
 The Client agrees to pay an upfront advance of ₹${adv} before work commences.
-The remaining balance of ₹${bal} shall be paid upon project completion and final handover.
+The remaining balance of ₹${bal} shall be paid upon project completion and prior to the final handover of deliverables/source code.
+In the event of overdue payments, the Freelancer reserves the right to pause all ongoing work until the outstanding balance is cleared.
 
-3. MSME PROTECTION & LATE PAYMENT (SECTION 43B(H))
-The Freelancer is operating as a micro/small enterprise. As per Section 43B(h) of the Income Tax Act read with the MSMED Act, 2006, the Client is legally obligated to release all pending payments within 45 days of invoice generation or acceptance of work. Delayed payments beyond 45 days shall attract compound interest at three times the bank rate notified by the RBI.
+3. MSME PROTECTION & LATE PAYMENT
+If the Freelancer is registered under the Udyam/MSME portal as a micro/small enterprise, the provisions of Section 43B(h) of the Income Tax Act and the MSMED Act, 2006 shall apply. The Client is legally obligated to release all pending payments within 45 days of invoice generation or acceptance of work. Delayed payments beyond 45 days shall attract compound interest at three times the bank rate notified by the RBI.
 
-4. REVISIONS AND SCOPE CREEP
+4. ACCEPTANCE OF DELIVERABLES
+The Client shall have 7 days to review any delivered work. If no written objections or revision requests are received within this 7-day period, the deliverables shall be deemed legally accepted by the Client.
+
+5. REVISIONS AND SCOPE CREEP
 This Agreement includes a maximum of ${revs} rounds of minor revisions. Any additional revisions, major structural changes, or new feature requests outside the original Scope of Work shall be billed separately at an hourly or mutually agreed rate.
 
-5. INTELLECTUAL PROPERTY & OWNERSHIP
-The Freelancer retains all intellectual property rights, copyrights, and ownership of the raw files and final deliverables until the Client has paid the total fee in full. Upon full clearance of payment, the final deliverables' ownership transfers to the Client. The Freelancer retains the right to display the completed work in their portfolio.
+6. INTELLECTUAL PROPERTY & OWNERSHIP
+The Freelancer retains all intellectual property rights, copyrights, and ownership of the raw files, source code, and final deliverables until the Client has paid the total fee in full. Upon full clearance of payment, the final deliverables' ownership transfers to the Client. The Freelancer retains the right to display the completed work in their professional portfolio.
 
-6. CONFIDENTIALITY
+7. CONFIDENTIALITY
 Both parties agree to keep any proprietary business information, trade secrets, and materials shared during this project strictly confidential.
 
-7. TERMINATION
+8. LIMITATION OF LIABILITY
+The Freelancer's total liability under this Agreement, whether in contract, tort, or otherwise, shall not exceed the total amount actually paid by the Client to the Freelancer for the Services.
+
+9. TERMINATION
 Either party may terminate this Agreement with a 7-day written notice. In the event of termination by the Client, the Freelancer shall be compensated for all work completed up to the date of termination. The advance fee is non-refundable.
 
-8. GOVERNING LAW & JURISDICTION
+10. ELECTRONIC SIGNATURES
+This Agreement may be executed in counterparts and via electronic signatures, which shall be deemed valid, binding, and enforceable.
+
+11. GOVERNING LAW & JURISDICTION
 This Agreement shall be governed by the laws of India. Any disputes arising from this Agreement shall be subject to the exclusive jurisdiction of the courts in ${jur}.
 
 IN WITNESS WHEREOF, the parties have executed this Agreement on the date first above written.
@@ -163,7 +173,7 @@ Freelancer Signature: _______________________        Date: _______________`;
       
       const line = lines[i];
       // Make Section Headers Bold & Blue
-      if (line.match(/^[1-8]\. [A-Z &()]+$/)) {
+      if (line.match(/^\d+\. [A-Z &()]+$/)) {
         y += 10; // Extra spacing before headers
         doc.setFont("times", "bold");
         doc.setTextColor(15, 23, 42);
@@ -279,6 +289,7 @@ Freelancer Signature: _______________________        Date: _______________`;
               <div style={{ marginBottom: "16px" }}>
                 <label style={labelStyle}>Project Description</label>
                 <input value={projectName} onChange={e=>setProjectName(e.target.value)} placeholder="e.g., E-commerce Website Design and Development" style={inputStyle}/>
+                <p style={{ fontSize: "11px", color: "#64748b", marginTop: "6px" }}>Tip: Be as specific as possible (e.g., '5-page WordPress site with Payment Gateway' instead of just 'Make a website').</p>
               </div>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                 <div><label style={labelStyle}>Start Date</label><input type="date" value={startDate} onChange={e=>setStartDate(e.target.value)} style={inputStyle}/></div>
@@ -330,29 +341,39 @@ Freelancer Signature: _______________________        Date: _______________`;
                 <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#1e293b", marginTop: "30px", borderBottom: "1px solid #e2e8f0", paddingBottom: "8px" }}>1. SCOPE OF WORK</h3>
                 <p>The Freelancer agrees to provide the following services to the Client: <strong>{projectName || "[Project Description]"}</strong> (the "Services"). The Services shall commence on <strong>{startDate || "[Start Date]"}</strong> and are expected to be completed by <strong>{endDate || "[End Date]"}</strong>.</p>
 
-                <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#1e293b", marginTop: "30px", borderBottom: "1px solid #e2e8f0", paddingBottom: "8px" }}>2. PAYMENT TERMS</h3>
+                <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#1e293b", marginTop: "30px", borderBottom: "1px solid #e2e8f0", paddingBottom: "8px" }}>2. PAYMENT TERMS & GST</h3>
                 <ul style={{ paddingLeft: "20px", margin: "10px 0" }}>
-                  <li>The total fee for the Services is <strong>₹{totalFee || "[Total Amount]"}</strong>.</li>
+                  <li>The total fee for the Services is <strong>₹{totalFee || "[Total Amount]"}</strong> (exclusive of GST, which shall be charged separately if the Freelancer is GST-registered).</li>
                   <li>The Client agrees to pay an upfront advance of <strong>₹{advanceFee || "[Advance Amount]"}</strong> before work commences.</li>
-                  <li>The remaining balance of <strong>₹{(Number(totalFee || 0) - Number(advanceFee || 0)) || "[Balance Amount]"}</strong> shall be paid upon project completion and final handover.</li>
+                  <li>The remaining balance of <strong>₹{(Number(totalFee || 0) - Number(advanceFee || 0)) || "[Balance Amount]"}</strong> shall be paid upon project completion and prior to the final handover of deliverables/source code.</li>
+                  <li>In the event of overdue payments, the Freelancer reserves the right to pause all ongoing work until the outstanding balance is cleared.</li>
                 </ul>
 
-                <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#1e293b", marginTop: "30px", borderBottom: "1px solid #e2e8f0", paddingBottom: "8px" }}>3. MSME PROTECTION & LATE PAYMENT (SECTION 43B(H))</h3>
-                <p>The Freelancer is operating as a micro/small enterprise. As per Section 43B(h) of the Income Tax Act read with the MSMED Act, 2006, the Client is legally obligated to release all pending payments within 45 days of invoice generation or acceptance of work. Delayed payments beyond 45 days shall attract compound interest at three times the bank rate notified by the RBI.</p>
+                <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#1e293b", marginTop: "30px", borderBottom: "1px solid #e2e8f0", paddingBottom: "8px" }}>3. MSME PROTECTION & LATE PAYMENT</h3>
+                <p>If the Freelancer is registered under the Udyam/MSME portal as a micro/small enterprise, the provisions of Section 43B(h) of the Income Tax Act and the MSMED Act, 2006 shall apply. The Client is legally obligated to release all pending payments within 45 days of invoice generation or acceptance of work. Delayed payments beyond 45 days shall attract compound interest at three times the bank rate notified by the RBI.</p>
 
-                <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#1e293b", marginTop: "30px", borderBottom: "1px solid #e2e8f0", paddingBottom: "8px" }}>4. REVISIONS AND SCOPE CREEP</h3>
+                <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#1e293b", marginTop: "30px", borderBottom: "1px solid #e2e8f0", paddingBottom: "8px" }}>4. ACCEPTANCE OF DELIVERABLES</h3>
+                <p>The Client shall have 7 days to review any delivered work. If no written objections or revision requests are received within this 7-day period, the deliverables shall be deemed legally accepted by the Client.</p>
+
+                <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#1e293b", marginTop: "30px", borderBottom: "1px solid #e2e8f0", paddingBottom: "8px" }}>5. REVISIONS AND SCOPE CREEP</h3>
                 <p>This Agreement includes a maximum of <strong>{revisions || "[X]"}</strong> rounds of minor revisions. Any additional revisions, major structural changes, or new feature requests outside the original Scope of Work shall be billed separately at an hourly or mutually agreed rate.</p>
 
-                <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#1e293b", marginTop: "30px", borderBottom: "1px solid #e2e8f0", paddingBottom: "8px" }}>5. INTELLECTUAL PROPERTY & OWNERSHIP</h3>
-                <p>The Freelancer retains all intellectual property rights, copyrights, and ownership of the raw files and final deliverables until the Client has paid the total fee in full. Upon full clearance of payment, the final deliverables' ownership transfers to the Client. The Freelancer retains the right to display the completed work in their portfolio.</p>
+                <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#1e293b", marginTop: "30px", borderBottom: "1px solid #e2e8f0", paddingBottom: "8px" }}>6. INTELLECTUAL PROPERTY & OWNERSHIP</h3>
+                <p>The Freelancer retains all intellectual property rights, copyrights, and ownership of the raw files, source code, and final deliverables until the Client has paid the total fee in full. Upon full clearance of payment, the final deliverables' ownership transfers to the Client. The Freelancer retains the right to display the completed work in their professional portfolio.</p>
 
-                <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#1e293b", marginTop: "30px", borderBottom: "1px solid #e2e8f0", paddingBottom: "8px" }}>6. CONFIDENTIALITY</h3>
+                <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#1e293b", marginTop: "30px", borderBottom: "1px solid #e2e8f0", paddingBottom: "8px" }}>7. CONFIDENTIALITY</h3>
                 <p>Both parties agree to keep any proprietary business information, trade secrets, and materials shared during this project strictly confidential.</p>
 
-                <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#1e293b", marginTop: "30px", borderBottom: "1px solid #e2e8f0", paddingBottom: "8px" }}>7. TERMINATION</h3>
+                <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#1e293b", marginTop: "30px", borderBottom: "1px solid #e2e8f0", paddingBottom: "8px" }}>8. LIMITATION OF LIABILITY</h3>
+                <p>The Freelancer's total liability under this Agreement, whether in contract, tort, or otherwise, shall not exceed the total amount actually paid by the Client to the Freelancer for the Services.</p>
+
+                <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#1e293b", marginTop: "30px", borderBottom: "1px solid #e2e8f0", paddingBottom: "8px" }}>9. TERMINATION</h3>
                 <p>Either party may terminate this Agreement with a 7-day written notice. In the event of termination by the Client, the Freelancer shall be compensated for all work completed up to the date of termination. The advance fee is non-refundable.</p>
 
-                <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#1e293b", marginTop: "30px", borderBottom: "1px solid #e2e8f0", paddingBottom: "8px" }}>8. GOVERNING LAW & JURISDICTION</h3>
+                <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#1e293b", marginTop: "30px", borderBottom: "1px solid #e2e8f0", paddingBottom: "8px" }}>10. ELECTRONIC SIGNATURES</h3>
+                <p>This Agreement may be executed in counterparts and via electronic signatures, which shall be deemed valid, binding, and enforceable.</p>
+
+                <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#1e293b", marginTop: "30px", borderBottom: "1px solid #e2e8f0", paddingBottom: "8px" }}>11. GOVERNING LAW & JURISDICTION</h3>
                 <p>This Agreement shall be governed by the laws of India. Any disputes arising from this Agreement shall be subject to the exclusive jurisdiction of the courts in <strong>{jurisdiction || "[City, State]"}</strong>.</p>
 
                 <p style={{ marginTop: "40px", marginBottom: "40px", fontStyle: "italic", color: "#64748b" }}>IN WITNESS WHEREOF, the parties have executed this Agreement on the date first above written.</p>

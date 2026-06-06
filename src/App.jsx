@@ -1,6 +1,9 @@
-import { useState, useEffect, useRef } from "react";
+import { Routes, Route } from "react-router-dom";
+import Home from "./Home";
 import GSTCalculator from "./GSTCalculator";
+import InvoiceGenerator from "./InvoiceGenerator";
 import BioGenerator from "./BioGenerator";
+import EmailGenerator from "./EmailGenerator";
 import RateCalculator from "./RateCalculator";
 import InvoiceGenerator from "./InvoiceGenerator";
 
@@ -247,160 +250,13 @@ export default function App() {
   );
 
   return (
-    <div style={{ minHeight: "100vh", background: "#080814", fontFamily: "'DM Sans', sans-serif", color: "#f1f5f9", overflowX: "hidden" }}>
-      <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-      <Cursor />
-      <Particles />
-
-      {/* Background mesh */}
-      <div style={{
-        position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none",
-        background: "radial-gradient(ellipse 80% 60% at 20% 20%, rgba(124,58,237,0.15) 0%, transparent 60%), radial-gradient(ellipse 60% 50% at 80% 80%, rgba(37,99,235,0.1) 0%, transparent 60%)"
-      }} />
-
-      {/* Navbar */}
-      <nav style={{
-        position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000,
-        padding: "0 40px",
-        height: "70px",
-        display: "flex", alignItems: "center", justifyContent: "space-between",
-        background: scrolled ? "rgba(8,8,20,0.85)" : "transparent",
-        backdropFilter: scrolled ? "blur(20px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.05)" : "none",
-        transition: "all 0.3s ease",
-        animation: "slideDown 0.6s ease both"
-      }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <div style={{
-            width: "36px", height: "36px", borderRadius: "10px",
-            background: "linear-gradient(135deg, #7c3aed, #2563eb)",
-            display: "flex", alignItems: "center", justifyContent: "center",
-            fontSize: "18px", boxShadow: "0 0 20px rgba(124,58,237,0.5)"
-          }}>⚡</div>
-          <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne', sans-serif", background: "linear-gradient(135deg, #a78bfa, #60a5fa)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-            KaroTools
-          </span>
-        </div>
-        <div style={{ display: "flex", gap: "8px" }}>
-          {["Tools", "Pricing", "About"].map(item => (
-            <button key={item} style={{
-              padding: "8px 16px", background: "transparent", border: "none",
-              color: "#94a3b8", fontSize: "14px", fontWeight: "500",
-              borderRadius: "8px", transition: "all 0.2s",
-            }}
-              onMouseEnter={e => { e.target.style.color = "#f1f5f9"; e.target.style.background = "rgba(255,255,255,0.05)"; }}
-              onMouseLeave={e => { e.target.style.color = "#94a3b8"; e.target.style.background = "transparent"; }}
-            >{item}</button>
-          ))}
-        </div>
-      </nav>
-
-      {/* Hero */}
-      <div style={{ position: "relative", zIndex: 1, textAlign: "center", padding: "180px 20px 100px" }}>
-        {/* Badge */}
-        <div style={{
-          display: "inline-flex", alignItems: "center", gap: "8px",
-          background: "rgba(124,58,237,0.15)", border: "1px solid rgba(124,58,237,0.3)",
-          borderRadius: "50px", padding: "6px 16px", marginBottom: "32px",
-          animation: "fadeInUp 0.6s 0.1s both"
-        }}>
-          <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#a78bfa", display: "inline-block", animation: "pulse 2s infinite" }} />
-          <span style={{ fontSize: "13px", color: "#a78bfa", fontWeight: "600" }}>Free for Indian Freelancers</span>
-        </div>
-
-        <h1 style={{
-          fontSize: "clamp(40px, 7vw, 80px)", fontWeight: "800",
-          fontFamily: "'Syne', sans-serif", lineHeight: "1.1",
-          marginBottom: "24px", animation: "fadeInUp 0.6s 0.2s both",
-          background: "linear-gradient(135deg, #f1f5f9 0%, #a78bfa 50%, #60a5fa 100%)",
-          backgroundSize: "200% auto",
-          WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
-          animation: "fadeInUp 0.6s 0.2s both, shimmer 4s linear infinite"
-        }}>
-          Karo Business,<br />Bina Hassle Ke! 🚀
-        </h1>
-
-        <p style={{
-          fontSize: "18px", color: "#94a3b8", marginBottom: "48px",
-          maxWidth: "500px", margin: "0 auto 48px", lineHeight: "1.6",
-          animation: "fadeInUp 0.6s 0.3s both"
-        }}>
-          Free AI-powered tools for Indian freelancers &amp; small businesses. No login required.
-        </p>
-
-        {/* Search */}
-        <div style={{
-          position: "relative", maxWidth: "480px", margin: "0 auto",
-          animation: "fadeInUp 0.6s 0.4s both"
-        }}>
-          <input
-            value={search}
-            onChange={e => setSearch(e.target.value)}
-            placeholder="🔍  Search tools..."
-            style={{
-              width: "100%", padding: "16px 24px",
-              background: "rgba(255,255,255,0.05)",
-              border: "1px solid rgba(255,255,255,0.1)",
-              borderRadius: "50px", fontSize: "16px",
-              color: "#f1f5f9", outline: "none",
-              backdropFilter: "blur(20px)",
-              boxSizing: "border-box",
-              transition: "all 0.3s"
-            }}
-            onFocus={e => { e.target.style.borderColor = "rgba(167,139,250,0.5)"; e.target.style.boxShadow = "0 0 30px rgba(124,58,237,0.2)"; }}
-            onBlur={e => { e.target.style.borderColor = "rgba(255,255,255,0.1)"; e.target.style.boxShadow = "none"; }}
-          />
-        </div>
-
-        {/* Stats */}
-        <div style={{
-          display: "flex", justifyContent: "center", gap: "48px",
-          marginTop: "64px", animation: "fadeInUp 0.6s 0.5s both"
-        }}>
-          {[["8+", "Free Tools"], ["0₹", "Forever Free"], ["100%", "No Login"]].map(([num, label]) => (
-            <div key={label} style={{ textAlign: "center" }}>
-              <div style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Syne', sans-serif", background: "linear-gradient(135deg, #a78bfa, #60a5fa)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>{num}</div>
-              <div style={{ fontSize: "13px", color: "#64748b", fontWeight: "500", marginTop: "4px" }}>{label}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Tools Grid */}
-      <div style={{ position: "relative", zIndex: 1, padding: "0 40px 100px", maxWidth: "1200px", margin: "0 auto" }}>
-        <div style={{ textAlign: "center", marginBottom: "48px" }}>
-          <h2 style={{ fontSize: "36px", fontWeight: "800", fontFamily: "'Syne', sans-serif", color: "#f1f5f9" }}>
-            All Tools
-          </h2>
-          <p style={{ color: "#64748b", marginTop: "8px" }}>Click any tool to start using it instantly</p>
-        </div>
-
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-          gap: "20px"
-        }}>
-          {filtered.map((tool, i) => (
-            <ToolCard
-              key={tool.name}
-              tool={tool}
-              index={i}
-              onClick={() => tool.page && setCurrentPage(tool.page)}
-            />
-          ))}
-        </div>
-      </div>
-
-      {/* Footer */}
-      <footer style={{
-        position: "relative", zIndex: 1,
-        borderTop: "1px solid rgba(255,255,255,0.05)",
-        padding: "32px 40px",
-        display: "flex", justifyContent: "space-between", alignItems: "center"
-      }}>
-        <span style={{ fontSize: "14px", color: "#475569" }}>© 2026 KaroTools.in — Made with ❤️ for India</span>
-        <span style={{ fontSize: "13px", color: "#334155" }}>Free forever. No login. No BS.</span>
-      </footer>
-    </div>
+   <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/gst-calculator" element={<GSTCalculator />} />
+      <Route path="/invoice-generator" element={<InvoiceGenerator />} />
+      <Route path="/bio-generator" element={<BioGenerator />} />
+      <Route path="/email-generator" element={<EmailGenerator />} />
+      <Route path="/rate-calculator" element={<RateCalculator />} />
+    </Routes>
   );
 }

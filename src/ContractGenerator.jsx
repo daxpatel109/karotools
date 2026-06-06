@@ -128,33 +128,101 @@ Freelancer Signature: _______________________        Date: _______________`;
     const pageWidth = doc.internal.pageSize.getWidth();
     const maxLineWidth = pageWidth - margin * 2;
     
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(16);
-    doc.text("FREELANCE SERVICE AGREEMENT", pageWidth / 2, margin, { align: "center" });
+    // Premium Header Band
+    doc.setFillColor(30, 41, 59); // Slate 800
+    doc.rect(0, 0, pageWidth, 80, "F");
     
-    doc.setFont("helvetica", "normal");
+    // Header Text
+    doc.setTextColor(255, 255, 255);
+    doc.setFont("times", "bold");
+    doc.setFontSize(24);
+    doc.text("SERVICE AGREEMENT", pageWidth / 2, 45, { align: "center" });
+    
+    doc.setFont("times", "italic");
+    doc.setFontSize(12);
+    doc.setTextColor(148, 163, 184); // Slate 400
+    doc.text("Legally Binding Contract", pageWidth / 2, 65, { align: "center" });
+
+    // Watermark
+    doc.setTextColor(241, 245, 249); // Very light grey
+    doc.setFontSize(60);
+    doc.setFont("times", "bold");
+    doc.text("CONFIDENTIAL", pageWidth / 2, 400, { align: "center", angle: -45, opacity: 0.05 });
+
+    doc.setTextColor(15, 23, 42); // Slate 900
     doc.setFontSize(11);
     
     const lines = doc.splitTextToSize(getContractText().replace("FREELANCE SERVICE AGREEMENT\n\n", ""), maxLineWidth);
     
-    let y = margin + 40;
+    let y = 120;
     for (let i = 0; i < lines.length; i++) {
-      if (y > doc.internal.pageSize.getHeight() - margin) {
+      if (y > doc.internal.pageSize.getHeight() - margin - 40) {
         doc.addPage();
-        y = margin;
+        y = margin + 20;
       }
-      // Make headers bold
-      if (lines[i].match(/^[1-8]\. [A-Z &()]+$/)) {
-        doc.setFont("helvetica", "bold");
-        doc.text(lines[i], margin, y);
-        doc.setFont("helvetica", "normal");
-      } else {
-        doc.text(lines[i], margin, y);
+      
+      const line = lines[i];
+      // Make Section Headers Bold & Blue
+      if (line.match(/^[1-8]\. [A-Z &()]+$/)) {
+        y += 10; // Extra spacing before headers
+        doc.setFont("times", "bold");
+        doc.setTextColor(15, 23, 42);
+        doc.text(line, margin, y);
+        doc.setFont("times", "normal");
+        doc.setTextColor(51, 65, 85); // Slate 700 for body
+      } 
+      // Make Party Names Bold
+      else if (line.startsWith("Client:") || line.startsWith("Freelancer:")) {
+        doc.setFont("times", "bold");
+        doc.setTextColor(15, 23, 42);
+        doc.text(line, margin, y);
+        doc.setFont("times", "normal");
+        doc.setTextColor(51, 65, 85);
+      }
+      // Signature Blocks (Custom Drawing)
+      else if (line.startsWith("Client Signature:")) {
+        y += 40;
+        doc.setDrawColor(148, 163, 184); // Slate 400 line
+        doc.setLineWidth(1);
+        doc.line(margin, y, margin + 200, y);
+        doc.line(pageWidth - margin - 150, y, pageWidth - margin, y);
+        
+        doc.setFont("times", "bold");
+        doc.setFontSize(10);
+        doc.text("Client Authorized Signature", margin, y + 15);
+        doc.text("Date", pageWidth - margin - 150, y + 15);
+        
+        y += 60;
+        doc.line(margin, y, margin + 200, y);
+        doc.line(pageWidth - margin - 150, y, pageWidth - margin, y);
+        
+        doc.text("Freelancer Signature", margin, y + 15);
+        doc.text("Date", pageWidth - margin - 150, y + 15);
+        break; // Stop parsing text, we handled signatures manually
+      }
+      else {
+        doc.text(line, margin, y);
       }
       y += 16;
     }
     
-    doc.save(`Contract_${freelancerName.replace(/\\s+/g, '_') || "Freelance"}.pdf`);
+    // Page Borders & Footer
+    const totalPages = doc.internal.getNumberOfPages();
+    for (let i = 1; i <= totalPages; i++) {
+      doc.setPage(i);
+      // Subtle Border
+      doc.setDrawColor(203, 213, 225); // Slate 300
+      doc.setLineWidth(1);
+      doc.rect(20, 20, pageWidth - 40, doc.internal.pageSize.getHeight() - 40);
+      
+      // Footer
+      doc.setFont("times", "italic");
+      doc.setFontSize(9);
+      doc.setTextColor(148, 163, 184);
+      doc.text(`Page ${i} of ${totalPages} • Generated securely via KaroTools`, pageWidth / 2, doc.internal.pageSize.getHeight() - 30, { align: "center" });
+    }
+    
+    doc.save(`Contract_${freelancerName.replace(/\s+/g, '_') || "Freelance"}.pdf`);
   };
 
   const inputStyle = {
@@ -237,10 +305,75 @@ Freelancer Signature: _______________________        Date: _______________`;
 
           {/* Preview */}
           <div style={{ position: "sticky", top: "100px", height: "max-content", display: "flex", flexDirection: "column", gap: "20px" }}>
-            <div className="glass-card" style={{ padding: "32px", background: "#ffffff", color: "#000000", fontFamily: "'Times New Roman', serif", borderRadius: "8px", maxHeight: "60vh", overflowY: "auto", boxShadow: "0 24px 60px rgba(0,0,0,0.4)" }}>
-              <pre style={{ whiteSpace: "pre-wrap", margin: 0, fontSize: "14px", lineHeight: "1.6" }}>
-                {getContractText()}
-              </pre>
+            
+            {/* Premium Document View */}
+            <div style={{ background: "#ffffff", color: "#0f172a", fontFamily: "'Times New Roman', Times, serif", borderRadius: "12px", maxHeight: "60vh", overflowY: "auto", boxShadow: "0 24px 60px rgba(0,0,0,0.4)", position: "relative" }}>
+              
+              {/* Header Band */}
+              <div style={{ background: "#1e293b", color: "#ffffff", padding: "24px", textAlign: "center", borderTopLeftRadius: "12px", borderTopRightRadius: "12px" }}>
+                <h2 style={{ fontSize: "24px", fontWeight: "700", margin: "0 0 4px 0", letterSpacing: "1px" }}>SERVICE AGREEMENT</h2>
+                <p style={{ fontSize: "14px", color: "#94a3b8", fontStyle: "italic", margin: 0 }}>Legally Binding Contract</p>
+              </div>
+
+              {/* Watermark */}
+              <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%) rotate(-45deg)", fontSize: "6rem", fontWeight: "900", color: "rgba(0,0,0,0.02)", pointerEvents: "none", zIndex: 0, whiteSpace: "nowrap" }}>CONFIDENTIAL</div>
+
+              <div style={{ padding: "40px", fontSize: "15px", lineHeight: "1.7", position: "relative", zIndex: 1 }}>
+                <p style={{ textAlign: "right", color: "#64748b", fontSize: "13px", marginBottom: "30px" }}>Date: {new Date().toLocaleDateString('en-IN')}</p>
+                
+                <p style={{ marginBottom: "20px" }}>This Freelance Service Agreement ("Agreement") is made and entered into, by and between:</p>
+                <div style={{ background: "#f8fafc", padding: "16px", borderLeft: "4px solid #3b82f6", marginBottom: "30px" }}>
+                  <p style={{ margin: "0 0 8px 0" }}><strong>Client:</strong> {clientName || "[Client/Company Name]"}</p>
+                  <p style={{ margin: 0 }}><strong>Freelancer:</strong> {freelancerName || "[Freelancer Name]"}</p>
+                </div>
+
+                <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#1e293b", marginTop: "30px", borderBottom: "1px solid #e2e8f0", paddingBottom: "8px" }}>1. SCOPE OF WORK</h3>
+                <p>The Freelancer agrees to provide the following services to the Client: <strong>{projectName || "[Project Description]"}</strong> (the "Services"). The Services shall commence on <strong>{startDate || "[Start Date]"}</strong> and are expected to be completed by <strong>{endDate || "[End Date]"}</strong>.</p>
+
+                <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#1e293b", marginTop: "30px", borderBottom: "1px solid #e2e8f0", paddingBottom: "8px" }}>2. PAYMENT TERMS</h3>
+                <ul style={{ paddingLeft: "20px", margin: "10px 0" }}>
+                  <li>The total fee for the Services is <strong>₹{totalFee || "[Total Amount]"}</strong>.</li>
+                  <li>The Client agrees to pay an upfront advance of <strong>₹{advanceFee || "[Advance Amount]"}</strong> before work commences.</li>
+                  <li>The remaining balance of <strong>₹{(Number(totalFee || 0) - Number(advanceFee || 0)) || "[Balance Amount]"}</strong> shall be paid upon project completion and final handover.</li>
+                </ul>
+
+                <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#1e293b", marginTop: "30px", borderBottom: "1px solid #e2e8f0", paddingBottom: "8px" }}>3. MSME PROTECTION & LATE PAYMENT (SECTION 43B(H))</h3>
+                <p>The Freelancer is operating as a micro/small enterprise. As per Section 43B(h) of the Income Tax Act read with the MSMED Act, 2006, the Client is legally obligated to release all pending payments within 45 days of invoice generation or acceptance of work. Delayed payments beyond 45 days shall attract compound interest at three times the bank rate notified by the RBI.</p>
+
+                <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#1e293b", marginTop: "30px", borderBottom: "1px solid #e2e8f0", paddingBottom: "8px" }}>4. REVISIONS AND SCOPE CREEP</h3>
+                <p>This Agreement includes a maximum of <strong>{revisions || "[X]"}</strong> rounds of minor revisions. Any additional revisions, major structural changes, or new feature requests outside the original Scope of Work shall be billed separately at an hourly or mutually agreed rate.</p>
+
+                <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#1e293b", marginTop: "30px", borderBottom: "1px solid #e2e8f0", paddingBottom: "8px" }}>5. INTELLECTUAL PROPERTY & OWNERSHIP</h3>
+                <p>The Freelancer retains all intellectual property rights, copyrights, and ownership of the raw files and final deliverables until the Client has paid the total fee in full. Upon full clearance of payment, the final deliverables' ownership transfers to the Client. The Freelancer retains the right to display the completed work in their portfolio.</p>
+
+                <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#1e293b", marginTop: "30px", borderBottom: "1px solid #e2e8f0", paddingBottom: "8px" }}>6. CONFIDENTIALITY</h3>
+                <p>Both parties agree to keep any proprietary business information, trade secrets, and materials shared during this project strictly confidential.</p>
+
+                <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#1e293b", marginTop: "30px", borderBottom: "1px solid #e2e8f0", paddingBottom: "8px" }}>7. TERMINATION</h3>
+                <p>Either party may terminate this Agreement with a 7-day written notice. In the event of termination by the Client, the Freelancer shall be compensated for all work completed up to the date of termination. The advance fee is non-refundable.</p>
+
+                <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#1e293b", marginTop: "30px", borderBottom: "1px solid #e2e8f0", paddingBottom: "8px" }}>8. GOVERNING LAW & JURISDICTION</h3>
+                <p>This Agreement shall be governed by the laws of India. Any disputes arising from this Agreement shall be subject to the exclusive jurisdiction of the courts in <strong>{jurisdiction || "[City, State]"}</strong>.</p>
+
+                <p style={{ marginTop: "40px", marginBottom: "40px", fontStyle: "italic", color: "#64748b" }}>IN WITNESS WHEREOF, the parties have executed this Agreement on the date first above written.</p>
+
+                {/* Signature Blocks */}
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "40px", marginTop: "60px" }}>
+                  <div>
+                    <div style={{ borderTop: "1px solid #0f172a", paddingTop: "8px" }}>
+                      <p style={{ margin: 0, fontWeight: "700", fontSize: "14px" }}>Client Authorized Signature</p>
+                      <p style={{ margin: 0, color: "#64748b", fontSize: "12px" }}>Date: _______________</p>
+                    </div>
+                  </div>
+                  <div>
+                    <div style={{ borderTop: "1px solid #0f172a", paddingTop: "8px" }}>
+                      <p style={{ margin: 0, fontWeight: "700", fontSize: "14px" }}>Freelancer Signature</p>
+                      <p style={{ margin: 0, color: "#64748b", fontSize: "12px" }}>Date: _______________</p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
             </div>
 
             <div style={{ display: "flex", gap: "16px" }}>

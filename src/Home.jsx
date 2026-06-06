@@ -1,6 +1,6 @@
 
 import { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 // ── Cursor ───────────────────────────────────────────────────────
 function Cursor() {
@@ -534,8 +534,14 @@ export default function Home() {
             {/* Company */}
             <div>
               <p style={{ fontSize: 11, fontWeight: 700, color: "#334155", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 18 }}>Company</p>
-              {["About Us", "Blog", "Contact", "Privacy Policy", "Terms of Use"].map(t => (
-                <p key={t} className="footer-link" style={{ fontSize: 14, color: "#1e293b", marginBottom: 12, cursor: "pointer", transition: "color 0.2s" }}>{t}</p>
+              {[
+                { name: "About Us", path: "/" },
+                { name: "Blog", path: "/" },
+                { name: "Contact", path: "/contact" },
+                { name: "Privacy Policy", path: "/privacy-policy" },
+                { name: "Terms of Use", path: "/terms" }
+              ].map(t => (
+                <Link key={t.name} to={t.path} className="footer-link" style={{ display: "block", textDecoration: "none", fontSize: 14, color: "#1e293b", marginBottom: 12, cursor: "pointer", transition: "color 0.2s" }}>{t.name}</Link>
               ))}
             </div>
 

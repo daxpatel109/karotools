@@ -197,6 +197,7 @@ export default function Home() {
   const tools = [
     { icon: "🧮", name: "GST Calculator", description: "Live GST calculation for all slabs — 5%, 12%, 18%, 28%. CGST, SGST & IGST with custom rates and presets.", category: "Finance", page: "/gst-calculator" },
     { icon: "📄", name: "Invoice Generator", description: "Professional GST invoices with PDF download. GSTIN validation, HSN/SAC codes, logo upload, signature area.", category: "Finance", page: "/invoice-generator" },
+    { icon: "🏛️", name: "Tax Calculator (44ADA)", description: "Visual income tax estimator for freelancers using Presumptive Taxation (50% tax-free income).", category: "Finance", page: "/tax-calculator" },
     { icon: "📧", name: "Email Generator", description: "10 email types — cold outreach, follow-up, payment reminder, proposal & more. 4 tones, no AI needed.", category: "AI Tool", page: "/email-generator" },
     { icon: "📱", name: "Bio Generator", description: "Instagram, LinkedIn & Twitter bios — professional, creative & minimal styles. Template-based, instant.", category: "AI Tool", page: "/bio-generator" },
     { icon: "💰", name: "Rate Calculator", description: "Calculate your perfect freelance hourly, daily & monthly rate in INR based on your expenses.", category: "Finance", page: "/rate-calculator" },
@@ -282,7 +283,7 @@ export default function Home() {
       <div style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0, backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.025) 1px, transparent 1px)", backgroundSize: "30px 30px" }} />
 
       {/* ── NAVBAR ──────────────────────────────────────────── */}
-      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000, height: 72, display: "flex", alignItems: "center", padding: "0 48px", justifyContent: "space-between", background: scrolled ? "rgba(2,6,23,0.95)" : "transparent", backdropFilter: scrolled ? "blur(24px)" : "none", borderBottom: scrolled ? "1px solid rgba(255,255,255,0.05)" : "none", transition: "all 0.4s ease", animation: "slideDown 0.6s ease" }}>
+      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000, height: 72, display: "flex", alignItems: "center", padding: "0 5vw", justifyContent: "space-between", background: scrolled ? "rgba(2,6,23,0.95)" : "transparent", backdropFilter: scrolled ? "blur(24px)" : "none", borderBottom: scrolled ? "1px solid rgba(255,255,255,0.05)" : "none", transition: "all 0.4s ease", animation: "slideDown 0.6s ease" }}>
         {/* Logo */}
         <div style={{ display: "flex", alignItems: "center", gap: 10, cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
           <div style={{ width: 38, height: 38, borderRadius: 11, background: "linear-gradient(135deg, #0ea5e9, #14b8a6)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18, boxShadow: "0 0 20px rgba(14,165,233,0.4)", animation: "borderGlow 3s infinite" }}>⚡</div>
@@ -364,7 +365,7 @@ export default function Home() {
       </section>
 
       {/* ── TOOLS SECTION ───────────────────────────────────── */}
-      <section id="tools-section" style={{ position: "relative", zIndex: 1, padding: "100px 48px", maxWidth: 1280, margin: "0 auto" }}>
+      <section id="tools-section" style={{ position: "relative", zIndex: 1, padding: "100px 5vw", maxWidth: 1280, margin: "0 auto" }}>
 
         <Reveal>
           <div style={{ textAlign: "center", marginBottom: 56 }}>
@@ -380,7 +381,7 @@ export default function Home() {
         {/* Search + Filter */}
         <Reveal delay={0.1}>
           <div style={{ display: "flex", gap: 12, marginBottom: 44, flexWrap: "wrap", justifyContent: "center", alignItems: "center" }}>
-            <div style={{ position: "relative", width: 380 }}>
+            <div style={{ position: "relative", width: "100%", maxWidth: 380 }}>
               <span style={{ position: "absolute", left: 16, top: "50%", transform: "translateY(-50%)", color: "#334155", fontSize: 16 }}>🔍</span>
               <input className="search-box" value={search} onChange={e => setSearch(e.target.value)} placeholder="Search tools..."
                 style={{ width: "100%", padding: "14px 16px 14px 46px", background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, fontSize: 15, color: "#f1f5f9", boxSizing: "border-box", transition: "all 0.3s", fontFamily: "'DM Sans',sans-serif" }} />
@@ -396,8 +397,7 @@ export default function Home() {
           </div>
         </Reveal>
 
-        {/* Tool Grid */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(290px, 1fr))", gap: 22 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(290px, 100%), 1fr))", gap: 22 }}>
           {filtered.map((tool, i) => (
             <ToolCard key={tool.name} tool={tool} index={i} onClick={() => tool.page && navigate(tool.page)} />
           ))}
@@ -405,7 +405,7 @@ export default function Home() {
       </section>
 
       {/* ── FEATURE STRIP ───────────────────────────────────── */}
-      <section style={{ position: "relative", zIndex: 1, padding: "100px 48px", borderTop: "1px solid rgba(255,255,255,0.04)", background: "rgba(255,255,255,0.01)" }}>
+      <section style={{ position: "relative", zIndex: 1, padding: "100px 5vw", borderTop: "1px solid rgba(255,255,255,0.04)", background: "rgba(255,255,255,0.01)" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <Reveal>
             <div style={{ textAlign: "center", marginBottom: 60 }}>
@@ -415,7 +415,7 @@ export default function Home() {
               </h2>
             </div>
           </Reveal>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 20 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(280px, 100%), 1fr))", gap: 20 }}>
             {features.map((f, i) => (
               <Reveal key={f.title} delay={i * 0.07}>
                 <div className="feature-card" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 20, padding: "28px 26px", transition: "all 0.35s ease", cursor: "default" }}>
@@ -430,7 +430,7 @@ export default function Home() {
       </section>
 
       {/* ── POPULAR TOOLS HIGHLIGHT ──────────────────────────── */}
-      <section style={{ position: "relative", zIndex: 1, padding: "100px 48px", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
+      <section style={{ position: "relative", zIndex: 1, padding: "100px 5vw", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
         <div style={{ maxWidth: 1000, margin: "0 auto" }}>
           <Reveal>
             <div style={{ textAlign: "center", marginBottom: 56 }}>
@@ -438,7 +438,7 @@ export default function Home() {
               <h2 style={{ fontSize: "clamp(26px, 3.5vw, 44px)", fontWeight: 800, fontFamily: "'Syne',sans-serif", color: "#f1f5f9", letterSpacing: "-0.02em" }}>Most Popular Tools</h2>
             </div>
           </Reveal>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 20 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(300px, 100%), 1fr))", gap: 20 }}>
             {[
               { icon: "🧮", title: "Free GST Calculator India", desc: "Calculate CGST, SGST & IGST instantly. All slabs, custom rates, round-off toggle, visual breakdown & copy result.", link: "/gst-calculator", keyword: "33,000+ monthly searches" },
               { icon: "📄", title: "Free GST Invoice Generator", desc: "Create professional GST invoices with PDF download. Your logo, GSTIN, HSN/SAC codes — no software needed.", link: "/invoice-generator", keyword: "28,000+ monthly searches" },
@@ -463,7 +463,7 @@ export default function Home() {
       </section>
 
       {/* ── FAQ ──────────────────────────────────────────────── */}
-      <section style={{ position: "relative", zIndex: 1, padding: "100px 48px", borderTop: "1px solid rgba(255,255,255,0.04)", background: "rgba(255,255,255,0.01)" }}>
+      <section style={{ position: "relative", zIndex: 1, padding: "100px 5vw", borderTop: "1px solid rgba(255,255,255,0.04)", background: "rgba(255,255,255,0.01)" }}>
         <div style={{ maxWidth: 780, margin: "0 auto" }}>
           <Reveal>
             <div style={{ textAlign: "center", marginBottom: 56 }}>
@@ -486,9 +486,9 @@ export default function Home() {
       </section>
 
       {/* ── CTA SECTION ─────────────────────────────────────── */}
-      <section style={{ position: "relative", zIndex: 1, padding: "100px 48px", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
+      <section style={{ position: "relative", zIndex: 1, padding: "100px 5vw", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
         <Reveal>
-          <div style={{ maxWidth: 820, margin: "0 auto", background: "linear-gradient(135deg, rgba(14,165,233,0.1), rgba(20,184,166,0.06))", border: "1px solid rgba(14,165,233,0.18)", borderRadius: 28, padding: "64px 48px", textAlign: "center", position: "relative", overflow: "hidden" }}>
+          <div style={{ maxWidth: 820, margin: "0 auto", background: "linear-gradient(135deg, rgba(14,165,233,0.1), rgba(20,184,166,0.06))", border: "1px solid rgba(14,165,233,0.18)", borderRadius: 28, padding: "8vw 5vw", textAlign: "center", position: "relative", overflow: "hidden" }}>
             <div style={{ position: "absolute", top: 0, left: "5%", right: "5%", height: 1, background: "linear-gradient(90deg, transparent, rgba(14,165,233,0.6), transparent)" }} />
             <div style={{ position: "absolute", bottom: 0, left: "10%", right: "10%", height: 1, background: "linear-gradient(90deg, transparent, rgba(20,184,166,0.4), transparent)" }} />
             <div style={{ fontSize: 52, marginBottom: 24 }}>🚀</div>
@@ -509,9 +509,9 @@ export default function Home() {
       </section>
 
       {/* ── FOOTER ──────────────────────────────────────────── */}
-      <footer style={{ position: "relative", zIndex: 1, borderTop: "1px solid rgba(255,255,255,0.05)", padding: "56px 48px 32px" }}>
+      <footer style={{ position: "relative", zIndex: 1, borderTop: "1px solid rgba(255,255,255,0.05)", padding: "56px 5vw 32px" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "2.5fr 1fr 1fr 1fr", gap: 48, marginBottom: 56 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(200px, 100%), 1fr))", gap: 48, marginBottom: 56 }}>
             {/* Brand */}
             <div>
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 18 }}>

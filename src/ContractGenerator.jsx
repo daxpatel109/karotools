@@ -281,13 +281,13 @@ Freelancer Signature: _______________________        Date: _______________`;
           <p style={{ color: "#94a3b8", fontSize: "16px", maxWidth: "600px", margin: "0 auto" }}>Generate a legally binding agreement for Indian freelancers. Protect yourself against scope creep and late payments.</p>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))", gap: "40px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(400px, 100%), 1fr))", gap: "40px" }}>
           
           {/* Form */}
           <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
             <div className="glass-card">
               <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#e2e8f0", marginBottom: "20px", display: "flex", alignItems: "center", gap: "8px" }}><span>👤</span> Parties Involved</h2>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(200px, 100%), 1fr))", gap: "16px" }}>
                 <div><label style={labelStyle}>Your Name</label><input value={freelancerName} onChange={e=>setFreelancerName(e.target.value)} placeholder="Raj Patel" style={inputStyle}/></div>
                 <div><label style={labelStyle}>Client Name</label><input value={clientName} onChange={e=>setClientName(e.target.value)} placeholder="Acme Corp" style={inputStyle}/></div>
               </div>
@@ -300,7 +300,7 @@ Freelancer Signature: _______________________        Date: _______________`;
                 <input value={projectName} onChange={e=>setProjectName(e.target.value)} placeholder="e.g., E-commerce Website Design and Development" style={inputStyle}/>
                 <p style={{ fontSize: "11px", color: "#64748b", marginTop: "6px" }}>Tip: Be as specific as possible (e.g., '5-page WordPress site with Payment Gateway' instead of just 'Make a website').</p>
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(150px, 100%), 1fr))", gap: "16px" }}>
                 <div><label style={labelStyle}>Start Date</label><input type="date" value={startDate} onChange={e=>setStartDate(e.target.value)} style={inputStyle}/></div>
                 <div><label style={labelStyle}>End Date</label><input type="date" value={endDate} onChange={e=>setEndDate(e.target.value)} style={inputStyle}/></div>
               </div>
@@ -308,11 +308,11 @@ Freelancer Signature: _______________________        Date: _______________`;
 
             <div className="glass-card">
               <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#e2e8f0", marginBottom: "20px", display: "flex", alignItems: "center", gap: "8px" }}><span>💰</span> Payment & Legal</h2>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "16px" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(150px, 100%), 1fr))", gap: "16px", marginBottom: "16px" }}>
                 <div><label style={labelStyle}>Total Fee (₹)</label><input type="number" value={totalFee} onChange={e=>setTotalFee(e.target.value)} placeholder="50000" style={inputStyle}/></div>
                 <div><label style={labelStyle}>Advance (₹)</label><input type="number" value={advanceFee} onChange={e=>setAdvanceFee(e.target.value)} placeholder="20000" style={inputStyle}/></div>
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(150px, 100%), 1fr))", gap: "16px" }}>
                 <div><label style={labelStyle}>Free Revisions</label><input type="number" value={revisions} onChange={e=>setRevisions(e.target.value)} placeholder="2" style={inputStyle}/></div>
                 <div><label style={labelStyle}>Jurisdiction City</label><input value={jurisdiction} onChange={e=>setJurisdiction(e.target.value)} placeholder="Mumbai, India" style={inputStyle}/></div>
               </div>
@@ -388,7 +388,7 @@ Freelancer Signature: _______________________        Date: _______________`;
                 <p style={{ marginTop: "40px", marginBottom: "40px", fontStyle: "italic", color: "#64748b" }}>IN WITNESS WHEREOF, the parties have executed this Agreement on the date first above written.</p>
 
                 {/* Signature Blocks */}
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "40px", marginTop: "60px" }}>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(200px, 100%), 1fr))", gap: "40px", marginTop: "60px" }}>
                   <div>
                     <div style={{ borderTop: "1px solid #0f172a", paddingTop: "8px" }}>
                       <p style={{ margin: 0, fontWeight: "700", fontSize: "14px" }}>Client Authorized Signature</p>

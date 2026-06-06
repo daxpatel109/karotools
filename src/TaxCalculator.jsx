@@ -24,8 +24,9 @@ export default function TaxCalculator() {
     // Presumptive Taxation 44ADA: 50% deemed profit
     const deemedProfit = receipts * 0.50;
     
-    // Standard Deduction under New Tax Regime (from FY 2023-24)
-    const standardDeduction = 50000;
+    // Standard Deduction is NOT applicable to pure professional income under 44ADA. 
+    // It only applies to Salary/Pension income.
+    const standardDeduction = 0;
     
     let taxableIncome = deemedProfit - standardDeduction;
     if (taxableIncome < 0) taxableIncome = 0;
@@ -154,9 +155,12 @@ export default function TaxCalculator() {
               </div>
 
               {isOverLimit && (
-                <div style={{ background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.2)", borderRadius: "12px", padding: "16px" }}>
-                  <p style={{ margin: 0, color: "#f87171", fontSize: "14px", lineHeight: 1.6 }}>
-                    <strong>⚠️ Limit Exceeded:</strong> Section 44ADA is generally only applicable if your gross receipts are up to ₹75 Lakhs (provided cash receipts are &le; 5%). You may need to maintain full books of accounts.
+                <div style={{ background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.3)", borderRadius: "16px", padding: "20px", marginTop: "16px" }}>
+                  <h3 style={{ margin: "0 0 10px 0", color: "#f87171", fontSize: "15px", display: "flex", alignItems: "center", gap: "8px" }}>
+                    <span>⛔</span> Not Eligible for Section 44ADA
+                  </h3>
+                  <p style={{ margin: 0, color: "#fca5a5", fontSize: "14px", lineHeight: 1.6 }}>
+                    Your gross receipts exceed the <strong>₹75 Lakh</strong> limit. You must maintain full books of accounts and calculate tax under normal provisions. The calculation shown is strictly hypothetical.
                   </p>
                 </div>
               )}
@@ -186,14 +190,16 @@ export default function TaxCalculator() {
               <div style={{ position: "relative", zIndex: 1 }}>
                 
                 <div style={{ textAlign: "center", marginBottom: "32px" }}>
-                  <p style={{ fontSize: "13px", fontWeight: "700", color: "#94a3b8", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "8px" }}>Estimated Tax Liability</p>
-                  <h2 style={{ fontSize: "clamp(40px, 6vw, 56px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: data.totalTax === 0 ? "#34d399" : "#f8fafc", margin: 0, lineHeight: 1 }}>
+                  <p style={{ fontSize: "13px", fontWeight: "700", color: isOverLimit ? "#f87171" : "#94a3b8", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "8px" }}>
+                    {isOverLimit ? "Hypothetical Tax Liability" : "Estimated Tax Liability"}
+                  </p>
+                  <h2 style={{ fontSize: "clamp(40px, 6vw, 56px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: data.totalTax === 0 ? "#34d399" : (isOverLimit ? "#fca5a5" : "#f8fafc"), margin: 0, lineHeight: 1 }}>
                     ₹{fmt(data.totalTax)}
                   </h2>
                   {data.totalTax === 0 && <p style={{ fontSize: "14px", color: "#34d399", fontWeight: "600", marginTop: "12px" }}>🎉 100% Tax Free via Section 87A Rebate</p>}
                 </div>
 
-                <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                <div style={{ display: "flex", flexDirection: "column", gap: "16px", opacity: isOverLimit ? 0.6 : 1 }}>
                   
                   {/* Row */}
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingBottom: "16px", borderBottom: "1px dashed rgba(255,255,255,0.1)" }}>
@@ -207,11 +213,7 @@ export default function TaxCalculator() {
                     <span style={{ fontSize: "15px", fontWeight: "600", color: "#e2e8f0" }}>₹{fmt(data.deemedProfit)}</span>
                   </div>
 
-                  {/* Row */}
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingBottom: "16px", borderBottom: "1px dashed rgba(255,255,255,0.1)" }}>
-                    <span style={{ fontSize: "15px", color: "#94a3b8" }}>Standard Deduction</span>
-                    <span style={{ fontSize: "15px", fontWeight: "600", color: "#e2e8f0" }}>- ₹{fmt(data.standardDeduction)}</span>
-                  </div>
+                  {/* Removed Standard Deduction row for freelancers */}
 
                   {/* Row */}
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingBottom: "16px", borderBottom: "1px dashed rgba(255,255,255,0.1)" }}>

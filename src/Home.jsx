@@ -174,6 +174,18 @@ export default function Home() {
     const schemas = [
       { "@context": "https://schema.org", "@type": "WebSite", "name": "KaroTools", "url": "https://karotools.in", "description": "Free online business tools for Indian freelancers and small businesses", "potentialAction": { "@type": "SearchAction", "target": "https://karotools.in/?q={search_term_string}", "query-input": "required name=search_term_string" } },
       { "@context": "https://schema.org", "@type": "Organization", "name": "KaroTools", "url": "https://karotools.in", "description": "Free GST Calculator, Invoice Generator & Business Tools for Indian Freelancers" },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Is KaroTools completely free to use?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! All tools on KaroTools are 100% free — no login, no subscription, no hidden charges. We built this for Indian freelancers who shouldn't have to pay just to calculate GST or generate an invoice." } },
+          { "@type": "Question", "name": "Do I need to create an account?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely not. There's zero sign-up required. Just visit any tool, fill in your details, and get your result instantly. We believe in friction-free tools." } },
+          { "@type": "Question", "name": "Can I download my GST invoice as a PDF?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! Our GST Invoice Generator lets you download a professional PDF invoice instantly — with your logo, GSTIN, CGST/SGST or IGST breakdown, HSN/SAC codes, payment status, and authorized signature area." } },
+          { "@type": "Question", "name": "Are the GST calculations accurate and up-to-date?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Our GST Calculator follows official Indian GST rules — including CGST + SGST for intra-state transactions and IGST for inter-state transactions across all four slabs (5%, 12%, 18%, 28%). We also support custom GST rates." } },
+          { "@type": "Question", "name": "What tools does KaroTools offer?", "acceptedAnswer": { "@type": "Answer", "text": "Currently KaroTools offers: GST Calculator, GST Invoice Generator, Email Generator (10 types), Bio Generator (Instagram/LinkedIn/Twitter), and Freelance Rate Calculator. More tools like Proposal Generator and Contract Generator are coming soon." } },
+          { "@type": "Question", "name": "Who is KaroTools built for?", "acceptedAnswer": { "@type": "Answer", "text": "KaroTools is built specifically for Indian freelancers, consultants, UI/UX designers, web developers, content writers, photographers, and small business owners who need fast, reliable business tools without complexity." } }
+        ]
+      }
     ];
     schemas.forEach((schema, i) => {
       let sc = document.querySelector(`#ld-json-${i}`);

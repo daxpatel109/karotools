@@ -231,17 +231,30 @@ export default function BioGenerator() {
     }
     canonical.href = "https://karotools.vercel.app/bio-generator";
 
-    // Software App Schema
+    // Software App & FAQ Schema
     const schemaScript = document.createElement('script');
     schemaScript.type = 'application/ld+json';
     schemaScript.innerHTML = JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "KaroTools Bio Generator",
-      "applicationCategory": "UtilitiesApplication",
-      "operatingSystem": "WebBrowser",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
-      "description": "Generate professional and creative bios for Twitter, LinkedIn, Instagram, and more using AI."
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "KaroTools Bio Generator",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "WebBrowser",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+          "description": "Generate catchy Instagram bios, LinkedIn headlines, and Twitter bios instantly."
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "What should I write in an Instagram bio?", "acceptedAnswer": { "@type": "Answer", "text": "Include your profession, top 2–3 skills, city, and a clear CTA. Stay within 150 characters. Use emojis to improve readability." } },
+            { "@type": "Question", "name": "What are LinkedIn bio best practices?", "acceptedAnswer": { "@type": "Answer", "text": "Job title + top skills + city. Keywords matter — recruiters use LinkedIn search. Add 'Open to work' or 'Available for freelance' to stand out." } },
+            { "@type": "Question", "name": "I've generated my bio — what next?", "acceptedAnswer": { "@type": "Answer", "text": "Check the character counter (green = perfect). Copy it, update your profile, and review your analytics in 2–3 weeks." } },
+            { "@type": "Question", "name": "Which platform is best for Indian freelancers?", "acceptedAnswer": { "@type": "Answer", "text": "LinkedIn for serious clients. Instagram for creative fields (design, photography, content). Twitter/X for tech and startup circles." } }
+          ]
+        }
+      ]
     });
     document.head.appendChild(schemaScript);
 

@@ -309,12 +309,26 @@ export default function EmailGenerator() {
 
     const schema = {
       "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "KaroTools Email Generator",
-      "url": "https://karotools.in/email-generator",
-      "description": "Free business email generator for Indian freelancers. 10 email types, 4 tones. No login required.",
-      "applicationCategory": "BusinessApplication",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "KaroTools Email Generator",
+          "url": "https://karotools.in/email-generator",
+          "description": "Free business email generator for Indian freelancers. 10 email types, 4 tones. No login required.",
+          "applicationCategory": "BusinessApplication",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "How do I write a cold email that gets replies?", "acceptedAnswer": { "@type": "Answer", "text": "Keep it under 150 words, personalise the first line, focus on their problem and end with one clear low-commitment CTA like a 15-min call." } },
+            { "@type": "Question", "name": "How many follow-ups should I send?", "acceptedAnswer": { "@type": "Answer", "text": "3 follow-ups is the sweet spot — 48hrs, 5 days, and 10 days after the first email. Most deals close on follow-up 2 or 3." } },
+            { "@type": "Question", "name": "What's the best time to send freelance emails in India?", "acceptedAnswer": { "@type": "Answer", "text": "Tuesday–Thursday, 9–11am or 2–4pm. Avoid Mondays and Fridays. Open rates drop 30% on weekends." } },
+            { "@type": "Question", "name": "How do I ask for payment professionally?", "acceptedAnswer": { "@type": "Answer", "text": "Be direct but polite. Reference the invoice number, amount, and due date clearly. Offer payment methods upfront." } },
+            { "@type": "Question", "name": "Should I use formal or friendly email tone?", "acceptedAnswer": { "@type": "Answer", "text": "Match your client's style. Indian corporate clients prefer professional/formal. Startups prefer friendly/casual. When in doubt, start professional." } }
+          ]
+        }
+      ]
     };
     let sc = document.querySelector("#ld-email");
     if (!sc) { sc = document.createElement("script"); sc.id = "ld-email"; sc.type = "application/ld+json"; document.head.appendChild(sc); }

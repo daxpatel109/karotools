@@ -16,17 +16,30 @@ export default function TaxCalculator() {
     if (!meta) { meta = document.createElement('meta'); meta.name = "description"; document.head.appendChild(meta); }
     meta.content = "Calculate your estimated income tax under Section 44ADA (Presumptive Taxation) for Indian freelancers using the New Tax Regime.";
 
-    // Software App Schema for SEO
+    // Software App & FAQ Schema for SEO
     const schemaScript = document.createElement('script');
     schemaScript.type = 'application/ld+json';
     schemaScript.innerHTML = JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Freelance Tax Calculator (Section 44ADA)",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "WebBrowser",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
-      "description": "Calculate estimated income tax for Indian freelancers under Section 44ADA (Presumptive Taxation) using the FY 2025-26 New Tax Regime."
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "Freelance Tax Calculator (Section 44ADA)",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "WebBrowser",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+          "description": "Calculate estimated income tax for Indian freelancers under Section 44ADA (Presumptive Taxation) using the FY 2025-26 New Tax Regime."
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "What is Section 44ADA?", "acceptedAnswer": { "@type": "Answer", "text": "Section 44ADA is a presumptive taxation scheme for specified professionals in India. It allows you to declare 50% of your gross receipts as taxable income, effectively giving you a flat 50% deduction for business expenses without needing to maintain detailed accounting books." } },
+            { "@type": "Question", "name": "Who is eligible for Section 44ADA?", "acceptedAnswer": { "@type": "Answer", "text": "Specified professionals including freelancers, software developers, consultants, doctors, lawyers, and interior decorators whose total gross receipts are under ₹75 Lakhs in a financial year are eligible." } },
+            { "@type": "Question", "name": "Can I claim standard deduction under 44ADA?", "acceptedAnswer": { "@type": "Answer", "text": "No. The standard deduction of ₹75,000 (New Regime) applies only to salaried employees and pensioners. Freelancers using 44ADA cannot claim this deduction, but they already get a massive 50% flat deduction on gross receipts." } },
+            { "@type": "Question", "name": "Do I need to maintain books of accounts?", "acceptedAnswer": { "@type": "Answer", "text": "If you opt for Section 44ADA and declare 50% or more of your receipts as profit, you are generally exempt from the strict requirement of maintaining detailed books of accounts under Section 44AA." } }
+          ]
+        }
+      ]
     });
     document.head.appendChild(schemaScript);
 
@@ -306,6 +319,22 @@ export default function TaxCalculator() {
                 </div>
               </div>
             )}
+          </div>
+
+          {/* SEO FAQs */}
+          <div style={{ marginTop: "64px", borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: "48px" }}>
+            <h2 style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "28px", textAlign: "center" }}>Frequently Asked Questions</h2>
+            {[
+              { q: "What is Section 44ADA?", a: "Section 44ADA is a presumptive taxation scheme for specified professionals in India. It allows you to declare 50% of your gross receipts as taxable income, effectively giving you a flat 50% deduction for business expenses without needing to maintain detailed accounting books." },
+              { q: "Who is eligible for Section 44ADA?", a: "Specified professionals including freelancers, software developers, consultants, doctors, lawyers, and interior decorators whose total gross receipts are under ₹75 Lakhs in a financial year are eligible." },
+              { q: "Can I claim standard deduction under 44ADA?", a: "No. The standard deduction of ₹75,000 (New Regime) applies only to salaried employees and pensioners. Freelancers using 44ADA cannot claim this deduction, but they already get a massive 50% flat deduction on gross receipts." },
+              { q: "Do I need to maintain books of accounts?", a: "If you opt for Section 44ADA and declare 50% or more of your receipts as profit, you are generally exempt from the strict requirement of maintaining detailed books of accounts under Section 44AA." }
+            ].map(item => (
+              <div key={item.q} style={{ marginBottom: "24px", background: "rgba(255,255,255,0.02)", padding: "20px", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.05)" }}>
+                <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#38bdf8", marginBottom: "8px", fontFamily: "'Syne',sans-serif" }}>{item.q}</h3>
+                <p style={{ fontSize: "14px", color: "#94a3b8", lineHeight: "1.6", margin: 0 }}>{item.a}</p>
+              </div>
+            ))}
           </div>
 
           {/* Legal Disclaimer */}

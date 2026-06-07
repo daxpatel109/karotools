@@ -37,17 +37,30 @@ export default function ContractGenerator() {
     if (!meta) { meta = document.createElement('meta'); meta.name = "description"; document.head.appendChild(meta); }
     meta.content = "Generate a bulletproof, legally binding freelance contract in India. Features MSME 45-day payment protection rules. Download PDF free.";
 
-    // Software App Schema
+    // Software App & FAQ Schema
     const schemaScript = document.createElement('script');
     schemaScript.type = 'application/ld+json';
     schemaScript.innerHTML = JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Freelance Contract Generator India",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "WebBrowser",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
-      "description": "Generate a legally binding freelance contract in India with MSME payment protection."
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "Freelance Contract Generator India",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "WebBrowser",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+          "description": "Generate a legally binding freelance contract in India with MSME payment protection."
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "Is this freelance contract legally binding in India?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, once signed by both parties (even electronically or via email acceptance), this contract is legally binding under the Indian Contract Act, 1872." } },
+            { "@type": "Question", "name": "How does the 45-day MSME payment rule work?", "acceptedAnswer": { "@type": "Answer", "text": "Under Section 43B(h) of the Income Tax Act and the MSMED Act, if you are a registered MSME (Udyam), clients must pay you within 45 days of project acceptance. Delayed payments incur compound interest." } },
+            { "@type": "Question", "name": "Do I need a lawyer to draft a freelance contract?", "acceptedAnswer": { "@type": "Answer", "text": "For standard freelance projects, a lawyer is not required. This generator includes all essential legal protections (Scope, Payment terms, IP rights, Limitation of Liability) designed specifically for Indian freelancers." } },
+            { "@type": "Question", "name": "What is scope creep and how does this contract prevent it?", "acceptedAnswer": { "@type": "Answer", "text": "Scope creep happens when clients keep asking for more work outside the original agreement. Clause 5 of this contract legally limits revisions and mandates extra billing for new features." } }
+          ]
+        }
+      ]
     });
     document.head.appendChild(schemaScript);
 
@@ -414,6 +427,22 @@ Freelancer Signature: _______________________        Date: _______________`;
                 📄 Download PDF
               </button>
             </div>
+          </div>
+
+          {/* SEO FAQs */}
+          <div style={{ marginTop: "64px", borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: "48px" }}>
+            <h2 style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "28px", textAlign: "center" }}>Frequently Asked Questions</h2>
+            {[
+              { q: "Is this freelance contract legally binding in India?", a: "Yes, once signed by both parties (even electronically or via email acceptance), this contract is legally binding under the Indian Contract Act, 1872." },
+              { q: "How does the 45-day MSME payment rule work?", a: "Under Section 43B(h) of the Income Tax Act and the MSMED Act, if you are a registered MSME (Udyam), clients must pay you within 45 days of project acceptance. Delayed payments incur compound interest at three times the bank rate." },
+              { q: "Do I need a lawyer to draft a freelance contract?", a: "For standard freelance projects, a lawyer is not required. This generator includes all essential legal protections (Scope, Payment terms, IP rights, Limitation of Liability) designed specifically for Indian freelancers." },
+              { q: "What is scope creep and how does this contract prevent it?", a: "Scope creep happens when clients keep asking for more work outside the original agreement. Clause 5 of this contract legally limits revisions and mandates extra billing for new features." }
+            ].map(item => (
+              <div key={item.q} style={{ marginBottom: "24px", background: "rgba(255,255,255,0.02)", padding: "20px", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.05)" }}>
+                <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#38bdf8", marginBottom: "8px", fontFamily: "'Syne',sans-serif" }}>{item.q}</h3>
+                <p style={{ fontSize: "14px", color: "#94a3b8", lineHeight: "1.6", margin: 0 }}>{item.a}</p>
+              </div>
+            ))}
           </div>
 
         </div>

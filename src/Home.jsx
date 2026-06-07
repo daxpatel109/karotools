@@ -213,6 +213,7 @@ export default function Home() {
     { icon: "🏛️", name: "Tax Calculator (44ADA)", description: "Visual income tax estimator for freelancers using Presumptive Taxation (50% tax-free income).", category: "Finance", page: "/tax-calculator" },
     { icon: "🏢", name: "Normal Tax Calculator", description: "Calculate standard tax (New Regime) without 44ADA for high-income freelancers or agencies.", category: "Finance", page: "/normal-tax-calculator" },
     { icon: "📅", name: "Advance Tax Calculator", description: "Instantly calculate your advance tax liability, installment amounts, and due dates under Indian tax laws.", category: "Finance", page: "/advance-tax-calculator" },
+    { icon: "💼", name: "Salary vs Freelance", description: "Compare your current salary to freelance rates. Find exactly what you need to charge to maintain your lifestyle.", category: "Finance", page: "/salary-vs-freelance" },
     { icon: "📧", name: "Email Generator", description: "10 email types — cold outreach, follow-up, payment reminder, proposal & more. 4 tones, no AI needed.", category: "AI Tool", page: "/email-generator" },
     { icon: "📱", name: "Bio Generator", description: "Instagram, LinkedIn & Twitter bios — professional, creative & minimal styles. Template-based, instant.", category: "AI Tool", page: "/bio-generator" },
     { icon: "💰", name: "Rate Calculator", description: "Calculate your perfect freelance hourly, daily & monthly rate in INR based on your expenses.", category: "Finance", page: "/rate-calculator" },
@@ -571,6 +572,9 @@ export default function Home() {
               </div>
               <p style={{ fontSize: 14, color: "#94a3b8", lineHeight: 1.75, maxWidth: 300 }}>Free online GST calculator, invoice generator and business tools for Indian freelancers and small businesses. No login required.</p>
               <p style={{ fontSize: 12, color: "#64748b", marginTop: 16 }}>© 2026 KaroTools.in — Made with ❤️ in India 🇮🇳</p>
+              <a href="https://buymeacoffee.com/" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: 24, padding: "10px 20px", background: "#f59e0b", color: "#1e293b", fontWeight: 800, fontFamily: "'Syne',sans-serif", borderRadius: 12, textDecoration: "none", fontSize: 14, boxShadow: "0 4px 14px rgba(245,158,11,0.2)" }}>
+                ☕ Buy Me A Coffee
+              </a>
             </div>
 
             {/* Tools */}

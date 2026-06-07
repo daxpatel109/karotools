@@ -197,6 +197,18 @@ export default function NormalTaxCalculator() {
             </p>
           </div>
 
+          {parseFloat(grossIncome) <= 7500000 && parseFloat(grossIncome) > 0 && (
+            <div style={{ background: "rgba(14,165,233,0.1)", border: "1px solid rgba(14,165,233,0.3)", borderRadius: "16px", padding: "20px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: "12px", marginBottom: "8px" }}>
+              <div style={{ fontSize: "24px" }}>ℹ️</div>
+              <p style={{ margin: 0, color: "#e0f2fe", fontSize: "15px", lineHeight: "1.5" }}>
+                This calculator is intended for high-income freelancers using actual expense accounting. Because your income is below ₹75 Lakhs, you may be able to file much easier under presumptive taxation.
+              </p>
+              <Link to="/tax-calculator" style={{ background: "#0ea5e9", color: "#fff", textDecoration: "none", padding: "8px 16px", borderRadius: "8px", fontWeight: "600", fontSize: "14px", marginTop: "4px", transition: "opacity 0.2s" }} onMouseEnter={e => e.target.style.opacity = 0.9} onMouseLeave={e => e.target.style.opacity = 1}>
+                Use Section 44ADA Calculator Instead
+              </Link>
+            </div>
+          )}
+
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "32px", alignItems: "start" }}>
             
             {/* Input Form */}
@@ -248,7 +260,7 @@ export default function NormalTaxCalculator() {
                 <div style={{ flex: 1, padding: "16px", background: results.is44ADAEligible ? "rgba(34,197,94,0.05)" : "rgba(239,68,68,0.05)", borderRadius: "12px", border: `1px solid ${results.is44ADAEligible ? "rgba(34,197,94,0.2)" : "rgba(239,68,68,0.2)"}` }}>
                   <div style={{ color: results.is44ADAEligible ? "#4ade80" : "#f87171", fontSize: "13px", fontWeight: "600", marginBottom: "4px" }}>44ADA Status</div>
                   <div style={{ color: results.is44ADAEligible ? "#22c55e" : "#ef4444", fontSize: "15px", fontWeight: "700", display: "flex", alignItems: "center", gap: "6px" }}>
-                    {results.is44ADAEligible ? "✅ Eligible" : "❌ Not Eligible"}
+                    {results.is44ADAEligible ? "✅ May Benefit" : "❌ Not Eligible"}
                   </div>
                 </div>
               </div>

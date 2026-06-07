@@ -9,6 +9,7 @@ import ContractGenerator from "./ContractGenerator";
 import About from "./About";
 import Blog from "./Blog";
 import BlogPost1 from "./BlogPost1";
+import BlogPost2 from "./BlogPost2";
 import TaxCalculator from "./TaxCalculator";
 import { PrivacyPolicy, TermsConditions, ContactUs } from "./LegalPages";
 
@@ -67,6 +68,7 @@ export default function App() {
       <Route path="/about" element={<About />} />
       <Route path="/blog" element={<Blog />} />
       <Route path="/blog/msme-45-day-rule" element={<BlogPost1 />} />
+      <Route path="/blog/section-44ada-freelancers" element={<BlogPost2 />} />
       <Route path="/tax-calculator" element={<TaxCalculator />} />
       {/* 404 catch-all */}
       <Route path="*" element={<NotFound />} />

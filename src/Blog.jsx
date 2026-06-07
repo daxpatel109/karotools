@@ -64,7 +64,23 @@ export default function Blog() {
             <div style={{ color: "#a78bfa", fontWeight: "600", fontSize: "14px", display: "flex", alignItems: "center", gap: "8px" }}>
               Read Article <span>→</span>
             </div>
-          </div>
+          </Link>
+
+          {/* Post 2: 44ADA Guide */}
+          <Link to="/blog/section-44ada-freelancers" style={{ display: "block", textDecoration: "none", padding: "32px", background: "rgba(255,255,255,0.02)", borderRadius: "20px", border: "1px solid rgba(255,255,255,0.05)", transition: "all 0.3s", cursor: "pointer" }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.04)"; e.currentTarget.style.borderColor = "rgba(14,165,233,0.3)"; e.currentTarget.style.transform = "translateY(-4px)"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.02)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)"; e.currentTarget.style.transform = "none"; }}>
+            <div style={{ display: "flex", gap: "12px", marginBottom: "16px", alignItems: "center" }}>
+              <span style={{ background: "rgba(14,165,233,0.1)", color: "#38bdf8", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em" }}>TAX SAVINGS</span>
+              <span style={{ color: "#64748b", fontSize: "14px" }}>June 7, 2026 • 7 min read</span>
+            </div>
+            <h2 style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "16px" }}>
+              Section 44ADA for Freelancers: The Ultimate Tax Saving Guide (FY 2025-26)
+            </h2>
+            <p style={{ color: "#94a3b8", fontSize: "16px", lineHeight: "1.6", margin: 0 }}>
+              Learn how Section 44ADA for freelancers allows you to claim 50% of your income as completely tax-free. The ultimate Indian presumptive taxation guide.
+            </p>
+          </Link>
 
         </div>
       </div>

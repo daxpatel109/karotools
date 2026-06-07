@@ -285,6 +285,8 @@ export default function NormalTaxCalculator() {
                   Effective Tax Rate: {results.effectiveRate}%
                 </div>
               </div>
+              
+              </div>
 
               {/* Action Buttons */}
               <div style={{ display: "flex", gap: "16px", marginTop: "24px" }}>

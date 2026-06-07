@@ -64,7 +64,7 @@ export default function Blog() {
             <div style={{ color: "#a78bfa", fontWeight: "600", fontSize: "14px", display: "flex", alignItems: "center", gap: "8px" }}>
               Read Article <span>→</span>
             </div>
-          </Link>
+          </div>
 
           {/* Post 2: 44ADA Guide */}
           <Link to="/blog/section-44ada-freelancers" style={{ display: "block", textDecoration: "none", padding: "32px", background: "rgba(255,255,255,0.02)", borderRadius: "20px", border: "1px solid rgba(255,255,255,0.05)", transition: "all 0.3s", cursor: "pointer" }}

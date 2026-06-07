@@ -158,6 +158,57 @@ export default function InvoiceGenerator() {
           font-family: 'DM Sans', sans-serif;
           position: relative;
         }
+
+        /* Responsive Layouts */
+        .main-layout {
+          display: grid;
+          grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+          gap: 40px;
+          max-width: 1600px;
+          margin: 0 auto;
+          align-items: start;
+        }
+        .split-2-col {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 24px;
+        }
+        .split-3-col {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          gap: 16px;
+        }
+        .items-grid {
+          display: grid;
+          grid-template-columns: 2fr 1fr 0.8fr 1fr 1fr auto;
+          gap: 12px;
+          align-items: end;
+          min-width: 700px;
+        }
+        .items-wrapper {
+          width: 100%;
+          overflow-x: auto;
+        }
+
+        @media (max-width: 1200px) {
+          .main-layout {
+            grid-template-columns: 1fr;
+          }
+        }
+        @media (max-width: 768px) {
+          .split-2-col {
+            grid-template-columns: 1fr;
+          }
+          .split-3-col {
+            grid-template-columns: 1fr;
+          }
+          .a4-preview-wrapper {
+            padding: 12px;
+          }
+          .items-wrapper {
+            padding-bottom: 12px;
+          }
+        }
       `}</style>
 
       {/* Navbar */}
@@ -179,21 +230,21 @@ export default function InvoiceGenerator() {
           <p style={{ color: "#94a3b8", fontSize: "18px", maxWidth: "600px", margin: "0 auto" }}>Create beautiful, legal-grade invoices and enforce 45-day MSME payments.</p>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1fr)", gap: "40px", maxWidth: "1600px", margin: "0 auto", alignItems: "start" }}>
+        <div className="main-layout">
           
           {/* LEFT: Editor Forms */}
           <div style={{ display: "flex", flexDirection: "column" }}>
             
             <div style={sec}>
               <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#f8fafc", marginBottom: "20px" }}>1. Invoice Details</h2>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "16px" }}>
+              <div className="split-3-col">
                 <div><label style={lbl}>Invoice No</label><input value={invoice.number} onChange={e => setInvoice({...invoice, number: e.target.value})} style={inp}/></div>
                 <div><label style={lbl}>Invoice Date</label><input type="date" value={invoice.date} onChange={e => setInvoice({...invoice, date: e.target.value})} style={inp}/></div>
                 <div><label style={lbl}>Due Date</label><input type="date" value={invoice.due} onChange={e => setInvoice({...invoice, due: e.target.value})} style={inp}/></div>
               </div>
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
+            <div className="split-2-col">
               <div style={sec}>
                 <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#f8fafc", marginBottom: "20px" }}>2. Your Details</h2>
                 <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
@@ -237,29 +288,31 @@ export default function InvoiceGenerator() {
                 </div>
               </div>
 
-              <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-                {items.map((item, i) => (
-                  <div key={i} style={{ background: "rgba(0,0,0,0.3)", padding: "16px", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.05)" }}>
-                    <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr 1fr auto", gap: "12px", alignItems: "end" }}>
-                      <div><label style={lbl}>Description</label><input value={item.desc} onChange={e => updateItem(i, "desc", e.target.value)} style={inp}/></div>
-                      <div><label style={lbl}>HSN/SAC</label><input value={item.hsn} onChange={e => updateItem(i, "hsn", e.target.value)} style={inp}/></div>
-                      <div><label style={lbl}>Qty</label><input type="number" value={item.qty} onChange={e => updateItem(i, "qty", e.target.value)} style={inp}/></div>
-                      <div><label style={lbl}>Rate</label><input type="number" value={item.rate} onChange={e => updateItem(i, "rate", e.target.value)} style={inp}/></div>
-                      <div>
-                        <label style={lbl}>GST %</label>
-                        <select value={item.gst} onChange={e => updateItem(i, "gst", parseInt(e.target.value))} style={inp}>
-                          {[0, 5, 12, 18, 28].map(r => <option key={r} value={r}>{r}%</option>)}
-                        </select>
+              <div className="items-wrapper">
+                <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                  {items.map((item, i) => (
+                    <div key={i} style={{ background: "rgba(0,0,0,0.3)", padding: "16px", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.05)" }}>
+                      <div className="items-grid">
+                        <div><label style={lbl}>Description</label><input value={item.desc} onChange={e => updateItem(i, "desc", e.target.value)} style={inp}/></div>
+                        <div><label style={lbl}>HSN/SAC</label><input value={item.hsn} onChange={e => updateItem(i, "hsn", e.target.value)} style={inp}/></div>
+                        <div><label style={lbl}>Qty</label><input type="number" value={item.qty} onChange={e => updateItem(i, "qty", e.target.value)} style={inp}/></div>
+                        <div><label style={lbl}>Rate</label><input type="number" value={item.rate} onChange={e => updateItem(i, "rate", e.target.value)} style={inp}/></div>
+                        <div>
+                          <label style={lbl}>GST %</label>
+                          <select value={item.gst} onChange={e => updateItem(i, "gst", parseInt(e.target.value))} style={inp}>
+                            {[0, 5, 12, 18, 28].map(r => <option key={r} value={r}>{r}%</option>)}
+                          </select>
+                        </div>
+                        <button onClick={() => removeItem(i)} style={{ padding: "12px", background: "rgba(244,63,94,0.1)", color: "#fb7185", border: "none", borderRadius: "8px", cursor: "pointer" }}>✕</button>
                       </div>
-                      <button onClick={() => removeItem(i)} style={{ padding: "12px", background: "rgba(244,63,94,0.1)", color: "#fb7185", border: "none", borderRadius: "8px", cursor: "pointer" }}>✕</button>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
               <button onClick={addItem} style={{ width: "100%", padding: "12px", marginTop: "16px", background: "rgba(14,165,233,0.1)", border: "1px dashed rgba(14,165,233,0.3)", borderRadius: "8px", color: "#38bdf8", fontWeight: "600", cursor: "pointer" }}>+ Add Item</button>
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
+            <div className="split-2-col">
               <div style={sec}>
                 <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#f8fafc", marginBottom: "20px" }}>5. Bank Details</h2>
                 <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>

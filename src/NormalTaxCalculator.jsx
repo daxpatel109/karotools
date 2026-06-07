@@ -168,8 +168,52 @@ export default function NormalTaxCalculator() {
 
   const formatCurrency = (val) => new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(val);
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do freelancers earning over ₹20 Lakhs need GST registration?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "GST registration requirements depend on the nature of services, place of supply, export status, and applicable GST provisions. Many service providers exceeding ₹20 lakh turnover may be required to register for GST, but individual circumstances can differ."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use Section 44ADA if my income is above ₹75 Lakhs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Section 44ADA (Presumptive Taxation for Professionals) is strictly capped at ₹75 Lakhs of gross receipts (provided cash receipts don't exceed 5%). If you cross this limit, you must maintain regular books of accounts and calculate tax on actual profits, as shown in this calculator."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is Advance Tax calculated for freelancers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If your total tax liability for the year exceeds ₹10,000, you are required to pay Advance Tax in four installments: 15% by June 15, 45% by Sept 15, 75% by Dec 15, and 100% by March 15. Failing to do so attracts interest penalties under Sections 234B and 234C."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What expenses can a freelancer legally claim?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Under the normal taxation method, freelancers can deduct expenses wholly and exclusively incurred for their profession. This includes software subscriptions, internet bills, domain hosting, coworking space rent, professional fees, and depreciation on assets like laptops and mobile phones."
+        }
+      }
+    ]
+  };
+
   return (
     <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans', sans-serif", color: "#f8fafc", position: "relative", overflow: "hidden", display: "flex", flexDirection: "column" }}>
+      <Helmet>
+        <title>Normal Tax Calculator | KaroTools</title>
+        <meta name="description" content="Calculate your freelance tax using the normal method (actual expenses). Perfect for agencies and freelancers earning > ₹75 Lakhs or with heavy expenses." />
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+      </Helmet>
       <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
       {/* Background gradients */}
@@ -195,7 +239,7 @@ export default function NormalTaxCalculator() {
               High-Income Freelance Tax Calculator
             </h1>
             <p style={{ color: "#94a3b8", fontSize: "18px", maxWidth: "600px", margin: "0 auto", lineHeight: "1.6" }}>
-              For freelancers earning &gt; ₹75L or agencies with actual expenses &gt; 50%. (Not eligible for 44ADA).
+              Calculate your tax using actual expenses (Normal Method). Best for businesses with high operating costs.
             </p>
           </div>
 
@@ -203,10 +247,10 @@ export default function NormalTaxCalculator() {
             <div style={{ background: "rgba(14,165,233,0.1)", border: "1px solid rgba(14,165,233,0.3)", borderRadius: "16px", padding: "20px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: "12px", marginBottom: "8px" }}>
               <div style={{ fontSize: "24px" }}>ℹ️</div>
               <p style={{ margin: 0, color: "#e0f2fe", fontSize: "15px", lineHeight: "1.5" }}>
-                This calculator is intended for high-income freelancers using actual expense accounting. Because your income is below ₹75 Lakhs, you may be able to file much easier under presumptive taxation.
+                This is the actual expense method. If your net profit margin is below 50%, this is your primary way to calculate taxes.
               </p>
               <Link to="/tax-calculator" style={{ background: "#0ea5e9", color: "#fff", textDecoration: "none", padding: "8px 16px", borderRadius: "8px", fontWeight: "600", fontSize: "14px", marginTop: "4px", transition: "opacity 0.2s" }} onMouseEnter={e => e.target.style.opacity = 0.9} onMouseLeave={e => e.target.style.opacity = 1}>
-                Use Section 44ADA Calculator Instead
+                Check if 44ADA is Better
               </Link>
             </div>
           )}
@@ -235,13 +279,7 @@ export default function NormalTaxCalculator() {
                   <div style={{ fontSize: "20px" }}>⚠️</div>
                   <div style={{ flex: 1 }}>
                     <div style={{ color: "#fef08a", fontSize: "14px", fontWeight: "700", marginBottom: "4px" }}>GST Check Recommended</div>
-                    <div style={{ color: "#fde047", fontSize: "13px", opacity: 0.8, lineHeight: 1.5, marginBottom: "8px" }}>Your gross receipts exceed ₹20 Lakhs. You may be required to register for GST.</div>
-                    <div style={{ background: "rgba(0,0,0,0.2)", padding: "10px", borderRadius: "8px", border: "1px dashed rgba(234,179,8,0.3)" }}>
-                      <div style={{ display: "flex", justifyContent: "space-between", fontSize: "13px", color: "#fef08a" }}>
-                        <span>Estimated 18% GST Target:</span>
-                        <span style={{ fontWeight: "700" }}>{formatCurrency(parseFloat(grossIncome) * 0.18)}</span>
-                      </div>
-                    </div>
+                    <div style={{ color: "#fde047", fontSize: "13px", opacity: 0.8, lineHeight: 1.5, marginBottom: "8px" }}>If your services are taxable, you may need to register for GST once turnover exceeds ₹20 Lakhs.</div>
                   </div>
                 </div>
               )}
@@ -257,96 +295,13 @@ export default function NormalTaxCalculator() {
                   onBlur={(e) => e.target.style.borderColor = "rgba(255,255,255,0.1)"}
                   placeholder="e.g. 5000000"
                 />
-                <p style={{ color: "#64748b", fontSize: "12px", marginTop: "8px", marginBottom: "12px" }}>Include actual business expenses.</p>
-                <div style={{ background: "rgba(255,255,255,0.02)", padding: "12px", borderRadius: "8px", border: "1px dashed rgba(255,255,255,0.1)" }}>
-                  <div style={{ color: "#cbd5e1", fontSize: "12px", fontWeight: "600", marginBottom: "6px" }}>💡 Allowable Deductions:</div>
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
-                    {['Laptop & Phone', 'Internet & Software', 'Coworking Rent', 'Employee Salary', 'Marketing'].map(exp => (
-                      <span key={exp} style={{ background: "rgba(255,255,255,0.05)", padding: "4px 8px", borderRadius: "4px", fontSize: "11px", color: "#94a3b8" }}>{exp}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", marginBottom: "24px" }}>
-                {/* Profit Margin */}
-                <div style={{ padding: "16px", background: "rgba(255,255,255,0.03)", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.05)" }}>
-                  <div style={{ color: "#94a3b8", fontSize: "13px", fontWeight: "600", marginBottom: "4px" }}>Profit Margin</div>
-                  <div style={{ color: "#f8fafc", fontSize: "20px", fontWeight: "700", fontFamily: "'Syne',sans-serif" }}>{results.profitMargin}%</div>
-                </div>
-                
-                {/* 44ADA Status */}
-                <div style={{ padding: "16px", background: results.is44ADAEligible ? "rgba(34,197,94,0.05)" : "rgba(239,68,68,0.05)", borderRadius: "12px", border: `1px solid ${results.is44ADAEligible ? "rgba(34,197,94,0.2)" : "rgba(239,68,68,0.2)"}` }}>
-                  <div style={{ color: results.is44ADAEligible ? "#4ade80" : "#f87171", fontSize: "13px", fontWeight: "600", marginBottom: "4px" }}>44ADA Status</div>
-                  <div style={{ color: results.is44ADAEligible ? "#22c55e" : "#ef4444", fontSize: "14px", fontWeight: "700", display: "flex", alignItems: "center", gap: "6px" }}>
-                    {results.is44ADAEligible ? "✅ May Benefit" : "❌ Outside Limit"}
-                  </div>
-                </div>
-
-                {/* Expense Ratio Bar */}
-                <div style={{ gridColumn: "1 / -1", padding: "16px", background: "rgba(255,255,255,0.03)", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.05)" }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px" }}>
-                    <span style={{ color: "#94a3b8", fontSize: "13px", fontWeight: "600" }}>Expense Ratio</span>
-                    <span style={{ color: "#f8fafc", fontSize: "13px", fontWeight: "700" }}>{(100 - parseFloat(results.profitMargin)).toFixed(1)}%</span>
-                  </div>
-                  <div style={{ width: "100%", height: "6px", background: "rgba(255,255,255,0.1)", borderRadius: "10px", overflow: "hidden" }}>
-                    <div style={{ height: "100%", width: `${Math.min(100, Math.max(0, 100 - parseFloat(results.profitMargin)))}%`, background: "linear-gradient(90deg, #3b82f6, #8b5cf6)", borderRadius: "10px" }} />
-                  </div>
-                </div>
-
-                {/* Audit Risk */}
-                <div style={{ gridColumn: "1 / -1", padding: "16px", background: parseFloat(grossIncome) > 7500000 ? "rgba(239,68,68,0.05)" : "rgba(34,197,94,0.05)", borderRadius: "12px", border: `1px solid ${parseFloat(grossIncome) > 7500000 ? "rgba(239,68,68,0.2)" : "rgba(34,197,94,0.2)"}` }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                    <span style={{ color: parseFloat(grossIncome) > 7500000 ? "#f87171" : "#4ade80", fontSize: "13px", fontWeight: "600" }}>Compliance Status</span>
-                    <span style={{ color: parseFloat(grossIncome) > 7500000 ? "#ef4444" : "#22c55e", fontSize: "14px", fontWeight: "700" }}>
-                      {parseFloat(grossIncome) > 7500000 ? "⚠️ Tax Audit Needed" : "✅ No Audit Likely"}
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <div style={{ padding: "20px", background: "rgba(244,63,94,0.05)", borderRadius: "12px", border: "1px solid rgba(244,63,94,0.1)" }}>
-                <div style={{ color: "#fb7185", fontSize: "14px", fontWeight: "700", marginBottom: "4px" }}>Net Taxable Profit</div>
-                <div style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Syne',sans-serif" }}>{formatCurrency(results.taxableIncome)}</div>
+                <p style={{ color: "#64748b", fontSize: "12px", marginTop: "8px", marginBottom: "12px" }}>Include actual business-related expenses only.</p>
               </div>
             </div>
 
             {/* Results Column */}
             <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
               
-              {/* Better Option Warning */}
-              {results.is44ADAEligible && results.adaSavings > 0 && (
-                <div style={{ padding: "24px", background: "linear-gradient(135deg, rgba(16,185,129,0.1) 0%, rgba(52,211,153,0.05) 100%)", borderRadius: "20px", border: "1px solid rgba(16,185,129,0.3)" }}>
-                  <div style={{ display: "flex", gap: "12px", alignItems: "center", marginBottom: "16px" }}>
-                    <div style={{ fontSize: "24px" }}>💡</div>
-                    <h3 style={{ fontSize: "18px", fontWeight: "700", fontFamily: "'Syne',sans-serif", color: "#34d399", margin: 0 }}>Better Option Available</h3>
-                  </div>
-                  <p style={{ color: "#d1fae5", fontSize: "15px", lineHeight: "1.6", marginBottom: "20px" }}>
-                    Because your expenses are less than 50% of your revenue, you are overpaying taxes using the Normal Method. By using Section 44ADA (Presumptive Taxation), you could save massive amounts!
-                  </p>
-                  
-                  <div style={{ background: "rgba(0,0,0,0.2)", borderRadius: "12px", padding: "16px", marginBottom: "20px", display: "flex", flexDirection: "column", gap: "8px" }}>
-                    <div style={{ display: "flex", justifyContent: "space-between", color: "#a7f3d0", fontSize: "14px" }}>
-                      <span>Normal Method Tax:</span>
-                      <span>{formatCurrency(results.totalTax)}</span>
-                    </div>
-                    <div style={{ display: "flex", justifyContent: "space-between", color: "#a7f3d0", fontSize: "14px" }}>
-                      <span>Section 44ADA Tax:</span>
-                      <span>{formatCurrency(results.adaTotalTax)}</span>
-                    </div>
-                    <div style={{ display: "flex", justifyContent: "space-between", color: "#10b981", fontSize: "16px", fontWeight: "800", marginTop: "8px", paddingTop: "8px", borderTop: "1px dashed rgba(16,185,129,0.3)" }}>
-                      <span>Potential Savings:</span>
-                      <span>{formatCurrency(results.adaSavings)}</span>
-                    </div>
-                  </div>
-
-                  <Link to="/tax-calculator" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "#10b981", color: "#022c22", textDecoration: "none", padding: "12px 20px", borderRadius: "10px", fontWeight: "700", fontSize: "15px", transition: "transform 0.2s" }} onMouseEnter={e => e.currentTarget.style.transform = "translateY(-2px)"} onMouseLeave={e => e.currentTarget.style.transform = "translateY(0)"}>
-                    Compare with 44ADA →
-                  </Link>
-                </div>
-              )}
-
-              {/* Results Output */}
               <div ref={reportRef} style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "24px", padding: "32px", position: "relative", overflow: "hidden" }}>
                 <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "4px", background: "linear-gradient(90deg, #f43f5e, #ec4899)" }} />
                 
@@ -395,7 +350,7 @@ export default function NormalTaxCalculator() {
                 </div>
               </div>
 
-              <div style={{ paddingTop: "24px", borderTop: "1px dashed rgba(255,255,255,0.1)" }}>
+              <div style={{ paddingTop: "24px", borderTop: "1px dashed rgba(255,255,255,0.1)", marginBottom: "32px" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "8px" }}>
                   <span style={{ color: "#f8fafc", fontSize: "18px", fontWeight: "600" }}>Total Tax Payable</span>
                   <span style={{ fontSize: "36px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f43f5e", lineHeight: 1 }}>
@@ -406,11 +361,30 @@ export default function NormalTaxCalculator() {
                   Effective Tax Rate: {results.effectiveRate}%
                 </div>
               </div>
-              
+
+              {/* Take Home Income Card */}
+              <div style={{ background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.2)", borderRadius: "16px", padding: "20px", marginBottom: "32px" }}>
+                <h4 style={{ color: "#34d399", fontSize: "14px", fontWeight: "700", marginBottom: "16px", marginTop: 0 }}>💰 Net Take-Home Income</h4>
+                <div style={{ display: "flex", justifyContent: "space-between", color: "#a7f3d0", fontSize: "14px", marginBottom: "8px" }}>
+                  <span>Revenue:</span>
+                  <span>{formatCurrency(parseFloat(grossIncome) || 0)}</span>
+                </div>
+                <div style={{ display: "flex", justifyContent: "space-between", color: "#a7f3d0", fontSize: "14px", marginBottom: "8px" }}>
+                  <span>Expenses:</span>
+                  <span>- {formatCurrency(parseFloat(expenses) || 0)}</span>
+                </div>
+                <div style={{ display: "flex", justifyContent: "space-between", color: "#fca5a5", fontSize: "14px", marginBottom: "16px", paddingBottom: "16px", borderBottom: "1px dashed rgba(16,185,129,0.2)" }}>
+                  <span>Tax Payable:</span>
+                  <span>- {formatCurrency(results.totalTax)}</span>
+                </div>
+                <div style={{ display: "flex", justifyContent: "space-between", color: "#10b981", fontSize: "20px", fontWeight: "800", fontFamily: "'Syne',sans-serif" }}>
+                  <span>Net After Tax:</span>
+                  <span>{formatCurrency(Math.max(0, (parseFloat(grossIncome) || 0) - (parseFloat(expenses) || 0) - results.totalTax))}</span>
+                </div>
               </div>
 
               {/* Action Buttons */}
-              <div style={{ display: "flex", gap: "16px", marginTop: "24px" }}>
+              <div style={{ display: "flex", gap: "16px" }}>
                 <button onClick={downloadPDF} disabled={isExporting} style={{ flex: 1, padding: "16px", background: "linear-gradient(135deg, #f43f5e, #ec4899)", color: "white", fontSize: "16px", fontWeight: "700", borderRadius: "12px", border: "none", cursor: isExporting ? "wait" : "pointer", display: "flex", justifyContent: "center", alignItems: "center", gap: "8px", transition: "transform 0.2s, opacity 0.2s", opacity: isExporting ? 0.7 : 1 }}>
                   {isExporting ? "Exporting..." : "↓ Download PDF Report"}
                 </button>
@@ -463,7 +437,7 @@ export default function NormalTaxCalculator() {
             <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
               <div>
                 <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#e2e8f0", marginBottom: "8px" }}>Do freelancers earning over ₹20 Lakhs need GST registration?</h3>
-                <p style={{ color: "#94a3b8", fontSize: "14px", lineHeight: "1.6", margin: 0 }}>Yes, under current GST laws, if your aggregate turnover from freelance or professional services exceeds ₹20 Lakhs in a financial year, GST registration is mandatory. For inter-state services or export of services, different rules or LUT (Letter of Undertaking) provisions may apply.</p>
+                <p style={{ color: "#94a3b8", fontSize: "14px", lineHeight: "1.6", margin: 0 }}>GST registration requirements depend on the nature of services, place of supply, export status, and applicable GST provisions. Many service providers exceeding ₹20 lakh turnover may be required to register for GST, but individual circumstances can differ.</p>
               </div>
               <div>
                 <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#e2e8f0", marginBottom: "8px" }}>Can I use Section 44ADA if my income is above ₹75 Lakhs?</h3>

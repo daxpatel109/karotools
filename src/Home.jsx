@@ -572,9 +572,11 @@ export default function Home() {
               </div>
               <p style={{ fontSize: 14, color: "#94a3b8", lineHeight: 1.75, maxWidth: 300 }}>Free online GST calculator, invoice generator and business tools for Indian freelancers and small businesses. No login required.</p>
               <p style={{ fontSize: 12, color: "#64748b", marginTop: 16 }}>© 2026 KaroTools.in — Made with ❤️ in India 🇮🇳</p>
+              {/* Buy Me A Coffee / UPI Link - Hidden for now
               <a href="https://buymeacoffee.com/" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: 24, padding: "10px 20px", background: "#f59e0b", color: "#1e293b", fontWeight: 800, fontFamily: "'Syne',sans-serif", borderRadius: 12, textDecoration: "none", fontSize: 14, boxShadow: "0 4px 14px rgba(245,158,11,0.2)" }}>
                 ☕ Buy Me A Coffee
               </a>
+              */}
             </div>
 
             {/* Tools */}

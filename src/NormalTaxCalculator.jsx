@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
-import { Helmet } from "react-helmet-async";
 
 export default function NormalTaxCalculator() {
   const [grossIncome, setGrossIncome] = useState("8000000");
@@ -16,6 +15,59 @@ export default function NormalTaxCalculator() {
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) { meta = document.createElement('meta'); meta.name = "description"; document.head.appendChild(meta); }
     meta.content = "Calculate your exact freelance tax liability under the New Tax Regime (FY 2025-26) if you earn over ₹75 Lakhs or have high actual expenses (No 44ADA).";
+
+    // JSON-LD FAQ Schema
+    const faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do freelancers earning over ₹20 Lakhs need GST registration?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "GST registration requirements depend on the nature of services, place of supply, export status, and applicable GST provisions. Many service providers exceeding ₹20 lakh turnover may be required to register for GST, but individual circumstances can differ."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use Section 44ADA if my income is above ₹75 Lakhs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Section 44ADA (Presumptive Taxation for Professionals) is strictly capped at ₹75 Lakhs of gross receipts (provided cash receipts don't exceed 5%). If you cross this limit, you must maintain regular books of accounts and calculate tax on actual profits, as shown in this calculator."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is Advance Tax calculated for freelancers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If your total tax liability for the year exceeds ₹10,000, you are required to pay Advance Tax in four installments: 15% by June 15, 45% by Sept 15, 75% by Dec 15, and 100% by March 15. Failing to do so attracts interest penalties under Sections 234B and 234C."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What expenses can a freelancer legally claim?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Under the normal taxation method, freelancers can deduct expenses wholly and exclusively incurred for their profession. This includes software subscriptions, internet bills, domain hosting, coworking space rent, professional fees, and depreciation on assets like laptops and mobile phones."
+          }
+        }
+      ]
+    };
+
+    let script = document.getElementById("faq-schema-normal");
+    if (!script) {
+      script = document.createElement("script");
+      script.id = "faq-schema-normal";
+      script.type = "application/ld+json";
+      document.head.appendChild(script);
+    }
+    script.innerText = JSON.stringify(faqSchema);
+
+    return () => {
+      if (script) document.head.removeChild(script);
+    };
   }, []);
 
   const calculateNormalTax = (grossStr, expStr) => {
@@ -169,52 +221,8 @@ export default function NormalTaxCalculator() {
 
   const formatCurrency = (val) => new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(val);
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Do freelancers earning over ₹20 Lakhs need GST registration?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "GST registration requirements depend on the nature of services, place of supply, export status, and applicable GST provisions. Many service providers exceeding ₹20 lakh turnover may be required to register for GST, but individual circumstances can differ."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I use Section 44ADA if my income is above ₹75 Lakhs?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No. Section 44ADA (Presumptive Taxation for Professionals) is strictly capped at ₹75 Lakhs of gross receipts (provided cash receipts don't exceed 5%). If you cross this limit, you must maintain regular books of accounts and calculate tax on actual profits, as shown in this calculator."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How is Advance Tax calculated for freelancers?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "If your total tax liability for the year exceeds ₹10,000, you are required to pay Advance Tax in four installments: 15% by June 15, 45% by Sept 15, 75% by Dec 15, and 100% by March 15. Failing to do so attracts interest penalties under Sections 234B and 234C."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What expenses can a freelancer legally claim?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Under the normal taxation method, freelancers can deduct expenses wholly and exclusively incurred for their profession. This includes software subscriptions, internet bills, domain hosting, coworking space rent, professional fees, and depreciation on assets like laptops and mobile phones."
-        }
-      }
-    ]
-  };
-
   return (
     <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans', sans-serif", color: "#f8fafc", position: "relative", overflow: "hidden", display: "flex", flexDirection: "column" }}>
-      <Helmet>
-        <title>Normal Tax Calculator | KaroTools</title>
-        <meta name="description" content="Calculate your freelance tax using the normal method (actual expenses). Perfect for agencies and freelancers earning > ₹75 Lakhs or with heavy expenses." />
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-      </Helmet>
       <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
       {/* Background gradients */}

@@ -383,6 +383,8 @@ export default function NormalTaxCalculator() {
                 </div>
               </div>
 
+              </div>
+
               {/* Action Buttons */}
               <div style={{ display: "flex", gap: "16px" }}>
                 <button onClick={downloadPDF} disabled={isExporting} style={{ flex: 1, padding: "16px", background: "linear-gradient(135deg, #f43f5e, #ec4899)", color: "white", fontSize: "16px", fontWeight: "700", borderRadius: "12px", border: "none", cursor: isExporting ? "wait" : "pointer", display: "flex", justifyContent: "center", alignItems: "center", gap: "8px", transition: "transform 0.2s, opacity 0.2s", opacity: isExporting ? 0.7 : 1 }}>

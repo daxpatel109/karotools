@@ -114,6 +114,7 @@ export default function NormalTaxCalculator() {
     const is44ADAEligible = gross > 0 && gross <= 7500000;
     
     let adaSavings = 0;
+    let adaTotalTax = 0;
     if (is44ADAEligible) {
       const adaProfit = gross * 0.5;
       let t = rawTaxOn(adaProfit);
@@ -123,7 +124,7 @@ export default function NormalTaxCalculator() {
         const excess = adaProfit - 1200000;
         if (t > excess) t = excess;
       }
-      const adaTotalTax = t + (t * 0.04);
+      adaTotalTax = t + (t * 0.04);
       adaSavings = Math.max(0, totalTax - adaTotalTax);
     }
 
@@ -141,7 +142,8 @@ export default function NormalTaxCalculator() {
       effectiveRate,
       profitMargin,
       is44ADAEligible,
-      adaSavings
+      adaSavings,
+      adaTotalTax
     };
   };
 
@@ -260,7 +262,7 @@ export default function NormalTaxCalculator() {
                 <div style={{ flex: 1, padding: "16px", background: results.is44ADAEligible ? "rgba(34,197,94,0.05)" : "rgba(239,68,68,0.05)", borderRadius: "12px", border: `1px solid ${results.is44ADAEligible ? "rgba(34,197,94,0.2)" : "rgba(239,68,68,0.2)"}` }}>
                   <div style={{ color: results.is44ADAEligible ? "#4ade80" : "#f87171", fontSize: "13px", fontWeight: "600", marginBottom: "4px" }}>44ADA Status</div>
                   <div style={{ color: results.is44ADAEligible ? "#22c55e" : "#ef4444", fontSize: "15px", fontWeight: "700", display: "flex", alignItems: "center", gap: "6px" }}>
-                    {results.is44ADAEligible ? "✅ May Benefit" : "❌ Not Eligible"}
+                    {results.is44ADAEligible ? "✅ May Benefit" : "❌ Outside 44ADA Limit"}
                   </div>
                 </div>
               </div>
@@ -282,8 +284,24 @@ export default function NormalTaxCalculator() {
                     <h3 style={{ fontSize: "18px", fontWeight: "700", fontFamily: "'Syne',sans-serif", color: "#34d399", margin: 0 }}>Better Option Available</h3>
                   </div>
                   <p style={{ color: "#d1fae5", fontSize: "15px", lineHeight: "1.6", marginBottom: "20px" }}>
-                    Because your expenses are less than 50% of your revenue, you are overpaying taxes using the Normal Method. By using Section 44ADA (Presumptive Taxation), you could save <strong>{formatCurrency(results.adaSavings)}</strong>!
+                    Because your expenses are less than 50% of your revenue, you are overpaying taxes using the Normal Method. By using Section 44ADA (Presumptive Taxation), you could save massive amounts!
                   </p>
+                  
+                  <div style={{ background: "rgba(0,0,0,0.2)", borderRadius: "12px", padding: "16px", marginBottom: "20px", display: "flex", flexDirection: "column", gap: "8px" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", color: "#a7f3d0", fontSize: "14px" }}>
+                      <span>Normal Method Tax:</span>
+                      <span>{formatCurrency(results.totalTax)}</span>
+                    </div>
+                    <div style={{ display: "flex", justifyContent: "space-between", color: "#a7f3d0", fontSize: "14px" }}>
+                      <span>Section 44ADA Tax:</span>
+                      <span>{formatCurrency(results.adaTotalTax)}</span>
+                    </div>
+                    <div style={{ display: "flex", justifyContent: "space-between", color: "#10b981", fontSize: "16px", fontWeight: "800", marginTop: "8px", paddingTop: "8px", borderTop: "1px dashed rgba(16,185,129,0.3)" }}>
+                      <span>Potential Savings:</span>
+                      <span>{formatCurrency(results.adaSavings)}</span>
+                    </div>
+                  </div>
+
                   <Link to="/tax-calculator" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "#10b981", color: "#022c22", textDecoration: "none", padding: "12px 20px", borderRadius: "10px", fontWeight: "700", fontSize: "15px", transition: "transform 0.2s" }} onMouseEnter={e => e.currentTarget.style.transform = "translateY(-2px)"} onMouseLeave={e => e.currentTarget.style.transform = "translateY(0)"}>
                     Compare with 44ADA →
                   </Link>

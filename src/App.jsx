@@ -10,6 +10,9 @@ import About from "./About";
 import Blog from "./Blog";
 import BlogPost1 from "./BlogPost1";
 import BlogPost2 from "./BlogPost2";
+import BlogPost3 from "./BlogPost3";
+import BlogPost4 from "./BlogPost4";
+import BlogPost5 from "./BlogPost5";
 import TaxCalculator from "./TaxCalculator";
 import NormalTaxCalculator from "./NormalTaxCalculator";
 import AdvanceTaxCalculator from "./AdvanceTaxCalculator";
@@ -73,6 +76,9 @@ export default function App() {
       <Route path="/blog" element={<Blog />} />
       <Route path="/blog/msme-45-day-rule" element={<BlogPost1 />} />
       <Route path="/blog/section-44ada-freelancers" element={<BlogPost2 />} />
+      <Route path="/blog/advance-tax-for-freelancers-india" element={<BlogPost3 />} />
+      <Route path="/blog/freelance-hourly-rate-vs-salary-india" element={<BlogPost4 />} />
+      <Route path="/blog/make-gst-invoice-online-free" element={<BlogPost5 />} />
       <Route path="/tax-calculator" element={<TaxCalculator />} />
       <Route path="/normal-tax-calculator" element={<NormalTaxCalculator />} />
       <Route path="/advance-tax-calculator" element={<AdvanceTaxCalculator />} />

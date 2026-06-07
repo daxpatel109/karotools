@@ -82,6 +82,54 @@ export default function Blog() {
             </p>
           </Link>
 
+          {/* Post 3: Advance Tax Guide */}
+          <Link to="/blog/advance-tax-for-freelancers-india" style={{ display: "block", textDecoration: "none", padding: "32px", background: "rgba(255,255,255,0.02)", borderRadius: "20px", border: "1px solid rgba(255,255,255,0.05)", transition: "all 0.3s", cursor: "pointer" }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.04)"; e.currentTarget.style.borderColor = "rgba(14,165,233,0.3)"; e.currentTarget.style.transform = "translateY(-4px)"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.02)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)"; e.currentTarget.style.transform = "none"; }}>
+            <div style={{ display: "flex", gap: "12px", marginBottom: "16px", alignItems: "center" }}>
+              <span style={{ background: "rgba(14,165,233,0.1)", color: "#38bdf8", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em" }}>TAX SAVINGS</span>
+              <span style={{ color: "#64748b", fontSize: "14px" }}>June 7, 2026 • 6 min read</span>
+            </div>
+            <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "16px" }}>
+              How to Calculate Advance Tax for Freelancers in India (FY 2025-26)
+            </h2>
+            <p style={{ color: "#94a3b8", fontSize: "15px", lineHeight: "1.6", margin: 0 }}>
+              Avoid Section 234B and 234C penalties. Learn how to calculate and pay your Advance Tax in 4 installments or use the 44ADA single-payment rule.
+            </p>
+          </Link>
+
+          {/* Post 4: Salary vs Freelance */}
+          <Link to="/blog/freelance-hourly-rate-vs-salary-india" style={{ display: "block", textDecoration: "none", padding: "32px", background: "rgba(255,255,255,0.02)", borderRadius: "20px", border: "1px solid rgba(255,255,255,0.05)", transition: "all 0.3s", cursor: "pointer" }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.04)"; e.currentTarget.style.borderColor = "rgba(16,185,129,0.3)"; e.currentTarget.style.transform = "translateY(-4px)"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.02)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)"; e.currentTarget.style.transform = "none"; }}>
+            <div style={{ display: "flex", gap: "12px", marginBottom: "16px", alignItems: "center" }}>
+              <span style={{ background: "rgba(16,185,129,0.1)", color: "#34d399", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em" }}>PRICING GUIDE</span>
+              <span style={{ color: "#64748b", fontSize: "14px" }}>June 7, 2026 • 8 min read</span>
+            </div>
+            <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "16px" }}>
+              Freelance Hourly Rate vs Salary: How Much Should I Charge in India?
+            </h2>
+            <p style={{ color: "#94a3b8", fontSize: "15px", lineHeight: "1.6", margin: 0 }}>
+              Why direct salary conversion makes you lose money. Learn how to factor in unpaid leaves, software expenses, and dry spells into your freelance rate.
+            </p>
+          </Link>
+
+          {/* Post 5: Free GST Invoice Guide */}
+          <Link to="/blog/make-gst-invoice-online-free" style={{ display: "block", textDecoration: "none", padding: "32px", background: "rgba(255,255,255,0.02)", borderRadius: "20px", border: "1px solid rgba(255,255,255,0.05)", transition: "all 0.3s", cursor: "pointer" }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.04)"; e.currentTarget.style.borderColor = "rgba(245,158,11,0.3)"; e.currentTarget.style.transform = "translateY(-4px)"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.02)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)"; e.currentTarget.style.transform = "none"; }}>
+            <div style={{ display: "flex", gap: "12px", marginBottom: "16px", alignItems: "center" }}>
+              <span style={{ background: "rgba(245,158,11,0.1)", color: "#fbbf24", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em" }}>INVOICING GUIDE</span>
+              <span style={{ color: "#64748b", fontSize: "14px" }}>June 7, 2026 • 5 min read</span>
+            </div>
+            <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "16px" }}>
+              How to Make a GST Invoice Online for Free (No Watermarks)
+            </h2>
+            <p style={{ color: "#94a3b8", fontSize: "15px", lineHeight: "1.6", margin: 0 }}>
+              Stop using messy Excel templates. Learn the 5 mandatory fields required on Indian tax invoices and how to generate professional PDFs for free.
+            </p>
+          </Link>
+
         </div>
       </div>
     </div>

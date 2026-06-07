@@ -129,6 +129,13 @@ export default function BlogPost1() {
             </Link>
           </div>
 
+          {/* Legal Disclaimer */}
+          <div style={{ marginTop: "64px", padding: "24px", background: "rgba(0,0,0,0.2)", borderRadius: "12px", border: "1px dashed rgba(255,255,255,0.1)", textAlign: "center" }}>
+            <p style={{ color: "#64748b", fontSize: "12px", lineHeight: "1.6", margin: 0 }}>
+              <strong>Disclaimer:</strong> The information provided in this blog post is for educational and informational purposes only and does not constitute legal, financial, or tax advice. Laws and regulations change frequently. Please consult a qualified legal professional or Chartered Accountant before drafting contracts, filing taxes, or making business decisions based on this content. KaroTools is not liable for any losses or damages arising from the use of this information.
+            </p>
+          </div>
+
         </div>
       </article>
 

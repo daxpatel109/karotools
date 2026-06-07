@@ -596,6 +596,13 @@ export default function Home() {
             <p style={{ fontSize: 12, color: "#64748b" }}>Free GST Calculator India · Free Invoice Generator India · Free Business Tools for Freelancers</p>
             <p style={{ fontSize: 12, color: "#64748b" }}>KaroTools.in — Karo Business, Bina Hassle Ke</p>
           </div>
+
+          {/* General Website Disclaimer */}
+          <div style={{ borderTop: "1px solid rgba(255,255,255,0.04)", paddingTop: 24, marginTop: 24, textAlign: "center" }}>
+            <p style={{ fontSize: 11, color: "#475569", lineHeight: 1.6, maxWidth: 1000, margin: "0 auto" }}>
+              <strong>Disclaimer:</strong> All calculators and tools on KaroTools.in are provided for educational and informational purposes only. While we strive to keep the logic updated with the latest Indian tax laws (FY 2025-26), the results generated are estimates and do not constitute professional financial, legal, or tax advice. We strongly recommend consulting a certified Chartered Accountant or legal professional before making any business decisions or filing your taxes. KaroTools is not responsible for any financial loss, penalties, or compliance errors resulting from the use of this website.
+            </p>
+          </div>
         </div>
       </footer>
     </div>

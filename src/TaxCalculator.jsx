@@ -308,6 +308,13 @@ export default function TaxCalculator() {
             )}
           </div>
 
+          {/* Legal Disclaimer */}
+          <div style={{ marginTop: "40px", padding: "20px", background: "rgba(0,0,0,0.3)", borderRadius: "12px", border: "1px dashed rgba(255,255,255,0.1)", textAlign: "center" }}>
+            <p style={{ color: "#64748b", fontSize: "12px", lineHeight: "1.6", margin: 0 }}>
+              <strong>Disclaimer:</strong> This calculator provides an estimate based on the information entered and current tax rules for the New Tax Regime (FY 2025-26). Results are for educational purposes only and should not be considered professional tax advice. Tax liability may vary depending on individual circumstances, deductions, exemptions, GST obligations, and applicable laws. Please consult a Chartered Accountant before making financial decisions.
+            </p>
+          </div>
+
         </div>
       </div>
     </div>

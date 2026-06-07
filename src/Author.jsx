@@ -139,8 +139,11 @@ export default function Author() {
       </div>
 
       {/* Footer minimal */}
-      <footer style={{ borderTop: "1px solid rgba(255,255,255,0.05)", padding: "40px", textAlign: "center", color: "#64748b", fontSize: "14px" }}>
-        © 2026 KaroTools.in — Made for Indian Freelancers
+      <footer style={{ borderTop: "1px solid rgba(255,255,255,0.05)", padding: "40px", textAlign: "center", color: "#64748b", fontSize: "14px", display: "flex", flexDirection: "column", gap: "24px", alignItems: "center" }}>
+        <p style={{ margin: 0 }}>© 2026 KaroTools.in — Made for Indian Freelancers</p>
+        <p style={{ fontSize: "11px", color: "#475569", lineHeight: 1.6, maxWidth: 800, margin: 0 }}>
+          <strong>Disclaimer:</strong> All calculators and tools on KaroTools.in are provided for educational and informational purposes only. While we strive to keep the logic updated with the latest Indian tax laws (FY 2025-26), the results generated are estimates and do not constitute professional financial, legal, or tax advice. We strongly recommend consulting a certified Chartered Accountant or legal professional before making any business decisions or filing your taxes. KaroTools is not responsible for any financial loss, penalties, or compliance errors resulting from the use of this website.
+        </p>
       </footer>
     </div>
   );

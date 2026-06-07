@@ -241,6 +241,53 @@ const FIELD_LABELS = {
   upsellIdea:"Upsell Idea (short)", upsellDescription:"Upsell Description",
 };
 
+const PLACEHOLDERS = {
+  yourName: "e.g. Raj Patel",
+  yourRole: "e.g. Frontend Developer",
+  yourCity: "e.g. Bangalore",
+  yourEmail: "e.g. raj@email.com",
+  yourPhone: "e.g. +91 98765 43210",
+  clientName: "e.g. Priya",
+  clientCompany: "e.g. Acme Corp",
+  yourService: "e.g. Website Redesign",
+  specificDetail: "e.g. your recent product launch",
+  result: "e.g. 3x faster load times",
+  day1: "e.g. Tuesday 3pm",
+  day2: "e.g. Wednesday 10am",
+  subject: "e.g. Question about our project",
+  projectName: "e.g. Q3 Marketing Website",
+  invoiceNo: "e.g. INV-2024-05",
+  amount: "e.g. ₹25,000",
+  dueDate: "e.g. Friday, 15th October",
+  paymentDetails: "e.g. UPI: raj@okicici\\nBank: HDFC 12345678",
+  projectDescription: "e.g. Designing a 5-page marketing website in Figma",
+  deliverable1: "e.g. Homepage Design",
+  deliverable2: "e.g. About & Contact Pages",
+  deliverable3: "e.g. Mobile Responsive Layout",
+  timeline: "e.g. 2 weeks",
+  revisions: "e.g. 2",
+  support: "e.g. 14 days",
+  upsell1: "e.g. SEO Optimization",
+  upsell2: "e.g. Monthly Maintenance Plan",
+  reviewLink: "e.g. https://g.page/r/123/review",
+  paymentMethod: "e.g. NEFT / UPI",
+  startDate: "e.g. 1st November",
+  checkinDate: "e.g. 7th November",
+  deliveryDate: "e.g. 14th November",
+  workingHours: "e.g. Mon-Fri 10am-7pm",
+  agreementLink: "e.g. https://docu.sign/123",
+  questionnaireLink: "e.g. https://tally.so/r/123",
+  reason: "e.g. Waiting on API access",
+  delayDays: "e.g. 3 days",
+  originalDeadline: "e.g. 10th Oct",
+  newDeadline: "e.g. 13th Oct",
+  action1: "e.g. Using mock data temporarily",
+  action2: "e.g. Completing UI first",
+  updateDate: "e.g. Tomorrow 5pm",
+  upsellIdea: "e.g. Adding an admin dashboard",
+  upsellDescription: "e.g. A dashboard to manage users easily without dev help",
+};
+
 const FAQS = [
   ["How do I write a cold email that gets replies?", "Keep it under 150 words, personalise the first line, focus on their problem and end with one clear low-commitment CTA like a 15-min call."],
   ["How many follow-ups should I send?", "3 follow-ups is the sweet spot — 48hrs, 5 days, and 10 days after the first email. Most deals close on follow-up 2 or 3."],
@@ -433,9 +480,9 @@ export default function EmailGenerator() {
               <h2 style={{ fontSize: "14px", fontWeight: "700", color: "#0ea5e9", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "16px" }}>3. Fill Details</h2>
               
               <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-                {yourFields.map(f => <FocusInput key={f} label={FIELD_LABELS[f]} value={fields[f] || ""} onChange={v => updateField(f, v)} placeholder={f === "yourName" ? "e.g. Raj Patel" : "..."} />)}
-                {clientFields.map(f => <FocusInput key={f} label={FIELD_LABELS[f]} value={fields[f] || ""} onChange={v => updateField(f, v)} placeholder={f === "clientName" ? "e.g. Priya" : "..."} />)}
-                {otherFields.map(f => <FocusInput key={f} label={FIELD_LABELS[f]} value={fields[f] || ""} onChange={v => updateField(f, v)} placeholder="..." multiline={["projectDescription","paymentDetails","upsellDescription","reason"].includes(f)} />)}
+                {yourFields.map(f => <FocusInput key={f} label={FIELD_LABELS[f]} value={fields[f] || ""} onChange={v => updateField(f, v)} placeholder={PLACEHOLDERS[f] || "..."} />)}
+                {clientFields.map(f => <FocusInput key={f} label={FIELD_LABELS[f]} value={fields[f] || ""} onChange={v => updateField(f, v)} placeholder={PLACEHOLDERS[f] || "..."} />)}
+                {otherFields.map(f => <FocusInput key={f} label={FIELD_LABELS[f]} value={fields[f] || ""} onChange={v => updateField(f, v)} placeholder={PLACEHOLDERS[f] || "..."} multiline={["projectDescription","paymentDetails","upsellDescription","reason"].includes(f)} />)}
               </div>
             </div>
           </div>
@@ -474,11 +521,11 @@ export default function EmailGenerator() {
               {/* Action Buttons */}
               <div style={{ display: "flex", gap: "16px", marginTop: "40px", borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: "24px" }}>
                 
-                <a href={`mailto:?subject=${encodeURIComponent(liveEmail.subject)}&body=${encodeURIComponent(liveEmail.body)}`}
+                <a href={`https://mail.google.com/mail/?view=cm&fs=1&su=${encodeURIComponent(liveEmail.subject)}&body=${encodeURIComponent(liveEmail.body)}`} target="_blank" rel="noopener noreferrer"
                   style={{ flex: 1, padding: "14px", background: "linear-gradient(135deg,#0ea5e9,#14b8a6)", borderRadius: "10px", color: "#fff", fontSize: "14px", fontWeight: "700", textAlign: "center", textDecoration: "none", cursor: "pointer", display: "flex", justifyContent: "center", alignItems: "center", gap: "8px", transition: "transform 0.2s" }}
                   onMouseEnter={e => e.currentTarget.style.transform = "translateY(-2px)"}
                   onMouseLeave={e => e.currentTarget.style.transform = "translateY(0)"}>
-                  ✉️ Open in Gmail / Mail App
+                  ✉️ Open in Gmail
                 </a>
 
                 <button onClick={() => copy(`Subject: ${liveEmail.subject}\n\n${liveEmail.body}`, setCopiedAll)}

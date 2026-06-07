@@ -91,7 +91,7 @@ export default function BlogPost2() {
         <div style={{ display: "flex", alignItems: "center", gap: "16px", paddingBottom: "40px", borderBottom: "1px solid rgba(255,255,255,0.05)", marginBottom: "48px" }}>
           <div style={{ width: "56px", height: "56px", borderRadius: "50%", background: "linear-gradient(135deg, #0ea5e9, #14b8a6)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "24px", fontWeight: "bold" }}>K</div>
           <div>
-            <p style={{ margin: "0 0 4px 0", fontSize: "18px", fontWeight: "700", color: "#f1f5f9" }}>Dax Patel</p>
+            <Link to="/author/dax-patel" style={{ margin: "0 0 4px 0", fontSize: "18px", fontWeight: "700", color: "#f1f5f9", textDecoration: "none", display: "inline-block" }} onMouseEnter={e => e.target.style.textDecoration = "underline"} onMouseLeave={e => e.target.style.textDecoration = "none"}>Dax Patel</Link>
             <p style={{ margin: 0, fontSize: "14px", color: "#94a3b8" }}>Tax & Freelance Growth Expert</p>
           </div>
         </div>

@@ -45,7 +45,7 @@ export default function BlogPost1() {
         <div style={{ display: "flex", alignItems: "center", gap: "16px", paddingBottom: "40px", borderBottom: "1px solid rgba(255,255,255,0.05)", marginBottom: "48px" }}>
           <div style={{ width: "48px", height: "48px", borderRadius: "50%", background: "linear-gradient(135deg, #3b82f6, #8b5cf6)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "20px", fontWeight: "bold" }}>K</div>
           <div>
-            <p style={{ margin: "0 0 4px 0", fontWeight: "600", color: "#e2e8f0" }}>Dax Patel</p>
+            <Link to="/author/dax-patel" style={{ margin: "0 0 4px 0", fontWeight: "600", color: "#e2e8f0", textDecoration: "none", display: "inline-block" }} onMouseEnter={e => e.target.style.textDecoration = "underline"} onMouseLeave={e => e.target.style.textDecoration = "none"}>Dax Patel</Link>
             <p style={{ margin: 0, fontSize: "13px", color: "#64748b" }}>Empowering Indian Freelancers</p>
           </div>
         </div>

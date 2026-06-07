@@ -17,6 +17,7 @@ import TaxCalculator from "./TaxCalculator";
 import NormalTaxCalculator from "./NormalTaxCalculator";
 import AdvanceTaxCalculator from "./AdvanceTaxCalculator";
 import SalaryVsFreelanceCalculator from "./SalaryVsFreelanceCalculator";
+import SIPCalculator from "./SIPCalculator";
 import Author from "./Author";
 import { PrivacyPolicy, TermsConditions, ContactUs } from "./LegalPages";
 
@@ -83,6 +84,7 @@ export default function App() {
       <Route path="/normal-tax-calculator" element={<NormalTaxCalculator />} />
       <Route path="/advance-tax-calculator" element={<AdvanceTaxCalculator />} />
       <Route path="/salary-vs-freelance" element={<SalaryVsFreelanceCalculator />} />
+      <Route path="/sip-calculator" element={<SIPCalculator />} />
       <Route path="/author/dax-patel" element={<Author />} />
       {/* 404 catch-all */}
       <Route path="*" element={<NotFound />} />

@@ -11,6 +11,7 @@ import Blog from "./Blog";
 import BlogPost1 from "./BlogPost1";
 import BlogPost2 from "./BlogPost2";
 import TaxCalculator from "./TaxCalculator";
+import NormalTaxCalculator from "./NormalTaxCalculator";
 import { PrivacyPolicy, TermsConditions, ContactUs } from "./LegalPages";
 
 // 404 Not Found page
@@ -70,6 +71,7 @@ export default function App() {
       <Route path="/blog/msme-45-day-rule" element={<BlogPost1 />} />
       <Route path="/blog/section-44ada-freelancers" element={<BlogPost2 />} />
       <Route path="/tax-calculator" element={<TaxCalculator />} />
+      <Route path="/normal-tax-calculator" element={<NormalTaxCalculator />} />
       {/* 404 catch-all */}
       <Route path="*" element={<NotFound />} />
     </Routes>

@@ -43,7 +43,17 @@ export default function BlogPost1() {
         </h1>
 
         <div style={{ display: "flex", alignItems: "center", gap: "16px", paddingBottom: "40px", borderBottom: "1px solid rgba(255,255,255,0.05)", marginBottom: "48px" }}>
-          <div style={{ width: "48px", height: "48px", borderRadius: "50%", background: "linear-gradient(135deg, #3b82f6, #8b5cf6)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "20px", fontWeight: "bold" }}>K</div>
+          <div style={{ width: "48px", height: "48px", borderRadius: "50%", overflow: "hidden", background: "#0f172a", border: "2px solid #1e293b", position: "relative" }}>
+            <img 
+              src="/dax-profile.jpg" 
+              alt="Dax Patel" 
+              onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
+              style={{ width: "100%", height: "100%", objectFit: "cover" }} 
+            />
+            <div style={{ display: "none", width: "100%", height: "100%", alignItems: "center", justifyContent: "center", background: "linear-gradient(135deg, #3b82f6, #8b5cf6)", color: "#f8fafc", fontSize: "20px", fontWeight: "bold" }}>
+              DP
+            </div>
+          </div>
           <div>
             <Link to="/author/dax-patel" style={{ margin: "0 0 4px 0", fontWeight: "600", color: "#e2e8f0", textDecoration: "none", display: "inline-block" }} onMouseEnter={e => e.target.style.textDecoration = "underline"} onMouseLeave={e => e.target.style.textDecoration = "none"}>Dax Patel</Link>
             <p style={{ margin: 0, fontSize: "13px", color: "#64748b" }}>Empowering Indian Freelancers</p>

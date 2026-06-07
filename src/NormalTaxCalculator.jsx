@@ -1,9 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 
 export default function NormalTaxCalculator() {
   const [grossIncome, setGrossIncome] = useState("8000000");
   const [expenses, setExpenses] = useState("5000000");
+  const reportRef = useRef(null);
+  const [isExporting, setIsExporting] = useState(false);
   
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -120,6 +124,23 @@ export default function NormalTaxCalculator() {
 
   const results = calculateNormalTax(grossIncome, expenses);
 
+  const downloadPDF = async () => {
+    if (!reportRef.current || isExporting) return;
+    setIsExporting(true);
+    try {
+      const canvas = await html2canvas(reportRef.current, { scale: 2, backgroundColor: "#020617" });
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF("p", "mm", "a4");
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+      pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+      pdf.save("Tax_Report_KaroTools.pdf");
+    } catch (e) {
+      console.error(e);
+    }
+    setIsExporting(false);
+  };
+
   const formatCurrency = (val) => new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(val);
 
   return (
@@ -172,6 +193,16 @@ export default function NormalTaxCalculator() {
                 />
               </div>
 
+              {parseFloat(grossIncome) > 2000000 && (
+                <div style={{ padding: "16px", background: "rgba(234,179,8,0.1)", border: "1px solid rgba(234,179,8,0.2)", borderRadius: "12px", marginBottom: "24px", display: "flex", gap: "12px", alignItems: "start" }}>
+                  <div style={{ fontSize: "20px" }}>⚠️</div>
+                  <div>
+                    <div style={{ color: "#fef08a", fontSize: "14px", fontWeight: "700", marginBottom: "4px" }}>GST Registration Required</div>
+                    <div style={{ color: "#fde047", fontSize: "13px", opacity: 0.8, lineHeight: 1.5 }}>Your gross receipts exceed ₹20 Lakhs. You are legally required to register for GST.</div>
+                  </div>
+                </div>
+              )}
+
               <div style={{ marginBottom: "24px" }}>
                 <label style={{ display: "block", color: "#cbd5e1", fontSize: "14px", fontWeight: "600", marginBottom: "8px" }}>Total Actual Expenses (₹)</label>
                 <input 
@@ -192,14 +223,16 @@ export default function NormalTaxCalculator() {
               </div>
             </div>
 
-            {/* Results Output */}
-            <div style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "24px", padding: "32px", position: "relative", overflow: "hidden" }}>
-              <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "4px", background: "linear-gradient(90deg, #f43f5e, #ec4899)" }} />
-              
-              <h2 style={{ fontSize: "20px", fontWeight: "700", fontFamily: "'Syne',sans-serif", marginBottom: "32px", color: "#e2e8f0", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <span>Tax Breakdown</span>
-                <span style={{ fontSize: "12px", background: "rgba(255,255,255,0.1)", padding: "4px 10px", borderRadius: "20px" }}>New Regime</span>
-              </h2>
+            {/* Results Column */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
+              {/* Results Output */}
+              <div ref={reportRef} style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "24px", padding: "32px", position: "relative", overflow: "hidden" }}>
+                <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "4px", background: "linear-gradient(90deg, #f43f5e, #ec4899)" }} />
+                
+                <h2 style={{ fontSize: "20px", fontWeight: "700", fontFamily: "'Syne',sans-serif", marginBottom: "32px", color: "#e2e8f0", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                  <span>Tax Breakdown</span>
+                  <span style={{ fontSize: "12px", background: "rgba(255,255,255,0.1)", padding: "4px 10px", borderRadius: "20px" }}>New Regime</span>
+                </h2>
 
               <div style={{ display: "flex", flexDirection: "column", gap: "16px", marginBottom: "32px" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", color: "#94a3b8", fontSize: "15px" }}>
@@ -251,6 +284,51 @@ export default function NormalTaxCalculator() {
                 <div style={{ textAlign: "right", color: "#64748b", fontSize: "14px" }}>
                   Effective Tax Rate: {results.effectiveRate}%
                 </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div style={{ display: "flex", gap: "16px", marginTop: "24px" }}>
+                <button onClick={downloadPDF} disabled={isExporting} style={{ flex: 1, padding: "16px", background: "linear-gradient(135deg, #f43f5e, #ec4899)", color: "white", fontSize: "16px", fontWeight: "700", borderRadius: "12px", border: "none", cursor: isExporting ? "wait" : "pointer", display: "flex", justifyContent: "center", alignItems: "center", gap: "8px", transition: "transform 0.2s, opacity 0.2s", opacity: isExporting ? 0.7 : 1 }}>
+                  {isExporting ? "Exporting..." : "↓ Download PDF Report"}
+                </button>
+              </div>
+
+              {/* Advance Tax Schedule */}
+              {results.totalTax >= 10000 && (
+                <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "24px", padding: "32px", marginTop: "32px" }}>
+                  <h3 style={{ fontSize: "18px", fontWeight: "700", fontFamily: "'Syne',sans-serif", color: "#e2e8f0", marginBottom: "8px" }}>Advance Tax Schedule</h3>
+                  <p style={{ color: "#94a3b8", fontSize: "13px", marginBottom: "24px", lineHeight: 1.5 }}>
+                    Since your tax exceeds ₹10,000, you must pay in 4 quarterly installments to avoid 234B/234C penalties.
+                  </p>
+                  
+                  <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", paddingBottom: "12px", borderBottom: "1px dashed rgba(255,255,255,0.05)" }}>
+                      <div><div style={{ color: "#f8fafc", fontSize: "14px", fontWeight: "600" }}>15 June</div><div style={{ color: "#64748b", fontSize: "12px" }}>15% of Total Tax</div></div>
+                      <div style={{ color: "#f43f5e", fontWeight: "700" }}>{formatCurrency(results.totalTax * 0.15)}</div>
+                    </div>
+                    <div style={{ display: "flex", justifyContent: "space-between", paddingBottom: "12px", borderBottom: "1px dashed rgba(255,255,255,0.05)" }}>
+                      <div><div style={{ color: "#f8fafc", fontSize: "14px", fontWeight: "600" }}>15 Sept</div><div style={{ color: "#64748b", fontSize: "12px" }}>45% Cumulative</div></div>
+                      <div style={{ color: "#f43f5e", fontWeight: "700" }}>{formatCurrency(results.totalTax * 0.30)}</div>
+                    </div>
+                    <div style={{ display: "flex", justifyContent: "space-between", paddingBottom: "12px", borderBottom: "1px dashed rgba(255,255,255,0.05)" }}>
+                      <div><div style={{ color: "#f8fafc", fontSize: "14px", fontWeight: "600" }}>15 Dec</div><div style={{ color: "#64748b", fontSize: "12px" }}>75% Cumulative</div></div>
+                      <div style={{ color: "#f43f5e", fontWeight: "700" }}>{formatCurrency(results.totalTax * 0.30)}</div>
+                    </div>
+                    <div style={{ display: "flex", justifyContent: "space-between" }}>
+                      <div><div style={{ color: "#f8fafc", fontSize: "14px", fontWeight: "600" }}>15 March</div><div style={{ color: "#64748b", fontSize: "12px" }}>100% Cumulative</div></div>
+                      <div style={{ color: "#f43f5e", fontWeight: "700" }}>{formatCurrency(results.totalTax * 0.25)}</div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* SEO Summary */}
+              <div style={{ background: "rgba(14,165,233,0.05)", border: "1px solid rgba(14,165,233,0.1)", borderRadius: "16px", padding: "20px", marginTop: "32px" }}>
+                <p style={{ margin: 0, color: "#cbd5e1", fontSize: "14px", lineHeight: "1.6" }}>
+                  <strong>Tax Summary:</strong> A freelancer or agency earning {formatCurrency(parseFloat(grossIncome) || 0)} with {formatCurrency(parseFloat(expenses) || 0)} in business expenses has a taxable profit of {formatCurrency(results.taxableIncome)}. 
+                  Under the New Tax Regime for FY 2025-26, the estimated tax liability is <strong>{formatCurrency(results.totalTax)}</strong> (an effective tax rate of {results.effectiveRate}%).
+                  {parseFloat(grossIncome) <= 7500000 && parseFloat(expenses) < parseFloat(grossIncome) * 0.5 ? " Note: Since your expenses are less than 50% of your revenue and you earn under ₹75L, you might save tax by opting for Section 44ADA instead." : ""}
+                </p>
               </div>
 
             </div>

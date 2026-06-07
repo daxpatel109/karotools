@@ -371,8 +371,8 @@ export default function Home() {
           <span style={{ fontSize: 12, color: "#38bdf8", fontWeight: 700, letterSpacing: "0.08em" }}>🇮🇳 FREE TOOLS FOR INDIAN FREELANCERS & BUSINESSES</span>
         </div>
 
-        {/* H1 (SEO Optimized) */}
-        <h1 style={{ fontSize: "clamp(36px, 7vw, 76px)", fontWeight: 800, fontFamily: "'Syne',sans-serif", lineHeight: 1.1, marginBottom: 24, animation: "fadeInUp 0.7s 0.2s both", letterSpacing: "-0.03em", maxWidth: 1000 }}>
+        {/* H1 (SEO Optimized & Mobile Responsive) */}
+        <h1 style={{ fontSize: "clamp(28px, 8vw, 76px)", fontWeight: 800, fontFamily: "'Syne',sans-serif", lineHeight: 1.15, marginBottom: 24, animation: "fadeInUp 0.7s 0.2s both", letterSpacing: "-0.03em", maxWidth: 1000, wordWrap: "break-word" }}>
           <span style={{ background: "linear-gradient(135deg, #ffffff 0%, #38bdf8 40%, #14b8a6 80%)", backgroundSize: "200% auto", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "shimmer 5s linear infinite" }}>
             Free Tax Calculators & Tools
           </span>

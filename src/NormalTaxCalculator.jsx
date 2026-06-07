@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+import { Helmet } from "react-helmet-async";
 
 export default function NormalTaxCalculator() {
   const [grossIncome, setGrossIncome] = useState("8000000");

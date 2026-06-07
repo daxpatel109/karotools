@@ -106,6 +106,23 @@ export default function NormalTaxCalculator() {
     const cess = taxBeforeCess * 0.04;
     const totalTax = taxBeforeCess + cess;
     const effectiveRate = gross > 0 ? ((totalTax / gross) * 100).toFixed(1) : 0;
+    
+    const profitMargin = gross > 0 ? ((taxableIncome / gross) * 100).toFixed(1) : 0;
+    const is44ADAEligible = gross > 0 && gross <= 7500000 && parseFloat(profitMargin) < 50;
+    
+    let adaSavings = 0;
+    if (is44ADAEligible) {
+      const adaProfit = gross * 0.5;
+      let t = rawTaxOn(adaProfit);
+      if (adaProfit <= 1200000) {
+        t = 0;
+      } else if (adaProfit <= 1270000) {
+        const excess = adaProfit - 1200000;
+        if (t > excess) t = excess;
+      }
+      const adaTotalTax = t + (t * 0.04);
+      adaSavings = Math.max(0, totalTax - adaTotalTax);
+    }
 
     return {
       taxableIncome,
@@ -118,7 +135,10 @@ export default function NormalTaxCalculator() {
       taxBeforeCess,
       cess,
       totalTax,
-      effectiveRate
+      effectiveRate,
+      profitMargin,
+      is44ADAEligible,
+      adaSavings
     };
   };
 
@@ -217,6 +237,19 @@ export default function NormalTaxCalculator() {
                 <p style={{ color: "#64748b", fontSize: "12px", marginTop: "8px" }}>Include rent, salaries, software, laptop depreciation, etc.</p>
               </div>
 
+              <div style={{ display: "flex", gap: "12px", marginBottom: "24px" }}>
+                <div style={{ flex: 1, padding: "16px", background: "rgba(255,255,255,0.03)", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.05)" }}>
+                  <div style={{ color: "#94a3b8", fontSize: "13px", fontWeight: "600", marginBottom: "4px" }}>Profit Margin</div>
+                  <div style={{ color: "#f8fafc", fontSize: "20px", fontWeight: "700", fontFamily: "'Syne',sans-serif" }}>{results.profitMargin}%</div>
+                </div>
+                <div style={{ flex: 1, padding: "16px", background: results.is44ADAEligible ? "rgba(34,197,94,0.05)" : "rgba(239,68,68,0.05)", borderRadius: "12px", border: `1px solid ${results.is44ADAEligible ? "rgba(34,197,94,0.2)" : "rgba(239,68,68,0.2)"}` }}>
+                  <div style={{ color: results.is44ADAEligible ? "#4ade80" : "#f87171", fontSize: "13px", fontWeight: "600", marginBottom: "4px" }}>44ADA Status</div>
+                  <div style={{ color: results.is44ADAEligible ? "#22c55e" : "#ef4444", fontSize: "15px", fontWeight: "700", display: "flex", alignItems: "center", gap: "6px" }}>
+                    {results.is44ADAEligible ? "✅ Eligible" : "❌ Not Eligible"}
+                  </div>
+                </div>
+              </div>
+
               <div style={{ padding: "20px", background: "rgba(244,63,94,0.05)", borderRadius: "12px", border: "1px solid rgba(244,63,94,0.1)" }}>
                 <div style={{ color: "#fb7185", fontSize: "14px", fontWeight: "700", marginBottom: "4px" }}>Net Taxable Profit</div>
                 <div style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Syne',sans-serif" }}>{formatCurrency(results.taxableIncome)}</div>
@@ -225,6 +258,23 @@ export default function NormalTaxCalculator() {
 
             {/* Results Column */}
             <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
+              
+              {/* Better Option Warning */}
+              {results.is44ADAEligible && results.adaSavings > 0 && (
+                <div style={{ padding: "24px", background: "linear-gradient(135deg, rgba(16,185,129,0.1) 0%, rgba(52,211,153,0.05) 100%)", borderRadius: "20px", border: "1px solid rgba(16,185,129,0.3)" }}>
+                  <div style={{ display: "flex", gap: "12px", alignItems: "center", marginBottom: "16px" }}>
+                    <div style={{ fontSize: "24px" }}>💡</div>
+                    <h3 style={{ fontSize: "18px", fontWeight: "700", fontFamily: "'Syne',sans-serif", color: "#34d399", margin: 0 }}>Better Option Available</h3>
+                  </div>
+                  <p style={{ color: "#d1fae5", fontSize: "15px", lineHeight: "1.6", marginBottom: "20px" }}>
+                    Because your expenses are less than 50% of your revenue, you are overpaying taxes using the Normal Method. By using Section 44ADA (Presumptive Taxation), you could save <strong>{formatCurrency(results.adaSavings)}</strong>!
+                  </p>
+                  <Link to="/tax-calculator" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "#10b981", color: "#022c22", textDecoration: "none", padding: "12px 20px", borderRadius: "10px", fontWeight: "700", fontSize: "15px", transition: "transform 0.2s" }} onMouseEnter={e => e.currentTarget.style.transform = "translateY(-2px)"} onMouseLeave={e => e.currentTarget.style.transform = "translateY(0)"}>
+                    Compare with 44ADA →
+                  </Link>
+                </div>
+              )}
+
               {/* Results Output */}
               <div ref={reportRef} style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "24px", padding: "32px", position: "relative", overflow: "hidden" }}>
                 <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "4px", background: "linear-gradient(90deg, #f43f5e, #ec4899)" }} />

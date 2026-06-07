@@ -371,13 +371,13 @@ export default function Home() {
           <span style={{ fontSize: 12, color: "#38bdf8", fontWeight: 700, letterSpacing: "0.08em" }}>🇮🇳 FREE TOOLS FOR INDIAN FREELANCERS & BUSINESSES</span>
         </div>
 
-        {/* H1 */}
-        <h1 style={{ fontSize: "clamp(40px, 7.5vw, 88px)", fontWeight: 800, fontFamily: "'Syne',sans-serif", lineHeight: 1.06, marginBottom: 28, animation: "fadeInUp 0.7s 0.2s both", letterSpacing: "-0.03em", maxWidth: 900 }}>
-          <span style={{ background: "linear-gradient(135deg, #ffffff 0%, #38bdf8 40%, #14b8a6 80%)", backgroundSize: "200% auto", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "shimmer 5s linear infinite, fadeInUp 0.7s 0.2s both" }}>
-            Karo Business,
+        {/* H1 (SEO Optimized) */}
+        <h1 style={{ fontSize: "clamp(36px, 7vw, 76px)", fontWeight: 800, fontFamily: "'Syne',sans-serif", lineHeight: 1.1, marginBottom: 24, animation: "fadeInUp 0.7s 0.2s both", letterSpacing: "-0.03em", maxWidth: 1000 }}>
+          <span style={{ background: "linear-gradient(135deg, #ffffff 0%, #38bdf8 40%, #14b8a6 80%)", backgroundSize: "200% auto", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "shimmer 5s linear infinite" }}>
+            Free Tax Calculators & Tools
           </span>
           <br />
-          <span style={{ color: "#e2e8f0" }}>Bina Hassle Ke. 🚀</span>
+          <span style={{ color: "#e2e8f0" }}>for Indian Freelancers 🇮🇳</span>
         </h1>
 
         {/* Subtitle */}

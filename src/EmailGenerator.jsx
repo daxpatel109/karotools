@@ -282,9 +282,6 @@ export default function EmailGenerator() {
   const [category, setCategory] = useState(() => localStorage.getItem("em_category") || "cold");
   const [tone, setTone] = useState(() => localStorage.getItem("em_tone") || "professional");
   const [fields, setFields] = useState(() => JSON.parse(localStorage.getItem("em_fields") || "{}"));
-  const [email, setEmail] = useState(null);
-  const [copiedS, setCopiedS] = useState(false);
-  const [copiedB, setCopiedB] = useState(false);
   const [copiedAll, setCopiedAll] = useState(false);
 
   useEffect(() => {
@@ -335,12 +332,6 @@ export default function EmailGenerator() {
     sc.text = JSON.stringify(schema);
   }, []);
 
-  const handleGenerate = () => {
-    const result = buildEmail(category, tone, fields);
-    setEmail(result);
-    setTimeout(() => document.getElementById("email-result")?.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
-  };
-
   const copy = (text, setter) => {
     navigator.clipboard.writeText(text);
     setter(true);
@@ -351,239 +342,188 @@ export default function EmailGenerator() {
   const yourFields = currentFields.filter(f => f.startsWith("your"));
   const clientFields = currentFields.filter(f => f.startsWith("client"));
   const otherFields = currentFields.filter(f => !f.startsWith("your") && !f.startsWith("client"));
-  const wordCount = email ? email.body.split(/\s+/).filter(Boolean).length : 0;
+  
+  // Calculate live email on every render
+  const liveEmail = buildEmail(category, tone, fields);
+  const wordCount = liveEmail.body.split(/\s+/).filter(Boolean).length;
 
-  const card = { background: "rgba(255,255,255,0.025)", backdropFilter: "blur(20px)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 20, padding: 28, marginBottom: 16 };
+  const card = { background: "rgba(255,255,255,0.02)", backdropFilter: "blur(20px)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "16px", padding: "24px" };
 
   return (
     <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans',sans-serif", color: "#f1f5f9" }}>
       <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
       <style>{`
         * { box-sizing: border-box; }
-        input::placeholder, textarea::placeholder { color: #1e293b; }
+        input::placeholder, textarea::placeholder { color: #334155; }
         textarea { resize: vertical; }
-        @keyframes fadeInUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
-        @keyframes fadeIn { from{opacity:0} to{opacity:1} }
-        @keyframes pulse { 0%,100%{opacity:0.5;transform:scale(1)} 50%{opacity:1;transform:scale(1.2)} }
-        @keyframes shimmer { 0%{background-position:-200% center} 100%{background-position:200% center} }
-        .cat-btn { transition: all 0.2s; }
-        .cat-btn:hover { border-color: rgba(14,165,233,0.4) !important; color: #38bdf8 !important; }
-        .tone-btn:hover { border-color: rgba(14,165,233,0.4) !important; }
-        .faq-item:hover { border-color: rgba(14,165,233,0.2) !important; background: rgba(14,165,233,0.03) !important; }
-
-        @media (max-width: 640px) {
-          .cat-grid { grid-template-columns: 1fr 1fr !important; }
-          .fields-grid { grid-template-columns: 1fr !important; }
-          .stats-grid { grid-template-columns: 1fr 1fr !important; }
-          .tone-grid { flex-wrap: wrap !important; }
-          .hero-title { font-size: 28px !important; }
-          .main-pad { padding: 80px 16px 60px !important; }
-          .nav-pad { padding: 0 16px !important; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
+        
+        .split-grid { display: grid; grid-template-columns: 420px 1fr; gap: 40px; align-items: start; }
+        
+        @media (max-width: 1024px) {
+          .split-grid { grid-template-columns: 1fr; }
+          .preview-pane { position: relative !important; top: 0 !important; margin-top: 40px; }
         }
       `}</style>
 
-      {/* Ambient BG */}
-      <div style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0 }}>
-        <div style={{ position: "absolute", top: "-20%", left: "-10%", width: "60%", height: "60%", background: "radial-gradient(circle, rgba(14,165,233,0.07) 0%, transparent 65%)", filter: "blur(80px)" }} />
-        <div style={{ position: "absolute", bottom: "-20%", right: "-10%", width: "55%", height: "55%", background: "radial-gradient(circle, rgba(20,184,166,0.05) 0%, transparent 65%)", filter: "blur(80px)" }} />
-      </div>
-
-      {/* Dot grid */}
-      <div style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0, backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.02) 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
-
       {/* Navbar */}
-      <nav className="nav-pad" style={{ position: "sticky", top: 0, zIndex: 100, height: 68, display: "flex", alignItems: "center", padding: "0 40px", justifyContent: "space-between", background: "rgba(2,6,23,0.92)", backdropFilter: "blur(24px)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+      <nav style={{ position: "sticky", top: 0, zIndex: 100, height: 70, display: "flex", alignItems: "center", padding: "0 40px", justifyContent: "space-between", background: "rgba(2,6,23,0.92)", backdropFilter: "blur(24px)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
         <a href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 10 }}>
-          <div style={{ width: 34, height: 34, borderRadius: 10, background: "linear-gradient(135deg,#0ea5e9,#14b8a6)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16, boxShadow: "0 0 16px rgba(14,165,233,0.3)" }}>⚡</div>
-          <span style={{ fontSize: 20, fontWeight: 800, fontFamily: "'Syne',sans-serif", background: "linear-gradient(135deg,#0ea5e9,#14b8a6,#0ea5e9)", backgroundSize: "200% auto", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "shimmer 4s linear infinite" }}>KaroTools</span>
+          <div style={{ width: 34, height: 34, borderRadius: 10, background: "linear-gradient(135deg,#0ea5e9,#14b8a6)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16 }}>⚡</div>
+          <span style={{ fontSize: 20, fontWeight: 800, fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>KaroTools</span>
         </a>
-        <a href="/" style={{ padding: "9px 18px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 10, color: "#94a3b8", fontSize: 14, fontWeight: 600, textDecoration: "none", display: "inline-flex", alignItems: "center", transition: "all 0.2s" }}
-          onMouseEnter={e => { e.currentTarget.style.background = "rgba(14,165,233,0.1)"; e.currentTarget.style.borderColor = "rgba(14,165,233,0.3)"; e.currentTarget.style.color = "#38bdf8"; }}
-          onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.04)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)"; e.currentTarget.style.color = "#94a3b8"; }}>
-          ← Home
-        </a>
+        <a href="/" style={{ padding: "8px 16px", background: "rgba(255,255,255,0.05)", borderRadius: 10, color: "#94a3b8", fontSize: 14, fontWeight: 600, textDecoration: "none" }}>← Home</a>
       </nav>
 
-      <div className="main-pad" style={{ position: "relative", zIndex: 1, maxWidth: 880, margin: "0 auto", padding: "60px 24px 80px" }}>
-
+      <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "40px 24px" }}>
+        
         {/* Header */}
-        <div style={{ textAlign: "center", marginBottom: 48, animation: "fadeInUp 0.6s both" }}>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(14,165,233,0.1)", border: "1px solid rgba(14,165,233,0.2)", borderRadius: 50, padding: "7px 18px", marginBottom: 24 }}>
-            <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#0ea5e9", display: "inline-block", animation: "pulse 2s infinite" }} />
-            <span style={{ fontSize: 12, color: "#38bdf8", fontWeight: 700, letterSpacing: "0.08em" }}>10 EMAIL TYPES · 4 TONES · 100% FREE · NO LOGIN</span>
+        <div style={{ marginBottom: 40 }}>
+          <div style={{ display: "inline-block", background: "rgba(14,165,233,0.1)", color: "#38bdf8", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.08em", marginBottom: "16px" }}>
+            LIVE PREVIEW APP
           </div>
-          <div style={{ fontSize: 52, marginBottom: 16 }}>📧</div>
-          <h1 className="hero-title" style={{ fontSize: "clamp(28px,5vw,46px)", fontWeight: 800, fontFamily: "'Syne',sans-serif", marginBottom: 12, background: "linear-gradient(135deg,#ffffff,#38bdf8,#14b8a6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", letterSpacing: "-0.02em" }}>
-            Free Business Email Generator
+          <h1 style={{ fontSize: "clamp(32px,4vw,48px)", fontWeight: 800, fontFamily: "'Syne',sans-serif", marginBottom: "12px", color: "#fff" }}>
+            Email Generator
           </h1>
-          <p style={{ color: "#64748b", fontSize: 16, maxWidth: 520, margin: "0 auto", lineHeight: 1.7 }}>
-            Generate professional business emails instantly — cold outreach, follow-ups, payment reminders & more. Built for Indian freelancers.
+          <p style={{ color: "#94a3b8", fontSize: "16px", maxWidth: "600px" }}>
+            Select your tone, fill in the blanks, and watch your email write itself perfectly in real-time.
           </p>
         </div>
 
-        {/* Step 1 — Email Type */}
-        <div style={{ ...card, animation: "fadeInUp 0.6s 0.1s both" }}>
-          <div style={{ fontSize: 12, fontWeight: 700, color: "#0ea5e9", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 16 }}>Step 1 — Choose Email Type</div>
-          <div className="cat-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(170px,1fr))", gap: 10 }}>
-            {CATEGORIES.map(c => (
-              <button key={c.id} className="cat-btn" onClick={() => { setCategory(c.id); setEmail(null); }}
-                style={{ padding: "13px 14px", borderRadius: 14, cursor: "pointer", textAlign: "left", border: `1px solid ${category === c.id ? "rgba(14,165,233,0.5)" : "rgba(255,255,255,0.07)"}`, background: category === c.id ? "rgba(14,165,233,0.12)" : "rgba(255,255,255,0.02)" }}>
-                <div style={{ fontSize: 14, fontWeight: 700, color: category === c.id ? "#38bdf8" : "#f1f5f9", marginBottom: 3 }}>{c.label}</div>
-                <div style={{ fontSize: 11, color: category === c.id ? "#0ea5e9" : "#334155" }}>{c.desc}</div>
-              </button>
-            ))}
+        {/* Split Screen Container */}
+        <div className="split-grid">
+          
+          {/* LEFT SIDE: Controls */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+            
+            {/* Category Selector */}
+            <div style={card}>
+              <h2 style={{ fontSize: "14px", fontWeight: "700", color: "#0ea5e9", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "16px" }}>1. Email Type</h2>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
+                {CATEGORIES.map(c => (
+                  <button key={c.id} onClick={() => setCategory(c.id)}
+                    style={{ padding: "12px 14px", borderRadius: "10px", textAlign: "left", cursor: "pointer", transition: "all 0.2s",
+                             background: category === c.id ? "rgba(14,165,233,0.15)" : "rgba(255,255,255,0.03)", 
+                             border: `1px solid ${category === c.id ? "rgba(14,165,233,0.4)" : "rgba(255,255,255,0.05)"}` }}>
+                    <div style={{ fontSize: "13px", fontWeight: "700", color: category === c.id ? "#38bdf8" : "#e2e8f0" }}>{c.label}</div>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Tone Selector */}
+            <div style={card}>
+              <h2 style={{ fontSize: "14px", fontWeight: "700", color: "#0ea5e9", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "16px" }}>2. Select Tone</h2>
+              <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+                {TONES.map(t => (
+                  <button key={t.id} onClick={() => setTone(t.id)}
+                    style={{ padding: "8px 16px", borderRadius: "50px", cursor: "pointer", transition: "all 0.2s", fontSize: "13px", fontWeight: "600",
+                             background: tone === t.id ? "#0ea5e9" : "rgba(255,255,255,0.05)",
+                             color: tone === t.id ? "#fff" : "#94a3b8", border: "none" }}>
+                    {t.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Dynamic Fields */}
+            <div style={card}>
+              <h2 style={{ fontSize: "14px", fontWeight: "700", color: "#0ea5e9", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "16px" }}>3. Fill Details</h2>
+              
+              <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                {yourFields.map(f => <FocusInput key={f} label={FIELD_LABELS[f]} value={fields[f] || ""} onChange={v => updateField(f, v)} placeholder={f === "yourName" ? "e.g. Raj Patel" : "..."} />)}
+                {clientFields.map(f => <FocusInput key={f} label={FIELD_LABELS[f]} value={fields[f] || ""} onChange={v => updateField(f, v)} placeholder={f === "clientName" ? "e.g. Priya" : "..."} />)}
+                {otherFields.map(f => <FocusInput key={f} label={FIELD_LABELS[f]} value={fields[f] || ""} onChange={v => updateField(f, v)} placeholder="..." multiline={["projectDescription","paymentDetails","upsellDescription","reason"].includes(f)} />)}
+              </div>
+            </div>
           </div>
-        </div>
 
-        {/* Step 2 — Tone */}
-        <div style={{ ...card, animation: "fadeInUp 0.6s 0.15s both" }}>
-          <div style={{ fontSize: 12, fontWeight: 700, color: "#0ea5e9", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 16 }}>Step 2 — Choose Tone</div>
-          <div className="tone-grid" style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-            {TONES.map(t => (
-              <button key={t.id} className="tone-btn" onClick={() => setTone(t.id)}
-                style={{ padding: "11px 20px", borderRadius: 50, cursor: "pointer", fontSize: 14, fontWeight: 600, border: `1px solid ${tone === t.id ? "rgba(14,165,233,0.6)" : "rgba(255,255,255,0.08)"}`, background: tone === t.id ? "rgba(14,165,233,0.15)" : "rgba(255,255,255,0.03)", color: tone === t.id ? "#38bdf8" : "#94a3b8", transition: "all 0.2s" }}>
-                {t.label}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Step 3 — Fields */}
-        <div style={{ ...card, animation: "fadeInUp 0.6s 0.2s both" }}>
-          <div style={{ fontSize: 12, fontWeight: 700, color: "#0ea5e9", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 6 }}>Step 3 — Fill Your Details</div>
-          <p style={{ fontSize: 13, color: "#334155", marginBottom: 20 }}>Leave any field blank — it will appear as a placeholder in the email.</p>
-
-          {yourFields.length > 0 && (
-            <>
-              <div style={{ fontSize: 11, fontWeight: 700, color: "#0ea5e9", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>📌 Your Details</div>
-              <div className="fields-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, marginBottom: 20 }}>
-                {yourFields.map(f => <FocusInput key={f} label={FIELD_LABELS[f]} value={fields[f] || ""} onChange={v => updateField(f, v)} placeholder={f === "yourName" ? "e.g. Raj Patel" : f === "yourRole" ? "e.g. UI/UX Designer" : f === "yourEmail" ? "raj@email.com" : f === "yourPhone" ? "+91 98765 43210" : f === "yourCity" ? "Ahmedabad" : "..."} />)}
+          {/* RIGHT SIDE: Live Preview */}
+          <div className="preview-pane" style={{ position: "sticky", top: "100px", display: "flex", flexDirection: "column" }}>
+            
+            {/* macOS Window Header */}
+            <div style={{ background: "rgba(255,255,255,0.05)", borderTopLeftRadius: "16px", borderTopRightRadius: "16px", padding: "12px 20px", display: "flex", alignItems: "center", border: "1px solid rgba(255,255,255,0.1)", borderBottom: "none" }}>
+              <div style={{ display: "flex", gap: "8px" }}>
+                <div style={{ width: "12px", height: "12px", borderRadius: "50%", background: "#ef4444" }}></div>
+                <div style={{ width: "12px", height: "12px", borderRadius: "50%", background: "#f59e0b" }}></div>
+                <div style={{ width: "12px", height: "12px", borderRadius: "50%", background: "#10b981" }}></div>
               </div>
-            </>
-          )}
+              <div style={{ margin: "0 auto", fontSize: "12px", fontWeight: "600", color: "#64748b", letterSpacing: "0.05em" }}>LIVE PREVIEW</div>
+            </div>
 
-          {clientFields.length > 0 && (
-            <>
-              <div style={{ fontSize: 11, fontWeight: 700, color: "#14b8a6", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>👤 Client Details</div>
-              <div className="fields-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, marginBottom: 20 }}>
-                {clientFields.map(f => <FocusInput key={f} label={FIELD_LABELS[f]} value={fields[f] || ""} onChange={v => updateField(f, v)} placeholder={f === "clientName" ? "e.g. Priya" : f === "clientCompany" ? "e.g. Acme Corp" : "..."} />)}
-              </div>
-            </>
-          )}
-
-          {otherFields.length > 0 && (
-            <>
-              <div style={{ fontSize: 11, fontWeight: 700, color: "#3b82f6", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>📋 Project / Email Details</div>
-              <div className="fields-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
-                {otherFields.map(f => <FocusInput key={f} label={FIELD_LABELS[f]} value={fields[f] || ""} onChange={v => updateField(f, v)} placeholder={f === "amount" ? "₹25,000" : f === "timeline" ? "2 weeks" : f === "result" ? "3x more leads" : "..."} multiline={["projectDescription","paymentDetails","upsellDescription","reason"].includes(f)} />)}
-              </div>
-            </>
-          )}
-        </div>
-
-        {/* Generate Button */}
-        <button onClick={handleGenerate}
-          style={{ width: "100%", padding: 18, background: "linear-gradient(135deg,#0ea5e9,#14b8a6)", border: "none", borderRadius: 14, color: "#fff", fontSize: 17, fontWeight: 700, cursor: "pointer", fontFamily: "'Syne',sans-serif", boxShadow: "0 8px 32px rgba(14,165,233,0.35)", marginBottom: 24, transition: "all 0.3s" }}
-          onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 16px 40px rgba(14,165,233,0.45)"; }}
-          onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 8px 32px rgba(14,165,233,0.35)"; }}>
-          ✨ Generate Email
-        </button>
-
-        {/* Result */}
-        {email && (
-          <div id="email-result" style={{ animation: "fadeIn 0.5s both" }}>
-
-            {/* Stats */}
-            <div className="stats-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 10, marginBottom: 16 }}>
-              {[
-                { label: "Words", value: wordCount, note: wordCount > 250 ? "⚠️ Too long" : "✅ Good" },
-                { label: "Chars", value: email.body.length },
-                { label: "Tone", value: TONES.find(t => t.id === tone)?.label.split(" ")[1] || tone },
-                { label: "Type", value: CATEGORIES.find(c => c.id === category)?.label.split(" ").slice(1).join(" ") || category },
-              ].map(s => (
-                <div key={s.label} style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 12, padding: "12px 14px" }}>
-                  <div style={{ fontSize: 10, color: "#334155", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em" }}>{s.label}</div>
-                  <div style={{ fontSize: 18, fontWeight: 800, color: "#38bdf8", fontFamily: "'Syne',sans-serif", marginTop: 3 }}>{s.value}</div>
-                  {s.note && <div style={{ fontSize: 10, color: wordCount > 250 ? "#f59e0b" : "#4ade80", marginTop: 2 }}>{s.note}</div>}
+            {/* Email Content Area */}
+            <div style={{ background: "#0f172a", border: "1px solid rgba(255,255,255,0.1)", borderBottomLeftRadius: "16px", borderBottomRightRadius: "16px", padding: "32px", position: "relative" }}>
+              
+              <div style={{ borderBottom: "1px solid rgba(255,255,255,0.05)", paddingBottom: "16px", marginBottom: "24px" }}>
+                <div style={{ display: "flex", marginBottom: "12px" }}>
+                  <span style={{ width: "80px", color: "#64748b", fontSize: "14px", fontWeight: "600" }}>To:</span>
+                  <span style={{ color: "#f8fafc", fontSize: "14px" }}>{fields.clientEmail || "client@company.com"}</span>
                 </div>
-              ))}
-            </div>
+                <div style={{ display: "flex" }}>
+                  <span style={{ width: "80px", color: "#64748b", fontSize: "14px", fontWeight: "600" }}>Subject:</span>
+                  <span style={{ color: "#f8fafc", fontSize: "14px", fontWeight: "600" }}>{liveEmail.subject || "Subject Line"}</span>
+                </div>
+              </div>
 
-            {/* Subject */}
-            <div style={{ ...card, padding: "20px 24px" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 }}>
-                <span style={{ fontSize: 12, fontWeight: 700, color: "#0ea5e9", letterSpacing: "0.08em", textTransform: "uppercase" }}>📌 Subject Line</span>
-                <button onClick={() => copy(email.subject, setCopiedS)} style={{ padding: "6px 14px", background: copiedS ? "rgba(52,211,153,0.15)" : "rgba(14,165,233,0.12)", border: `1px solid ${copiedS ? "rgba(52,211,153,0.3)" : "rgba(14,165,233,0.25)"}`, borderRadius: 8, color: copiedS ? "#34d399" : "#38bdf8", fontSize: 12, fontWeight: 700, cursor: "pointer" }}>
-                  {copiedS ? "✅ Copied!" : "📋 Copy"}
+              <div style={{ fontSize: "15px", lineHeight: "1.8", color: "#cbd5e1", whiteSpace: "pre-wrap", minHeight: "200px" }}>
+                {liveEmail.body || "Your email body will appear here..."}
+              </div>
+
+              {/* Action Buttons */}
+              <div style={{ display: "flex", gap: "16px", marginTop: "40px", borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: "24px" }}>
+                
+                <a href={`mailto:?subject=${encodeURIComponent(liveEmail.subject)}&body=${encodeURIComponent(liveEmail.body)}`}
+                  style={{ flex: 1, padding: "14px", background: "linear-gradient(135deg,#0ea5e9,#14b8a6)", borderRadius: "10px", color: "#fff", fontSize: "14px", fontWeight: "700", textAlign: "center", textDecoration: "none", cursor: "pointer", display: "flex", justifyContent: "center", alignItems: "center", gap: "8px", transition: "transform 0.2s" }}
+                  onMouseEnter={e => e.currentTarget.style.transform = "translateY(-2px)"}
+                  onMouseLeave={e => e.currentTarget.style.transform = "translateY(0)"}>
+                  ✉️ Open in Gmail / Mail App
+                </a>
+
+                <button onClick={() => copy(`Subject: ${liveEmail.subject}\n\n${liveEmail.body}`, setCopiedAll)}
+                  style={{ flex: 1, padding: "14px", background: copiedAll ? "#10b981" : "rgba(255,255,255,0.05)", border: `1px solid ${copiedAll ? "#10b981" : "rgba(255,255,255,0.1)"}`, borderRadius: "10px", color: copiedAll ? "#fff" : "#f1f5f9", fontSize: "14px", fontWeight: "700", cursor: "pointer", transition: "all 0.2s" }}>
+                  {copiedAll ? "✅ Copied to Clipboard" : "📋 Copy Email"}
                 </button>
-              </div>
-              <div style={{ fontSize: 16, fontWeight: 700, color: "#f1f5f9", background: "rgba(255,255,255,0.03)", padding: "14px 16px", borderRadius: 10, border: "1px solid rgba(255,255,255,0.06)" }}>
-                {email.subject}
+
               </div>
             </div>
 
-            {/* Body */}
-            <div style={{ ...card, padding: "20px 24px" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 }}>
-                <span style={{ fontSize: 12, fontWeight: 700, color: "#0ea5e9", letterSpacing: "0.08em", textTransform: "uppercase" }}>✉️ Email Body</span>
-                <button onClick={() => copy(email.body, setCopiedB)} style={{ padding: "6px 14px", background: copiedB ? "rgba(52,211,153,0.15)" : "rgba(14,165,233,0.12)", border: `1px solid ${copiedB ? "rgba(52,211,153,0.3)" : "rgba(14,165,233,0.25)"}`, borderRadius: 8, color: copiedB ? "#34d399" : "#38bdf8", fontSize: 12, fontWeight: 700, cursor: "pointer" }}>
-                  {copiedB ? "✅ Copied!" : "📋 Copy"}
-                </button>
+            {/* Quick Stats */}
+            <div style={{ display: "flex", gap: "24px", padding: "16px", marginTop: "16px" }}>
+              <div>
+                <div style={{ fontSize: "11px", color: "#64748b", textTransform: "uppercase", letterSpacing: "0.05em" }}>Word Count</div>
+                <div style={{ fontSize: "16px", color: wordCount > 250 ? "#f59e0b" : "#10b981", fontWeight: "700" }}>{wordCount} {wordCount > 250 ? "(A bit long)" : ""}</div>
               </div>
-              <pre style={{ whiteSpace: "pre-wrap", fontSize: 14, lineHeight: 1.8, color: "#cbd5e1", fontFamily: "'DM Sans',sans-serif", background: "rgba(255,255,255,0.02)", padding: "20px", borderRadius: 12, border: "1px solid rgba(255,255,255,0.05)", margin: 0, overflowX: "auto" }}>
-                {email.body}
-              </pre>
+              <div>
+                <div style={{ fontSize: "11px", color: "#64748b", textTransform: "uppercase", letterSpacing: "0.05em" }}>Tone</div>
+                <div style={{ fontSize: "16px", color: "#f8fafc", fontWeight: "700" }}>{TONES.find(t => t.id === tone)?.label}</div>
+              </div>
             </div>
 
-            {/* Copy All + Regenerate */}
-            <button onClick={() => copy(`Subject: ${email.subject}\n\n${email.body}`, setCopiedAll)}
-              style={{ width: "100%", padding: 16, background: copiedAll ? "linear-gradient(135deg,#059669,#0891b2)" : "linear-gradient(135deg,#0ea5e9,#14b8a6)", border: "none", borderRadius: 12, color: "#fff", fontSize: 16, fontWeight: 700, cursor: "pointer", fontFamily: "'Syne',sans-serif", boxShadow: "0 4px 20px rgba(14,165,233,0.3)", marginBottom: 10 }}>
-              {copiedAll ? "✅ Full Email Copied!" : "📋 Copy Full Email (Subject + Body)"}
-            </button>
-            <button onClick={handleGenerate}
-              style={{ width: "100%", padding: 14, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 12, color: "#475569", fontSize: 14, fontWeight: 600, cursor: "pointer", marginBottom: 24 }}>
-              🔄 Regenerate with same settings
-            </button>
           </div>
-        )}
 
-        {/* Email Tips */}
-        <div style={{ ...card, marginTop: 8 }}>
-          <h2 style={{ fontSize: 17, fontWeight: 800, fontFamily: "'Syne',sans-serif", color: "#f1f5f9", marginBottom: 16 }}>📈 Email Tips for Indian Freelancers</h2>
-          <div style={{ display: "grid", gap: 10 }}>
-            {[
-              ["⏰ Best Send Time", "Tue–Thu, 9–11am or 2–4pm. Avoid Monday mornings and Fridays. Open rates drop 30% on weekends."],
-              ["📏 Ideal Length", "Cold emails: under 150 words. Follow-ups: under 80 words. Proposals: 200–300 words. Shorter = more replies."],
-              ["🎯 Subject Lines", "Personalised subjects get 26% higher open rates. Use the client's company name or a specific detail you noticed."],
-              ["🔄 Follow-Up Sequence", "Send 3 follow-ups: at 48hrs, 5 days, and 10 days. Most replies come on follow-up #2 or #3."],
-            ].map(([t, d]) => (
-              <div key={t} style={{ display: "flex", gap: 12, padding: 14, background: "rgba(255,255,255,0.02)", borderRadius: 10, flexWrap: "wrap" }}>
-                <span style={{ fontSize: 13, fontWeight: 700, color: "#0ea5e9", minWidth: 120 }}>{t}</span>
-                <span style={{ fontSize: 13, color: "#64748b", lineHeight: 1.6, flex: 1 }}>{d}</span>
-              </div>
-            ))}
-          </div>
         </div>
 
-        {/* FAQ — SEO */}
-        <div style={{ marginTop: 20, borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: 48 }}>
-          <h2 style={{ fontSize: 22, fontWeight: 800, fontFamily: "'Syne',sans-serif", color: "#f1f5f9", marginBottom: 28, textAlign: "center" }}>Frequently Asked Questions</h2>
-          <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-            {FAQS.map(([q, a]) => (
-              <div key={q} className="faq-item" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 14, padding: "20px 24px", transition: "all 0.3s" }}>
-                <h3 style={{ fontSize: 15, fontWeight: 700, color: "#e2e8f0", marginBottom: 8, fontFamily: "'Syne',sans-serif" }}>{q}</h3>
-                <p style={{ fontSize: 14, color: "#64748b", lineHeight: 1.7 }}>{a}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* SEO text block */}
-        <div style={{ marginTop: 48, padding: "32px 28px", background: "rgba(255,255,255,0.01)", border: "1px solid rgba(255,255,255,0.04)", borderRadius: 16 }}>
-          <h2 style={{ fontSize: 18, fontWeight: 800, fontFamily: "'Syne',sans-serif", color: "#f1f5f9", marginBottom: 12 }}>Free Business Email Generator for Indian Freelancers</h2>
-          <p style={{ fontSize: 14, color: "#334155", lineHeight: 1.8 }}>
-            KaroTools Email Generator helps Indian freelancers, consultants, designers, developers, and small business owners write professional emails in seconds — completely free. Choose from 10 email types including cold outreach, follow-up, payment reminder, project proposal, thank you, onboarding, delay notice, feedback request, break-up email, and upsell. Available in 4 tones: Professional, Friendly, Confident, and Formal. No login required. No API. Works instantly.
+        {/* SEO Text Content below app */}
+        <div style={{ marginTop: "80px", borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: "60px", maxWidth: "800px", margin: "80px auto 0" }}>
+          
+          <h2 style={{ fontSize: "32px", fontWeight: "800", fontFamily: "'Syne',sans-serif", marginBottom: "24px", color: "#f1f5f9" }}>Free Business Email Generator for Indian Freelancers</h2>
+          <p style={{ color: "#94a3b8", fontSize: "18px", lineHeight: "1.7", marginBottom: "24px" }}>
+            KaroTools Email Generator helps Indian freelancers, consultants, designers, developers, and small business owners write professional emails in seconds — completely free. 
+            Choose from 10 email types including cold outreach, follow-up, payment reminder, project proposal, thank you, onboarding, delay notice, feedback request, break-up email, and upsell. 
           </p>
+
+          <h2 style={{ fontSize: "32px", fontWeight: "800", fontFamily: "'Syne',sans-serif", marginBottom: "32px", color: "#f1f5f9" }}>Frequently Asked Questions (FAQ)</h2>
+          <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+            {FAQS.map(([q, a]) => (
+              <div key={q} style={{ background: "rgba(255,255,255,0.02)", padding: "24px", borderRadius: "16px", border: "1px solid rgba(255,255,255,0.05)" }}>
+                <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#f8fafc", marginBottom: "12px" }}>{q}</h3>
+                <p style={{ color: "#94a3b8", fontSize: "16px", lineHeight: "1.6", margin: 0 }}>{a}</p>
+              </div>
+            ))}
+          </div>
+
         </div>
 
         {/* Universal Legal Disclaimer */}

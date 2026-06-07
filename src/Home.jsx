@@ -212,6 +212,7 @@ export default function Home() {
     { icon: "📄", name: "Invoice Generator", description: "Professional GST invoices with PDF download. GSTIN validation, HSN/SAC codes, logo upload, signature area.", category: "Finance", page: "/invoice-generator" },
     { icon: "🏛️", name: "Tax Calculator (44ADA)", description: "Visual income tax estimator for freelancers using Presumptive Taxation (50% tax-free income).", category: "Finance", page: "/tax-calculator" },
     { icon: "🏢", name: "Normal Tax Calculator", description: "Calculate standard tax (New Regime) without 44ADA for high-income freelancers or agencies.", category: "Finance", page: "/normal-tax-calculator" },
+    { icon: "📅", name: "Advance Tax Calculator", description: "Instantly calculate your advance tax liability, installment amounts, and due dates under Indian tax laws.", category: "Finance", page: "/advance-tax-calculator" },
     { icon: "📧", name: "Email Generator", description: "10 email types — cold outreach, follow-up, payment reminder, proposal & more. 4 tones, no AI needed.", category: "AI Tool", page: "/email-generator" },
     { icon: "📱", name: "Bio Generator", description: "Instagram, LinkedIn & Twitter bios — professional, creative & minimal styles. Template-based, instant.", category: "AI Tool", page: "/bio-generator" },
     { icon: "💰", name: "Rate Calculator", description: "Calculate your perfect freelance hourly, daily & monthly rate in INR based on your expenses.", category: "Finance", page: "/rate-calculator" },

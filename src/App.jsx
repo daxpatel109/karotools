@@ -12,6 +12,7 @@ import BlogPost1 from "./BlogPost1";
 import BlogPost2 from "./BlogPost2";
 import TaxCalculator from "./TaxCalculator";
 import NormalTaxCalculator from "./NormalTaxCalculator";
+import AdvanceTaxCalculator from "./AdvanceTaxCalculator";
 import Author from "./Author";
 import { PrivacyPolicy, TermsConditions, ContactUs } from "./LegalPages";
 
@@ -73,6 +74,7 @@ export default function App() {
       <Route path="/blog/section-44ada-freelancers" element={<BlogPost2 />} />
       <Route path="/tax-calculator" element={<TaxCalculator />} />
       <Route path="/normal-tax-calculator" element={<NormalTaxCalculator />} />
+      <Route path="/advance-tax-calculator" element={<AdvanceTaxCalculator />} />
       <Route path="/author/dax-patel" element={<Author />} />
       {/* 404 catch-all */}
       <Route path="*" element={<NotFound />} />

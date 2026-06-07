@@ -108,7 +108,10 @@ export default function NormalTaxCalculator() {
     const effectiveRate = gross > 0 ? ((totalTax / gross) * 100).toFixed(1) : 0;
     
     const profitMargin = gross > 0 ? ((taxableIncome / gross) * 100).toFixed(1) : 0;
-    const is44ADAEligible = gross > 0 && gross <= 7500000 && parseFloat(profitMargin) < 50;
+    
+    // Eligible for 44ADA if gross is under 75L. 
+    // It is *beneficial* if their actual profit margin is > 50% (expenses < 50%).
+    const is44ADAEligible = gross > 0 && gross <= 7500000;
     
     let adaSavings = 0;
     if (is44ADAEligible) {
@@ -217,8 +220,8 @@ export default function NormalTaxCalculator() {
                 <div style={{ padding: "16px", background: "rgba(234,179,8,0.1)", border: "1px solid rgba(234,179,8,0.2)", borderRadius: "12px", marginBottom: "24px", display: "flex", gap: "12px", alignItems: "start" }}>
                   <div style={{ fontSize: "20px" }}>⚠️</div>
                   <div>
-                    <div style={{ color: "#fef08a", fontSize: "14px", fontWeight: "700", marginBottom: "4px" }}>GST Registration Required</div>
-                    <div style={{ color: "#fde047", fontSize: "13px", opacity: 0.8, lineHeight: 1.5 }}>Your gross receipts exceed ₹20 Lakhs. You are legally required to register for GST.</div>
+                    <div style={{ color: "#fef08a", fontSize: "14px", fontWeight: "700", marginBottom: "4px" }}>GST Check Recommended</div>
+                    <div style={{ color: "#fde047", fontSize: "13px", opacity: 0.8, lineHeight: 1.5 }}>Your gross receipts exceed ₹20 Lakhs. You may be required to register for GST depending on the nature of your services and state rules.</div>
                   </div>
                 </div>
               )}
@@ -379,7 +382,7 @@ export default function NormalTaxCalculator() {
                 <p style={{ margin: 0, color: "#cbd5e1", fontSize: "14px", lineHeight: "1.6" }}>
                   <strong>Tax Summary:</strong> A freelancer or agency earning {formatCurrency(parseFloat(grossIncome) || 0)} with {formatCurrency(parseFloat(expenses) || 0)} in business expenses has a taxable profit of {formatCurrency(results.taxableIncome)}. 
                   Under the New Tax Regime for FY 2025-26, the estimated tax liability is <strong>{formatCurrency(results.totalTax)}</strong> (an effective tax rate of {results.effectiveRate}%).
-                  {parseFloat(grossIncome) <= 7500000 && parseFloat(expenses) < parseFloat(grossIncome) * 0.5 ? " Note: Since your expenses are less than 50% of your revenue and you earn under ₹75L, you might save tax by opting for Section 44ADA instead." : ""}
+                  {results.is44ADAEligible && results.adaSavings > 0 ? " Note: Since your expenses are less than 50% of your revenue and you earn under ₹75L, you might save tax by opting for Section 44ADA instead." : ""}
                 </p>
               </div>
 

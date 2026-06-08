@@ -13,6 +13,14 @@ const genInvoiceNo = () => {
 
 const fmtINR = (n) => Number(n || 0).toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
+const INDIAN_STATES = [
+  "Select State", "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", 
+  "Himachal Pradesh", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", 
+  "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", 
+  "Uttarakhand", "West Bengal", "Andaman and Nicobar", "Chandigarh", "Dadra and Nagar Haveli", "Daman and Diu", 
+  "Lakshadweep", "Delhi", "Puducherry"
+];
+
 export default function InvoiceGenerator() {
   const [invoice, setInvoice] = useState(() => {
     const saved = localStorage.getItem("inv_data_v2");
@@ -20,11 +28,11 @@ export default function InvoiceGenerator() {
   });
   const [seller, setSeller] = useState(() => {
     const saved = localStorage.getItem("inv_data_v2");
-    return saved ? JSON.parse(saved).seller : { name: "", address: "", gstin: "", pan: "", udyam: "", phone: "", email: "" };
+    return saved ? JSON.parse(saved).seller : { name: "", address: "", state: "Select State", gstin: "", pan: "", udyam: "", phone: "", email: "", logo: "" };
   });
   const [buyer, setBuyer] = useState(() => {
     const saved = localStorage.getItem("inv_data_v2");
-    return saved ? JSON.parse(saved).buyer : { name: "", address: "", gstin: "", phone: "", email: "" };
+    return saved ? JSON.parse(saved).buyer : { name: "", address: "", state: "Select State", gstin: "", phone: "", email: "" };
   });
   const [bank, setBank] = useState(() => {
     const saved = localStorage.getItem("inv_data_v2");
@@ -73,14 +81,35 @@ export default function InvoiceGenerator() {
     };
   }, []);
 
-  // Auto-detect Intra/Inter state based on GSTIN prefixes
+  // Auto-detect Intra/Inter state based on State Dropdown (Overrides GSTIN prefix logic)
   useEffect(() => {
-    if (seller.gstin && buyer.gstin && seller.gstin.length >= 2 && buyer.gstin.length >= 2) {
+    if (seller.state && buyer.state && seller.state !== "Select State" && buyer.state !== "Select State") {
+      setTransType(seller.state === buyer.state ? "intra" : "inter");
+    } else if (seller.gstin && buyer.gstin && seller.gstin.length >= 2 && buyer.gstin.length >= 2) {
+      // Fallback to GSTIN if states aren't selected
       const sCode = seller.gstin.substring(0, 2);
       const bCode = buyer.gstin.substring(0, 2);
       setTransType(sCode === bCode ? "intra" : "inter");
+    } else {
+      setTransType("intra"); // Default
     }
-  }, [seller.gstin, buyer.gstin]);
+  }, [seller.state, buyer.state, seller.gstin, buyer.gstin]);
+
+  const handleLogoUpload = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    if (file.size > 500000) return alert("Logo must be under 500KB");
+    const reader = new FileReader();
+    reader.onload = (ev) => setSeller({ ...seller, logo: ev.target.result });
+    reader.readAsDataURL(file);
+  };
+
+  const clearData = () => {
+    if(window.confirm("Are you sure you want to clear all data? This cannot be undone.")) {
+      localStorage.removeItem("inv_data_v2");
+      window.location.reload();
+    }
+  };
 
   // Dynamic Notes Injection for MSME
   const defaultNotes = "Payment due within 15 days. Thank you for your business!";
@@ -244,33 +273,60 @@ export default function InvoiceGenerator() {
               </div>
             </div>
 
+          <div>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "#10b981", fontSize: "12px", fontWeight: "600", background: "rgba(16,185,129,0.1)", padding: "6px 12px", borderRadius: "12px" }}>
+                <span>✅</span> Data saved securely in your browser
+              </div>
+              <button onClick={clearData} style={{ background: "transparent", border: "1px solid rgba(244,63,94,0.3)", color: "#fb7185", padding: "6px 12px", borderRadius: "8px", fontSize: "12px", cursor: "pointer" }}>
+                Clear All Data
+              </button>
+            </div>
+
             <div className="split-2-col">
               <div style={sec}>
-                <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#f8fafc", marginBottom: "20px" }}>2. Your Details</h2>
+                <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#f8fafc", marginBottom: "20px" }}>1. Your Details</h2>
                 <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-                  <div><label style={lbl}>Business Name</label><input value={seller.name} onChange={e => setSeller({...seller, name: e.target.value})} style={inp}/></div>
-                  <div><label style={lbl}>Address</label><input value={seller.address} onChange={e => setSeller({...seller, address: e.target.value})} style={inp}/></div>
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
-                    <div><label style={lbl}>GSTIN (Optional)</label><input value={seller.gstin} onChange={e => setSeller({...seller, gstin: e.target.value})} style={inp}/></div>
-                    <div><label style={lbl}>PAN (Optional)</label><input value={seller.pan} onChange={e => setSeller({...seller, pan: e.target.value})} style={inp}/></div>
-                  </div>
                   <div>
-                    <label style={{...lbl, color: "#38bdf8"}}>MSME Udyam No (Optional)</label>
-                    <input value={seller.udyam} onChange={e => setSeller({...seller, udyam: e.target.value})} placeholder="UDYAM-XX-00-0000000" style={{...inp, borderColor: seller.udyam ? "rgba(56,189,248,0.4)" : "rgba(255,255,255,0.1)"}}/>
-                    {seller.udyam && <p style={{color: "#38bdf8", fontSize: "11px", marginTop: "6px"}}>✓ MSME 45-day payment rule activated.</p>}
+                    <label style={lbl}>Company Logo (Optional)</label>
+                    <input type="file" accept="image/*" onChange={handleLogoUpload} style={{ ...inp, padding: "8px" }} />
+                    {seller.logo && <div style={{ marginTop: "8px", color: "#38bdf8", fontSize: "12px" }}>Logo uploaded successfully.</div>}
                   </div>
+                  <div><label style={lbl}>Business Name *</label><input value={seller.name} onChange={e => setSeller({...seller, name: e.target.value})} style={inp}/></div>
+                  <div><label style={lbl}>Address</label><textarea value={seller.address} onChange={e => setSeller({...seller, address: e.target.value})} style={{...inp, height: "80px", resize: "none"}}/></div>
+                  <div>
+                    <label style={lbl}>State (For GST Split)</label>
+                    <select value={seller.state} onChange={e => setSeller({...seller, state: e.target.value})} style={inp}>
+                      {INDIAN_STATES.map(s => <option key={s} value={s}>{s}</option>)}
+                    </select>
+                  </div>
+                  <div className="split-2-col">
+                    <div><label style={lbl}>GSTIN (Optional)</label><input value={seller.gstin} onChange={e => setSeller({...seller, gstin: e.target.value})} style={inp} maxLength={15}/></div>
+                    <div><label style={lbl}>PAN (Optional)</label><input value={seller.pan} onChange={e => setSeller({...seller, pan: e.target.value})} style={inp} maxLength={10}/></div>
+                  </div>
+                  <div className="split-2-col">
+                    <div><label style={lbl}>Email (Optional)</label><input value={seller.email} onChange={e => setSeller({...seller, email: e.target.value})} style={inp}/></div>
+                    <div><label style={lbl}>Phone (Optional)</label><input value={seller.phone} onChange={e => setSeller({...seller, phone: e.target.value})} style={inp}/></div>
+                  </div>
+                  <div><label style={lbl}>Udyam Registration No (Optional)</label><input value={seller.udyam} onChange={e => setSeller({...seller, udyam: e.target.value})} style={inp} placeholder="Activates MSME 45-day rule"/></div>
                 </div>
               </div>
 
               <div style={sec}>
-                <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#f8fafc", marginBottom: "20px" }}>3. Client Details</h2>
+                <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#f8fafc", marginBottom: "20px" }}>2. Client Details</h2>
                 <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-                  <div><label style={lbl}>Client Name</label><input value={buyer.name} onChange={e => setBuyer({...buyer, name: e.target.value})} style={inp}/></div>
-                  <div><label style={lbl}>Address</label><input value={buyer.address} onChange={e => setBuyer({...buyer, address: e.target.value})} style={inp}/></div>
-                  <div><label style={lbl}>GSTIN (Optional)</label><input value={buyer.gstin} onChange={e => setBuyer({...buyer, gstin: e.target.value})} style={inp}/></div>
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
-                    <div><label style={lbl}>Phone (Optional)</label><input value={buyer.phone} onChange={e => setBuyer({...buyer, phone: e.target.value})} style={inp}/></div>
+                  <div><label style={lbl}>Client Name *</label><input value={buyer.name} onChange={e => setBuyer({...buyer, name: e.target.value})} style={inp}/></div>
+                  <div><label style={lbl}>Address</label><textarea value={buyer.address} onChange={e => setBuyer({...buyer, address: e.target.value})} style={{...inp, height: "80px", resize: "none"}}/></div>
+                  <div>
+                    <label style={lbl}>State (For GST Split)</label>
+                    <select value={buyer.state} onChange={e => setBuyer({...buyer, state: e.target.value})} style={inp}>
+                      {INDIAN_STATES.map(s => <option key={s} value={s}>{s}</option>)}
+                    </select>
+                  </div>
+                  <div><label style={lbl}>GSTIN (Optional)</label><input value={buyer.gstin} onChange={e => setBuyer({...buyer, gstin: e.target.value})} style={inp} maxLength={15}/></div>
+                  <div className="split-2-col">
                     <div><label style={lbl}>Email (Optional)</label><input value={buyer.email} onChange={e => setBuyer({...buyer, email: e.target.value})} style={inp}/></div>
+                    <div><label style={lbl}>Phone (Optional)</label><input value={buyer.phone} onChange={e => setBuyer({...buyer, phone: e.target.value})} style={inp}/></div>
                   </div>
                 </div>
               </div>
@@ -346,7 +402,11 @@ export default function InvoiceGenerator() {
                 {/* Invoice Header */}
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "40px", marginTop: "10px" }}>
                   <div style={{ flex: 1 }}>
-                    <h1 style={{ fontSize: "36px", fontWeight: "800", color: "#0ea5e9", margin: "0 0 8px 0", letterSpacing: "-1px" }}>TAX INVOICE</h1>
+                    {seller.logo ? (
+                      <img src={seller.logo} alt="Company Logo" style={{ maxHeight: "80px", maxWidth: "250px", objectFit: "contain", marginBottom: "16px" }} />
+                    ) : (
+                      <h1 style={{ fontSize: "36px", fontWeight: "800", color: "#0ea5e9", margin: "0 0 16px 0", letterSpacing: "-1px" }}>TAX INVOICE</h1>
+                    )}
                     <div style={{ display: "flex", gap: "24px" }}>
                       <div><div style={{ fontSize: "11px", color: "#64748b", fontWeight: "700", textTransform: "uppercase" }}>Invoice No</div><div style={{ fontSize: "14px", fontWeight: "600", color: "#0f172a" }}>{invoice.number || "-"}</div></div>
                       <div><div style={{ fontSize: "11px", color: "#64748b", fontWeight: "700", textTransform: "uppercase" }}>Invoice Date</div><div style={{ fontSize: "14px", fontWeight: "600", color: "#0f172a" }}>{invoice.date || "-"}</div></div>
@@ -356,7 +416,8 @@ export default function InvoiceGenerator() {
                   <div style={{ textAlign: "right" }}>
                     <h2 style={{ fontSize: "24px", fontWeight: "700", margin: "0 0 4px 0", color: "#0f172a" }}>{seller.name || "Your Business Name"}</h2>
                     <p style={{ fontSize: "12px", color: "#475569", margin: 0, whiteSpace: "pre-wrap", maxWidth: "250px", marginLeft: "auto" }}>{seller.address}</p>
-                    {seller.gstin && <p style={{ fontSize: "12px", color: "#475569", margin: "4px 0 0 0" }}><strong>GSTIN:</strong> {seller.gstin}</p>}
+                    {seller.state !== "Select State" && <p style={{ fontSize: "12px", color: "#475569", margin: "4px 0 0 0" }}><strong>State:</strong> {seller.state}</p>}
+                    {seller.gstin && <p style={{ fontSize: "12px", color: "#475569", margin: "2px 0 0 0" }}><strong>GSTIN:</strong> {seller.gstin}</p>}
                     {seller.pan && <p style={{ fontSize: "12px", color: "#475569", margin: "2px 0 0 0" }}><strong>PAN:</strong> {seller.pan}</p>}
                     {seller.udyam && <p style={{ fontSize: "12px", color: "#475569", margin: "2px 0 0 0" }}><strong>UDYAM:</strong> {seller.udyam}</p>}
                   </div>
@@ -367,6 +428,7 @@ export default function InvoiceGenerator() {
                   <div style={{ fontSize: "11px", color: "#64748b", fontWeight: "700", textTransform: "uppercase", marginBottom: "8px" }}>Bill To</div>
                   <h3 style={{ fontSize: "16px", fontWeight: "700", margin: "0 0 4px 0", color: "#0f172a" }}>{buyer.name || "Client Name"}</h3>
                   {buyer.address && <p style={{ fontSize: "13px", color: "#475569", margin: "0 0 4px 0", whiteSpace: "pre-wrap" }}>{buyer.address}</p>}
+                  {buyer.state !== "Select State" && <p style={{ fontSize: "13px", color: "#475569", margin: "0 0 2px 0" }}><strong>State:</strong> {buyer.state}</p>}
                   {buyer.gstin && <p style={{ fontSize: "13px", color: "#475569", margin: "0 0 2px 0" }}><strong>GSTIN:</strong> {buyer.gstin}</p>}
                   {buyer.email && <p style={{ fontSize: "13px", color: "#475569", margin: "0" }}><strong>Email:</strong> {buyer.email}</p>}
                 </div>
@@ -379,7 +441,14 @@ export default function InvoiceGenerator() {
                       <th style={{ padding: "12px 8px", background: "#f1f5f9", color: "#475569", fontSize: "12px", textTransform: "uppercase", borderBottom: "2px solid #cbd5e1", textAlign: "left" }}>HSN/SAC</th>
                       <th style={{ padding: "12px 8px", background: "#f1f5f9", color: "#475569", fontSize: "12px", textTransform: "uppercase", borderBottom: "2px solid #cbd5e1", textAlign: "right" }}>Qty</th>
                       <th style={{ padding: "12px 8px", background: "#f1f5f9", color: "#475569", fontSize: "12px", textTransform: "uppercase", borderBottom: "2px solid #cbd5e1", textAlign: "right" }}>Rate (₹)</th>
-                      <th style={{ padding: "12px 8px", background: "#f1f5f9", color: "#475569", fontSize: "12px", textTransform: "uppercase", borderBottom: "2px solid #cbd5e1", textAlign: "right" }}>GST</th>
+                      {transType === "intra" ? (
+                        <>
+                          <th style={{ padding: "12px 8px", background: "#f1f5f9", color: "#475569", fontSize: "12px", textTransform: "uppercase", borderBottom: "2px solid #cbd5e1", textAlign: "right" }}>CGST</th>
+                          <th style={{ padding: "12px 8px", background: "#f1f5f9", color: "#475569", fontSize: "12px", textTransform: "uppercase", borderBottom: "2px solid #cbd5e1", textAlign: "right" }}>SGST</th>
+                        </>
+                      ) : (
+                        <th style={{ padding: "12px 8px", background: "#f1f5f9", color: "#475569", fontSize: "12px", textTransform: "uppercase", borderBottom: "2px solid #cbd5e1", textAlign: "right" }}>IGST</th>
+                      )}
                       <th style={{ padding: "12px 8px", background: "#f1f5f9", color: "#475569", fontSize: "12px", textTransform: "uppercase", borderBottom: "2px solid #cbd5e1", textAlign: "right" }}>Total (₹)</th>
                     </tr>
                   </thead>
@@ -392,7 +461,14 @@ export default function InvoiceGenerator() {
                           <td style={{ padding: "16px 8px", fontSize: "13px", color: "#475569" }}>{item.hsn || "-"}</td>
                           <td style={{ padding: "16px 8px", fontSize: "13px", color: "#475569", textAlign: "right" }}>{item.qty}</td>
                           <td style={{ padding: "16px 8px", fontSize: "13px", color: "#475569", textAlign: "right" }}>{fmtINR(item.rate)}</td>
-                          <td style={{ padding: "16px 8px", fontSize: "13px", color: "#475569", textAlign: "right" }}>{item.gst}%</td>
+                          {transType === "intra" ? (
+                            <>
+                              <td style={{ padding: "16px 8px", fontSize: "13px", color: "#475569", textAlign: "right" }}>{item.gst / 2}%</td>
+                              <td style={{ padding: "16px 8px", fontSize: "13px", color: "#475569", textAlign: "right" }}>{item.gst / 2}%</td>
+                            </>
+                          ) : (
+                            <td style={{ padding: "16px 8px", fontSize: "13px", color: "#475569", textAlign: "right" }}>{item.gst}%</td>
+                          )}
                           <td style={{ padding: "16px 8px", fontSize: "13px", color: "#0f172a", fontWeight: "600", textAlign: "right" }}>{fmtINR(c.total)}</td>
                         </tr>
                       );
@@ -442,16 +518,18 @@ export default function InvoiceGenerator() {
                 </div>
 
                 {/* Terms / MSME Rule */}
-                <div style={{ padding: "20px", background: seller.udyam ? "rgba(14,165,233,0.05)" : "transparent", border: seller.udyam ? "1px solid rgba(14,165,233,0.2)" : "none", borderRadius: "8px" }}>
+                <div style={{ padding: "20px", background: seller.udyam ? "rgba(14,165,233,0.05)" : "#f8fafc", border: seller.udyam ? "1px solid rgba(14,165,233,0.2)" : "1px solid #e2e8f0", borderRadius: "8px", marginBottom: "60px" }}>
                   <div style={{ fontSize: "11px", color: seller.udyam ? "#0ea5e9" : "#64748b", fontWeight: "700", textTransform: "uppercase", marginBottom: "8px" }}>Terms & Conditions</div>
                   <p style={{ fontSize: "12px", color: "#475569", margin: 0, whiteSpace: "pre-wrap", lineHeight: "1.6" }}>
                     {finalNotes}
                   </p>
                 </div>
 
-                {/* Footer branding */}
-                <div style={{ position: "absolute", bottom: "15mm", left: "20mm", right: "20mm", textAlign: "center", borderTop: "1px solid #e2e8f0", paddingTop: "10px" }}>
-                  <p style={{ fontSize: "10px", color: "#94a3b8", margin: 0 }}>Generated by KaroTools.in — Free GST Invoice Generator with MSME Compliance</p>
+                {/* Signature Block */}
+                <div style={{ position: "absolute", bottom: "30mm", right: "20mm", textAlign: "center", width: "200px" }}>
+                  <div style={{ borderBottom: "1px solid #0f172a", height: "40px", marginBottom: "8px" }}></div>
+                  <div style={{ fontSize: "12px", color: "#0f172a", fontWeight: "700" }}>Authorized Signatory</div>
+                  <div style={{ fontSize: "10px", color: "#64748b" }}>For {seller.name || "Company Name"}</div>
                 </div>
 
               </div>

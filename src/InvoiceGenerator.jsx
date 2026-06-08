@@ -219,12 +219,12 @@ export default function InvoiceGenerator() {
         }
         .a4-scale-container {
            /* width/height will be set by media queries */
-           width: 210mm;
-           height: 297mm;
+           width: 794px;
+           height: 1123px;
         }
         .a4-container {
-          width: 210mm;
-          min-height: 297mm;
+          width: 794px;
+          min-height: 1123px;
           background: white;
           color: #0f172a;
           padding: 20mm;
@@ -237,19 +237,19 @@ export default function InvoiceGenerator() {
            .a4-container { transform: scale(1); }
         }
         @media (max-width: 1200px) {
-           .a4-scale-container { width: calc(210mm * 0.95); height: calc(297mm * 0.95); }
+           .a4-scale-container { width: calc(794px * 0.95); height: calc(1123px * 0.95); }
            .a4-container { transform: scale(0.95); }
         }
         @media (max-width: 992px) {
-           .a4-scale-container { width: calc(210mm * 0.8); height: calc(297mm * 0.8); }
+           .a4-scale-container { width: calc(794px * 0.8); height: calc(1123px * 0.8); }
            .a4-container { transform: scale(0.8); }
         }
         @media (max-width: 768px) {
-           .a4-scale-container { width: calc(210mm * 0.45); height: calc(297mm * 0.45); }
+           .a4-scale-container { width: calc(794px * 0.45); height: calc(1123px * 0.45); }
            .a4-container { transform: scale(0.45); }
         }
         @media (max-width: 430px) {
-           .a4-scale-container { width: calc(210mm * 0.40); height: calc(297mm * 0.40); }
+           .a4-scale-container { width: calc(794px * 0.40); height: calc(1123px * 0.40); }
            .a4-container { transform: scale(0.40); }
         }
 
@@ -321,7 +321,7 @@ export default function InvoiceGenerator() {
         <div className="main-layout">
           
           {/* LEFT: Editor Forms */}
-          <div style={{ display: "flex", flexDirection: "column" }}>
+          <div style={{ display: "flex", flexDirection: "column", minWidth: 0 }}>
             
             <div style={sec}>
               <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#f8fafc", marginBottom: "20px" }}>1. Invoice Details</h2>

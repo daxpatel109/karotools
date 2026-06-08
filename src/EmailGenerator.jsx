@@ -205,22 +205,22 @@ const TEMPLATES = {
 };
 
 const FIELDS = {
-  cold: ["yourName","yourRole","yourCity","yourEmail","yourPhone","clientName","clientCompany","yourService","specificDetail","result","day1","day2"],
-  followup: ["yourName","yourEmail","yourPhone","clientName","clientCompany","yourService","subject"],
-  payment: ["yourName","yourEmail","yourPhone","clientName","projectName","invoiceNo","amount","dueDate","paymentDetails"],
-  proposal: ["yourName","yourRole","yourEmail","clientName","clientCompany","projectName","projectDescription","deliverable1","deliverable2","deliverable3","timeline","amount","revisions","support","result"],
-  thankyou: ["yourName","yourRole","yourEmail","clientName","clientCompany","projectName","specificDetail","upsell1","upsell2"],
-  breakup: ["yourName","yourRole","clientName","clientCompany","yourService","subject"],
-  feedback: ["yourName","clientName","clientCompany","projectName","reviewLink"],
-  onboard: ["yourName","yourEmail","yourPhone","clientName","projectName","amount","paymentMethod","startDate","checkinDate","deliveryDate","workingHours","agreementLink","questionnaireLink"],
-  delay: ["yourName","yourEmail","clientName","projectName","reason","delayDays","originalDeadline","newDeadline","action1","action2","updateDate"],
-  upsell: ["yourName","yourRole","yourEmail","clientName","clientCompany","projectName","upsellIdea","upsellDescription","result","timeline","amount"],
+  cold: ["yourName","yourRole","yourCity","yourEmail","yourPhone","clientName","clientEmail","clientCompany","yourService","specificDetail","result","day1","day2"],
+  followup: ["yourName","yourEmail","yourPhone","clientName","clientEmail","clientCompany","yourService","subject"],
+  payment: ["yourName","yourEmail","yourPhone","clientName","clientEmail","projectName","invoiceNo","amount","dueDate","paymentDetails"],
+  proposal: ["yourName","yourRole","yourEmail","clientName","clientEmail","clientCompany","projectName","projectDescription","deliverable1","deliverable2","deliverable3","timeline","amount","revisions","support","result"],
+  thankyou: ["yourName","yourRole","yourEmail","clientName","clientEmail","clientCompany","projectName","specificDetail","upsell1","upsell2"],
+  breakup: ["yourName","yourRole","clientName","clientEmail","clientCompany","yourService","subject"],
+  feedback: ["yourName","clientName","clientEmail","clientCompany","projectName","reviewLink"],
+  onboard: ["yourName","yourEmail","yourPhone","clientName","clientEmail","projectName","amount","paymentMethod","startDate","checkinDate","deliveryDate","workingHours","agreementLink","questionnaireLink"],
+  delay: ["yourName","yourEmail","clientName","clientEmail","projectName","reason","delayDays","originalDeadline","newDeadline","action1","action2","updateDate"],
+  upsell: ["yourName","yourRole","yourEmail","clientName","clientEmail","clientCompany","projectName","upsellIdea","upsellDescription","result","timeline","amount"],
 };
 
 const FIELD_LABELS = {
   yourName:"Your Name", yourRole:"Your Role/Title", yourCity:"Your City",
   yourEmail:"Your Email", yourPhone:"Your Phone/WhatsApp",
-  clientName:"Client First Name", clientCompany:"Client Company",
+  clientName:"Client First Name", clientEmail:"Client Email", clientCompany:"Client Company",
   yourService:"Your Service (e.g. UI Design)", specificDetail:"Something specific about them",
   result:"Result you deliver (e.g. 3x more leads)", day1:"Day Option 1 (e.g. Tuesday 3pm)",
   day2:"Day Option 2 (e.g. Wednesday 10am)", subject:"Email Subject/Topic",
@@ -248,6 +248,7 @@ const PLACEHOLDERS = {
   yourEmail: "e.g. raj@email.com",
   yourPhone: "e.g. +91 98765 43210",
   clientName: "e.g. Priya",
+  clientEmail: "e.g. priya@startup.com",
   clientCompany: "e.g. Acme Corp",
   yourService: "e.g. Website Redesign",
   specificDetail: "e.g. your recent product launch",
@@ -521,11 +522,18 @@ export default function EmailGenerator() {
               {/* Action Buttons */}
               <div style={{ display: "flex", gap: "16px", marginTop: "40px", borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: "24px" }}>
                 
-                <a href={`https://mail.google.com/mail/?view=cm&fs=1&su=${encodeURIComponent(liveEmail.subject)}&body=${encodeURIComponent(liveEmail.body)}`} target="_blank" rel="noopener noreferrer"
+                <a href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(fields.clientEmail || "")}&su=${encodeURIComponent(liveEmail.subject)}&body=${encodeURIComponent(liveEmail.body)}`} target="_blank" rel="noopener noreferrer"
+                  style={{ flex: 1, padding: "14px", background: "linear-gradient(135deg,#ef4444,#dc2626)", borderRadius: "10px", color: "#fff", fontSize: "14px", fontWeight: "700", textAlign: "center", textDecoration: "none", cursor: "pointer", display: "flex", justifyContent: "center", alignItems: "center", gap: "8px", transition: "transform 0.2s" }}
+                  onMouseEnter={e => e.currentTarget.style.transform = "translateY(-2px)"}
+                  onMouseLeave={e => e.currentTarget.style.transform = "translateY(0)"}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> Gmail
+                </a>
+
+                <a href={`mailto:${encodeURIComponent(fields.clientEmail || "")}?subject=${encodeURIComponent(liveEmail.subject)}&body=${encodeURIComponent(liveEmail.body)}`}
                   style={{ flex: 1, padding: "14px", background: "linear-gradient(135deg,#0ea5e9,#14b8a6)", borderRadius: "10px", color: "#fff", fontSize: "14px", fontWeight: "700", textAlign: "center", textDecoration: "none", cursor: "pointer", display: "flex", justifyContent: "center", alignItems: "center", gap: "8px", transition: "transform 0.2s" }}
                   onMouseEnter={e => e.currentTarget.style.transform = "translateY(-2px)"}
                   onMouseLeave={e => e.currentTarget.style.transform = "translateY(0)"}>
-                  ✉️ Open in Gmail
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> Mail App
                 </a>
 
                 <button onClick={() => copy(`Subject: ${liveEmail.subject}\n\n${liveEmail.body}`, setCopiedAll)}

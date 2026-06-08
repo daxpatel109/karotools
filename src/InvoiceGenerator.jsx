@@ -629,8 +629,6 @@ export default function InvoiceGenerator() {
           </div>
         </div>
 
-      </div>
-
       {/* Universal Legal Disclaimer (Moved out of app canvas) */}
       <div style={{ padding: "40px 20px", background: "#020617", borderTop: "1px solid rgba(255,255,255,0.05)", textAlign: "center" }}>
         <p style={{ color: "#64748b", fontSize: "12px", lineHeight: "1.6", margin: "0 auto", maxWidth: "800px", fontFamily: "'DM Sans',sans-serif" }}>

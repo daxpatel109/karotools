@@ -136,17 +136,17 @@ export default function SalaryVsFreelanceCalculator() {
               
               <div style={{ marginBottom: "32px" }}>
                 <div style={{ fontSize: "13px", color: "#94a3b8", marginBottom: "4px" }}>Target Hourly Rate</div>
-                <div style={{ fontSize: "clamp(40px, 6vw, 48px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#fff", lineHeight: "1" }}>₹{fmt(hourlyRate)}<span style={{ fontSize: "16px", color: "#64748b", fontWeight: "600" }}>/hr</span></div>
+                <div style={{ fontSize: "clamp(36px, 8vw, 48px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#fff", lineHeight: "1", wordBreak: "break-all" }}>₹{fmt(hourlyRate)}<span style={{ fontSize: "16px", color: "#64748b", fontWeight: "600" }}>/hr</span></div>
               </div>
 
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "32px" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))", gap: "16px", marginBottom: "32px" }}>
                 <div style={{ background: "rgba(0,0,0,0.3)", padding: "16px", borderRadius: "16px" }}>
                   <div style={{ fontSize: "12px", color: "#94a3b8", marginBottom: "4px" }}>Daily Rate</div>
-                  <div style={{ fontSize: "20px", fontWeight: "800", color: "#f8fafc", fontFamily: "'Syne',sans-serif" }}>₹{fmt(dailyRate)}</div>
+                  <div style={{ fontSize: "clamp(18px, 5vw, 20px)", fontWeight: "800", color: "#f8fafc", fontFamily: "'Syne',sans-serif", wordBreak: "break-all" }}>₹{fmt(dailyRate)}</div>
                 </div>
                 <div style={{ background: "rgba(0,0,0,0.3)", padding: "16px", borderRadius: "16px" }}>
                   <div style={{ fontSize: "12px", color: "#94a3b8", marginBottom: "4px" }}>Monthly Target</div>
-                  <div style={{ fontSize: "20px", fontWeight: "800", color: "#f8fafc", fontFamily: "'Syne',sans-serif" }}>₹{fmt(targetMonthlyRevenue)}</div>
+                  <div style={{ fontSize: "clamp(18px, 5vw, 20px)", fontWeight: "800", color: "#f8fafc", fontFamily: "'Syne',sans-serif", wordBreak: "break-all" }}>₹{fmt(targetMonthlyRevenue)}</div>
                 </div>
               </div>
 

@@ -118,9 +118,9 @@ export default function AdvanceTaxCalculator() {
           </div>
 
           <div style={{ background: "#0f172a", borderRadius: "16px", padding: "24px", border: "1px solid rgba(255,255,255,0.05)" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px", borderBottom: "1px solid rgba(255,255,255,0.05)", paddingBottom: "16px" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", justifyContent: "space-between", alignItems: "center", marginBottom: "20px", borderBottom: "1px solid rgba(255,255,255,0.05)", paddingBottom: "16px" }}>
               <span style={{ fontSize: "14px", color: "#94a3b8", fontWeight: "600" }}>Net Tax Liability</span>
-              <span style={{ fontSize: "20px", fontWeight: "800", color: "#f8fafc" }}>₹{fmt(netLiability)}</span>
+              <span style={{ fontSize: "clamp(20px, 6vw, 24px)", fontWeight: "800", color: "#f8fafc", wordBreak: "break-all" }}>₹{fmt(netLiability)}</span>
             </div>
 
             {!requiresAdvanceTax && netLiability > 0 && (
@@ -139,12 +139,12 @@ export default function AdvanceTaxCalculator() {
                 <p style={{ fontSize: "13px", fontWeight: "700", color: "#f59e0b", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "16px" }}>Payment Schedule</p>
                 <div style={{ display: "grid", gap: "12px" }}>
                   {installments.map((inst, i) => (
-                    <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", background: "rgba(255,255,255,0.02)", padding: "16px", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.03)" }}>
+                    <div key={i} style={{ display: "flex", flexWrap: "wrap", gap: "12px", justifyContent: "space-between", alignItems: "center", background: "rgba(255,255,255,0.02)", padding: "16px", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.03)" }}>
                       <div>
                         <div style={{ fontSize: "15px", fontWeight: "700", color: "#e2e8f0" }}>{inst.date}</div>
                         <div style={{ fontSize: "12px", color: "#64748b", marginTop: "4px" }}>{inst.desc} ({inst.percentage})</div>
                       </div>
-                      <div style={{ fontSize: "18px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f59e0b" }}>
+                      <div style={{ fontSize: "clamp(18px, 5vw, 20px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f59e0b", wordBreak: "break-all" }}>
                         ₹{fmt(inst.amount)}
                       </div>
                     </div>

@@ -264,7 +264,7 @@ export default function NormalTaxCalculator() {
             </div>
           )}
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "32px", alignItems: "start" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))", gap: "32px", alignItems: "start" }}>
             
             {/* Input Form */}
             <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "24px", padding: "32px" }}>
@@ -362,7 +362,7 @@ export default function NormalTaxCalculator() {
               <div style={{ paddingTop: "24px", borderTop: "1px dashed rgba(255,255,255,0.1)", marginBottom: "32px" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "8px" }}>
                   <span style={{ color: "#f8fafc", fontSize: "18px", fontWeight: "600" }}>Total Tax Payable</span>
-                  <span style={{ fontSize: "36px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f43f5e", lineHeight: 1 }}>
+                  <span style={{ fontSize: "clamp(24px, 8vw, 36px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f43f5e", lineHeight: 1, wordBreak: "break-all" }}>
                     {formatCurrency(results.totalTax)}
                   </span>
                 </div>

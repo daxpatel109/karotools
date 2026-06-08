@@ -110,7 +110,7 @@ export default function SIPCalculator() {
           </p>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))", gap: "32px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 350px), 1fr))", gap: "32px" }}>
           
           {/* Controls Panel */}
           <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "24px", padding: "32px" }}>
@@ -185,17 +185,17 @@ export default function SIPCalculator() {
             
             <div style={{ position: "relative", zIndex: 2 }}>
               <h3 style={{ fontSize: "16px", color: "#34d399", fontWeight: "700", marginBottom: "8px", letterSpacing: "0.05em" }}>ESTIMATED TOTAL VALUE</h3>
-              <div style={{ fontSize: "clamp(36px, 5vw, 48px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#fff", marginBottom: "40px", lineHeight: 1.1, wordWrap: "break-word" }}>
+              <div style={{ fontSize: "clamp(32px, 8vw, 48px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#fff", marginBottom: "40px", lineHeight: 1.1, wordBreak: "break-all" }}>
                 {formatINR(results.totalValue)}
               </div>
 
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px", marginBottom: "40px" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))", gap: "24px", marginBottom: "40px" }}>
                 <div>
                   <div style={{ fontSize: "13px", color: "#94a3b8", fontWeight: "600", marginBottom: "8px", display: "flex", alignItems: "center", gap: "8px" }}>
                     <div style={{ width: "10px", height: "10px", borderRadius: "3px", background: "#3b82f6" }}></div>
                     Total Invested
                   </div>
-                  <div style={{ fontSize: "24px", fontWeight: "700", color: "#f8fafc" }}>
+                  <div style={{ fontSize: "clamp(18px, 5vw, 24px)", fontWeight: "700", color: "#f8fafc", wordBreak: "break-all" }}>
                     {formatINR(results.totalInvested)}
                   </div>
                 </div>
@@ -204,7 +204,7 @@ export default function SIPCalculator() {
                     <div style={{ width: "10px", height: "10px", borderRadius: "3px", background: "#10b981" }}></div>
                     Wealth Gained
                   </div>
-                  <div style={{ fontSize: "24px", fontWeight: "700", color: "#34d399" }}>
+                  <div style={{ fontSize: "clamp(18px, 5vw, 24px)", fontWeight: "700", color: "#34d399", wordBreak: "break-all" }}>
                     {formatINR(results.estReturns)}
                   </div>
                 </div>

@@ -1,25 +1,32 @@
+import { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
-import Home from "./Home";
-import GSTCalculator from "./GSTCalculator";
-import InvoiceGenerator from "./InvoiceGenerator";
-import BioGenerator from "./BioGenerator";
-import EmailGenerator from "./EmailGenerator";
-import RateCalculator from "./RateCalculator";
-import ContractGenerator from "./ContractGenerator";
-import About from "./About";
-import Blog from "./Blog";
-import BlogPost1 from "./BlogPost1";
-import BlogPost2 from "./BlogPost2";
-import BlogPost3 from "./BlogPost3";
-import BlogPost4 from "./BlogPost4";
-import BlogPost5 from "./BlogPost5";
-import TaxCalculator from "./TaxCalculator";
-import NormalTaxCalculator from "./NormalTaxCalculator";
-import AdvanceTaxCalculator from "./AdvanceTaxCalculator";
-import SalaryVsFreelanceCalculator from "./SalaryVsFreelanceCalculator";
-import SIPCalculator from "./SIPCalculator";
-import Author from "./Author";
-import { PrivacyPolicy, TermsConditions, ContactUs } from "./LegalPages";
+
+// Lazy loaded components (Code Splitting)
+const Home = lazy(() => import("./Home"));
+const GSTCalculator = lazy(() => import("./GSTCalculator"));
+const InvoiceGenerator = lazy(() => import("./InvoiceGenerator"));
+const BioGenerator = lazy(() => import("./BioGenerator"));
+const EmailGenerator = lazy(() => import("./EmailGenerator"));
+const RateCalculator = lazy(() => import("./RateCalculator"));
+const ContractGenerator = lazy(() => import("./ContractGenerator"));
+const About = lazy(() => import("./About"));
+const Blog = lazy(() => import("./Blog"));
+const BlogPost1 = lazy(() => import("./BlogPost1"));
+const BlogPost2 = lazy(() => import("./BlogPost2"));
+const BlogPost3 = lazy(() => import("./BlogPost3"));
+const BlogPost4 = lazy(() => import("./BlogPost4"));
+const BlogPost5 = lazy(() => import("./BlogPost5"));
+const TaxCalculator = lazy(() => import("./TaxCalculator"));
+const NormalTaxCalculator = lazy(() => import("./NormalTaxCalculator"));
+const AdvanceTaxCalculator = lazy(() => import("./AdvanceTaxCalculator"));
+const SalaryVsFreelanceCalculator = lazy(() => import("./SalaryVsFreelanceCalculator"));
+const SIPCalculator = lazy(() => import("./SIPCalculator"));
+const Author = lazy(() => import("./Author"));
+
+// Direct imports for small legal pages are fine, but let's lazy load them too
+const PrivacyPolicy = lazy(() => import("./LegalPages").then(module => ({ default: module.PrivacyPolicy })));
+const TermsConditions = lazy(() => import("./LegalPages").then(module => ({ default: module.TermsConditions })));
+const ContactUs = lazy(() => import("./LegalPages").then(module => ({ default: module.ContactUs })));
 
 // 404 Not Found page
 function NotFound() {
@@ -59,35 +66,47 @@ function NotFound() {
   );
 }
 
+// Loading Fallback
+function LoadingScreen() {
+  return (
+    <div style={{ minHeight: "100vh", background: "#020617", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <div style={{ width: "40px", height: "40px", border: "4px solid rgba(14,165,233,0.1)", borderLeftColor: "#0ea5e9", borderRadius: "50%", animation: "spin 1s linear infinite" }}></div>
+      <style>{`@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }`}</style>
+    </div>
+  );
+}
+
 // Main App — clean router, no dead state or duplicate imports
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/gst-calculator" element={<GSTCalculator />} />
-      <Route path="/invoice-generator" element={<InvoiceGenerator />} />
-      <Route path="/bio-generator" element={<BioGenerator />} />
-      <Route path="/email-generator" element={<EmailGenerator />} />
-      <Route path="/rate-calculator" element={<RateCalculator />} />
-      <Route path="/contract-generator" element={<ContractGenerator />} />
-      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-      <Route path="/terms" element={<TermsConditions />} />
-      <Route path="/contact" element={<ContactUs />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/blog" element={<Blog />} />
-      <Route path="/blog/msme-45-day-rule" element={<BlogPost1 />} />
-      <Route path="/blog/section-44ada-freelancers" element={<BlogPost2 />} />
-      <Route path="/blog/advance-tax-for-freelancers-india" element={<BlogPost3 />} />
-      <Route path="/blog/freelance-hourly-rate-vs-salary-india" element={<BlogPost4 />} />
-      <Route path="/blog/make-gst-invoice-online-free" element={<BlogPost5 />} />
-      <Route path="/tax-calculator" element={<TaxCalculator />} />
-      <Route path="/normal-tax-calculator" element={<NormalTaxCalculator />} />
-      <Route path="/advance-tax-calculator" element={<AdvanceTaxCalculator />} />
-      <Route path="/salary-vs-freelance" element={<SalaryVsFreelanceCalculator />} />
-      <Route path="/sip-calculator" element={<SIPCalculator />} />
-      <Route path="/author/dax-patel" element={<Author />} />
-      {/* 404 catch-all */}
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    <Suspense fallback={<LoadingScreen />}>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/gst-calculator" element={<GSTCalculator />} />
+        <Route path="/invoice-generator" element={<InvoiceGenerator />} />
+        <Route path="/bio-generator" element={<BioGenerator />} />
+        <Route path="/email-generator" element={<EmailGenerator />} />
+        <Route path="/rate-calculator" element={<RateCalculator />} />
+        <Route path="/contract-generator" element={<ContractGenerator />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<TermsConditions />} />
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/msme-45-day-rule" element={<BlogPost1 />} />
+        <Route path="/blog/section-44ada-freelancers" element={<BlogPost2 />} />
+        <Route path="/blog/advance-tax-for-freelancers-india" element={<BlogPost3 />} />
+        <Route path="/blog/freelance-hourly-rate-vs-salary-india" element={<BlogPost4 />} />
+        <Route path="/blog/make-gst-invoice-online-free" element={<BlogPost5 />} />
+        <Route path="/tax-calculator" element={<TaxCalculator />} />
+        <Route path="/normal-tax-calculator" element={<NormalTaxCalculator />} />
+        <Route path="/advance-tax-calculator" element={<AdvanceTaxCalculator />} />
+        <Route path="/salary-vs-freelance" element={<SalaryVsFreelanceCalculator />} />
+        <Route path="/sip-calculator" element={<SIPCalculator />} />
+        <Route path="/author/dax-patel" element={<Author />} />
+        {/* 404 catch-all */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Suspense>
   );
 }

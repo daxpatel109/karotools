@@ -273,7 +273,6 @@ export default function InvoiceGenerator() {
               </div>
             </div>
 
-          <div>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "#10b981", fontSize: "12px", fontWeight: "600", background: "rgba(16,185,129,0.1)", padding: "6px 12px", borderRadius: "12px" }}>
                 <span>✅</span> Data saved securely in your browser

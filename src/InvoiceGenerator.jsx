@@ -211,10 +211,7 @@ export default function InvoiceGenerator() {
           width: 100%;
           display: flex;
           justify-content: center;
-          background: rgba(0,0,0,0.5);
           padding: 24px 0;
-          border-radius: 16px;
-          border: 1px dashed rgba(255,255,255,0.1);
           overflow: hidden;
         }
         .a4-scale-container {
@@ -228,7 +225,7 @@ export default function InvoiceGenerator() {
           background: white;
           color: #0f172a;
           padding: 20mm;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+          box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.1);
           font-family: 'DM Sans', sans-serif;
           position: relative;
           transform-origin: top left;
@@ -346,9 +343,8 @@ export default function InvoiceGenerator() {
               </div>
             </div>
 
-            <div className="split-2-col">
-              <div style={sec}>
-                <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#f8fafc", marginBottom: "20px" }}>1. Your Details</h2>
+            <div style={sec}>
+              <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#f8fafc", marginBottom: "20px" }}>2. Your Details</h2>
                 <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                   <div>
                     <label style={lbl}>Company Logo (Optional)</label>
@@ -373,10 +369,10 @@ export default function InvoiceGenerator() {
                   </div>
                   <div><label style={lbl}>Udyam Registration No (Optional)</label><input value={seller.udyam} onChange={e => setSeller({...seller, udyam: e.target.value})} style={inp} placeholder="Activates MSME 45-day rule"/></div>
                 </div>
-              </div>
+            </div>
 
-              <div style={sec}>
-                <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#f8fafc", marginBottom: "20px" }}>2. Client Details</h2>
+            <div style={sec}>
+              <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#f8fafc", marginBottom: "20px" }}>3. Client Details</h2>
                 <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                   <div><label style={lbl}>Client Name *</label><input value={buyer.name} onChange={e => setBuyer({...buyer, name: e.target.value})} style={inp}/></div>
                   <div><label style={lbl}>Address</label><textarea value={buyer.address} onChange={e => setBuyer({...buyer, address: e.target.value})} style={{...inp, height: "80px", resize: "none"}}/></div>
@@ -392,7 +388,6 @@ export default function InvoiceGenerator() {
                     <div><label style={lbl}>Phone (Optional)</label><input value={buyer.phone} onChange={e => setBuyer({...buyer, phone: e.target.value})} style={inp}/></div>
                   </div>
                 </div>
-              </div>
             </div>
 
             <div style={sec}>
@@ -450,9 +445,9 @@ export default function InvoiceGenerator() {
           </div>
 
           {/* RIGHT: Live Preview */}
-          <div style={{ position: "sticky", top: "100px", display: "flex", flexDirection: "column", alignItems: "center", gap: "20px" }}>
+          <div style={{ position: "sticky", top: "100px", display: "flex", flexDirection: "column", alignItems: "center", gap: "24px" }}>
             
-            <button onClick={downloadPDF} disabled={isExporting} style={{ width: "100%", maxWidth: "210mm", padding: "20px", background: "linear-gradient(135deg, #0ea5e9, #14b8a6)", color: "white", fontSize: "18px", fontWeight: "800", fontFamily: "'Syne',sans-serif", borderRadius: "16px", border: "none", cursor: isExporting ? "wait" : "pointer", display: "flex", justifyContent: "center", alignItems: "center", gap: "12px", boxShadow: "0 10px 30px rgba(14,165,233,0.3)", transition: "transform 0.2s" }} onMouseEnter={e => e.currentTarget.style.transform = "translateY(-4px)"} onMouseLeave={e => e.currentTarget.style.transform = "translateY(0)"}>
+            <button onClick={downloadPDF} disabled={isExporting} style={{ width: "100%", maxWidth: "794px", padding: "18px", background: "linear-gradient(135deg, #0ea5e9, #14b8a6)", color: "white", fontSize: "18px", fontWeight: "800", fontFamily: "'Syne',sans-serif", borderRadius: "14px", border: "none", cursor: isExporting ? "wait" : "pointer", display: "flex", justifyContent: "center", alignItems: "center", gap: "12px", boxShadow: "0 10px 30px rgba(14,165,233,0.3)", transition: "all 0.2s" }} onMouseEnter={e => {e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 20px 40px rgba(14,165,233,0.4)";}} onMouseLeave={e => {e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 10px 30px rgba(14,165,233,0.3)";}}>
               {isExporting ? "⏳ Generating High-Res PDF..." : "📥 Download Invoice PDF"}
             </button>
 

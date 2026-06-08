@@ -164,9 +164,9 @@ export default function InvoiceGenerator() {
     setIsExporting(true);
     
     // Temporarily remove transform to capture full resolution
-    const scaleContainer = document.getElementById("a4-scale-container");
-    const originalTransform = scaleContainer ? scaleContainer.style.transform : "";
-    if (scaleContainer) scaleContainer.style.transform = "scale(1)";
+    const a4Container = document.getElementById("a4-container");
+    const originalTransform = a4Container ? a4Container.style.transform : "";
+    if (a4Container) a4Container.style.transform = "scale(1)";
     
     // Give browser a frame to apply the transform
     await new Promise(r => setTimeout(r, 50));
@@ -185,7 +185,7 @@ export default function InvoiceGenerator() {
       alert("Error generating PDF. Please try again.");
     } finally {
       // Restore transform
-      if (scaleContainer) scaleContainer.style.transform = originalTransform;
+      if (a4Container) a4Container.style.transform = originalTransform;
       setIsExporting(false);
     }
   };
@@ -212,13 +212,15 @@ export default function InvoiceGenerator() {
           display: flex;
           justify-content: center;
           background: rgba(0,0,0,0.5);
-          padding-top: 24px;
+          padding: 24px 0;
           border-radius: 16px;
           border: 1px dashed rgba(255,255,255,0.1);
           overflow: hidden;
         }
         .a4-scale-container {
-           transform-origin: top center;
+           /* width/height will be set by media queries */
+           width: 210mm;
+           height: 297mm;
         }
         .a4-container {
           width: 210mm;
@@ -229,26 +231,26 @@ export default function InvoiceGenerator() {
           box-shadow: 0 10px 30px rgba(0,0,0,0.5);
           font-family: 'DM Sans', sans-serif;
           position: relative;
+          transform-origin: top left;
         }
         @media (min-width: 1201px) {
-           .a4-preview-wrapper { height: calc(297mm + 48px); }
-           .a4-scale-container { transform: scale(1); }
+           .a4-container { transform: scale(1); }
         }
         @media (max-width: 1200px) {
-           .a4-preview-wrapper { height: calc(297mm * 0.95 + 48px); }
-           .a4-scale-container { transform: scale(0.95); }
+           .a4-scale-container { width: calc(210mm * 0.95); height: calc(297mm * 0.95); }
+           .a4-container { transform: scale(0.95); }
         }
         @media (max-width: 992px) {
-           .a4-preview-wrapper { height: calc(297mm * 0.8 + 48px); }
-           .a4-scale-container { transform: scale(0.8); }
+           .a4-scale-container { width: calc(210mm * 0.8); height: calc(297mm * 0.8); }
+           .a4-container { transform: scale(0.8); }
         }
         @media (max-width: 768px) {
-           .a4-preview-wrapper { height: calc(297mm * 0.45 + 48px); }
-           .a4-scale-container { transform: scale(0.45); }
+           .a4-scale-container { width: calc(210mm * 0.45); height: calc(297mm * 0.45); }
+           .a4-container { transform: scale(0.45); }
         }
         @media (max-width: 430px) {
-           .a4-preview-wrapper { height: calc(297mm * 0.42 + 48px); }
-           .a4-scale-container { transform: scale(0.42); }
+           .a4-scale-container { width: calc(210mm * 0.40); height: calc(297mm * 0.40); }
+           .a4-container { transform: scale(0.40); }
         }
 
         /* Responsive Layouts */
@@ -455,9 +457,9 @@ export default function InvoiceGenerator() {
             </button>
 
             <div className="a4-preview-wrapper">
-              <div id="a4-scale-container" className="a4-scale-container">
+              <div className="a4-scale-container">
                 {/* Actual A4 Canvas */}
-                <div ref={previewRef} className="a4-container">
+                <div ref={previewRef} id="a4-container" className="a4-container">
                 {/* Header Teal Line */}
                 <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "8px", background: "linear-gradient(90deg, #0ea5e9, #14b8a6)" }} />
                 

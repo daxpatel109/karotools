@@ -190,9 +190,9 @@ export default function InvoiceGenerator() {
     }
   };
 
-  const inp = { width: "100%", padding: "12px 14px", background: "rgba(0,0,0,0.2)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "8px", fontSize: "14px", color: "#f8fafc", outline: "none", transition: "border-color 0.2s" };
-  const lbl = { display: "block", fontWeight: "600", color: "#94a3b8", marginBottom: "6px", fontSize: "12px", letterSpacing: "0.05em", textTransform: "uppercase" };
-  const sec = { background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "16px", padding: "24px", marginBottom: "24px" };
+  const inp = { width: "100%", padding: "14px 16px", background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "10px", fontSize: "14px", color: "#f8fafc", outline: "none", transition: "all 0.2s", boxShadow: "inset 0 2px 4px rgba(0,0,0,0.2)" };
+  const lbl = { display: "block", fontWeight: "600", color: "#64748b", marginBottom: "8px", fontSize: "11px", letterSpacing: "0.08em", textTransform: "uppercase" };
+  const sec = { paddingBottom: "32px", marginBottom: "32px", borderBottom: "1px solid rgba(255,255,255,0.05)" };
 
   const finalNotes = seller.udyam && !invoice.notes.includes("Section 43B(h)") 
     ? invoice.notes + msmeWarning 
@@ -211,8 +211,6 @@ export default function InvoiceGenerator() {
           width: 100%;
           display: flex;
           justify-content: center;
-          padding: 24px 0;
-          overflow: hidden;
         }
         .a4-scale-container {
            /* width/height will be set by media queries */
@@ -251,18 +249,37 @@ export default function InvoiceGenerator() {
         }
 
         /* Responsive Layouts */
-        .main-layout {
-          display: grid;
-          grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-          gap: 40px;
-          max-width: 1600px;
-          margin: 0 auto;
-          align-items: start;
+        .workspace-layout {
+          display: flex;
+          height: calc(100vh - 70px);
+          overflow: hidden;
+        }
+        .editor-sidebar {
+          width: 480px;
+          min-width: 480px;
+          background: #080c17;
+          border-right: 1px solid rgba(255,255,255,0.05);
+          overflow-y: auto;
+          padding: 40px;
+        }
+        .editor-sidebar::-webkit-scrollbar { width: 6px; }
+        .editor-sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
+        .canvas-area {
+          flex: 1;
+          background-color: #020617;
+          background-image: radial-gradient(rgba(255,255,255,0.05) 1.5px, transparent 1.5px);
+          background-size: 24px 24px;
+          overflow-y: auto;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 40px 20px;
+          gap: 32px;
         }
         .split-2-col {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 24px;
+          gap: 20px;
         }
         .split-3-col {
           display: grid;
@@ -276,14 +293,23 @@ export default function InvoiceGenerator() {
           align-items: end;
           min-width: 700px;
         }
-        .items-wrapper {
-          width: 100%;
-          overflow-x: auto;
-        }
-
+        
         @media (max-width: 1200px) {
-          .main-layout {
-            grid-template-columns: 1fr;
+          .workspace-layout {
+             flex-direction: column;
+             height: auto;
+             overflow: visible;
+          }
+          .editor-sidebar {
+             width: 100%;
+             min-width: auto;
+             border-right: none;
+             border-bottom: 1px solid rgba(255,255,255,0.05);
+             padding: 24px 16px;
+          }
+          .canvas-area {
+             padding: 32px 0;
+             overflow: hidden;
           }
         }
         @media (max-width: 768px) {
@@ -305,41 +331,39 @@ export default function InvoiceGenerator() {
         <Link to="/" style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "600", textDecoration: "none", transition: "color 0.2s" }} onMouseEnter={e => e.target.style.color = "#fff"} onMouseLeave={e => e.target.style.color = "#94a3b8"}>Home</Link>
       </nav>
 
-      <div style={{ padding: "40px 16px", maxWidth: "100vw", overflowX: "hidden" }}>
-        
-        <div style={{ textAlign: "center", marginBottom: "40px" }}>
-          <span style={{ background: "rgba(14,165,233,0.1)", color: "#38bdf8", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em" }}>MSME COMPLIANT</span>
-          <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", margin: "16px 0 12px 0", color: "#f8fafc" }}>
-            Free Invoice Generator
-          </h1>
-          <p style={{ color: "#94a3b8", fontSize: "18px", maxWidth: "600px", margin: "0 auto" }}>Create beautiful, legal-grade invoices and enforce 45-day MSME payments.</p>
-        </div>
-
-        <div className="main-layout">
+      <div className="workspace-layout">
           
-          {/* LEFT: Editor Forms */}
-          <div style={{ display: "flex", flexDirection: "column", minWidth: 0 }}>
+          {/* LEFT: Editor Sidebar */}
+          <div className="editor-sidebar">
             
+            <div style={{ marginBottom: "40px" }}>
+              <span style={{ background: "rgba(14,165,233,0.1)", color: "#38bdf8", padding: "6px 14px", borderRadius: "50px", fontSize: "11px", fontWeight: "700", letterSpacing: "0.05em", border: "1px solid rgba(14,165,233,0.2)" }}>PRO WORKSPACE</span>
+              <h1 style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Syne',sans-serif", margin: "16px 0 8px 0", color: "#f8fafc", letterSpacing: "-0.5px" }}>
+                Invoice Editor
+              </h1>
+              <p style={{ color: "#64748b", fontSize: "14px", margin: 0 }}>Configure your beautiful, legal-grade invoice.</p>
+            </div>
+
+            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", marginBottom: "40px", gap: "16px", paddingBottom: "24px", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "#10b981", fontSize: "12px", fontWeight: "600", background: "rgba(16,185,129,0.1)", padding: "6px 12px", borderRadius: "12px", flexShrink: 0, border: "1px solid rgba(16,185,129,0.2)" }}>
+                <span style={{ fontSize: "14px" }}>✅</span> Auto-saved
+              </div>
+              <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+                <button onClick={exportCSV} style={{ background: "transparent", border: "1px solid rgba(56,189,248,0.3)", color: "#38bdf8", padding: "6px 12px", borderRadius: "8px", fontSize: "12px", fontWeight: "600", cursor: "pointer" }}>
+                  📥 Export CSV
+                </button>
+                <button onClick={clearData} style={{ background: "transparent", border: "1px solid rgba(244,63,94,0.3)", color: "#fb7185", padding: "6px 12px", borderRadius: "8px", fontSize: "12px", fontWeight: "600", cursor: "pointer" }}>
+                  Clear Data
+                </button>
+              </div>
+            </div>
+
             <div style={sec}>
               <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#f8fafc", marginBottom: "20px" }}>1. Invoice Details</h2>
               <div className="split-3-col">
                 <div><label style={lbl}>Invoice No</label><input value={invoice.number} onChange={e => setInvoice({...invoice, number: e.target.value})} style={inp}/></div>
                 <div><label style={lbl}>Invoice Date</label><input type="date" value={invoice.date} onChange={e => setInvoice({...invoice, date: e.target.value})} style={inp}/></div>
                 <div><label style={lbl}>Due Date</label><input type="date" value={invoice.due} onChange={e => setInvoice({...invoice, due: e.target.value})} style={inp}/></div>
-              </div>
-            </div>
-
-            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", marginBottom: "20px", gap: "16px" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "#10b981", fontSize: "12px", fontWeight: "600", background: "rgba(16,185,129,0.1)", padding: "6px 12px", borderRadius: "12px", flexShrink: 0 }}>
-                <span>✅</span> Saved locally
-              </div>
-              <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
-                <button onClick={exportCSV} style={{ background: "transparent", border: "1px solid rgba(56,189,248,0.3)", color: "#38bdf8", padding: "6px 12px", borderRadius: "8px", fontSize: "12px", cursor: "pointer", whiteSpace: "nowrap" }}>
-                  📥 Export CSV
-                </button>
-                <button onClick={clearData} style={{ background: "transparent", border: "1px solid rgba(244,63,94,0.3)", color: "#fb7185", padding: "6px 12px", borderRadius: "8px", fontSize: "12px", cursor: "pointer", whiteSpace: "nowrap" }}>
-                  Clear Data
-                </button>
               </div>
             </div>
 
@@ -444,11 +468,11 @@ export default function InvoiceGenerator() {
 
           </div>
 
-          {/* RIGHT: Live Preview */}
-          <div style={{ position: "sticky", top: "100px", display: "flex", flexDirection: "column", alignItems: "center", gap: "24px" }}>
+          {/* RIGHT: Live Preview Canvas */}
+          <div className="canvas-area">
             
-            <button onClick={downloadPDF} disabled={isExporting} style={{ width: "100%", maxWidth: "794px", padding: "18px", background: "linear-gradient(135deg, #0ea5e9, #14b8a6)", color: "white", fontSize: "18px", fontWeight: "800", fontFamily: "'Syne',sans-serif", borderRadius: "14px", border: "none", cursor: isExporting ? "wait" : "pointer", display: "flex", justifyContent: "center", alignItems: "center", gap: "12px", boxShadow: "0 10px 30px rgba(14,165,233,0.3)", transition: "all 0.2s" }} onMouseEnter={e => {e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 20px 40px rgba(14,165,233,0.4)";}} onMouseLeave={e => {e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 10px 30px rgba(14,165,233,0.3)";}}>
-              {isExporting ? "⏳ Generating High-Res PDF..." : "📥 Download Invoice PDF"}
+            <button onClick={downloadPDF} disabled={isExporting} style={{ position: "sticky", top: "0px", zIndex: 10, width: "100%", maxWidth: "794px", padding: "18px", background: "linear-gradient(135deg, #0ea5e9, #14b8a6)", color: "white", fontSize: "16px", fontWeight: "800", fontFamily: "'Syne',sans-serif", borderRadius: "14px", border: "1px solid rgba(255,255,255,0.2)", cursor: isExporting ? "wait" : "pointer", display: "flex", justifyContent: "center", alignItems: "center", gap: "12px", boxShadow: "0 10px 30px rgba(14,165,233,0.3), inset 0 2px 4px rgba(255,255,255,0.3)", transition: "all 0.2s" }} onMouseEnter={e => {e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 15px 35px rgba(14,165,233,0.4), inset 0 2px 4px rgba(255,255,255,0.3)";}} onMouseLeave={e => {e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 10px 30px rgba(14,165,233,0.3), inset 0 2px 4px rgba(255,255,255,0.3)";}}>
+              {isExporting ? "⏳ Generating High-Res PDF..." : "📥 Download Legal PDF"}
             </button>
 
             <div className="a4-preview-wrapper">
@@ -604,11 +628,12 @@ export default function InvoiceGenerator() {
             </div>
           </div>
         </div>
+
       </div>
 
-      {/* Universal Legal Disclaimer */}
-      <div style={{ marginTop: "40px", padding: "20px", background: "rgba(0,0,0,0.3)", borderRadius: "12px", border: "1px dashed rgba(255,255,255,0.1)", textAlign: "center" }}>
-        <p style={{ color: "#64748b", fontSize: "12px", lineHeight: "1.6", margin: 0, fontFamily: "'DM Sans',sans-serif" }}>
+      {/* Universal Legal Disclaimer (Moved out of app canvas) */}
+      <div style={{ padding: "40px 20px", background: "#020617", borderTop: "1px solid rgba(255,255,255,0.05)", textAlign: "center" }}>
+        <p style={{ color: "#64748b", fontSize: "12px", lineHeight: "1.6", margin: "0 auto", maxWidth: "800px", fontFamily: "'DM Sans',sans-serif" }}>
           <strong>Disclaimer:</strong> All calculators and tools on KaroTools.in are provided for educational and informational purposes only. While we strive to keep the logic updated with the latest Indian tax laws (FY 2025-26), the results generated are estimates and do not constitute professional financial, legal, or tax advice. We strongly recommend consulting a certified Chartered Accountant or legal professional before making any business decisions or filing your taxes. KaroTools is not responsible for any financial loss, penalties, or compliance errors resulting from the use of this website.
         </p>
       </div>

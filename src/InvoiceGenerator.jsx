@@ -252,17 +252,17 @@ export default function InvoiceGenerator() {
           }
         }
         @media (max-width: 768px) {
-          .split-2-col {
-            grid-template-columns: 1fr;
-          }
-          .split-3-col {
-            grid-template-columns: 1fr;
+          .split-2-col, .split-3-col {
+            grid-template-columns: 1fr !important;
           }
           .a4-preview-wrapper {
             padding: 12px;
           }
           .items-wrapper {
             padding-bottom: 12px;
+          }
+          nav {
+            padding: 0 20px !important;
           }
         }
       `}</style>
@@ -276,7 +276,7 @@ export default function InvoiceGenerator() {
         <Link to="/" style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "600", textDecoration: "none", transition: "color 0.2s" }} onMouseEnter={e => e.target.style.color = "#fff"} onMouseLeave={e => e.target.style.color = "#94a3b8"}>Home</Link>
       </nav>
 
-      <div style={{ padding: "40px 24px" }}>
+      <div style={{ padding: "40px 16px", maxWidth: "100vw", overflowX: "hidden" }}>
         
         <div style={{ textAlign: "center", marginBottom: "40px" }}>
           <span style={{ background: "rgba(14,165,233,0.1)", color: "#38bdf8", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em" }}>MSME COMPLIANT</span>
@@ -300,16 +300,16 @@ export default function InvoiceGenerator() {
               </div>
             </div>
 
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "#10b981", fontSize: "12px", fontWeight: "600", background: "rgba(16,185,129,0.1)", padding: "6px 12px", borderRadius: "12px" }}>
-                <span>✅</span> Data saved securely in your browser
+            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", marginBottom: "20px", gap: "16px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "#10b981", fontSize: "12px", fontWeight: "600", background: "rgba(16,185,129,0.1)", padding: "6px 12px", borderRadius: "12px", flexShrink: 0 }}>
+                <span>✅</span> Saved locally
               </div>
-              <div style={{ display: "flex", gap: "10px" }}>
-                <button onClick={exportCSV} style={{ background: "transparent", border: "1px solid rgba(56,189,248,0.3)", color: "#38bdf8", padding: "6px 12px", borderRadius: "8px", fontSize: "12px", cursor: "pointer" }}>
+              <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+                <button onClick={exportCSV} style={{ background: "transparent", border: "1px solid rgba(56,189,248,0.3)", color: "#38bdf8", padding: "6px 12px", borderRadius: "8px", fontSize: "12px", cursor: "pointer", whiteSpace: "nowrap" }}>
                   📥 Export CSV
                 </button>
-                <button onClick={clearData} style={{ background: "transparent", border: "1px solid rgba(244,63,94,0.3)", color: "#fb7185", padding: "6px 12px", borderRadius: "8px", fontSize: "12px", cursor: "pointer" }}>
-                  Clear All Data
+                <button onClick={clearData} style={{ background: "transparent", border: "1px solid rgba(244,63,94,0.3)", color: "#fb7185", padding: "6px 12px", borderRadius: "8px", fontSize: "12px", cursor: "pointer", whiteSpace: "nowrap" }}>
+                  Clear Data
                 </button>
               </div>
             </div>

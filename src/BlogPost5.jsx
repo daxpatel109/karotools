@@ -67,13 +67,19 @@ export default function BlogPost5() {
           How to Make a GST Invoice Online for Free (No Watermarks)
         </h1>
 
-        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "48px", paddingBottom: "32px", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-          <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "#1e293b", overflow: "hidden" }}>
-             <div style={{ width: "100%", height: "100%", background: "linear-gradient(135deg, #0ea5e9, #14b8a6)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "18px" }}>👨🏽‍💻</div>
+        <div style={{ display: "flex", alignItems: "center", gap: "16px", paddingBottom: "40px", borderBottom: "1px solid rgba(255,255,255,0.05)", marginBottom: "48px" }}>
+          <div style={{ width: "48px", height: "48px", borderRadius: "50%", overflow: "hidden", background: "#0f172a", border: "2px solid #1e293b", position: "relative" }}>
+            <img 
+              src="/dax-profile.jpg" 
+              alt="Dax Patel" 
+              onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
+            <div style={{ display: "none", width: "100%", height: "100%", alignItems: "center", justifyContent: "center", background: "linear-gradient(135deg,#38bdf8,#818cf8)", color: "white", fontWeight: "bold", fontSize: "20px" }}>DP</div>
           </div>
           <div>
-            <div style={{ fontWeight: "600", fontSize: "15px", color: "#f1f5f9" }}>Dax Patel</div>
-            <div style={{ fontSize: "13px", color: "#64748b" }}>Creator, KaroTools</div>
+            <div style={{ fontWeight: "700", color: "#f1f5f9", fontSize: "16px" }}>Dax Patel</div>
+            <div style={{ color: "#64748b", fontSize: "14px" }}>Founder, KaroTools</div>
           </div>
         </div>
 

@@ -162,6 +162,15 @@ export default function InvoiceGenerator() {
   const downloadPDF = async () => {
     if (!previewRef.current || isExporting) return;
     setIsExporting(true);
+    
+    // Temporarily remove transform to capture full resolution
+    const scaleContainer = document.getElementById("a4-scale-container");
+    const originalTransform = scaleContainer ? scaleContainer.style.transform : "";
+    if (scaleContainer) scaleContainer.style.transform = "scale(1)";
+    
+    // Give browser a frame to apply the transform
+    await new Promise(r => setTimeout(r, 50));
+
     try {
       // Temporarily scale up for high-res PDF
       const canvas = await html2canvas(previewRef.current, { scale: 3, useCORS: true });
@@ -170,12 +179,15 @@ export default function InvoiceGenerator() {
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
       pdf.addImage(imgData, "JPEG", 0, 0, pdfWidth, pdfHeight);
-      pdf.save(`${invoice.number || 'Invoice'}.pdf`);
+      pdf.save(`INV-${invoice.number || '0001'}.pdf`);
     } catch (e) {
       console.error(e);
       alert("Error generating PDF. Please try again.");
+    } finally {
+      // Restore transform
+      if (scaleContainer) scaleContainer.style.transform = originalTransform;
+      setIsExporting(false);
     }
-    setIsExporting(false);
   };
 
   const inp = { width: "100%", padding: "12px 14px", background: "rgba(0,0,0,0.2)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "8px", fontSize: "14px", color: "#f8fafc", outline: "none", transition: "border-color 0.2s" };
@@ -197,22 +209,46 @@ export default function InvoiceGenerator() {
         /* A4 Live Preview Scaling */
         .a4-preview-wrapper {
           width: 100%;
-          overflow-x: auto;
+          display: flex;
+          justify-content: center;
           background: rgba(0,0,0,0.5);
-          padding: 24px;
+          padding-top: 24px;
           border-radius: 16px;
           border: 1px dashed rgba(255,255,255,0.1);
+          overflow: hidden;
+        }
+        .a4-scale-container {
+           transform-origin: top center;
         }
         .a4-container {
           width: 210mm;
           min-height: 297mm;
           background: white;
           color: #0f172a;
-          margin: 0 auto;
           padding: 20mm;
           box-shadow: 0 10px 30px rgba(0,0,0,0.5);
           font-family: 'DM Sans', sans-serif;
           position: relative;
+        }
+        @media (min-width: 1201px) {
+           .a4-preview-wrapper { height: calc(297mm + 48px); }
+           .a4-scale-container { transform: scale(1); }
+        }
+        @media (max-width: 1200px) {
+           .a4-preview-wrapper { height: calc(297mm * 0.95 + 48px); }
+           .a4-scale-container { transform: scale(0.95); }
+        }
+        @media (max-width: 992px) {
+           .a4-preview-wrapper { height: calc(297mm * 0.8 + 48px); }
+           .a4-scale-container { transform: scale(0.8); }
+        }
+        @media (max-width: 768px) {
+           .a4-preview-wrapper { height: calc(297mm * 0.45 + 48px); }
+           .a4-scale-container { transform: scale(0.45); }
+        }
+        @media (max-width: 430px) {
+           .a4-preview-wrapper { height: calc(297mm * 0.42 + 48px); }
+           .a4-scale-container { transform: scale(0.42); }
         }
 
         /* Responsive Layouts */
@@ -254,12 +290,6 @@ export default function InvoiceGenerator() {
         @media (max-width: 768px) {
           .split-2-col, .split-3-col {
             grid-template-columns: 1fr !important;
-          }
-          .a4-preview-wrapper {
-            padding: 12px;
-          }
-          .items-wrapper {
-            padding-bottom: 12px;
           }
           nav {
             padding: 0 20px !important;
@@ -418,15 +448,16 @@ export default function InvoiceGenerator() {
           </div>
 
           {/* RIGHT: Live Preview */}
-          <div style={{ position: "sticky", top: "100px", display: "flex", flexDirection: "column", gap: "20px" }}>
+          <div style={{ position: "sticky", top: "100px", display: "flex", flexDirection: "column", alignItems: "center", gap: "20px" }}>
             
-            <button onClick={downloadPDF} disabled={isExporting} style={{ width: "100%", padding: "20px", background: "linear-gradient(135deg, #0ea5e9, #14b8a6)", color: "white", fontSize: "18px", fontWeight: "800", fontFamily: "'Syne',sans-serif", borderRadius: "16px", border: "none", cursor: isExporting ? "wait" : "pointer", display: "flex", justifyContent: "center", alignItems: "center", gap: "12px", boxShadow: "0 10px 30px rgba(14,165,233,0.3)", transition: "transform 0.2s" }} onMouseEnter={e => e.currentTarget.style.transform = "translateY(-4px)"} onMouseLeave={e => e.currentTarget.style.transform = "translateY(0)"}>
+            <button onClick={downloadPDF} disabled={isExporting} style={{ width: "100%", maxWidth: "210mm", padding: "20px", background: "linear-gradient(135deg, #0ea5e9, #14b8a6)", color: "white", fontSize: "18px", fontWeight: "800", fontFamily: "'Syne',sans-serif", borderRadius: "16px", border: "none", cursor: isExporting ? "wait" : "pointer", display: "flex", justifyContent: "center", alignItems: "center", gap: "12px", boxShadow: "0 10px 30px rgba(14,165,233,0.3)", transition: "transform 0.2s" }} onMouseEnter={e => e.currentTarget.style.transform = "translateY(-4px)"} onMouseLeave={e => e.currentTarget.style.transform = "translateY(0)"}>
               {isExporting ? "⏳ Generating High-Res PDF..." : "📥 Download Invoice PDF"}
             </button>
 
             <div className="a4-preview-wrapper">
-              {/* Actual A4 Canvas */}
-              <div ref={previewRef} className="a4-container">
+              <div id="a4-scale-container" className="a4-scale-container">
+                {/* Actual A4 Canvas */}
+                <div ref={previewRef} className="a4-container">
                 {/* Header Teal Line */}
                 <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "8px", background: "linear-gradient(90deg, #0ea5e9, #14b8a6)" }} />
                 
@@ -571,6 +602,7 @@ export default function InvoiceGenerator() {
                   <div style={{ fontSize: "10px", color: "#64748b" }}>For {seller.name || "Company Name"}</div>
                 </div>
 
+                </div>
               </div>
             </div>
           </div>

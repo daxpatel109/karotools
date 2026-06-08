@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+import { QRCodeCanvas } from "qrcode.react";
 
 const emptyItem = () => ({ desc: "", hsn: "", qty: 1, rate: "", discount: 0, gst: 18 });
 
@@ -109,6 +110,32 @@ export default function InvoiceGenerator() {
       localStorage.removeItem("inv_data_v2");
       window.location.reload();
     }
+  };
+
+  const exportCSV = () => {
+    const rows = [
+      ["Invoice Number", invoice.number],
+      ["Invoice Date", invoice.date],
+      ["Seller Name", seller.name],
+      ["Buyer Name", buyer.name],
+      ["Taxable Amount", totals.base.toFixed(2)],
+      ["Total Amount", totals.total.toFixed(2)],
+      [""],
+      ["Description", "HSN/SAC", "Qty", "Rate", "GST %", "Total"]
+    ];
+    items.forEach(item => {
+      const c = calcItem(item);
+      rows.push([item.desc, item.hsn, item.qty, item.rate, item.gst, c.total.toFixed(2)]);
+    });
+
+    const csvContent = "data:text/csv;charset=utf-8," + rows.map(e => e.join(",")).join("\n");
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", `Invoice_${invoice.number}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   // Dynamic Notes Injection for MSME
@@ -277,9 +304,14 @@ export default function InvoiceGenerator() {
               <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "#10b981", fontSize: "12px", fontWeight: "600", background: "rgba(16,185,129,0.1)", padding: "6px 12px", borderRadius: "12px" }}>
                 <span>✅</span> Data saved securely in your browser
               </div>
-              <button onClick={clearData} style={{ background: "transparent", border: "1px solid rgba(244,63,94,0.3)", color: "#fb7185", padding: "6px 12px", borderRadius: "8px", fontSize: "12px", cursor: "pointer" }}>
-                Clear All Data
-              </button>
+              <div style={{ display: "flex", gap: "10px" }}>
+                <button onClick={exportCSV} style={{ background: "transparent", border: "1px solid rgba(56,189,248,0.3)", color: "#38bdf8", padding: "6px 12px", borderRadius: "8px", fontSize: "12px", cursor: "pointer" }}>
+                  📥 Export CSV
+                </button>
+                <button onClick={clearData} style={{ background: "transparent", border: "1px solid rgba(244,63,94,0.3)", color: "#fb7185", padding: "6px 12px", borderRadius: "8px", fontSize: "12px", cursor: "pointer" }}>
+                  Clear All Data
+                </button>
+              </div>
             </div>
 
             <div className="split-2-col">
@@ -517,11 +549,19 @@ export default function InvoiceGenerator() {
                 </div>
 
                 {/* Terms / MSME Rule */}
-                <div style={{ padding: "20px", background: seller.udyam ? "rgba(14,165,233,0.05)" : "#f8fafc", border: seller.udyam ? "1px solid rgba(14,165,233,0.2)" : "1px solid #e2e8f0", borderRadius: "8px", marginBottom: "60px" }}>
-                  <div style={{ fontSize: "11px", color: seller.udyam ? "#0ea5e9" : "#64748b", fontWeight: "700", textTransform: "uppercase", marginBottom: "8px" }}>Terms & Conditions</div>
-                  <p style={{ fontSize: "12px", color: "#475569", margin: 0, whiteSpace: "pre-wrap", lineHeight: "1.6" }}>
-                    {finalNotes}
-                  </p>
+                <div style={{ padding: "20px", background: seller.udyam ? "rgba(14,165,233,0.05)" : "#f8fafc", border: seller.udyam ? "1px solid rgba(14,165,233,0.2)" : "1px solid #e2e8f0", borderRadius: "8px", marginBottom: "60px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                  <div style={{ flex: 1, paddingRight: "20px" }}>
+                    <div style={{ fontSize: "11px", color: seller.udyam ? "#0ea5e9" : "#64748b", fontWeight: "700", textTransform: "uppercase", marginBottom: "8px" }}>Terms & Conditions</div>
+                    <p style={{ fontSize: "12px", color: "#475569", margin: 0, whiteSpace: "pre-wrap", lineHeight: "1.6" }}>
+                      {finalNotes}
+                    </p>
+                  </div>
+                  {bank.upi && totals.total > 0 && (
+                    <div style={{ textAlign: "center", background: "#fff", padding: "10px", borderRadius: "8px", border: "1px solid #e2e8f0" }}>
+                      <QRCodeCanvas value={`upi://pay?pa=${bank.upi}&pn=${seller.name || "Business"}&am=${totals.total}&cu=INR`} size={80} />
+                      <div style={{ fontSize: "9px", color: "#64748b", marginTop: "6px", fontWeight: "700", textTransform: "uppercase" }}>Scan to Pay</div>
+                    </div>
+                  )}
                 </div>
 
                 {/* Signature Block */}

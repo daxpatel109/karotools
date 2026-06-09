@@ -79,34 +79,36 @@ function LoadingScreen() {
 // Main App — clean router, no dead state or duplicate imports
 export default function App() {
   return (
-    <Suspense fallback={<LoadingScreen />}>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/gst-calculator" element={<GSTCalculator />} />
-        <Route path="/invoice-generator" element={<InvoiceGenerator />} />
-        <Route path="/bio-generator" element={<BioGenerator />} />
-        <Route path="/email-generator" element={<EmailGenerator />} />
-        <Route path="/rate-calculator" element={<RateCalculator />} />
-        <Route path="/contract-generator" element={<ContractGenerator />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/terms" element={<TermsConditions />} />
-        <Route path="/contact" element={<ContactUs />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/msme-45-day-rule" element={<BlogPost1 />} />
-        <Route path="/blog/section-44ada-freelancers" element={<BlogPost2 />} />
-        <Route path="/blog/advance-tax-for-freelancers-india" element={<BlogPost3 />} />
-        <Route path="/blog/freelance-hourly-rate-vs-salary-india" element={<BlogPost4 />} />
-        <Route path="/blog/make-gst-invoice-online-free" element={<BlogPost5 />} />
-        <Route path="/tax-calculator" element={<TaxCalculator />} />
-        <Route path="/normal-tax-calculator" element={<NormalTaxCalculator />} />
-        <Route path="/advance-tax-calculator" element={<AdvanceTaxCalculator />} />
-        <Route path="/salary-vs-freelance" element={<SalaryVsFreelanceCalculator />} />
-        <Route path="/sip-calculator" element={<SIPCalculator />} />
-        <Route path="/author/dax-patel" element={<Author />} />
-        {/* 404 catch-all */}
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Suspense>
+    <main>
+      <Suspense fallback={<LoadingScreen />}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/gst-calculator" element={<GSTCalculator />} />
+          <Route path="/invoice-generator" element={<InvoiceGenerator />} />
+          <Route path="/bio-generator" element={<BioGenerator />} />
+          <Route path="/email-generator" element={<EmailGenerator />} />
+          <Route path="/rate-calculator" element={<RateCalculator />} />
+          <Route path="/contract-generator" element={<ContractGenerator />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsConditions />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/msme-45-day-rule" element={<BlogPost1 />} />
+          <Route path="/blog/section-44ada-freelancers" element={<BlogPost2 />} />
+          <Route path="/blog/advance-tax-for-freelancers-india" element={<BlogPost3 />} />
+          <Route path="/blog/freelance-hourly-rate-vs-salary-india" element={<BlogPost4 />} />
+          <Route path="/blog/make-gst-invoice-online-free" element={<BlogPost5 />} />
+          <Route path="/tax-calculator" element={<TaxCalculator />} />
+          <Route path="/normal-tax-calculator" element={<NormalTaxCalculator />} />
+          <Route path="/advance-tax-calculator" element={<AdvanceTaxCalculator />} />
+          <Route path="/salary-vs-freelance" element={<SalaryVsFreelanceCalculator />} />
+          <Route path="/sip-calculator" element={<SIPCalculator />} />
+          <Route path="/author/dax-patel" element={<Author />} />
+          {/* 404 catch-all */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
+    </main>
   );
 }

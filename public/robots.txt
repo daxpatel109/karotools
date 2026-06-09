@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://karotools.vercel.app/sitemap.xml
+Sitemap: https://karotools.in/sitemap.xml

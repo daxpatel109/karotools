@@ -436,7 +436,7 @@ export default function Home() {
           <div style={{ display: "flex", gap: 12, marginBottom: 44, flexWrap: "wrap", justifyContent: "center", alignItems: "center" }}>
             <div style={{ position: "relative", width: "100%", maxWidth: 380 }}>
               <span style={{ position: "absolute", left: 16, top: "50%", transform: "translateY(-50%)", color: "#334155", fontSize: 16 }}>🔍</span>
-              <input className="search-box" value={search} onChange={e => setSearch(e.target.value)} placeholder="Search tools..."
+              <input className="search-box" name="search" aria-label="Search tools" value={search} onChange={e => setSearch(e.target.value)} placeholder="Search tools..."
                 style={{ width: "100%", padding: "14px 16px 14px 46px", background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, fontSize: 15, color: "#f1f5f9", boxSizing: "border-box", transition: "all 0.3s", fontFamily: "'DM Sans',sans-serif" }} />
             </div>
             <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>

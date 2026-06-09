@@ -45,7 +45,30 @@ export default function InvoiceGenerator() {
   });
   const [transType, setTransType] = useState("intra");
   const [isExporting, setIsExporting] = useState(false);
+  const [sidebarWidth, setSidebarWidth] = useState(480);
+  const [isDragging, setIsDragging] = useState(false);
   const previewRef = useRef();
+
+  useEffect(() => {
+    if (!isDragging) return;
+    const onMouseMove = (e) => {
+      let newW = e.clientX;
+      if (newW < 320) newW = 320;
+      if (newW > 850) newW = 850;
+      setSidebarWidth(newW);
+      document.body.style.userSelect = "none";
+    };
+    const onMouseUp = () => {
+      setIsDragging(false);
+      document.body.style.userSelect = "";
+    };
+    window.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("mouseup", onMouseUp);
+    return () => {
+      window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("mouseup", onMouseUp);
+    };
+  }, [isDragging]);
 
   useEffect(() => {
     localStorage.setItem("inv_data_v2", JSON.stringify({ invoice, seller, buyer, bank, items }));
@@ -259,8 +282,8 @@ export default function InvoiceGenerator() {
           overflow: hidden;
         }
         .editor-sidebar {
-          width: 480px;
-          min-width: 480px;
+          width: var(--sidebar-width, 480px);
+          min-width: var(--sidebar-width, 480px);
           background: #080c17;
           border-right: 1px solid rgba(255,255,255,0.05);
           overflow-y: auto;
@@ -268,6 +291,16 @@ export default function InvoiceGenerator() {
         }
         .editor-sidebar::-webkit-scrollbar { width: 6px; }
         .editor-sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
+        .sidebar-resizer {
+          width: 8px;
+          background: rgba(255,255,255,0.02);
+          cursor: col-resize;
+          z-index: 10;
+          transition: background 0.2s;
+        }
+        .sidebar-resizer:hover, .sidebar-resizer:active {
+          background: rgba(14,165,233,0.5) !important;
+        }
         .canvas-area {
           flex: 1;
           background-color: #020617;
@@ -314,12 +347,13 @@ export default function InvoiceGenerator() {
              overflow: visible;
           }
           .editor-sidebar {
-             width: 100%;
-             min-width: auto;
+             width: 100% !important;
+             min-width: auto !important;
              border-right: none;
              border-bottom: 1px solid rgba(255,255,255,0.05);
              padding: 24px 16px;
           }
+          .sidebar-resizer { display: none !important; }
           .canvas-area {
              padding: 32px 0;
              overflow: hidden;
@@ -347,7 +381,7 @@ export default function InvoiceGenerator() {
       <div className="workspace-layout">
           
           {/* LEFT: Editor Sidebar */}
-          <div className="editor-sidebar">
+          <div className="editor-sidebar" style={{ "--sidebar-width": `${sidebarWidth}px` }}>
             
             <div style={{ marginBottom: "40px" }}>
               <span style={{ background: "rgba(14,165,233,0.1)", color: "#38bdf8", padding: "6px 14px", borderRadius: "50px", fontSize: "11px", fontWeight: "700", letterSpacing: "0.05em", border: "1px solid rgba(14,165,233,0.2)" }}>PRO WORKSPACE</span>
@@ -484,6 +518,13 @@ export default function InvoiceGenerator() {
             </div>
 
           </div>
+
+          {/* DRAGGABLE RESIZER HANDLE */}
+          <div
+            className="sidebar-resizer"
+            onMouseDown={() => setIsDragging(true)}
+            style={isDragging ? { background: "rgba(14,165,233,0.8)" } : {}}
+          />
 
           {/* RIGHT: Live Preview Canvas */}
           <div className="canvas-area">

@@ -228,8 +228,12 @@ export default function InvoiceGenerator() {
           position: relative;
           transform-origin: top left;
         }
-        @media (min-width: 1201px) {
+        @media (min-width: 1381px) {
            .a4-container { transform: scale(1); }
+        }
+        @media (max-width: 1380px) and (min-width: 1201px) {
+           .a4-scale-container { width: calc(794px * 0.85); height: calc(1123px * 0.85); }
+           .a4-container { transform: scale(0.85); }
         }
         @media (max-width: 1200px) {
            .a4-scale-container { width: calc(794px * 0.95); height: calc(1123px * 0.95); }

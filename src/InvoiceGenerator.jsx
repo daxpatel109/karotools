@@ -291,11 +291,20 @@ export default function InvoiceGenerator() {
           gap: 16px;
         }
         .items-grid {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+        .items-row-2 {
           display: grid;
-          grid-template-columns: 2fr 1fr 0.8fr 1fr 1fr auto;
+          grid-template-columns: 1fr 1fr;
+          gap: 12px;
+        }
+        .items-row-3 {
+          display: grid;
+          grid-template-columns: 1fr 1fr auto;
           gap: 12px;
           align-items: end;
-          min-width: 700px;
         }
         
         @media (max-width: 1200px) {
@@ -436,16 +445,20 @@ export default function InvoiceGenerator() {
                     <div key={i} style={{ background: "rgba(0,0,0,0.3)", padding: "16px", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.05)" }}>
                       <div className="items-grid">
                         <div><label style={lbl}>Description</label><input value={item.desc} onChange={e => updateItem(i, "desc", e.target.value)} style={inp}/></div>
-                        <div><label style={lbl}>HSN/SAC</label><input value={item.hsn} onChange={e => updateItem(i, "hsn", e.target.value)} style={inp}/></div>
-                        <div><label style={lbl}>Qty</label><input type="number" value={item.qty} onChange={e => updateItem(i, "qty", e.target.value)} style={inp}/></div>
-                        <div><label style={lbl}>Rate</label><input type="number" value={item.rate} onChange={e => updateItem(i, "rate", e.target.value)} style={inp}/></div>
-                        <div>
-                          <label style={lbl}>GST %</label>
-                          <select value={item.gst} onChange={e => updateItem(i, "gst", parseInt(e.target.value))} style={inp}>
-                            {[0, 5, 12, 18, 28].map(r => <option key={r} value={r}>{r}%</option>)}
-                          </select>
+                        <div className="items-row-2">
+                          <div><label style={lbl}>HSN/SAC</label><input value={item.hsn} onChange={e => updateItem(i, "hsn", e.target.value)} style={inp}/></div>
+                          <div><label style={lbl}>Qty</label><input type="number" value={item.qty} onChange={e => updateItem(i, "qty", e.target.value)} style={inp}/></div>
                         </div>
-                        <button onClick={() => removeItem(i)} style={{ padding: "12px", background: "rgba(244,63,94,0.1)", color: "#fb7185", border: "none", borderRadius: "8px", cursor: "pointer" }}>✕</button>
+                        <div className="items-row-3">
+                          <div><label style={lbl}>Rate</label><input type="number" value={item.rate} onChange={e => updateItem(i, "rate", e.target.value)} style={inp}/></div>
+                          <div>
+                            <label style={lbl}>GST %</label>
+                            <select value={item.gst} onChange={e => updateItem(i, "gst", parseInt(e.target.value))} style={inp}>
+                              {[0, 5, 12, 18, 28].map(r => <option key={r} value={r}>{r}%</option>)}
+                            </select>
+                          </div>
+                          <button onClick={() => removeItem(i)} style={{ padding: "12px", background: "rgba(244,63,94,0.1)", color: "#fb7185", border: "none", borderRadius: "8px", cursor: "pointer", height: "45px", display: "flex", alignItems: "center", justifyContent: "center" }}>✕</button>
+                        </div>
                       </div>
                     </div>
                   ))}

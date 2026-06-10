@@ -312,22 +312,7 @@ export default function Home() {
         {/* Logo */}
         <div style={{ display: "flex", alignItems: "center", gap: 10, cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-  <svg width="38" height="38" viewBox="0 0 100 100" fill="none" style={{ filter: "drop-shadow(0 4px 12px rgba(14, 165, 233, 0.3))" }}>
-    <defs>
-      <linearGradient id="kCyan" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#0ea5e9" />
-        <stop offset="100%" stopColor="#2563eb" />
-      </linearGradient>
-      <linearGradient id="kPurple" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#a855f7" />
-        <stop offset="100%" stopColor="#7c3aed" />
-      </linearGradient>
-    </defs>
-    <polygon points="15,10 35,10 35,31 25,41 15,41" fill="url(#kCyan)" stroke="url(#kCyan)" strokeWidth="8" strokeLinejoin="round" />
-    <polygon points="15,59 25,59 35,69 35,90 15,90" fill="url(#kCyan)" stroke="url(#kCyan)" strokeWidth="8" strokeLinejoin="round" />
-    <polygon points="45,40 70,15 80,25 55,50" fill="url(#kPurple)" stroke="url(#kPurple)" strokeWidth="8" strokeLinejoin="round" />
-    <polygon points="45,60 55,50 80,75 70,85" fill="url(#kPurple)" stroke="url(#kPurple)" strokeWidth="8" strokeLinejoin="round" />
-  </svg>
+  <img src="/logo.png" alt="KaroTools Logo" style={{ height: "36px", width: "auto", objectFit: "contain" }} />
   <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
     Karo<span style={{ background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
@@ -358,22 +343,7 @@ export default function Home() {
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0 5vw", height: 72, borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
               <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-  <svg width="38" height="38" viewBox="0 0 100 100" fill="none" style={{ filter: "drop-shadow(0 4px 12px rgba(14, 165, 233, 0.3))" }}>
-    <defs>
-      <linearGradient id="kCyan" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#0ea5e9" />
-        <stop offset="100%" stopColor="#2563eb" />
-      </linearGradient>
-      <linearGradient id="kPurple" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#a855f7" />
-        <stop offset="100%" stopColor="#7c3aed" />
-      </linearGradient>
-    </defs>
-    <polygon points="15,10 35,10 35,31 25,41 15,41" fill="url(#kCyan)" stroke="url(#kCyan)" strokeWidth="8" strokeLinejoin="round" />
-    <polygon points="15,59 25,59 35,69 35,90 15,90" fill="url(#kCyan)" stroke="url(#kCyan)" strokeWidth="8" strokeLinejoin="round" />
-    <polygon points="45,40 70,15 80,25 55,50" fill="url(#kPurple)" stroke="url(#kPurple)" strokeWidth="8" strokeLinejoin="round" />
-    <polygon points="45,60 55,50 80,75 70,85" fill="url(#kPurple)" stroke="url(#kPurple)" strokeWidth="8" strokeLinejoin="round" />
-  </svg>
+  <img src="/logo.png" alt="KaroTools Logo" style={{ height: "36px", width: "auto", objectFit: "contain" }} />
   <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
     Karo<span style={{ background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
@@ -607,22 +577,7 @@ export default function Home() {
             <div>
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 18 }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-  <svg width="38" height="38" viewBox="0 0 100 100" fill="none" style={{ filter: "drop-shadow(0 4px 12px rgba(14, 165, 233, 0.3))" }}>
-    <defs>
-      <linearGradient id="kCyan" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#0ea5e9" />
-        <stop offset="100%" stopColor="#2563eb" />
-      </linearGradient>
-      <linearGradient id="kPurple" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#a855f7" />
-        <stop offset="100%" stopColor="#7c3aed" />
-      </linearGradient>
-    </defs>
-    <polygon points="15,10 35,10 35,31 25,41 15,41" fill="url(#kCyan)" stroke="url(#kCyan)" strokeWidth="8" strokeLinejoin="round" />
-    <polygon points="15,59 25,59 35,69 35,90 15,90" fill="url(#kCyan)" stroke="url(#kCyan)" strokeWidth="8" strokeLinejoin="round" />
-    <polygon points="45,40 70,15 80,25 55,50" fill="url(#kPurple)" stroke="url(#kPurple)" strokeWidth="8" strokeLinejoin="round" />
-    <polygon points="45,60 55,50 80,75 70,85" fill="url(#kPurple)" stroke="url(#kPurple)" strokeWidth="8" strokeLinejoin="round" />
-  </svg>
+  <img src="/logo.png" alt="KaroTools Logo" style={{ height: "36px", width: "auto", objectFit: "contain" }} />
   <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
     Karo<span style={{ background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>

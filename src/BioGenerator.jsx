@@ -314,7 +314,7 @@ export default function BioGenerator() {
       }}>
         <div style={{display:"flex",alignItems:"center",gap:"10px"}}>
           <Link to="/" style={{ textDecoration: "none", display:"flex",alignItems:"center",gap:"10px" }}>
-            <img src="/logo.png" alt="KaroTools Logo" style={{ height: "48px", width: "auto", objectFit: "contain" }} />
+            <img src="/logo.png" alt="KaroTools Logo" style={{ height: "120px", margin: "-35px -20px", filter: "drop-shadow(0px 0px 8px rgba(255,255,255,0.8)) brightness(1.1)", objectFit: "contain", position: "relative", zIndex: 10 }} />
           </Link>
         </div>
         <Link to="/" style={{

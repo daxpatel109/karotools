@@ -323,7 +323,7 @@ export default function GSTCalculator() {
 
       <nav className="glass-panel" style={{ position: "sticky", top: 0, zIndex: 100, padding: "0 24px", height: "72px", display: "flex", alignItems: "center", justifyContent: "space-between", borderTop: "none", borderLeft: "none", borderRight: "none", borderRadius: 0 }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          <Link to="/" style={{ textDecoration: "none" }}><img src="/logo.png" alt="KaroTools Logo" style={{ height: "48px", width: "auto", objectFit: "contain" }} /></Link>
+          <Link to="/" style={{ textDecoration: "none" }}><img src="/logo.png" alt="KaroTools Logo" style={{ height: "120px", margin: "-35px -20px", filter: "drop-shadow(0px 0px 8px rgba(255,255,255,0.8)) brightness(1.1)", objectFit: "contain", position: "relative", zIndex: 10 }} /></Link>
           
           <Link
             to="/"

@@ -311,7 +311,7 @@ export default function Home() {
       <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000, height: 72, display: "flex", alignItems: "center", padding: "0 5vw", justifyContent: "space-between", background: scrolled ? "rgba(2,6,23,0.95)" : "transparent", backdropFilter: scrolled ? "blur(24px)" : "none", borderBottom: scrolled ? "1px solid rgba(255,255,255,0.05)" : "none", transition: "all 0.4s ease", animation: "slideDown 0.6s ease" }}>
         {/* Logo */}
         <div style={{ display: "flex", alignItems: "center", gap: 10, cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-          <img src="/logo.png" alt="KaroTools Logo" style={{ height: "48px", width: "auto", objectFit: "contain" }} />
+          <img src="/logo.png" alt="KaroTools Logo" style={{ height: "120px", margin: "-35px -20px", filter: "drop-shadow(0px 0px 8px rgba(255,255,255,0.8)) brightness(1.1)", objectFit: "contain", position: "relative", zIndex: 10 }} />
         </div>
 
         {/* Desktop Nav Links */}
@@ -337,7 +337,7 @@ export default function Home() {
         <div style={{ position: "fixed", inset: 0, zIndex: 2000, background: "rgba(2,6,23,0.98)", backdropFilter: "blur(20px)", display: "flex", flexDirection: "column", animation: "slideDown 0.3s ease" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0 5vw", height: 72, borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <img src="/logo.png" alt="KaroTools Logo" style={{ height: "48px", width: "auto", objectFit: "contain" }} />
+              <img src="/logo.png" alt="KaroTools Logo" style={{ height: "120px", margin: "-35px -20px", filter: "drop-shadow(0px 0px 8px rgba(255,255,255,0.8)) brightness(1.1)", objectFit: "contain", position: "relative", zIndex: 10 }} />
             </div>
             <button onClick={() => setIsMobileMenuOpen(false)} style={{ background: "transparent", border: "none", color: "#f8fafc", fontSize: 32, cursor: "pointer", padding: "4px" }}>×</button>
           </div>
@@ -566,7 +566,7 @@ export default function Home() {
             {/* Brand */}
             <div>
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 18 }}>
-                <img src="/logo.png" alt="KaroTools Logo" style={{ height: "48px", width: "auto", objectFit: "contain" }} />
+                <img src="/logo.png" alt="KaroTools Logo" style={{ height: "120px", margin: "-35px -20px", filter: "drop-shadow(0px 0px 8px rgba(255,255,255,0.8)) brightness(1.1)", objectFit: "contain", position: "relative", zIndex: 10 }} />
               </div>
               <p style={{ fontSize: 14, color: "#94a3b8", lineHeight: 1.75, maxWidth: 300 }}>Free online GST calculator, invoice generator and business tools for Indian freelancers and small businesses. No login required.</p>
               <p style={{ fontSize: 12, color: "#64748b", marginTop: 16 }}>© 2026 KaroTools.in — Made with ❤️ in India 🇮🇳</p>

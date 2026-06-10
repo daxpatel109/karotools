@@ -487,9 +487,16 @@ export default function InvoiceGenerator() {
                           <div><label style={lbl}>Rate</label><input type="number" value={item.rate} onChange={e => updateItem(i, "rate", e.target.value)} style={inp}/></div>
                           <div>
                             <label style={lbl}>GST %</label>
-                            <select value={item.gst} onChange={e => updateItem(i, "gst", parseInt(e.target.value))} style={inp}>
-                              {[0, 5, 12, 18, 28].map(r => <option key={r} value={r}>{r}%</option>)}
-                            </select>
+                            <input 
+                              type="number" 
+                              list={`gst-list-${i}`}
+                              value={item.gst === 0 && item.gst !== "" ? 0 : item.gst} 
+                              onChange={e => updateItem(i, "gst", e.target.value === "" ? "" : parseFloat(e.target.value))} 
+                              style={inp}
+                            />
+                            <datalist id={`gst-list-${i}`}>
+                              {[0, 5, 12, 18, 28].map(r => <option key={r} value={r} />)}
+                            </datalist>
                           </div>
                           <button onClick={() => removeItem(i)} style={{ padding: "12px", background: "rgba(244,63,94,0.1)", color: "#fb7185", border: "none", borderRadius: "8px", cursor: "pointer", height: "45px", display: "flex", alignItems: "center", justifyContent: "center" }}>✕</button>
                         </div>

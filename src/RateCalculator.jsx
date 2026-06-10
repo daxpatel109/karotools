@@ -296,9 +296,22 @@ export default function RateCalculator() {
       <nav style={{ position: "sticky", top: 0, zIndex: 100, padding: "0 40px", height: "70px", display: "flex", alignItems: "center", justifyContent: "space-between", background: "rgba(8,8,20,0.9)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
         <a href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-  <div style={{ width: "36px", height: "36px", borderRadius: "10px", background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 4px 16px rgba(139, 92, 246, 0.3)" }}>
-    <span style={{ color: "#fff", fontSize: "20px", fontWeight: "800", fontFamily: "'Syne',sans-serif" }}>K</span>
-  </div>
+  <svg width="38" height="38" viewBox="0 0 100 100" fill="none" style={{ filter: "drop-shadow(0 4px 12px rgba(14, 165, 233, 0.3))" }}>
+    <defs>
+      <linearGradient id="kCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#0ea5e9" />
+        <stop offset="100%" stopColor="#2563eb" />
+      </linearGradient>
+      <linearGradient id="kPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#a855f7" />
+        <stop offset="100%" stopColor="#7c3aed" />
+      </linearGradient>
+    </defs>
+    <polygon points="15,10 35,10 35,31 25,41 15,41" fill="url(#kCyan)" stroke="url(#kCyan)" strokeWidth="8" strokeLinejoin="round" />
+    <polygon points="15,59 25,59 35,69 35,90 15,90" fill="url(#kCyan)" stroke="url(#kCyan)" strokeWidth="8" strokeLinejoin="round" />
+    <polygon points="45,40 70,15 80,25 55,50" fill="url(#kPurple)" stroke="url(#kPurple)" strokeWidth="8" strokeLinejoin="round" />
+    <polygon points="45,60 55,50 80,75 70,85" fill="url(#kPurple)" stroke="url(#kPurple)" strokeWidth="8" strokeLinejoin="round" />
+  </svg>
   <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
     Karo<span style={{ background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>

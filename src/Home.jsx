@@ -213,6 +213,7 @@ export default function Home() {
     { icon: "🏛️", name: "Tax Calculator (44ADA)", description: "Visual income tax estimator for freelancers using Presumptive Taxation (50% tax-free income).", category: "Finance", page: "/tax-calculator" },
     { icon: "🏢", name: "Normal Tax Calculator", description: "Calculate standard tax (New Regime) without 44ADA for high-income freelancers or agencies.", category: "Finance", page: "/normal-tax-calculator" },
     { icon: "📅", name: "Advance Tax Calculator", description: "Instantly calculate your advance tax liability, installment amounts, and due dates under Indian tax laws.", category: "Finance", page: "/advance-tax-calculator" },
+    { icon: "⚠️", name: "Late GST Penalty", description: "Calculate late filing fees (₹50/day) and 18% interest on delayed GST payments instantly.", category: "Finance", page: "/late-gst-penalty-calculator" },
     { icon: "💼", name: "Salary vs Freelance", description: "Compare your current salary to freelance rates. Find exactly what you need to charge to maintain your lifestyle.", category: "Finance", page: "/salary-vs-freelance" },
     { icon: "📈", name: "SIP Calculator", description: "Calculate your Mutual Fund returns and see the true power of compounding over 10 or 20 years.", category: "Finance", page: "/sip-calculator" },
     { icon: "📧", name: "Email Generator", description: "10 email types — cold outreach, follow-up, payment reminder, proposal & more. 4 tones, no AI needed.", category: "AI Tool", page: "/email-generator" },

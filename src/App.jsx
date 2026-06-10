@@ -21,6 +21,7 @@ const NormalTaxCalculator = lazy(() => import("./NormalTaxCalculator"));
 const AdvanceTaxCalculator = lazy(() => import("./AdvanceTaxCalculator"));
 const SalaryVsFreelanceCalculator = lazy(() => import("./SalaryVsFreelanceCalculator"));
 const SIPCalculator = lazy(() => import("./SIPCalculator"));
+const LateGSTPenalty = lazy(() => import("./LateGSTPenalty"));
 const Author = lazy(() => import("./Author"));
 
 // Direct imports for small legal pages are fine, but let's lazy load them too
@@ -105,6 +106,7 @@ export default function App() {
           <Route path="/advance-tax-calculator" element={<AdvanceTaxCalculator />} />
           <Route path="/salary-vs-freelance" element={<SalaryVsFreelanceCalculator />} />
           <Route path="/sip-calculator" element={<SIPCalculator />} />
+          <Route path="/late-gst-penalty-calculator" element={<LateGSTPenalty />} />
           <Route path="/author/dax-patel" element={<Author />} />
           {/* 404 catch-all */}
           <Route path="*" element={<NotFound />} />

@@ -312,7 +312,7 @@ export default function Home() {
         {/* Logo */}
         <div style={{ display: "flex", alignItems: "center", gap: 10, cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
           <div style={{ width: 38, height: 38, borderRadius: 11, background: "linear-gradient(135deg, #0ea5e9, #14b8a6)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18, boxShadow: "0 0 20px rgba(14,165,233,0.4)", animation: "borderGlow 3s infinite" }}>⚡</div>
-          <span style={{ fontSize: 22, fontWeight: 800, fontFamily: "'Syne',sans-serif", background: "linear-gradient(135deg, #0ea5e9, #14b8a6, #0ea5e9)", backgroundSize: "200% auto", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "shimmer 4s linear infinite" }}>KaroTools</span>
+          <img src="/logo.png" alt="KaroTools Logo" style={{ height: "32px", width: "auto", objectFit: "contain" }} />
         </div>
 
         {/* Desktop Nav Links */}
@@ -339,7 +339,7 @@ export default function Home() {
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0 5vw", height: 72, borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
               <div style={{ width: 38, height: 38, borderRadius: 11, background: "linear-gradient(135deg, #0ea5e9, #14b8a6)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18 }}>⚡</div>
-              <span style={{ fontSize: 22, fontWeight: 800, fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>KaroTools</span>
+              <img src="/logo.png" alt="KaroTools Logo" style={{ height: "32px", width: "auto", objectFit: "contain" }} />
             </div>
             <button onClick={() => setIsMobileMenuOpen(false)} style={{ background: "transparent", border: "none", color: "#f8fafc", fontSize: 32, cursor: "pointer", padding: "4px" }}>×</button>
           </div>
@@ -569,7 +569,7 @@ export default function Home() {
             <div>
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 18 }}>
                 <div style={{ width: 36, height: 36, borderRadius: 10, background: "linear-gradient(135deg,#0ea5e9,#14b8a6)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16 }}>⚡</div>
-                <span style={{ fontSize: 20, fontWeight: 800, fontFamily: "'Syne',sans-serif", background: "linear-gradient(135deg,#0ea5e9,#14b8a6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>KaroTools</span>
+                <img src="/logo.png" alt="KaroTools Logo" style={{ height: "32px", width: "auto", objectFit: "contain" }} />
               </div>
               <p style={{ fontSize: 14, color: "#94a3b8", lineHeight: 1.75, maxWidth: 300 }}>Free online GST calculator, invoice generator and business tools for Indian freelancers and small businesses. No login required.</p>
               <p style={{ fontSize: 12, color: "#64748b", marginTop: 16 }}>© 2026 KaroTools.in — Made with ❤️ in India 🇮🇳</p>

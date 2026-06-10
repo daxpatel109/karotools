@@ -66,7 +66,7 @@ export function PrivacyPolicy() {
   return (
     <div style={legalContainerStyle}>
       <nav style={navStyle}>
-        <span style={{ fontSize: "20px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>⚡ KaroTools</span>
+        <img src="/logo.png" alt="KaroTools Logo" style={{ height: "32px", width: "auto", objectFit: "contain" }} />
         <Link to="/" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "14px", padding: "8px 16px", background: "rgba(255,255,255,0.05)", borderRadius: "8px" }}>← Back to Home</Link>
       </nav>
       <div style={contentStyle}>
@@ -107,7 +107,7 @@ export function TermsConditions() {
   return (
     <div style={legalContainerStyle}>
       <nav style={navStyle}>
-        <span style={{ fontSize: "20px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>⚡ KaroTools</span>
+        <img src="/logo.png" alt="KaroTools Logo" style={{ height: "32px", width: "auto", objectFit: "contain" }} />
         <Link to="/" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "14px", padding: "8px 16px", background: "rgba(255,255,255,0.05)", borderRadius: "8px" }}>← Back to Home</Link>
       </nav>
       <div style={contentStyle}>
@@ -149,7 +149,7 @@ export function ContactUs() {
   return (
     <div style={legalContainerStyle}>
       <nav style={navStyle}>
-        <span style={{ fontSize: "20px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>⚡ KaroTools</span>
+        <img src="/logo.png" alt="KaroTools Logo" style={{ height: "32px", width: "auto", objectFit: "contain" }} />
         <Link to="/" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "14px", padding: "8px 16px", background: "rgba(255,255,255,0.05)", borderRadius: "8px" }}>← Back to Home</Link>
       </nav>
       <div style={contentStyle}>

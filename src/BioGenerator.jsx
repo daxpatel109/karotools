@@ -319,11 +319,7 @@ export default function BioGenerator() {
               background:"linear-gradient(135deg,#7c3aed,#2563eb)",
               display:"flex",alignItems:"center",justifyContent:"center",fontSize:"16px"
             }}>⚡</div>
-            <span style={{
-              fontSize:"20px",fontWeight:"800",fontFamily:"'Syne',sans-serif",
-              background:"linear-gradient(135deg,#a78bfa,#60a5fa)",
-              WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"
-            }}>KaroTools</span>
+            <img src="/logo.png" alt="KaroTools Logo" style={{ height: "32px", width: "auto", objectFit: "contain" }} />
           </Link>
         </div>
         <Link to="/" style={{

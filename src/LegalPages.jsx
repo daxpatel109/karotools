@@ -67,7 +67,7 @@ export function PrivacyPolicy() {
     <div style={legalContainerStyle}>
       <nav style={navStyle}>
         <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-  <img src="/logo.png" alt="KaroTools Logo" style={{ height: "48px", margin: "0 -20px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
+  <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
   <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
     Karo<span style={{ background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
@@ -113,7 +113,7 @@ export function TermsConditions() {
     <div style={legalContainerStyle}>
       <nav style={navStyle}>
         <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-  <img src="/logo.png" alt="KaroTools Logo" style={{ height: "48px", margin: "0 -20px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
+  <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
   <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
     Karo<span style={{ background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
@@ -160,7 +160,7 @@ export function ContactUs() {
     <div style={legalContainerStyle}>
       <nav style={navStyle}>
         <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-  <img src="/logo.png" alt="KaroTools Logo" style={{ height: "48px", margin: "0 -20px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
+  <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
   <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
     Karo<span style={{ background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>

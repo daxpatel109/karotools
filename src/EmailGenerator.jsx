@@ -419,8 +419,7 @@ export default function EmailGenerator() {
       {/* Navbar */}
       <nav style={{ position: "sticky", top: 0, zIndex: 100, height: 70, display: "flex", alignItems: "center", padding: "0 40px", justifyContent: "space-between", background: "rgba(2,6,23,0.92)", backdropFilter: "blur(24px)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
         <a href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 10 }}>
-          <div style={{ width: 34, height: 34, borderRadius: 10, background: "linear-gradient(135deg,#0ea5e9,#14b8a6)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16 }}>⚡</div>
-          <img src="/logo.png" alt="KaroTools Logo" style={{ height: "32px", width: "auto", objectFit: "contain" }} />
+          <img src="/logo.png" alt="KaroTools Logo" style={{ height: "48px", width: "auto", objectFit: "contain" }} />
         </a>
         <a href="/" style={{ padding: "8px 16px", background: "rgba(255,255,255,0.05)", borderRadius: 10, color: "#94a3b8", fontSize: 14, fontWeight: 600, textDecoration: "none" }}>← Home</a>
       </nav>

@@ -81,8 +81,7 @@ export default function AdvanceTaxCalculator() {
     <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans',sans-serif", color: "#f1f5f9" }}>
       <header style={{ padding: "24px 5vw", borderBottom: "1px solid rgba(255,255,255,0.05)", position: "sticky", top: 0, background: "rgba(2,6,23,0.8)", backdropFilter: "blur(12px)", zIndex: 100, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <Link to="/" style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}>
-          <div style={{ width: "32px", height: "32px", borderRadius: "8px", background: "linear-gradient(135deg,#f59e0b,#ea580c)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "14px" }}>⚡</div>
-          <img src="/logo.png" alt="KaroTools Logo" style={{ height: "32px", width: "auto", objectFit: "contain" }} />
+          <img src="/logo.png" alt="KaroTools Logo" style={{ height: "48px", width: "auto", objectFit: "contain" }} />
         </Link>
         <Link to="/" style={{ fontSize: "14px", fontWeight: "600", color: "#94a3b8", textDecoration: "none", padding: "8px 16px", background: "rgba(255,255,255,0.05)", borderRadius: "8px" }}>Explore Tools →</Link>
       </header>

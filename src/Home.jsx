@@ -381,13 +381,16 @@ export default function Home() {
         </div>
 
         {/* H1 (SEO Optimized & Mobile Responsive) */}
-        <h1 style={{ fontSize: "clamp(24px, 4vw, 46px)", fontWeight: 800, fontFamily: "'Syne',sans-serif", lineHeight: 1.15, marginBottom: 24, animation: "fadeInUp 0.7s 0.2s both", letterSpacing: "-0.02em", maxWidth: 1000, wordWrap: "break-word" }}>
+        <h1 style={{ position: "absolute", width: "1px", height: "1px", padding: 0, margin: "-1px", overflow: "hidden", clip: "rect(0, 0, 0, 0)", whiteSpace: "nowrap", border: 0 }}>
+          Free Tax Calculators, GST & Business Tools for Indian Freelancers
+        </h1>
+        <div role="heading" aria-level="1" style={{ fontSize: "clamp(24px, 4vw, 46px)", fontWeight: 800, fontFamily: "'Syne',sans-serif", lineHeight: 1.15, marginBottom: 24, animation: "fadeInUp 0.7s 0.2s both", letterSpacing: "-0.02em", maxWidth: 1000, wordWrap: "break-word" }}>
           <span style={{ background: "linear-gradient(135deg, #ffffff 0%, #38bdf8 40%, #14b8a6 80%)", backgroundSize: "200% auto", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "shimmer 5s linear infinite" }}>
             Free Tax Calculators, GST & Business Tools
           </span>
           <br />
           <span style={{ color: "#e2e8f0" }}>for Indian Freelancers 🇮🇳</span>
-        </h1>
+        </div>
 
         {/* Subtitle */}
         <p style={{ fontSize: "clamp(16px, 2.2vw, 21px)", color: "#94a3b8", maxWidth: 580, lineHeight: 1.7, marginBottom: 48, animation: "fadeInUp 0.7s 0.3s both" }}>

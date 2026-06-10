@@ -419,7 +419,14 @@ export default function EmailGenerator() {
       {/* Navbar */}
       <nav style={{ position: "sticky", top: 0, zIndex: 100, height: 70, display: "flex", alignItems: "center", padding: "0 40px", justifyContent: "space-between", background: "rgba(2,6,23,0.92)", backdropFilter: "blur(24px)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
         <a href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 10 }}>
-          <img src="/logo.png" alt="KaroTools Logo" style={{ height: "120px", margin: "-35px -20px", filter: "drop-shadow(0px 0px 8px rgba(255,255,255,0.8)) brightness(1.1)", objectFit: "contain", position: "relative", zIndex: 10 }} />
+          <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+  <div style={{ width: "36px", height: "36px", borderRadius: "10px", background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 4px 16px rgba(139, 92, 246, 0.3)" }}>
+    <span style={{ color: "#fff", fontSize: "20px", fontWeight: "800", fontFamily: "'Syne',sans-serif" }}>K</span>
+  </div>
+  <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
+    Karo<span style={{ background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
+  </span>
+</div>
         </a>
         <a href="/" style={{ padding: "8px 16px", background: "rgba(255,255,255,0.05)", borderRadius: 10, color: "#94a3b8", fontSize: 14, fontWeight: 600, textDecoration: "none" }}>← Home</a>
       </nav>

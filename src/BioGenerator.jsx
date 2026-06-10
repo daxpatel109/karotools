@@ -315,7 +315,7 @@ export default function BioGenerator() {
         <div style={{display:"flex",alignItems:"center",gap:"10px"}}>
           <Link to="/" style={{ textDecoration: "none", display:"flex",alignItems:"center",gap:"10px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-  <img src="/logo.png" alt="KaroTools Logo" style={{ height: "36px", width: "auto", objectFit: "contain" }} />
+  <img src="/logo.png" alt="KaroTools Logo" style={{ height: "64px", margin: "-14px -16px", objectFit: "contain", filter: "drop-shadow(0 4px 12px rgba(14, 165, 233, 0.4))", position: "relative", zIndex: 10 }} />
   <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
     Karo<span style={{ background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>

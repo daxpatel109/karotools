@@ -1,7 +1,29 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 export default function GSTCalculator() {
+  const { keyword } = useParams();
+
+  let seoTitle = "Free Online GST Calculator India | KaroTools";
+  let seoH1 = "GST Calculator";
+  let seoDesc = "Calculate IGST, CGST, and SGST instantly. A free, accurate, and fast GST calculator built for Indian freelancers and small businesses.";
+  
+  if (keyword === "reverse-gst-calculator") {
+    seoTitle = "Reverse GST Calculator India | KaroTools";
+    seoH1 = "Reverse GST Calculator";
+    seoDesc = "Calculate Reverse GST instantly to find the exact base amount before tax. Perfect for Indian freelancers and businesses.";
+  } else if (keyword === "18-percent-gst-calculator") {
+    seoTitle = "18% GST Calculator India | KaroTools";
+    seoH1 = "18% GST Calculator";
+    seoDesc = "Calculate 18% GST exactly. Instantly find CGST, SGST, and IGST for the 18 percent tax slab in India.";
+  } else if (keyword === "gst-calculator-for-freelancers") {
+    seoTitle = "GST Calculator for Indian Freelancers | KaroTools";
+    seoH1 = "Freelance GST Calculator";
+  } else if (keyword === "inclusive-exclusive-gst-calculator") {
+    seoTitle = "Inclusive & Exclusive GST Calculator | KaroTools";
+    seoH1 = "Inclusive/Exclusive GST Calculator";
+  }
+
   const [amount, setAmount] = useState(() => localStorage.getItem("gst_amount") || "");
   const [gstRate, setGstRate] = useState(() => Number(localStorage.getItem("gst_rate")) || 18);
   const [customRate, setCustomRate] = useState(() => localStorage.getItem("gst_customRate") || "");
@@ -19,6 +41,16 @@ export default function GSTCalculator() {
 
   const activeRate = isCustom ? (customRate === "" ? NaN : Number(customRate)) : Number(gstRate);
 
+  // Auto-configure tool based on keyword
+  useEffect(() => {
+    if (keyword === "reverse-gst-calculator") {
+      setType("inclusive");
+    } else if (keyword === "18-percent-gst-calculator") {
+      setGstRate(18);
+      setIsCustom(false);
+    }
+  }, [keyword]);
+
   const presets = [
     { label: "🍽 Restaurant", rate: 5 },
     { label: "👔 Clothing", rate: 12 },
@@ -33,7 +65,7 @@ export default function GSTCalculator() {
   // SERP SEO & Schema Injection
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Free Online GST Calculator India | KaroTools";
+    document.title = seoTitle;
     
     let metaDescription = document.querySelector('meta[name="description"]');
     if (!metaDescription) {
@@ -41,7 +73,7 @@ export default function GSTCalculator() {
       metaDescription.name = "description";
       document.head.appendChild(metaDescription);
     }
-    metaDescription.content = "Calculate IGST, CGST, and SGST instantly. A free, accurate, and fast GST calculator built for Indian freelancers and small businesses.";
+    metaDescription.content = seoDesc;
 
     const schemaScript = document.createElement('script');
     schemaScript.type = 'application/ld+json';
@@ -354,7 +386,7 @@ export default function GSTCalculator() {
           <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "72px", height: "72px", borderRadius: "24px", background: "linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01))", border: "1px solid rgba(255,255,255,0.1)", marginBottom: "20px", boxShadow: "0 12px 32px rgba(0,0,0,0.2)" }}>
             <span style={{ fontSize: "36px", filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.3))" }}>🧮</span>
           </div>
-          <h1 className="gradient-text" style={{ fontSize: "42px", fontWeight: "800", fontFamily: "'Syne',sans-serif", marginBottom: "12px", letterSpacing: "-0.02em" }}>GST Calculator</h1>
+          <h1 className="gradient-text" style={{ fontSize: "42px", fontWeight: "800", fontFamily: "'Syne',sans-serif", marginBottom: "12px", letterSpacing: "-0.02em" }}>{seoH1}</h1>
           <p style={{ color: "#94a3b8", fontSize: "16px", fontWeight: "400", letterSpacing: "0.01em" }}>Professional GST calculation for Indian businesses • All slabs supported</p>
         </div>
 

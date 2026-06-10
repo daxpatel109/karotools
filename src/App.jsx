@@ -84,6 +84,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/gst-calculator" element={<GSTCalculator />} />
+          <Route path="/gst-calculator/:keyword" element={<GSTCalculator />} />
           <Route path="/invoice-generator" element={<InvoiceGenerator />} />
           <Route path="/bio-generator" element={<BioGenerator />} />
           <Route path="/email-generator" element={<EmailGenerator />} />

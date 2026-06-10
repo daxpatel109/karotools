@@ -312,7 +312,7 @@ export default function Home() {
         {/* Logo */}
         <div style={{ display: "flex", alignItems: "center", gap: 10, cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-  <img src="/logo.png" alt="KaroTools Logo" style={{ height: "64px", margin: "-14px -16px", objectFit: "contain", filter: "drop-shadow(0 4px 12px rgba(14, 165, 233, 0.4))", position: "relative", zIndex: 10 }} />
+  <img src="/logo.png" alt="KaroTools Logo" style={{ height: "54px", margin: "0 -12px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
   <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
     Karo<span style={{ background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
@@ -343,7 +343,7 @@ export default function Home() {
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0 5vw", height: 72, borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
               <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-  <img src="/logo.png" alt="KaroTools Logo" style={{ height: "64px", margin: "-14px -16px", objectFit: "contain", filter: "drop-shadow(0 4px 12px rgba(14, 165, 233, 0.4))", position: "relative", zIndex: 10 }} />
+  <img src="/logo.png" alt="KaroTools Logo" style={{ height: "54px", margin: "0 -12px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
   <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
     Karo<span style={{ background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
@@ -577,7 +577,7 @@ export default function Home() {
             <div>
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 18 }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-  <img src="/logo.png" alt="KaroTools Logo" style={{ height: "64px", margin: "-14px -16px", objectFit: "contain", filter: "drop-shadow(0 4px 12px rgba(14, 165, 233, 0.4))", position: "relative", zIndex: 10 }} />
+  <img src="/logo.png" alt="KaroTools Logo" style={{ height: "54px", margin: "0 -12px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
   <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
     Karo<span style={{ background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>

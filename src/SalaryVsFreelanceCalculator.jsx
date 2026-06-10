@@ -77,7 +77,7 @@ export default function SalaryVsFreelanceCalculator() {
       <header style={{ padding: "24px 5vw", borderBottom: "1px solid rgba(255,255,255,0.05)", position: "sticky", top: 0, background: "rgba(2,6,23,0.8)", backdropFilter: "blur(12px)", zIndex: 100, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <Link to="/" style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-  <img src="/logo.png" alt="KaroTools Logo" style={{ height: "64px", margin: "-14px -16px", objectFit: "contain", filter: "drop-shadow(0 4px 12px rgba(14, 165, 233, 0.4))", position: "relative", zIndex: 10 }} />
+  <img src="/logo.png" alt="KaroTools Logo" style={{ height: "54px", margin: "0 -12px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
   <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
     Karo<span style={{ background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>

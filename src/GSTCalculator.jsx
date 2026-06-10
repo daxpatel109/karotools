@@ -324,7 +324,7 @@ export default function GSTCalculator() {
       <nav className="glass-panel" style={{ position: "sticky", top: 0, zIndex: 100, padding: "0 24px", height: "72px", display: "flex", alignItems: "center", justifyContent: "space-between", borderTop: "none", borderLeft: "none", borderRight: "none", borderRadius: 0 }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <Link to="/" style={{ textDecoration: "none" }}><div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-  <img src="/logo.png" alt="KaroTools Logo" style={{ height: "54px", margin: "0 -12px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
+  <img src="/logo.png" alt="KaroTools Logo" style={{ height: "44px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
   <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
     Karo<span style={{ background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>

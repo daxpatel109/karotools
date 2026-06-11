@@ -3,7 +3,6 @@ import "../App.css";
 import "../ScrollPathSection.css";
 import Script from "next/script";
 import CookieBanner from "../CookieBanner";
-import ProgressBarProvider from "../ProgressBarProvider";
 
 if (typeof window === "undefined") {
   global.localStorage = {
@@ -85,9 +84,7 @@ export default function RootLayout({ children }) {
         }} type="application/ld+json" />
       </head>
       <body>
-        <ProgressBarProvider>
-          {children}
-        </ProgressBarProvider>
+        {children}
         <CookieBanner />
 
         {/* AdSense Deferred */}

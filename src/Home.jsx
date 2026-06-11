@@ -64,7 +64,7 @@ function Counter({ end, suffix = "", prefix = "" }) {
 }
 
 // ── 3D Tool Card ─────────────────────────────────────────────────
-function ToolCard({ tool, index, onClick }) {
+function ToolCard({ tool, index }) {
   const cardRef = useRef(null);
   const [ref, visible] = useReveal();
   const [hovered, setHovered] = useState(false);
@@ -92,7 +92,7 @@ function ToolCard({ tool, index, onClick }) {
 
   return (
     <div ref={ref} style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(48px)", transition: `opacity 0.7s ease ${index * 0.08}s, transform 0.7s ease ${index * 0.08}s` }}>
-      <div ref={cardRef} onClick={onClick} onMouseMove={onMove} onMouseLeave={onLeave} onMouseEnter={() => setHovered(true)}
+      <div ref={cardRef} onMouseMove={onMove} onMouseLeave={onLeave} onMouseEnter={() => setHovered(true)}
         style={{ background: hovered ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.025)", backdropFilter: "blur(24px)", border: `1px solid ${hovered ? `${accent}30` : "rgba(255,255,255,0.07)"}`, borderRadius: 24, padding: "28px 24px", cursor: tool.page ? "pointer" : "default", transition: "transform 0.2s ease, box-shadow 0.2s ease, background 0.3s, border-color 0.3s", boxShadow: "0 4px 24px rgba(0,0,0,0.3)", position: "relative", overflow: "hidden", minHeight: 190 }}>
 
         {/* Top glow line */}
@@ -138,7 +138,6 @@ function Particles() {
 // ── Main Home ─────────────────────────────────────────────────────
 export default function Home() {
   const router = useRouter();
-  const navigate = (path) => router.push(path);
   const [search, setSearch] = useState("");
   const [scrolled, setScrolled] = useState(false);
   const [activeFilter, setActiveFilter] = useState("All");
@@ -414,10 +413,11 @@ export default function Home() {
             style={{ padding: "17px 40px", background: "linear-gradient(135deg, #3b82f6, #8b5cf6)", border: "none", borderRadius: 14, color: "#fff", fontSize: 17, fontWeight: 700, fontFamily: "'Syne',sans-serif", boxShadow: "0 8px 32px rgba(99,102,241,0.35)", transition: "all 0.3s", cursor: "pointer" }}>
             Explore All Tools →
           </button>
-          <button className="cta-btn-secondary" onClick={() => navigate("/gst-calculator")}
-            style={{ padding: "17px 36px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 14, color: "#cbd5e1", fontSize: 17, fontWeight: 600, fontFamily: "'DM Sans',sans-serif", transition: "all 0.3s", cursor: "pointer" }}>
-            🧮 GST Calculator
-          </button>
+          <Link href="/gst-calculator" style={{ textDecoration: 'none' }}>
+            <button className="cta-btn-secondary" style={{ padding: "17px 36px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 14, color: "#cbd5e1", fontSize: 17, fontWeight: 600, fontFamily: "'DM Sans',sans-serif", transition: "all 0.3s", cursor: "pointer" }}>
+              🧮 GST Calculator
+            </button>
+          </Link>
         </div>
 
         {/* Stats */}
@@ -477,7 +477,9 @@ export default function Home() {
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(290px, 100%), 1fr))", gap: 22 }}>
           {filtered.map((tool, i) => (
-            <ToolCard key={tool.name} tool={tool} index={i} onClick={() => tool.page && navigate(tool.page)} />
+            <Link key={tool.name} href={tool.page || "#"} style={{ textDecoration: 'none', display: 'block' }}>
+              <ToolCard tool={tool} index={i} />
+            </Link>
           ))}
         </div>
       </section>
@@ -523,17 +525,19 @@ export default function Home() {
               { icon: "📧", title: "Free Business Email Generator", desc: "Generate cold outreach, follow-up, payment reminder & proposal emails. 10 types, 4 tones, instant results.", link: "/email-generator", keyword: "15,000+ monthly searches" },
             ].map((item, i) => (
               <Reveal key={item.title} delay={i * 0.1}>
-                <div onClick={() => navigate(item.link)} style={{ background: "linear-gradient(135deg, rgba(14,165,233,0.06), rgba(20,184,166,0.03))", border: "1px solid rgba(14,165,233,0.15)", borderRadius: 20, padding: "32px 28px", cursor: "pointer", transition: "all 0.3s" }}
-                  onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-6px)"; e.currentTarget.style.boxShadow = "0 24px 48px rgba(14,165,233,0.15)"; }}
-                  onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}>
-                  <div style={{ fontSize: 40, marginBottom: 16 }}>{item.icon}</div>
-                  <h3 style={{ fontSize: 18, fontWeight: 700, color: "#f1f5f9", marginBottom: 10, fontFamily: "'Syne',sans-serif", lineHeight: 1.3 }}>{item.title}</h3>
-                  <p style={{ fontSize: 14, color: "#64748b", lineHeight: 1.65, marginBottom: 20 }}>{item.desc}</p>
-                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                    <span style={{ fontSize: 11, color: "#0ea5e9", fontWeight: 700, background: "rgba(14,165,233,0.1)", padding: "4px 12px", borderRadius: 20, border: "1px solid rgba(14,165,233,0.2)" }}>🔥 {item.keyword}</span>
-                    <span style={{ color: "#0ea5e9", fontWeight: 700 }}>Try Now →</span>
+                <Link href={item.link} style={{ textDecoration: 'none', display: 'block' }}>
+                  <div style={{ background: "linear-gradient(135deg, rgba(14,165,233,0.06), rgba(20,184,166,0.03))", border: "1px solid rgba(14,165,233,0.15)", borderRadius: 20, padding: "32px 28px", cursor: "pointer", transition: "all 0.3s" }}
+                    onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-6px)"; e.currentTarget.style.boxShadow = "0 24px 48px rgba(14,165,233,0.15)"; }}
+                    onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}>
+                    <div style={{ fontSize: 40, marginBottom: 16 }}>{item.icon}</div>
+                    <h3 style={{ fontSize: 18, fontWeight: 700, color: "#f1f5f9", marginBottom: 10, fontFamily: "'Syne',sans-serif", lineHeight: 1.3 }}>{item.title}</h3>
+                    <p style={{ fontSize: 14, color: "#64748b", lineHeight: 1.65, marginBottom: 20 }}>{item.desc}</p>
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                      <span style={{ fontSize: 11, color: "#0ea5e9", fontWeight: 700, background: "rgba(14,165,233,0.1)", padding: "4px 12px", borderRadius: 20, border: "1px solid rgba(14,165,233,0.2)" }}>🔥 {item.keyword}</span>
+                      <span style={{ color: "#0ea5e9", fontWeight: 700 }}>Try Now →</span>
+                    </div>
                   </div>
-                </div>
+                </Link>
               </Reveal>
             ))}
           </div>
@@ -575,12 +579,16 @@ export default function Home() {
             </h2>
             <p style={{ fontSize: 17, color: "#94a3b8", marginBottom: 40, maxWidth: 500, margin: "0 auto 40px" }}>Join thousands of Indian freelancers who save hours every week with our free business tools.</p>
             <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
-              <button className="cta-btn-primary" onClick={() => navigate("/gst-calculator")} style={{ padding: "15px 36px", background: "linear-gradient(135deg, #0ea5e9, #14b8a6)", border: "none", borderRadius: 12, color: "#fff", fontSize: 16, fontWeight: 700, fontFamily: "'Syne',sans-serif", boxShadow: "0 8px 28px rgba(14,165,233,0.35)", cursor: "pointer", transition: "all 0.3s" }}>
-                🧮 GST Calculator →
-              </button>
-              <button className="cta-btn-secondary" onClick={() => navigate("/invoice-generator")} style={{ padding: "15px 32px", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 12, color: "#cbd5e1", fontSize: 16, fontWeight: 600, cursor: "pointer", transition: "all 0.3s" }}>
-                📄 Invoice Generator →
-              </button>
+              <Link href="/gst-calculator" style={{ textDecoration: 'none' }}>
+                <button className="cta-btn-primary" style={{ padding: "15px 36px", background: "linear-gradient(135deg, #0ea5e9, #14b8a6)", border: "none", borderRadius: 12, color: "#fff", fontSize: 16, fontWeight: 700, fontFamily: "'Syne',sans-serif", boxShadow: "0 8px 28px rgba(14,165,233,0.35)", cursor: "pointer", transition: "all 0.3s" }}>
+                  🧮 GST Calculator →
+                </button>
+              </Link>
+              <Link href="/invoice-generator" style={{ textDecoration: 'none' }}>
+                <button className="cta-btn-secondary" style={{ padding: "15px 32px", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 12, color: "#cbd5e1", fontSize: 16, fontWeight: 600, cursor: "pointer", transition: "all 0.3s" }}>
+                  📄 Invoice Generator →
+                </button>
+              </Link>
             </div>
           </div>
         </Reveal>

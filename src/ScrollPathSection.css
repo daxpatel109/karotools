@@ -115,12 +115,12 @@
 }
 
 .path-card-left {
-  align-self: flex-start;
+  justify-self: start;
   text-align: right;
 }
 
 .path-card-right {
-  align-self: flex-end;
+  justify-self: end;
   text-align: left;
 }
 

@@ -1,11 +1,8 @@
 "use client";
 import { useEffect } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 export default function TaxCalculatorHub() {
-  const router = useRouter();
-
   useEffect(() => {
     window.scrollTo(0, 0);
     document.title = "Freelance Income Tax Calculators India | KaroTools";
@@ -80,44 +77,44 @@ export default function TaxCalculatorHub() {
         {/* Hub Cards */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "24px" }}>
           {calculators.map((calc, idx) => (
-            <div 
-              key={idx}
-              onClick={() => navigate(calc.path)}
-              style={{
-                background: "rgba(255,255,255,0.03)",
-                border: "1px solid rgba(255,255,255,0.08)",
-                borderRadius: "24px",
-                padding: "32px",
-                cursor: "pointer",
-                position: "relative",
-                transition: "all 0.3s ease",
-                overflow: "hidden"
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-5px)";
-                e.currentTarget.style.borderColor = calc.color;
-                e.currentTarget.style.boxShadow = `0 10px 30px ${calc.bg}`;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
-                e.currentTarget.style.boxShadow = "none";
-              }}
-            >
-              {calc.popular && (
-                <div style={{ position: "absolute", top: 16, right: 16, background: calc.color, color: "#fff", fontSize: "11px", fontWeight: "800", padding: "4px 10px", borderRadius: "20px", textTransform: "uppercase" }}>
-                  Most Popular
+            <Link key={idx} href={calc.path} style={{ textDecoration: 'none', display: 'block' }}>
+              <div 
+                style={{
+                  background: "rgba(255,255,255,0.03)",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                  borderRadius: "24px",
+                  padding: "32px",
+                  cursor: "pointer",
+                  position: "relative",
+                  transition: "all 0.3s ease",
+                  overflow: "hidden"
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateY(-5px)";
+                  e.currentTarget.style.borderColor = calc.color;
+                  e.currentTarget.style.boxShadow = `0 10px 30px ${calc.bg}`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
+                  e.currentTarget.style.boxShadow = "none";
+                }}
+              >
+                {calc.popular && (
+                  <div style={{ position: "absolute", top: 16, right: 16, background: calc.color, color: "#fff", fontSize: "11px", fontWeight: "800", padding: "4px 10px", borderRadius: "20px", textTransform: "uppercase" }}>
+                    Most Popular
+                  </div>
+                )}
+                <div style={{ width: "56px", height: "56px", background: calc.bg, borderRadius: "16px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "24px", marginBottom: "24px" }}>
+                  {calc.icon}
                 </div>
-              )}
-              <div style={{ width: "56px", height: "56px", background: calc.bg, borderRadius: "16px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "24px", marginBottom: "24px" }}>
-                {calc.icon}
+                <h2 style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "8px" }}>{calc.title}</h2>
+                <p style={{ fontSize: "13px", fontWeight: "700", color: calc.color, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "16px" }}>{calc.subtitle}</p>
+                <p style={{ color: "#94a3b8", fontSize: "15px", lineHeight: 1.6, margin: 0 }}>
+                  {calc.desc}
+                </p>
               </div>
-              <h2 style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "8px" }}>{calc.title}</h2>
-              <p style={{ fontSize: "13px", fontWeight: "700", color: calc.color, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "16px" }}>{calc.subtitle}</p>
-              <p style={{ color: "#94a3b8", fontSize: "15px", lineHeight: 1.6, margin: 0 }}>
-                {calc.desc}
-              </p>
-            </div>
+            </Link>
           ))}
         </div>
 

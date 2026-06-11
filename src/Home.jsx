@@ -256,7 +256,7 @@ export default function Home() {
 
   return (
     <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans',sans-serif", color: "#f1f5f9", overflowX: "hidden" }}>
-      <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+      
 
       <style>{`
         * { cursor: none !important; }
@@ -578,7 +578,7 @@ export default function Home() {
                   🧮 GST Calculator →
                 </button>
               </Link>
-              <Link href="/invoice-generator" style={{ textDecoration: 'none' }}>
+              <Link href="/gst-invoice-generator" style={{ textDecoration: 'none' }}>
                 <button className="cta-btn-secondary" style={{ padding: "15px 32px", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 12, color: "#cbd5e1", fontSize: 16, fontWeight: 600, cursor: "pointer", transition: "all 0.3s" }}>
                   📄 Invoice Generator →
                 </button>

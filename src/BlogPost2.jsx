@@ -64,7 +64,7 @@ export default function BlogPost2() {
 
   return (
     <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans', sans-serif", color: "#f8fafc" }}>
-      <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+      
 
       {/* Navbar */}
       <nav style={{ position: "sticky", top: 0, zIndex: 100, padding: "10px 20px", minHeight: "70px", display: "flex", flexWrap: "wrap", gap: "12px", alignItems: "center", justifyContent: "space-between", background: "rgba(2,6,23,0.9)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
@@ -164,7 +164,7 @@ export default function BlogPost2() {
             To perfectly utilize Section 44ADA for freelancers, you need to ensure a paper trail. Even though you don't need expense receipts, you <strong>must</strong> have proof of income.
           </p>
           <p style={pStyle}>
-            Never accept money blindly into your bank account. For every single payment you receive, generate a professional invoice. If you don't have an invoicing tool, use a free <Link href="/invoice-generator" style={{ color: "#38bdf8", textDecoration: "none" }}>professional invoice generator</Link> to create legally compliant PDFs. If your clients are in India, you also need to track whether you cross the ₹20 Lakh GST threshold. (You can check your liability with our <Link href="/gst-calculator" style={{ color: "#38bdf8", textDecoration: "none" }}>GST calculator</Link>).
+            Never accept money blindly into your bank account. For every single payment you receive, generate a professional invoice. If you don't have an invoicing tool, use a free <Link href="/gst-invoice-generator" style={{ color: "#0076ff", textDecoration: "none" }}>professional invoice generator</Link> to create legally compliant PDFs. If your clients are in India, you also need to track whether you cross the ₹20 Lakh GST threshold. (You can check your liability with our <Link href="/gst-calculator" style={{ color: "#0076ff", textDecoration: "none" }}>GST calculator</Link>).
           </p>
 
           <hr style={{ border: "none", borderTop: "1px solid rgba(255,255,255,0.1)", margin: "64px 0" }} />

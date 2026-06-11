@@ -255,7 +255,7 @@ export default function InvoiceGenerator() {
 
   return (
     <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans',sans-serif", color: "#f8fafc" }}>
-      <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+      
       <style>{`
         input::placeholder,textarea::placeholder{color:#475569}
         input:focus,textarea:focus,select:focus{border-color:rgba(0,118,255,0.5)!important;outline:none}

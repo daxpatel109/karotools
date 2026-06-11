@@ -289,7 +289,7 @@ export default function BioGenerator() {
  
   return (
     <div style={{ minHeight:"100vh", background:"#080814", fontFamily:"'DM Sans',sans-serif", color:"#f1f5f9" }}>
-      <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+      
       <style>{`
         input::placeholder{color:#475569}
         select option{background:#0f0f23;color:#f1f5f9}

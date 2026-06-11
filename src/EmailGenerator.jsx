@@ -400,7 +400,7 @@ export default function EmailGenerator() {
 
   return (
     <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans',sans-serif", color: "#f1f5f9" }}>
-      <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+      
       <style>{`
         * { box-sizing: border-box; }
         input::placeholder, textarea::placeholder { color: #334155; }

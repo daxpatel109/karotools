@@ -92,7 +92,7 @@ export default function LateGSTPenalty() {
 
   return (
     <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans', sans-serif", color: "#f8fafc" }}>
-      <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+      
       <style dangerouslySetInnerHTML={{ __html: `
         ::selection { background: rgba(239, 68, 68, 0.4); color: white; }
         ::-moz-selection { background: rgba(239, 68, 68, 0.4); color: white; }

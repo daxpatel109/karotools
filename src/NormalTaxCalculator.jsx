@@ -224,7 +224,7 @@ export default function NormalTaxCalculator() {
 
   return (
     <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans', sans-serif", color: "#f8fafc", position: "relative", overflow: "hidden", display: "flex", flexDirection: "column" }}>
-      <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+      
 
       {/* Background gradients */}
       <div style={{ position: "absolute", top: "-20%", left: "-10%", width: "50%", height: "50%", background: "radial-gradient(circle, rgba(244,63,94,0.05) 0%, transparent 70%)", filter: "blur(60px)", pointerEvents: "none" }} />

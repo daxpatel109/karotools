@@ -226,7 +226,7 @@ export default function GSTCalculator() {
 
   return (
     <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans', sans-serif", color: "#f8fafc", selectionColor: "#fff", selectionBackground: "#0076ff" }}>
-      <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+      
       <style dangerouslySetInnerHTML={{ __html: `
         ::selection { background: rgba(0,118,255, 0.4); color: white; }
         ::-moz-selection { background: rgba(0,118,255, 0.4); color: white; }

@@ -89,27 +89,29 @@ export default function ScrollPathSection() {
           <p className="subtitle-text">Calculate GST, create invoices, plan taxes and manage client work — all with free tools built for Indian freelancers.</p>
         </div>
 
-        {/* Desktop SVG Path */}
-        <div className="path-svg-wrapper">
-          <svg width="1000" height="750" viewBox="0 0 1000 750" fill="none" preserveAspectRatio="xMidYMin slice">
-            <defs>
-              <linearGradient id="glowGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#0ea5e9" />
-                <stop offset="50%" stopColor="#10b981" />
-                <stop offset="100%" stopColor="#8b5cf6" />
-              </linearGradient>
-            </defs>
-            <path 
-              ref={pathRef}
-              className="animated-path"
-              d="M 500 0 C 500 100, 200 50, 200 180 C 200 310, 800 280, 800 410 C 800 540, 200 510, 200 640 C 200 750, 500 700, 500 850"
-            />
-          </svg>
-        </div>
-
-        {/* Cards & Mobile Line */}
+        {/* Cards, SVG, and Mobile Line */}
         <div className="path-items-wrapper">
+          
+          {/* Desktop SVG Path (Fluid) */}
+          <div className="path-svg-wrapper">
+            <svg width="100%" height="100%" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="glowGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="#0ea5e9" />
+                  <stop offset="50%" stopColor="#10b981" />
+                  <stop offset="100%" stopColor="#8b5cf6" />
+                </linearGradient>
+              </defs>
+              <path 
+                ref={pathRef}
+                className="animated-path"
+                d="M 500 0 C 500 50, 400 40, 400 100 C 400 230, 600 230, 600 360 C 600 495, 400 495, 400 630 C 400 765, 600 765, 600 900 C 600 960, 500 950, 500 1000"
+              />
+            </svg>
+          </div>
+
           <div className="mobile-animated-line" ref={mobileLineRef}></div>
+          
           {cards.map((card, idx) => (
             <div key={idx} className={`path-card path-card-${card.align}`}>
               <div className="path-card-number">{card.icon}</div>

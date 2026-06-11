@@ -4,7 +4,8 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 
 export default function GSTCalculator() {
-  const { keyword } = useParams();
+  const params = useParams();
+  const keyword = params?.keyword;
 
   let seoTitle = "Free Online GST Calculator India | KaroTools";
   let seoH1 = "GST Calculator";

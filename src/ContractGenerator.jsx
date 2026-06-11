@@ -5,23 +5,14 @@ import jsPDF from "jspdf";
 
 export default function ContractGenerator() {
   const [freelancerName, setFreelancerName] = useState("");
-  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("cg_fName"); if (val) setcg_fName(val); } }, []);
   const [clientName, setClientName] = useState("");
-  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("cg_cName"); if (val) setcg_cName(val); } }, []);
   const [projectName, setProjectName] = useState("");
-  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("cg_pName"); if (val) setcg_pName(val); } }, []);
   const [startDate, setStartDate] = useState("");
-  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("cg_sDate"); if (val) setcg_sDate(val); } }, []);
   const [endDate, setEndDate] = useState("");
-  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("cg_eDate"); if (val) setcg_eDate(val); } }, []);
   const [totalFee, setTotalFee] = useState("");
-  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("cg_fee"); if (val) setcg_fee(val); } }, []);
   const [advanceFee, setAdvanceFee] = useState("");
-  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("cg_adv"); if (val) setcg_adv(val); } }, []);
   const [revisions, setRevisions] = useState("2");
-  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("cg_rev"); if (val) setcg_rev(val); } }, []);
   const [jurisdiction, setJurisdiction] = useState("Mumbai, India");
-  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("cg_jur"); if (val) setcg_jur(val); } }, []);
 
   const [copied, setCopied] = useState(false);
 

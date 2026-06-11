@@ -4,15 +4,10 @@ import Link from "next/link";
 
 export default function RateCalculator() {
   const [monthlyExpenses, setMonthlyExpenses] = useState(30000);
-  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("rate_expenses_total"); if (val) setrate_expenses_total(Number(val)); } }, []);
   const [desiredSavings, setDesiredSavings] = useState(20000);
-  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("rate_savings"); if (val) setrate_savings(Number(val)); } }, []);
   const [workingDays, setWorkingDays] = useState(22);
-  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("rate_days"); if (val) setrate_days(Number(val)); } }, []);
   const [hoursPerDay, setHoursPerDay] = useState(6);
-  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("rate_hours"); if (val) setrate_hours(Number(val)); } }, []);
   const [profitMargin, setProfitMargin] = useState(20);
-  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("rate_margin"); if (val) setrate_margin(Number(val)); } }, []);
 
   // 🚀 SEO Meta & JSON-LD Schema Injection
   useEffect(() => {

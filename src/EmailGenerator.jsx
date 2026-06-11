@@ -329,11 +329,8 @@ function FocusInput({ label, value, onChange, placeholder, multiline = false }) 
 
 export default function EmailGenerator() {
   const [category, setCategory] = useState("cold");
-  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("em_category"); if (val) setem_category(val); } }, []);
   const [tone, setTone] = useState("professional");
-  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("em_tone"); if (val) setem_tone(val); } }, []);
   const [fields, setFields] = useState(JSON.parse("{}"));
-  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("em_fields"); if (val) setem_fields(JSON.parse(val)); } }, []);
   const [copiedAll, setCopiedAll] = useState(false);
 
   useEffect(() => {

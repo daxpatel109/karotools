@@ -28,27 +28,17 @@ export default function GSTCalculator() {
   }
 
   const [amount, setAmount] = useState("");
-  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("gst_amount"); if (val) setgst_amount(val); } }, []);
   const [gstRate, setGstRate] = useState(18);
-  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("gst_rate"); if (val) setgst_rate(Number(val)); } }, []);
   const [customRate, setCustomRate] = useState("");
-  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("gst_customRate"); if (val) setgst_customRate(val); } }, []);
   const [isCustom, setIsCustom] = useState(false);
-  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("gst_isCustom"); if (val) setgst_isCustom(val === "true"); } }, []);
   const [cessRate, setCessRate] = useState(0);
-  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("gst_cessRate"); if (val) setgst_cessRate(Number(val)); } }, []);
   const [type, setType] = useState("exclusive");
-  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("gst_type"); if (val) setgst_type(val); } }, []);
   const [transactionType, setTransactionType] = useState("intra");
-  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("gst_transactionType"); if (val) setgst_transactionType(val); } }, []);
   const [roundOff, setRoundOff] = useState(false);
-  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("gst_roundOff"); if (val) setgst_roundOff(val === "true"); } }, []);
   const [copied, setCopied] = useState(false);
   const [result, setResult] = useState(null);
   const [history, setHistory] = useState([]);
-  useEffect(() => { if (typeof window !== 'undefined') { try { const val = localStorage.getItem("gst_history"); if (val) setgst_history(JSON.parse(val)); } catch {} } }, []);
   const [preset, setPreset] = useState(null);
-  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("gst_preset"); if (val) setgst_preset(val); } }, []);
 
   const activeRate = isCustom ? (customRate === "" ? NaN : Number(customRate)) : Number(gstRate);
 

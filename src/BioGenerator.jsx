@@ -195,19 +195,12 @@ const selectStyle = {
 // ── Component ────────────────────────────────────────────────────
 export default function BioGenerator() {
   const [name, setName] = useState("");
-  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("bio_name"); if (val) setbio_name(val); } }, []);
   const [profession, setProfession] = useState("Web Developer");
-  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("bio_prof"); if (val) setbio_prof(val); } }, []);
   const [skills, setSkills] = useState([]);
-  useEffect(() => { if (typeof window !== 'undefined') { try { const val = localStorage.getItem("bio_skills"); if (val) setbio_skills(JSON.parse(val)); } catch {} } }, []);
   const [city, setCity] = useState("Ahmedabad");
-  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("bio_city"); if (val) setbio_city(val); } }, []);
   const [experience, setExperience] = useState("2");
-  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("bio_exp"); if (val) setbio_exp(val); } }, []);
   const [platform, setPlatform] = useState("instagram");
-  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("bio_plat"); if (val) setbio_plat(val); } }, []);
   const [tone, setTone] = useState("professional");
-  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("bio_tone"); if (val) setbio_tone(val); } }, []);
   const [bios, setBios] = useState([]);
   const [selected, setSelected] = useState(null);
   const [copied, setCopied] = useState(false);

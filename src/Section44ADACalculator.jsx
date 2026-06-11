@@ -4,7 +4,6 @@ import Link from "next/link";
 
 export default function TaxCalculator() {
   const [grossReceipts, setGrossReceipts] = useState("");
-  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("tax_gross"); if (val) settax_gross(val); } }, []);
 
   useEffect(() => {
     localStorage.setItem("tax_gross", grossReceipts);

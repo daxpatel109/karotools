@@ -1,35 +1,7 @@
-import { useEffect } from "react";
 import Link from "next/link";
 
 export default function Guide1() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    document.title = "The Complete Guide to GST for Freelancers in India | KaroTools";
-    
-    const schema = {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "The Complete Guide to GST for Freelancers in India",
-      "author": {
-        "@type": "Organization",
-        "name": "KaroTools",
-        "url": "https://karotools.in"
-      },
-      "datePublished": "2026-06-11",
-      "description": "Learn when Indian freelancers need to register for GST, what rates apply, and how to stay compliant.",
-      "mainEntityOfPage": "https://karotools.in/guides/gst-for-freelancers-india"
-    };
-
-    let script = document.querySelector("#article-schema");
-    if (!script) {
-      script = document.createElement("script");
-      script.type = "application/ld+json";
-      script.id = "article-schema";
-      document.head.appendChild(script);
-    }
-    script.innerText = JSON.stringify(schema);
-  }, []);
-
+  
   return (
     <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans', sans-serif", color: "#f8fafc", lineHeight: "1.8", paddingBottom: "80px" }}>
       <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />

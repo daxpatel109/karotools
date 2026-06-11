@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import Link from "next/link";
 
 const guides = [
@@ -29,11 +28,7 @@ const guides = [
 ];
 
 export default function GuidesHub() {
-  useEffect(() => {
-    document.title = "Freelancer Guides & Resources | KaroTools";
-    window.scrollTo(0, 0);
-  }, []);
-
+  
   return (
     <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans', sans-serif", color: "#f8fafc", paddingBottom: "100px" }}>
       <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />

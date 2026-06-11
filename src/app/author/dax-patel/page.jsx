@@ -1,51 +1,7 @@
-import { useEffect } from "react";
 import Link from "next/link";
 
 export default function Author() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    document.title = "Dax Patel - Author | KaroTools India";
-    
-    // Meta Description
-    let meta = document.querySelector('meta[name="description"]');
-    if (!meta) { meta = document.createElement('meta'); meta.name = "description"; document.head.appendChild(meta); }
-    meta.content = "Dax Patel is the creator of KaroTools, a developer, and an expert in Indian freelancer taxes, GST, and business automation.";
-
-    // JSON-LD Person Schema
-    const schema = {
-      "@context": "https://schema.org",
-      "@type": "ProfilePage",
-      "mainEntity": {
-        "@type": "Person",
-        "name": "Dax Patel",
-        "image": "https://karotools.in/dax-profile.jpg",
-        "description": "Creator of KaroTools, a developer, and an expert in Indian freelancer taxes, GST, and business automation.",
-        "url": "https://karotools.in/author/dax-patel",
-        "sameAs": [
-          "https://karotools.in"
-        ],
-        "jobTitle": "Founder & Lead Developer",
-        "worksFor": {
-          "@type": "Organization",
-          "name": "KaroTools"
-        }
-      }
-    };
-
-    let script = document.getElementById("author-schema");
-    if (!script) {
-      script = document.createElement("script");
-      script.id = "author-schema";
-      script.type = "application/ld+json";
-      document.head.appendChild(script);
-    }
-    script.innerText = JSON.stringify(schema);
-
-    return () => {
-      if (script) document.head.removeChild(script);
-    };
-  }, []);
-
+  
   return (
     <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans', sans-serif", color: "#f8fafc" }}>
       <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />

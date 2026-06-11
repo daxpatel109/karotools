@@ -1,35 +1,7 @@
-import { useEffect } from "react";
 import Link from "next/link";
 
 export default function Guide3() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    document.title = "Section 44ADA vs Normal Taxation for Freelancers | KaroTools";
-    
-    const schema = {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Understanding Section 44ADA vs Normal Taxation",
-      "author": {
-        "@type": "Organization",
-        "name": "KaroTools",
-        "url": "https://karotools.in"
-      },
-      "datePublished": "2026-06-11",
-      "description": "Discover if you qualify for the massive 50% tax-free bracket under Section 44ADA and how it compares to calculating strict expenses.",
-      "mainEntityOfPage": "https://karotools.in/guides/section-44ada-vs-normal"
-    };
-
-    let script = document.querySelector("#article-schema");
-    if (!script) {
-      script = document.createElement("script");
-      script.type = "application/ld+json";
-      script.id = "article-schema";
-      document.head.appendChild(script);
-    }
-    script.innerText = JSON.stringify(schema);
-  }, []);
-
+  
   return (
     <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans', sans-serif", color: "#f8fafc", lineHeight: "1.8", paddingBottom: "80px" }}>
       <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />

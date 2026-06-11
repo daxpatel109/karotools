@@ -64,7 +64,7 @@ export default function About() {
           <div style={{ background: "linear-gradient(135deg, rgba(0,90,230,0.05), transparent)", border: "1px solid rgba(0,90,230,0.15)", borderRadius: "24px", padding: "32px" }}>
             <div style={{ fontSize: "32px", marginBottom: "16px" }}>🔒</div>
             <h3 style={{ fontSize: "20px", fontWeight: "700", fontFamily: "'Syne',sans-serif", color: "#f1f5f9", marginBottom: "12px" }}>Absolute Privacy</h3>
-            <p style={{ fontSize: "15px", color: "#94a3b8", lineHeight: "1.7" }}>Because we have no database, your financial data (GSTINs, client names, invoice amounts) never leaves your browser. It's mathematically impossible for us to read your data.</p>
+            <p style={{ fontSize: "15px", color: "#94a3b8", lineHeight: "1.7" }}>Because we process tools locally, your financial inputs (like GSTINs, client names, and invoice amounts) stay on your device and are never sent to our servers. We use basic analytics and ad services to keep the site free, but your raw financial inputs remain private.</p>
           </div>
         </div>
 

@@ -307,7 +307,7 @@ export default function RateCalculator() {
       </nav>
 
       <div className="print-only print-header" style={{ display: "none", textAlign: "center", paddingTop: "20px" }}>
-        <h1 style={{ fontSize: "32px", fontFamily: "'Syne',sans-serif", margin: "0 0 10px 0" }}>Freelance Rate Strategy & Proposal</h1>
+        <h2 style={{ fontSize: "32px", fontFamily: "'Syne',sans-serif", margin: "0 0 10px 0" }}>Freelance Rate Strategy & Proposal</h2>
         <p style={{ margin: 0, fontSize: "16px", color: "#64748b" }}>Generated securely via KaroTools • {new Date().toLocaleDateString('en-IN')}</p>
       </div>
 
@@ -488,7 +488,7 @@ export default function RateCalculator() {
         {/* Universal Legal Disclaimer */}
         <div className="no-print" style={{ marginTop: "40px", padding: "20px", background: "rgba(0,0,0,0.3)", borderRadius: "12px", border: "1px dashed rgba(255,255,255,0.1)", textAlign: "center" }}>
           <p style={{ color: "#64748b", fontSize: "12px", lineHeight: "1.6", margin: 0, fontFamily: "'DM Sans',sans-serif" }}>
-            <strong>Disclaimer:</strong> All calculators and tools on KaroTools.in are provided for educational and informational purposes only. While we strive to keep the logic updated with the latest Indian tax laws (FY 2025-26), the results generated are estimates and do not constitute professional financial, legal, or tax advice. We strongly recommend consulting a certified Chartered Accountant or legal professional before making any business decisions or filing your taxes. KaroTools is not responsible for any financial loss, penalties, or compliance errors resulting from the use of this website.
+            <strong>Disclaimer:</strong> All calculators and tools on KaroTools.in are provided for educational and informational purposes only. While we strive to keep the logic updated with the latest Indian tax laws (FY 2026-27), the results generated are estimates and do not constitute professional financial, legal, or tax advice. We strongly recommend consulting a certified Chartered Accountant or legal professional before making any business decisions or filing your taxes. KaroTools is not responsible for any financial loss, penalties, or compliance errors resulting from the use of this website.
           </p>
         </div>
 

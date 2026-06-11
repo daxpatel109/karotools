@@ -29,7 +29,7 @@ export default function TaxCalculator() {
           "applicationCategory": "BusinessApplication",
           "operatingSystem": "WebBrowser",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
-          "description": "Calculate estimated income tax for Indian freelancers under Section 44ADA (Presumptive Taxation) using the FY 2025-26 New Tax Regime."
+          "description": "Calculate estimated income tax for Indian freelancers under Section 44ADA (Presumptive Taxation) using the FY 2026-27 New Tax Regime."
         },
         {
           "@type": "FAQPage",
@@ -108,7 +108,7 @@ export default function TaxCalculator() {
       }
     }
 
-    // Section 87A Rebate (FY 2025-26): Full rebate if income <= 12L
+    // Section 87A Rebate (FY 2026-27): Full rebate if income <= 12L
     // Plus Marginal Relief for income slightly above 12L
     let rebate87A = 0;
     let marginalRelief = 0;
@@ -189,7 +189,7 @@ export default function TaxCalculator() {
               <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#e2e8f0", marginBottom: "24px", display: "flex", alignItems: "center", gap: "8px" }}><span>💰</span> Your Annual Income</h2>
               
               <div style={{ marginBottom: "24px" }}>
-                <label style={{ display: "block", fontSize: "13px", fontWeight: "700", color: "#94a3b8", marginBottom: "10px", textTransform: "uppercase", letterSpacing: "0.05em" }}>Gross Receipts (FY 2025-26)</label>
+                <label style={{ display: "block", fontSize: "13px", fontWeight: "700", color: "#94a3b8", marginBottom: "10px", textTransform: "uppercase", letterSpacing: "0.05em" }}>Gross Receipts (FY 2026-27)</label>
                 <div style={{ position: "relative" }}>
                   <span style={{ position: "absolute", left: "16px", top: "50%", transform: "translateY(-50%)", color: "#64748b", fontSize: "18px", fontWeight: "600" }}>₹</span>
                   <input 

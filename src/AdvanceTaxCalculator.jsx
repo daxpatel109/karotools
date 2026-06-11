@@ -10,7 +10,7 @@ export default function AdvanceTaxCalculator() {
   // SEO & Scroll Reset
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Free Advance Tax Calculator India | FY 2025-26";
+    document.title = "Free Advance Tax Calculator India | FY 2026-27";
 
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {
@@ -18,7 +18,7 @@ export default function AdvanceTaxCalculator() {
       meta.name = "description";
       document.head.appendChild(meta);
     }
-    meta.content = "Calculate your Advance Tax installments and due dates for FY 2025-26. Free calculator for Indian freelancers, businesses, and professionals.";
+    meta.content = "Calculate your Advance Tax installments and due dates for FY 2026-27. Free calculator for Indian freelancers, businesses, and professionals.";
 
     // JSON-LD Schema
     const schemaScript = document.createElement("script");
@@ -32,7 +32,7 @@ export default function AdvanceTaxCalculator() {
           "applicationCategory": "FinanceApplication",
           "operatingSystem": "WebBrowser",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
-          "description": "Calculate your Advance Tax installments and due dates for FY 2025-26."
+          "description": "Calculate your Advance Tax installments and due dates for FY 2026-27."
         },
         {
           "@type": "FAQPage",
@@ -94,7 +94,7 @@ export default function AdvanceTaxCalculator() {
 
       <div style={{ padding: "60px 5vw", maxWidth: "800px", margin: "0 auto" }}>
         <div style={{ textAlign: "center", marginBottom: "48px" }}>
-          <div style={{ display: "inline-block", padding: "6px 16px", background: "rgba(245,158,11,0.1)", color: "#fcd34d", borderRadius: "20px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "16px" }}>FY 2025-26</div>
+          <div style={{ display: "inline-block", padding: "6px 16px", background: "rgba(245,158,11,0.1)", color: "#fcd34d", borderRadius: "20px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "16px" }}>FY 2026-27</div>
           <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", margin: "0 0 16px 0", lineHeight: "1.1", letterSpacing: "-1px" }}>Advance Tax Calculator</h1>
           <p style={{ fontSize: "16px", color: "#94a3b8", margin: 0, maxWidth: "600px", marginInline: "auto" }}>Instantly calculate your advance tax liability, installment amounts, and due dates under Indian tax laws.</p>
         </div>
@@ -179,7 +179,7 @@ export default function AdvanceTaxCalculator() {
         {/* Universal Legal Disclaimer */}
         <div style={{ marginTop: "40px", padding: "20px", background: "rgba(0,0,0,0.3)", borderRadius: "12px", border: "1px dashed rgba(255,255,255,0.1)", textAlign: "center" }}>
           <p style={{ color: "#64748b", fontSize: "12px", lineHeight: "1.6", margin: 0, fontFamily: "'DM Sans',sans-serif" }}>
-            <strong>Disclaimer:</strong> All calculators and tools on KaroTools.in are provided for educational and informational purposes only. While we strive to keep the logic updated with the latest Indian tax laws (FY 2025-26), the results generated are estimates and do not constitute professional financial, legal, or tax advice. We strongly recommend consulting a certified Chartered Accountant or legal professional before making any business decisions or filing your taxes. KaroTools is not responsible for any financial loss, penalties, or compliance errors resulting from the use of this website.
+            <strong>Disclaimer:</strong> All calculators and tools on KaroTools.in are provided for educational and informational purposes only. While we strive to keep the logic updated with the latest Indian tax laws (FY 2026-27), the results generated are estimates and do not constitute professional financial, legal, or tax advice. We strongly recommend consulting a certified Chartered Accountant or legal professional before making any business decisions or filing your taxes. KaroTools is not responsible for any financial loss, penalties, or compliance errors resulting from the use of this website.
           </p>
         </div>
 

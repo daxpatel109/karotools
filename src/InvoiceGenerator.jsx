@@ -534,7 +534,7 @@ export default function InvoiceGenerator() {
                               {[0, 5, 12, 18, 28].map(r => <option key={r} value={r} />)}
                             </datalist>
                           </div>
-                          <button onClick={() => removeItem(i)} style={{ padding: "12px", background: "rgba(244,63,94,0.1)", color: "#fb7185", border: "none", borderRadius: "8px", cursor: "pointer", height: "45px", display: "flex", alignItems: "center", justifyContent: "center" }}>✕</button>
+                          <button aria-label="Remove item" onClick={() => removeItem(i)} style={{ padding: "12px 16px", background: "rgba(244,63,94,0.1)", color: "#fb7185", border: "none", borderRadius: "8px", cursor: "pointer", height: "45px", display: "flex", alignItems: "center", justifyContent: "center" }}>✕</button>
                         </div>
                       </div>
                     </div>
@@ -589,7 +589,7 @@ export default function InvoiceGenerator() {
                     {seller.logo ? (
                       <img src={seller.logo} alt="Company Logo" style={{ maxHeight: "80px", maxWidth: "250px", objectFit: "contain", marginBottom: "16px" }} />
                     ) : (
-                      <h1 style={{ fontSize: "36px", fontWeight: "800", color: "#0076ff", margin: "0 0 16px 0", letterSpacing: "-1px" }}>TAX INVOICE</h1>
+                      <h2 style={{ fontSize: "36px", fontWeight: "800", color: "#0076ff", margin: "0 0 16px 0", letterSpacing: "-1px" }}>TAX INVOICE</h2>
                     )}
                     <div style={{ display: "flex", gap: "24px" }}>
                       <div><div style={{ fontSize: "11px", color: "#64748b", fontWeight: "700", textTransform: "uppercase" }}>Invoice No</div><div style={{ fontSize: "14px", fontWeight: "600", color: "#0f172a" }}>{invoice.number || "-"}</div></div>
@@ -770,7 +770,7 @@ export default function InvoiceGenerator() {
       {/* Universal Legal Disclaimer (Moved out of app canvas) */}
       <div style={{ padding: "40px 20px", background: "#020617", borderTop: "1px solid rgba(255,255,255,0.05)", textAlign: "center" }}>
         <p style={{ color: "#64748b", fontSize: "12px", lineHeight: "1.6", margin: "0 auto", maxWidth: "800px", fontFamily: "'DM Sans',sans-serif" }}>
-          <strong>Disclaimer:</strong> All calculators and tools on KaroTools.in are provided for educational and informational purposes only. While we strive to keep the logic updated with the latest Indian tax laws (FY 2025-26), the results generated are estimates and do not constitute professional financial, legal, or tax advice. We strongly recommend consulting a certified Chartered Accountant or legal professional before making any business decisions or filing your taxes. KaroTools is not responsible for any financial loss, penalties, or compliance errors resulting from the use of this website.
+          <strong>Disclaimer:</strong> All calculators and tools on KaroTools.in are provided for educational and informational purposes only. While we strive to keep the logic updated with the latest Indian tax laws (FY 2026-27), the results generated are estimates and do not constitute professional financial, legal, or tax advice. We strongly recommend consulting a certified Chartered Accountant or legal professional before making any business decisions or filing your taxes. KaroTools is not responsible for any financial loss, penalties, or compliance errors resulting from the use of this website.
         </p>
       </div>
 

@@ -1,3 +1,4 @@
+export const metadata = { title: "Free Section 44ADA Income Tax Calculator for Freelancers", description: "Calculate your estimated income tax under Section 44ADA (Presumptive Taxation) for Indian freelancers using the New Tax Regime." };
 "use client";
 import Section44ADACalculator from "../../Section44ADACalculator";
 

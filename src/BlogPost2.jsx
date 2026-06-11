@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function BlogPost2() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Section 44ADA for Freelancers: The Ultimate Tax Saving Guide (FY 2025-26)";
+    document.title = "Section 44ADA for Freelancers: The Ultimate Tax Saving Guide (FY 2026-27)";
     
     // Meta Description
     let meta = document.querySelector('meta[name="description"]');
@@ -90,7 +90,7 @@ export default function BlogPost2() {
         </div>
 
         <h1 style={{ fontSize: "clamp(40px, 5vw, 56px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", lineHeight: 1.15, marginBottom: "32px", color: "#f8fafc" }}>
-          Section 44ADA for Freelancers: The Ultimate Tax Saving Guide (FY 2025-26)
+          Section 44ADA for Freelancers: The Ultimate Tax Saving Guide (FY 2026-27)
         </h1>
 
         <div style={{ display: "flex", alignItems: "center", gap: "16px", paddingBottom: "40px", borderBottom: "1px solid rgba(255,255,255,0.05)", marginBottom: "48px" }}>

@@ -5,12 +5,12 @@ import Link from "next/link";
 export default function BlogPost3() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "How to Calculate Advance Tax for Freelancers in India FY 2025-26 | KaroTools";
+    document.title = "How to Calculate Advance Tax for Freelancers in India FY 2026-27 | KaroTools";
     
     const schema = {
       "@context": "https://schema.org",
       "@type": "Article",
-      "headline": "How to Calculate Advance Tax for Freelancers in India FY 2025-26",
+      "headline": "How to Calculate Advance Tax for Freelancers in India FY 2026-27",
       "author": {
         "@type": "Person",
         "name": "Dax Patel",
@@ -25,7 +25,7 @@ export default function BlogPost3() {
           "url": "https://karotools.in/logo.png"
         }
       },
-      "description": "A complete guide on how Indian freelancers can calculate and pay Advance Tax in FY 2025-26 to avoid Section 234B and 234C penalties.",
+      "description": "A complete guide on how Indian freelancers can calculate and pay Advance Tax in FY 2026-27 to avoid Section 234B and 234C penalties.",
       "mainEntityOfPage": "https://karotools.in/blog/advance-tax-for-freelancers-india"
     };
 
@@ -69,7 +69,7 @@ export default function BlogPost3() {
 
         {/* Title */}
         <h1 style={{ fontSize: "clamp(36px, 5vw, 56px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", lineHeight: 1.15, marginBottom: "32px", color: "#f8fafc", letterSpacing: "-0.02em" }}>
-          How to Calculate Advance Tax for Freelancers in India (FY 2025-26)
+          How to Calculate Advance Tax for Freelancers in India (FY 2026-27)
         </h1>
 
         <div style={{ display: "flex", alignItems: "center", gap: "16px", paddingBottom: "40px", borderBottom: "1px solid rgba(255,255,255,0.05)", marginBottom: "48px" }}>

@@ -13,7 +13,10 @@ if (typeof window === "undefined") {
 }
 
 export const metadata = {
-  title: "KaroTools — Free GST Calculator, Invoice Generator & Business Tools",
+  title: {
+    template: "%s",
+    default: "KaroTools — Free GST Calculator, Invoice Generator & Business Tools",
+  },
   description: "Free online tools for Indian freelancers & small businesses — GST Calculator, GST Invoice Generator, Email Generator, Bio Generator, Freelance Rate Calculator. No login required. 100% free.",
   openGraph: {
     title: "KaroTools — Free GST Calculator, Invoice Generator & Business Tools",

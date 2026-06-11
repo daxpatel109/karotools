@@ -242,7 +242,7 @@ export default function Home() {
     { icon: "🇮🇳", title: "Built for India", desc: "GST slabs, INR formatting, CGST/SGST/IGST — every tool is designed around Indian tax laws and business norms." },
     { icon: "⚡", title: "Instant Results", desc: "No loading spinners for basic tools. Results appear live as you type. Engineered for speed." },
     { icon: "📱", title: "Works on Any Device", desc: "Fully responsive on phone, tablet and laptop. Use KaroTools from anywhere, anytime." },
-    { icon: "🔒", title: "Your Data Stays Private", desc: "We never store your invoice data, GSTIN numbers or business details. Everything stays on your device." },
+    { icon: "🛡️", title: "Your Data Stays Private", desc: "Your tool inputs and invoice data are processed locally. We use basic analytics, but your raw financial numbers remain private." },
   ];
 
   const faqs = [
@@ -515,7 +515,7 @@ export default function Home() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(300px, 100%), 1fr))", gap: 20 }}>
             {[
               { icon: "🧮", title: "Free GST Calculator India", desc: "Calculate CGST, SGST & IGST instantly. All slabs, custom rates, round-off toggle, visual breakdown & copy result.", link: "/gst-calculator", keyword: "33,000+ monthly searches" },
-              { icon: "📄", title: "Free GST Invoice Generator", desc: "Create professional GST invoices with PDF download. Your logo, GSTIN, HSN/SAC codes — no software needed.", link: "/invoice-generator", keyword: "28,000+ monthly searches" },
+              { icon: "📄", title: "Free GST Invoice Generator", desc: "Create professional GST invoices with PDF download. Your logo, GSTIN, HSN/SAC codes — no software needed.", link: "/gst-invoice-generator", keyword: "28,000+ monthly searches" },
               { icon: "📧", title: "Free Business Email Generator", desc: "Generate cold outreach, follow-up, payment reminder & proposal emails. 10 types, 4 tones, instant results.", link: "/email-generator", keyword: "15,000+ monthly searches" },
             ].map((item, i) => (
               <Reveal key={item.title} delay={i * 0.1}>
@@ -637,9 +637,11 @@ export default function Home() {
             {/* Resources */}
             <div>
               <p style={{ fontSize: 11, fontWeight: 700, color: "#cbd5e1", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 18 }}>Resources</p>
-              {["GST Guide India", "Invoice Format", "Freelance Tips", "Rate Guide", "GST Slabs 2026"].map(t => (
-                <p key={t} className="footer-link" style={{ fontSize: 14, color: "#94a3b8", marginBottom: 12, cursor: "pointer", transition: "color 0.2s" }}>{t}</p>
-              ))}
+              <Link href="/guides/gst-for-freelancers-india" className="footer-link" style={{ display: "block", textDecoration: "none", fontSize: 14, color: "#94a3b8", marginBottom: 12, transition: "color 0.2s" }}>GST Guide India</Link>
+              <Link href="/blog/make-gst-invoice-online-free" className="footer-link" style={{ display: "block", textDecoration: "none", fontSize: 14, color: "#94a3b8", marginBottom: 12, transition: "color 0.2s" }}>Invoice Format</Link>
+              <Link href="/blog/section-44ada-freelancers" className="footer-link" style={{ display: "block", textDecoration: "none", fontSize: 14, color: "#94a3b8", marginBottom: 12, transition: "color 0.2s" }}>44ADA Tax Tips</Link>
+              <Link href="/guides/how-to-price-freelance-services" className="footer-link" style={{ display: "block", textDecoration: "none", fontSize: 14, color: "#94a3b8", marginBottom: 12, transition: "color 0.2s" }}>Rate Guide</Link>
+              <Link href="/guides" className="footer-link" style={{ display: "block", textDecoration: "none", fontSize: 14, color: "#94a3b8", marginBottom: 12, transition: "color 0.2s" }}>View All Guides</Link>
             </div>
           </div>
 
@@ -652,7 +654,7 @@ export default function Home() {
           {/* General Website Disclaimer */}
           <div style={{ borderTop: "1px solid rgba(255,255,255,0.04)", paddingTop: 24, marginTop: 24, textAlign: "center" }}>
             <p style={{ fontSize: 11, color: "#475569", lineHeight: 1.6, maxWidth: 1000, margin: "0 auto" }}>
-              <strong>Disclaimer:</strong> All calculators and tools on KaroTools.in are provided for educational and informational purposes only. While we strive to keep the logic updated with the latest Indian tax laws (FY 2025-26), the results generated are estimates and do not constitute professional financial, legal, or tax advice. We strongly recommend consulting a certified Chartered Accountant or legal professional before making any business decisions or filing your taxes. KaroTools is not responsible for any financial loss, penalties, or compliance errors resulting from the use of this website.
+              <strong>Disclaimer:</strong> All calculators and tools on KaroTools.in are provided for educational and informational purposes only. While we strive to keep the logic updated with the latest Indian tax laws (FY 2026-27), the results generated are estimates and do not constitute professional financial, legal, or tax advice. We strongly recommend consulting a certified Chartered Accountant or legal professional before making any business decisions or filing your taxes. KaroTools is not responsible for any financial loss, penalties, or compliance errors resulting from the use of this website.
             </p>
           </div>
         </div>

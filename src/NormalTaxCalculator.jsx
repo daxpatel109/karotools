@@ -15,7 +15,7 @@ export default function NormalTaxCalculator() {
     document.title = "Non-44ADA Income Tax Calculator for High Earners (>₹75L)";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) { meta = document.createElement('meta'); meta.name = "description"; document.head.appendChild(meta); }
-    meta.content = "Calculate your exact freelance tax liability under the New Tax Regime (FY 2025-26) if you earn over ₹75 Lakhs or have high actual expenses (No 44ADA).";
+    meta.content = "Calculate your exact freelance tax liability under the New Tax Regime (FY 2026-27) if you earn over ₹75 Lakhs or have high actual expenses (No 44ADA).";
 
     // JSON-LD FAQ Schema
     const faqSchema = {
@@ -248,7 +248,7 @@ export default function NormalTaxCalculator() {
         <div style={{ maxWidth: "1000px", width: "100%", display: "flex", flexDirection: "column", gap: "32px" }}>
           
           <div style={{ textAlign: "center", marginBottom: "20px" }}>
-            <span style={{ background: "rgba(244,63,94,0.1)", color: "#fb7185", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em" }}>FY 2025-26 (NEW REGIME)</span>
+            <span style={{ background: "rgba(244,63,94,0.1)", color: "#fb7185", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em" }}>FY 2026-27 (NEW REGIME)</span>
             <h1 style={{ fontSize: "clamp(32px, 5vw, 42px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", margin: "0 0 16px 0", lineHeight: 1.1 }}>
               <span style={{ color: "#f8fafc" }}>Income Tax Calculator</span><br/>
               <span style={{ background: "linear-gradient(135deg, #f43f5e, #ec4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>(Non-44ADA / &gt;₹75L)</span>
@@ -440,7 +440,7 @@ export default function NormalTaxCalculator() {
               <div style={{ background: "rgba(0,118,255,0.05)", border: "1px solid rgba(0,118,255,0.1)", borderRadius: "16px", padding: "20px", marginTop: "32px" }}>
                 <p style={{ margin: 0, color: "#cbd5e1", fontSize: "14px", lineHeight: "1.6" }}>
                   <strong>Tax Summary:</strong> A freelancer or agency earning {formatCurrency(parseFloat(grossIncome) || 0)} with {formatCurrency(parseFloat(expenses) || 0)} in business expenses has a taxable profit of {formatCurrency(results.taxableIncome)}. 
-                  Under the New Tax Regime for FY 2025-26, the estimated tax liability is <strong>{formatCurrency(results.totalTax)}</strong> (an effective tax rate of {results.effectiveRate}%).
+                  Under the New Tax Regime for FY 2026-27, the estimated tax liability is <strong>{formatCurrency(results.totalTax)}</strong> (an effective tax rate of {results.effectiveRate}%).
                   {results.is44ADAEligible && results.adaSavings > 0 ? " Note: Since your expenses are less than 50% of your revenue and you earn under ₹75L, you might save tax by opting for Section 44ADA instead." : ""}
                 </p>
               </div>

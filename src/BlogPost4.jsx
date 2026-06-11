@@ -83,7 +83,7 @@ export default function BlogPost4() {
             <div style={{ display: "none", width: "100%", height: "100%", alignItems: "center", justifyContent: "center", background: "linear-gradient(135deg,#38bdf8,#818cf8)", color: "white", fontWeight: "bold", fontSize: "20px" }}>DP</div>
           </div>
           <div>
-            <div style={{ fontWeight: "700", color: "#f1f5f9", fontSize: "16px" }}>Dax Patel</div>
+            <Link href="/author/dax-patel" style={{ fontWeight: "700", color: "#f1f5f9", fontSize: "16px", textDecoration: "none" }} onMouseEnter={e => e.target.style.textDecoration = "underline"} onMouseLeave={e => e.target.style.textDecoration = "none"}>Dax Patel</Link>
             <div style={{ color: "#64748b", fontSize: "14px" }}>Founder, KaroTools</div>
           </div>
         </div>

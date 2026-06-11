@@ -258,7 +258,7 @@ export default function InvoiceGenerator() {
       <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
       <style>{`
         input::placeholder,textarea::placeholder{color:#475569}
-        input:focus,textarea:focus,select:focus{border-color:rgba(14,165,233,0.5)!important;outline:none}
+        input:focus,textarea:focus,select:focus{border-color:rgba(0,118,255,0.5)!important;outline:none}
         select option{background:#0f172a;color:#f8fafc}
         
         /* A4 Live Preview Scaling */
@@ -331,7 +331,7 @@ export default function InvoiceGenerator() {
           transition: background 0.2s;
         }
         .sidebar-resizer:hover, .sidebar-resizer:active {
-          background: rgba(14,165,233,0.5) !important;
+          background: rgba(0,118,255,0.5) !important;
         }
         .canvas-area {
           flex: 1;
@@ -407,7 +407,7 @@ export default function InvoiceGenerator() {
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
   <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
-    Karo<span style={{ background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
+    Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
 </div>
         </Link>
@@ -420,7 +420,7 @@ export default function InvoiceGenerator() {
           <div className="editor-sidebar" style={{ "--sidebar-width": `${sidebarWidth}px` }}>
             
             <div style={{ marginBottom: "40px" }}>
-              <span style={{ background: "rgba(14,165,233,0.1)", color: "#38bdf8", padding: "6px 14px", borderRadius: "50px", fontSize: "11px", fontWeight: "700", letterSpacing: "0.05em", border: "1px solid rgba(14,165,233,0.2)" }}>PRO WORKSPACE</span>
+              <span style={{ background: "rgba(0,118,255,0.1)", color: "#38bdf8", padding: "6px 14px", borderRadius: "50px", fontSize: "11px", fontWeight: "700", letterSpacing: "0.05em", border: "1px solid rgba(0,118,255,0.2)" }}>PRO WORKSPACE</span>
               <h1 style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Syne',sans-serif", margin: "16px 0 8px 0", color: "#f8fafc", letterSpacing: "-0.5px" }}>
                 Invoice Editor
               </h1>
@@ -541,7 +541,7 @@ export default function InvoiceGenerator() {
                   ))}
                 </div>
               </div>
-              <button onClick={addItem} style={{ width: "100%", padding: "12px", marginTop: "16px", background: "rgba(14,165,233,0.1)", border: "1px dashed rgba(14,165,233,0.3)", borderRadius: "8px", color: "#38bdf8", fontWeight: "600", cursor: "pointer" }}>+ Add Item</button>
+              <button onClick={addItem} style={{ width: "100%", padding: "12px", marginTop: "16px", background: "rgba(0,118,255,0.1)", border: "1px dashed rgba(0,118,255,0.3)", borderRadius: "8px", color: "#38bdf8", fontWeight: "600", cursor: "pointer" }}>+ Add Item</button>
             </div>
 
             <div className="split-2-col">
@@ -566,13 +566,13 @@ export default function InvoiceGenerator() {
           <div
             className="sidebar-resizer"
             onMouseDown={() => setIsDragging(true)}
-            style={isDragging ? { background: "rgba(14,165,233,0.8)" } : {}}
+            style={isDragging ? { background: "rgba(0,118,255,0.8)" } : {}}
           />
 
           {/* RIGHT: Live Preview Canvas */}
           <div className="canvas-area">
             
-            <button onClick={downloadPDF} disabled={isExporting} style={{ position: "sticky", top: "0px", zIndex: 10, width: "100%", maxWidth: "794px", padding: "18px", background: "linear-gradient(135deg, #0ea5e9, #14b8a6)", color: "white", fontSize: "16px", fontWeight: "800", fontFamily: "'Syne',sans-serif", borderRadius: "14px", border: "1px solid rgba(255,255,255,0.2)", cursor: isExporting ? "wait" : "pointer", display: "flex", justifyContent: "center", alignItems: "center", gap: "12px", boxShadow: "0 10px 30px rgba(14,165,233,0.3), inset 0 2px 4px rgba(255,255,255,0.3)", transition: "all 0.2s" }} onMouseEnter={e => {e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 15px 35px rgba(14,165,233,0.4), inset 0 2px 4px rgba(255,255,255,0.3)";}} onMouseLeave={e => {e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 10px 30px rgba(14,165,233,0.3), inset 0 2px 4px rgba(255,255,255,0.3)";}}>
+            <button onClick={downloadPDF} disabled={isExporting} style={{ position: "sticky", top: "0px", zIndex: 10, width: "100%", maxWidth: "794px", padding: "18px", background: "linear-gradient(135deg, #0076ff, #00c6ff)", color: "white", fontSize: "16px", fontWeight: "800", fontFamily: "'Syne',sans-serif", borderRadius: "14px", border: "1px solid rgba(255,255,255,0.2)", cursor: isExporting ? "wait" : "pointer", display: "flex", justifyContent: "center", alignItems: "center", gap: "12px", boxShadow: "0 10px 30px rgba(0,118,255,0.3), inset 0 2px 4px rgba(255,255,255,0.3)", transition: "all 0.2s" }} onMouseEnter={e => {e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 15px 35px rgba(0,118,255,0.4), inset 0 2px 4px rgba(255,255,255,0.3)";}} onMouseLeave={e => {e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 10px 30px rgba(0,118,255,0.3), inset 0 2px 4px rgba(255,255,255,0.3)";}}>
               {isExporting ? "⏳ Generating High-Res PDF..." : "📥 Download Legal PDF"}
             </button>
 
@@ -581,7 +581,7 @@ export default function InvoiceGenerator() {
                 {/* Actual A4 Canvas */}
                 <div ref={previewRef} id="a4-container" className="a4-container">
                 {/* Header Teal Line */}
-                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "8px", background: "linear-gradient(90deg, #0ea5e9, #14b8a6)" }} />
+                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "8px", background: "linear-gradient(90deg, #0076ff, #00c6ff)" }} />
                 
                 {/* Invoice Header */}
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "40px", marginTop: "10px" }}>
@@ -589,7 +589,7 @@ export default function InvoiceGenerator() {
                     {seller.logo ? (
                       <img src={seller.logo} alt="Company Logo" style={{ maxHeight: "80px", maxWidth: "250px", objectFit: "contain", marginBottom: "16px" }} />
                     ) : (
-                      <h1 style={{ fontSize: "36px", fontWeight: "800", color: "#0ea5e9", margin: "0 0 16px 0", letterSpacing: "-1px" }}>TAX INVOICE</h1>
+                      <h1 style={{ fontSize: "36px", fontWeight: "800", color: "#0076ff", margin: "0 0 16px 0", letterSpacing: "-1px" }}>TAX INVOICE</h1>
                     )}
                     <div style={{ display: "flex", gap: "24px" }}>
                       <div><div style={{ fontSize: "11px", color: "#64748b", fontWeight: "700", textTransform: "uppercase" }}>Invoice No</div><div style={{ fontSize: "14px", fontWeight: "600", color: "#0f172a" }}>{invoice.number || "-"}</div></div>
@@ -608,7 +608,7 @@ export default function InvoiceGenerator() {
                 </div>
 
                 {/* Bill To */}
-                <div style={{ marginBottom: "40px", padding: "20px", background: "#f8fafc", borderRadius: "8px", borderLeft: "4px solid #0ea5e9" }}>
+                <div style={{ marginBottom: "40px", padding: "20px", background: "#f8fafc", borderRadius: "8px", borderLeft: "4px solid #0076ff" }}>
                   <div style={{ fontSize: "11px", color: "#64748b", fontWeight: "700", textTransform: "uppercase", marginBottom: "8px" }}>Bill To</div>
                   <h3 style={{ fontSize: "16px", fontWeight: "700", margin: "0 0 4px 0", color: "#0f172a" }}>{buyer.name || "Client Name"}</h3>
                   {buyer.address && <p style={{ fontSize: "13px", color: "#475569", margin: "0 0 4px 0", whiteSpace: "pre-wrap" }}>{buyer.address}</p>}
@@ -702,9 +702,9 @@ export default function InvoiceGenerator() {
                 </div>
 
                 {/* Terms / MSME Rule */}
-                <div style={{ padding: "20px", background: seller.udyam ? "rgba(14,165,233,0.05)" : "#f8fafc", border: seller.udyam ? "1px solid rgba(14,165,233,0.2)" : "1px solid #e2e8f0", borderRadius: "8px", marginBottom: "60px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <div style={{ padding: "20px", background: seller.udyam ? "rgba(0,118,255,0.05)" : "#f8fafc", border: seller.udyam ? "1px solid rgba(0,118,255,0.2)" : "1px solid #e2e8f0", borderRadius: "8px", marginBottom: "60px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                   <div style={{ flex: 1, paddingRight: "20px" }}>
-                    <div style={{ fontSize: "11px", color: seller.udyam ? "#0ea5e9" : "#64748b", fontWeight: "700", textTransform: "uppercase", marginBottom: "8px" }}>Terms & Conditions</div>
+                    <div style={{ fontSize: "11px", color: seller.udyam ? "#0076ff" : "#64748b", fontWeight: "700", textTransform: "uppercase", marginBottom: "8px" }}>Terms & Conditions</div>
                     <p style={{ fontSize: "12px", color: "#475569", margin: 0, whiteSpace: "pre-wrap", lineHeight: "1.6" }}>
                       {finalNotes}
                     </p>

@@ -109,7 +109,7 @@ export default function RateCalculator() {
     const rotateY = ((x - centerX) / centerX) * 8;
     
     ref.current.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-    ref.current.style.boxShadow = `${-rotateY * 2}px ${rotateX * 2}px 30px rgba(14, 165, 233, 0.3)`;
+    ref.current.style.boxShadow = `${-rotateY * 2}px ${rotateX * 2}px 30px rgba(0,118,255, 0.3)`;
   };
 
   const handleMouseLeave = (ref) => {
@@ -126,7 +126,7 @@ export default function RateCalculator() {
   const handleDownloadReport = () => window.print();
 
   // 🚀 FLUID HYBRID INPUT
-  const HybridInput = ({ label, value, setter, min, max, step, prefix = "", suffix = "", color = "#0ea5e9" }) => {
+  const HybridInput = ({ label, value, setter, min, max, step, prefix = "", suffix = "", color = "#0076ff" }) => {
     const percentage = Math.max(0, Math.min(100, ((value - min) / (max - min)) * 100));
 
     return (
@@ -170,12 +170,12 @@ export default function RateCalculator() {
   };
 
   return (
-    <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans', sans-serif", color: "#f8fafc", selectionColor: "#fff", selectionBackground: "#0ea5e9" }}>
+    <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans', sans-serif", color: "#f8fafc", selectionColor: "#fff", selectionBackground: "#0076ff" }}>
       <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
       
       <style dangerouslySetInnerHTML={{ __html: `
-        ::selection { background: rgba(14, 165, 233, 0.4); color: white; }
-        ::-moz-selection { background: rgba(14, 165, 233, 0.4); color: white; }
+        ::selection { background: rgba(0,118,255, 0.4); color: white; }
+        ::-moz-selection { background: rgba(0,118,255, 0.4); color: white; }
         
         @keyframes fadeIn { from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)} }
 
@@ -199,7 +199,7 @@ export default function RateCalculator() {
         }
         .interactive-btn:hover {
           transform: translateY(-2px);
-          box-shadow: 0 12px 24px -10px rgba(14, 165, 233, 0.25);
+          box-shadow: 0 12px 24px -10px rgba(0,118,255, 0.25);
         }
         .interactive-btn:active { transform: translateY(1px) scale(0.98); }
 
@@ -217,14 +217,14 @@ export default function RateCalculator() {
         }
         .preset-btn:hover {
           transform: translateY(-2px);
-          background: rgba(14, 165, 233, 0.15);
+          background: rgba(0,118,255, 0.15);
           border-color: rgba(56, 189, 248, 0.4);
           color: #38bdf8;
-          box-shadow: 0 8px 20px rgba(14, 165, 233, 0.15);
+          box-shadow: 0 8px 20px rgba(0,118,255, 0.15);
         }
 
         .brand-text {
-          background: linear-gradient(135deg, #0ea5e9, #14b8a6, #0ea5e9);
+          background: linear-gradient(135deg, #0076ff, #00c6ff, #0076ff);
           background-size: 200% auto;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
@@ -232,8 +232,8 @@ export default function RateCalculator() {
 
         .input-focus-wrap:focus-within {
           border-color: rgba(56, 189, 248, 0.6) !important;
-          background: rgba(14, 165, 233, 0.1) !important;
-          box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.15), inset 0 2px 4px rgba(0,0,0,0.2) !important;
+          background: rgba(0,118,255, 0.1) !important;
+          box-shadow: 0 0 0 4px rgba(0,118,255, 0.15), inset 0 2px 4px rgba(0,0,0,0.2) !important;
         }
 
         input[type=range] {
@@ -284,14 +284,14 @@ export default function RateCalculator() {
           .glass-panel { background: #f8fafc !important; border: 1px solid #e2e8f0 !important; box-shadow: none !important; color: #0f172a !important; break-inside: avoid; transform: none !important; }
           .brand-text, .text-gradient { -webkit-text-fill-color: #0f172a !important; background: none !important; color: #0f172a !important; }
           h1, h2, h3, p, span, div { color: #0f172a !important; }
-          .print-header { border-bottom: 2px solid #0ea5e9; padding-bottom: 20px; margin-bottom: 30px; }
+          .print-header { border-bottom: 2px solid #0076ff; padding-bottom: 20px; margin-bottom: 30px; }
         }
       `}} />
 
       {/* Ambient Premium Background */}
       <div className="no-print" style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0 }}>
-        <div style={{ position: "absolute", top: "-10%", left: "-10%", width: "60%", height: "60%", background: "radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, transparent 60%)", filter: "blur(60px)" }} />
-        <div style={{ position: "absolute", bottom: "-10%", right: "-10%", width: "60%", height: "60%", background: "radial-gradient(circle, rgba(20, 184, 166, 0.06) 0%, transparent 60%)", filter: "blur(60px)" }} />
+        <div style={{ position: "absolute", top: "-10%", left: "-10%", width: "60%", height: "60%", background: "radial-gradient(circle, rgba(0,118,255, 0.08) 0%, transparent 60%)", filter: "blur(60px)" }} />
+        <div style={{ position: "absolute", bottom: "-10%", right: "-10%", width: "60%", height: "60%", background: "radial-gradient(circle, rgba(0,198,255, 0.06) 0%, transparent 60%)", filter: "blur(60px)" }} />
       </div>
 
       <nav style={{ position: "sticky", top: 0, zIndex: 100, padding: "0 40px", height: "70px", display: "flex", alignItems: "center", justifyContent: "space-between", background: "rgba(8,8,20,0.9)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
@@ -299,7 +299,7 @@ export default function RateCalculator() {
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
   <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
-    Karo<span style={{ background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
+    Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
 </div>
         </a>
@@ -333,9 +333,9 @@ export default function RateCalculator() {
 
         <div className="no-print" style={{ animation: "fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1)", marginBottom: "40px" }}>
           <div className="responsive-grid">
-            <HybridInput label="Monthly Expenses" value={monthlyExpenses} setter={setMonthlyExpenses} min={10000} max={500000} step={1000} prefix="₹" color="#0ea5e9" />
-            <HybridInput label="Desired Savings" value={desiredSavings} setter={setDesiredSavings} min={0} max={300000} step={1000} prefix="₹" color="#14b8a6" />
-            <HybridInput label="Working Days / Month" value={workingDays} setter={setWorkingDays} min={5} max={30} step={1} suffix="Days" color="#8b5cf6" />
+            <HybridInput label="Monthly Expenses" value={monthlyExpenses} setter={setMonthlyExpenses} min={10000} max={500000} step={1000} prefix="₹" color="#0076ff" />
+            <HybridInput label="Desired Savings" value={desiredSavings} setter={setDesiredSavings} min={0} max={300000} step={1000} prefix="₹" color="#00c6ff" />
+            <HybridInput label="Working Days / Month" value={workingDays} setter={setWorkingDays} min={5} max={30} step={1} suffix="Days" color="#005ae6" />
             <HybridInput label="Billable Hrs / Day" value={hoursPerDay} setter={setHoursPerDay} min={1} max={14} step={1} suffix="Hrs" color="#f43f5e" />
           </div>
           <div style={{ marginTop: "20px" }}>
@@ -350,12 +350,12 @@ export default function RateCalculator() {
             ref={heroRef}
             onMouseMove={(e) => handleMouseMove(e, heroRef)}
             onMouseLeave={() => handleMouseLeave(heroRef)}
-            style={{ background: "linear-gradient(145deg, rgba(14, 165, 233, 0.15), rgba(20,184,166,0.1))", border: "1px solid rgba(14, 165, 233, 0.3)", borderRadius: "28px", padding: "clamp(32px, 6vw, 48px) clamp(20px, 4vw, 24px)", textAlign: "center", marginBottom: "48px", position: "relative", transition: "transform 0.1s ease-out, box-shadow 0.1s ease-out", transformStyle: "preserve-3d" }}
+            style={{ background: "linear-gradient(145deg, rgba(0,118,255, 0.15), rgba(0,198,255,0.1))", border: "1px solid rgba(0,118,255, 0.3)", borderRadius: "28px", padding: "clamp(32px, 6vw, 48px) clamp(20px, 4vw, 24px)", textAlign: "center", marginBottom: "48px", position: "relative", transition: "transform 0.1s ease-out, box-shadow 0.1s ease-out", transformStyle: "preserve-3d" }}
           >
             <div className="no-print" style={{ position: "absolute", top: 0, left: 0, right: 0, height: "1px", background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)" }} />
             
             <p style={{ color: "#bae6fd", fontSize: "clamp(12px, 3vw, 14px)", fontWeight: "800", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "16px", transform: "translateZ(30px)", wordWrap: "break-word" }}>Base Minimum Hourly Rate</p>
-            <p className="text-gradient" style={{ fontSize: "clamp(48px, 10vw, 72px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", background: "linear-gradient(135deg, #ffffff, #bae6fd)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", lineHeight: 1, filter: "drop-shadow(0 4px 20px rgba(14, 165, 233, 0.3))", transform: "translateZ(50px)", wordBreak: "break-word" }}>
+            <p className="text-gradient" style={{ fontSize: "clamp(48px, 10vw, 72px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", background: "linear-gradient(135deg, #ffffff, #bae6fd)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", lineHeight: 1, filter: "drop-shadow(0 4px 20px rgba(0,118,255, 0.3))", transform: "translateZ(50px)", wordBreak: "break-word" }}>
               ₹{fmt(hourlyRate)}
             </p>
             
@@ -383,7 +383,7 @@ export default function RateCalculator() {
                 <h2 style={{ fontSize: "clamp(24px, 5vw, 28px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "8px" }}>Client Packaging Matrix</h2>
                 <p style={{ color: "#94a3b8", fontSize: "clamp(14px, 3vw, 15px)" }}>Never quote hourly again. Pitch these SaaS-style productized tiers based on your rate.</p>
               </div>
-              <button onClick={handleDownloadReport} className="interactive-btn" style={{ padding: "12px 24px", background: "linear-gradient(135deg, #0ea5e9, #2563eb)", color: "#fff", border: "none", borderRadius: "12px", fontWeight: "700", fontSize: "14px", display: "flex", gap: "8px", alignItems: "center", cursor: "pointer", boxShadow: "0 4px 16px rgba(14, 165, 233, 0.3)", whiteSpace: "nowrap" }}>
+              <button onClick={handleDownloadReport} className="interactive-btn" style={{ padding: "12px 24px", background: "linear-gradient(135deg, #0076ff, #2563eb)", color: "#fff", border: "none", borderRadius: "12px", fontWeight: "700", fontSize: "14px", display: "flex", gap: "8px", alignItems: "center", cursor: "pointer", boxShadow: "0 4px 16px rgba(0,118,255, 0.3)", whiteSpace: "nowrap" }}>
                 📄 Export PDF Report
               </button>
             </div>
@@ -413,9 +413,9 @@ export default function RateCalculator() {
                 onMouseMove={(e) => handleMouseMove(e, proRef)}
                 onMouseLeave={() => handleMouseLeave(proRef)}
                 className="glass-panel" 
-                style={{ borderRadius: "20px", padding: "clamp(24px, 4vw, 32px)", background: "linear-gradient(180deg, rgba(14, 165, 233, 0.1) 0%, rgba(255,255,255,0.02) 100%)", borderTop: "4px solid #0ea5e9", position: "relative", transition: "transform 0.1s ease-out", transformStyle: "preserve-3d" }}
+                style={{ borderRadius: "20px", padding: "clamp(24px, 4vw, 32px)", background: "linear-gradient(180deg, rgba(0,118,255, 0.1) 0%, rgba(255,255,255,0.02) 100%)", borderTop: "4px solid #0076ff", position: "relative", transition: "transform 0.1s ease-out", transformStyle: "preserve-3d" }}
               >
-                <div className="no-print" style={{ position: "absolute", top: "-12px", left: "50%", transform: "translateX(-50%) translateZ(30px)", background: "#0ea5e9", color: "#fff", padding: "4px 12px", borderRadius: "20px", fontSize: "11px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "1px", whiteSpace: "nowrap" }}>Most Popular</div>
+                <div className="no-print" style={{ position: "absolute", top: "-12px", left: "50%", transform: "translateX(-50%) translateZ(30px)", background: "#0076ff", color: "#fff", padding: "4px 12px", borderRadius: "20px", fontSize: "11px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "1px", whiteSpace: "nowrap" }}>Most Popular</div>
                 <h3 style={{ fontSize: "clamp(18px, 4vw, 20px)", fontWeight: "800", color: "#38bdf8", fontFamily: "'Syne',sans-serif", transform: "translateZ(20px)" }}>Professional</h3>
                 <p style={{ fontSize: "13px", color: "#94a3b8", marginBottom: "20px", transform: "translateZ(20px)", minHeight: "40px" }}>The standard engagement for complete execution.</p>
                 <div style={{ fontSize: "clamp(28px, 6vw, 36px)", fontWeight: "800", color: "#fff", fontFamily: "'Syne',sans-serif", marginBottom: "24px", transform: "translateZ(40px)", wordBreak: "break-word" }}>₹{fmt(tierPro)}</div>
@@ -433,16 +433,16 @@ export default function RateCalculator() {
                 onMouseMove={(e) => handleMouseMove(e, eliteRef)}
                 onMouseLeave={() => handleMouseLeave(eliteRef)}
                 className="glass-panel" 
-                style={{ borderRadius: "20px", padding: "clamp(24px, 4vw, 32px)", borderTop: "4px solid #14b8a6", transition: "transform 0.1s ease-out", transformStyle: "preserve-3d" }}
+                style={{ borderRadius: "20px", padding: "clamp(24px, 4vw, 32px)", borderTop: "4px solid #00c6ff", transition: "transform 0.1s ease-out", transformStyle: "preserve-3d" }}
               >
-                <h3 style={{ fontSize: "clamp(18px, 4vw, 20px)", fontWeight: "800", color: "#14b8a6", fontFamily: "'Syne',sans-serif", transform: "translateZ(20px)" }}>Premium Retainer</h3>
+                <h3 style={{ fontSize: "clamp(18px, 4vw, 20px)", fontWeight: "800", color: "#00c6ff", fontFamily: "'Syne',sans-serif", transform: "translateZ(20px)" }}>Premium Retainer</h3>
                 <p style={{ fontSize: "13px", color: "#94a3b8", marginBottom: "20px", transform: "translateZ(20px)", minHeight: "40px" }}>High-touch involvement. Acts as an integrated team.</p>
                 <div style={{ fontSize: "clamp(28px, 6vw, 36px)", fontWeight: "800", color: "#e2e8f0", fontFamily: "'Syne',sans-serif", marginBottom: "24px", transform: "translateZ(40px)", wordBreak: "break-word" }}>₹{fmt(tierElite)}<span style={{ fontSize: "16px", color: "#64748b" }}>/mo</span></div>
                 <ul style={{ listStyle: "none", padding: 0, margin: 0, color: "#cbd5e1", fontSize: "14px", transform: "translateZ(10px)" }}>
-                  <li style={{ marginBottom: "12px", display: "flex", gap: "8px" }}><span style={{ color: "#14b8a6" }}>✓</span> ~50 Hours of Focus</li>
-                  <li style={{ marginBottom: "12px", display: "flex", gap: "8px" }}><span style={{ color: "#14b8a6" }}>✓</span> White-Glove Support</li>
-                  <li style={{ marginBottom: "12px", display: "flex", gap: "8px" }}><span style={{ color: "#14b8a6" }}>✓</span> Unlimited Revisions</li>
-                  <li style={{ display: "flex", gap: "8px" }}><span style={{ color: "#14b8a6" }}>✓</span> Weekly Sync Calls</li>
+                  <li style={{ marginBottom: "12px", display: "flex", gap: "8px" }}><span style={{ color: "#00c6ff" }}>✓</span> ~50 Hours of Focus</li>
+                  <li style={{ marginBottom: "12px", display: "flex", gap: "8px" }}><span style={{ color: "#00c6ff" }}>✓</span> White-Glove Support</li>
+                  <li style={{ marginBottom: "12px", display: "flex", gap: "8px" }}><span style={{ color: "#00c6ff" }}>✓</span> Unlimited Revisions</li>
+                  <li style={{ display: "flex", gap: "8px" }}><span style={{ color: "#00c6ff" }}>✓</span> Weekly Sync Calls</li>
                 </ul>
               </div>
             </div>
@@ -473,7 +473,7 @@ export default function RateCalculator() {
               ].map((item, i) => (
                 <div key={item.q} className="glass-panel" style={{ padding: "clamp(24px, 4vw, 32px)", borderRadius: "20px" }}>
                   <div style={{ display: "flex", alignItems: "flex-start", gap: "16px", marginBottom: "16px" }}>
-                    <div style={{ background: "rgba(14, 165, 233, 0.15)", color: "#38bdf8", width: "28px", height: "28px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", fontWeight: "800", flexShrink: 0, marginTop: "2px", boxShadow: "0 0 12px rgba(14, 165, 233, 0.2)" }}>
+                    <div style={{ background: "rgba(0,118,255, 0.15)", color: "#38bdf8", width: "28px", height: "28px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", fontWeight: "800", flexShrink: 0, marginTop: "2px", boxShadow: "0 0 12px rgba(0,118,255, 0.2)" }}>
                       {i + 1}
                     </div>
                     <h3 style={{ fontSize: "clamp(16px, 3vw, 18px)", fontWeight: "700", color: "#f1f5f9", fontFamily: "'Syne',sans-serif", lineHeight: "1.4" }}>{item.q}</h3>

@@ -17,8 +17,8 @@ function Cursor() {
   }, []);
   return (
     <>
-      <div ref={dot} style={{ position: "fixed", width: 8, height: 8, background: "#0ea5e9", borderRadius: "50%", pointerEvents: "none", zIndex: 99999, transform: "translate(-50%,-50%)", boxShadow: "0 0 12px #0ea5e9, 0 0 24px #0ea5e9", transition: "transform 0.1s" }} />
-      <div ref={ring} style={{ position: "fixed", width: 36, height: 36, border: "1.5px solid rgba(14,165,233,0.5)", borderRadius: "50%", pointerEvents: "none", zIndex: 99998, transform: "translate(-50%,-50%)", transition: "left 0.07s ease, top 0.07s ease" }} />
+      <div ref={dot} style={{ position: "fixed", width: 8, height: 8, background: "#0076ff", borderRadius: "50%", pointerEvents: "none", zIndex: 99999, transform: "translate(-50%,-50%)", boxShadow: "0 0 12px #0076ff, 0 0 24px #0076ff", transition: "transform 0.1s" }} />
+      <div ref={ring} style={{ position: "fixed", width: 36, height: 36, border: "1.5px solid rgba(0,118,255,0.5)", borderRadius: "50%", pointerEvents: "none", zIndex: 99998, transform: "translate(-50%,-50%)", transition: "left 0.07s ease, top 0.07s ease" }} />
     </>
   );
 }
@@ -74,7 +74,7 @@ function ToolCard({ tool, index }) {
     const rx = ((e.clientY - r.top - r.height / 2) / (r.height / 2)) * -12;
     const ry = ((e.clientX - r.left - r.width / 2) / (r.width / 2)) * 12;
     el.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-8px) scale(1.02)`;
-    el.style.boxShadow = `${-ry * 2}px ${rx * 2}px 48px rgba(14,165,233,0.2), 0 32px 64px rgba(0,0,0,0.5)`;
+    el.style.boxShadow = `${-ry * 2}px ${rx * 2}px 48px rgba(0,118,255,0.2), 0 32px 64px rgba(0,0,0,0.5)`;
   };
 
   const onLeave = () => {
@@ -85,7 +85,7 @@ function ToolCard({ tool, index }) {
     setHovered(false);
   };
 
-  const accents = ["#0ea5e9","#14b8a6","#3b82f6","#8b5cf6","#f59e0b","#10b981","#ef4444","#ec4899"];
+  const accents = ["#0076ff","#00c6ff","#0076ff","#005ae6","#f59e0b","#10b981","#ef4444","#ec4899"];
   const accent = accents[index % accents.length];
 
   return (
@@ -127,7 +127,7 @@ function Particles() {
   return (
     <div style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0, overflow: "hidden" }}>
       {particles.map(p => (
-        <div key={p.id} style={{ position: "absolute", left: p.x + "%", top: p.y + "%", width: p.size, height: p.size, borderRadius: "50%", background: `rgba(14,165,233,${Math.random() * 0.3 + 0.1})`, animation: `particleFloat ${p.dur}s ${p.delay}s infinite ease-in-out alternate`, boxShadow: `0 0 ${p.size * 4}px rgba(14,165,233,0.4)` }} />
+        <div key={p.id} style={{ position: "absolute", left: p.x + "%", top: p.y + "%", width: p.size, height: p.size, borderRadius: "50%", background: `rgba(0,118,255,${Math.random() * 0.3 + 0.1})`, animation: `particleFloat ${p.dur}s ${p.delay}s infinite ease-in-out alternate`, boxShadow: `0 0 ${p.size * 4}px rgba(0,118,255,0.4)` }} />
       ))}
     </div>
   );
@@ -262,7 +262,7 @@ export default function Home() {
         * { cursor: none !important; }
         ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-track { background: #020617; }
-        ::-webkit-scrollbar-thumb { background: linear-gradient(#0ea5e9, #14b8a6); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(#0076ff, #00c6ff); border-radius: 4px; }
 
         @keyframes fadeInUp { from { opacity:0; transform:translateY(40px); } to { opacity:1; transform:translateY(0); } }
         @keyframes shimmer { 0%{background-position:-200% center} 100%{background-position:200% center} }
@@ -272,17 +272,17 @@ export default function Home() {
         @keyframes particleFloat { 0%{transform:translateY(0) scale(1);opacity:0.2} 100%{transform:translateY(-50px) scale(1.3);opacity:0.7} }
         @keyframes slideDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
         @keyframes gradientShift { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
-        @keyframes borderGlow { 0%,100%{box-shadow:0 0 20px rgba(14,165,233,0.2)} 50%{box-shadow:0 0 40px rgba(14,165,233,0.5)} }
+        @keyframes borderGlow { 0%,100%{box-shadow:0 0 20px rgba(0,118,255,0.2)} 50%{box-shadow:0 0 40px rgba(0,118,255,0.5)} }
 
         input::placeholder { color: #1e293b; }
         .nav-btn:hover { color: #f1f5f9 !important; background: rgba(255,255,255,0.06) !important; }
-        .search-box:focus { border-color: rgba(14,165,233,0.5) !important; box-shadow: 0 0 0 4px rgba(14,165,233,0.08) !important; outline: none; background: rgba(255,255,255,0.06) !important; }
+        .search-box:focus { border-color: rgba(0,118,255,0.5) !important; box-shadow: 0 0 0 4px rgba(0,118,255,0.08) !important; outline: none; background: rgba(255,255,255,0.06) !important; }
         .filter-chip:hover { background: rgba(255,255,255,0.08) !important; color: #f1f5f9 !important; }
-        .feature-card:hover { transform: translateY(-6px) !important; border-color: rgba(14,165,233,0.2) !important; background: rgba(14,165,233,0.04) !important; }
-        .faq-card:hover { border-color: rgba(14,165,233,0.2) !important; background: rgba(14,165,233,0.03) !important; }
-        .footer-link:hover { color: #0ea5e9 !important; }
-        .cta-btn-primary:hover { transform: translateY(-3px) !important; box-shadow: 0 20px 48px rgba(14,165,233,0.45) !important; }
-        .cta-btn-secondary:hover { background: rgba(255,255,255,0.08) !important; border-color: rgba(14,165,233,0.3) !important; }
+        .feature-card:hover { transform: translateY(-6px) !important; border-color: rgba(0,118,255,0.2) !important; background: rgba(0,118,255,0.04) !important; }
+        .faq-card:hover { border-color: rgba(0,118,255,0.2) !important; background: rgba(0,118,255,0.03) !important; }
+        .footer-link:hover { color: #0076ff !important; }
+        .cta-btn-primary:hover { transform: translateY(-3px) !important; box-shadow: 0 20px 48px rgba(0,118,255,0.45) !important; }
+        .cta-btn-secondary:hover { background: rgba(255,255,255,0.08) !important; border-color: rgba(0,118,255,0.3) !important; }
 
         .desktop-nav { display: flex; gap: 4px; alignItems: center; }
         .mobile-nav-toggle { display: none; background: transparent; border: none; color: #f8fafc; font-size: 24px; cursor: pointer; padding: 4px; }
@@ -298,9 +298,9 @@ export default function Home() {
 
       {/* Ambient background */}
       <div style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0 }}>
-        <div style={{ position: "absolute", top: "-20%", left: "-15%", width: "65%", height: "65%", background: "radial-gradient(circle, rgba(14,165,233,0.07) 0%, transparent 65%)", filter: "blur(80px)" }} />
-        <div style={{ position: "absolute", bottom: "-20%", right: "-15%", width: "60%", height: "60%", background: "radial-gradient(circle, rgba(20,184,166,0.05) 0%, transparent 65%)", filter: "blur(80px)" }} />
-        <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: "40%", height: "40%", background: "radial-gradient(circle, rgba(14,165,233,0.03) 0%, transparent 70%)", filter: "blur(60px)" }} />
+        <div style={{ position: "absolute", top: "-20%", left: "-15%", width: "65%", height: "65%", background: "radial-gradient(circle, rgba(0,118,255,0.07) 0%, transparent 65%)", filter: "blur(80px)" }} />
+        <div style={{ position: "absolute", bottom: "-20%", right: "-15%", width: "60%", height: "60%", background: "radial-gradient(circle, rgba(0,198,255,0.05) 0%, transparent 65%)", filter: "blur(80px)" }} />
+        <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: "40%", height: "40%", background: "radial-gradient(circle, rgba(0,118,255,0.03) 0%, transparent 70%)", filter: "blur(60px)" }} />
       </div>
 
       {/* Dot grid */}
@@ -314,7 +314,7 @@ export default function Home() {
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
   <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
-    Karo<span style={{ background: "linear-gradient(135deg, #3b82f6, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
+    Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
 </div>
         </div>
@@ -330,7 +330,7 @@ export default function Home() {
           <button className="nav-btn" onClick={() => router.push("/blog")} style={{ padding: "8px 16px", background: "transparent", border: "none", color: "#64748b", fontSize: 14, fontWeight: 500, borderRadius: 8, transition: "all 0.2s", fontFamily: "'DM Sans',sans-serif" }}>Blog</button>
           <div style={{ width: 1, height: 20, background: "rgba(255,255,255,0.08)", margin: "0 8px" }} />
           <button className="cta-btn-primary" onClick={() => document.getElementById("tools-section").scrollIntoView({ behavior: "smooth" })}
-            style={{ padding: "9px 22px", background: "linear-gradient(135deg, #0ea5e9, #14b8a6)", border: "none", borderRadius: 10, color: "#fff", fontSize: 14, fontWeight: 700, fontFamily: "'Syne',sans-serif", boxShadow: "0 4px 20px rgba(14,165,233,0.3)", transition: "all 0.3s", cursor: "pointer" }}>
+            style={{ padding: "9px 22px", background: "linear-gradient(135deg, #0076ff, #00c6ff)", border: "none", borderRadius: 10, color: "#fff", fontSize: 14, fontWeight: 700, fontFamily: "'Syne',sans-serif", boxShadow: "0 4px 20px rgba(0,118,255,0.3)", transition: "all 0.3s", cursor: "pointer" }}>
             Try Free Tools →
           </button>
         </div>
@@ -350,7 +350,7 @@ export default function Home() {
               <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
   <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
-    Karo<span style={{ background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
+    Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
 </div>
             </div>
@@ -362,7 +362,7 @@ export default function Home() {
             <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} style={{ background: "transparent", border: "none", color: "#f1f5f9", fontSize: 24, fontWeight: 700, fontFamily: "'Syne',sans-serif", textAlign: "left" }}>Blog</Link>
             <div style={{ height: 1, background: "rgba(255,255,255,0.08)", margin: "16px 0" }} />
             <button onClick={() => { setIsMobileMenuOpen(false); document.getElementById("tools-section").scrollIntoView({ behavior: "smooth" }); }}
-              style={{ padding: "16px", background: "linear-gradient(135deg, #3b82f6, #8b5cf6)", border: "none", borderRadius: 12, color: "#fff", fontSize: 18, fontWeight: 700, fontFamily: "'Syne',sans-serif", textAlign: "center" }}>
+              style={{ padding: "16px", background: "linear-gradient(135deg, #0076ff, #005ae6)", border: "none", borderRadius: 12, color: "#fff", fontSize: 18, fontWeight: 700, fontFamily: "'Syne',sans-serif", textAlign: "center" }}>
               Explore Free Tools →
             </button>
           </div>
@@ -374,13 +374,13 @@ export default function Home() {
 
         <div ref={heroRef} style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
           {[300, 460, 620, 780, 940].map((size, i) => (
-            <div key={size} style={{ position: "absolute", top: "50%", left: "50%", width: size, height: size, border: `1px solid rgba(59,130,246,${0.07 - i * 0.012})`, borderRadius: "50%", animation: `rotateRing ${18 + i * 7}s linear infinite ${i % 2 ? "reverse" : ""}` }} />
+            <div key={size} style={{ position: "absolute", top: "50%", left: "50%", width: size, height: size, border: `1px solid rgba(0,118,255,${0.07 - i * 0.012})`, borderRadius: "50%", animation: `rotateRing ${18 + i * 7}s linear infinite ${i % 2 ? "reverse" : ""}` }} />
           ))}
         </div>
 
         {/* Badge */}
-        <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(59,130,246,0.08)", border: "1px solid rgba(59,130,246,0.2)", borderRadius: 50, padding: "8px 20px", marginBottom: 36, animation: "fadeInUp 0.6s 0.1s both" }}>
-          <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#3b82f6", display: "inline-block", animation: "pulse 2s infinite" }} />
+        <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(0,118,255,0.08)", border: "1px solid rgba(0,118,255,0.2)", borderRadius: 50, padding: "8px 20px", marginBottom: 36, animation: "fadeInUp 0.6s 0.1s both" }}>
+          <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#0076ff", display: "inline-block", animation: "pulse 2s infinite" }} />
           <span style={{ fontSize: 12, color: "#60a5fa", fontWeight: 700, letterSpacing: "0.08em" }}>🇮🇳 FREE TOOLS FOR INDIAN FREELANCERS & BUSINESSES</span>
         </div>
 
@@ -389,7 +389,7 @@ export default function Home() {
           Free Tax Calculators, GST & Business Tools for Indian Freelancers
         </h1>
         <div role="heading" aria-level="1" style={{ fontSize: "clamp(24px, 4vw, 46px)", fontWeight: 800, fontFamily: "'Syne',sans-serif", lineHeight: 1.15, marginBottom: 24, animation: "fadeInUp 0.7s 0.2s both", letterSpacing: "-0.02em", maxWidth: 1000, wordWrap: "break-word" }}>
-          <span style={{ background: "linear-gradient(135deg, #ffffff 0%, #60a5fa 40%, #8b5cf6 80%)", backgroundSize: "200% auto", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "shimmer 5s linear infinite" }}>
+          <span style={{ background: "linear-gradient(135deg, #ffffff 0%, #60a5fa 40%, #005ae6 80%)", backgroundSize: "200% auto", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "shimmer 5s linear infinite" }}>
             Free Tax Calculators, GST & Business Tools
           </span>
           <br />
@@ -404,7 +404,7 @@ export default function Home() {
         {/* CTA Buttons */}
         <div style={{ display: "flex", gap: 14, marginBottom: 72, flexWrap: "wrap", justifyContent: "center", animation: "fadeInUp 0.7s 0.4s both" }}>
           <button className="cta-btn-primary" onClick={() => document.getElementById("tools-section").scrollIntoView({ behavior: "smooth" })}
-            style={{ padding: "17px 40px", background: "linear-gradient(135deg, #3b82f6, #8b5cf6)", border: "none", borderRadius: 14, color: "#fff", fontSize: 17, fontWeight: 700, fontFamily: "'Syne',sans-serif", boxShadow: "0 8px 32px rgba(99,102,241,0.35)", transition: "all 0.3s", cursor: "pointer" }}>
+            style={{ padding: "17px 40px", background: "linear-gradient(135deg, #0076ff, #005ae6)", border: "none", borderRadius: 14, color: "#fff", fontSize: 17, fontWeight: 700, fontFamily: "'Syne',sans-serif", boxShadow: "0 8px 32px rgba(99,102,241,0.35)", transition: "all 0.3s", cursor: "pointer" }}>
             Explore All Tools →
           </button>
           <Link href="/gst-calculator" style={{ textDecoration: 'none' }}>
@@ -418,7 +418,7 @@ export default function Home() {
         <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", animation: "fadeInUp 0.7s 0.5s both" }}>
           {stats.map((s, i) => (
             <div key={s.label} style={{ padding: "0 36px", textAlign: "center", borderRight: i < stats.length - 1 ? "1px solid rgba(255,255,255,0.07)" : "none" }}>
-              <div style={{ fontSize: 36, fontWeight: 800, fontFamily: "'Syne',sans-serif", background: "linear-gradient(135deg, #3b82f6, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+              <div style={{ fontSize: 36, fontWeight: 800, fontFamily: "'Syne',sans-serif", background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
                 {s.pre ? s.suffix : ""}<Counter end={s.end} suffix={s.pre ? "" : s.suffix} />
               </div>
               <div style={{ fontSize: 13, color: "#475569", fontWeight: 500, marginTop: 6 }}>{s.icon} {s.label}</div>
@@ -441,10 +441,10 @@ export default function Home() {
 
         <Reveal>
           <div style={{ textAlign: "center", marginBottom: 56 }}>
-            <p style={{ fontSize: 12, fontWeight: 700, color: "#0ea5e9", letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: 14 }}>— FREE TOOLS —</p>
+            <p style={{ fontSize: 12, fontWeight: 700, color: "#0076ff", letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: 14 }}>— FREE TOOLS —</p>
             <h2 style={{ fontSize: "clamp(30px, 4.5vw, 52px)", fontWeight: 800, fontFamily: "'Syne',sans-serif", color: "#f1f5f9", marginBottom: 14, letterSpacing: "-0.025em", lineHeight: 1.1 }}>
               Everything You Need to<br />
-              <span style={{ background: "linear-gradient(135deg, #3b82f6, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Run Your Freelance Business</span>
+              <span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Run Your Freelance Business</span>
             </h2>
             <p style={{ color: "#64748b", fontSize: 17, maxWidth: 500, margin: "0 auto" }}>Click any tool — no login, no signup, no cost. Ever.</p>
           </div>
@@ -461,7 +461,7 @@ export default function Home() {
             <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
               {filters.map(f => (
                 <button key={f} className="filter-chip" onClick={() => setActiveFilter(f)}
-                  style={{ padding: "11px 22px", borderRadius: 10, border: "1px solid", borderColor: activeFilter === f ? "rgba(14,165,233,0.5)" : "rgba(255,255,255,0.07)", background: activeFilter === f ? "rgba(14,165,233,0.12)" : "rgba(255,255,255,0.02)", color: activeFilter === f ? "#38bdf8" : "#64748b", fontSize: 13, fontWeight: 600, cursor: "pointer", transition: "all 0.2s", fontFamily: "'DM Sans',sans-serif" }}>
+                  style={{ padding: "11px 22px", borderRadius: 10, border: "1px solid", borderColor: activeFilter === f ? "rgba(0,118,255,0.5)" : "rgba(255,255,255,0.07)", background: activeFilter === f ? "rgba(0,118,255,0.12)" : "rgba(255,255,255,0.02)", color: activeFilter === f ? "#38bdf8" : "#64748b", fontSize: 13, fontWeight: 600, cursor: "pointer", transition: "all 0.2s", fontFamily: "'DM Sans',sans-serif" }}>
                   {f}
                 </button>
               ))}
@@ -483,7 +483,7 @@ export default function Home() {
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <Reveal>
             <div style={{ textAlign: "center", marginBottom: 60 }}>
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#14b8a6", letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: 14 }}>— WHY KAROTOOLS —</p>
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#00c6ff", letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: 14 }}>— WHY KAROTOOLS —</p>
               <h2 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 800, fontFamily: "'Syne',sans-serif", color: "#f1f5f9", letterSpacing: "-0.025em" }}>
                 Built for India.<br />By Freelancers, for Freelancers.
               </h2>
@@ -508,7 +508,7 @@ export default function Home() {
         <div style={{ maxWidth: 1000, margin: "0 auto" }}>
           <Reveal>
             <div style={{ textAlign: "center", marginBottom: 56 }}>
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#0ea5e9", letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: 14 }}>— MOST USED —</p>
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#0076ff", letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: 14 }}>— MOST USED —</p>
               <h2 style={{ fontSize: "clamp(26px, 3.5vw, 44px)", fontWeight: 800, fontFamily: "'Syne',sans-serif", color: "#f1f5f9", letterSpacing: "-0.02em" }}>Most Popular Tools</h2>
             </div>
           </Reveal>
@@ -520,15 +520,15 @@ export default function Home() {
             ].map((item, i) => (
               <Reveal key={item.title} delay={i * 0.1}>
                 <Link href={item.link} style={{ textDecoration: 'none', display: 'block' }}>
-                  <div style={{ background: "linear-gradient(135deg, rgba(14,165,233,0.06), rgba(20,184,166,0.03))", border: "1px solid rgba(14,165,233,0.15)", borderRadius: 20, padding: "32px 28px", cursor: "pointer", transition: "all 0.3s" }}
-                    onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-6px)"; e.currentTarget.style.boxShadow = "0 24px 48px rgba(14,165,233,0.15)"; }}
+                  <div style={{ background: "linear-gradient(135deg, rgba(0,118,255,0.06), rgba(0,198,255,0.03))", border: "1px solid rgba(0,118,255,0.15)", borderRadius: 20, padding: "32px 28px", cursor: "pointer", transition: "all 0.3s" }}
+                    onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-6px)"; e.currentTarget.style.boxShadow = "0 24px 48px rgba(0,118,255,0.15)"; }}
                     onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}>
                     <div style={{ fontSize: 40, marginBottom: 16 }}>{item.icon}</div>
                     <h3 style={{ fontSize: 18, fontWeight: 700, color: "#f1f5f9", marginBottom: 10, fontFamily: "'Syne',sans-serif", lineHeight: 1.3 }}>{item.title}</h3>
                     <p style={{ fontSize: 14, color: "#64748b", lineHeight: 1.65, marginBottom: 20 }}>{item.desc}</p>
                     <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                      <span style={{ fontSize: 11, color: "#0ea5e9", fontWeight: 700, background: "rgba(14,165,233,0.1)", padding: "4px 12px", borderRadius: 20, border: "1px solid rgba(14,165,233,0.2)" }}>🔥 {item.keyword}</span>
-                      <span style={{ color: "#0ea5e9", fontWeight: 700 }}>Try Now →</span>
+                      <span style={{ fontSize: 11, color: "#0076ff", fontWeight: 700, background: "rgba(0,118,255,0.1)", padding: "4px 12px", borderRadius: 20, border: "1px solid rgba(0,118,255,0.2)" }}>🔥 {item.keyword}</span>
+                      <span style={{ color: "#0076ff", fontWeight: 700 }}>Try Now →</span>
                     </div>
                   </div>
                 </Link>
@@ -543,7 +543,7 @@ export default function Home() {
         <div style={{ maxWidth: 780, margin: "0 auto" }}>
           <Reveal>
             <div style={{ textAlign: "center", marginBottom: 56 }}>
-              <p style={{ fontSize: 12, fontWeight: 700, color: "#0ea5e9", letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: 14 }}>— FAQ —</p>
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#0076ff", letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: 14 }}>— FAQ —</p>
               <h2 style={{ fontSize: "clamp(26px, 3.5vw, 44px)", fontWeight: 800, fontFamily: "'Syne',sans-serif", color: "#f1f5f9", letterSpacing: "-0.02em" }}>Frequently Asked Questions</h2>
               <p style={{ color: "#64748b", marginTop: 12, fontSize: 15 }}>Everything you need to know about KaroTools</p>
             </div>
@@ -564,9 +564,9 @@ export default function Home() {
       {/* ── CTA SECTION ─────────────────────────────────────── */}
       <section style={{ position: "relative", zIndex: 1, padding: "100px 5vw", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
         <Reveal>
-          <div style={{ maxWidth: 820, margin: "0 auto", background: "linear-gradient(135deg, rgba(14,165,233,0.1), rgba(20,184,166,0.06))", border: "1px solid rgba(14,165,233,0.18)", borderRadius: 28, padding: "8vw 5vw", textAlign: "center", position: "relative", overflow: "hidden" }}>
-            <div style={{ position: "absolute", top: 0, left: "5%", right: "5%", height: 1, background: "linear-gradient(90deg, transparent, rgba(14,165,233,0.6), transparent)" }} />
-            <div style={{ position: "absolute", bottom: 0, left: "10%", right: "10%", height: 1, background: "linear-gradient(90deg, transparent, rgba(20,184,166,0.4), transparent)" }} />
+          <div style={{ maxWidth: 820, margin: "0 auto", background: "linear-gradient(135deg, rgba(0,118,255,0.1), rgba(0,198,255,0.06))", border: "1px solid rgba(0,118,255,0.18)", borderRadius: 28, padding: "8vw 5vw", textAlign: "center", position: "relative", overflow: "hidden" }}>
+            <div style={{ position: "absolute", top: 0, left: "5%", right: "5%", height: 1, background: "linear-gradient(90deg, transparent, rgba(0,118,255,0.6), transparent)" }} />
+            <div style={{ position: "absolute", bottom: 0, left: "10%", right: "10%", height: 1, background: "linear-gradient(90deg, transparent, rgba(0,198,255,0.4), transparent)" }} />
             <div style={{ fontSize: 52, marginBottom: 24 }}>🚀</div>
             <h2 style={{ fontSize: "clamp(26px, 4vw, 44px)", fontWeight: 800, fontFamily: "'Syne',sans-serif", color: "#f1f5f9", marginBottom: 16, letterSpacing: "-0.025em" }}>
               Start Using KaroTools Today — It's Free
@@ -574,7 +574,7 @@ export default function Home() {
             <p style={{ fontSize: 17, color: "#94a3b8", marginBottom: 40, maxWidth: 500, margin: "0 auto 40px" }}>Join thousands of Indian freelancers who save hours every week with our free business tools.</p>
             <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/gst-calculator" style={{ textDecoration: 'none' }}>
-                <button className="cta-btn-primary" style={{ padding: "15px 36px", background: "linear-gradient(135deg, #0ea5e9, #14b8a6)", border: "none", borderRadius: 12, color: "#fff", fontSize: 16, fontWeight: 700, fontFamily: "'Syne',sans-serif", boxShadow: "0 8px 28px rgba(14,165,233,0.35)", cursor: "pointer", transition: "all 0.3s" }}>
+                <button className="cta-btn-primary" style={{ padding: "15px 36px", background: "linear-gradient(135deg, #0076ff, #00c6ff)", border: "none", borderRadius: 12, color: "#fff", fontSize: 16, fontWeight: 700, fontFamily: "'Syne',sans-serif", boxShadow: "0 8px 28px rgba(0,118,255,0.35)", cursor: "pointer", transition: "all 0.3s" }}>
                   🧮 GST Calculator →
                 </button>
               </Link>
@@ -598,7 +598,7 @@ export default function Home() {
                 <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
   <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
-    Karo<span style={{ background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
+    Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
 </div>
               </div>

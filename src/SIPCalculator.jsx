@@ -91,7 +91,7 @@ export default function SIPCalculator() {
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
   <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
-    Karo<span style={{ background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
+    Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
 </div>
         </Link>
@@ -197,7 +197,7 @@ export default function SIPCalculator() {
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))", gap: "24px", marginBottom: "40px" }}>
                 <div>
                   <div style={{ fontSize: "13px", color: "#94a3b8", fontWeight: "600", marginBottom: "8px", display: "flex", alignItems: "center", gap: "8px" }}>
-                    <div style={{ width: "10px", height: "10px", borderRadius: "3px", background: "#3b82f6" }}></div>
+                    <div style={{ width: "10px", height: "10px", borderRadius: "3px", background: "#0076ff" }}></div>
                     Total Invested
                   </div>
                   <div style={{ fontSize: "clamp(18px, 5vw, 24px)", fontWeight: "700", color: "#f8fafc", wordBreak: "break-all" }}>
@@ -217,7 +217,7 @@ export default function SIPCalculator() {
 
               {/* Visual Breakdown Bar */}
               <div style={{ width: "100%", height: "24px", borderRadius: "12px", background: "#0f172a", display: "flex", overflow: "hidden", border: "1px solid rgba(255,255,255,0.05)" }}>
-                <div style={{ width: `${percentageInvested}%`, background: "#3b82f6", transition: "width 0.3s ease" }}></div>
+                <div style={{ width: `${percentageInvested}%`, background: "#0076ff", transition: "width 0.3s ease" }}></div>
                 <div style={{ width: `${percentageReturns}%`, background: "#10b981", transition: "width 0.3s ease" }}></div>
               </div>
             </div>

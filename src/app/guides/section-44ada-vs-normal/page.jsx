@@ -41,7 +41,7 @@ export default function Guide3() {
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
             <img src="/logo.png" alt="KaroTools Logo" style={{ height: "clamp(40px, 10vw, 56px)", margin: "0 -16px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
             <span style={{ fontSize: "clamp(18px, 5vw, 22px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
-              Karo<span style={{ background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
+              Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
             </span>
           </div>
         </Link>
@@ -52,7 +52,7 @@ export default function Guide3() {
         
         {/* Meta */}
         <div style={{ display: "flex", gap: "16px", marginBottom: "24px", alignItems: "center", flexWrap: "wrap" }}>
-          <span style={{ background: "rgba(139,92,246,0.1)", color: "#8b5cf6", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em" }}>TAX & COMPLIANCE</span>
+          <span style={{ background: "rgba(0,90,230,0.1)", color: "#005ae6", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em" }}>TAX & COMPLIANCE</span>
           <span style={{ color: "#64748b", fontSize: "14px" }}>7 min read</span>
         </div>
 
@@ -90,12 +90,12 @@ export default function Guide3() {
             You do <strong>not</strong> need to maintain detailed books of accounts. You do <strong>not</strong> need to prove your expenses with receipts. The government simply accepts that 50% of your gross receipts were expenses, and you only pay tax on the remaining 50%.
           </p>
           
-          <div style={{ background: "rgba(139,92,246,0.05)", border: "1px solid rgba(139,92,246,0.2)", borderRadius: "16px", padding: "24px", marginTop: "24px", marginBottom: "24px" }}>
-            <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#8b5cf6", marginBottom: "12px" }}>Calculate Your Section 44ADA Tax</h3>
+          <div style={{ background: "rgba(0,90,230,0.05)", border: "1px solid rgba(0,90,230,0.2)", borderRadius: "16px", padding: "24px", marginTop: "24px", marginBottom: "24px" }}>
+            <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#005ae6", marginBottom: "12px" }}>Calculate Your Section 44ADA Tax</h3>
             <p style={{ color: "#94a3b8", fontSize: "16px", marginBottom: "20px" }}>
               See exactly how much you can save. Enter your total revenue and let our tool apply the 50% deduction and the latest tax slabs automatically.
             </p>
-            <Link href="/44ada-tax-calculator" style={{ display: "inline-block", background: "linear-gradient(135deg, #8b5cf6, #6d28d9)", color: "#fff", padding: "12px 24px", borderRadius: "10px", textDecoration: "none", fontWeight: "700", fontSize: "15px" }}>
+            <Link href="/44ada-tax-calculator" style={{ display: "inline-block", background: "linear-gradient(135deg, #005ae6, #6d28d9)", color: "#fff", padding: "12px 24px", borderRadius: "10px", textDecoration: "none", fontWeight: "700", fontSize: "15px" }}>
               Open Section 44ADA Calculator →
             </Link>
           </div>

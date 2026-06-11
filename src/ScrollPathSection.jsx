@@ -97,9 +97,9 @@ export default function ScrollPathSection() {
             <svg width="100%" height="100%" viewBox="0 0 1000 1000" preserveAspectRatio="none">
               <defs>
                 <linearGradient id="glowGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="#3b82f6" />
+                  <stop offset="0%" stopColor="#0076ff" />
                   <stop offset="50%" stopColor="#6366f1" />
-                  <stop offset="100%" stopColor="#8b5cf6" />
+                  <stop offset="100%" stopColor="#005ae6" />
                 </linearGradient>
               </defs>
               <path 

@@ -53,7 +53,7 @@ export default function CookieBanner() {
         <button 
           onClick={acceptCookies}
           style={{ 
-            background: "linear-gradient(135deg, #0ea5e9, #10b981)", 
+            background: "linear-gradient(135deg, #0076ff, #10b981)", 
             color: "white", 
             border: "none", 
             padding: "10px 24px", 

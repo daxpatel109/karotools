@@ -72,7 +72,7 @@ export default function BlogPost2() {
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "clamp(40px, 10vw, 56px)", margin: "0 -16px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
   <span style={{ fontSize: "clamp(18px, 5vw, 22px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
-    Karo<span style={{ background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
+    Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
 </div>
         </Link>
@@ -85,7 +85,7 @@ export default function BlogPost2() {
       <article style={{ maxWidth: "760px", margin: "0 auto", padding: "80px 24px 120px" }}>
         
         <div style={{ display: "flex", gap: "12px", marginBottom: "24px", alignItems: "center" }}>
-          <span style={{ background: "rgba(14,165,233,0.1)", color: "#38bdf8", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em" }}>TAX SAVINGS</span>
+          <span style={{ background: "rgba(0,118,255,0.1)", color: "#38bdf8", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em" }}>TAX SAVINGS</span>
           <span style={{ color: "#64748b", fontSize: "14px" }}>June 7, 2026 • 7 min read</span>
         </div>
 
@@ -101,7 +101,7 @@ export default function BlogPost2() {
               onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
               style={{ width: "100%", height: "100%", objectFit: "cover" }} 
             />
-            <div style={{ display: "none", width: "100%", height: "100%", alignItems: "center", justifyContent: "center", background: "linear-gradient(135deg, #0ea5e9, #14b8a6)", color: "#f8fafc", fontSize: "24px", fontWeight: "bold" }}>
+            <div style={{ display: "none", width: "100%", height: "100%", alignItems: "center", justifyContent: "center", background: "linear-gradient(135deg, #0076ff, #00c6ff)", color: "#f8fafc", fontSize: "24px", fontWeight: "bold" }}>
               DP
             </div>
           </div>
@@ -132,7 +132,7 @@ export default function BlogPost2() {
             Therefore, they allow you to declare the remaining 50% as your taxable profit. You pay zero tax on the first 50%, and you <strong>do not need to show a single receipt or maintain books of accounts.</strong>
           </p>
 
-          <div style={{ background: "rgba(14,165,233,0.05)", borderLeft: "4px solid #0ea5e9", padding: "24px", borderRadius: "0 12px 12px 0", margin: "40px 0" }}>
+          <div style={{ background: "rgba(0,118,255,0.05)", borderLeft: "4px solid #0076ff", padding: "24px", borderRadius: "0 12px 12px 0", margin: "40px 0" }}>
             <h3 style={{ margin: "0 0 12px 0", color: "#38bdf8", fontSize: "16px", textTransform: "uppercase", letterSpacing: "0.05em" }}>⚡ Try It Yourself</h3>
             <p style={{ margin: 0, color: "#cbd5e1", fontSize: "16px", lineHeight: "1.6" }}>
               Want to see the exact math? Enter your total annual income into our free <Link href="/tax-calculator" style={{ color: "#38bdf8", fontWeight: "600", textDecoration: "underline" }}>freelance tax calculator</Link> to instantly see how much you save using Section 44ADA.
@@ -192,10 +192,10 @@ export default function BlogPost2() {
             </p>
           </div>
 
-          <div style={{ marginTop: "64px", textAlign: "center", padding: "48px", background: "linear-gradient(135deg, rgba(14,165,233,0.1), rgba(20,184,166,0.1))", borderRadius: "24px", border: "1px solid rgba(14,165,233,0.2)" }}>
+          <div style={{ marginTop: "64px", textAlign: "center", padding: "48px", background: "linear-gradient(135deg, rgba(0,118,255,0.1), rgba(0,198,255,0.1))", borderRadius: "24px", border: "1px solid rgba(0,118,255,0.2)" }}>
             <h2 style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", margin: "0 0 16px 0" }}>Ready to calculate your exact tax?</h2>
             <p style={{ color: "#94a3b8", fontSize: "18px", marginBottom: "32px" }}>Use our completely free calculator built specifically for the new Indian tax slabs.</p>
-            <Link href="/tax-calculator" style={{ display: "inline-block", padding: "16px 36px", background: "linear-gradient(135deg, #0ea5e9, #14b8a6)", borderRadius: "12px", color: "white", fontSize: "18px", fontWeight: "700", textDecoration: "none", boxShadow: "0 8px 24px rgba(14,165,233,0.3)", transition: "transform 0.2s" }}>
+            <Link href="/tax-calculator" style={{ display: "inline-block", padding: "16px 36px", background: "linear-gradient(135deg, #0076ff, #00c6ff)", borderRadius: "12px", color: "white", fontSize: "18px", fontWeight: "700", textDecoration: "none", boxShadow: "0 8px 24px rgba(0,118,255,0.3)", transition: "transform 0.2s" }}>
               Calculate My Tax Now →
             </Link>
           </div>

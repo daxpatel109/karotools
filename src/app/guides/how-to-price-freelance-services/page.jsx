@@ -41,7 +41,7 @@ export default function Guide2() {
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
             <img src="/logo.png" alt="KaroTools Logo" style={{ height: "clamp(40px, 10vw, 56px)", margin: "0 -16px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
             <span style={{ fontSize: "clamp(18px, 5vw, 22px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
-              Karo<span style={{ background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
+              Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
             </span>
           </div>
         </Link>
@@ -106,12 +106,12 @@ export default function Guide2() {
             Pricing means nothing if the client constantly asks for "one more small change" (Scope Creep). To protect your effective hourly rate on fixed-price projects, you must have a contract that clearly defines the number of revisions.
           </p>
 
-          <div style={{ background: "rgba(139,92,246,0.05)", border: "1px solid rgba(139,92,246,0.2)", borderRadius: "16px", padding: "24px", marginTop: "24px", marginBottom: "24px" }}>
-            <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#8b5cf6", marginBottom: "12px" }}>Generate a Freelance Contract</h3>
+          <div style={{ background: "rgba(0,90,230,0.05)", border: "1px solid rgba(0,90,230,0.2)", borderRadius: "16px", padding: "24px", marginTop: "24px", marginBottom: "24px" }}>
+            <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#005ae6", marginBottom: "12px" }}>Generate a Freelance Contract</h3>
             <p style={{ color: "#94a3b8", fontSize: "16px", marginBottom: "20px" }}>
               Create a legally sound freelance contract that protects against scope creep and delayed payments.
             </p>
-            <Link href="/contract-generator" style={{ display: "inline-block", background: "linear-gradient(135deg, #8b5cf6, #6d28d9)", color: "#fff", padding: "12px 24px", borderRadius: "10px", textDecoration: "none", fontWeight: "700", fontSize: "15px" }}>
+            <Link href="/contract-generator" style={{ display: "inline-block", background: "linear-gradient(135deg, #005ae6, #6d28d9)", color: "#fff", padding: "12px 24px", borderRadius: "10px", textDecoration: "none", fontWeight: "700", fontSize: "15px" }}>
               Create Contract →
             </Link>
           </div>

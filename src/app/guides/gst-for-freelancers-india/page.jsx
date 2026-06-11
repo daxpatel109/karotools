@@ -41,7 +41,7 @@ export default function Guide1() {
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
             <img src="/logo.png" alt="KaroTools Logo" style={{ height: "clamp(40px, 10vw, 56px)", margin: "0 -16px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
             <span style={{ fontSize: "clamp(18px, 5vw, 22px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
-              Karo<span style={{ background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
+              Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
             </span>
           </div>
         </Link>
@@ -52,7 +52,7 @@ export default function Guide1() {
         
         {/* Meta */}
         <div style={{ display: "flex", gap: "16px", marginBottom: "24px", alignItems: "center", flexWrap: "wrap" }}>
-          <span style={{ background: "rgba(14,165,233,0.1)", color: "#0ea5e9", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em" }}>TAX & COMPLIANCE</span>
+          <span style={{ background: "rgba(0,118,255,0.1)", color: "#0076ff", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em" }}>TAX & COMPLIANCE</span>
           <span style={{ color: "#64748b", fontSize: "14px" }}>8 min read</span>
         </div>
 
@@ -83,12 +83,12 @@ export default function Guide1() {
             For most professional and technical services (like software development, graphic design, content writing, consulting), the applicable GST rate is <strong>18%</strong>.
           </p>
           
-          <div style={{ background: "rgba(14,165,233,0.05)", border: "1px solid rgba(14,165,233,0.2)", borderRadius: "16px", padding: "24px", marginTop: "24px", marginBottom: "24px" }}>
-            <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#0ea5e9", marginBottom: "12px" }}>Need to calculate GST on a project?</h3>
+          <div style={{ background: "rgba(0,118,255,0.05)", border: "1px solid rgba(0,118,255,0.2)", borderRadius: "16px", padding: "24px", marginTop: "24px", marginBottom: "24px" }}>
+            <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#0076ff", marginBottom: "12px" }}>Need to calculate GST on a project?</h3>
             <p style={{ color: "#94a3b8", fontSize: "16px", marginBottom: "20px" }}>
               Use our free tool to instantly calculate inclusive or exclusive GST amounts.
             </p>
-            <Link href="/gst-calculator" style={{ display: "inline-block", background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", color: "#fff", padding: "12px 24px", borderRadius: "10px", textDecoration: "none", fontWeight: "700", fontSize: "15px" }}>
+            <Link href="/gst-calculator" style={{ display: "inline-block", background: "linear-gradient(135deg, #0076ff, #005ae6)", color: "#fff", padding: "12px 24px", borderRadius: "10px", textDecoration: "none", fontWeight: "700", fontSize: "15px" }}>
               Open GST Calculator →
             </Link>
           </div>

@@ -314,7 +314,7 @@ function buildEmail(category, tone, fields) {
 function FocusInput({ label, value, onChange, placeholder, multiline = false }) {
   const base = { width: "100%", padding: "12px 16px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, fontSize: 14, color: "#f1f5f9", outline: "none", boxSizing: "border-box", fontFamily: "'DM Sans',sans-serif", transition: "all 0.2s" };
   const h = {
-    onFocus: e => { e.target.style.borderColor = "rgba(14,165,233,0.5)"; e.target.style.boxShadow = "0 0 0 4px rgba(14,165,233,0.08)"; e.target.style.background = "rgba(255,255,255,0.06)"; },
+    onFocus: e => { e.target.style.borderColor = "rgba(0,118,255,0.5)"; e.target.style.boxShadow = "0 0 0 4px rgba(0,118,255,0.08)"; e.target.style.background = "rgba(255,255,255,0.06)"; },
     onBlur: e => { e.target.style.borderColor = "rgba(255,255,255,0.08)"; e.target.style.boxShadow = "none"; e.target.style.background = "rgba(255,255,255,0.04)"; }
   };
   return (
@@ -423,7 +423,7 @@ export default function EmailGenerator() {
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
   <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
-    Karo<span style={{ background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
+    Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
 </div>
         </a>
@@ -434,7 +434,7 @@ export default function EmailGenerator() {
         
         {/* Header */}
         <div style={{ marginBottom: 40 }}>
-          <div style={{ display: "inline-block", background: "rgba(14,165,233,0.1)", color: "#38bdf8", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.08em", marginBottom: "16px" }}>
+          <div style={{ display: "inline-block", background: "rgba(0,118,255,0.1)", color: "#38bdf8", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.08em", marginBottom: "16px" }}>
             LIVE PREVIEW APP
           </div>
           <h1 style={{ fontSize: "clamp(32px,4vw,48px)", fontWeight: 800, fontFamily: "'Syne',sans-serif", marginBottom: "12px", color: "#fff" }}>
@@ -453,13 +453,13 @@ export default function EmailGenerator() {
             
             {/* Category Selector */}
             <div style={card}>
-              <h2 style={{ fontSize: "14px", fontWeight: "700", color: "#0ea5e9", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "16px" }}>1. Email Type</h2>
+              <h2 style={{ fontSize: "14px", fontWeight: "700", color: "#0076ff", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "16px" }}>1. Email Type</h2>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
                 {CATEGORIES.map(c => (
                   <button key={c.id} onClick={() => setCategory(c.id)}
                     style={{ padding: "12px 14px", borderRadius: "10px", textAlign: "left", cursor: "pointer", transition: "all 0.2s",
-                             background: category === c.id ? "rgba(14,165,233,0.15)" : "rgba(255,255,255,0.03)", 
-                             border: `1px solid ${category === c.id ? "rgba(14,165,233,0.4)" : "rgba(255,255,255,0.05)"}` }}>
+                             background: category === c.id ? "rgba(0,118,255,0.15)" : "rgba(255,255,255,0.03)", 
+                             border: `1px solid ${category === c.id ? "rgba(0,118,255,0.4)" : "rgba(255,255,255,0.05)"}` }}>
                     <div style={{ fontSize: "13px", fontWeight: "700", color: category === c.id ? "#38bdf8" : "#e2e8f0" }}>{c.label}</div>
                   </button>
                 ))}
@@ -468,12 +468,12 @@ export default function EmailGenerator() {
 
             {/* Tone Selector */}
             <div style={card}>
-              <h2 style={{ fontSize: "14px", fontWeight: "700", color: "#0ea5e9", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "16px" }}>2. Select Tone</h2>
+              <h2 style={{ fontSize: "14px", fontWeight: "700", color: "#0076ff", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "16px" }}>2. Select Tone</h2>
               <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
                 {TONES.map(t => (
                   <button key={t.id} onClick={() => setTone(t.id)}
                     style={{ padding: "8px 16px", borderRadius: "50px", cursor: "pointer", transition: "all 0.2s", fontSize: "13px", fontWeight: "600",
-                             background: tone === t.id ? "#0ea5e9" : "rgba(255,255,255,0.05)",
+                             background: tone === t.id ? "#0076ff" : "rgba(255,255,255,0.05)",
                              color: tone === t.id ? "#fff" : "#94a3b8", border: "none" }}>
                     {t.label}
                   </button>
@@ -483,7 +483,7 @@ export default function EmailGenerator() {
 
             {/* Dynamic Fields */}
             <div style={card}>
-              <h2 style={{ fontSize: "14px", fontWeight: "700", color: "#0ea5e9", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "16px" }}>3. Fill Details</h2>
+              <h2 style={{ fontSize: "14px", fontWeight: "700", color: "#0076ff", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "16px" }}>3. Fill Details</h2>
               
               <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                 {yourFields.map(f => <FocusInput key={f} label={FIELD_LABELS[f]} value={fields[f] || ""} onChange={v => updateField(f, v)} placeholder={PLACEHOLDERS[f] || "..."} />)}
@@ -535,7 +535,7 @@ export default function EmailGenerator() {
                 </a>
 
                 <a href={`mailto:${encodeURIComponent(fields.clientEmail || "")}?subject=${encodeURIComponent(liveEmail.subject)}&body=${encodeURIComponent(liveEmail.body)}`}
-                  style={{ flex: 1, padding: "14px", background: "linear-gradient(135deg,#0ea5e9,#14b8a6)", borderRadius: "10px", color: "#fff", fontSize: "14px", fontWeight: "700", textAlign: "center", textDecoration: "none", cursor: "pointer", display: "flex", justifyContent: "center", alignItems: "center", gap: "8px", transition: "transform 0.2s" }}
+                  style={{ flex: 1, padding: "14px", background: "linear-gradient(135deg,#0076ff,#00c6ff)", borderRadius: "10px", color: "#fff", fontSize: "14px", fontWeight: "700", textAlign: "center", textDecoration: "none", cursor: "pointer", display: "flex", justifyContent: "center", alignItems: "center", gap: "8px", transition: "transform 0.2s" }}
                   onMouseEnter={e => e.currentTarget.style.transform = "translateY(-2px)"}
                   onMouseLeave={e => e.currentTarget.style.transform = "translateY(0)"}>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> Mail App

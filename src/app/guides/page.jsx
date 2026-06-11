@@ -9,7 +9,7 @@ const guides = [
     slug: "gst-for-freelancers-india",
     category: "Tax & Compliance",
     readTime: "8 min read",
-    color: "#0ea5e9"
+    color: "#0076ff"
   },
   {
     title: "How to Price Your Freelance Services",
@@ -25,7 +25,7 @@ const guides = [
     slug: "section-44ada-vs-normal",
     category: "Tax & Compliance",
     readTime: "7 min read",
-    color: "#8b5cf6"
+    color: "#005ae6"
   }
 ];
 
@@ -45,7 +45,7 @@ export default function GuidesHub() {
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
             <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
             <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
-              Karo<span style={{ background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
+              Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
             </span>
           </div>
         </Link>

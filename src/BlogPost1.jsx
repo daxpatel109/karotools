@@ -26,7 +26,7 @@ export default function BlogPost1() {
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "clamp(40px, 10vw, 56px)", margin: "0 -16px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
   <span style={{ fontSize: "clamp(18px, 5vw, 22px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
-    Karo<span style={{ background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
+    Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
 </div>
         </Link>
@@ -39,7 +39,7 @@ export default function BlogPost1() {
       <article style={{ maxWidth: "720px", margin: "0 auto", padding: "80px 24px 120px" }}>
         
         <div style={{ display: "flex", gap: "12px", marginBottom: "24px", alignItems: "center" }}>
-          <span style={{ background: "rgba(139,92,246,0.1)", color: "#a78bfa", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em" }}>LEGAL & TAX</span>
+          <span style={{ background: "rgba(0,90,230,0.1)", color: "#a78bfa", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em" }}>LEGAL & TAX</span>
           <span style={{ color: "#64748b", fontSize: "14px" }}>June 6, 2026 • 5 min read</span>
         </div>
 
@@ -55,7 +55,7 @@ export default function BlogPost1() {
               onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
               style={{ width: "100%", height: "100%", objectFit: "cover" }} 
             />
-            <div style={{ display: "none", width: "100%", height: "100%", alignItems: "center", justifyContent: "center", background: "linear-gradient(135deg, #3b82f6, #8b5cf6)", color: "#f8fafc", fontSize: "20px", fontWeight: "bold" }}>
+            <div style={{ display: "none", width: "100%", height: "100%", alignItems: "center", justifyContent: "center", background: "linear-gradient(135deg, #0076ff, #005ae6)", color: "#f8fafc", fontSize: "20px", fontWeight: "bold" }}>
               DP
             </div>
           </div>
@@ -95,7 +95,7 @@ export default function BlogPost1() {
             Many freelancers don't realize that they can (and should) register for an <strong>Udyam Registration Certificate</strong>. It is completely free, done entirely online on the government portal, and takes about 10 minutes. Once you have that certificate, you are legally protected by the MSMED Act.
           </p>
 
-          <div style={{ background: "rgba(59,130,246,0.05)", borderLeft: "4px solid #3b82f6", padding: "24px", borderRadius: "0 12px 12px 0", margin: "40px 0" }}>
+          <div style={{ background: "rgba(0,118,255,0.05)", borderLeft: "4px solid #0076ff", padding: "24px", borderRadius: "0 12px 12px 0", margin: "40px 0" }}>
             <h3 style={{ margin: "0 0 12px 0", color: "#60a5fa", fontSize: "16px", textTransform: "uppercase", letterSpacing: "0.05em" }}>💡 Pro Tip</h3>
             <p style={{ margin: 0, color: "#cbd5e1", fontSize: "16px", lineHeight: "1.6" }}>
               Always include your Udyam Registration Number (URN) on your invoices. It signals to the client's finance team that late payments will trigger tax disallowances for them.
@@ -129,7 +129,7 @@ export default function BlogPost1() {
           </p>
 
           <div style={{ marginTop: "48px", textAlign: "center" }}>
-            <Link href="/contract-generator" style={{ display: "inline-block", padding: "16px 32px", background: "linear-gradient(135deg, #3b82f6, #8b5cf6)", borderRadius: "12px", color: "white", fontSize: "18px", fontWeight: "700", textDecoration: "none", boxShadow: "0 8px 24px rgba(139,92,246,0.3)", transition: "transform 0.2s" }}>
+            <Link href="/contract-generator" style={{ display: "inline-block", padding: "16px 32px", background: "linear-gradient(135deg, #0076ff, #005ae6)", borderRadius: "12px", color: "white", fontSize: "18px", fontWeight: "700", textDecoration: "none", boxShadow: "0 8px 24px rgba(0,90,230,0.3)", transition: "transform 0.2s" }}>
               Try the Free Contract Generator →
             </Link>
           </div>

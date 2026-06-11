@@ -236,7 +236,7 @@ export default function NormalTaxCalculator() {
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
   <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
-    Karo<span style={{ background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
+    Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
 </div>
         </Link>
@@ -259,12 +259,12 @@ export default function NormalTaxCalculator() {
           </div>
 
           {parseFloat(grossIncome) <= 7500000 && parseFloat(grossIncome) > 0 && (
-            <div style={{ background: "rgba(14,165,233,0.1)", border: "1px solid rgba(14,165,233,0.3)", borderRadius: "16px", padding: "20px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: "12px", marginBottom: "8px" }}>
+            <div style={{ background: "rgba(0,118,255,0.1)", border: "1px solid rgba(0,118,255,0.3)", borderRadius: "16px", padding: "20px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: "12px", marginBottom: "8px" }}>
               <div style={{ fontSize: "24px" }}>ℹ️</div>
               <p style={{ margin: 0, color: "#e0f2fe", fontSize: "15px", lineHeight: "1.5" }}>
                 This is the actual expense method. If your net profit margin is below 50%, this is your primary way to calculate taxes.
               </p>
-              <Link href="/tax-calculator" style={{ background: "#0ea5e9", color: "#fff", textDecoration: "none", padding: "8px 16px", borderRadius: "8px", fontWeight: "600", fontSize: "14px", marginTop: "4px", transition: "opacity 0.2s" }} onMouseEnter={e => e.target.style.opacity = 0.9} onMouseLeave={e => e.target.style.opacity = 1}>
+              <Link href="/tax-calculator" style={{ background: "#0076ff", color: "#fff", textDecoration: "none", padding: "8px 16px", borderRadius: "8px", fontWeight: "600", fontSize: "14px", marginTop: "4px", transition: "opacity 0.2s" }} onMouseEnter={e => e.target.style.opacity = 0.9} onMouseLeave={e => e.target.style.opacity = 1}>
                 Check if 44ADA is Better
               </Link>
             </div>
@@ -437,7 +437,7 @@ export default function NormalTaxCalculator() {
               )}
 
               {/* SEO Summary */}
-              <div style={{ background: "rgba(14,165,233,0.05)", border: "1px solid rgba(14,165,233,0.1)", borderRadius: "16px", padding: "20px", marginTop: "32px" }}>
+              <div style={{ background: "rgba(0,118,255,0.05)", border: "1px solid rgba(0,118,255,0.1)", borderRadius: "16px", padding: "20px", marginTop: "32px" }}>
                 <p style={{ margin: 0, color: "#cbd5e1", fontSize: "14px", lineHeight: "1.6" }}>
                   <strong>Tax Summary:</strong> A freelancer or agency earning {formatCurrency(parseFloat(grossIncome) || 0)} with {formatCurrency(parseFloat(expenses) || 0)} in business expenses has a taxable profit of {formatCurrency(results.taxableIncome)}. 
                   Under the New Tax Regime for FY 2025-26, the estimated tax liability is <strong>{formatCurrency(results.totalTax)}</strong> (an effective tax rate of {results.effectiveRate}%).

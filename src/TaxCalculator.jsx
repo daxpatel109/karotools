@@ -19,8 +19,8 @@ export default function TaxCalculatorHub() {
       desc: "Get a flat 50% deduction on your income. Perfect for software developers, consultants, and creators under the presumptive taxation scheme.",
       icon: "⚡",
       path: "/44ada-tax-calculator",
-      color: "#0ea5e9",
-      bg: "rgba(14,165,233,0.1)",
+      color: "#0076ff",
+      bg: "rgba(0,118,255,0.1)",
       popular: true
     },
     {
@@ -39,8 +39,8 @@ export default function TaxCalculatorHub() {
       desc: "Calculate exactly how much you need to pay in the 4 quarterly advance tax installments (15%, 45%, 75%, 100%) to avoid 234B/234C penalties.",
       icon: "📅",
       path: "/advance-tax-calculator",
-      color: "#14b8a6",
-      bg: "rgba(20,184,166,0.1)",
+      color: "#00c6ff",
+      bg: "rgba(0,198,255,0.1)",
       popular: false
     }
   ];
@@ -55,7 +55,7 @@ export default function TaxCalculatorHub() {
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }}>
             <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
             <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
-              Karo<span style={{ background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
+              Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
             </span>
           </div>
         </Link>
@@ -67,7 +67,7 @@ export default function TaxCalculatorHub() {
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: "64px" }}>
           <h1 style={{ fontSize: "clamp(36px, 6vw, 56px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", marginBottom: "16px", color: "#f8fafc", lineHeight: 1.1 }}>
-            Income Tax <span style={{ background: "linear-gradient(135deg,#0ea5e9,#8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Calculators</span>
+            Income Tax <span style={{ background: "linear-gradient(135deg,#0076ff,#005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Calculators</span>
           </h1>
           <p style={{ color: "#94a3b8", fontSize: "clamp(16px, 3vw, 18px)", maxWidth: "600px", margin: "0 auto", lineHeight: 1.6 }}>
             Indian tax laws are complex. Choose the calculator that fits your specific freelance situation.

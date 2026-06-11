@@ -271,7 +271,7 @@ Freelancer Signature: _______________________        Date: _______________`;
       <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
       <style>{`
         input::placeholder { color: #475569; }
-        input:focus { border-color: rgba(14,165,233,0.5) !important; background: rgba(255,255,255,0.06) !important; }
+        input:focus { border-color: rgba(0,118,255,0.5) !important; background: rgba(255,255,255,0.06) !important; }
         .glass-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; padding: 24px; }
       `}</style>
 
@@ -281,7 +281,7 @@ Freelancer Signature: _______________________        Date: _______________`;
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
   <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
-    Karo<span style={{ background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
+    Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
 </div>
         </Link>
@@ -292,7 +292,7 @@ Freelancer Signature: _______________________        Date: _______________`;
         
         {/* Header */}
         <div style={{ textAlign: "center", gridColumn: "1 / -1" }}>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(139,92,246,0.1)", border: "1px solid rgba(139,92,246,0.2)", borderRadius: "50px", padding: "6px 16px", marginBottom: "20px" }}>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(0,90,230,0.1)", border: "1px solid rgba(0,90,230,0.2)", borderRadius: "50px", padding: "6px 16px", marginBottom: "20px" }}>
             <span style={{ fontSize: "12px", color: "#a78bfa", fontWeight: "700", letterSpacing: "0.08em" }}>🇮🇳 INCLUDES MSME PAYMENT PROTECTION</span>
           </div>
           <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", marginBottom: "16px", background: "linear-gradient(135deg,#ffffff,#a78bfa)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Freelance Contract Generator</h1>
@@ -360,7 +360,7 @@ Freelancer Signature: _______________________        Date: _______________`;
                 <p style={{ textAlign: "right", color: "#64748b", fontSize: "13px", marginBottom: "30px" }}>Date: {new Date().toLocaleDateString('en-IN')}</p>
                 
                 <p style={{ marginBottom: "20px" }}>This Freelance Service Agreement ("Agreement") is made and entered into, by and between:</p>
-                <div style={{ background: "#f8fafc", padding: "16px", borderLeft: "4px solid #3b82f6", marginBottom: "30px" }}>
+                <div style={{ background: "#f8fafc", padding: "16px", borderLeft: "4px solid #0076ff", marginBottom: "30px" }}>
                   <p style={{ margin: "0 0 8px 0" }}><strong>Client:</strong> {clientName || "[Client/Company Name]"}</p>
                   <p style={{ margin: 0 }}><strong>Freelancer:</strong> {freelancerName || "[Freelancer Name]"}</p>
                 </div>
@@ -425,10 +425,10 @@ Freelancer Signature: _______________________        Date: _______________`;
             </div>
 
             <div style={{ display: "flex", gap: "16px" }}>
-              <button onClick={handleCopy} style={{ flex: 1, padding: "16px", background: copied ? "linear-gradient(135deg, #10b981, #059669)" : "linear-gradient(135deg, #3b82f6, #2563eb)", border: "none", borderRadius: "12px", color: "#fff", fontSize: "16px", fontWeight: "700", cursor: "pointer", boxShadow: "0 8px 24px rgba(59,130,246,0.3)" }}>
+              <button onClick={handleCopy} style={{ flex: 1, padding: "16px", background: copied ? "linear-gradient(135deg, #10b981, #059669)" : "linear-gradient(135deg, #0076ff, #2563eb)", border: "none", borderRadius: "12px", color: "#fff", fontSize: "16px", fontWeight: "700", cursor: "pointer", boxShadow: "0 8px 24px rgba(0,118,255,0.3)" }}>
                 {copied ? "✅ Copied" : "📋 Copy Text"}
               </button>
-              <button onClick={handleDownloadPDF} style={{ flex: 1, padding: "16px", background: "linear-gradient(135deg, #8b5cf6, #6366f1)", border: "none", borderRadius: "12px", color: "#fff", fontSize: "16px", fontWeight: "700", cursor: "pointer", boxShadow: "0 8px 24px rgba(139,92,246,0.3)" }}>
+              <button onClick={handleDownloadPDF} style={{ flex: 1, padding: "16px", background: "linear-gradient(135deg, #005ae6, #6366f1)", border: "none", borderRadius: "12px", color: "#fff", fontSize: "16px", fontWeight: "700", cursor: "pointer", boxShadow: "0 8px 24px rgba(0,90,230,0.3)" }}>
                 📄 Download PDF
               </button>
             </div>

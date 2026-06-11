@@ -225,15 +225,15 @@ export default function GSTCalculator() {
   };
 
   return (
-    <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans', sans-serif", color: "#f8fafc", selectionColor: "#fff", selectionBackground: "#0ea5e9" }}>
+    <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans', sans-serif", color: "#f8fafc", selectionColor: "#fff", selectionBackground: "#0076ff" }}>
       <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
       <style dangerouslySetInnerHTML={{ __html: `
-        ::selection { background: rgba(14, 165, 233, 0.4); color: white; }
-        ::-moz-selection { background: rgba(14, 165, 233, 0.4); color: white; }
+        ::selection { background: rgba(0,118,255, 0.4); color: white; }
+        ::-moz-selection { background: rgba(0,118,255, 0.4); color: white; }
         
         @keyframes fadeIn { from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)} }
         @keyframes countUp { from{opacity:0;transform:scale(0.95)}to{opacity:1;transform:scale(1)} }
-        @keyframes glowPulse { 0%{box-shadow: 0 0 40px rgba(14, 165, 233, 0.15)} 50%{box-shadow: 0 0 60px rgba(14, 165, 233, 0.3)} 100%{box-shadow: 0 0 40px rgba(14, 165, 233, 0.15)} }
+        @keyframes glowPulse { 0%{box-shadow: 0 0 40px rgba(0,118,255, 0.15)} 50%{box-shadow: 0 0 60px rgba(0,118,255, 0.3)} 100%{box-shadow: 0 0 40px rgba(0,118,255, 0.15)} }
         
         input[type=number]::-webkit-outer-spin-button,
         input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
@@ -255,7 +255,7 @@ export default function GSTCalculator() {
         }
         .interactive-btn:hover {
           transform: translateY(-2px);
-          box-shadow: 0 12px 24px -10px rgba(14, 165, 233, 0.25);
+          box-shadow: 0 12px 24px -10px rgba(0,118,255, 0.25);
         }
         .interactive-btn:active {
           transform: translateY(1px) scale(0.98);
@@ -268,7 +268,7 @@ export default function GSTCalculator() {
           text-decoration: none;
         }
         .home-btn:hover {
-          background: rgba(14, 165, 233, 0.15);
+          background: rgba(0,118,255, 0.15);
           border-color: rgba(56, 189, 248, 0.4);
           color: #38bdf8;
         }
@@ -318,7 +318,7 @@ export default function GSTCalculator() {
         }
         .input-glow:focus-within {
           border-color: rgba(56, 189, 248, 0.6) !important;
-          box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.15), inset 0 2px 4px rgba(0,0,0,0.2);
+          box-shadow: 0 0 0 4px rgba(0,118,255, 0.15), inset 0 2px 4px rgba(0,0,0,0.2);
           background: rgba(255, 255, 255, 0.08) !important;
         }
 
@@ -338,7 +338,7 @@ export default function GSTCalculator() {
         }
 
         .brand-text {
-          background: linear-gradient(135deg, #0ea5e9, #14b8a6, #0ea5e9);
+          background: linear-gradient(135deg, #0076ff, #00c6ff, #0076ff);
           background-size: 200% auto;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
@@ -349,8 +349,8 @@ export default function GSTCalculator() {
       `}} />
 
       <div style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0 }}>
-        <div style={{ position: "absolute", top: "-10%", left: "-10%", width: "60%", height: "60%", background: "radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, transparent 60%)", filter: "blur(60px)" }} />
-        <div style={{ position: "absolute", bottom: "-10%", right: "-10%", width: "60%", height: "60%", background: "radial-gradient(circle, rgba(20, 184, 166, 0.06) 0%, transparent 60%)", filter: "blur(60px)" }} />
+        <div style={{ position: "absolute", top: "-10%", left: "-10%", width: "60%", height: "60%", background: "radial-gradient(circle, rgba(0,118,255, 0.08) 0%, transparent 60%)", filter: "blur(60px)" }} />
+        <div style={{ position: "absolute", bottom: "-10%", right: "-10%", width: "60%", height: "60%", background: "radial-gradient(circle, rgba(0,198,255, 0.06) 0%, transparent 60%)", filter: "blur(60px)" }} />
         <div style={{ position: "absolute", top: "40%", left: "40%", width: "30%", height: "30%", background: "radial-gradient(circle, rgba(56, 189, 248, 0.03) 0%, transparent 70%)", filter: "blur(40px)" }} />
       </div>
 
@@ -359,7 +359,7 @@ export default function GSTCalculator() {
           <Link href="/" style={{ textDecoration: "none" }}><div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
   <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
-    Karo<span style={{ background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
+    Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
 </div></Link>
           
@@ -399,9 +399,9 @@ export default function GSTCalculator() {
                 style={{
                   border: "1px solid",
                   borderColor: preset === p.label ? "rgba(56, 189, 248, 0.6)" : "rgba(255,255,255,0.08)",
-                  background: preset === p.label ? "rgba(14, 165, 233, 0.15)" : "rgba(255,255,255,0.03)",
+                  background: preset === p.label ? "rgba(0,118,255, 0.15)" : "rgba(255,255,255,0.03)",
                   color: preset === p.label ? "#bae6fd" : "#94a3b8",
-                  boxShadow: preset === p.label ? "0 0 20px rgba(14, 165, 233, 0.15)" : "none",
+                  boxShadow: preset === p.label ? "0 0 20px rgba(0,118,255, 0.15)" : "none",
                 }}>
                 {p.label} <span style={{ opacity: 0.6, marginLeft: "4px" }}>· {p.rate}%</span>
               </button>
@@ -436,11 +436,11 @@ export default function GSTCalculator() {
                   className="interactive-btn"
                   style={{
                     padding: "16px", borderRadius: "14px", border: "1px solid",
-                    borderColor: !isCustom && gstRate === rate ? "#0ea5e9" : "rgba(255,255,255,0.08)",
-                    background: !isCustom && gstRate === rate ? "linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(20, 184, 166, 0.1))" : "rgba(255,255,255,0.02)",
+                    borderColor: !isCustom && gstRate === rate ? "#0076ff" : "rgba(255,255,255,0.08)",
+                    background: !isCustom && gstRate === rate ? "linear-gradient(135deg, rgba(0,118,255, 0.2), rgba(0,198,255, 0.1))" : "rgba(255,255,255,0.02)",
                     color: !isCustom && gstRate === rate ? "#bae6fd" : "#94a3b8",
                     fontWeight: "700", cursor: "pointer", fontSize: "16px",
-                    boxShadow: !isCustom && gstRate === rate ? "0 4px 16px rgba(14, 165, 233, 0.2), inset 0 1px 1px rgba(255,255,255,0.1)" : "none"
+                    boxShadow: !isCustom && gstRate === rate ? "0 4px 16px rgba(0,118,255, 0.2), inset 0 1px 1px rgba(255,255,255,0.1)" : "none"
                   }}>
                   {rate}%
                 </button>
@@ -450,11 +450,11 @@ export default function GSTCalculator() {
                 className="interactive-btn"
                 style={{
                   padding: "16px", borderRadius: "14px", border: "1px solid",
-                  borderColor: isCustom ? "#0ea5e9" : "rgba(255,255,255,0.08)",
-                  background: isCustom ? "linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(20, 184, 166, 0.1))" : "rgba(255,255,255,0.02)",
+                  borderColor: isCustom ? "#0076ff" : "rgba(255,255,255,0.08)",
+                  background: isCustom ? "linear-gradient(135deg, rgba(0,118,255, 0.2), rgba(0,198,255, 0.1))" : "rgba(255,255,255,0.02)",
                   color: isCustom ? "#bae6fd" : "#94a3b8",
                   fontWeight: "700", cursor: "pointer", fontSize: "15px",
-                  boxShadow: isCustom ? "0 4px 16px rgba(14, 165, 233, 0.2), inset 0 1px 1px rgba(255,255,255,0.1)" : "none"
+                  boxShadow: isCustom ? "0 4px 16px rgba(0,118,255, 0.2), inset 0 1px 1px rgba(255,255,255,0.1)" : "none"
                 }}>
                 Custom
               </button>
@@ -462,7 +462,7 @@ export default function GSTCalculator() {
             
             {isCustom && (
               <div style={{ marginTop: "16px", animation: "fadeIn 0.3s ease" }}>
-                <div className="input-glow" style={{ borderRadius: "14px", border: "1px solid rgba(56, 189, 248, 0.4)", background: "rgba(14, 165, 233, 0.05)", display: "flex", alignItems: "center", padding: "0 16px" }}>
+                <div className="input-glow" style={{ borderRadius: "14px", border: "1px solid rgba(56, 189, 248, 0.4)", background: "rgba(0,118,255, 0.05)", display: "flex", alignItems: "center", padding: "0 16px" }}>
                   {/* 🚀 SCROLL BUG FIX APPLIED HERE TOO */}
                   <input type="number" value={customRate} 
                     onWheel={(e) => e.target.blur()}
@@ -503,11 +503,11 @@ export default function GSTCalculator() {
                   className="interactive-btn"
                   style={{
                     padding: "16px 20px", borderRadius: "16px", border: "1px solid",
-                    borderColor: transactionType === val ? "#0ea5e9" : "rgba(255,255,255,0.08)",
-                    background: transactionType === val ? "linear-gradient(135deg, rgba(14, 165, 233, 0.15), rgba(20, 184, 166, 0.05))" : "rgba(255,255,255,0.02)",
+                    borderColor: transactionType === val ? "#0076ff" : "rgba(255,255,255,0.08)",
+                    background: transactionType === val ? "linear-gradient(135deg, rgba(0,118,255, 0.15), rgba(0,198,255, 0.05))" : "rgba(255,255,255,0.02)",
                     color: transactionType === val ? "#bae6fd" : "#94a3b8",
                     cursor: "pointer", textAlign: "left",
-                    boxShadow: transactionType === val ? "0 4px 16px rgba(14, 165, 233, 0.15), inset 0 1px 1px rgba(255,255,255,0.1)" : "none"
+                    boxShadow: transactionType === val ? "0 4px 16px rgba(0,118,255, 0.15), inset 0 1px 1px rgba(255,255,255,0.1)" : "none"
                   }}>
                   <div style={{ fontWeight: "700", fontSize: "15px", marginBottom: "4px", color: transactionType === val ? "#fff" : "#cbd5e1" }}>{label}</div>
                   <div style={{ fontSize: "13px", color: transactionType === val ? "#38bdf8" : "#64748b", fontWeight: "500" }}>{sub}</div>
@@ -517,7 +517,7 @@ export default function GSTCalculator() {
           </div>
 
           <div className="responsive-grid" style={{ marginBottom: "16px" }}>
-            {[["exclusive", "➕ Add GST (Exclusive)", "#3b82f6", "rgba(59,130,246,0.2)"], ["inclusive", "➖ Remove GST (Inclusive)", "#ec4899", "rgba(236,72,153,0.2)"]].map(([val, label, color, bg]) => (
+            {[["exclusive", "➕ Add GST (Exclusive)", "#0076ff", "rgba(0,118,255,0.2)"], ["inclusive", "➖ Remove GST (Inclusive)", "#ec4899", "rgba(236,72,153,0.2)"]].map(([val, label, color, bg]) => (
               <button key={val} onClick={() => setType(val)}
                 className="interactive-btn"
                 style={{
@@ -538,7 +538,7 @@ export default function GSTCalculator() {
               <p style={{ color: "#cbd5e1", fontWeight: "700", fontSize: "15px", marginBottom: "2px" }}>Auto Round Off</p>
               <p style={{ color: "#64748b", fontSize: "13px", fontWeight: "500" }}>e.g. ₹1180.42 → ₹1180.00</p>
             </div>
-            <div onClick={() => setRoundOff(!roundOff)} style={{ width: "52px", height: "28px", borderRadius: "16px", background: roundOff ? "#0ea5e9" : "rgba(255,255,255,0.1)", cursor: "pointer", position: "relative", transition: "background 0.3s", boxShadow: roundOff ? "0 0 12px rgba(14, 165, 233, 0.4)" : "inset 0 2px 4px rgba(0,0,0,0.2)" }}>
+            <div onClick={() => setRoundOff(!roundOff)} style={{ width: "52px", height: "28px", borderRadius: "16px", background: roundOff ? "#0076ff" : "rgba(255,255,255,0.1)", cursor: "pointer", position: "relative", transition: "background 0.3s", boxShadow: roundOff ? "0 0 12px rgba(0,118,255, 0.4)" : "inset 0 2px 4px rgba(0,0,0,0.2)" }}>
               <div style={{ position: "absolute", top: "4px", left: roundOff ? "28px" : "4px", width: "20px", height: "20px", borderRadius: "50%", background: "#fff", transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)", boxShadow: "0 2px 4px rgba(0,0,0,0.2)" }} />
             </div>
           </div>
@@ -547,13 +547,13 @@ export default function GSTCalculator() {
         {result && (
           <div style={{ animation: "fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1)" }}>
 
-            <div style={{ background: type === "inclusive" ? "linear-gradient(145deg, rgba(20,184,166,0.15), rgba(16,185,129,0.1))" : "linear-gradient(145deg, rgba(14, 165, 233, 0.15), rgba(59,130,246,0.1))", border: type === "inclusive" ? "1px solid rgba(20,184,166,0.35)" : "1px solid rgba(14, 165, 233, 0.3)", borderRadius: "28px", padding: "48px 32px", textAlign: "center", marginBottom: "24px", position: "relative", overflow: "hidden", animation: "glowPulse 4s infinite" }}>
+            <div style={{ background: type === "inclusive" ? "linear-gradient(145deg, rgba(0,198,255,0.15), rgba(16,185,129,0.1))" : "linear-gradient(145deg, rgba(0,118,255, 0.15), rgba(0,118,255,0.1))", border: type === "inclusive" ? "1px solid rgba(0,198,255,0.35)" : "1px solid rgba(0,118,255, 0.3)", borderRadius: "28px", padding: "48px 32px", textAlign: "center", marginBottom: "24px", position: "relative", overflow: "hidden", animation: "glowPulse 4s infinite" }}>
               <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "1px", background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)" }} />
 
               {type === "exclusive" ? (
                 <>
                   <p style={{ color: "#bae6fd", fontSize: "13px", fontWeight: "800", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "16px", filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.5))" }}>Final Total Amount</p>
-                  <p style={{ fontSize: "64px", fontWeight: "800", fontFamily: "'Syne',sans-serif", background: "linear-gradient(135deg, #ffffff, #bae6fd)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "countUp 0.4s cubic-bezier(0.16, 1, 0.3, 1)", lineHeight: 1, filter: "drop-shadow(0 4px 20px rgba(14, 165, 233, 0.3))" }}>
+                  <p style={{ fontSize: "64px", fontWeight: "800", fontFamily: "'Syne',sans-serif", background: "linear-gradient(135deg, #ffffff, #bae6fd)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "countUp 0.4s cubic-bezier(0.16, 1, 0.3, 1)", lineHeight: 1, filter: "drop-shadow(0 4px 20px rgba(0,118,255, 0.3))" }}>
                     ₹{fmt(result.total)}
                   </p>
                   <div style={{ display: "inline-flex", alignItems: "center", gap: "12px", background: "rgba(0,0,0,0.2)", padding: "8px 20px", borderRadius: "30px", marginTop: "24px", border: "1px solid rgba(255,255,255,0.05)", flexWrap: "wrap", justifyContent: "center" }}>
@@ -570,11 +570,11 @@ export default function GSTCalculator() {
                 </>
               ) : (
                 <>
-                  <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(20,184,166,0.12)", border: "1px solid rgba(20,184,166,0.25)", borderRadius: "50px", padding: "5px 14px", marginBottom: "20px" }}>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(0,198,255,0.12)", border: "1px solid rgba(0,198,255,0.25)", borderRadius: "50px", padding: "5px 14px", marginBottom: "20px" }}>
                     <span style={{ fontSize: "11px", color: "#2dd4bf", fontWeight: "700", letterSpacing: "0.08em" }}>GST REMOVED FROM ₹{fmt(result.total)}</span>
                   </div>
                   <p style={{ color: "#99f6e4", fontSize: "13px", fontWeight: "800", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "16px", filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.5))" }}>Base Amount (GST Removed)</p>
-                  <p style={{ fontSize: "64px", fontWeight: "800", fontFamily: "'Syne',sans-serif", background: "linear-gradient(135deg, #ffffff, #99f6e4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "countUp 0.4s cubic-bezier(0.16, 1, 0.3, 1)", lineHeight: 1, filter: "drop-shadow(0 4px 20px rgba(20,184,166,0.3))" }}>
+                  <p style={{ fontSize: "64px", fontWeight: "800", fontFamily: "'Syne',sans-serif", background: "linear-gradient(135deg, #ffffff, #99f6e4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "countUp 0.4s cubic-bezier(0.16, 1, 0.3, 1)", lineHeight: 1, filter: "drop-shadow(0 4px 20px rgba(0,198,255,0.3))" }}>
                     ₹{fmt(result.base)}
                   </p>
                   <div style={{ display: "inline-flex", alignItems: "center", gap: "12px", background: "rgba(0,0,0,0.2)", padding: "8px 20px", borderRadius: "30px", marginTop: "24px", border: "1px solid rgba(255,255,255,0.05)", flexWrap: "wrap", justifyContent: "center" }}>
@@ -620,7 +620,7 @@ export default function GSTCalculator() {
                 <div style={{ width: result.basePercent + "%", background: "linear-gradient(90deg, #2563eb, #60a5fa)", borderRadius: "8px", transition: "width 0.8s cubic-bezier(0.16, 1, 0.3, 1)", position: "relative", overflow: "hidden" }}>
                   <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, background: "linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)" }}/>
                 </div>
-                <div style={{ width: result.gstPercent + "%", background: "linear-gradient(90deg, #0ea5e9, #14b8a6)", borderRadius: "8px", transition: "width 0.8s cubic-bezier(0.16, 1, 0.3, 1)", position: "relative", overflow: "hidden" }}>
+                <div style={{ width: result.gstPercent + "%", background: "linear-gradient(90deg, #0076ff, #00c6ff)", borderRadius: "8px", transition: "width 0.8s cubic-bezier(0.16, 1, 0.3, 1)", position: "relative", overflow: "hidden" }}>
                   <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, background: "linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)" }}/>
                 </div>
                 {cessRate > 0 && (
@@ -631,11 +631,11 @@ export default function GSTCalculator() {
               </div>
               <div style={{ display: "flex", justifyContent: "space-between", marginTop: "16px", flexWrap: "wrap", gap: "10px" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                  <div style={{ width: "12px", height: "12px", borderRadius: "4px", background: "#3b82f6" }} />
+                  <div style={{ width: "12px", height: "12px", borderRadius: "4px", background: "#0076ff" }} />
                   <span style={{ fontSize: "14px", color: "#e2e8f0", fontWeight: "600" }}>Base <span style={{ color: "#94a3b8", fontWeight: "500", marginLeft: "4px" }}>{result.basePercent}%</span></span>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                  <div style={{ width: "12px", height: "12px", borderRadius: "4px", background: "#0ea5e9" }} />
+                  <div style={{ width: "12px", height: "12px", borderRadius: "4px", background: "#0076ff" }} />
                   <span style={{ fontSize: "14px", color: "#e2e8f0", fontWeight: "600" }}>Tax <span style={{ color: "#94a3b8", fontWeight: "500", marginLeft: "4px" }}>{result.gstPercent}%</span></span>
                 </div>
                 {cessRate > 0 && (
@@ -649,7 +649,7 @@ export default function GSTCalculator() {
 
             <div style={{ background: "rgba(255,255,255,0.01)", border: "1px dashed rgba(255,255,255,0.1)", borderRadius: "16px", padding: "20px 24px", marginBottom: "24px" }}>
               <p style={{ color: "#64748b", fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "12px" }}>Calculation Formula Used</p>
-              <p style={{ color: "#38bdf8", fontSize: "14px", fontFamily: "monospace", letterSpacing: "0.05em", background: "rgba(0,0,0,0.2)", padding: "12px", borderRadius: "8px", border: "1px solid rgba(14, 165, 233, 0.1)" }}>
+              <p style={{ color: "#38bdf8", fontSize: "14px", fontFamily: "monospace", letterSpacing: "0.05em", background: "rgba(0,0,0,0.2)", padding: "12px", borderRadius: "8px", border: "1px solid rgba(0,118,255, 0.1)" }}>
                 {type === "exclusive"
                   ? `GST = ₹${amount} × ${activeRate} ÷ 100 = ₹${result.gst}${cessRate > 0 ? `\nCess = ₹${amount} × ${cessRate} ÷ 100 = ₹${result.cess}` : ""}`
                   : `Base = ₹${amount} × 100 ÷ (100 + ${activeRate} + ${cessRate}) = ₹${result.base}`}
@@ -660,8 +660,8 @@ export default function GSTCalculator() {
               <button onClick={addToHistory} className="interactive-btn"
                 style={{
                   width: "100%", padding: "18px",
-                  background: "linear-gradient(135deg, rgba(59,130,246,0.15), rgba(37,99,235,0.05))",
-                  border: "1px solid rgba(59,130,246,0.3)",
+                  background: "linear-gradient(135deg, rgba(0,118,255,0.15), rgba(37,99,235,0.05))",
+                  border: "1px solid rgba(0,118,255,0.3)",
                   borderRadius: "16px", color: "#93c5fd",
                   fontSize: "15px", fontWeight: "700", cursor: "pointer",
                   boxShadow: "0 4px 16px rgba(37,99,235,0.15)",
@@ -673,11 +673,11 @@ export default function GSTCalculator() {
               <button onClick={copyResult} className="interactive-btn"
                 style={{
                   width: "100%", padding: "18px",
-                  background: copied ? "linear-gradient(135deg, rgba(16,185,129,0.2), rgba(52,211,153,0.1))" : "linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(20, 184, 166, 0.1))",
-                  border: `1px solid ${copied ? "rgba(52,211,153,0.4)" : "rgba(14, 165, 233, 0.4)"}`,
+                  background: copied ? "linear-gradient(135deg, rgba(16,185,129,0.2), rgba(52,211,153,0.1))" : "linear-gradient(135deg, rgba(0,118,255, 0.2), rgba(0,198,255, 0.1))",
+                  border: `1px solid ${copied ? "rgba(52,211,153,0.4)" : "rgba(0,118,255, 0.4)"}`,
                   borderRadius: "16px", color: copied ? "#6ee7b7" : "#bae6fd",
                   fontSize: "15px", fontWeight: "700", cursor: "pointer",
-                  boxShadow: copied ? "0 4px 16px rgba(16,185,129,0.2)" : "0 4px 16px rgba(14, 165, 233, 0.2)",
+                  boxShadow: copied ? "0 4px 16px rgba(16,185,129,0.2)" : "0 4px 16px rgba(0,118,255, 0.2)",
                   display: "flex", alignItems: "center", justifyContent: "center", gap: "10px"
                 }}>
                 {copied ? "✓ Copied!" : "📋 Copy Result"}
@@ -734,7 +734,7 @@ export default function GSTCalculator() {
               ].map((item, i) => (
                 <div key={item.q} className="glass-panel" style={{ padding: "28px", borderRadius: "20px", transition: "all 0.3s ease" }}>
                   <div style={{ display: "flex", alignItems: "flex-start", gap: "12px", marginBottom: "12px" }}>
-                    <div style={{ background: "rgba(14, 165, 233, 0.1)", color: "#0ea5e9", width: "24px", height: "24px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px", fontWeight: "800", flexShrink: 0, marginTop: "2px" }}>{i + 1}</div>
+                    <div style={{ background: "rgba(0,118,255, 0.1)", color: "#0076ff", width: "24px", height: "24px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px", fontWeight: "800", flexShrink: 0, marginTop: "2px" }}>{i + 1}</div>
                     <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#f1f5f9", fontFamily: "'Syne',sans-serif", lineHeight: "1.4" }}>{item.q}</h3>
                   </div>
                   <p style={{ fontSize: "14px", color: "#94a3b8", lineHeight: "1.7", paddingLeft: "36px" }}>{item.a}</p>

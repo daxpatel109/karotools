@@ -17,3 +17,13 @@ html, body {
   margin: 0;
   padding: 0;
 }
+
+::selection {
+  background-color: rgba(0, 118, 255, 0.4);
+  color: #fff;
+}
+
+::-moz-selection {
+  background-color: rgba(0, 118, 255, 0.4);
+  color: #fff;
+}

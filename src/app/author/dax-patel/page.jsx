@@ -57,7 +57,7 @@ export default function Author() {
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
   <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
-    Karo<span style={{ background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
+    Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
 </div>
         </Link>
@@ -68,13 +68,13 @@ export default function Author() {
 
       {/* Profile Header */}
       <div style={{ position: "relative", overflow: "hidden", padding: "80px 24px", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-        <div style={{ position: "absolute", top: "-50%", left: "50%", transform: "translateX(-50%)", width: "80%", height: "200%", background: "radial-gradient(circle, rgba(139,92,246,0.1) 0%, transparent 70%)", filter: "blur(80px)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: "-50%", left: "50%", transform: "translateX(-50%)", width: "80%", height: "200%", background: "radial-gradient(circle, rgba(0,90,230,0.1) 0%, transparent 70%)", filter: "blur(80px)", pointerEvents: "none" }} />
         
         <div style={{ maxWidth: "800px", margin: "0 auto", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", position: "relative", zIndex: 1 }}>
           
           {/* Profile Photo Placeholder */}
           <div style={{ position: "relative", width: "160px", height: "160px", marginBottom: "32px" }}>
-            <div style={{ position: "absolute", inset: "-4px", background: "linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899)", borderRadius: "50%", filter: "blur(12px)", opacity: 0.6 }} />
+            <div style={{ position: "absolute", inset: "-4px", background: "linear-gradient(135deg, #0076ff, #005ae6, #ec4899)", borderRadius: "50%", filter: "blur(12px)", opacity: 0.6 }} />
             <div style={{ width: "160px", height: "160px", borderRadius: "50%", overflow: "hidden", background: "#0f172a", border: "4px solid #1e293b", position: "relative", zIndex: 1 }}>
               <img 
                 src="/dax-profile.jpg" 
@@ -110,10 +110,10 @@ export default function Author() {
           
           {/* Post 1 */}
           <Link href="/blog/section-44ada-freelancers" style={{ display: "block", textDecoration: "none", padding: "32px", background: "rgba(255,255,255,0.02)", borderRadius: "20px", border: "1px solid rgba(255,255,255,0.05)", transition: "all 0.3s", cursor: "pointer" }}
-            onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.04)"; e.currentTarget.style.borderColor = "rgba(14,165,233,0.3)"; e.currentTarget.style.transform = "translateX(8px)"; }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.04)"; e.currentTarget.style.borderColor = "rgba(0,118,255,0.3)"; e.currentTarget.style.transform = "translateX(8px)"; }}
             onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.02)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)"; e.currentTarget.style.transform = "none"; }}>
             <div style={{ display: "flex", gap: "12px", marginBottom: "16px", alignItems: "center" }}>
-              <span style={{ background: "rgba(14,165,233,0.1)", color: "#38bdf8", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em" }}>TAX SAVINGS</span>
+              <span style={{ background: "rgba(0,118,255,0.1)", color: "#38bdf8", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em" }}>TAX SAVINGS</span>
               <span style={{ color: "#64748b", fontSize: "14px" }}>June 7, 2026</span>
             </div>
             <h3 style={{ fontSize: "24px", fontWeight: "700", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "12px" }}>
@@ -126,10 +126,10 @@ export default function Author() {
 
           {/* Post 2 */}
           <Link href="/blog/msme-45-day-rule" style={{ display: "block", textDecoration: "none", padding: "32px", background: "rgba(255,255,255,0.02)", borderRadius: "20px", border: "1px solid rgba(255,255,255,0.05)", transition: "all 0.3s", cursor: "pointer" }}
-            onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.04)"; e.currentTarget.style.borderColor = "rgba(139,92,246,0.3)"; e.currentTarget.style.transform = "translateX(8px)"; }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.04)"; e.currentTarget.style.borderColor = "rgba(0,90,230,0.3)"; e.currentTarget.style.transform = "translateX(8px)"; }}
             onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.02)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)"; e.currentTarget.style.transform = "none"; }}>
             <div style={{ display: "flex", gap: "12px", marginBottom: "16px", alignItems: "center" }}>
-              <span style={{ background: "rgba(139,92,246,0.1)", color: "#a78bfa", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em" }}>LEGAL & TAX</span>
+              <span style={{ background: "rgba(0,90,230,0.1)", color: "#a78bfa", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em" }}>LEGAL & TAX</span>
               <span style={{ color: "#64748b", fontSize: "14px" }}>June 6, 2026</span>
             </div>
             <h3 style={{ fontSize: "24px", fontWeight: "700", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "12px" }}>

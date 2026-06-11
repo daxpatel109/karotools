@@ -138,7 +138,7 @@ function Particles() {
 // ── Main Home ─────────────────────────────────────────────────────
 export default function Home() {
   const router = useRouter();
-  const navigate = router.push;
+  const navigate = (path) => router.push(path);
   const [search, setSearch] = useState("");
   const [scrolled, setScrolled] = useState(false);
   const [activeFilter, setActiveFilter] = useState("All");

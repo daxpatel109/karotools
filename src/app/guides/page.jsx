@@ -76,16 +76,6 @@ export default function GuidesHub() {
                   position: "relative",
                   overflow: "hidden"
                 }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.transform = "translateY(-5px)";
-                  e.currentTarget.style.background = "rgba(255,255,255,0.04)";
-                  e.currentTarget.style.borderColor = guide.color;
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.background = "rgba(255,255,255,0.02)";
-                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)";
-                }}
               >
                 {/* Subtle top glow */}
                 <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "4px", background: guide.color, opacity: 0.8 }} />

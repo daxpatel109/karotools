@@ -44,22 +44,26 @@ export default function ScrollPathSection() {
     {
       title: "Calculate GST",
       text: "Add or remove GST instantly for Indian freelance invoices.",
-      align: "left"
+      align: "left",
+      icon: "％"
     },
     {
       title: "Create Invoice",
       text: "Generate GST invoices online without login or watermark.",
-      align: "right"
+      align: "right",
+      icon: "📄"
     },
     {
       title: "Plan Your Taxes",
       text: "Use tax and advance tax calculators made for Indian freelancers.",
-      align: "left"
+      align: "left",
+      icon: "🧮"
     },
     {
       title: "Work Smarter",
       text: "Use email, bio, contract and rate tools to manage client work.",
-      align: "right"
+      align: "right",
+      icon: "💼"
     }
   ];
 
@@ -69,13 +73,13 @@ export default function ScrollPathSection() {
         
         {/* Header */}
         <div className="scroll-path-header">
-          <span className="subtitle">Simple Workflow</span>
-          <h2>From GST Calculation to<br/>Client-Ready Invoice</h2>
+          <h2>Your Freelance Workflow, Simplified</h2>
+          <p className="subtitle-text">Calculate GST, create invoices, plan taxes and manage client work — all with free tools built for Indian freelancers.</p>
         </div>
 
         {/* Desktop SVG Path */}
         <div className="path-svg-wrapper">
-          <svg width="1000" height="900" viewBox="0 0 1000 900" fill="none" preserveAspectRatio="xMidYMin slice">
+          <svg width="1000" height="750" viewBox="0 0 1000 750" fill="none" preserveAspectRatio="xMidYMin slice">
             <defs>
               <linearGradient id="glowGradient" x1="0%" y1="0%" x2="0%" y2="100%">
                 <stop offset="0%" stopColor="#0ea5e9" />
@@ -83,11 +87,10 @@ export default function ScrollPathSection() {
                 <stop offset="100%" stopColor="#8b5cf6" />
               </linearGradient>
             </defs>
-            {/* An elegant S-curve weaving through the center coordinates where cards sit */}
             <path 
               ref={pathRef}
               className="animated-path"
-              d="M 500 0 C 500 150, 200 100, 200 250 C 200 400, 800 350, 800 500 C 800 650, 200 600, 200 750 C 200 900, 500 850, 500 1000"
+              d="M 500 0 C 500 100, 200 50, 200 180 C 200 310, 800 280, 800 410 C 800 540, 200 510, 200 640 C 200 750, 500 700, 500 850"
             />
           </svg>
         </div>
@@ -96,7 +99,7 @@ export default function ScrollPathSection() {
         <div className="path-items-wrapper">
           {cards.map((card, idx) => (
             <div key={idx} className={`path-card path-card-${card.align}`}>
-              <div className="path-card-number">{idx + 1}</div>
+              <div className="path-card-number">{card.icon}</div>
               <h3>{card.title}</h3>
               <p>{card.text}</p>
             </div>

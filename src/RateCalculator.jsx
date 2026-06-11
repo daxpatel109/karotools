@@ -17,7 +17,7 @@ export default function RateCalculator() {
     localStorage.setItem("rate_hours", hoursPerDay);
     localStorage.setItem("rate_margin", profitMargin);
 
-    document.title = "3D Freelance Rate & Tier Calculator | KaroTools";
+    document.title = "Freelance Rate Calculator India – Hourly & Project Rate";
     
     let metaDescription = document.querySelector('meta[name="description"]');
     if (!metaDescription) {
@@ -453,6 +453,14 @@ export default function RateCalculator() {
           <div style={{ position: "absolute", top: 0, left: "10%", right: "10%", height: "1px", background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)" }} />
           
           <div style={{ paddingTop: "64px", paddingBottom: "20px" }}>
+            <div style={{ maxWidth: "800px", margin: "0 auto 60px", textAlign: "left" }}>
+              <h2 style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "16px" }}>Freelance Rate Calculator India</h2>
+              <p style={{ color: "#94a3b8", fontSize: "16px", lineHeight: "1.8", marginBottom: "24px" }}>
+                One of the biggest mistakes freelancers in India make is charging an arbitrary hourly rate. This often leads to underpricing, burnout, and an unsustainable business. 
+                Our <strong>Freelance Rate Calculator</strong> helps you reverse-engineer your perfect hourly, daily, and project rates based on your actual living expenses, desired savings, and a crucial profit margin. 
+                By accurately factoring in non-billable hours, you ensure every project you take is profitable. Use the SaaS Package Generator above to pitch tiered options to your clients and win larger deals.
+              </p>
+            </div>
             <h2 style={{ fontSize: "clamp(24px, 5vw, 28px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "32px", textAlign: "center" }}>Freelance Pricing FAQs</h2>
             
             <div className="responsive-grid" style={{ gap: "24px" }}>

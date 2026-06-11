@@ -209,7 +209,7 @@ export default function Home() {
 
   const tools = [
     { icon: "🧮", name: "GST Calculator", description: "Live GST calculation for all slabs — 5%, 12%, 18%, 28%. CGST, SGST & IGST with custom rates and presets.", category: "Finance", page: "/gst-calculator" },
-    { icon: "📄", name: "Invoice Generator", description: "Professional GST invoices with PDF download. GSTIN validation, HSN/SAC codes, logo upload, signature area.", category: "Finance", page: "/invoice-generator" },
+    { icon: "📄", name: "Invoice Generator", description: "Professional GST invoices with PDF download. GSTIN validation, HSN/SAC codes, logo upload, signature area.", category: "Finance", page: "/gst-invoice-generator" },
     { icon: "🏛️", name: "Tax Calculator (44ADA)", description: "Visual income tax estimator for freelancers using Presumptive Taxation (50% tax-free income).", category: "Finance", page: "/tax-calculator" },
     { icon: "🏢", name: "Normal Tax Calculator", description: "Calculate standard tax (New Regime) without 44ADA for high-income freelancers or agencies.", category: "Finance", page: "/normal-tax-calculator" },
     { icon: "📅", name: "Advance Tax Calculator", description: "Instantly calculate your advance tax liability, installment amounts, and due dates under Indian tax laws.", category: "Finance", page: "/advance-tax-calculator" },
@@ -218,7 +218,7 @@ export default function Home() {
     { icon: "📈", name: "SIP Calculator", description: "Calculate your Mutual Fund returns and see the true power of compounding over 10 or 20 years.", category: "Finance", page: "/sip-calculator" },
     { icon: "📧", name: "Email Generator", description: "10 email types — cold outreach, follow-up, payment reminder, proposal & more. 4 tones, no AI needed.", category: "AI Tool", page: "/email-generator" },
     { icon: "📱", name: "Bio Generator", description: "Instagram, LinkedIn & Twitter bios — professional, creative & minimal styles. Template-based, instant.", category: "AI Tool", page: "/bio-generator" },
-    { icon: "💰", name: "Rate Calculator", description: "Calculate your perfect freelance hourly, daily & monthly rate in INR based on your expenses.", category: "Finance", page: "/rate-calculator" },
+    { icon: "💰", name: "Rate Calculator", description: "Calculate your perfect freelance hourly, daily & monthly rate in INR based on your expenses.", category: "Finance", page: "/freelance-rate-calculator" },
     { icon: "📝", name: "Proposal Generator", description: "Win more clients with AI-written project proposals tailored for Indian freelancers.", category: "AI Tool" },
     { icon: "📋", name: "Contract Generator", description: "Generate professional freelance contracts and service agreements in seconds.", category: "Legal", page: "/contract-generator" },
   ];

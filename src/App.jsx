@@ -86,10 +86,10 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/gst-calculator" element={<GSTCalculator />} />
           <Route path="/gst-calculator/:keyword" element={<GSTCalculator />} />
-          <Route path="/invoice-generator" element={<InvoiceGenerator />} />
+          <Route path="/gst-invoice-generator" element={<InvoiceGenerator />} />
           <Route path="/bio-generator" element={<BioGenerator />} />
           <Route path="/email-generator" element={<EmailGenerator />} />
-          <Route path="/rate-calculator" element={<RateCalculator />} />
+          <Route path="/freelance-rate-calculator" element={<RateCalculator />} />
           <Route path="/contract-generator" element={<ContractGenerator />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsConditions />} />

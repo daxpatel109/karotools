@@ -219,7 +219,7 @@ export default function BioGenerator() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Free Bio Generator for Instagram, LinkedIn & Twitter | KaroTools";
+    document.title = "Free Instagram & LinkedIn Bio Generator";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) { meta = document.createElement('meta'); meta.name = "description"; document.head.appendChild(meta); }
     meta.content = "Generate catchy Instagram bios, LinkedIn headlines, and Twitter bios instantly. Free bio generator for Indian freelancers. No login required.";
@@ -548,6 +548,16 @@ export default function BioGenerator() {
           ))}
         </div>
  
+        {/* SEO TEXT CONTENT */}
+        <div style={{ marginTop: "80px", borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: "60px", maxWidth: "800px", margin: "80px auto 0" }}>
+          <h2 style={{ fontSize: "32px", fontWeight: "800", fontFamily: "'Syne',sans-serif", marginBottom: "24px", color: "#f1f5f9" }}>Free Instagram & LinkedIn Bio Generator</h2>
+          <p style={{ color: "#94a3b8", fontSize: "18px", lineHeight: "1.7", marginBottom: "24px" }}>
+            Your bio is the first thing potential clients see when they visit your profile. It needs to clearly communicate who you are, what you do, and who you help. 
+            Our free Bio Generator is built specifically for Indian freelancers, creators, and professionals. Whether you need a punchy Instagram bio with emojis, a keyword-rich LinkedIn headline for recruiters, or a minimal Twitter/X bio, we generate it instantly. 
+            Just select your profession, add your top skills, and hit generate. No login required, and it's 100% free!
+          </p>
+        </div>
+
         {/* Universal Legal Disclaimer */}
         <div style={{ marginTop: "40px", padding: "20px", background: "rgba(0,0,0,0.3)", borderRadius: "12px", border: "1px dashed rgba(255,255,255,0.1)", textAlign: "center" }}>
           <p style={{ color: "#64748b", fontSize: "12px", lineHeight: "1.6", margin: 0, fontFamily: "'DM Sans',sans-serif" }}>

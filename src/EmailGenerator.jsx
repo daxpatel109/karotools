@@ -342,7 +342,7 @@ export default function EmailGenerator() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Free Business Email Generator for Indian Freelancers | KaroTools";
+    document.title = "Free AI Email Generator for Freelancers";
     const setMeta = (name, content) => {
       let el = document.querySelector(`meta[name="${name}"]`);
       if (!el) { el = document.createElement("meta"); el.name = name; document.head.appendChild(el); }

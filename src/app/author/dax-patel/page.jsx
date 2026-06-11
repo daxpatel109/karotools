@@ -34,7 +34,7 @@ export default function Author() {
               <img 
                 src="/dax-profile.jpg" 
                 alt="Dax Patel" 
-                onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
+
                 style={{ width: "100%", height: "100%", objectFit: "cover" }} 
               />
               <div style={{ display: "none", width: "100%", height: "100%", alignItems: "center", justifyContent: "center", background: "linear-gradient(135deg, #1e293b, #0f172a)", color: "#f8fafc", fontSize: "64px", fontWeight: "800", fontFamily: "'Syne',sans-serif" }}>

@@ -5,7 +5,21 @@
     <meta name="google-site-verification" content="H31sONZs31eYgdPLszQc9kToZ5yeh32I8a0RpMvurpI" />
     <!-- Google AdSense -->
     <meta name="google-adsense-account" content="ca-pub-7694069908908392">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7694069908908392" crossorigin="anonymous"></script>
+    <!-- AdSense Deferred to fix LCP -->
+    <script>
+      function loadAdSense() {
+        if(window.adSenseLoaded) return;
+        window.adSenseLoaded = true;
+        const script = document.createElement('script');
+        script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7694069908908392";
+        script.crossOrigin = "anonymous";
+        document.head.appendChild(script);
+        ['scroll', 'mousemove', 'touchstart'].forEach(e => window.removeEventListener(e, loadAdSense));
+      }
+      ['scroll', 'mousemove', 'touchstart'].forEach(e => window.addEventListener(e, loadAdSense, {once: true, passive: true}));
+      // Fallback if no interaction
+      setTimeout(loadAdSense, 5000);
+    </script>
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/logo.png" />
@@ -86,16 +100,6 @@
         }
       ]
     }
-    </script>
-
-    <!-- Google tag (gtag.js) -->
-    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-QB5S73V0TX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-QB5S73V0TX');
     </script>
 
     <!-- Google Fonts -->

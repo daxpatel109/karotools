@@ -310,8 +310,9 @@ export default function Home() {
       {/* Dot grid */}
       <div style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0, backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.025) 1px, transparent 1px)", backgroundSize: "30px 30px" }} />
 
-      {/* ── NAVBAR ──────────────────────────────────────────── */}
-      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000, height: 72, display: "flex", alignItems: "center", padding: "0 5vw", justifyContent: "space-between", background: scrolled ? "rgba(2,6,23,0.95)" : "transparent", backdropFilter: scrolled ? "blur(24px)" : "none", borderBottom: scrolled ? "1px solid rgba(255,255,255,0.05)" : "none", transition: "all 0.4s ease", animation: "slideDown 0.6s ease" }}>
+      {/* ── HEADER & NAVBAR ─────────────────────────────────── */}
+      <header style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000, height: 72, background: scrolled ? "rgba(2,6,23,0.95)" : "transparent", backdropFilter: scrolled ? "blur(24px)" : "none", borderBottom: scrolled ? "1px solid rgba(255,255,255,0.05)" : "none", transition: "all 0.4s ease", animation: "slideDown 0.6s ease" }}>
+        <nav style={{ display: "flex", alignItems: "center", padding: "0 5vw", justifyContent: "space-between", height: "100%" }}>
         {/* Logo */}
         <div style={{ display: "flex", alignItems: "center", gap: 10, cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
@@ -324,6 +325,10 @@ export default function Home() {
 
         {/* Desktop Nav Links */}
         <div className="desktop-nav">
+          <div style={{ display: "flex", alignItems: "center", background: "rgba(16, 185, 129, 0.1)", border: "1px solid rgba(16, 185, 129, 0.2)", padding: "4px 10px", borderRadius: "12px", marginRight: "12px" }}>
+            <span style={{ width: 6, height: 6, background: "#10b981", borderRadius: "50%", marginRight: 6, animation: "pulse 2s infinite" }}></span>
+            <span style={{ color: "#10b981", fontSize: 11, fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}>Updated FY 2026-27</span>
+          </div>
           <button className="nav-btn" onClick={() => document.getElementById("tools-section").scrollIntoView({ behavior: "smooth" })} style={{ padding: "8px 16px", background: "transparent", border: "none", color: "#64748b", fontSize: 14, fontWeight: 500, borderRadius: 8, transition: "all 0.2s", fontFamily: "'DM Sans',sans-serif" }}>Tools</button>
           <button className="nav-btn" onClick={() => navigate("/about")} style={{ padding: "8px 16px", background: "transparent", border: "none", color: "#64748b", fontSize: 14, fontWeight: 500, borderRadius: 8, transition: "all 0.2s", fontFamily: "'DM Sans',sans-serif" }}>About</button>
           <button className="nav-btn" onClick={() => navigate("/blog")} style={{ padding: "8px 16px", background: "transparent", border: "none", color: "#64748b", fontSize: 14, fontWeight: 500, borderRadius: 8, transition: "all 0.2s", fontFamily: "'DM Sans',sans-serif" }}>Blog</button>
@@ -338,7 +343,8 @@ export default function Home() {
         <button className="mobile-nav-toggle" onClick={() => setIsMobileMenuOpen(true)}>
           ☰
         </button>
-      </nav>
+        </nav>
+      </header>
 
       {/* ── MOBILE MENU OVERLAY ────────────────────────────────── */}
       {isMobileMenuOpen && (

@@ -1,6 +1,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import ScrollPathSection from "./ScrollPathSection";
 
 // ── Cursor ───────────────────────────────────────────────────────
 function Cursor() {
@@ -429,6 +430,9 @@ export default function Home() {
           <span style={{ fontSize: 10, color: "#1e293b", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase" }}>Scroll</span>
         </div>
       </section>
+
+      {/* ── SCROLL PATH WORKFLOW ────────────────────────────── */}
+      <ScrollPathSection />
 
       {/* ── TOOLS SECTION ───────────────────────────────────── */}
       <section id="tools-section" style={{ position: "relative", zIndex: 1, padding: "100px 5vw", maxWidth: 1280, margin: "0 auto" }}>

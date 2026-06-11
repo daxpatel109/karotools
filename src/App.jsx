@@ -17,6 +17,7 @@ const BlogPost3 = lazy(() => import("./BlogPost3"));
 const BlogPost4 = lazy(() => import("./BlogPost4"));
 const BlogPost5 = lazy(() => import("./BlogPost5"));
 const TaxCalculator = lazy(() => import("./TaxCalculator"));
+const Section44ADACalculator = lazy(() => import("./Section44ADACalculator"));
 const NormalTaxCalculator = lazy(() => import("./NormalTaxCalculator"));
 const AdvanceTaxCalculator = lazy(() => import("./AdvanceTaxCalculator"));
 const SalaryVsFreelanceCalculator = lazy(() => import("./SalaryVsFreelanceCalculator"));
@@ -102,6 +103,7 @@ export default function App() {
           <Route path="/blog/freelance-hourly-rate-vs-salary-india" element={<BlogPost4 />} />
           <Route path="/blog/make-gst-invoice-online-free" element={<BlogPost5 />} />
           <Route path="/tax-calculator" element={<TaxCalculator />} />
+          <Route path="/44ada-tax-calculator" element={<Section44ADACalculator />} />
           <Route path="/normal-tax-calculator" element={<NormalTaxCalculator />} />
           <Route path="/advance-tax-calculator" element={<AdvanceTaxCalculator />} />
           <Route path="/salary-vs-freelance" element={<SalaryVsFreelanceCalculator />} />

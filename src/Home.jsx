@@ -210,7 +210,8 @@ export default function Home() {
   const tools = [
     { icon: "🧮", name: "GST Calculator", description: "Live GST calculation for all slabs — 5%, 12%, 18%, 28%. CGST, SGST & IGST with custom rates and presets.", category: "Finance", page: "/gst-calculator" },
     { icon: "📄", name: "Invoice Generator", description: "Professional GST invoices with PDF download. GSTIN validation, HSN/SAC codes, logo upload, signature area.", category: "Finance", page: "/gst-invoice-generator" },
-    { icon: "🏛️", name: "Tax Calculator (44ADA)", description: "Visual income tax estimator for freelancers using Presumptive Taxation (50% tax-free income).", category: "Finance", page: "/tax-calculator" },
+    { icon: "🏛️", name: "Tax Calculator Hub", description: "Choose the right income tax calculator: Section 44ADA, Normal Regime, or Advance Tax.", category: "Finance", page: "/tax-calculator" },
+    { icon: "⚡", name: "Section 44ADA Calculator", description: "Visual income tax estimator for freelancers using Presumptive Taxation (50% tax-free income).", category: "Finance", page: "/44ada-tax-calculator" },
     { icon: "🏢", name: "Normal Tax Calculator", description: "Calculate standard tax (New Regime) without 44ADA for high-income freelancers or agencies.", category: "Finance", page: "/normal-tax-calculator" },
     { icon: "📅", name: "Advance Tax Calculator", description: "Instantly calculate your advance tax liability, installment amounts, and due dates under Indian tax laws.", category: "Finance", page: "/advance-tax-calculator" },
     { icon: "⚠️", name: "Late GST Penalty", description: "Calculate late filing fees (₹50/day) and 18% interest on delayed GST payments instantly.", category: "Finance", page: "/late-gst-penalty-calculator" },

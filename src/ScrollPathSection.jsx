@@ -97,15 +97,15 @@ export default function ScrollPathSection() {
             <svg width="100%" height="100%" viewBox="0 0 1000 1000" preserveAspectRatio="none">
               <defs>
                 <linearGradient id="glowGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="#0ea5e9" />
-                  <stop offset="50%" stopColor="#10b981" />
+                  <stop offset="0%" stopColor="#3b82f6" />
+                  <stop offset="50%" stopColor="#6366f1" />
                   <stop offset="100%" stopColor="#8b5cf6" />
                 </linearGradient>
               </defs>
               <path 
                 ref={pathRef}
                 className="animated-path"
-                d="M 500 0 C 500 50, 400 40, 400 100 C 400 230, 600 230, 600 360 C 600 495, 400 495, 400 630 C 400 765, 600 765, 600 900 C 600 960, 500 950, 500 1000"
+                d="M 500 0 C 500 60, 400 60, 400 125 C 400 250, 600 250, 600 375 C 600 500, 400 500, 400 625 C 400 750, 600 750, 600 875 C 600 950, 500 950, 500 1000"
               />
             </svg>
           </div>

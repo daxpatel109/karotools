@@ -1,5 +1,6 @@
+"use client";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 const TEMPLATES = {
   instagram: {
     professional: [
@@ -193,15 +194,20 @@ const selectStyle = {
  
 // ── Component ────────────────────────────────────────────────────
 export default function BioGenerator() {
-  const [name, setName] = useState(() => localStorage.getItem("bio_name") || "");
-  const [profession, setProfession] = useState(() => localStorage.getItem("bio_prof") || "Web Developer");
-  const [skills, setSkills] = useState(() => {
-    try { return JSON.parse(localStorage.getItem("bio_skills")) || []; } catch { return []; }
-  });
-  const [city, setCity] = useState(() => localStorage.getItem("bio_city") || "Ahmedabad");
-  const [experience, setExperience] = useState(() => localStorage.getItem("bio_exp") || "2");
-  const [platform, setPlatform] = useState(() => localStorage.getItem("bio_plat") || "instagram");
-  const [tone, setTone] = useState(() => localStorage.getItem("bio_tone") || "professional");
+  const [name, setName] = useState("");
+  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("bio_name"); if (val) setbio_name(val); } }, []);
+  const [profession, setProfession] = useState("Web Developer");
+  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("bio_prof"); if (val) setbio_prof(val); } }, []);
+  const [skills, setSkills] = useState([]);
+  useEffect(() => { if (typeof window !== 'undefined') { try { const val = localStorage.getItem("bio_skills"); if (val) setbio_skills(JSON.parse(val)); } catch {} } }, []);
+  const [city, setCity] = useState("Ahmedabad");
+  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("bio_city"); if (val) setbio_city(val); } }, []);
+  const [experience, setExperience] = useState("2");
+  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("bio_exp"); if (val) setbio_exp(val); } }, []);
+  const [platform, setPlatform] = useState("instagram");
+  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("bio_plat"); if (val) setbio_plat(val); } }, []);
+  const [tone, setTone] = useState("professional");
+  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("bio_tone"); if (val) setbio_tone(val); } }, []);
   const [bios, setBios] = useState([]);
   const [selected, setSelected] = useState(null);
   const [copied, setCopied] = useState(false);
@@ -313,7 +319,7 @@ export default function BioGenerator() {
         borderBottom:"1px solid rgba(255,255,255,0.05)",
       }}>
         <div style={{display:"flex",alignItems:"center",gap:"10px"}}>
-          <Link to="/" style={{ textDecoration: "none", display:"flex",alignItems:"center",gap:"10px" }}>
+          <Link href="/" style={{ textDecoration: "none", display:"flex",alignItems:"center",gap:"10px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
   <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
@@ -322,7 +328,7 @@ export default function BioGenerator() {
 </div>
           </Link>
         </div>
-        <Link to="/" style={{
+        <Link href="/" style={{
           background:"rgba(255,255,255,0.05)",border:"1px solid rgba(255,255,255,0.1)",
           color:"#94a3b8",padding:"8px 16px",borderRadius:"10px",
           fontSize:"14px",fontWeight:"600",textDecoration:"none",

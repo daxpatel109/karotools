@@ -1,5 +1,6 @@
+"use client";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 export default function AdvanceTaxCalculator() {
   const [totalTax, setTotalTax] = useState("");
@@ -80,7 +81,7 @@ export default function AdvanceTaxCalculator() {
   return (
     <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans',sans-serif", color: "#f1f5f9" }}>
       <header style={{ padding: "24px 5vw", borderBottom: "1px solid rgba(255,255,255,0.05)", position: "sticky", top: 0, background: "rgba(2,6,23,0.8)", backdropFilter: "blur(12px)", zIndex: 100, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <Link to="/" style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}>
+        <Link href="/" style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
   <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
@@ -88,7 +89,7 @@ export default function AdvanceTaxCalculator() {
   </span>
 </div>
         </Link>
-        <Link to="/" style={{ fontSize: "14px", fontWeight: "600", color: "#94a3b8", textDecoration: "none", padding: "8px 16px", background: "rgba(255,255,255,0.05)", borderRadius: "8px" }}>Explore Tools →</Link>
+        <Link href="/" style={{ fontSize: "14px", fontWeight: "600", color: "#94a3b8", textDecoration: "none", padding: "8px 16px", background: "rgba(255,255,255,0.05)", borderRadius: "8px" }}>Explore Tools →</Link>
       </header>
 
       <div style={{ padding: "60px 5vw", maxWidth: "800px", margin: "0 auto" }}>

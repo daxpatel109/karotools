@@ -1,6 +1,8 @@
 
+"use client";
 import { useState, useEffect, useRef } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 import ScrollPathSection from "./ScrollPathSection";
 
 // ── Cursor ───────────────────────────────────────────────────────
@@ -135,7 +137,7 @@ function Particles() {
 
 // ── Main Home ─────────────────────────────────────────────────────
 export default function Home() {
-  const navigate = useNavigate();
+  const router = useRouter();
   const [search, setSearch] = useState("");
   const [scrolled, setScrolled] = useState(false);
   const [activeFilter, setActiveFilter] = useState("All");
@@ -330,8 +332,8 @@ export default function Home() {
             <span style={{ color: "#10b981", fontSize: 11, fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}>Updated FY 2026-27</span>
           </div>
           <button className="nav-btn" onClick={() => document.getElementById("tools-section").scrollIntoView({ behavior: "smooth" })} style={{ padding: "8px 16px", background: "transparent", border: "none", color: "#64748b", fontSize: 14, fontWeight: 500, borderRadius: 8, transition: "all 0.2s", fontFamily: "'DM Sans',sans-serif" }}>Tools</button>
-          <button className="nav-btn" onClick={() => navigate("/about")} style={{ padding: "8px 16px", background: "transparent", border: "none", color: "#64748b", fontSize: 14, fontWeight: 500, borderRadius: 8, transition: "all 0.2s", fontFamily: "'DM Sans',sans-serif" }}>About</button>
-          <button className="nav-btn" onClick={() => navigate("/blog")} style={{ padding: "8px 16px", background: "transparent", border: "none", color: "#64748b", fontSize: 14, fontWeight: 500, borderRadius: 8, transition: "all 0.2s", fontFamily: "'DM Sans',sans-serif" }}>Blog</button>
+          <button className="nav-btn" onClick={() => router.push("/about")} style={{ padding: "8px 16px", background: "transparent", border: "none", color: "#64748b", fontSize: 14, fontWeight: 500, borderRadius: 8, transition: "all 0.2s", fontFamily: "'DM Sans',sans-serif" }}>About</button>
+          <button className="nav-btn" onClick={() => router.push("/blog")} style={{ padding: "8px 16px", background: "transparent", border: "none", color: "#64748b", fontSize: 14, fontWeight: 500, borderRadius: 8, transition: "all 0.2s", fontFamily: "'DM Sans',sans-serif" }}>Blog</button>
           <div style={{ width: 1, height: 20, background: "rgba(255,255,255,0.08)", margin: "0 8px" }} />
           <button className="cta-btn-primary" onClick={() => document.getElementById("tools-section").scrollIntoView({ behavior: "smooth" })}
             style={{ padding: "9px 22px", background: "linear-gradient(135deg, #0ea5e9, #14b8a6)", border: "none", borderRadius: 10, color: "#fff", fontSize: 14, fontWeight: 700, fontFamily: "'Syne',sans-serif", boxShadow: "0 4px 20px rgba(14,165,233,0.3)", transition: "all 0.3s", cursor: "pointer" }}>
@@ -362,8 +364,8 @@ export default function Home() {
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 24, padding: "40px 5vw" }}>
             <button onClick={() => { setIsMobileMenuOpen(false); document.getElementById("tools-section").scrollIntoView({ behavior: "smooth" }); }} style={{ background: "transparent", border: "none", color: "#f1f5f9", fontSize: 24, fontWeight: 700, fontFamily: "'Syne',sans-serif", textAlign: "left" }}>Tools</button>
-            <button onClick={() => { setIsMobileMenuOpen(false); navigate("/about"); }} style={{ background: "transparent", border: "none", color: "#f1f5f9", fontSize: 24, fontWeight: 700, fontFamily: "'Syne',sans-serif", textAlign: "left" }}>About</button>
-            <button onClick={() => { setIsMobileMenuOpen(false); navigate("/blog"); }} style={{ background: "transparent", border: "none", color: "#f1f5f9", fontSize: 24, fontWeight: 700, fontFamily: "'Syne',sans-serif", textAlign: "left" }}>Blog</button>
+            <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} style={{ background: "transparent", border: "none", color: "#f1f5f9", fontSize: 24, fontWeight: 700, fontFamily: "'Syne',sans-serif", textAlign: "left" }}>About</Link>
+            <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} style={{ background: "transparent", border: "none", color: "#f1f5f9", fontSize: 24, fontWeight: 700, fontFamily: "'Syne',sans-serif", textAlign: "left" }}>Blog</Link>
             <div style={{ height: 1, background: "rgba(255,255,255,0.08)", margin: "16px 0" }} />
             <button onClick={() => { setIsMobileMenuOpen(false); document.getElementById("tools-section").scrollIntoView({ behavior: "smooth" }); }}
               style={{ padding: "16px", background: "linear-gradient(135deg, #3b82f6, #8b5cf6)", border: "none", borderRadius: 12, color: "#fff", fontSize: 18, fontWeight: 700, fontFamily: "'Syne',sans-serif", textAlign: "center" }}>
@@ -618,13 +620,14 @@ export default function Home() {
             <div>
               <p style={{ fontSize: 11, fontWeight: 700, color: "#cbd5e1", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 18 }}>Company</p>
               {[
-                { name: "About Us", path: "/" },
-                { name: "Blog", path: "/" },
+                { name: "About Us", path: "/about" },
+                { name: "Blog", path: "/blog" },
+                { name: "Guides", path: "/guides" },
                 { name: "Contact", path: "/contact" },
                 { name: "Privacy Policy", path: "/privacy-policy" },
                 { name: "Terms of Use", path: "/terms" }
               ].map(t => (
-                <Link key={t.name} to={t.path} className="footer-link" style={{ display: "block", textDecoration: "none", fontSize: 14, color: "#94a3b8", marginBottom: 12, cursor: "pointer", transition: "color 0.2s" }}>{t.name}</Link>
+                <Link key={t.name} href={t.path} className="footer-link" style={{ display: "block", textDecoration: "none", fontSize: 14, color: "#94a3b8", marginBottom: 12, cursor: "pointer", transition: "color 0.2s" }}>{t.name}</Link>
               ))}
             </div>
 

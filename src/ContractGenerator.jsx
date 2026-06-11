@@ -1,17 +1,27 @@
+"use client";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import jsPDF from "jspdf";
 
 export default function ContractGenerator() {
-  const [freelancerName, setFreelancerName] = useState(() => localStorage.getItem("cg_fName") || "");
-  const [clientName, setClientName] = useState(() => localStorage.getItem("cg_cName") || "");
-  const [projectName, setProjectName] = useState(() => localStorage.getItem("cg_pName") || "");
-  const [startDate, setStartDate] = useState(() => localStorage.getItem("cg_sDate") || "");
-  const [endDate, setEndDate] = useState(() => localStorage.getItem("cg_eDate") || "");
-  const [totalFee, setTotalFee] = useState(() => localStorage.getItem("cg_fee") || "");
-  const [advanceFee, setAdvanceFee] = useState(() => localStorage.getItem("cg_adv") || "");
-  const [revisions, setRevisions] = useState(() => localStorage.getItem("cg_rev") || "2");
-  const [jurisdiction, setJurisdiction] = useState(() => localStorage.getItem("cg_jur") || "Mumbai, India");
+  const [freelancerName, setFreelancerName] = useState("");
+  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("cg_fName"); if (val) setcg_fName(val); } }, []);
+  const [clientName, setClientName] = useState("");
+  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("cg_cName"); if (val) setcg_cName(val); } }, []);
+  const [projectName, setProjectName] = useState("");
+  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("cg_pName"); if (val) setcg_pName(val); } }, []);
+  const [startDate, setStartDate] = useState("");
+  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("cg_sDate"); if (val) setcg_sDate(val); } }, []);
+  const [endDate, setEndDate] = useState("");
+  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("cg_eDate"); if (val) setcg_eDate(val); } }, []);
+  const [totalFee, setTotalFee] = useState("");
+  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("cg_fee"); if (val) setcg_fee(val); } }, []);
+  const [advanceFee, setAdvanceFee] = useState("");
+  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("cg_adv"); if (val) setcg_adv(val); } }, []);
+  const [revisions, setRevisions] = useState("2");
+  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("cg_rev"); if (val) setcg_rev(val); } }, []);
+  const [jurisdiction, setJurisdiction] = useState("Mumbai, India");
+  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("cg_jur"); if (val) setcg_jur(val); } }, []);
 
   const [copied, setCopied] = useState(false);
 
@@ -276,7 +286,7 @@ Freelancer Signature: _______________________        Date: _______________`;
 
       {/* Navbar */}
       <nav style={{ position: "sticky", top: 0, zIndex: 100, padding: "0 40px", height: "70px", display: "flex", alignItems: "center", justifyContent: "space-between", background: "rgba(2,6,23,0.9)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-        <Link to="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
+        <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
   <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
@@ -284,7 +294,7 @@ Freelancer Signature: _______________________        Date: _______________`;
   </span>
 </div>
         </Link>
-        <Link to="/" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "#94a3b8", padding: "8px 16px", borderRadius: "10px", fontSize: "14px", fontWeight: "600", textDecoration: "none" }}>← Home</Link>
+        <Link href="/" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "#94a3b8", padding: "8px 16px", borderRadius: "10px", fontSize: "14px", fontWeight: "600", textDecoration: "none" }}>← Home</Link>
       </nav>
 
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "60px 24px 100px", display: "grid", gridTemplateColumns: "1fr", gap: "40px" }}>

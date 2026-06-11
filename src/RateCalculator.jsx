@@ -1,12 +1,18 @@
+"use client";
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 export default function RateCalculator() {
-  const [monthlyExpenses, setMonthlyExpenses] = useState(() => Number(localStorage.getItem("rate_expenses_total")) || 30000);
-  const [desiredSavings, setDesiredSavings] = useState(() => Number(localStorage.getItem("rate_savings")) || 20000);
-  const [workingDays, setWorkingDays] = useState(() => Number(localStorage.getItem("rate_days")) || 22);
-  const [hoursPerDay, setHoursPerDay] = useState(() => Number(localStorage.getItem("rate_hours")) || 6);
-  const [profitMargin, setProfitMargin] = useState(() => Number(localStorage.getItem("rate_margin")) || 20);
+  const [monthlyExpenses, setMonthlyExpenses] = useState(30000);
+  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("rate_expenses_total"); if (val) setrate_expenses_total(Number(val)); } }, []);
+  const [desiredSavings, setDesiredSavings] = useState(20000);
+  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("rate_savings"); if (val) setrate_savings(Number(val)); } }, []);
+  const [workingDays, setWorkingDays] = useState(22);
+  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("rate_days"); if (val) setrate_days(Number(val)); } }, []);
+  const [hoursPerDay, setHoursPerDay] = useState(6);
+  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("rate_hours"); if (val) setrate_hours(Number(val)); } }, []);
+  const [profitMargin, setProfitMargin] = useState(20);
+  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("rate_margin"); if (val) setrate_margin(Number(val)); } }, []);
 
   // 🚀 SEO Meta & JSON-LD Schema Injection
   useEffect(() => {
@@ -302,7 +308,7 @@ export default function RateCalculator() {
   </span>
 </div>
         </a>
-        <Link to="/" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "#94a3b8", padding: "8px 16px", borderRadius: "8px", fontSize: "14px", fontWeight: "600", textDecoration: "none" }}>← Home</Link>
+        <Link href="/" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "#94a3b8", padding: "8px 16px", borderRadius: "8px", fontSize: "14px", fontWeight: "600", textDecoration: "none" }}>← Home</Link>
       </nav>
 
       <div className="print-only print-header" style={{ display: "none", textAlign: "center", paddingTop: "20px" }}>

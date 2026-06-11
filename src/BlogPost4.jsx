@@ -1,5 +1,6 @@
+"use client";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 export default function BlogPost4() {
   useEffect(() => {
@@ -44,7 +45,7 @@ export default function BlogPost4() {
       
       {/* Navbar */}
       <nav style={{ position: "sticky", top: 0, zIndex: 100, padding: "10px 20px", minHeight: "70px", display: "flex", flexWrap: "wrap", gap: "12px", alignItems: "center", justifyContent: "space-between", background: "rgba(2,6,23,0.9)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-        <Link to="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
+        <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "clamp(40px, 10vw, 56px)", margin: "0 -16px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
   <span style={{ fontSize: "clamp(18px, 5vw, 22px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
@@ -52,7 +53,7 @@ export default function BlogPost4() {
   </span>
 </div>
         </Link>
-        <Link to="/blog" style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "600", textDecoration: "none" }}>← Back to Blog</Link>
+        <Link href="/blog" style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "600", textDecoration: "none" }}>← Back to Blog</Link>
       </nav>
 
       {/* Article Content */}
@@ -122,7 +123,7 @@ export default function BlogPost4() {
             <p style={{ color: "#94a3b8", fontSize: "16px", marginBottom: "20px" }}>
               Instead of guessing, use our free Salary vs Freelance calculator. Just plug in your current salary, your expected software expenses, and how many weeks of vacation you want to take. It will instantly output the exact hourly, daily, and monthly rate you need to charge.
             </p>
-            <Link to="/salary-vs-freelance" style={{ display: "inline-block", background: "linear-gradient(135deg, #10b981, #059669)", color: "#fff", padding: "12px 24px", borderRadius: "10px", textDecoration: "none", fontWeight: "700", fontSize: "15px" }}>
+            <Link href="/salary-vs-freelance" style={{ display: "inline-block", background: "linear-gradient(135deg, #10b981, #059669)", color: "#fff", padding: "12px 24px", borderRadius: "10px", textDecoration: "none", fontWeight: "700", fontSize: "15px" }}>
               Try the Salary vs Freelance Calculator →
             </Link>
           </div>

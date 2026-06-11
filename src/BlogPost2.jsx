@@ -1,5 +1,6 @@
+"use client";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 export default function BlogPost2() {
   useEffect(() => {
@@ -67,7 +68,7 @@ export default function BlogPost2() {
 
       {/* Navbar */}
       <nav style={{ position: "sticky", top: 0, zIndex: 100, padding: "10px 20px", minHeight: "70px", display: "flex", flexWrap: "wrap", gap: "12px", alignItems: "center", justifyContent: "space-between", background: "rgba(2,6,23,0.9)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-        <Link to="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
+        <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "clamp(40px, 10vw, 56px)", margin: "0 -16px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
   <span style={{ fontSize: "clamp(18px, 5vw, 22px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
@@ -76,7 +77,7 @@ export default function BlogPost2() {
 </div>
         </Link>
         <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
-          <Link to="/blog" style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "600", textDecoration: "none" }}>← Back to Blog</Link>
+          <Link href="/blog" style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "600", textDecoration: "none" }}>← Back to Blog</Link>
         </div>
       </nav>
 
@@ -105,7 +106,7 @@ export default function BlogPost2() {
             </div>
           </div>
           <div>
-            <Link to="/author/dax-patel" style={{ margin: "0 0 4px 0", fontSize: "18px", fontWeight: "700", color: "#f1f5f9", textDecoration: "none", display: "inline-block" }} onMouseEnter={e => e.target.style.textDecoration = "underline"} onMouseLeave={e => e.target.style.textDecoration = "none"}>Dax Patel</Link>
+            <Link href="/author/dax-patel" style={{ margin: "0 0 4px 0", fontSize: "18px", fontWeight: "700", color: "#f1f5f9", textDecoration: "none", display: "inline-block" }} onMouseEnter={e => e.target.style.textDecoration = "underline"} onMouseLeave={e => e.target.style.textDecoration = "none"}>Dax Patel</Link>
             <p style={{ margin: 0, fontSize: "14px", color: "#94a3b8" }}>Tax & Freelance Growth Expert</p>
           </div>
         </div>
@@ -134,7 +135,7 @@ export default function BlogPost2() {
           <div style={{ background: "rgba(14,165,233,0.05)", borderLeft: "4px solid #0ea5e9", padding: "24px", borderRadius: "0 12px 12px 0", margin: "40px 0" }}>
             <h3 style={{ margin: "0 0 12px 0", color: "#38bdf8", fontSize: "16px", textTransform: "uppercase", letterSpacing: "0.05em" }}>⚡ Try It Yourself</h3>
             <p style={{ margin: 0, color: "#cbd5e1", fontSize: "16px", lineHeight: "1.6" }}>
-              Want to see the exact math? Enter your total annual income into our free <Link to="/tax-calculator" style={{ color: "#38bdf8", fontWeight: "600", textDecoration: "underline" }}>freelance tax calculator</Link> to instantly see how much you save using Section 44ADA.
+              Want to see the exact math? Enter your total annual income into our free <Link href="/tax-calculator" style={{ color: "#38bdf8", fontWeight: "600", textDecoration: "underline" }}>freelance tax calculator</Link> to instantly see how much you save using Section 44ADA.
             </p>
           </div>
 
@@ -155,7 +156,7 @@ export default function BlogPost2() {
             As of the latest budget (FY 2024-25 and onwards), the upper limit for <strong>Section 44ADA for freelancers</strong> has been increased from ₹50 Lakhs to <strong>₹75 Lakhs</strong>. 
           </p>
           <p style={pStyle}>
-            <em>Important Catch:</em> You can only use the ₹75 Lakh limit if your cash receipts are less than 5% of your total income. If you receive all your freelance payments via bank transfer or platforms like Upwork/Paypal, you are completely safe. If you need help pricing your services to stay optimized under these limits, try using a <Link to="/rate-calculator" style={{ color: "#38bdf8", textDecoration: "none" }}>hourly rate calculator</Link> to plan your financial year.
+            <em>Important Catch:</em> You can only use the ₹75 Lakh limit if your cash receipts are less than 5% of your total income. If you receive all your freelance payments via bank transfer or platforms like Upwork/Paypal, you are completely safe. If you need help pricing your services to stay optimized under these limits, try using a <Link href="/rate-calculator" style={{ color: "#38bdf8", textDecoration: "none" }}>hourly rate calculator</Link> to plan your financial year.
           </p>
 
           <h2 style={h2Style}>How to Maximize Your Tax Savings</h2>
@@ -163,7 +164,7 @@ export default function BlogPost2() {
             To perfectly utilize Section 44ADA for freelancers, you need to ensure a paper trail. Even though you don't need expense receipts, you <strong>must</strong> have proof of income.
           </p>
           <p style={pStyle}>
-            Never accept money blindly into your bank account. For every single payment you receive, generate a professional invoice. If you don't have an invoicing tool, use a free <Link to="/invoice-generator" style={{ color: "#38bdf8", textDecoration: "none" }}>professional invoice generator</Link> to create legally compliant PDFs. If your clients are in India, you also need to track whether you cross the ₹20 Lakh GST threshold. (You can check your liability with our <Link to="/gst-calculator" style={{ color: "#38bdf8", textDecoration: "none" }}>GST calculator</Link>).
+            Never accept money blindly into your bank account. For every single payment you receive, generate a professional invoice. If you don't have an invoicing tool, use a free <Link href="/invoice-generator" style={{ color: "#38bdf8", textDecoration: "none" }}>professional invoice generator</Link> to create legally compliant PDFs. If your clients are in India, you also need to track whether you cross the ₹20 Lakh GST threshold. (You can check your liability with our <Link href="/gst-calculator" style={{ color: "#38bdf8", textDecoration: "none" }}>GST calculator</Link>).
           </p>
 
           <hr style={{ border: "none", borderTop: "1px solid rgba(255,255,255,0.1)", margin: "64px 0" }} />
@@ -194,7 +195,7 @@ export default function BlogPost2() {
           <div style={{ marginTop: "64px", textAlign: "center", padding: "48px", background: "linear-gradient(135deg, rgba(14,165,233,0.1), rgba(20,184,166,0.1))", borderRadius: "24px", border: "1px solid rgba(14,165,233,0.2)" }}>
             <h2 style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", margin: "0 0 16px 0" }}>Ready to calculate your exact tax?</h2>
             <p style={{ color: "#94a3b8", fontSize: "18px", marginBottom: "32px" }}>Use our completely free calculator built specifically for the new Indian tax slabs.</p>
-            <Link to="/tax-calculator" style={{ display: "inline-block", padding: "16px 36px", background: "linear-gradient(135deg, #0ea5e9, #14b8a6)", borderRadius: "12px", color: "white", fontSize: "18px", fontWeight: "700", textDecoration: "none", boxShadow: "0 8px 24px rgba(14,165,233,0.3)", transition: "transform 0.2s" }}>
+            <Link href="/tax-calculator" style={{ display: "inline-block", padding: "16px 36px", background: "linear-gradient(135deg, #0ea5e9, #14b8a6)", borderRadius: "12px", color: "white", fontSize: "18px", fontWeight: "700", textDecoration: "none", boxShadow: "0 8px 24px rgba(14,165,233,0.3)", transition: "transform 0.2s" }}>
               Calculate My Tax Now →
             </Link>
           </div>

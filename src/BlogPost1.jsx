@@ -1,5 +1,6 @@
+"use client";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 export default function BlogPost1() {
   useEffect(() => {
@@ -21,7 +22,7 @@ export default function BlogPost1() {
 
       {/* Navbar */}
       <nav style={{ position: "sticky", top: 0, zIndex: 100, padding: "10px 20px", minHeight: "70px", display: "flex", flexWrap: "wrap", gap: "12px", alignItems: "center", justifyContent: "space-between", background: "rgba(2,6,23,0.9)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-        <Link to="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
+        <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "clamp(40px, 10vw, 56px)", margin: "0 -16px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
   <span style={{ fontSize: "clamp(18px, 5vw, 22px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
@@ -30,7 +31,7 @@ export default function BlogPost1() {
 </div>
         </Link>
         <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
-          <Link to="/blog" style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "600", textDecoration: "none" }}>← Back to Blog</Link>
+          <Link href="/blog" style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "600", textDecoration: "none" }}>← Back to Blog</Link>
         </div>
       </nav>
 
@@ -59,7 +60,7 @@ export default function BlogPost1() {
             </div>
           </div>
           <div>
-            <Link to="/author/dax-patel" style={{ margin: "0 0 4px 0", fontWeight: "600", color: "#e2e8f0", textDecoration: "none", display: "inline-block" }} onMouseEnter={e => e.target.style.textDecoration = "underline"} onMouseLeave={e => e.target.style.textDecoration = "none"}>Dax Patel</Link>
+            <Link href="/author/dax-patel" style={{ margin: "0 0 4px 0", fontWeight: "600", color: "#e2e8f0", textDecoration: "none", display: "inline-block" }} onMouseEnter={e => e.target.style.textDecoration = "underline"} onMouseLeave={e => e.target.style.textDecoration = "none"}>Dax Patel</Link>
             <p style={{ margin: 0, fontSize: "13px", color: "#64748b" }}>Empowering Indian Freelancers</p>
           </div>
         </div>
@@ -128,7 +129,7 @@ export default function BlogPost1() {
           </p>
 
           <div style={{ marginTop: "48px", textAlign: "center" }}>
-            <Link to="/contract-generator" style={{ display: "inline-block", padding: "16px 32px", background: "linear-gradient(135deg, #3b82f6, #8b5cf6)", borderRadius: "12px", color: "white", fontSize: "18px", fontWeight: "700", textDecoration: "none", boxShadow: "0 8px 24px rgba(139,92,246,0.3)", transition: "transform 0.2s" }}>
+            <Link href="/contract-generator" style={{ display: "inline-block", padding: "16px 32px", background: "linear-gradient(135deg, #3b82f6, #8b5cf6)", borderRadius: "12px", color: "white", fontSize: "18px", fontWeight: "700", textDecoration: "none", boxShadow: "0 8px 24px rgba(139,92,246,0.3)", transition: "transform 0.2s" }}>
               Try the Free Contract Generator →
             </Link>
           </div>

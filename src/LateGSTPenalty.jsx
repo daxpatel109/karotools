@@ -1,5 +1,6 @@
+"use client";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 export default function LateGSTPenalty() {
   const [dueDate, setDueDate] = useState(() => {
@@ -133,7 +134,7 @@ export default function LateGSTPenalty() {
 
       <nav className="glass-panel" style={{ position: "sticky", top: 0, zIndex: 100, padding: "0 24px", height: "72px", display: "flex", alignItems: "center", borderTop: "none", borderLeft: "none", borderRight: "none", borderRadius: 0 }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          <Link to="/" style={{ textDecoration: "none" }}>
+          <Link href="/" style={{ textDecoration: "none" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
               <img src="/logo.png" alt="KaroTools" style={{ height: "56px", margin: "0 -24px 0 0", position: "relative", zIndex: 10 }} />
               <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
@@ -141,7 +142,7 @@ export default function LateGSTPenalty() {
               </span>
             </div>
           </Link>
-          <Link to="/" className="interactive-btn home-btn" style={{ padding: "10px 20px", borderRadius: "12px", fontSize: "14px", fontWeight: "600", display: "flex", alignItems: "center", gap: "8px", background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", color: "#cbd5e1", textDecoration: "none" }}>
+          <Link href="/" className="interactive-btn home-btn" style={{ padding: "10px 20px", borderRadius: "12px", fontSize: "14px", fontWeight: "600", display: "flex", alignItems: "center", gap: "8px", background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", color: "#cbd5e1", textDecoration: "none" }}>
             ← Home
           </Link>
         </div>

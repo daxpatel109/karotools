@@ -1,5 +1,6 @@
+"use client";
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 
@@ -231,7 +232,7 @@ export default function NormalTaxCalculator() {
 
       {/* Navbar */}
       <nav style={{ position: "sticky", top: 0, zIndex: 100, padding: "0 40px", height: "70px", display: "flex", alignItems: "center", justifyContent: "space-between", background: "rgba(2,6,23,0.9)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-        <Link to="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
+        <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
   <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
@@ -239,7 +240,7 @@ export default function NormalTaxCalculator() {
   </span>
 </div>
         </Link>
-        <Link to="/" style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "600", textDecoration: "none", transition: "color 0.2s" }} onMouseEnter={e => e.target.style.color = "#fff"} onMouseLeave={e => e.target.style.color = "#94a3b8"}>Home</Link>
+        <Link href="/" style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "600", textDecoration: "none", transition: "color 0.2s" }} onMouseEnter={e => e.target.style.color = "#fff"} onMouseLeave={e => e.target.style.color = "#94a3b8"}>Home</Link>
       </nav>
 
       {/* Main Content */}
@@ -263,7 +264,7 @@ export default function NormalTaxCalculator() {
               <p style={{ margin: 0, color: "#e0f2fe", fontSize: "15px", lineHeight: "1.5" }}>
                 This is the actual expense method. If your net profit margin is below 50%, this is your primary way to calculate taxes.
               </p>
-              <Link to="/tax-calculator" style={{ background: "#0ea5e9", color: "#fff", textDecoration: "none", padding: "8px 16px", borderRadius: "8px", fontWeight: "600", fontSize: "14px", marginTop: "4px", transition: "opacity 0.2s" }} onMouseEnter={e => e.target.style.opacity = 0.9} onMouseLeave={e => e.target.style.opacity = 1}>
+              <Link href="/tax-calculator" style={{ background: "#0ea5e9", color: "#fff", textDecoration: "none", padding: "8px 16px", borderRadius: "8px", fontWeight: "600", fontSize: "14px", marginTop: "4px", transition: "opacity 0.2s" }} onMouseEnter={e => e.target.style.opacity = 0.9} onMouseLeave={e => e.target.style.opacity = 1}>
                 Check if 44ADA is Better
               </Link>
             </div>

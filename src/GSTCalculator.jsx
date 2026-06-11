@@ -1,5 +1,7 @@
+"use client";
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import Link from "next/link";
+import { useParams } from "next/navigation";
 
 export default function GSTCalculator() {
   const { keyword } = useParams();
@@ -24,20 +26,28 @@ export default function GSTCalculator() {
     seoH1 = "Inclusive/Exclusive GST Calculator";
   }
 
-  const [amount, setAmount] = useState(() => localStorage.getItem("gst_amount") || "");
-  const [gstRate, setGstRate] = useState(() => Number(localStorage.getItem("gst_rate")) || 18);
-  const [customRate, setCustomRate] = useState(() => localStorage.getItem("gst_customRate") || "");
-  const [isCustom, setIsCustom] = useState(() => localStorage.getItem("gst_isCustom") === "true");
-  const [cessRate, setCessRate] = useState(() => Number(localStorage.getItem("gst_cessRate")) || 0);
-  const [type, setType] = useState(() => localStorage.getItem("gst_type") || "exclusive");
-  const [transactionType, setTransactionType] = useState(() => localStorage.getItem("gst_transactionType") || "intra");
-  const [roundOff, setRoundOff] = useState(() => localStorage.getItem("gst_roundOff") === "true");
+  const [amount, setAmount] = useState("");
+  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("gst_amount"); if (val) setgst_amount(val); } }, []);
+  const [gstRate, setGstRate] = useState(18);
+  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("gst_rate"); if (val) setgst_rate(Number(val)); } }, []);
+  const [customRate, setCustomRate] = useState("");
+  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("gst_customRate"); if (val) setgst_customRate(val); } }, []);
+  const [isCustom, setIsCustom] = useState(false);
+  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("gst_isCustom"); if (val) setgst_isCustom(val === "true"); } }, []);
+  const [cessRate, setCessRate] = useState(0);
+  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("gst_cessRate"); if (val) setgst_cessRate(Number(val)); } }, []);
+  const [type, setType] = useState("exclusive");
+  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("gst_type"); if (val) setgst_type(val); } }, []);
+  const [transactionType, setTransactionType] = useState("intra");
+  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("gst_transactionType"); if (val) setgst_transactionType(val); } }, []);
+  const [roundOff, setRoundOff] = useState(false);
+  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("gst_roundOff"); if (val) setgst_roundOff(val === "true"); } }, []);
   const [copied, setCopied] = useState(false);
   const [result, setResult] = useState(null);
-  const [history, setHistory] = useState(() => {
-    try { return JSON.parse(localStorage.getItem("gst_history")) || []; } catch { return []; }
-  });
-  const [preset, setPreset] = useState(() => localStorage.getItem("gst_preset") || null);
+  const [history, setHistory] = useState([]);
+  useEffect(() => { if (typeof window !== 'undefined') { try { const val = localStorage.getItem("gst_history"); if (val) setgst_history(JSON.parse(val)); } catch {} } }, []);
+  const [preset, setPreset] = useState(null);
+  useEffect(() => { if (typeof window !== 'undefined') { const val = localStorage.getItem("gst_preset"); if (val) setgst_preset(val); } }, []);
 
   const activeRate = isCustom ? (customRate === "" ? NaN : Number(customRate)) : Number(gstRate);
 
@@ -355,15 +365,14 @@ export default function GSTCalculator() {
 
       <nav className="glass-panel" style={{ position: "sticky", top: 0, zIndex: 100, padding: "0 24px", height: "72px", display: "flex", alignItems: "center", justifyContent: "space-between", borderTop: "none", borderLeft: "none", borderRight: "none", borderRadius: 0 }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          <Link to="/" style={{ textDecoration: "none" }}><div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+          <Link href="/" style={{ textDecoration: "none" }}><div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
   <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
     Karo<span style={{ background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
 </div></Link>
           
-          <Link
-            to="/"
+          <Link href="/"
             className="interactive-btn home-btn"
             style={{
               padding: "10px 20px",

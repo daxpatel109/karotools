@@ -1,5 +1,6 @@
+"use client";
 import { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { QRCodeCanvas } from "qrcode.react";
@@ -24,23 +25,23 @@ const INDIAN_STATES = [
 
 export default function InvoiceGenerator() {
   const [invoice, setInvoice] = useState(() => {
-    const saved = localStorage.getItem("inv_data_v2");
+    const saved = typeof window !== 'undefined' ? localStorage.getItem("inv_data_v2") : null;
     return saved ? JSON.parse(saved).invoice : { number: genInvoiceNo(), date: new Date().toISOString().split("T")[0], due: "", notes: "Payment due within 15 days. Thank you for your business!" };
   });
   const [seller, setSeller] = useState(() => {
-    const saved = localStorage.getItem("inv_data_v2");
+    const saved = typeof window !== 'undefined' ? localStorage.getItem("inv_data_v2") : null;
     return saved ? JSON.parse(saved).seller : { name: "", address: "", state: "Select State", gstin: "", pan: "", udyam: "", phone: "", email: "", logo: "" };
   });
   const [buyer, setBuyer] = useState(() => {
-    const saved = localStorage.getItem("inv_data_v2");
+    const saved = typeof window !== 'undefined' ? localStorage.getItem("inv_data_v2") : null;
     return saved ? JSON.parse(saved).buyer : { name: "", address: "", state: "Select State", gstin: "", phone: "", email: "" };
   });
   const [bank, setBank] = useState(() => {
-    const saved = localStorage.getItem("inv_data_v2");
+    const saved = typeof window !== 'undefined' ? localStorage.getItem("inv_data_v2") : null;
     return saved ? JSON.parse(saved).bank : { accName: "", accNo: "", ifsc: "", upi: "" };
   });
   const [items, setItems] = useState(() => {
-    const saved = localStorage.getItem("inv_data_v2");
+    const saved = typeof window !== 'undefined' ? localStorage.getItem("inv_data_v2") : null;
     return saved ? JSON.parse(saved).items : [emptyItem()];
   });
   const [transType, setTransType] = useState("intra");
@@ -402,7 +403,7 @@ export default function InvoiceGenerator() {
 
       {/* Navbar */}
       <nav style={{ position: "sticky", top: 0, zIndex: 100, padding: "0 40px", height: "70px", display: "flex", alignItems: "center", justifyContent: "space-between", background: "rgba(2,6,23,0.9)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-        <Link to="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
+        <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
   <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
@@ -410,7 +411,7 @@ export default function InvoiceGenerator() {
   </span>
 </div>
         </Link>
-        <Link to="/" style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "600", textDecoration: "none", transition: "color 0.2s" }} onMouseEnter={e => e.target.style.color = "#fff"} onMouseLeave={e => e.target.style.color = "#94a3b8"}>Home</Link>
+        <Link href="/" style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "600", textDecoration: "none", transition: "color 0.2s" }} onMouseEnter={e => e.target.style.color = "#fff"} onMouseLeave={e => e.target.style.color = "#94a3b8"}>Home</Link>
       </nav>
 
       <div className="workspace-layout">

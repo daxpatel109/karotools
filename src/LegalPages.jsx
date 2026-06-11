@@ -1,5 +1,6 @@
+"use client";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const legalContainerStyle = {
   minHeight: "100vh",
@@ -72,7 +73,7 @@ export function PrivacyPolicy() {
     Karo<span style={{ background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
 </div>
-        <Link to="/" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "14px", padding: "8px 16px", background: "rgba(255,255,255,0.05)", borderRadius: "8px" }}>← Back to Home</Link>
+        <Link href="/" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "14px", padding: "8px 16px", background: "rgba(255,255,255,0.05)", borderRadius: "8px" }}>← Back to Home</Link>
       </nav>
       <div style={contentStyle}>
         <h1 style={h1Style}>Privacy Policy</h1>
@@ -118,7 +119,7 @@ export function TermsConditions() {
     Karo<span style={{ background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
 </div>
-        <Link to="/" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "14px", padding: "8px 16px", background: "rgba(255,255,255,0.05)", borderRadius: "8px" }}>← Back to Home</Link>
+        <Link href="/" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "14px", padding: "8px 16px", background: "rgba(255,255,255,0.05)", borderRadius: "8px" }}>← Back to Home</Link>
       </nav>
       <div style={contentStyle}>
         <h1 style={h1Style}>Terms & Conditions</h1>
@@ -165,7 +166,7 @@ export function ContactUs() {
     Karo<span style={{ background: "linear-gradient(135deg, #0ea5e9, #8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
 </div>
-        <Link to="/" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "14px", padding: "8px 16px", background: "rgba(255,255,255,0.05)", borderRadius: "8px" }}>← Back to Home</Link>
+        <Link href="/" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "14px", padding: "8px 16px", background: "rgba(255,255,255,0.05)", borderRadius: "8px" }}>← Back to Home</Link>
       </nav>
       <div style={contentStyle}>
         <h1 style={h1Style}>Contact Our Team</h1>

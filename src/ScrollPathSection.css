@@ -163,7 +163,22 @@
 }
 
 /* Mobile Responsive */
+.mobile-animated-line {
+  display: none;
+}
+
 @media (max-width: 768px) {
+  .mobile-animated-line {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 30px; /* 10px padding + 20px (half of 40px icon width) */
+    width: 2px;
+    background: linear-gradient(to bottom, #0ea5e9, #10b981);
+    z-index: 0;
+    /* Height animated via GSAP */
+  }
+
   .scroll-path-section {
     padding: 60px 20px;
   }
@@ -177,17 +192,7 @@
     padding-left: 10px; /* Base offset for the timeline */
   }
 
-  /* Simple vertical line for mobile */
-  .path-items-wrapper::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 30px; /* 10px padding + 20px (half of 40px icon width) */
-    width: 2px;
-    background: linear-gradient(to bottom, #0ea5e9, #10b981);
-    z-index: 0;
-  }
+  /* The simple vertical line is now an animated div */
 
   .path-card {
     width: calc(100% - 60px) !important;

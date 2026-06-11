@@ -10,34 +10,46 @@ gsap.registerPlugin(ScrollTrigger);
 export default function ScrollPathSection() {
   const containerRef = useRef(null);
   const pathRef = useRef(null);
+  const mobileLineRef = useRef(null);
 
   useGSAP(() => {
-    // Only animate on desktop, mobile has the path hidden via CSS
-    if (window.innerWidth <= 768) return;
-
+    // 1. Desktop SVG Animation
     const path = pathRef.current;
-    if (!path) return;
+    if (path) {
+      const length = path.getTotalLength();
+      gsap.set(path, {
+        strokeDasharray: length,
+        strokeDashoffset: length
+      });
+      gsap.to(path, {
+        strokeDashoffset: 0,
+        ease: "none",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top center",
+          end: "bottom center+=100",
+          scrub: 1
+        }
+      });
+    }
 
-    // Get the exact length of the SVG path
-    const length = path.getTotalLength();
-
-    // Set initial stroke state to be completely hidden
-    gsap.set(path, {
-      strokeDasharray: length,
-      strokeDashoffset: length
-    });
-
-    // Animate the strokeDashoffset from length to 0 as user scrolls
-    gsap.to(path, {
-      strokeDashoffset: 0,
-      ease: "none", // Linear animation tied directly to scroll
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top center",       // Animation starts when section top hits screen center
-        end: "bottom center+=100", // Animation ends when section bottom hits near screen center
-        scrub: 1                   // 1 second delay for smooth follow
-      }
-    });
+    // 2. Mobile Line Animation (Height 0 to 100%)
+    const mobileLine = mobileLineRef.current;
+    if (mobileLine) {
+      gsap.fromTo(mobileLine, 
+        { height: "0%" },
+        {
+          height: "100%",
+          ease: "none",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top center",
+            end: "bottom center-=100", // Stops a bit earlier so it doesn't overrun the last card
+            scrub: 1
+          }
+        }
+      );
+    }
   }, { scope: containerRef });
 
   const cards = [
@@ -95,8 +107,9 @@ export default function ScrollPathSection() {
           </svg>
         </div>
 
-        {/* Cards */}
+        {/* Cards & Mobile Line */}
         <div className="path-items-wrapper">
+          <div className="mobile-animated-line" ref={mobileLineRef}></div>
           {cards.map((card, idx) => (
             <div key={idx} className={`path-card path-card-${card.align}`}>
               <div className="path-card-number">{card.icon}</div>

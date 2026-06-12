@@ -168,6 +168,9 @@ export default function InvoiceGenerator() {
   };
 
   const exportCSV = () => {
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", "invoice_csv_exported", { event_category: "Invoice" });
+    }
     const rows = [
       ["Invoice Number", invoice.number],
       ["Invoice Date", invoice.date],
@@ -216,6 +219,9 @@ export default function InvoiceGenerator() {
 
   const downloadPDF = async () => {
     if (!previewRef.current || isExporting) return;
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", "invoice_pdf_downloaded", { event_category: "Invoice" });
+    }
     setIsExporting(true);
     
     // Temporarily remove transform to capture full resolution

@@ -187,6 +187,9 @@ export default function GSTCalculator() {
 
   const copyResult = () => {
     if (!result) return;
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", "gst_calculated", { event_category: "Calculator", event_label: type });
+    }
     const lines = [
       `GST Calculation — KaroTools`,
       `Amount: ₹${amount} | Rate: ${activeRate}% | Type: ${type}`,

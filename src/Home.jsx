@@ -143,7 +143,7 @@ export default function Home() {
 
   // SEO Setup
   useEffect(() => {
-    document.title = "KaroTools — Free GST Calculator, Invoice Generator & Business Tools for Indian Freelancers";
+    document.title = "KaroTools - Free Tax Tools for Indian Freelancers";
 
     const metas = [
       ["description", "Free online tools for Indian freelancers & small businesses — GST Calculator, GST Invoice Generator, Email Generator, Bio Generator, Freelance Rate Calculator. No login required. 100% free."],

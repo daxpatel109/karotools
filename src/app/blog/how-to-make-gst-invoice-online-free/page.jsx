@@ -282,11 +282,84 @@ export default function BlogPost() {
             </ul>
 
             <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#f8fafc", marginTop: "32px", marginBottom: "16px" }}>Common Mistakes to Avoid</h3>
-            <ol style={{ paddingLeft: "20px", marginBottom: "20px", display: "flex", flexDirection: "column", gap: "8px" }}>
+            <ol style={{ paddingLeft: "20px", marginBottom: "40px", display: "flex", flexDirection: "column", gap: "8px" }}>
               <li><strong>Using a non-sequential invoice number.</strong> GST law requires invoices to follow a logical sequential series. Jumping from INV-003 to INV-010 can raise flags during audits.</li>
               <li><strong>Mixing CGST/SGST and IGST on the same invoice.</strong> You can only apply one type per invoice — not both. KaroTools prevents this error automatically.</li>
+              <li><strong>Forgetting the place of supply.</strong> This field determines which state collects the tax and must always be filled in correctly.</li>
               <li><strong>Wrong SAC code.</strong> Always use the SAC code that most accurately describes your service.</li>
+              <li><strong>No client GSTIN.</strong> If your client is registered, their GSTIN must appear on the invoice for them to claim Input Tax Credit (ITC).</li>
             </ol>
+
+            <div style={{ backgroundColor: "rgba(56,189,248,0.05)", borderLeft: "4px solid #38bdf8", padding: "16px 20px", margin: "32px 0", borderRadius: "0 8px 8px 0" }}>
+              <p style={{ margin: 0, color: "#38bdf8", fontWeight: "600" }}>
+                💡 Pro Tip: Save a copy of every invoice you issue in a dedicated folder — organised by month. This makes GST filing and reconciliation on the GSTN portal much faster at quarter-end.
+              </p>
+            </div>
+
+            <h2 style={{ fontSize: "24px", fontWeight: "700", color: "#f8fafc", marginTop: "48px", marginBottom: "8px" }}>Frequently Asked Questions (FAQ)</h2>
+            <p style={{ marginBottom: "24px" }}>Everything you need to know about how to make GST invoice online free.</p>
+
+            <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "48px" }}>
+              {[
+                {
+                  q: "Can I make GST invoice online free without any software?",
+                  a: "Yes! KaroTools lets you make GST invoice online free directly from your browser — no software download, no signup, and no payment required ever. Just open the tool and fill in your details. The entire process takes under 3 minutes and the PDF is ready to download instantly."
+                },
+                {
+                  q: "Is a GST invoice mandatory for all freelancers in India?",
+                  a: "Yes — if you are a GST-registered freelancer or business with annual turnover above ₹20 lakh (₹10 lakh for special category states), issuing a GST-compliant invoice is mandatory under the CGST Act, 2017. If you are below the threshold and unregistered, you issue a Bill of Supply instead. KaroTools supports both formats."
+                },
+                {
+                  q: "What is the difference between CGST, SGST, and IGST on an invoice?",
+                  a: "CGST and SGST are charged for intra-state transactions (both supplier and client in the same state). IGST is charged for inter-state transactions. For example, if you are in Maharashtra billing a client also in Maharashtra at 18% GST — you charge 9% CGST + 9% SGST. If your client is in Karnataka, you charge 18% IGST instead. The total tax amount is the same; only how it is split between the centre and state changes."
+                },
+                {
+                  q: "Can I add my company logo to the free GST invoice?",
+                  a: "Absolutely. The KaroTools GST Invoice Generator allows you to upload your company logo or personal brand mark. It appears prominently at the top of the final PDF. No watermark is added — the invoice looks 100% professional and represents your brand properly. This feature is completely free."
+                },
+                {
+                  q: "What GST rate should I use for freelance services?",
+                  a: "Most freelance services — including web development, design, content writing, digital marketing, IT consulting, and photography — fall under the 18% GST slab. The applicable SAC codes are generally in the 9983xx range. Always cross-check with your CA for your specific service category, as miscategorisation can attract compliance notices."
+                },
+                {
+                  q: "Do I need a GSTIN to generate a GST invoice?",
+                  a: "To issue a valid GST invoice with tax breakdowns (CGST/SGST/IGST), you must be GST-registered and have a valid GSTIN. If you are below the registration threshold, you issue a regular Bill of Supply — KaroTools supports this too. You can still make a clean, professional invoice without a GSTIN using our tool."
+                },
+                {
+                  q: "How many invoices can I create for free on KaroTools?",
+                  a: "There is absolutely no limit. You can make GST invoice online free as many times as you need on KaroTools — unlimited invoices, unlimited PDF downloads, zero cost, forever. No premium plan, no hidden limit, no credit card ever."
+                },
+                {
+                  q: "Is my invoice data safe on KaroTools?",
+                  a: "Yes. KaroTools processes your invoice data locally in your browser — meaning your financial figures, client names, and GSTIN details are never stored on any server. Your data stays completely private. We use only basic, anonymous analytics on the site — no raw business data is ever collected."
+                }
+              ].map((faq, idx) => (
+                <details key={idx} style={{ backgroundColor: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "8px", padding: "16px", cursor: "pointer" }}>
+                  <summary style={{ fontWeight: "700", color: "#38bdf8", outline: "none", listStyle: "none", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                    {faq.q}
+                    <span style={{ fontSize: "12px", color: "#94a3b8" }}>▼</span>
+                  </summary>
+                  <p style={{ marginTop: "12px", color: "#cbd5e1", fontSize: "15px", lineHeight: "1.6" }}>{faq.a}</p>
+                </details>
+              ))}
+            </div>
+
+            <div style={{ backgroundColor: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)", borderRadius: "16px", padding: "32px", textAlign: "center", marginBottom: "40px" }}>
+              <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#fff", marginBottom: "16px" }}>🚀 Start Using KaroTools — 100% Free, Forever</h3>
+              <p style={{ color: "#94a3b8", marginBottom: "24px", fontSize: "15px" }}>Join thousands of Indian freelancers who already make GST invoice online free — saving hours and getting paid faster.</p>
+              <Link href="/gst-invoice-generator" style={{ backgroundColor: "#38bdf8", color: "#020617", padding: "12px 24px", borderRadius: "8px", fontWeight: "700", textDecoration: "none", display: "inline-block", transition: "all 0.2s" }}>
+                Create Your GST Invoice Now →
+              </Link>
+            </div>
+
+            <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#f8fafc", marginTop: "32px", marginBottom: "16px" }}>Final Thoughts</h3>
+            <p style={{ marginBottom: "20px" }}>
+              Billing a client should never be the stressful part of freelancing. Now that you know exactly how to <strong>make GST invoice online free</strong> — with the right fields, the right GST type, and the right SAC codes — you can send a professional invoice in under 3 minutes every single time.
+            </p>
+            <p style={{ marginBottom: "20px" }}>
+              KaroTools was built by freelancers, for freelancers. Every tool on the platform is free, no-login, and designed around Indian tax laws. Bookmark it, share it with a fellow freelancer, and never stress about invoicing again.
+            </p>
+
           </div>
         </article>
       </main>

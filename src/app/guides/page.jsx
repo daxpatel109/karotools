@@ -1,3 +1,4 @@
+export const metadata = { title: "Complete Free Guides For Indian Businesses — KaroTools" };
 import Link from "next/link";
 
 const guides = [

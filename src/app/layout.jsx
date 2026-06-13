@@ -19,7 +19,7 @@ export const metadata = {
   },
   description: "Free online tools for Indian freelancers & small businesses — GST Calculator, GST Invoice Generator, Email Generator, Bio Generator, Freelance Rate Calculator. No login required. 100% free.",
   openGraph: {
-    title: "KaroTools — Free GST Calculator, Invoice Generator & Business Tools",
+    title: "Best Free Tools for Indian Freelancers — KaroTools",
     description: "GST Calculator, Invoice Generator, Email Writer & more — 100% free, no login needed. Built for India.",
     url: "https://karotools.in",
     siteName: "KaroTools",

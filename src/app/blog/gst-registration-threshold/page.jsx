@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 
 export const metadata = {
-  title: "GST Registration Threshold for Freelancers (₹20L Limit) | KaroTools",
+  title: "GST Registration Threshold India FY 2026-27 — KaroTools",
   description: "Do Indian freelancers need to register for GST? Learn about the ₹20 Lakh turnover limit, voluntary registration, and when to charge IGST for international clients.",
   openGraph: {
     title: "GST Registration Threshold for Freelancers",

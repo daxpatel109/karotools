@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 
 export const metadata = {
-  title: "HSN vs SAC Codes for Freelancers (India 2026 Guide) | KaroTools",
+  title: "Complete SAC & HSN Codes List For India — KaroTools",
   description: "Learn the difference between HSN and SAC codes for GST invoicing in India. Discover the exact 6-digit SAC codes for developers, designers, and consultants.",
   openGraph: {
     title: "HSN vs SAC Codes for Indian Freelancers",

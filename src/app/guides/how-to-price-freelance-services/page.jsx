@@ -1,3 +1,4 @@
+export const metadata = { title: "How to Price Freelance Services In India — KaroTools" };
 import Link from "next/link";
 
 export default function Guide2() {

@@ -1,3 +1,4 @@
+export const metadata = { title: "Dax Patel: Expert For Indian Freelancers — KaroTools" };
 import Link from "next/link";
 
 export default function Author() {

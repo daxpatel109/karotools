@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "How to Make GST Invoice Online Free in 2026 — Step-by-Step Guide | KaroTools",
+  title: "Make Free GST Invoice Online India FY 26-27 — KaroTools",
   description: "Complete step-by-step guide to make GST invoice online free for Indian freelancers and small businesses using KaroTools.",
   openGraph: {
     title: "How to Make GST Invoice Online Free in 2026",

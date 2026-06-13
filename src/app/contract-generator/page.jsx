@@ -1,4 +1,4 @@
-export const metadata = { title: "Free Freelance Contract Generator India | MSME Protected", description: "Generate a bulletproof, legally binding freelance contract in India. Features MSME 45-day payment protection rules. Download PDF free." };
+export const metadata = { title: "Free Freelance Contract Generator Online — KaroTools", description: "Generate a bulletproof, legally binding freelance contract in India. Features MSME 45-day payment protection rules. Download PDF free." };
 import ContractGenerator from "../../ContractGenerator";
 
 export default function Page() {

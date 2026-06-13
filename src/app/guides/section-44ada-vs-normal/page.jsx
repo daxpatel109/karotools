@@ -1,3 +1,4 @@
+export const metadata = { title: "Section 44ADA vs Normal Tax Guide For India — KaroTools" };
 import Link from "next/link";
 
 export default function Guide3() {

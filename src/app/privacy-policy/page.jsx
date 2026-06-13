@@ -1,4 +1,4 @@
-export const metadata = { title: "Privacy Policy | KaroTools Enterprise", description: "KaroTools Privacy Policy." };
+export const metadata = { title: "Privacy Policy: Secure Tools For India — KaroTools", description: "KaroTools Privacy Policy." };
 import { PrivacyPolicy } from "../../LegalPages";
 
 export default function Page() {

@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 
 export const metadata = {
-  title: "How to Create a Proforma Invoice in India | KaroTools",
+  title: "Easy Proforma Invoice Complete Guide India — KaroTools",
   description: "Learn what a proforma invoice is, when freelancers should send one, and how to create a free professional PDF quotation for Indian clients.",
   openGraph: {
     title: "How to Create a Proforma Invoice",

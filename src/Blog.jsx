@@ -124,18 +124,18 @@ export default function Blog() {
           </Link>
 
           {/* Post 5: Free GST Invoice Guide */}
-          <Link href="/blog/make-gst-invoice-online-free" style={{ display: "flex", flexDirection: "column", textDecoration: "none", padding: "32px", background: "rgba(255,255,255,0.02)", borderRadius: "20px", border: "1px solid rgba(255,255,255,0.05)", transition: "all 0.3s", cursor: "pointer", height: "100%" }}
+          <Link href="/blog/how-to-make-gst-invoice-online-free" style={{ display: "flex", flexDirection: "column", textDecoration: "none", padding: "32px", background: "rgba(255,255,255,0.02)", borderRadius: "20px", border: "1px solid rgba(255,255,255,0.05)", transition: "all 0.3s", cursor: "pointer", height: "100%" }}
             onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(245,158,11,0.05)"; e.currentTarget.style.borderColor = "rgba(245,158,11,0.3)"; e.currentTarget.style.transform = "translateY(-4px)"; }}
             onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.02)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)"; e.currentTarget.style.transform = "none"; }}>
             <div style={{ display: "flex", gap: "12px", marginBottom: "16px", alignItems: "center", flexWrap: "wrap" }}>
               <span style={{ background: "rgba(245,158,11,0.1)", color: "#fbbf24", padding: "6px 14px", borderRadius: "50px", fontSize: "11px", fontWeight: "700", letterSpacing: "0.05em" }}>INVOICING</span>
-              <span style={{ color: "#64748b", fontSize: "13px", fontWeight: "500" }}>By Dax Patel • June 7, 2026</span>
+              <span style={{ color: "#64748b", fontSize: "13px", fontWeight: "500" }}>By KaroTools Team • June 13, 2025</span>
             </div>
             <h2 style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "16px", lineHeight: "1.4" }}>
-              How to Make a GST Invoice Online for Free (No Watermarks)
+              How to Make GST Invoice Online Free in 2025 — Step-by-Step Guide
             </h2>
             <p style={{ color: "#94a3b8", fontSize: "15px", lineHeight: "1.6", margin: "0 0 24px 0", flexGrow: 1 }}>
-              Stop using messy Excel templates. Learn the 5 mandatory fields required on Indian tax invoices and generate professional PDFs.
+              No software. No signup. No cost. Create a professional, GST-compliant invoice in under 2 minutes — made for Indian freelancers & small businesses.
             </p>
             <div style={{ color: "#fbbf24", fontWeight: "600", fontSize: "14px", display: "flex", alignItems: "center", gap: "8px", marginTop: "auto" }}>
               Read Article <span>→</span>

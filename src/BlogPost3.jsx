@@ -145,6 +145,11 @@ export default function BlogPost3() {
           <p style={{ marginTop: "24px" }}>
             <strong>The Takeaway:</strong> Estimate your income in June, use the <Link href="/advance-tax-calculator" style={{ color: "#38bdf8", textDecoration: "none" }}>Advance Tax Calculator</Link> to get your exact numbers, and set a calendar reminder to pay on the e-Filing portal!
           </p>
+
+          <div style={{ marginTop: "48px", padding: "20px", backgroundColor: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "8px", fontSize: "13px", color: "#64748b", lineHeight: "1.6" }}>
+            <strong>Disclaimer:</strong> The information provided on KaroTools is for general informational purposes only and does not constitute professional financial, tax, or legal advice. Tax laws in India frequently change, and while we strive for accuracy, you should always consult with a qualified Chartered Accountant (CA) or legal professional before making any compliance decisions. KaroTools is not responsible for any errors, omissions, or actions taken based on this content.
+          </div>
+
         </div>
       </article>
     </div>

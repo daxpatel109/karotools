@@ -110,6 +110,10 @@ export default function BlogPost4() {
             <li style={{ marginBottom: "12px" }}><strong style={{ color: "#e2e8f0" }}>Dry Spells:</strong> Clients come and go. You need a 15% safety margin built into your rate to survive the months where you don't find work.</li>
           </ul>
 
+          <p style={{ marginTop: "24px" }}>
+            <strong>The Takeaway:</strong> Never convert your monthly salary directly into an hourly rate. A freelancer wearing 5 hats (marketing, sales, admin, dev, finance) needs to charge a premium to survive. Use the calculator, trust the math, and price yourself like a business.
+          </p>
+
           <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Syne',sans-serif", color: "#f1f5f9", marginTop: "32px", marginBottom: "16px" }}>
             The 30% Premium Rule
           </h2>
@@ -138,6 +142,11 @@ export default function BlogPost4() {
           <p>
             Run your numbers through the calculator, find your break-even point, and start charging what you are actually worth!
           </p>
+
+          <div style={{ marginTop: "48px", padding: "20px", backgroundColor: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "8px", fontSize: "13px", color: "#64748b", lineHeight: "1.6" }}>
+            <strong>Disclaimer:</strong> The information provided on KaroTools is for general informational purposes only and does not constitute professional financial, tax, or legal advice. Tax laws in India frequently change, and while we strive for accuracy, you should always consult with a qualified Chartered Accountant (CA) or legal professional before making any compliance decisions. KaroTools is not responsible for any errors, omissions, or actions taken based on this content.
+          </div>
+
         </div>
       </article>
     </div>

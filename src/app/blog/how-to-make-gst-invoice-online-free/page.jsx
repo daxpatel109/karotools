@@ -355,6 +355,10 @@ export default function BlogPost() {
 
           <p>KaroTools was built by freelancers, for freelancers. Every tool on the platform is free, no-login, and designed around Indian tax laws. Bookmark it, share it with a fellow freelancer, and never stress about invoicing again.</p>
 
+          <div style={{ marginTop: "48px", padding: "20px", backgroundColor: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "8px", fontSize: "13px", color: "#64748b", lineHeight: "1.6" }}>
+            <strong>Disclaimer:</strong> The information provided on KaroTools is for general informational purposes only and does not constitute professional financial, tax, or legal advice. Tax laws in India frequently change, and while we strive for accuracy, you should always consult with a qualified Chartered Accountant (CA) or legal professional before making any compliance decisions. KaroTools is not responsible for any errors, omissions, or actions taken based on this content.
+          </div>
+
         </article>
       </main>
     </div>

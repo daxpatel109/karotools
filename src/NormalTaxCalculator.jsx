@@ -77,12 +77,11 @@ export default function NormalTaxCalculator() {
     const taxableIncome = Math.max(0, gross - exp);
 
     const slabs = [
-      { limit: 400000, rate: 0 },
-      { limit: 800000, rate: 0.05 },
-      { limit: 1200000, rate: 0.10 },
-      { limit: 1600000, rate: 0.15 },
-      { limit: 2000000, rate: 0.20 },
-      { limit: 2400000, rate: 0.25 },
+      { limit: 300000, rate: 0 },
+      { limit: 700000, rate: 0.05 },
+      { limit: 1000000, rate: 0.10 },
+      { limit: 1200000, rate: 0.15 },
+      { limit: 1500000, rate: 0.20 },
       { limit: Infinity, rate: 0.30 }
     ];
 
@@ -105,11 +104,11 @@ export default function NormalTaxCalculator() {
     let rebate = 0;
     let marginalRelief87A = 0;
 
-    if (taxableIncome <= 1200000) {
+    if (taxableIncome <= 700000) {
       rebate = tax;
       tax = 0;
-    } else if (taxableIncome <= 1270000) {
-      const excessIncome = taxableIncome - 1200000;
+    } else if (taxableIncome <= 727777) {
+      const excessIncome = taxableIncome - 700000;
       if (tax > excessIncome) {
         marginalRelief87A = tax - excessIncome;
         tax = excessIncome;
@@ -172,10 +171,10 @@ export default function NormalTaxCalculator() {
     if (is44ADAEligible) {
       const adaProfit = gross * 0.5;
       let t = rawTaxOn(adaProfit);
-      if (adaProfit <= 1200000) {
+      if (adaProfit <= 700000) {
         t = 0;
-      } else if (adaProfit <= 1270000) {
-        const excess = adaProfit - 1200000;
+      } else if (adaProfit <= 727777) {
+        const excess = adaProfit - 700000;
         if (t > excess) t = excess;
       }
       adaTotalTax = t + (t * 0.04);

@@ -66,66 +66,60 @@ export default function TaxCalculator() {
     let tax = 0;
     let slabBreakdown = [];
 
-    if (taxableIncome > 400000) {
-      // Slab 1: 4L to 8L @ 5%
-      const slab1 = Math.min(taxableIncome - 400000, 400000);
+    // New Tax Regime Slabs (FY 2024-25 onwards)
+    if (taxableIncome > 300000) {
+      const slab1 = Math.min(taxableIncome - 300000, 400000);
       tax += slab1 * 0.05;
-      slabBreakdown.push({ range: "₹4L - ₹8L", rate: "5%", tax: slab1 * 0.05 });
+      slabBreakdown.push({ range: "₹3L - ₹7L", rate: "5%", tax: slab1 * 0.05 });
 
-      if (taxableIncome > 800000) {
-        // Slab 2: 8L to 12L @ 10%
-        const slab2 = Math.min(taxableIncome - 800000, 400000);
+      if (taxableIncome > 700000) {
+        const slab2 = Math.min(taxableIncome - 700000, 300000);
         tax += slab2 * 0.10;
-        slabBreakdown.push({ range: "₹8L - ₹12L", rate: "10%", tax: slab2 * 0.10 });
+        slabBreakdown.push({ range: "₹7L - ₹10L", rate: "10%", tax: slab2 * 0.10 });
 
-        if (taxableIncome > 1200000) {
-          // Slab 3: 12L to 16L @ 15%
-          const slab3 = Math.min(taxableIncome - 1200000, 400000);
+        if (taxableIncome > 1000000) {
+          const slab3 = Math.min(taxableIncome - 1000000, 200000);
           tax += slab3 * 0.15;
-          slabBreakdown.push({ range: "₹12L - ₹16L", rate: "15%", tax: slab3 * 0.15 });
+          slabBreakdown.push({ range: "₹10L - ₹12L", rate: "15%", tax: slab3 * 0.15 });
 
-          if (taxableIncome > 1600000) {
-            // Slab 4: 16L to 20L @ 20%
-            const slab4 = Math.min(taxableIncome - 1600000, 400000);
+          if (taxableIncome > 1200000) {
+            const slab4 = Math.min(taxableIncome - 1200000, 300000);
             tax += slab4 * 0.20;
-            slabBreakdown.push({ range: "₹16L - ₹20L", rate: "20%", tax: slab4 * 0.20 });
+            slabBreakdown.push({ range: "₹12L - ₹15L", rate: "20%", tax: slab4 * 0.20 });
 
-            if (taxableIncome > 2000000) {
-              // Slab 5: 20L to 24L @ 25%
-              const slab5 = Math.min(taxableIncome - 2000000, 400000);
-              tax += slab5 * 0.25;
-              slabBreakdown.push({ range: "₹20L - ₹24L", rate: "25%", tax: slab5 * 0.25 });
-
-              if (taxableIncome > 2400000) {
-                // Slab 6: Above 24L @ 30%
-                const slab6 = taxableIncome - 2400000;
-                tax += slab6 * 0.30;
-                slabBreakdown.push({ range: "Above ₹24L", rate: "30%", tax: slab6 * 0.30 });
-              }
+            if (taxableIncome > 1500000) {
+              const slab5 = taxableIncome - 1500000;
+              tax += slab5 * 0.30;
+              slabBreakdown.push({ range: "> ₹15L", rate: "30%", tax: slab5 * 0.30 });
             }
           }
         }
       }
     }
 
-    // Section 87A Rebate (FY 2026-27): Full rebate if income <= 12L
-    // Plus Marginal Relief for income slightly above 12L
+    // Section 87A Rebate & Marginal Relief
     let rebate87A = 0;
     let marginalRelief = 0;
 
-    if (taxableIncome <= 1200000) {
+    if (taxableIncome <= 700000) {
       rebate87A = tax;
       tax = 0;
-    } else {
-      const excessIncome = taxableIncome - 1200000;
+    } else if (taxableIncome <= 727777) {
+      const excessIncome = taxableIncome - 700000;
       if (tax > excessIncome) {
         marginalRelief = tax - excessIncome;
-        tax = excessIncome; // Tax is capped at excess income
+        tax = excessIncome;
       }
     }
 
+    // Health & Education Cess
     const cess = tax * 0.04;
     const totalTax = tax + cess;
+
+    // Effective Rate
+    const effectiveRate = ((totalTax / receipts) * 100).toFixed(1);
+
+    // Take Home Income
     const takeHome = receipts - totalTax;
 
     return {
@@ -133,12 +127,13 @@ export default function TaxCalculator() {
       deemedProfit,
       standardDeduction,
       taxableIncome,
-      slabBreakdown,
+      baseTax: tax + rebate87A + marginalRelief,
       rebate87A,
       marginalRelief,
-      taxBeforeCess: tax,
       cess,
       totalTax,
+      slabBreakdown,
+      effectiveRate,
       takeHome
     };
   };

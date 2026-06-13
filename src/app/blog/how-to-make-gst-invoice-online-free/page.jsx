@@ -3,10 +3,21 @@ import React, { useState } from "react";
 import Link from "next/link";
 import styles from "./blog.module.css";
 
+export const metadata = {
+  title: "How to Make GST Invoice Online Free in 2026 — Step-by-Step Guide | KaroTools",
+  description: "Complete step-by-step guide to make GST invoice online free for Indian freelancers and small businesses using KaroTools.",
+  openGraph: {
+    title: "How to Make GST Invoice Online Free in 2026",
+    description: "Complete step-by-step guide to make GST invoice online free using KaroTools.",
+    url: "https://karotools.in/blog/how-to-make-gst-invoice-online-free",
+    images: ["https://karotools.in/og-image.png"],
+  }
+};
+
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "How to Make GST Invoice Online Free in 2025 — Step-by-Step Guide",
+  "headline": "How to Make GST Invoice Online Free in 2026 — Step-by-Step Guide",
   "description": "Complete step-by-step guide to make GST invoice online free for Indian freelancers and small businesses using KaroTools.",
   "image": "https://karotools.in/og-image.png",
   "author": {
@@ -21,8 +32,8 @@ const articleSchema = {
       "url": "https://karotools.in/logo.png"
     }
   },
-  "datePublished": "2025-06-13",
-  "dateModified": "2025-06-13",
+  "datePublished": "2026-06-13",
+  "dateModified": "2026-06-13",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://karotools.in/blog/how-to-make-gst-invoice-online-free"
@@ -123,13 +134,13 @@ export default function BlogPost() {
               <span style={{ backgroundColor: "rgba(56,189,248,0.1)", color: "#38bdf8", padding: "4px 12px", borderRadius: "100px", fontSize: "12px", fontWeight: "600", textTransform: "uppercase" }}>Complete Guide</span>
             </div>
             <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", fontFamily: "'Syne', sans-serif", lineHeight: "1.1", marginBottom: "24px", color: "#fff" }}>
-              How to Make GST Invoice Online Free in 2025 — Step-by-Step Guide
+              How to Make GST Invoice Online Free in 2026 — Step-by-Step Guide
             </h1>
             <p style={{ fontSize: "18px", color: "#cbd5e1", lineHeight: "1.6", marginBottom: "24px" }}>
               No software. No signup. No cost. Create a professional, GST-compliant invoice in under 2 minutes — made for Indian freelancers & small businesses.
             </p>
             <div style={{ display: "flex", gap: "16px", fontSize: "14px", color: "#64748b", alignItems: "center" }}>
-              <span>📅 June 13, 2025</span>
+              <span>📅 June 13, 2026</span>
               <span>⏱ 7 min read</span>
               <span>✍️ By <Link href="/author/dax-patel" style={{ color: "#38bdf8", textDecoration: "none" }}>Dax Patel</Link></span>
             </div>
@@ -307,7 +318,7 @@ export default function BlogPost() {
             <Link href="/tax-calculator" className={styles.linkCard}>
               <div className={styles.lcIcon}>🏛️</div>
               <h4>Tax Calculator Hub</h4>
-              <p>Calculate your advance tax, Section 44ADA, and income tax for FY 2025–26.</p>
+              <p>Calculate your advance tax, Section 44ADA, and income tax for FY 2026–27.</p>
             </Link>
           </div>
 

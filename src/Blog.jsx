@@ -142,6 +142,25 @@ export default function Blog() {
             </div>
           </Link>
 
+          {/* Post 6: GST Threshold Guide */}
+          <Link href="/blog/gst-registration-threshold" style={{ display: "flex", flexDirection: "column", textDecoration: "none", padding: "32px", background: "rgba(255,255,255,0.02)", borderRadius: "20px", border: "1px solid rgba(255,255,255,0.05)", transition: "all 0.3s", cursor: "pointer", height: "100%" }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(168,85,247,0.05)"; e.currentTarget.style.borderColor = "rgba(168,85,247,0.3)"; e.currentTarget.style.transform = "translateY(-4px)"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.02)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)"; e.currentTarget.style.transform = "none"; }}>
+            <div style={{ display: "flex", gap: "12px", marginBottom: "16px", alignItems: "center", flexWrap: "wrap" }}>
+              <span style={{ background: "rgba(168,85,247,0.1)", color: "#c084fc", padding: "6px 14px", borderRadius: "50px", fontSize: "11px", fontWeight: "700", letterSpacing: "0.05em" }}>COMPLIANCE</span>
+              <span style={{ color: "#64748b", fontSize: "13px", fontWeight: "500" }}>By Dax Patel • June 14, 2026</span>
+            </div>
+            <h2 style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "16px", lineHeight: "1.4" }}>
+              The ₹20 Lakh GST Registration Threshold Explained
+            </h2>
+            <p style={{ color: "#94a3b8", fontSize: "15px", lineHeight: "1.6", margin: "0 0 24px 0", flexGrow: 1 }}>
+              Do Indian freelancers need to register for GST? Learn about the limits and when to charge IGST for international clients.
+            </p>
+            <div style={{ color: "#c084fc", fontWeight: "600", fontSize: "14px", display: "flex", alignItems: "center", gap: "8px", marginTop: "auto" }}>
+              Read Article <span>→</span>
+            </div>
+          </Link>
+
         </div>
       </div>
     </div>

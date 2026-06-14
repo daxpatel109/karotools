@@ -179,7 +179,7 @@ export default function BlogPost() {
 
           <p>This is where eligible freelancers get a genuinely powerful benefit. If you are claiming <Link href="/blog/section-44ada-freelancers" style={{ color: "#38bdf8" }}>Section 44ADA (Presumptive Taxation)</Link> — which allows you to treat 50% of your gross receipts as taxable income without maintaining detailed expense records — the advance tax rules simplify dramatically.</p>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", margin: "32px 0" }}>
+          <div className={styles.grid2Col}>
             <div style={{ border: "1px solid rgba(255,255,255,0.1)", borderRadius: "12px", padding: "24px" }}>
               <h4 style={{ fontSize: "16px", fontWeight: "800", marginBottom: "16px" }}>🗓 Normal Regime</h4>
               <ul style={{ margin: "0 0 0 20px", color: "#cbd5e1" }}>

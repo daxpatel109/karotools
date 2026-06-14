@@ -290,7 +290,7 @@ export default function BlogPost() {
 
           <p>The 44ADA calculation is the same in both regimes: eligible presumptive income is normally 50% of gross receipts. The difference comes after that, when you calculate final tax.</p>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", margin: "32px 0" }}>
+          <div className={styles.grid2Col}>
             <div style={{ border: "2px solid #34d399", background: "rgba(52,211,153,0.05)", borderRadius: "12px", padding: "24px" }}>
               <h4 style={{ fontSize: "16px", fontWeight: "800", marginBottom: "8px", color: "#fff" }}>New Tax Regime</h4>
               <div style={{ fontSize: "32px", fontWeight: "900", color: "#34d399", letterSpacing: "-1px", marginBottom: "12px" }}>Simpler</div>

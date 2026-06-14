@@ -21,6 +21,22 @@
 }
 .ctaBtn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(56,189,248,0.3); }
 
+.ctaBtnOutline {
+  display: inline-block;
+  background: rgba(255,255,255,0.05);
+  color: #fff !important;
+  border: 1px solid rgba(255,255,255,0.1);
+  font-weight: 700;
+  font-size: 15px;
+  padding: 14px 28px;
+  border-radius: 8px;
+  text-decoration: none !important;
+  margin: 10px 0;
+  transition: all 0.2s;
+}
+.ctaBtnOutline:hover { transform: translateY(-2px); border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); }
+
+
 .ctaBlock {
   background: rgba(56,189,248,0.05);
   border: 1px solid rgba(56,189,248,0.2);
@@ -54,10 +70,29 @@
 .stepContent h3 { color: #fff; font-size: 18px; font-weight: 700; margin-top: 0; margin-bottom: 8px; }
 .stepContent p { margin-bottom: 0; color: #cbd5e1; }
 
-.dataTable { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 15px; text-align: left; }
-.dataTable th { background: rgba(255,255,255,0.05); color: #fff; padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.dataTable { 
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse; 
+  margin: 32px 0; 
+  font-size: 15px; 
+  text-align: left; 
+  -webkit-overflow-scrolling: touch;
+}
+.dataTable th { background: rgba(255,255,255,0.05); color: #fff; padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); white-space: nowrap; }
 .dataTable td { border-bottom: 1px solid rgba(255,255,255,0.05); padding: 12px; color: #cbd5e1; }
 .dataTable tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+
+.grid2Col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 32px 0;
+}
+@media (max-width: 768px) {
+  .grid2Col { grid-template-columns: 1fr; }
+}
 
 .faqSection { margin: 40px 0; display: flex; flex-direction: column; gap: 12px; }
 .faqItem {

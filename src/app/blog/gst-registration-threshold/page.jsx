@@ -1,24 +1,87 @@
+"use client";
+import React, { useState } from "react";
 import Link from "next/link";
-import React from "react";
+import styles from "./blog.module.css";
 
-export const metadata = {
-  title: "GST Registration Threshold India FY 2026-27 — KaroTools",
-  description: "Do Indian freelancers need to register for GST? Learn about the ₹20 Lakh turnover limit, voluntary registration, and when to charge IGST for international clients.",
-  openGraph: {
-    title: "GST Registration Threshold for Freelancers",
-    description: "Learn about the ₹20 Lakh turnover limit and GST rules for Indian freelancers.",
-    url: "https://karotools.in/blog/gst-registration-threshold",
-    images: ["https://karotools.in/og-image.png"],
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "GST Registration Limit for Freelancers in India 2026 — ₹20 Lakh Threshold Explained",
+  "description": "Should Indian freelancers register for GST? Learn the ₹20 lakh GST registration limit, international client rules, and LUT filing for FY 2026-27.",
+  "image": "https://karotools.in/og-image.png",
+  "author": {
+    "@type": "Organization",
+    "name": "KaroTools"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "KaroTools",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://karotools.in/logo.png"
+    }
+  },
+  "datePublished": "2026-06-14",
+  "dateModified": "2026-06-14",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://karotools.in/blog/gst-registration-threshold"
   }
 };
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the GST registration limit for freelancers in India?",
+      "acceptedAnswer": { "@type": "Answer", "text": "For most Indian states, the GST registration limit is ₹20 lakhs in aggregate annual turnover. For Special Category States (Manipur, Mizoram, Nagaland, Tripura), this limit is ₹10 lakhs." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do freelancers working with international clients need GST registration?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Not necessarily. If your total annual turnover — including foreign client income — is below ₹20 lakhs, you are exempt from GST registration. Above ₹20 lakhs, you must register but can file a Letter of Undertaking (LUT) to export services without paying IGST." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is aggregate turnover for GST purposes?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Aggregate turnover includes all income from local clients, clients in other Indian states, and international clients (export of services). All these are counted together to determine whether you cross the ₹20 lakh GST registration threshold." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is an LUT (Letter of Undertaking) in GST?",
+      "acceptedAnswer": { "@type": "Answer", "text": "An LUT is a declaration filed on the GST portal (Form GST RFD-11) that allows registered taxpayers to export services without paying IGST upfront. It must be renewed every financial year. It is only applicable after you cross the ₹20 lakh limit and have registered for GST." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I voluntarily register for GST even below ₹20 lakhs?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Voluntary GST registration is allowed. It can be beneficial if your clients are GST-registered businesses who want to claim Input Tax Credit (ITC) on your invoices. However, once registered you must file monthly or quarterly GST returns even if your turnover is zero." }
+    }
+  ]
+};
+
 export default function BlogPost() {
+  const [openFaq, setOpenFaq] = useState(null);
+
+  const toggleFaq = (index) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
   return (
     <div style={{ backgroundColor: "#020617", minHeight: "100vh", color: "#f8fafc", fontFamily: "'Inter', sans-serif" }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
       <nav style={{ padding: "20px 0", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <Link href="/" style={{ color: "#fff", textDecoration: "none", fontSize: "24px", fontWeight: "800", fontFamily: "'Syne', sans-serif", letterSpacing: "-0.5px" }}>
-            Karo<span style={{ color: "#38bdf8" }}>Tools</span>
+          <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }}>
+              <img src="/logo.png" alt="KaroTools Logo" style={{ height: "clamp(40px, 10vw, 56px)", margin: "0 -16px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
+              <span style={{ fontSize: "clamp(18px, 5vw, 22px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
+                Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
+              </span>
+            </div>
           </Link>
           <Link href="/blog" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "14px", fontWeight: "500" }}>
             ← Back to Blog
@@ -27,70 +90,247 @@ export default function BlogPost() {
       </nav>
 
       <main style={{ maxWidth: "800px", margin: "0 auto", padding: "60px 24px" }}>
-        <article>
+        <article className={styles.articleContent} itemScope itemType="https://schema.org/Article">
+          
           <header style={{ marginBottom: "40px" }}>
             <div style={{ display: "flex", gap: "12px", marginBottom: "24px" }}>
-              <span style={{ backgroundColor: "rgba(56,189,248,0.1)", color: "#38bdf8", padding: "4px 12px", borderRadius: "100px", fontSize: "12px", fontWeight: "600", textTransform: "uppercase" }}>Tax Guide</span>
+              <span style={{ backgroundColor: "rgba(56,189,248,0.1)", color: "#38bdf8", padding: "4px 12px", borderRadius: "100px", fontSize: "12px", fontWeight: "600", textTransform: "uppercase" }}>GST Guide</span>
             </div>
             <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", fontFamily: "'Syne', sans-serif", lineHeight: "1.1", marginBottom: "24px", color: "#fff" }}>
-              The ₹20 Lakh GST Registration Threshold Explained
+              GST Registration Limit for Freelancers in India: The ₹20 Lakh Threshold Explained
             </h1>
+            <p style={{ fontSize: "18px", color: "#cbd5e1", lineHeight: "1.6", marginBottom: "24px" }}>
+              Do you really need to register for GST and charge clients 18%? Here's the complete, plain-English answer for Indian freelancers — including rules for international clients.
+            </p>
+            <div style={{ display: "flex", gap: "16px", fontSize: "14px", color: "#64748b", alignItems: "center" }}>
+              <span>📅 June 14, 2026</span>
+              <span>⏱ 9 min read</span>
+              <span>✍️ By <Link href="/author/dax-patel" style={{ color: "#38bdf8", textDecoration: "none" }}>Dax Patel</Link></span>
+            </div>
           </header>
 
-          <div style={{ fontSize: "16px", color: "#cbd5e1", lineHeight: "1.8" }}>
-            <p style={{ marginBottom: "20px" }}>
-              One of the most common questions Indian freelancers have is: <strong>"Do I need to register for GST and charge my clients an extra 18%?"</strong>
-            </p>
-            <p style={{ marginBottom: "20px" }}>
-              The answer depends entirely on your annual turnover and the location of your clients. Let's break down the rules for FY 2026-27.
-            </p>
+          <p>One of the most searched questions among Indian freelancers right now is: <strong>"What is the GST registration limit for freelancers in India, and do I have to charge my clients 18%?"</strong> The answer is not a simple yes or no — it depends on your annual turnover, your state, and where your clients are located. This guide covers everything for <strong>FY 2026-27</strong>, with clear visuals and examples you can actually use.</p>
 
-            <h2 style={{ fontSize: "24px", fontWeight: "700", color: "#f8fafc", marginTop: "40px", marginBottom: "16px" }}>1. The Basic ₹20 Lakh Threshold</h2>
-            <p style={{ marginBottom: "20px" }}>
-              Under the Goods and Services Tax (GST) Act, if you are a service provider (which includes freelance developers, designers, writers, and consultants), you are <strong>not required</strong> to register for GST if your aggregate annual turnover is <strong>less than ₹20 Lakhs</strong> in a financial year.
-            </p>
-            <p style={{ marginBottom: "20px", fontSize: "14px", color: "#94a3b8" }}>
-              *Note: For Special Category States (like Manipur, Mizoram, Nagaland, and Tripura), the threshold is ₹10 Lakhs.
-            </p>
+          <h2>1. What Is the GST Registration Limit for Freelancers in India?</h2>
 
-            <h2 style={{ fontSize: "24px", fontWeight: "700", color: "#f8fafc", marginTop: "40px", marginBottom: "16px" }}>2. What is "Aggregate Turnover"?</h2>
-            <p style={{ marginBottom: "20px" }}>
-              Aggregate turnover is the total value of all taxable and exempt supplies you make. This includes:
-            </p>
-            <ul style={{ paddingLeft: "20px", marginBottom: "20px" }}>
-              <li>Income from local clients within your state</li>
-              <li>Income from clients in other Indian states</li>
-              <li>Income from international clients (Zero-rated supplies)</li>
-            </ul>
+          <p>Under the Goods and Services Tax (GST) Act, freelancers who provide services — including developers, designers, writers, photographers, and consultants — are classified as <strong>service providers</strong>. The law sets a turnover-based threshold below which GST registration is <em>not mandatory</em>.</p>
 
-            <h2 style={{ fontSize: "24px", fontWeight: "700", color: "#f8fafc", marginTop: "40px", marginBottom: "16px" }}>3. Exporting Services (International Clients)</h2>
-            <p style={{ marginBottom: "20px" }}>
-              If you provide services to clients outside India (e.g., US or UK clients) and receive payment in foreign convertible exchange, it is considered an <strong>Export of Service</strong>.
-            </p>
-            <p style={{ marginBottom: "20px" }}>
-              Previously, mandatory GST registration was required for any inter-state or export supply. However, the government has relaxed this. If your total turnover (including exports) is under ₹20 Lakhs, you do not need to register. If it crosses ₹20 Lakhs, you must register, but you can file a <strong>Letter of Undertaking (LUT)</strong> to export services without paying IGST.
-            </p>
+          <div className={styles.highlightBox} style={{ borderLeft: "4px solid #38bdf8" }}>
+            <p>💡 <strong>The Core Rule (FY 2026-27):</strong> If your aggregate annual turnover from all services is <strong>below ₹20 lakhs</strong>, you are <em>not required</em> to register for GST. Registration only becomes mandatory once you cross this threshold.</p>
+          </div>
 
-            <div style={{ backgroundColor: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)", borderRadius: "16px", padding: "32px", marginTop: "48px", textAlign: "center" }}>
-              <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#fff", marginBottom: "16px" }}>Determine your exact tax liability</h3>
-              <p style={{ color: "#94a3b8", marginBottom: "24px", fontSize: "15px" }}>
-                Whether you need to calculate 18% GST to add to an invoice, or you want to see how much income tax you owe under Section 44ADA, our free calculators can help.
-              </p>
-              <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
-                <Link href="/gst-calculator" style={{ backgroundColor: "#38bdf8", color: "#020617", padding: "12px 24px", borderRadius: "8px", fontWeight: "700", textDecoration: "none", transition: "all 0.2s" }}>
-                  Open GST Calculator
-                </Link>
-                <Link href="/44ada-tax-calculator" style={{ backgroundColor: "rgba(255,255,255,0.05)", color: "#fff", border: "1px solid rgba(255,255,255,0.1)", padding: "12px 24px", borderRadius: "8px", fontWeight: "600", textDecoration: "none", transition: "all 0.2s" }}>
-                  Open 44ADA Tax Calculator
-                </Link>
+          <table className={styles.dataTable}>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>States Covered</th>
+                <th>Registration Limit</th>
+                <th>Status Below Limit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>General States</strong></td>
+                <td>Maharashtra, Karnataka, Delhi, UP, Tamil Nadu, Gujarat, and most others</td>
+                <td>₹20 Lakhs / year</td>
+                <td><strong style={{ color: "#34d399" }}>Exempt</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Special Category States</strong></td>
+                <td>Manipur, Mizoram, Nagaland, Tripura</td>
+                <td>₹10 Lakhs / year</td>
+                <td><strong style={{ color: "#fbbf24" }}>Lower Threshold</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Other NE & Hill States</strong></td>
+                <td>Arunachal Pradesh, Assam, Himachal Pradesh, Uttarakhand, Meghalaya, Sikkim</td>
+                <td>₹20 Lakhs / year</td>
+                <td><strong style={{ color: "#34d399" }}>Exempt</strong></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>2. What Counts as "Aggregate Turnover" Under GST?</h2>
+
+          <p>Many freelancers make the mistake of only counting income from local clients when calculating their turnover. But for GST purposes, <strong>aggregate turnover includes every rupee you earn</strong>, regardless of where the client is based.</p>
+
+          <p>Under Section 2(6) of the CGST Act, aggregate turnover is the total value of:</p>
+          <ul>
+            <li>Income from clients <strong>within your state</strong> (intra-state supplies)</li>
+            <li>Income from clients in <strong>other Indian states</strong> (inter-state supplies)</li>
+            <li>Income from <strong>international clients</strong> (Export of Services — zero-rated supplies)</li>
+            <li>Income from <strong>exempt supplies</strong> (e.g., healthcare, education services, if any)</li>
+          </ul>
+
+          <div className={styles.highlightBox} style={{ borderLeft: "4px solid #f87171" }}>
+            <p>⚠️ <strong>Common Mistake:</strong> A freelancer earning ₹12 lakh from Indian clients and ₹10 lakh from a US client has an <em>aggregate turnover of ₹22 lakhs</em>. They have crossed the GST registration limit for freelancers in India and must register — even though the foreign income is zero-rated.</p>
+          </div>
+
+          {/* Custom Turnover Bar matched to Dark Theme */}
+          <div style={{ margin: "32px 0", padding: "24px", background: "rgba(255,255,255,0.02)", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.05)" }}>
+            <div style={{ fontSize: "14px", fontWeight: "600", color: "#94a3b8", marginBottom: "12px", textTransform: "uppercase", letterSpacing: "0.05em" }}>Your Turnover vs. the ₹20 Lakh GST Threshold</div>
+            <div style={{ height: "44px", borderRadius: "8px", overflow: "hidden", display: "flex", background: "rgba(255,255,255,0.05)", marginBottom: "16px" }}>
+              <div style={{ background: "#34d399", width: "55%", display: "flex", alignItems: "center", padding: "0 12px", fontSize: "13px", fontWeight: "700", color: "#020617" }}>Below ₹20L → No GST</div>
+              <div style={{ background: "#fbbf24", width: "20%", display: "flex", alignItems: "center", padding: "0 12px", fontSize: "13px", fontWeight: "700", color: "#020617" }}>₹20L → Register</div>
+              <div style={{ background: "#f87171", width: "25%", display: "flex", alignItems: "center", padding: "0 12px", fontSize: "13px", fontWeight: "700", color: "#fff" }}>₹20L+ → Collect GST</div>
+            </div>
+          </div>
+
+          <h2>3. GST Rules for Freelancers Working with International Clients</h2>
+
+          <p>This is where most confusion lies. If you work with US, UK, Australian, or other overseas clients and receive payment in <strong>foreign currency (convertible exchange)</strong>, your services are classified as <strong>Export of Services</strong> under GST law.</p>
+
+          <p>Exporting services is a <strong>zero-rated supply</strong> — meaning GST is charged at 0%. You do <em>not</em> add 18% to your invoice for foreign clients, even after registration. However, the foreign income is still counted in your aggregate turnover for the purpose of the registration limit.</p>
+
+          <div className={styles.steps}>
+            <div className={styles.step}>
+              <div className={styles.stepNum}>1</div>
+              <div className={styles.stepContent}>
+                <h3>Total Turnover Below ₹20 Lakhs</h3>
+                <p>You are fully exempt. No GST registration needed. No GST on any invoice — domestic or international.</p>
               </div>
             </div>
-
-            <div style={{ marginTop: "48px", padding: "20px", backgroundColor: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "8px", fontSize: "13px", color: "#64748b", lineHeight: "1.6" }}>
-              <strong>Disclaimer:</strong> The information provided on KaroTools is for general informational purposes only and does not constitute professional financial, tax, or legal advice. Tax laws in India frequently change, and while we strive for accuracy, you should always consult with a qualified Chartered Accountant (CA) or legal professional before making any compliance decisions. KaroTools is not responsible for any errors, omissions, or actions taken based on this content.
+            <div className={styles.step}>
+              <div className={styles.stepNum}>2</div>
+              <div className={styles.stepContent}>
+                <h3>Total Turnover Crosses ₹20 Lakhs</h3>
+                <p>You must register for GST. Domestic clients attract 18% GST. International clients still get zero-rated invoices.</p>
+              </div>
             </div>
-
+            <div className={styles.step}>
+              <div className={styles.stepNum}>3</div>
+              <div className={styles.stepContent}>
+                <h3>You Registered & Export Services → File an LUT</h3>
+                <p>File a <strong>Letter of Undertaking (LUT)</strong> on the GST portal each year (Form RFD-11) to export without paying IGST upfront. This saves significant working capital.</p>
+              </div>
+            </div>
           </div>
+
+          <h2>4. What is a Letter of Undertaking (LUT) and Do You Need One?</h2>
+
+          <p>A <strong>Letter of Undertaking (LUT)</strong> is a document filed annually on the GST portal that lets you export services <em>without paying IGST</em>. Without an LUT, you would have to pay the tax first and then claim a refund — which creates a cash flow headache for freelancers.</p>
+
+          <table className={styles.dataTable}>
+            <thead>
+              <tr>
+                <th>Scenario</th>
+                <th>GST Registered?</th>
+                <th>LUT Filed?</th>
+                <th>Invoice to Intl. Client</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Turnover below ₹20L</td>
+                <td><strong style={{ color: "#34d399" }}>No</strong></td>
+                <td>Not Required</td>
+                <td>No GST charged</td>
+              </tr>
+              <tr>
+                <td>Turnover above ₹20L, LUT filed</td>
+                <td><strong style={{ color: "#f87171" }}>Yes</strong></td>
+                <td><strong style={{ color: "#34d399" }}>Filed</strong></td>
+                <td>Zero-rated (0% IGST)</td>
+              </tr>
+              <tr>
+                <td>Turnover above ₹20L, no LUT</td>
+                <td><strong style={{ color: "#f87171" }}>Yes</strong></td>
+                <td><strong style={{ color: "#fbbf24" }}>Not Filed</strong></td>
+                <td>Pay 18% IGST, then claim refund</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>The LUT must be renewed at the start of every financial year. You can file it online on the official GST portal under Services → User Services → Furnish Letter of Undertaking (LUT). There is no fee for filing.</p>
+
+          <h2>5. Should You Voluntarily Register for GST Below ₹20 Lakhs?</h2>
+
+          <p>Voluntary GST registration is allowed and can make strategic sense in some cases. Here's how to decide:</p>
+
+          <div className={styles.highlightBox}>
+            <p><strong>Register voluntarily if:</strong> Your B2B clients want to claim Input Tax Credit (ITC) on your invoice, or you want to appear more professional to large companies.</p>
+            <p style={{ marginTop: "12px" }}><strong>Stay unregistered if:</strong> Your clients are individuals/startups who cannot claim ITC, because filing monthly GSTR returns adds compliance overhead and late fees.</p>
+          </div>
+
+          <div className={styles.ctaBlock}>
+            <h3>🧮 Determine your exact tax liability</h3>
+            <p>Whether you need to calculate 18% GST to add to an invoice, or see how much income tax you owe under Section 44ADA, our free calculators can help.</p>
+            <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap", marginTop: "16px" }}>
+              <Link href="/gst-calculator" className={styles.ctaBtn}>Open GST Calculator →</Link>
+              <Link href="/44ada-tax-calculator" className={styles.ctaBtn} style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "#fff" }}>44ADA Tax Calculator →</Link>
+            </div>
+          </div>
+
+          <h2>6. How to Calculate GST If You Must Charge It</h2>
+
+          <p>Once you cross the <strong>GST registration limit for freelancers in India</strong>, here is how GST is applied to your invoices:</p>
+
+          <table className={styles.dataTable}>
+            <thead>
+              <tr>
+                <th>Transaction Type</th>
+                <th>Tax Applied</th>
+                <th>Rate</th>
+                <th>Example (₹1,00,000 invoice)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Client in <strong>same state</strong> as you</td>
+                <td>CGST + SGST</td>
+                <td>9% + 9%</td>
+                <td>₹1,00,000 + ₹18,000 = <strong>₹1,18,000</strong></td>
+              </tr>
+              <tr>
+                <td>Client in a <strong>different Indian state</strong></td>
+                <td>IGST</td>
+                <td>18%</td>
+                <td>₹1,00,000 + ₹18,000 = <strong>₹1,18,000</strong></td>
+              </tr>
+              <tr>
+                <td><strong>International client</strong> (Export of Services)</td>
+                <td>Zero-rated</td>
+                <td>0%</td>
+                <td>₹1,00,000 = <strong>₹1,00,000</strong> (no GST added)</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>Need to generate a proper GST invoice with correct CGST/SGST/IGST split? Use our free <Link href="/gst-invoice-generator" style={{ color: "#38bdf8" }}>GST Invoice Generator</Link> — it auto-detects the tax type based on your client's state and creates a PDF in seconds.</p>
+
+          <div className={styles.linkCards}>
+            <Link href="/blog/section-44ada-freelancers" className={styles.linkCard}>
+              <div className={styles.lcIcon}>📉</div>
+              <h4>Section 44ADA</h4>
+              <p>Claim 50% Tax-Free Income as a Freelancer</p>
+            </Link>
+            <Link href="/blog/how-to-make-gst-invoice-online-free" className={styles.linkCard}>
+              <div className={styles.lcIcon}>📄</div>
+              <h4>Make GST Invoice</h4>
+              <p>How to Make a GST Invoice Online for Free</p>
+            </Link>
+          </div>
+
+          <h2>Frequently Asked Questions (FAQ)</h2>
+
+          <div className={styles.faqSection} itemScope itemType="https://schema.org/FAQPage">
+            {faqSchema.mainEntity.map((faq, idx) => (
+              <div key={idx} className={`${styles.faqItem} ${openFaq === idx ? styles.faqItemOpen : ''}`} itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
+                <button className={styles.faqQ} onClick={() => toggleFaq(idx)}>
+                  <span itemProp="name">{faq.name}</span>
+                  <span className={styles.icon}>+</span>
+                </button>
+                <div className={styles.faqA} itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                  <p itemProp="text">{faq.acceptedAnswer.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ marginTop: "48px", padding: "20px", backgroundColor: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "8px", fontSize: "13px", color: "#64748b", lineHeight: "1.6" }}>
+            <strong>Disclaimer:</strong> The information provided on KaroTools is for general informational purposes only and does not constitute professional financial, tax, or legal advice. Tax laws in India frequently change, and while we strive for accuracy, you should always consult with a qualified Chartered Accountant (CA) or legal professional before making any compliance decisions. KaroTools is not responsible for any errors, omissions, or actions taken based on this content.
+          </div>
+
         </article>
       </main>
     </div>

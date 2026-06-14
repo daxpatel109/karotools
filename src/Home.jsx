@@ -635,7 +635,7 @@ export default function Home() {
             <div>
               <p style={{ fontSize: 11, fontWeight: 700, color: "#cbd5e1", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 18 }}>Resources</p>
               <Link href="/guides/gst-for-freelancers-india" className="footer-link" style={{ display: "block", textDecoration: "none", fontSize: 14, color: "#94a3b8", marginBottom: 12, transition: "color 0.2s" }}>GST Guide India</Link>
-              <Link href="/blog/make-gst-invoice-online-free" className="footer-link" style={{ display: "block", textDecoration: "none", fontSize: 14, color: "#94a3b8", marginBottom: 12, transition: "color 0.2s" }}>Invoice Format</Link>
+              <Link href="/blog/how-to-make-gst-invoice-online-free" className="footer-link" style={{ display: "block", textDecoration: "none", fontSize: 14, color: "#94a3b8", marginBottom: 12, transition: "color 0.2s" }}>Invoice Format</Link>
               <Link href="/blog/section-44ada-freelancers" className="footer-link" style={{ display: "block", textDecoration: "none", fontSize: 14, color: "#94a3b8", marginBottom: 12, transition: "color 0.2s" }}>44ADA Tax Tips</Link>
               <Link href="/guides/how-to-price-freelance-services" className="footer-link" style={{ display: "block", textDecoration: "none", fontSize: 14, color: "#94a3b8", marginBottom: 12, transition: "color 0.2s" }}>Rate Guide</Link>
               <Link href="/guides" className="footer-link" style={{ display: "block", textDecoration: "none", fontSize: 14, color: "#94a3b8", marginBottom: 12, transition: "color 0.2s" }}>View All Guides</Link>

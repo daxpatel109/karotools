@@ -257,7 +257,7 @@ export default function BlogPost() {
             <p>Whether you need to calculate 18% GST to add to an invoice, or see how much income tax you owe under Section 44ADA, our free calculators can help.</p>
             <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap", marginTop: "16px" }}>
               <Link href="/gst-calculator" className={styles.ctaBtn}>Open GST Calculator →</Link>
-              <Link href="/44ada-tax-calculator" className={styles.ctaBtn} style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "#fff" }}>44ADA Tax Calculator →</Link>
+              <Link href="/44ada-tax-calculator" className={styles.ctaBtnOutline}>44ADA Tax Calculator →</Link>
             </div>
           </div>
 

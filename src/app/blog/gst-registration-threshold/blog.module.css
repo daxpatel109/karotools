@@ -21,6 +21,22 @@
 }
 .ctaBtn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(56,189,248,0.3); }
 
+.ctaBtnOutline {
+  display: inline-block;
+  background: rgba(255,255,255,0.05);
+  color: #fff !important;
+  border: 1px solid rgba(255,255,255,0.1);
+  font-weight: 700;
+  font-size: 15px;
+  padding: 14px 28px;
+  border-radius: 8px;
+  text-decoration: none !important;
+  margin: 10px 0;
+  transition: all 0.2s;
+}
+.ctaBtnOutline:hover { transform: translateY(-2px); border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); }
+
+
 .ctaBlock {
   background: rgba(56,189,248,0.05);
   border: 1px solid rgba(56,189,248,0.2);

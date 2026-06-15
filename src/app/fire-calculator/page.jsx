@@ -1,5 +1,6 @@
 import FIRECalculator from '../../FIRECalculator';
 import Script from 'next/script';
+import Link from 'next/link';
 
 export const metadata = {
   title: 'India FIRE Calculator 2026 – Early Retirement Tool for Freelancers',
@@ -66,8 +67,83 @@ export default function FIRECalculatorPage() {
   };
 
   return (
-    <>
-      <main>
+    <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans', sans-serif", color: "#f8fafc", selectionColor: "#fff", selectionBackground: "#0076ff" }}>
+      
+      <style dangerouslySetInnerHTML={{ __html: `
+        ::selection { background: rgba(0,118,255, 0.4); color: white; }
+        ::-moz-selection { background: rgba(0,118,255, 0.4); color: white; }
+        
+        @keyframes fadeIn { from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)} }
+        
+        .glass-panel {
+          background: rgba(255, 255, 255, 0.02);
+          border: 1px solid rgba(255, 255, 255, 0.06);
+          backdrop-filter: blur(24px);
+          -webkit-backdrop-filter: blur(24px);
+          box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+
+        .interactive-btn {
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          position: relative;
+          overflow: hidden;
+        }
+        .interactive-btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 12px 24px -10px rgba(0,118,255, 0.25);
+        }
+        .interactive-btn:active {
+          transform: translateY(1px) scale(0.98);
+        }
+
+        .home-btn {
+          background: rgba(255,255,255,0.03);
+          border: 1px solid rgba(255,255,255,0.08);
+          color: #cbd5e1;
+          text-decoration: none;
+        }
+        .home-btn:hover {
+          background: rgba(0,118,255, 0.15);
+          border-color: rgba(56, 189, 248, 0.4);
+          color: #38bdf8;
+        }
+      `}} />
+
+      <div style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0 }}>
+        <div style={{ position: "absolute", top: "-10%", left: "-10%", width: "60%", height: "60%", background: "radial-gradient(circle, rgba(0,118,255, 0.08) 0%, transparent 60%)", filter: "blur(60px)" }} />
+        <div style={{ position: "absolute", bottom: "-10%", right: "-10%", width: "60%", height: "60%", background: "radial-gradient(circle, rgba(0,198,255, 0.06) 0%, transparent 60%)", filter: "blur(60px)" }} />
+        <div style={{ position: "absolute", top: "40%", left: "40%", width: "30%", height: "30%", background: "radial-gradient(circle, rgba(56, 189, 248, 0.03) 0%, transparent 70%)", filter: "blur(40px)" }} />
+      </div>
+
+      <nav className="glass-panel" style={{ position: "sticky", top: 0, zIndex: 100, padding: "0 24px", height: "72px", display: "flex", alignItems: "center", justifyContent: "space-between", borderTop: "none", borderLeft: "none", borderRight: "none", borderRadius: 0 }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <Link href="/" style={{ textDecoration: "none" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }}>
+              <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
+              <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
+                Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
+              </span>
+            </div>
+          </Link>
+          
+          <Link href="/"
+            className="interactive-btn home-btn"
+            style={{
+              padding: "10px 20px",
+              borderRadius: "12px",
+              fontSize: "14px",
+              fontWeight: "600",
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+            }}
+          >
+            ← Home
+          </Link>
+        </div>
+      </nav>
+
+      <main style={{ maxWidth: "820px", margin: "0 auto", padding: "56px 24px 100px", position: "relative", zIndex: 1 }}>
         <FIRECalculator />
         <Script
           id="faq-schema"
@@ -75,48 +151,53 @@ export default function FIRECalculatorPage() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
         
-        {/* On-Page SEO / Content Section (For Semantic Search/UX) */}
-        <section style={{ padding: "40px 5vw", background: "#0b0f19", color: "#f1f5f9", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>
-          <div style={{ maxWidth: "800px", margin: "0 auto", borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "40px" }}>
-            <h2 style={{ fontSize: "28px", fontWeight: "700", marginBottom: "24px" }}>Frequently Asked Questions</h2>
-            
-            <div style={{ marginBottom: "24px" }}>
-              <h3 style={{ fontSize: "18px", fontWeight: "600", color: "#38bdf8", marginBottom: "8px" }}>What is the FIRE number and how is it calculated?</h3>
-              <p style={{ color: "#94a3b8", lineHeight: "1.6" }}>
-                Your FIRE number is the total corpus needed so that 4% (or your chosen withdrawal rate) covers all retirement expenses. In India, it’s typically Annual Expenses × 25 (at 4% SWR). Many experts use a lower 3–3.5% SWR here, implying ~28–33× expenses to account for higher inflation.
-              </p>
-            </div>
-            
-            <div style={{ marginBottom: "24px" }}>
-              <h3 style={{ fontSize: "18px", fontWeight: "600", color: "#38bdf8", marginBottom: "8px" }}>Lean FIRE vs Fat FIRE – what’s the difference in India?</h3>
-              <p style={{ color: "#94a3b8", lineHeight: "1.6" }}>
-                Lean FIRE means retiring on a very frugal budget (essentials-only). It often uses about 15× your annual expenses. Fat FIRE means a comfortable/luxurious retirement, roughly 50× expenses. Most people fall in between. Running our calculator for both scenarios helps set realistic goals.
-              </p>
-            </div>
-            
-            <div style={{ marginBottom: "24px" }}>
-              <h3 style={{ fontSize: "18px", fontWeight: "600", color: "#38bdf8", marginBottom: "8px" }}>What safe withdrawal rate (SWR) should Indian retirees use?</h3>
-              <p style={{ color: "#94a3b8", lineHeight: "1.6" }}>
-                Unlike the standard 4% rule (US-based), financial planners in India recommend 3–3.5% SWR due to higher long-term inflation (6–7% CPI) and cost risks. Using 3.5% means multiplying expenses by ~28.6 instead of 25. You can adjust this in our calculator’s slider.
-              </p>
-            </div>
+        {/* Universal Legal Disclaimer */}
+        <div style={{ marginTop: "40px", padding: "20px", background: "rgba(0,0,0,0.3)", borderRadius: "12px", border: "1px dashed rgba(255,255,255,0.1)", textAlign: "center" }}>
+          <p style={{ color: "#64748b", fontSize: "12px", lineHeight: "1.6", margin: 0, fontFamily: "'DM Sans',sans-serif" }}>
+            <strong>Disclaimer:</strong> This FIRE Calculator is for educational and informational purposes only. Results are based on assumptions entered by the user and should not be treated as investment, tax, retirement, or financial advice. Please consult a qualified financial advisor before making major financial decisions.
+          </p>
+        </div>
 
-            <div style={{ marginBottom: "24px" }}>
-              <h3 style={{ fontSize: "18px", fontWeight: "600", color: "#38bdf8", marginBottom: "8px" }}>How can a freelancer in India plan for early retirement?</h3>
-              <p style={{ color: "#94a3b8", lineHeight: "1.6" }}>
-                As a freelancer, you must self-fund retirement (no employer PF). Start by tracking your current expenses and setting a savings rate. Use tools like this FIRE calculator to project your corpus. Consider maxing SIPs, PPF/NPS contributions, and lowering costs. Consistent investing is key — even ₹5–10K per month can grow significantly over time.
-              </p>
-            </div>
+        {/* On-Page SEO / Content Section */}
+        <section style={{ marginTop: "60px", padding: "40px", background: "rgba(255, 255, 255, 0.02)", borderRadius: "20px", border: "1px solid rgba(255, 255, 255, 0.06)", color: "#f1f5f9", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>
+          <h2 style={{ fontSize: "28px", fontWeight: "700", marginBottom: "24px" }}>Frequently Asked Questions</h2>
+          
+          <div style={{ marginBottom: "24px" }}>
+            <h3 style={{ fontSize: "18px", fontWeight: "600", color: "#38bdf8", marginBottom: "8px" }}>What is the FIRE number and how is it calculated?</h3>
+            <p style={{ color: "#94a3b8", lineHeight: "1.6" }}>
+              Your FIRE number is the total corpus needed so that 4% (or your chosen withdrawal rate) covers all retirement expenses. In India, it’s typically Annual Expenses × 25 (at 4% SWR). Many experts use a lower 3–3.5% SWR here, implying ~28–33× expenses to account for higher inflation.
+            </p>
+          </div>
+          
+          <div style={{ marginBottom: "24px" }}>
+            <h3 style={{ fontSize: "18px", fontWeight: "600", color: "#38bdf8", marginBottom: "8px" }}>Lean FIRE vs Fat FIRE – what’s the difference in India?</h3>
+            <p style={{ color: "#94a3b8", lineHeight: "1.6" }}>
+              Lean FIRE means retiring on a very frugal budget (essentials-only). It often uses about 15× your annual expenses. Fat FIRE means a comfortable/luxurious retirement, roughly 50× expenses. Most people fall in between. Running our calculator for both scenarios helps set realistic goals.
+            </p>
+          </div>
+          
+          <div style={{ marginBottom: "24px" }}>
+            <h3 style={{ fontSize: "18px", fontWeight: "600", color: "#38bdf8", marginBottom: "8px" }}>What safe withdrawal rate (SWR) should Indian retirees use?</h3>
+            <p style={{ color: "#94a3b8", lineHeight: "1.6" }}>
+              Unlike the standard 4% rule (US-based), financial planners in India recommend 3–3.5% SWR due to higher long-term inflation (6–7% CPI) and cost risks. Using 3.5% means multiplying expenses by ~28.6 instead of 25. You can adjust this in our calculator’s slider.
+            </p>
+          </div>
 
-            <div style={{ marginBottom: "24px" }}>
-              <h3 style={{ fontSize: "18px", fontWeight: "600", color: "#38bdf8", marginBottom: "8px" }}>How does inflation affect my FIRE goal in India?</h3>
-              <p style={{ color: "#94a3b8", lineHeight: "1.6" }}>
-                High Indian inflation (6–7%) means your expenses grow quickly. Our calculator adjusts future expenses using your inflation input. For example, ₹1L monthly today could cost ₹2L+ in 10–15 years, requiring a much larger corpus. Always use real (inflation-adjusted) returns when planning.
-              </p>
-            </div>
+          <div style={{ marginBottom: "24px" }}>
+            <h3 style={{ fontSize: "18px", fontWeight: "600", color: "#38bdf8", marginBottom: "8px" }}>How can a freelancer in India plan for early retirement?</h3>
+            <p style={{ color: "#94a3b8", lineHeight: "1.6" }}>
+              As a freelancer, you must self-fund retirement (no employer PF). Start by tracking your current expenses and setting a savings rate. Use tools like this FIRE calculator to project your corpus. Consider maxing SIPs, PPF/NPS contributions, and lowering costs. Consistent investing is key — even ₹5–10K per month can grow significantly over time.
+            </p>
+          </div>
+
+          <div>
+            <h3 style={{ fontSize: "18px", fontWeight: "600", color: "#38bdf8", marginBottom: "8px" }}>How does inflation affect my FIRE goal in India?</h3>
+            <p style={{ color: "#94a3b8", lineHeight: "1.6" }}>
+              High Indian inflation (6–7%) means your expenses grow quickly. Our calculator adjusts future expenses using your inflation input. For example, ₹1L monthly today could cost ₹2L+ in 10–15 years, requiring a much larger corpus. Always use real (inflation-adjusted) returns when planning.
+            </p>
           </div>
         </section>
       </main>
-    </>
+    </div>
   );
 }

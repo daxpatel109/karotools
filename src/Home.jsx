@@ -182,7 +182,7 @@ export default function Home() {
           { "@type": "Question", "name": "Do I need to create an account?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely not. There's zero sign-up required. Just visit any tool, fill in your details, and get your result instantly. We believe in friction-free tools." } },
           { "@type": "Question", "name": "Can I download my GST invoice as a PDF?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! Our GST Invoice Generator lets you download a professional PDF invoice instantly — with your logo, GSTIN, CGST/SGST or IGST breakdown, HSN/SAC codes, payment status, and authorized signature area." } },
           { "@type": "Question", "name": "Are the GST calculations accurate and up-to-date?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Our GST Calculator follows official Indian GST rules — including CGST + SGST for intra-state transactions and IGST for inter-state transactions across all four slabs (5%, 12%, 18%, 28%). We also support custom GST rates." } },
-          { "@type": "Question", "name": "What tools does KaroTools offer?", "acceptedAnswer": { "@type": "Answer", "text": "Currently KaroTools offers: GST Calculator, GST Invoice Generator, Email Generator (10 types), Bio Generator (Instagram/LinkedIn/Twitter), and Freelance Rate Calculator. More tools like Proposal Generator and Contract Generator are coming soon." } },
+          { "@type": "Question", "name": "What tools does KaroTools offer?", "acceptedAnswer": { "@type": "Answer", "text": "Currently KaroTools offers: GST Calculator, GST Invoice Generator, Tax Calculators, and a Freelance Rate Calculator. We focus exclusively on practical financial tools to help Indian freelancers run their business." } },
           { "@type": "Question", "name": "Who is KaroTools built for?", "acceptedAnswer": { "@type": "Answer", "text": "KaroTools is built specifically for Indian freelancers, consultants, UI/UX designers, web developers, content writers, photographers, and small business owners who need fast, reliable business tools without complexity." } }
         ]
       }
@@ -214,14 +214,10 @@ export default function Home() {
     { icon: "⚠️", name: "Late GST Penalty", description: "Calculate late filing fees (₹50/day) and 18% interest on delayed GST payments instantly.", category: "Finance", page: "/late-gst-penalty-calculator" },
     { icon: "💼", name: "Salary vs Freelance", description: "Compare your current salary to freelance rates. Find exactly what you need to charge to maintain your lifestyle.", category: "Finance", page: "/salary-vs-freelance" },
     { icon: "📈", name: "SIP Calculator", description: "Calculate your Mutual Fund returns and see the true power of compounding over 10 or 20 years.", category: "Finance", page: "/sip-calculator" },
-    { icon: "📧", name: "Email Generator", description: "10 email types — cold outreach, follow-up, payment reminder, proposal & more. 4 tones, no AI needed.", category: "AI Tool", page: "/email-generator" },
-    { icon: "📱", name: "Bio Generator", description: "Instagram, LinkedIn & Twitter bios — professional, creative & minimal styles. Template-based, instant.", category: "AI Tool", page: "/bio-generator" },
     { icon: "💰", name: "Rate Calculator", description: "Calculate your perfect freelance hourly, daily & monthly rate in INR based on your expenses.", category: "Finance", page: "/freelance-rate-calculator" },
-    { icon: "📝", name: "Proposal Generator", description: "Win more clients with AI-written project proposals tailored for Indian freelancers.", category: "AI Tool" },
-    { icon: "📋", name: "Contract Generator", description: "Generate professional freelance contracts and service agreements in seconds.", category: "Legal", page: "/contract-generator" },
   ];
 
-  const filters = ["All", "Finance", "AI Tool", "Legal"];
+  const filters = ["All", "Finance"];
 
   const filtered = tools.filter(t => {
     const matchSearch = t.name.toLowerCase().includes(search.toLowerCase()) || t.description.toLowerCase().includes(search.toLowerCase()) || t.category.toLowerCase().includes(search.toLowerCase());
@@ -250,7 +246,7 @@ export default function Home() {
     { q: "Do I need to create an account?", a: "Absolutely not. There's zero sign-up required. Just visit any tool, fill in your details, and get your result instantly. We believe in friction-free tools." },
     { q: "Can I download my GST invoice as a PDF?", a: "Yes! Our GST Invoice Generator lets you download a professional PDF invoice instantly — with your logo, GSTIN, CGST/SGST or IGST breakdown, HSN/SAC codes, payment status, and authorized signature area." },
     { q: "Are the GST calculations accurate and up-to-date?", a: "Absolutely. Our GST Calculator follows official Indian GST rules — including CGST + SGST for intra-state transactions and IGST for inter-state transactions across all four slabs (5%, 12%, 18%, 28%). We also support custom GST rates." },
-    { q: "What tools does KaroTools offer?", a: "Currently KaroTools offers: GST Calculator, GST Invoice Generator, Email Generator (10 types), Bio Generator (Instagram/LinkedIn/Twitter), and Freelance Rate Calculator. More tools like Proposal Generator and Contract Generator are coming soon." },
+    { q: "What tools does KaroTools offer?", a: "Currently KaroTools offers: GST Calculator, GST Invoice Generator, Tax Calculators, and a Freelance Rate Calculator. We focus exclusively on practical financial tools to help Indian freelancers run their business." },
     { q: "Who is KaroTools built for?", a: "KaroTools is built specifically for Indian freelancers, consultants, UI/UX designers, web developers, content writers, photographers, and small business owners who need fast, reliable business tools without complexity." },
   ];
 
@@ -513,7 +509,7 @@ export default function Home() {
             {[
               { icon: "🧮", title: "Free GST Calculator India", desc: "Calculate CGST, SGST & IGST instantly. All slabs, custom rates, round-off toggle, visual breakdown & copy result.", link: "/gst-calculator", keyword: "33,000+ monthly searches" },
               { icon: "📄", title: "Free GST Invoice Generator", desc: "Create professional GST invoices with PDF download. Your logo, GSTIN, HSN/SAC codes — no software needed.", link: "/gst-invoice-generator", keyword: "28,000+ monthly searches" },
-              { icon: "📧", title: "Free Business Email Generator", desc: "Generate cold outreach, follow-up, payment reminder & proposal emails. 10 types, 4 tones, instant results.", link: "/email-generator", keyword: "15,000+ monthly searches" },
+              { icon: "💰", title: "Freelance Rate Calculator", desc: "Calculate your perfect freelance hourly, daily & monthly rate in INR based on your expenses.", link: "/freelance-rate-calculator", keyword: "15,000+ monthly searches" },
             ].map((item, i) => (
               <Reveal key={item.title} delay={i * 0.1}>
                 <Link href={item.link} style={{ textDecoration: 'none', display: 'block' }}>
@@ -611,7 +607,7 @@ export default function Home() {
             {/* Tools */}
             <div>
               <p style={{ fontSize: 11, fontWeight: 700, color: "#cbd5e1", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 18 }}>Tools</p>
-              {["GST Calculator", "Invoice Generator", "Contract Generator", "Bio Generator", "Rate Calculator"].map(t => (
+              {["GST Calculator", "Invoice Generator", "Rate Calculator", "Tax Calculator"].map(t => (
                 <p key={t} className="footer-link" style={{ fontSize: 14, color: "#94a3b8", marginBottom: 12, cursor: "pointer", transition: "color 0.2s" }}>{t}</p>
               ))}
             </div>

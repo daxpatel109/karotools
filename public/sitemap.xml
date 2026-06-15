@@ -3,10 +3,7 @@
   <url><loc>https://karotools.in/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
   <url><loc>https://karotools.in/gst-calculator</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://karotools.in/gst-invoice-generator</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://karotools.in/bio-generator</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://karotools.in/email-generator</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://karotools.in/freelance-rate-calculator</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://karotools.in/contract-generator</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://karotools.in/tax-calculator</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://karotools.in/44ada-tax-calculator</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://karotools.in/normal-tax-calculator</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>

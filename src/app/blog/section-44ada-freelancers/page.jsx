@@ -86,7 +86,7 @@ export default function BlogPost() {
           <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }}>
               <img src="/logo.png" alt="KaroTools Logo" style={{ height: "clamp(40px, 10vw, 56px)", margin: "0 -16px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
-              <span style={{ fontSize: "clamp(18px, 5vw, 22px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
+              <span style={{ fontSize: "clamp(18px, 5vw, 22px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
                 Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
               </span>
             </div>
@@ -104,7 +104,7 @@ export default function BlogPost() {
             <div style={{ display: "flex", gap: "12px", marginBottom: "24px" }}>
               <span style={{ backgroundColor: "rgba(52,211,153,0.1)", color: "#34d399", padding: "4px 12px", borderRadius: "100px", fontSize: "12px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "0.06em", border: "1px solid rgba(52,211,153,0.2)" }}>🇮🇳 TAX SAVING GUIDE</span>
             </div>
-            <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", fontFamily: "'Syne', sans-serif", lineHeight: "1.1", marginBottom: "24px", color: "#fff", letterSpacing: "-0.5px" }}>
+            <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans', sans-serif", lineHeight: "1.1", marginBottom: "24px", color: "#fff", letterSpacing: "-0.5px" }}>
               Section 44ADA for Freelancers: The Complete Tax Saving Guide for FY 2026-27
             </h1>
             <p style={{ fontSize: "18px", color: "#cbd5e1", lineHeight: "1.6", marginBottom: "24px" }}>
@@ -123,7 +123,7 @@ export default function BlogPost() {
 
           <div style={{ background: "linear-gradient(135deg, rgba(52,211,153,0.1) 0%, rgba(16,185,129,0.05) 100%)", border: "1px solid rgba(52,211,153,0.3)", borderRadius: "16px", padding: "40px 32px", textAlign: "center", margin: "48px 0" }}>
             <div style={{ color: "#34d399", fontSize: "14px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "12px" }}>Main 44ADA Benefit</div>
-            <div style={{ fontSize: "clamp(56px, 10vw, 80px)", fontWeight: "900", color: "#34d399", lineHeight: "1", letterSpacing: "-3px", marginBottom: "16px", fontFamily: "'Syne', sans-serif" }}>50%</div>
+            <div style={{ fontSize: "clamp(56px, 10vw, 80px)", fontWeight: "900", color: "#34d399", lineHeight: "1", letterSpacing: "-3px", marginBottom: "16px", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>50%</div>
             <div style={{ color: "#cbd5e1", fontSize: "16px", maxWidth: "560px", margin: "0 auto", lineHeight: "1.6" }}>
               Eligible professionals can declare 50% of gross professional receipts as taxable professional income. No separate expense deduction is allowed after choosing this presumptive method.
             </div>

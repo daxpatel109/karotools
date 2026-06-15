@@ -144,7 +144,7 @@ export default function RateCalculator() {
                 if(value < min) setter(min);
                 if(value > max) setter(max);
               }}
-              style={{ background: "transparent", border: "none", color: color, fontSize: "clamp(16px, 4vw, 20px)", fontWeight: "800", width: "100%", flex: 1, textAlign: "right", outline: "none", fontFamily: "'Syne', sans-serif", letterSpacing: "1px" }}
+              style={{ background: "transparent", border: "none", color: color, fontSize: "clamp(16px, 4vw, 20px)", fontWeight: "800", width: "100%", flex: 1, textAlign: "right", outline: "none", fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: "1px" }}
             />
             {suffix && <span style={{ color: "#64748b", fontWeight: "700", marginLeft: "6px", fontSize: "14px" }}>{suffix}</span>}
           </div>
@@ -298,7 +298,7 @@ export default function RateCalculator() {
         <a href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
-  <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
+  <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
     Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
 </div>
@@ -307,7 +307,7 @@ export default function RateCalculator() {
       </nav>
 
       <div className="print-only print-header" style={{ display: "none", textAlign: "center", paddingTop: "20px" }}>
-        <h2 style={{ fontSize: "32px", fontFamily: "'Syne',sans-serif", margin: "0 0 10px 0" }}>Freelance Rate Strategy & Proposal</h2>
+        <h2 style={{ fontSize: "32px", fontFamily: "'Plus Jakarta Sans',sans-serif", margin: "0 0 10px 0" }}>Freelance Rate Strategy & Proposal</h2>
         <p style={{ margin: 0, fontSize: "16px", color: "#64748b" }}>Generated securely via KaroTools • {new Date().toLocaleDateString('en-IN')}</p>
       </div>
 
@@ -317,7 +317,7 @@ export default function RateCalculator() {
           <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "72px", height: "72px", borderRadius: "24px", background: "linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01))", border: "1px solid rgba(255,255,255,0.1)", marginBottom: "20px", boxShadow: "0 12px 32px rgba(0,0,0,0.2)" }}>
             <span style={{ fontSize: "36px", filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.3))" }}>💎</span>
           </div>
-          <h1 style={{ fontSize: "clamp(32px, 6vw, 48px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", marginBottom: "12px", letterSpacing: "-0.02em", background: "linear-gradient(135deg, #ffffff 0%, #38bdf8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Rate & Tier Matrix</h1>
+          <h1 style={{ fontSize: "clamp(32px, 6vw, 48px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "12px", letterSpacing: "-0.02em", background: "linear-gradient(135deg, #ffffff 0%, #38bdf8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Rate & Tier Matrix</h1>
           <p style={{ color: "#94a3b8", fontSize: "clamp(14px, 3vw, 16px)", fontWeight: "400", letterSpacing: "0.01em" }}>Design your financial baseline and auto-generate client packages.</p>
         </div>
 
@@ -355,7 +355,7 @@ export default function RateCalculator() {
             <div className="no-print" style={{ position: "absolute", top: 0, left: 0, right: 0, height: "1px", background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)" }} />
             
             <p style={{ color: "#bae6fd", fontSize: "clamp(12px, 3vw, 14px)", fontWeight: "800", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "16px", transform: "translateZ(30px)", wordWrap: "break-word" }}>Base Minimum Hourly Rate</p>
-            <p className="text-gradient" style={{ fontSize: "clamp(48px, 10vw, 72px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", background: "linear-gradient(135deg, #ffffff, #bae6fd)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", lineHeight: 1, filter: "drop-shadow(0 4px 20px rgba(0,118,255, 0.3))", transform: "translateZ(50px)", wordBreak: "break-word" }}>
+            <p className="text-gradient" style={{ fontSize: "clamp(48px, 10vw, 72px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", background: "linear-gradient(135deg, #ffffff, #bae6fd)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", lineHeight: 1, filter: "drop-shadow(0 4px 20px rgba(0,118,255, 0.3))", transform: "translateZ(50px)", wordBreak: "break-word" }}>
               ₹{fmt(hourlyRate)}
             </p>
             
@@ -370,7 +370,7 @@ export default function RateCalculator() {
                     <span>{item.icon}</span>
                     <span style={{ color: "#94a3b8", fontSize: "clamp(10px, 2vw, 12px)", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.05em" }}>{item.label}</span>
                   </div>
-                  <span style={{ fontSize: "clamp(16px, 4vw, 20px)", fontWeight: "800", color: item.color, fontFamily: "'Syne',sans-serif" }}>₹{fmt(item.value)}</span>
+                  <span style={{ fontSize: "clamp(16px, 4vw, 20px)", fontWeight: "800", color: item.color, fontFamily: "'Plus Jakarta Sans',sans-serif" }}>₹{fmt(item.value)}</span>
                 </div>
               ))}
             </div>
@@ -380,7 +380,7 @@ export default function RateCalculator() {
           <div style={{ marginBottom: "48px" }}>
             <div className="no-print" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "24px", flexWrap: "wrap", gap: "16px" }}>
               <div style={{ flex: "1 1 300px" }}>
-                <h2 style={{ fontSize: "clamp(24px, 5vw, 28px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "8px" }}>Client Packaging Matrix</h2>
+                <h2 style={{ fontSize: "clamp(24px, 5vw, 28px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc", marginBottom: "8px" }}>Client Packaging Matrix</h2>
                 <p style={{ color: "#94a3b8", fontSize: "clamp(14px, 3vw, 15px)" }}>Never quote hourly again. Pitch these SaaS-style productized tiers based on your rate.</p>
               </div>
               <button onClick={handleDownloadReport} className="interactive-btn" style={{ padding: "12px 24px", background: "linear-gradient(135deg, #0076ff, #2563eb)", color: "#fff", border: "none", borderRadius: "12px", fontWeight: "700", fontSize: "14px", display: "flex", gap: "8px", alignItems: "center", cursor: "pointer", boxShadow: "0 4px 16px rgba(0,118,255, 0.3)", whiteSpace: "nowrap" }}>
@@ -397,9 +397,9 @@ export default function RateCalculator() {
                 className="glass-panel" 
                 style={{ borderRadius: "20px", padding: "clamp(24px, 4vw, 32px)", borderTop: "4px solid #94a3b8", transition: "transform 0.1s ease-out", transformStyle: "preserve-3d" }}
               >
-                <h3 style={{ fontSize: "clamp(18px, 4vw, 20px)", fontWeight: "800", color: "#f8fafc", fontFamily: "'Syne',sans-serif", transform: "translateZ(20px)" }}>Starter / Audit</h3>
+                <h3 style={{ fontSize: "clamp(18px, 4vw, 20px)", fontWeight: "800", color: "#f8fafc", fontFamily: "'Plus Jakarta Sans',sans-serif", transform: "translateZ(20px)" }}>Starter / Audit</h3>
                 <p style={{ fontSize: "13px", color: "#94a3b8", marginBottom: "20px", transform: "translateZ(20px)", minHeight: "40px" }}>Perfect for quick audits or minimal viable setups.</p>
-                <div style={{ fontSize: "clamp(28px, 6vw, 36px)", fontWeight: "800", color: "#e2e8f0", fontFamily: "'Syne',sans-serif", marginBottom: "24px", transform: "translateZ(40px)", wordBreak: "break-word" }}>₹{fmt(tierStarter)}</div>
+                <div style={{ fontSize: "clamp(28px, 6vw, 36px)", fontWeight: "800", color: "#e2e8f0", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "24px", transform: "translateZ(40px)", wordBreak: "break-word" }}>₹{fmt(tierStarter)}</div>
                 <ul style={{ listStyle: "none", padding: 0, margin: 0, color: "#cbd5e1", fontSize: "14px", transform: "translateZ(10px)" }}>
                   <li style={{ marginBottom: "12px", display: "flex", gap: "8px" }}><span style={{ color: "#38bdf8" }}>✓</span> ~10 Hours of Focus</li>
                   <li style={{ marginBottom: "12px", display: "flex", gap: "8px" }}><span style={{ color: "#38bdf8" }}>✓</span> Standard Delivery</li>
@@ -416,9 +416,9 @@ export default function RateCalculator() {
                 style={{ borderRadius: "20px", padding: "clamp(24px, 4vw, 32px)", background: "linear-gradient(180deg, rgba(0,118,255, 0.1) 0%, rgba(255,255,255,0.02) 100%)", borderTop: "4px solid #0076ff", position: "relative", transition: "transform 0.1s ease-out", transformStyle: "preserve-3d" }}
               >
                 <div className="no-print" style={{ position: "absolute", top: "-12px", left: "50%", transform: "translateX(-50%) translateZ(30px)", background: "#0076ff", color: "#fff", padding: "4px 12px", borderRadius: "20px", fontSize: "11px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "1px", whiteSpace: "nowrap" }}>Most Popular</div>
-                <h3 style={{ fontSize: "clamp(18px, 4vw, 20px)", fontWeight: "800", color: "#38bdf8", fontFamily: "'Syne',sans-serif", transform: "translateZ(20px)" }}>Professional</h3>
+                <h3 style={{ fontSize: "clamp(18px, 4vw, 20px)", fontWeight: "800", color: "#38bdf8", fontFamily: "'Plus Jakarta Sans',sans-serif", transform: "translateZ(20px)" }}>Professional</h3>
                 <p style={{ fontSize: "13px", color: "#94a3b8", marginBottom: "20px", transform: "translateZ(20px)", minHeight: "40px" }}>The standard engagement for complete execution.</p>
-                <div style={{ fontSize: "clamp(28px, 6vw, 36px)", fontWeight: "800", color: "#fff", fontFamily: "'Syne',sans-serif", marginBottom: "24px", transform: "translateZ(40px)", wordBreak: "break-word" }}>₹{fmt(tierPro)}</div>
+                <div style={{ fontSize: "clamp(28px, 6vw, 36px)", fontWeight: "800", color: "#fff", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "24px", transform: "translateZ(40px)", wordBreak: "break-word" }}>₹{fmt(tierPro)}</div>
                 <ul style={{ listStyle: "none", padding: 0, margin: 0, color: "#cbd5e1", fontSize: "14px", transform: "translateZ(10px)" }}>
                   <li style={{ marginBottom: "12px", display: "flex", gap: "8px" }}><span style={{ color: "#38bdf8" }}>✓</span> ~25 Hours of Focus</li>
                   <li style={{ marginBottom: "12px", display: "flex", gap: "8px" }}><span style={{ color: "#38bdf8" }}>✓</span> Priority Delivery</li>
@@ -435,9 +435,9 @@ export default function RateCalculator() {
                 className="glass-panel" 
                 style={{ borderRadius: "20px", padding: "clamp(24px, 4vw, 32px)", borderTop: "4px solid #00c6ff", transition: "transform 0.1s ease-out", transformStyle: "preserve-3d" }}
               >
-                <h3 style={{ fontSize: "clamp(18px, 4vw, 20px)", fontWeight: "800", color: "#00c6ff", fontFamily: "'Syne',sans-serif", transform: "translateZ(20px)" }}>Premium Retainer</h3>
+                <h3 style={{ fontSize: "clamp(18px, 4vw, 20px)", fontWeight: "800", color: "#00c6ff", fontFamily: "'Plus Jakarta Sans',sans-serif", transform: "translateZ(20px)" }}>Premium Retainer</h3>
                 <p style={{ fontSize: "13px", color: "#94a3b8", marginBottom: "20px", transform: "translateZ(20px)", minHeight: "40px" }}>High-touch involvement. Acts as an integrated team.</p>
-                <div style={{ fontSize: "clamp(28px, 6vw, 36px)", fontWeight: "800", color: "#e2e8f0", fontFamily: "'Syne',sans-serif", marginBottom: "24px", transform: "translateZ(40px)", wordBreak: "break-word" }}>₹{fmt(tierElite)}<span style={{ fontSize: "16px", color: "#64748b" }}>/mo</span></div>
+                <div style={{ fontSize: "clamp(28px, 6vw, 36px)", fontWeight: "800", color: "#e2e8f0", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "24px", transform: "translateZ(40px)", wordBreak: "break-word" }}>₹{fmt(tierElite)}<span style={{ fontSize: "16px", color: "#64748b" }}>/mo</span></div>
                 <ul style={{ listStyle: "none", padding: 0, margin: 0, color: "#cbd5e1", fontSize: "14px", transform: "translateZ(10px)" }}>
                   <li style={{ marginBottom: "12px", display: "flex", gap: "8px" }}><span style={{ color: "#00c6ff" }}>✓</span> ~50 Hours of Focus</li>
                   <li style={{ marginBottom: "12px", display: "flex", gap: "8px" }}><span style={{ color: "#00c6ff" }}>✓</span> White-Glove Support</li>
@@ -455,14 +455,14 @@ export default function RateCalculator() {
           
           <div style={{ paddingTop: "64px", paddingBottom: "20px" }}>
             <div style={{ maxWidth: "800px", margin: "0 auto 60px", textAlign: "left" }}>
-              <h2 style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "16px" }}>Freelance Rate Calculator India</h2>
+              <h2 style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc", marginBottom: "16px" }}>Freelance Rate Calculator India</h2>
               <p style={{ color: "#94a3b8", fontSize: "16px", lineHeight: "1.8", marginBottom: "24px" }}>
                 One of the biggest mistakes freelancers in India make is charging an arbitrary hourly rate. This often leads to underpricing, burnout, and an unsustainable business. 
                 Our <strong>Freelance Rate Calculator</strong> helps you reverse-engineer your perfect hourly, daily, and project rates based on your actual living expenses, desired savings, and a crucial profit margin. 
                 By accurately factoring in non-billable hours, you ensure every project you take is profitable. Use the SaaS Package Generator above to pitch tiered options to your clients and win larger deals.
               </p>
             </div>
-            <h2 style={{ fontSize: "clamp(24px, 5vw, 28px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "32px", textAlign: "center" }}>Freelance Pricing FAQs</h2>
+            <h2 style={{ fontSize: "clamp(24px, 5vw, 28px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc", marginBottom: "32px", textAlign: "center" }}>Freelance Pricing FAQs</h2>
             
             <div className="responsive-grid" style={{ gap: "24px" }}>
               {[
@@ -476,7 +476,7 @@ export default function RateCalculator() {
                     <div style={{ background: "rgba(0,118,255, 0.15)", color: "#38bdf8", width: "28px", height: "28px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", fontWeight: "800", flexShrink: 0, marginTop: "2px", boxShadow: "0 0 12px rgba(0,118,255, 0.2)" }}>
                       {i + 1}
                     </div>
-                    <h3 style={{ fontSize: "clamp(16px, 3vw, 18px)", fontWeight: "700", color: "#f1f5f9", fontFamily: "'Syne',sans-serif", lineHeight: "1.4" }}>{item.q}</h3>
+                    <h3 style={{ fontSize: "clamp(16px, 3vw, 18px)", fontWeight: "700", color: "#f1f5f9", fontFamily: "'Plus Jakarta Sans',sans-serif", lineHeight: "1.4" }}>{item.q}</h3>
                   </div>
                   <p style={{ fontSize: "clamp(14px, 2.5vw, 15px)", color: "#94a3b8", lineHeight: "1.8", paddingLeft: "44px" }}>{item.a}</p>
                 </div>

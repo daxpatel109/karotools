@@ -12,7 +12,7 @@ export default function Guide2() {
         <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }}>
             <img src="/logo.png" alt="KaroTools Logo" style={{ height: "clamp(40px, 10vw, 56px)", margin: "0 -16px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
-            <span style={{ fontSize: "clamp(18px, 5vw, 22px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
+            <span style={{ fontSize: "clamp(18px, 5vw, 22px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
               Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
             </span>
           </div>
@@ -29,7 +29,7 @@ export default function Guide2() {
         </div>
 
         {/* Title */}
-        <h1 style={{ fontSize: "clamp(36px, 5vw, 56px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", lineHeight: 1.15, marginBottom: "32px", color: "#f8fafc", letterSpacing: "-0.02em" }}>
+        <h1 style={{ fontSize: "clamp(36px, 5vw, 56px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", lineHeight: 1.15, marginBottom: "32px", color: "#f8fafc", letterSpacing: "-0.02em" }}>
           How to Price Your Freelance Services
         </h1>
 
@@ -38,7 +38,7 @@ export default function Guide2() {
             The most common mistake new freelancers make is pulling a number out of thin air or simply copying what competitors are charging. If you don't calculate your rates based on your actual lifestyle costs, you will eventually burn out.
           </p>
 
-          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Syne',sans-serif", color: "#f1f5f9", marginTop: "32px", marginBottom: "16px" }}>
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginTop: "32px", marginBottom: "16px" }}>
             The "Reverse Engineering" Method
           </h2>
           <p>
@@ -61,7 +61,7 @@ export default function Guide2() {
             </Link>
           </div>
 
-          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Syne',sans-serif", color: "#f1f5f9", marginTop: "32px", marginBottom: "16px" }}>
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginTop: "32px", marginBottom: "16px" }}>
             Hourly vs. Project Pricing
           </h2>
           <p>
@@ -71,7 +71,7 @@ export default function Guide2() {
             When you charge hourly, you are punished for being efficient. If you learn to do a task twice as fast, you make half as much money. By charging per project (or per deliverable), you align your incentives with the client: they get the result they want, and you get rewarded for speed and expertise.
           </p>
 
-          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Syne',sans-serif", color: "#f1f5f9", marginTop: "32px", marginBottom: "16px" }}>
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginTop: "32px", marginBottom: "16px" }}>
             Protecting Your Rate with a Contract
           </h2>
           <p>

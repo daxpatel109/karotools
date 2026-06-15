@@ -17,7 +17,7 @@ export default function About() {
         <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "clamp(40px, 10vw, 56px)", margin: "0 -16px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
-  <span style={{ fontSize: "clamp(18px, 5vw, 22px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
+  <span style={{ fontSize: "clamp(18px, 5vw, 22px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
     Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
 </div>
@@ -34,7 +34,7 @@ export default function About() {
         <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(0,90,230,0.1)", border: "1px solid rgba(0,90,230,0.2)", borderRadius: "50px", padding: "6px 16px", marginBottom: "20px" }}>
           <span style={{ fontSize: "12px", color: "#a78bfa", fontWeight: "700", letterSpacing: "0.08em" }}>🇮🇳 MADE IN INDIA</span>
         </div>
-        <h1 style={{ fontSize: "clamp(40px, 6vw, 64px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", marginBottom: "24px", background: "linear-gradient(135deg,#ffffff,#818cf8)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", lineHeight: 1.1 }}>
+        <h1 style={{ fontSize: "clamp(40px, 6vw, 64px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "24px", background: "linear-gradient(135deg,#ffffff,#818cf8)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", lineHeight: 1.1 }}>
           Empowering Indian Freelancers
         </h1>
         <p style={{ color: "#94a3b8", fontSize: "18px", lineHeight: "1.7", maxWidth: "600px", margin: "0 auto" }}>
@@ -46,7 +46,7 @@ export default function About() {
       <div style={{ maxWidth: "800px", margin: "0 auto", padding: "0 24px 100px" }}>
         
         <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "24px", padding: "48px", marginBottom: "40px" }}>
-          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Syne',sans-serif", color: "#f1f5f9", marginBottom: "20px" }}>The Problem We're Solving</h2>
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginBottom: "20px" }}>The Problem We're Solving</h2>
           <p style={{ fontSize: "16px", color: "#94a3b8", lineHeight: "1.8", marginBottom: "20px" }}>
             As a freelancer in India, you have a hundred things to worry about: finding clients, delivering work, managing taxes, and getting paid. The last thing you need is software that slows you down.
           </p>
@@ -58,18 +58,18 @@ export default function About() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "24px", marginBottom: "40px" }}>
           <div style={{ background: "linear-gradient(135deg, rgba(0,118,255,0.05), transparent)", border: "1px solid rgba(0,118,255,0.15)", borderRadius: "24px", padding: "32px" }}>
             <div style={{ fontSize: "32px", marginBottom: "16px" }}>🔓</div>
-            <h3 style={{ fontSize: "20px", fontWeight: "700", fontFamily: "'Syne',sans-serif", color: "#f1f5f9", marginBottom: "12px" }}>Zero Login Policy</h3>
+            <h3 style={{ fontSize: "20px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginBottom: "12px" }}>Zero Login Policy</h3>
             <p style={{ fontSize: "15px", color: "#94a3b8", lineHeight: "1.7" }}>Your time is valuable. Our tools are instantly accessible the moment you open the website. We never ask for your email address.</p>
           </div>
           <div style={{ background: "linear-gradient(135deg, rgba(0,90,230,0.05), transparent)", border: "1px solid rgba(0,90,230,0.15)", borderRadius: "24px", padding: "32px" }}>
             <div style={{ fontSize: "32px", marginBottom: "16px" }}>🔒</div>
-            <h3 style={{ fontSize: "20px", fontWeight: "700", fontFamily: "'Syne',sans-serif", color: "#f1f5f9", marginBottom: "12px" }}>Absolute Privacy</h3>
+            <h3 style={{ fontSize: "20px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginBottom: "12px" }}>Absolute Privacy</h3>
             <p style={{ fontSize: "15px", color: "#94a3b8", lineHeight: "1.7" }}>Because we process tools locally, your financial inputs (like GSTINs, client names, and invoice amounts) stay on your device and are never sent to our servers. We use basic analytics and ad services to keep the site free, but your raw financial inputs remain private.</p>
           </div>
         </div>
 
         <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "24px", padding: "48px", textAlign: "center" }}>
-          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Syne',sans-serif", color: "#f1f5f9", marginBottom: "20px" }}>Join the Community</h2>
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginBottom: "20px" }}>Join the Community</h2>
           <p style={{ fontSize: "16px", color: "#94a3b8", lineHeight: "1.8", marginBottom: "32px", maxWidth: "500px", margin: "0 auto 32px" }}>
             KaroTools is growing every day. We are constantly building new tools to make your business run smoother.
           </p>

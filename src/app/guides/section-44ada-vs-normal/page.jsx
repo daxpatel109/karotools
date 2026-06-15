@@ -12,7 +12,7 @@ export default function Guide3() {
         <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }}>
             <img src="/logo.png" alt="KaroTools Logo" style={{ height: "clamp(40px, 10vw, 56px)", margin: "0 -16px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
-            <span style={{ fontSize: "clamp(18px, 5vw, 22px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
+            <span style={{ fontSize: "clamp(18px, 5vw, 22px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
               Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
             </span>
           </div>
@@ -29,7 +29,7 @@ export default function Guide3() {
         </div>
 
         {/* Title */}
-        <h1 style={{ fontSize: "clamp(36px, 5vw, 56px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", lineHeight: 1.15, marginBottom: "32px", color: "#f8fafc", letterSpacing: "-0.02em" }}>
+        <h1 style={{ fontSize: "clamp(36px, 5vw, 56px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", lineHeight: 1.15, marginBottom: "32px", color: "#f8fafc", letterSpacing: "-0.02em" }}>
           Understanding Section 44ADA vs Normal Taxation
         </h1>
 
@@ -38,7 +38,7 @@ export default function Guide3() {
             If you are a freelancer, consultant, software developer, or designer in India, the government has created a special tax scheme just for you: <strong>Section 44ADA</strong>. It is designed to make tax filing incredibly simple and reduce your tax burden significantly.
           </p>
 
-          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Syne',sans-serif", color: "#f1f5f9", marginTop: "32px", marginBottom: "16px" }}>
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginTop: "32px", marginBottom: "16px" }}>
             What is Normal Taxation?
           </h2>
           <p>
@@ -50,7 +50,7 @@ export default function Guide3() {
             To use this method, you are legally required to maintain strict books of accounts, collect receipts for every single business expense (internet, laptop depreciation, server costs, travel), and in some cases, undergo an official tax audit.
           </p>
 
-          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Syne',sans-serif", color: "#f1f5f9", marginTop: "32px", marginBottom: "16px" }}>
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginTop: "32px", marginBottom: "16px" }}>
             The Magic of Section 44ADA (Presumptive Taxation)
           </h2>
           <p>
@@ -72,7 +72,7 @@ export default function Guide3() {
             </Link>
           </div>
 
-          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Syne',sans-serif", color: "#f1f5f9", marginTop: "32px", marginBottom: "16px" }}>
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginTop: "32px", marginBottom: "16px" }}>
             When should you NOT use 44ADA?
           </h2>
           <p>

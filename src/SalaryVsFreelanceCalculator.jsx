@@ -79,7 +79,7 @@ export default function SalaryVsFreelanceCalculator() {
         <Link href="/" style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
-  <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
+  <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
     Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
 </div>
@@ -90,14 +90,14 @@ export default function SalaryVsFreelanceCalculator() {
       <div style={{ padding: "60px 5vw", maxWidth: "900px", margin: "0 auto" }}>
         <div style={{ textAlign: "center", marginBottom: "48px" }}>
           <div style={{ display: "inline-block", padding: "6px 16px", background: "rgba(16,185,129,0.1)", color: "#34d399", borderRadius: "20px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "16px" }}>Transition Calculator</div>
-          <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", margin: "0 0 16px 0", lineHeight: "1.1", letterSpacing: "-1px" }}>Salary vs Freelance</h1>
+          <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc", margin: "0 0 16px 0", lineHeight: "1.1", letterSpacing: "-1px" }}>Salary vs Freelance</h1>
           <p style={{ fontSize: "16px", color: "#94a3b8", margin: 0, maxWidth: "600px", marginInline: "auto" }}>Find out exactly how much you need to charge as a freelancer to maintain your current full-time salaried lifestyle.</p>
         </div>
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "24px", marginBottom: "32px" }}>
           {/* Left Panel - Inputs */}
           <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "24px", padding: "32px" }}>
-            <h2 style={{ fontSize: "18px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f1f5f9", marginBottom: "24px" }}>Your Job Metrics</h2>
+            <h2 style={{ fontSize: "18px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginBottom: "24px" }}>Your Job Metrics</h2>
             
             <div style={{ display: "grid", gap: "20px" }}>
               <div>
@@ -112,7 +112,7 @@ export default function SalaryVsFreelanceCalculator() {
 
               <div style={{ borderTop: "1px solid rgba(255,255,255,0.05)", margin: "8px 0" }}></div>
 
-              <h2 style={{ fontSize: "18px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f1f5f9", marginBottom: "4px" }}>Freelance Estimates</h2>
+              <h2 style={{ fontSize: "18px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginBottom: "4px" }}>Freelance Estimates</h2>
 
               <div>
                 <label style={{ display: "flex", justifyContent: "space-between", fontSize: "13px", fontWeight: "700", color: "#94a3b8", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "8px" }}><span>Freelance Expenses / Month</span> <span style={{color: "#10b981"}}>₹{fmt(monthlyExpenses)}</span></label>
@@ -141,17 +141,17 @@ export default function SalaryVsFreelanceCalculator() {
               
               <div style={{ marginBottom: "32px" }}>
                 <div style={{ fontSize: "13px", color: "#94a3b8", marginBottom: "4px" }}>Target Hourly Rate</div>
-                <div style={{ fontSize: "clamp(36px, 8vw, 48px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#fff", lineHeight: "1", wordBreak: "break-all" }}>₹{fmt(hourlyRate)}<span style={{ fontSize: "16px", color: "#64748b", fontWeight: "600" }}>/hr</span></div>
+                <div style={{ fontSize: "clamp(36px, 8vw, 48px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#fff", lineHeight: "1", wordBreak: "break-all" }}>₹{fmt(hourlyRate)}<span style={{ fontSize: "16px", color: "#64748b", fontWeight: "600" }}>/hr</span></div>
               </div>
 
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))", gap: "16px", marginBottom: "32px" }}>
                 <div style={{ background: "rgba(0,0,0,0.3)", padding: "16px", borderRadius: "16px" }}>
                   <div style={{ fontSize: "12px", color: "#94a3b8", marginBottom: "4px" }}>Daily Rate</div>
-                  <div style={{ fontSize: "clamp(18px, 5vw, 20px)", fontWeight: "800", color: "#f8fafc", fontFamily: "'Syne',sans-serif", wordBreak: "break-all" }}>₹{fmt(dailyRate)}</div>
+                  <div style={{ fontSize: "clamp(18px, 5vw, 20px)", fontWeight: "800", color: "#f8fafc", fontFamily: "'Plus Jakarta Sans',sans-serif", wordBreak: "break-all" }}>₹{fmt(dailyRate)}</div>
                 </div>
                 <div style={{ background: "rgba(0,0,0,0.3)", padding: "16px", borderRadius: "16px" }}>
                   <div style={{ fontSize: "12px", color: "#94a3b8", marginBottom: "4px" }}>Monthly Target</div>
-                  <div style={{ fontSize: "clamp(18px, 5vw, 20px)", fontWeight: "800", color: "#f8fafc", fontFamily: "'Syne',sans-serif", wordBreak: "break-all" }}>₹{fmt(targetMonthlyRevenue)}</div>
+                  <div style={{ fontSize: "clamp(18px, 5vw, 20px)", fontWeight: "800", color: "#f8fafc", fontFamily: "'Plus Jakarta Sans',sans-serif", wordBreak: "break-all" }}>₹{fmt(targetMonthlyRevenue)}</div>
                 </div>
               </div>
 
@@ -170,14 +170,14 @@ export default function SalaryVsFreelanceCalculator() {
 
         {/* SEO FAQs */}
         <div style={{ marginTop: "64px", borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: "48px" }}>
-          <h2 style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "28px", textAlign: "center" }}>Frequently Asked Questions</h2>
+          <h2 style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc", marginBottom: "28px", textAlign: "center" }}>Frequently Asked Questions</h2>
           {[
             { q: "Why do freelancers need to charge more than salaried employees?", a: "Traditional jobs provide paid time off, health insurance, hardware, and provident funds. Freelancers pay for this out-of-pocket. The margin covers software licenses, sick days, taxes, and ensures your freelance business can actually grow rather than just survive." },
             { q: "What are 'Billable' vs 'Non-Billable' hours?", a: "If you work 8 hours a day, you usually only do 4-6 hours of actual client work. The rest is spent on admin, answering emails, pitching, and invoicing. You must calculate your minimum rate based only on the hours you can strictly bill to a client." },
             { q: "What is the 15% safety buffer?", a: "Freelancers experience 'dry spells' where they have no clients. A 15% premium is added to your baseline to ensure you can still pay your rent during slow months." }
           ].map(item => (
             <div key={item.q} style={{ marginBottom: "24px", background: "rgba(255,255,255,0.02)", padding: "20px", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.05)" }}>
-              <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#10b981", marginBottom: "8px", fontFamily: "'Syne',sans-serif" }}>{item.q}</h3>
+              <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#10b981", marginBottom: "8px", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>{item.q}</h3>
               <p style={{ fontSize: "14px", color: "#94a3b8", lineHeight: "1.6", margin: 0 }}>{item.a}</p>
             </div>
           ))}

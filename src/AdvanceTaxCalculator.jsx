@@ -84,7 +84,7 @@ export default function AdvanceTaxCalculator() {
         <Link href="/" style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
-  <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
+  <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
     Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
 </div>
@@ -95,7 +95,7 @@ export default function AdvanceTaxCalculator() {
       <div style={{ padding: "60px 5vw", maxWidth: "800px", margin: "0 auto" }}>
         <div style={{ textAlign: "center", marginBottom: "48px" }}>
           <div style={{ display: "inline-block", padding: "6px 16px", background: "rgba(245,158,11,0.1)", color: "#fcd34d", borderRadius: "20px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "16px" }}>FY 2026-27</div>
-          <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", margin: "0 0 16px 0", lineHeight: "1.1", letterSpacing: "-1px" }}>Advance Tax Calculator</h1>
+          <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc", margin: "0 0 16px 0", lineHeight: "1.1", letterSpacing: "-1px" }}>Advance Tax Calculator</h1>
           <p style={{ fontSize: "16px", color: "#94a3b8", margin: 0, maxWidth: "600px", marginInline: "auto" }}>Instantly calculate your advance tax liability, installment amounts, and due dates under Indian tax laws.</p>
         </div>
 
@@ -149,7 +149,7 @@ export default function AdvanceTaxCalculator() {
                         <div style={{ fontSize: "15px", fontWeight: "700", color: "#e2e8f0" }}>{inst.date}</div>
                         <div style={{ fontSize: "12px", color: "#64748b", marginTop: "4px" }}>{inst.desc} ({inst.percentage})</div>
                       </div>
-                      <div style={{ fontSize: "clamp(18px, 5vw, 20px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f59e0b", wordBreak: "break-all" }}>
+                      <div style={{ fontSize: "clamp(18px, 5vw, 20px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f59e0b", wordBreak: "break-all" }}>
                         ₹{fmt(inst.amount)}
                       </div>
                     </div>
@@ -162,7 +162,7 @@ export default function AdvanceTaxCalculator() {
 
         {/* SEO FAQs */}
         <div style={{ marginTop: "64px", borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: "48px" }}>
-          <h2 style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "28px", textAlign: "center" }}>Frequently Asked Questions</h2>
+          <h2 style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc", marginBottom: "28px", textAlign: "center" }}>Frequently Asked Questions</h2>
           {[
             { q: "Who needs to pay Advance Tax in India?", a: "Any person whose estimated total tax liability for the year (after deducting TDS) is ₹10,000 or more is required to pay Advance Tax." },
             { q: "What are the due dates for Advance Tax?", a: "For normal taxpayers: 15% by June 15, 45% by Sept 15, 75% by Dec 15, and 100% by March 15. For those under presumptive taxation (44AD/44ADA), 100% is due by March 15." },
@@ -170,7 +170,7 @@ export default function AdvanceTaxCalculator() {
             { q: "What happens if I miss an Advance Tax payment?", a: "If you fail to pay or short-pay your Advance Tax, you will be liable to pay interest under Section 234B and 234C at the rate of 1% per month or part of a month." }
           ].map(item => (
             <div key={item.q} style={{ marginBottom: "24px", background: "rgba(255,255,255,0.02)", padding: "20px", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.05)" }}>
-              <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#f59e0b", marginBottom: "8px", fontFamily: "'Syne',sans-serif" }}>{item.q}</h3>
+              <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#f59e0b", marginBottom: "8px", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>{item.q}</h3>
               <p style={{ fontSize: "14px", color: "#94a3b8", lineHeight: "1.6", margin: 0 }}>{item.a}</p>
             </div>
           ))}

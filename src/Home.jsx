@@ -104,7 +104,7 @@ function ToolCard({ tool, index }) {
           {tool.icon}
         </div>
 
-        <h3 style={{ fontSize: 16, fontWeight: 700, color: "#f1f5f9", marginBottom: 8, fontFamily: "'Syne',sans-serif", letterSpacing: "-0.01em" }}>{tool.name}</h3>
+        <h3 style={{ fontSize: 16, fontWeight: 700, color: "#f1f5f9", marginBottom: 8, fontFamily: "'Plus Jakarta Sans',sans-serif", letterSpacing: "-0.01em" }}>{tool.name}</h3>
         <p style={{ fontSize: 13, color: "#94a3b8", lineHeight: 1.65, marginBottom: 18 }}>{tool.description}</p>
 
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
@@ -309,7 +309,7 @@ export default function Home() {
         <div style={{ display: "flex", alignItems: "center", gap: 10, cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
-  <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
+  <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
     Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
 </div>
@@ -326,7 +326,7 @@ export default function Home() {
           <Link href="/blog" className="nav-btn" style={{ padding: "8px 16px", textDecoration: "none", background: "transparent", border: "none", color: "#64748b", fontSize: 14, fontWeight: 500, borderRadius: 8, transition: "all 0.2s", fontFamily: "'DM Sans',sans-serif" }}>Blog</Link>
           <div style={{ width: 1, height: 20, background: "rgba(255,255,255,0.08)", margin: "0 8px" }} />
           <button className="cta-btn-primary" onClick={() => document.getElementById("tools-section").scrollIntoView({ behavior: "smooth" })}
-            style={{ padding: "9px 22px", background: "linear-gradient(135deg, #0076ff, #00c6ff)", border: "none", borderRadius: 10, color: "#fff", fontSize: 14, fontWeight: 700, fontFamily: "'Syne',sans-serif", boxShadow: "0 4px 20px rgba(0,118,255,0.3)", transition: "all 0.3s", cursor: "pointer" }}>
+            style={{ padding: "9px 22px", background: "linear-gradient(135deg, #0076ff, #00c6ff)", border: "none", borderRadius: 10, color: "#fff", fontSize: 14, fontWeight: 700, fontFamily: "'Plus Jakarta Sans',sans-serif", boxShadow: "0 4px 20px rgba(0,118,255,0.3)", transition: "all 0.3s", cursor: "pointer" }}>
             Try Free Tools →
           </button>
         </div>
@@ -345,7 +345,7 @@ export default function Home() {
             <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
               <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
-  <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
+  <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
     Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
 </div>
@@ -353,12 +353,12 @@ export default function Home() {
             <button onClick={() => setIsMobileMenuOpen(false)} style={{ background: "transparent", border: "none", color: "#f8fafc", fontSize: 32, cursor: "pointer", padding: "4px" }}>×</button>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 24, padding: "40px 5vw" }}>
-            <button onClick={() => { setIsMobileMenuOpen(false); document.getElementById("tools-section").scrollIntoView({ behavior: "smooth" }); }} style={{ background: "transparent", border: "none", color: "#f1f5f9", fontSize: 24, fontWeight: 700, fontFamily: "'Syne',sans-serif", textAlign: "left" }}>Tools</button>
-            <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} style={{ background: "transparent", border: "none", color: "#f1f5f9", fontSize: 24, fontWeight: 700, fontFamily: "'Syne',sans-serif", textAlign: "left" }}>About</Link>
-            <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} style={{ background: "transparent", border: "none", color: "#f1f5f9", fontSize: 24, fontWeight: 700, fontFamily: "'Syne',sans-serif", textAlign: "left" }}>Blog</Link>
+            <button onClick={() => { setIsMobileMenuOpen(false); document.getElementById("tools-section").scrollIntoView({ behavior: "smooth" }); }} style={{ background: "transparent", border: "none", color: "#f1f5f9", fontSize: 24, fontWeight: 700, fontFamily: "'Plus Jakarta Sans',sans-serif", textAlign: "left" }}>Tools</button>
+            <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} style={{ background: "transparent", border: "none", color: "#f1f5f9", fontSize: 24, fontWeight: 700, fontFamily: "'Plus Jakarta Sans',sans-serif", textAlign: "left" }}>About</Link>
+            <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} style={{ background: "transparent", border: "none", color: "#f1f5f9", fontSize: 24, fontWeight: 700, fontFamily: "'Plus Jakarta Sans',sans-serif", textAlign: "left" }}>Blog</Link>
             <div style={{ height: 1, background: "rgba(255,255,255,0.08)", margin: "16px 0" }} />
             <button onClick={() => { setIsMobileMenuOpen(false); document.getElementById("tools-section").scrollIntoView({ behavior: "smooth" }); }}
-              style={{ padding: "16px", background: "linear-gradient(135deg, #0076ff, #005ae6)", border: "none", borderRadius: 12, color: "#fff", fontSize: 18, fontWeight: 700, fontFamily: "'Syne',sans-serif", textAlign: "center" }}>
+              style={{ padding: "16px", background: "linear-gradient(135deg, #0076ff, #005ae6)", border: "none", borderRadius: 12, color: "#fff", fontSize: 18, fontWeight: 700, fontFamily: "'Plus Jakarta Sans',sans-serif", textAlign: "center" }}>
               Explore Free Tools →
             </button>
           </div>
@@ -381,7 +381,7 @@ export default function Home() {
         </div>
 
         {/* H1 (SEO Optimized & Mobile Responsive) */}
-        <h1 style={{ fontSize: "clamp(24px, 4vw, 46px)", fontWeight: 800, fontFamily: "'Syne',sans-serif", lineHeight: 1.15, marginBottom: 24, animation: "fadeInUp 0.7s 0.2s both", letterSpacing: "-0.02em", maxWidth: 1000, wordWrap: "break-word" }}>
+        <h1 style={{ fontSize: "clamp(24px, 4vw, 46px)", fontWeight: 800, fontFamily: "'Plus Jakarta Sans',sans-serif", lineHeight: 1.15, marginBottom: 24, animation: "fadeInUp 0.7s 0.2s both", letterSpacing: "-0.02em", maxWidth: 1000, wordWrap: "break-word" }}>
           <span style={{ background: "linear-gradient(135deg, #ffffff 0%, #60a5fa 40%, #005ae6 80%)", backgroundSize: "200% auto", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "shimmer 5s linear infinite" }}>
             Free Tax Calculators, GST & Business Tools
           </span>
@@ -397,7 +397,7 @@ export default function Home() {
         {/* CTA Buttons */}
         <div style={{ display: "flex", gap: 14, marginBottom: 72, flexWrap: "wrap", justifyContent: "center", animation: "fadeInUp 0.7s 0.4s both" }}>
           <button className="cta-btn-primary" onClick={() => document.getElementById("tools-section").scrollIntoView({ behavior: "smooth" })}
-            style={{ padding: "17px 40px", background: "linear-gradient(135deg, #0076ff, #005ae6)", border: "none", borderRadius: 14, color: "#fff", fontSize: 17, fontWeight: 700, fontFamily: "'Syne',sans-serif", boxShadow: "0 8px 32px rgba(99,102,241,0.35)", transition: "all 0.3s", cursor: "pointer" }}>
+            style={{ padding: "17px 40px", background: "linear-gradient(135deg, #0076ff, #005ae6)", border: "none", borderRadius: 14, color: "#fff", fontSize: 17, fontWeight: 700, fontFamily: "'Plus Jakarta Sans',sans-serif", boxShadow: "0 8px 32px rgba(99,102,241,0.35)", transition: "all 0.3s", cursor: "pointer" }}>
             Explore All Tools →
           </button>
           <Link href="/gst-calculator" style={{ textDecoration: 'none' }}>
@@ -411,7 +411,7 @@ export default function Home() {
         <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", animation: "fadeInUp 0.7s 0.5s both" }}>
           {stats.map((s, i) => (
             <div key={s.label} style={{ padding: "0 36px", textAlign: "center", borderRight: i < stats.length - 1 ? "1px solid rgba(255,255,255,0.07)" : "none" }}>
-              <div style={{ fontSize: 36, fontWeight: 800, fontFamily: "'Syne',sans-serif", background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+              <div style={{ fontSize: 36, fontWeight: 800, fontFamily: "'Plus Jakarta Sans',sans-serif", background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
                 {s.pre ? s.suffix : ""}<Counter end={s.end} suffix={s.pre ? "" : s.suffix} />
               </div>
               <div style={{ fontSize: 13, color: "#475569", fontWeight: 500, marginTop: 6 }}>{s.icon} {s.label}</div>
@@ -435,7 +435,7 @@ export default function Home() {
         <Reveal>
           <div style={{ textAlign: "center", marginBottom: 56 }}>
             <p style={{ fontSize: 12, fontWeight: 700, color: "#0076ff", letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: 14 }}>— FREE TOOLS —</p>
-            <h2 style={{ fontSize: "clamp(30px, 4.5vw, 52px)", fontWeight: 800, fontFamily: "'Syne',sans-serif", color: "#f1f5f9", marginBottom: 14, letterSpacing: "-0.025em", lineHeight: 1.1 }}>
+            <h2 style={{ fontSize: "clamp(30px, 4.5vw, 52px)", fontWeight: 800, fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginBottom: 14, letterSpacing: "-0.025em", lineHeight: 1.1 }}>
               Everything You Need to<br />
               <span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Run Your Freelance Business</span>
             </h2>
@@ -477,7 +477,7 @@ export default function Home() {
           <Reveal>
             <div style={{ textAlign: "center", marginBottom: 60 }}>
               <p style={{ fontSize: 12, fontWeight: 700, color: "#00c6ff", letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: 14 }}>— WHY KAROTOOLS —</p>
-              <h2 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 800, fontFamily: "'Syne',sans-serif", color: "#f1f5f9", letterSpacing: "-0.025em" }}>
+              <h2 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 800, fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", letterSpacing: "-0.025em" }}>
                 Built for India.<br />By Freelancers, for Freelancers.
               </h2>
             </div>
@@ -487,7 +487,7 @@ export default function Home() {
               <Reveal key={f.title} delay={i * 0.07}>
                 <div className="feature-card" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 20, padding: "28px 26px", transition: "all 0.35s ease", cursor: "default" }}>
                   <div style={{ fontSize: 36, marginBottom: 16 }}>{f.icon}</div>
-                  <h3 style={{ fontSize: 17, fontWeight: 700, color: "#f1f5f9", marginBottom: 10, fontFamily: "'Syne',sans-serif" }}>{f.title}</h3>
+                  <h3 style={{ fontSize: 17, fontWeight: 700, color: "#f1f5f9", marginBottom: 10, fontFamily: "'Plus Jakarta Sans',sans-serif" }}>{f.title}</h3>
                   <p style={{ fontSize: 14, color: "#64748b", lineHeight: 1.7 }}>{f.desc}</p>
                 </div>
               </Reveal>
@@ -502,7 +502,7 @@ export default function Home() {
           <Reveal>
             <div style={{ textAlign: "center", marginBottom: 56 }}>
               <p style={{ fontSize: 12, fontWeight: 700, color: "#0076ff", letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: 14 }}>— MOST USED —</p>
-              <h2 style={{ fontSize: "clamp(26px, 3.5vw, 44px)", fontWeight: 800, fontFamily: "'Syne',sans-serif", color: "#f1f5f9", letterSpacing: "-0.02em" }}>Most Popular Tools</h2>
+              <h2 style={{ fontSize: "clamp(26px, 3.5vw, 44px)", fontWeight: 800, fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", letterSpacing: "-0.02em" }}>Most Popular Tools</h2>
             </div>
           </Reveal>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(300px, 100%), 1fr))", gap: 20 }}>
@@ -517,7 +517,7 @@ export default function Home() {
                     onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-6px)"; e.currentTarget.style.boxShadow = "0 24px 48px rgba(0,118,255,0.15)"; }}
                     onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}>
                     <div style={{ fontSize: 40, marginBottom: 16 }}>{item.icon}</div>
-                    <h3 style={{ fontSize: 18, fontWeight: 700, color: "#f1f5f9", marginBottom: 10, fontFamily: "'Syne',sans-serif", lineHeight: 1.3 }}>{item.title}</h3>
+                    <h3 style={{ fontSize: 18, fontWeight: 700, color: "#f1f5f9", marginBottom: 10, fontFamily: "'Plus Jakarta Sans',sans-serif", lineHeight: 1.3 }}>{item.title}</h3>
                     <p style={{ fontSize: 14, color: "#64748b", lineHeight: 1.65, marginBottom: 20 }}>{item.desc}</p>
                     <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                       <span style={{ fontSize: 11, color: "#0076ff", fontWeight: 700, background: "rgba(0,118,255,0.1)", padding: "4px 12px", borderRadius: 20, border: "1px solid rgba(0,118,255,0.2)" }}>🔥 {item.keyword}</span>
@@ -537,7 +537,7 @@ export default function Home() {
           <Reveal>
             <div style={{ textAlign: "center", marginBottom: 56 }}>
               <p style={{ fontSize: 12, fontWeight: 700, color: "#0076ff", letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: 14 }}>— FAQ —</p>
-              <h2 style={{ fontSize: "clamp(26px, 3.5vw, 44px)", fontWeight: 800, fontFamily: "'Syne',sans-serif", color: "#f1f5f9", letterSpacing: "-0.02em" }}>Frequently Asked Questions</h2>
+              <h2 style={{ fontSize: "clamp(26px, 3.5vw, 44px)", fontWeight: 800, fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", letterSpacing: "-0.02em" }}>Frequently Asked Questions</h2>
               <p style={{ color: "#64748b", marginTop: 12, fontSize: 15 }}>Everything you need to know about KaroTools</p>
             </div>
           </Reveal>
@@ -545,7 +545,7 @@ export default function Home() {
             {faqs.map((f, i) => (
               <Reveal key={f.q} delay={i * 0.06}>
                 <div className="faq-card" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 16, padding: "24px 28px", transition: "all 0.3s" }}>
-                  <h3 style={{ fontSize: 15, fontWeight: 700, color: "#e2e8f0", marginBottom: 10, fontFamily: "'Syne',sans-serif" }}>{f.q}</h3>
+                  <h3 style={{ fontSize: 15, fontWeight: 700, color: "#e2e8f0", marginBottom: 10, fontFamily: "'Plus Jakarta Sans',sans-serif" }}>{f.q}</h3>
                   <p style={{ fontSize: 14, color: "#64748b", lineHeight: 1.75 }}>{f.a}</p>
                 </div>
               </Reveal>
@@ -561,13 +561,13 @@ export default function Home() {
             <div style={{ position: "absolute", top: 0, left: "5%", right: "5%", height: 1, background: "linear-gradient(90deg, transparent, rgba(0,118,255,0.6), transparent)" }} />
             <div style={{ position: "absolute", bottom: 0, left: "10%", right: "10%", height: 1, background: "linear-gradient(90deg, transparent, rgba(0,198,255,0.4), transparent)" }} />
             <div style={{ fontSize: 52, marginBottom: 24 }}>🚀</div>
-            <h2 style={{ fontSize: "clamp(26px, 4vw, 44px)", fontWeight: 800, fontFamily: "'Syne',sans-serif", color: "#f1f5f9", marginBottom: 16, letterSpacing: "-0.025em" }}>
+            <h2 style={{ fontSize: "clamp(26px, 4vw, 44px)", fontWeight: 800, fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginBottom: 16, letterSpacing: "-0.025em" }}>
               Start Using KaroTools Today — It's Free
             </h2>
             <p style={{ fontSize: 17, color: "#94a3b8", marginBottom: 40, maxWidth: 500, margin: "0 auto 40px" }}>Join thousands of Indian freelancers who save hours every week with our free business tools.</p>
             <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/gst-calculator" style={{ textDecoration: 'none' }}>
-                <button className="cta-btn-primary" style={{ padding: "15px 36px", background: "linear-gradient(135deg, #0076ff, #00c6ff)", border: "none", borderRadius: 12, color: "#fff", fontSize: 16, fontWeight: 700, fontFamily: "'Syne',sans-serif", boxShadow: "0 8px 28px rgba(0,118,255,0.35)", cursor: "pointer", transition: "all 0.3s" }}>
+                <button className="cta-btn-primary" style={{ padding: "15px 36px", background: "linear-gradient(135deg, #0076ff, #00c6ff)", border: "none", borderRadius: 12, color: "#fff", fontSize: 16, fontWeight: 700, fontFamily: "'Plus Jakarta Sans',sans-serif", boxShadow: "0 8px 28px rgba(0,118,255,0.35)", cursor: "pointer", transition: "all 0.3s" }}>
                   🧮 GST Calculator →
                 </button>
               </Link>
@@ -590,7 +590,7 @@ export default function Home() {
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 18 }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
-  <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
+  <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
     Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
 </div>
@@ -598,7 +598,7 @@ export default function Home() {
               <p style={{ fontSize: 14, color: "#94a3b8", lineHeight: 1.75, maxWidth: 300 }}>Free online GST calculator, invoice generator and business tools for Indian freelancers and small businesses. No login required.</p>
               <p style={{ fontSize: 12, color: "#64748b", marginTop: 16 }}>© 2026 KaroTools.in — Made with ❤️ in India 🇮🇳</p>
               {/* Buy Me A Coffee / UPI Link - Hidden for now
-              <a href="https://buymeacoffee.com/" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: 24, padding: "10px 20px", background: "#f59e0b", color: "#1e293b", fontWeight: 800, fontFamily: "'Syne',sans-serif", borderRadius: 12, textDecoration: "none", fontSize: 14, boxShadow: "0 4px 14px rgba(245,158,11,0.2)" }}>
+              <a href="https://buymeacoffee.com/" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: 24, padding: "10px 20px", background: "#f59e0b", color: "#1e293b", fontWeight: 800, fontFamily: "'Plus Jakarta Sans',sans-serif", borderRadius: 12, textDecoration: "none", fontSize: 14, boxShadow: "0 4px 14px rgba(245,158,11,0.2)" }}>
                 ☕ Buy Me A Coffee
               </a>
               */}

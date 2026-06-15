@@ -92,7 +92,7 @@ export default function Blog() {
         <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
             <img src="/logo.png" alt="KaroTools Logo" style={{ height: "clamp(40px, 10vw, 56px)", margin: "0 -16px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
-            <span style={{ fontSize: "clamp(18px, 5vw, 22px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
+            <span style={{ fontSize: "clamp(18px, 5vw, 22px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
               Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
             </span>
           </div>
@@ -107,7 +107,7 @@ export default function Blog() {
         
         {/* Page Header */}
         <div style={{ textAlign: "center", marginBottom: "60px" }}>
-          <h1 style={{ fontSize: "clamp(36px, 6vw, 56px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", marginBottom: "16px", color: "#fff", lineHeight: 1.1 }}>
+          <h1 style={{ fontSize: "clamp(36px, 6vw, 56px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "16px", color: "#fff", lineHeight: 1.1 }}>
             Insights for Indian <br/>Freelancers & Founders
           </h1>
           <p style={{ color: "#94a3b8", fontSize: "18px", maxWidth: "600px", margin: "0 auto" }}>
@@ -127,7 +127,7 @@ export default function Blog() {
               <span style={{ background: featuredPost.bg, color: featuredPost.color, padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em" }}>FEATURED • {featuredPost.category}</span>
               <span style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "500" }}>{featuredPost.date}</span>
             </div>
-            <h2 style={{ fontSize: "clamp(28px, 4vw, 40px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#fff", marginBottom: "20px", lineHeight: "1.2" }}>
+            <h2 style={{ fontSize: "clamp(28px, 4vw, 40px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#fff", marginBottom: "20px", lineHeight: "1.2" }}>
               {featuredPost.title}
             </h2>
             <p style={{ color: "#cbd5e1", fontSize: "17px", lineHeight: "1.6", marginBottom: "32px", maxWidth: "600px" }}>
@@ -182,7 +182,7 @@ export default function Blog() {
                   <span style={{ color: "#64748b", fontSize: "13px", fontWeight: "500" }}>{post.readTime}</span>
                 </div>
                 
-                <h2 style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "16px", lineHeight: "1.4", position: "relative", zIndex: 10 }}>
+                <h2 style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc", marginBottom: "16px", lineHeight: "1.4", position: "relative", zIndex: 10 }}>
                   {post.title}
                 </h2>
                 
@@ -200,7 +200,7 @@ export default function Blog() {
 
         {/* Bottom CTA Banner */}
         <div style={{ marginTop: "100px", padding: "48px 32px", background: "linear-gradient(135deg, rgba(0,118,255,0.1), rgba(0,90,230,0.1))", borderRadius: "24px", border: "1px solid rgba(0,118,255,0.2)", textAlign: "center" }}>
-          <h2 style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#fff", marginBottom: "16px" }}>Run your freelance business smoothly</h2>
+          <h2 style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#fff", marginBottom: "16px" }}>Run your freelance business smoothly</h2>
           <p style={{ color: "#cbd5e1", fontSize: "17px", marginBottom: "32px", maxWidth: "500px", margin: "0 auto 32px" }}>Calculate taxes, generate invoices, and draft contracts in seconds. 100% Free.</p>
           <button onClick={() => window.location.href = "/"} style={{ background: "#0076ff", color: "#fff", border: "none", padding: "14px 32px", borderRadius: "12px", fontSize: "16px", fontWeight: "700", cursor: "pointer", boxShadow: "0 8px 24px rgba(0,118,255,0.3)", transition: "transform 0.2s" }} onMouseEnter={e => e.currentTarget.style.transform="translateY(-2px)"} onMouseLeave={e => e.currentTarget.style.transform="none"}>
             Explore Free Tools →

@@ -234,7 +234,7 @@ export default function NormalTaxCalculator() {
         <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
-  <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
+  <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
     Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
 </div>
@@ -248,7 +248,7 @@ export default function NormalTaxCalculator() {
           
           <div style={{ textAlign: "center", marginBottom: "20px" }}>
             <span style={{ background: "rgba(244,63,94,0.1)", color: "#fb7185", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em" }}>FY 2026-27 (NEW REGIME)</span>
-            <h1 style={{ fontSize: "clamp(32px, 5vw, 42px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", margin: "0 0 16px 0", lineHeight: 1.1 }}>
+            <h1 style={{ fontSize: "clamp(32px, 5vw, 42px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", margin: "0 0 16px 0", lineHeight: 1.1 }}>
               <span style={{ color: "#f8fafc" }}>Income Tax Calculator</span><br/>
               <span style={{ background: "linear-gradient(135deg, #f43f5e, #ec4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>(Non-44ADA / &gt;₹75L)</span>
             </h1>
@@ -273,7 +273,7 @@ export default function NormalTaxCalculator() {
             
             {/* Input Form */}
             <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "24px", padding: "32px" }}>
-              <h2 style={{ fontSize: "20px", fontWeight: "700", fontFamily: "'Syne',sans-serif", marginBottom: "24px", color: "#e2e8f0" }}>Income & Expenses</h2>
+              <h2 style={{ fontSize: "20px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "24px", color: "#e2e8f0" }}>Income & Expenses</h2>
               
               <div style={{ marginBottom: "24px" }}>
                 <label style={{ display: "block", color: "#cbd5e1", fontSize: "14px", fontWeight: "600", marginBottom: "8px" }}>Total Gross Receipts (₹)</label>
@@ -319,7 +319,7 @@ export default function NormalTaxCalculator() {
               <div ref={reportRef} style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "24px", padding: "32px", position: "relative", overflow: "hidden" }}>
                 <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "4px", background: "linear-gradient(90deg, #f43f5e, #ec4899)" }} />
                 
-                <h2 style={{ fontSize: "20px", fontWeight: "700", fontFamily: "'Syne',sans-serif", marginBottom: "32px", color: "#e2e8f0", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <h2 style={{ fontSize: "20px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "32px", color: "#e2e8f0", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                   <span>Tax Breakdown</span>
                   <span style={{ fontSize: "12px", background: "rgba(255,255,255,0.1)", padding: "4px 10px", borderRadius: "20px" }}>New Regime</span>
                 </h2>
@@ -367,7 +367,7 @@ export default function NormalTaxCalculator() {
               <div style={{ paddingTop: "24px", borderTop: "1px dashed rgba(255,255,255,0.1)", marginBottom: "32px" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "8px" }}>
                   <span style={{ color: "#f8fafc", fontSize: "18px", fontWeight: "600" }}>Total Tax Payable</span>
-                  <span style={{ fontSize: "clamp(24px, 8vw, 36px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f43f5e", lineHeight: 1, wordBreak: "break-all" }}>
+                  <span style={{ fontSize: "clamp(24px, 8vw, 36px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f43f5e", lineHeight: 1, wordBreak: "break-all" }}>
                     {formatCurrency(results.totalTax)}
                   </span>
                 </div>
@@ -391,7 +391,7 @@ export default function NormalTaxCalculator() {
                   <span>Tax Payable:</span>
                   <span>- {formatCurrency(results.totalTax)}</span>
                 </div>
-                <div style={{ display: "flex", justifyContent: "space-between", color: "#10b981", fontSize: "20px", fontWeight: "800", fontFamily: "'Syne',sans-serif" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", color: "#10b981", fontSize: "20px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>
                   <span>Net After Tax:</span>
                   <span>{formatCurrency(Math.max(0, (parseFloat(grossIncome) || 0) - (parseFloat(expenses) || 0) - results.totalTax))}</span>
                 </div>
@@ -409,7 +409,7 @@ export default function NormalTaxCalculator() {
               {/* Advance Tax Schedule */}
               {results.totalTax >= 10000 && (
                 <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "24px", padding: "32px", marginTop: "32px" }}>
-                  <h3 style={{ fontSize: "18px", fontWeight: "700", fontFamily: "'Syne',sans-serif", color: "#e2e8f0", marginBottom: "8px" }}>Advance Tax Schedule</h3>
+                  <h3 style={{ fontSize: "18px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#e2e8f0", marginBottom: "8px" }}>Advance Tax Schedule</h3>
                   <p style={{ color: "#94a3b8", fontSize: "13px", marginBottom: "24px", lineHeight: 1.5 }}>
                     Since your tax exceeds ₹10,000, you must pay in 4 quarterly installments to avoid 234B/234C penalties.
                   </p>
@@ -449,7 +449,7 @@ export default function NormalTaxCalculator() {
           
           {/* SEO FAQs */}
           <div style={{ marginTop: "60px", padding: "40px", background: "rgba(255,255,255,0.02)", borderRadius: "24px", border: "1px solid rgba(255,255,255,0.05)" }}>
-            <h2 style={{ fontSize: "24px", fontWeight: "700", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "32px", textAlign: "center" }}>Frequently Asked Questions</h2>
+            <h2 style={{ fontSize: "24px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc", marginBottom: "32px", textAlign: "center" }}>Frequently Asked Questions</h2>
             <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
               <div>
                 <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#e2e8f0", marginBottom: "8px" }}>Do freelancers earning over ₹20 Lakhs need GST registration?</h3>

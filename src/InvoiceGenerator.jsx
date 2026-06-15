@@ -412,7 +412,7 @@ export default function InvoiceGenerator() {
         <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
-  <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
+  <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
     Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
 </div>
@@ -427,7 +427,7 @@ export default function InvoiceGenerator() {
             
             <div style={{ marginBottom: "40px" }}>
               <span style={{ background: "rgba(0,118,255,0.1)", color: "#38bdf8", padding: "6px 14px", borderRadius: "50px", fontSize: "11px", fontWeight: "700", letterSpacing: "0.05em", border: "1px solid rgba(0,118,255,0.2)" }}>PRO WORKSPACE</span>
-              <h1 style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Syne',sans-serif", margin: "16px 0 8px 0", color: "#f8fafc", letterSpacing: "-0.5px" }}>
+              <h1 style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", margin: "16px 0 8px 0", color: "#f8fafc", letterSpacing: "-0.5px" }}>
                 Invoice Editor
               </h1>
               <p style={{ color: "#64748b", fontSize: "14px", margin: 0 }}>Configure your beautiful, legal-grade invoice.</p>
@@ -578,7 +578,7 @@ export default function InvoiceGenerator() {
           {/* RIGHT: Live Preview Canvas */}
           <div className="canvas-area">
             
-            <button onClick={downloadPDF} disabled={isExporting} style={{ position: "sticky", top: "0px", zIndex: 10, width: "100%", maxWidth: "794px", padding: "18px", background: "linear-gradient(135deg, #0076ff, #00c6ff)", color: "white", fontSize: "16px", fontWeight: "800", fontFamily: "'Syne',sans-serif", borderRadius: "14px", border: "1px solid rgba(255,255,255,0.2)", cursor: isExporting ? "wait" : "pointer", display: "flex", justifyContent: "center", alignItems: "center", gap: "12px", boxShadow: "0 10px 30px rgba(0,118,255,0.3), inset 0 2px 4px rgba(255,255,255,0.3)", transition: "all 0.2s" }} onMouseEnter={e => {e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 15px 35px rgba(0,118,255,0.4), inset 0 2px 4px rgba(255,255,255,0.3)";}} onMouseLeave={e => {e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 10px 30px rgba(0,118,255,0.3), inset 0 2px 4px rgba(255,255,255,0.3)";}}>
+            <button onClick={downloadPDF} disabled={isExporting} style={{ position: "sticky", top: "0px", zIndex: 10, width: "100%", maxWidth: "794px", padding: "18px", background: "linear-gradient(135deg, #0076ff, #00c6ff)", color: "white", fontSize: "16px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", borderRadius: "14px", border: "1px solid rgba(255,255,255,0.2)", cursor: isExporting ? "wait" : "pointer", display: "flex", justifyContent: "center", alignItems: "center", gap: "12px", boxShadow: "0 10px 30px rgba(0,118,255,0.3), inset 0 2px 4px rgba(255,255,255,0.3)", transition: "all 0.2s" }} onMouseEnter={e => {e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 15px 35px rgba(0,118,255,0.4), inset 0 2px 4px rgba(255,255,255,0.3)";}} onMouseLeave={e => {e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 10px 30px rgba(0,118,255,0.3), inset 0 2px 4px rgba(255,255,255,0.3)";}}>
               {isExporting ? "⏳ Generating High-Res PDF..." : "📥 Download Legal PDF"}
             </button>
 
@@ -739,7 +739,7 @@ export default function InvoiceGenerator() {
       {/* SEO CONTENT & FAQS */}
       <div style={{ maxWidth: "1200px", margin: "60px auto", padding: "40px", background: "rgba(255,255,255,0.02)", borderTop: "1px solid rgba(255,255,255,0.05)", borderRadius: "24px" }}>
         <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-          <h2 style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "16px" }}>How to Use the Free GST Invoice Generator</h2>
+          <h2 style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc", marginBottom: "16px" }}>How to Use the Free GST Invoice Generator</h2>
           <p style={{ color: "#94a3b8", fontSize: "16px", lineHeight: "1.8", marginBottom: "24px" }}>
             Creating a professional, legally compliant GST invoice shouldn't cost you a monthly subscription. Our tool is designed specifically for Indian freelancers and small businesses. Simply enter your business details, add your client's information, and input the items or services provided. The tool automatically calculates CGST, SGST, or IGST based on whether the transaction is within your state or interstate. Once you are done, click <strong>"Download PDF"</strong> to get a pristine, A4-ready invoice.
           </p>
@@ -752,7 +752,7 @@ export default function InvoiceGenerator() {
             <li><strong>100% Privacy:</strong> Your data never leaves your computer. We do not store your GSTIN, pan, or client data on our servers.</li>
           </ul>
 
-          <h3 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginTop: "48px", marginBottom: "24px" }}>Frequently Asked Questions</h3>
+          <h3 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc", marginTop: "48px", marginBottom: "24px" }}>Frequently Asked Questions</h3>
           
           <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
             <div style={{ padding: "20px", background: "rgba(255,255,255,0.03)", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.05)" }}>

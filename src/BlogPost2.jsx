@@ -59,8 +59,8 @@ export default function BlogPost2() {
   }, []);
 
   const pStyle = { fontSize: "18px", color: "#94a3b8", lineHeight: "1.8", marginBottom: "24px" };
-  const h2Style = { fontSize: "32px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f1f5f9", marginTop: "48px", marginBottom: "20px" };
-  const h3Style = { fontSize: "24px", fontWeight: "700", fontFamily: "'Syne',sans-serif", color: "#e2e8f0", marginTop: "32px", marginBottom: "16px" };
+  const h2Style = { fontSize: "32px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginTop: "48px", marginBottom: "20px" };
+  const h3Style = { fontSize: "24px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#e2e8f0", marginTop: "32px", marginBottom: "16px" };
 
   return (
     <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans', sans-serif", color: "#f8fafc" }}>
@@ -71,7 +71,7 @@ export default function BlogPost2() {
         <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "clamp(40px, 10vw, 56px)", margin: "0 -16px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
-  <span style={{ fontSize: "clamp(18px, 5vw, 22px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
+  <span style={{ fontSize: "clamp(18px, 5vw, 22px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
     Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
 </div>
@@ -89,7 +89,7 @@ export default function BlogPost2() {
           <span style={{ color: "#64748b", fontSize: "14px" }}>June 7, 2026 • 7 min read</span>
         </div>
 
-        <h1 style={{ fontSize: "clamp(40px, 5vw, 56px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", lineHeight: 1.15, marginBottom: "32px", color: "#f8fafc" }}>
+        <h1 style={{ fontSize: "clamp(40px, 5vw, 56px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", lineHeight: 1.15, marginBottom: "32px", color: "#f8fafc" }}>
           Section 44ADA for Freelancers: The Ultimate Tax Saving Guide (FY 2026-27)
         </h1>
 
@@ -193,7 +193,7 @@ export default function BlogPost2() {
           </div>
 
           <div style={{ marginTop: "64px", textAlign: "center", padding: "48px", background: "linear-gradient(135deg, rgba(0,118,255,0.1), rgba(0,198,255,0.1))", borderRadius: "24px", border: "1px solid rgba(0,118,255,0.2)" }}>
-            <h2 style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", margin: "0 0 16px 0" }}>Ready to calculate your exact tax?</h2>
+            <h2 style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc", margin: "0 0 16px 0" }}>Ready to calculate your exact tax?</h2>
             <p style={{ color: "#94a3b8", fontSize: "18px", marginBottom: "32px" }}>Use our completely free calculator built specifically for the new Indian tax slabs.</p>
             <Link href="/tax-calculator" style={{ display: "inline-block", padding: "16px 36px", background: "linear-gradient(135deg, #0076ff, #00c6ff)", borderRadius: "12px", color: "white", fontSize: "18px", fontWeight: "700", textDecoration: "none", boxShadow: "0 8px 24px rgba(0,118,255,0.3)", transition: "transform 0.2s" }}>
               Calculate My Tax Now →

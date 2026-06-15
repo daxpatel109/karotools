@@ -13,8 +13,8 @@ export default function BlogPost1() {
   }, []);
 
   const pStyle = { fontSize: "17px", color: "#94a3b8", lineHeight: "1.8", marginBottom: "24px" };
-  const h2Style = { fontSize: "28px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f1f5f9", marginTop: "48px", marginBottom: "20px" };
-  const h3Style = { fontSize: "20px", fontWeight: "700", fontFamily: "'Syne',sans-serif", color: "#e2e8f0", marginTop: "32px", marginBottom: "16px" };
+  const h2Style = { fontSize: "28px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginTop: "48px", marginBottom: "20px" };
+  const h3Style = { fontSize: "20px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#e2e8f0", marginTop: "32px", marginBottom: "16px" };
 
   return (
     <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans', sans-serif", color: "#f8fafc" }}>
@@ -25,7 +25,7 @@ export default function BlogPost1() {
         <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "clamp(40px, 10vw, 56px)", margin: "0 -16px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
-  <span style={{ fontSize: "clamp(18px, 5vw, 22px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
+  <span style={{ fontSize: "clamp(18px, 5vw, 22px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
     Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
 </div>
@@ -43,7 +43,7 @@ export default function BlogPost1() {
           <span style={{ color: "#64748b", fontSize: "14px" }}>June 6, 2026 • 5 min read</span>
         </div>
 
-        <h1 style={{ fontSize: "clamp(36px, 5vw, 52px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", lineHeight: 1.15, marginBottom: "32px", color: "#f8fafc" }}>
+        <h1 style={{ fontSize: "clamp(36px, 5vw, 52px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", lineHeight: 1.15, marginBottom: "32px", color: "#f8fafc" }}>
           The Freelancer's Guide to the MSME 45-Day Payment Rule (Section 43B(h))
         </h1>
 

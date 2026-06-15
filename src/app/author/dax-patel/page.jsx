@@ -12,7 +12,7 @@ export default function Author() {
         <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
-  <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
+  <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
     Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
 </div>
@@ -38,13 +38,13 @@ export default function Author() {
 
                 style={{ width: "100%", height: "100%", objectFit: "cover" }} 
               />
-              <div style={{ display: "none", width: "100%", height: "100%", alignItems: "center", justifyContent: "center", background: "linear-gradient(135deg, #1e293b, #0f172a)", color: "#f8fafc", fontSize: "64px", fontWeight: "800", fontFamily: "'Syne',sans-serif" }}>
+              <div style={{ display: "none", width: "100%", height: "100%", alignItems: "center", justifyContent: "center", background: "linear-gradient(135deg, #1e293b, #0f172a)", color: "#f8fafc", fontSize: "64px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>
                 DP
               </div>
             </div>
           </div>
 
-          <h1 style={{ fontSize: "clamp(40px, 6vw, 56px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "16px" }}>Dax Patel</h1>
+          <h1 style={{ fontSize: "clamp(40px, 6vw, 56px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc", marginBottom: "16px" }}>Dax Patel</h1>
           <p style={{ fontSize: "20px", color: "#a78bfa", fontWeight: "600", marginBottom: "32px" }}>Founder & Lead Developer at KaroTools</p>
           
           <p style={{ fontSize: "18px", color: "#94a3b8", lineHeight: "1.8", maxWidth: "680px" }}>
@@ -57,7 +57,7 @@ export default function Author() {
 
       {/* Articles Section */}
       <div style={{ maxWidth: "800px", margin: "0 auto", padding: "80px 24px 120px" }}>
-        <h2 style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "40px", display: "flex", alignItems: "center", gap: "16px" }}>
+        <h2 style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc", marginBottom: "40px", display: "flex", alignItems: "center", gap: "16px" }}>
           <span>Articles by Dax</span>
           <div style={{ height: "1px", flex: 1, background: "linear-gradient(90deg, rgba(255,255,255,0.1), transparent)" }} />
         </h2>
@@ -72,7 +72,7 @@ export default function Author() {
               <span style={{ background: "rgba(0,118,255,0.1)", color: "#38bdf8", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em" }}>TAX SAVINGS</span>
               <span style={{ color: "#64748b", fontSize: "14px" }}>June 7, 2026</span>
             </div>
-            <h3 style={{ fontSize: "24px", fontWeight: "700", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "12px" }}>
+            <h3 style={{ fontSize: "24px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc", marginBottom: "12px" }}>
               Section 44ADA for Freelancers: The Ultimate Tax Saving Guide (FY 2026-27)
             </h3>
             <p style={{ color: "#94a3b8", fontSize: "16px", lineHeight: "1.6", margin: 0 }}>
@@ -88,7 +88,7 @@ export default function Author() {
               <span style={{ background: "rgba(0,90,230,0.1)", color: "#a78bfa", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em" }}>LEGAL & TAX</span>
               <span style={{ color: "#64748b", fontSize: "14px" }}>June 6, 2026</span>
             </div>
-            <h3 style={{ fontSize: "24px", fontWeight: "700", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "12px" }}>
+            <h3 style={{ fontSize: "24px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc", marginBottom: "12px" }}>
               The Freelancer's Guide to the MSME 45-Day Payment Rule (Section 43B(h))
             </h3>
             <p style={{ color: "#94a3b8", fontSize: "16px", lineHeight: "1.6", margin: 0 }}>

@@ -39,7 +39,7 @@ export default function GuidesHub() {
         <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }}>
             <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
-            <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
+            <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
               Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
             </span>
           </div>
@@ -49,7 +49,7 @@ export default function GuidesHub() {
 
       {/* Header */}
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "80px 5vw 40px", textAlign: "center" }}>
-        <h1 style={{ fontSize: "clamp(40px, 6vw, 64px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", marginBottom: "20px", color: "#f8fafc", lineHeight: 1.1 }}>
+        <h1 style={{ fontSize: "clamp(40px, 6vw, 64px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "20px", color: "#f8fafc", lineHeight: 1.1 }}>
           The Freelancer's <br/>
           <span style={{ background: "linear-gradient(135deg, #38bdf8, #818cf8)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Knowledge Hub</span>
         </h1>
@@ -88,7 +88,7 @@ export default function GuidesHub() {
                   <span style={{ fontSize: "13px", color: "#64748b", fontWeight: "500" }}>{guide.readTime}</span>
                 </div>
                 
-                <h2 style={{ fontSize: "22px", fontWeight: "700", fontFamily: "'Syne',sans-serif", color: "#f1f5f9", marginBottom: "16px", lineHeight: 1.3 }}>
+                <h2 style={{ fontSize: "22px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginBottom: "16px", lineHeight: 1.3 }}>
                   {guide.title}
                 </h2>
                 

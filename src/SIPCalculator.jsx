@@ -90,7 +90,7 @@ export default function SIPCalculator() {
         <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
-  <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
+  <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
     Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
 </div>
@@ -107,7 +107,7 @@ export default function SIPCalculator() {
           <span style={{ background: "rgba(16,185,129,0.1)", color: "#34d399", padding: "8px 16px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em", display: "inline-block", marginBottom: "16px" }}>
             COMPOUNDING CALCULATOR
           </span>
-          <h1 style={{ fontSize: "clamp(32px, 5vw, 56px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", marginBottom: "16px", letterSpacing: "-0.02em" }}>
+          <h1 style={{ fontSize: "clamp(32px, 5vw, 56px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "16px", letterSpacing: "-0.02em" }}>
             SIP Return Calculator
           </h1>
           <p style={{ color: "#94a3b8", fontSize: "18px", maxWidth: "600px", margin: "0 auto", lineHeight: "1.6" }}>
@@ -119,7 +119,7 @@ export default function SIPCalculator() {
           
           {/* Controls Panel */}
           <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "24px", padding: "32px" }}>
-            <h2 style={{ fontSize: "20px", fontWeight: "700", fontFamily: "'Syne',sans-serif", marginBottom: "32px", color: "#f8fafc" }}>Investment Details</h2>
+            <h2 style={{ fontSize: "20px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "32px", color: "#f8fafc" }}>Investment Details</h2>
             
             {/* Monthly Investment */}
             <div style={{ marginBottom: "32px" }}>
@@ -190,7 +190,7 @@ export default function SIPCalculator() {
             
             <div style={{ position: "relative", zIndex: 2 }}>
               <h3 style={{ fontSize: "16px", color: "#34d399", fontWeight: "700", marginBottom: "8px", letterSpacing: "0.05em" }}>ESTIMATED TOTAL VALUE</h3>
-              <div style={{ fontSize: "clamp(32px, 8vw, 48px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#fff", marginBottom: "40px", lineHeight: 1.1, wordBreak: "break-all" }}>
+              <div style={{ fontSize: "clamp(32px, 8vw, 48px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#fff", marginBottom: "40px", lineHeight: 1.1, wordBreak: "break-all" }}>
                 {formatINR(results.totalValue)}
               </div>
 
@@ -229,7 +229,7 @@ export default function SIPCalculator() {
 
         {/* SEO Text Content below calculator */}
         <div style={{ marginTop: "80px", borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: "60px", maxWidth: "800px", margin: "80px auto 0" }}>
-          <h2 style={{ fontSize: "32px", fontWeight: "800", fontFamily: "'Syne',sans-serif", marginBottom: "24px", color: "#f1f5f9" }}>How does a SIP Calculator work?</h2>
+          <h2 style={{ fontSize: "32px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "24px", color: "#f1f5f9" }}>How does a SIP Calculator work?</h2>
           <p style={{ color: "#94a3b8", fontSize: "18px", lineHeight: "1.7", marginBottom: "24px" }}>
             A Systematic Investment Plan (SIP) allows you to invest a fixed amount of money at regular intervals into mutual funds. The true power of a SIP comes from <strong>compounding</strong>, where your returns start generating their own returns over time.
           </p>
@@ -237,7 +237,7 @@ export default function SIPCalculator() {
             This free SIP calculator uses the standard compound interest formula to project the future value of your investments in India, assuming a constant rate of return. While mutual funds are subject to market risks, historical data for Indian index funds (like Nifty 50) shows an average long-term return of 12% to 15%.
           </p>
 
-          <h2 style={{ fontSize: "32px", fontWeight: "800", fontFamily: "'Syne',sans-serif", marginBottom: "32px", color: "#f1f5f9" }}>Frequently Asked Questions (FAQ)</h2>
+          <h2 style={{ fontSize: "32px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "32px", color: "#f1f5f9" }}>Frequently Asked Questions (FAQ)</h2>
           
           <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
             <div style={{ background: "rgba(255,255,255,0.02)", padding: "24px", borderRadius: "16px", border: "1px solid rgba(255,255,255,0.05)" }}>

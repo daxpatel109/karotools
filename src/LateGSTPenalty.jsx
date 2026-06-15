@@ -137,7 +137,7 @@ export default function LateGSTPenalty() {
           <Link href="/" style={{ textDecoration: "none" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
               <img src="/logo.png" alt="KaroTools" style={{ height: "56px", margin: "0 -24px 0 0", position: "relative", zIndex: 10 }} />
-              <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
+              <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
                 Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
               </span>
             </div>
@@ -154,7 +154,7 @@ export default function LateGSTPenalty() {
           <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "72px", height: "72px", borderRadius: "24px", background: "linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(239, 68, 68, 0.02))", border: "1px solid rgba(239, 68, 68, 0.2)", marginBottom: "20px" }}>
             <span style={{ fontSize: "36px" }}>⚠️</span>
           </div>
-          <h1 style={{ fontSize: "42px", fontWeight: "800", fontFamily: "'Syne',sans-serif", marginBottom: "12px", background: "linear-gradient(135deg, #ffffff 0%, #fca5a5 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", letterSpacing: "-0.02em" }}>Late GST Penalty</h1>
+          <h1 style={{ fontSize: "42px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "12px", background: "linear-gradient(135deg, #ffffff 0%, #fca5a5 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", letterSpacing: "-0.02em" }}>Late GST Penalty</h1>
           <p style={{ color: "#94a3b8", fontSize: "16px" }}>Calculate late fees (₹50/day) & 18% interest instantly</p>
         </div>
 
@@ -197,7 +197,7 @@ export default function LateGSTPenalty() {
               <label style={{ display: "block", fontWeight: "700", color: "#cbd5e1", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Net Tax Liability (₹)</label>
               <div className="input-glow" style={{ borderRadius: "16px", border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.03)", display: "flex", alignItems: "center", padding: "8px 20px" }}>
                 <span style={{ fontSize: "24px", color: "#64748b", fontWeight: "500", marginRight: "12px" }}>₹</span>
-                <input type="number" value={liability} onChange={e => setLiability(e.target.value)} placeholder="0.00" style={{ width: "100%", padding: "14px 0", background: "transparent", border: "none", fontSize: "28px", color: "#f8fafc", outline: "none", fontWeight: "800", fontFamily: "'Syne',sans-serif", letterSpacing: "-0.02em" }} />
+                <input type="number" value={liability} onChange={e => setLiability(e.target.value)} placeholder="0.00" style={{ width: "100%", padding: "14px 0", background: "transparent", border: "none", fontSize: "28px", color: "#f8fafc", outline: "none", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", letterSpacing: "-0.02em" }} />
               </div>
               <p style={{ marginTop: "12px", fontSize: "13px", color: "#64748b" }}>*Interest of 18% p.a. is calculated on this unpaid tax amount.</p>
             </div>
@@ -211,14 +211,14 @@ export default function LateGSTPenalty() {
             {result.days === 0 ? (
               <div style={{ textAlign: "center", padding: "20px 0" }}>
                 <div style={{ fontSize: "48px", marginBottom: "16px" }}>✅</div>
-                <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#4ade80", marginBottom: "8px" }}>Filed on Time!</h2>
+                <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#4ade80", marginBottom: "8px" }}>Filed on Time!</h2>
                 <p style={{ color: "#94a3b8" }}>You have 0 days of delay. No penalty or interest applies.</p>
               </div>
             ) : (
               <>
                 <div style={{ textAlign: "center", marginBottom: "36px" }}>
                   <p style={{ fontSize: "14px", fontWeight: "700", color: "#ef4444", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "12px" }}>Total Days Delayed</p>
-                  <h2 style={{ fontSize: "48px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#fff", lineHeight: 1 }}>
+                  <h2 style={{ fontSize: "48px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#fff", lineHeight: 1 }}>
                     {result.days} <span style={{ fontSize: "24px", color: "#94a3b8", fontWeight: "600" }}>Days</span>
                   </h2>
                 </div>
@@ -226,17 +226,17 @@ export default function LateGSTPenalty() {
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px", marginBottom: "32px" }}>
                   <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "20px", padding: "24px", textAlign: "center" }}>
                     <p style={{ color: "#94a3b8", fontSize: "13px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "8px" }}>Late Fee Penalty</p>
-                    <p style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>₹{fmt(result.lateFee)}</p>
+                    <p style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>₹{fmt(result.lateFee)}</p>
                   </div>
                   <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "20px", padding: "24px", textAlign: "center" }}>
                     <p style={{ color: "#94a3b8", fontSize: "13px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "8px" }}>18% Interest</p>
-                    <p style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>₹{fmt(result.interest)}</p>
+                    <p style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>₹{fmt(result.interest)}</p>
                   </div>
                 </div>
 
                 <div style={{ background: "linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(245, 158, 11, 0.1))", border: "1px solid rgba(239, 68, 68, 0.3)", borderRadius: "20px", padding: "32px", textAlign: "center", boxShadow: "0 20px 40px rgba(239, 68, 68, 0.1)" }}>
                   <p style={{ color: "#fca5a5", fontSize: "14px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "8px" }}>Total Amount Payable</p>
-                  <p style={{ fontSize: "56px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#fff", lineHeight: 1, letterSpacing: "-0.02em" }}>
+                  <p style={{ fontSize: "56px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#fff", lineHeight: 1, letterSpacing: "-0.02em" }}>
                     ₹{fmt(result.total)}
                   </p>
                 </div>
@@ -259,7 +259,7 @@ export default function LateGSTPenalty() {
 
         {/* FAQ SECTION */}
         <div style={{ marginTop: "64px", animation: "fadeIn 1s cubic-bezier(0.16, 1, 0.3, 1)" }}>
-          <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Syne',sans-serif", marginBottom: "24px", color: "#f8fafc" }}>Frequently Asked Questions</h2>
+          <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "24px", color: "#f8fafc" }}>Frequently Asked Questions</h2>
           <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
             {[
               { q: "What is the late fee for GST filing in India?", a: "The standard late fee is ₹50 per day for normal returns (₹25 CGST + ₹25 SGST) and ₹20 per day for Nil returns (₹10 CGST + ₹10 SGST). This is often capped based on your business turnover." },

@@ -54,7 +54,7 @@ export default function TaxCalculatorHub() {
         <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }}>
             <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
-            <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
+            <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
               Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
             </span>
           </div>
@@ -66,7 +66,7 @@ export default function TaxCalculatorHub() {
         
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: "64px" }}>
-          <h1 style={{ fontSize: "clamp(36px, 6vw, 56px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", marginBottom: "16px", color: "#f8fafc", lineHeight: 1.1 }}>
+          <h1 style={{ fontSize: "clamp(36px, 6vw, 56px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "16px", color: "#f8fafc", lineHeight: 1.1 }}>
             Income Tax <span style={{ background: "linear-gradient(135deg,#0076ff,#005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Calculators</span>
           </h1>
           <p style={{ color: "#94a3b8", fontSize: "clamp(16px, 3vw, 18px)", maxWidth: "600px", margin: "0 auto", lineHeight: 1.6 }}>
@@ -108,7 +108,7 @@ export default function TaxCalculatorHub() {
                 <div style={{ width: "56px", height: "56px", background: calc.bg, borderRadius: "16px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "24px", marginBottom: "24px" }}>
                   {calc.icon}
                 </div>
-                <h2 style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "8px" }}>{calc.title}</h2>
+                <h2 style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc", marginBottom: "8px" }}>{calc.title}</h2>
                 <p style={{ fontSize: "13px", fontWeight: "700", color: calc.color, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "16px" }}>{calc.subtitle}</p>
                 <p style={{ color: "#94a3b8", fontSize: "15px", lineHeight: 1.6, margin: 0 }}>
                   {calc.desc}

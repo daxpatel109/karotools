@@ -152,7 +152,7 @@ export default function TaxCalculator() {
         <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
-  <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
+  <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
     Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
 </div>
@@ -167,7 +167,7 @@ export default function TaxCalculator() {
           <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(16,185,129,0.1)", border: "1px solid rgba(16,185,129,0.2)", borderRadius: "50px", padding: "6px 16px", marginBottom: "20px" }}>
             <span style={{ fontSize: "12px", color: "#34d399", fontWeight: "700", letterSpacing: "0.08em" }}>🇮🇳 AS PER NEW TAX REGIME</span>
           </div>
-          <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", marginBottom: "16px", color: "#f8fafc", lineHeight: 1.1 }}>
+          <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "16px", color: "#f8fafc", lineHeight: 1.1 }}>
             Freelance Tax Calculator <br />
             <span style={{ background: "linear-gradient(135deg,#34d399,#10b981)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Section 44ADA</span>
           </h1>
@@ -241,7 +241,7 @@ export default function TaxCalculator() {
                   <p style={{ fontSize: "13px", fontWeight: "700", color: isOverLimit ? "#f87171" : "#94a3b8", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "8px" }}>
                     {isOverLimit ? "Hypothetical Tax Liability" : "Estimated Tax Liability"}
                   </p>
-                  <h2 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: data.totalTax === 0 ? "#34d399" : (isOverLimit ? "#fca5a5" : "#f8fafc"), margin: 0, lineHeight: 1.1, wordBreak: "break-word", overflowWrap: "anywhere" }}>
+                  <h2 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: data.totalTax === 0 ? "#34d399" : (isOverLimit ? "#fca5a5" : "#f8fafc"), margin: 0, lineHeight: 1.1, wordBreak: "break-word", overflowWrap: "anywhere" }}>
                     ₹{fmt(data.totalTax)}
                   </h2>
                   {data.totalTax === 0 && <p style={{ fontSize: "14px", color: "#34d399", fontWeight: "600", marginTop: "12px" }}>🎉 100% Tax Free via Section 87A Rebate</p>}
@@ -311,7 +311,7 @@ export default function TaxCalculator() {
                       <span style={{ display: "block", fontSize: "13px", color: "#34d399", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "4px" }}>Net Take Home</span>
                       <span style={{ fontSize: "12px", color: "#94a3b8" }}>After paying taxes</span>
                     </div>
-                    <span style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
+                    <span style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
                       ₹{fmt(data.takeHome)}
                     </span>
                   </div>
@@ -323,7 +323,7 @@ export default function TaxCalculator() {
 
           {/* SEO FAQs */}
           <div style={{ marginTop: "64px", borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: "48px" }}>
-            <h2 style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "28px", textAlign: "center" }}>Frequently Asked Questions</h2>
+            <h2 style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc", marginBottom: "28px", textAlign: "center" }}>Frequently Asked Questions</h2>
             {[
               { q: "What is Section 44ADA?", a: "Section 44ADA is a presumptive taxation scheme for specified professionals in India. It allows you to declare 50% of your gross receipts as taxable income, effectively giving you a flat 50% deduction for business expenses without needing to maintain detailed accounting books." },
               { q: "Who is eligible for Section 44ADA?", a: "Specified professionals including freelancers, software developers, consultants, doctors, lawyers, and interior decorators whose total gross receipts are under ₹75 Lakhs in a financial year are eligible." },
@@ -331,7 +331,7 @@ export default function TaxCalculator() {
               { q: "Do I need to maintain books of accounts?", a: "If you opt for Section 44ADA and declare 50% or more of your receipts as profit, you are generally exempt from the strict requirement of maintaining detailed books of accounts under Section 44AA." }
             ].map(item => (
               <div key={item.q} style={{ marginBottom: "24px", background: "rgba(255,255,255,0.02)", padding: "20px", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.05)" }}>
-                <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#38bdf8", marginBottom: "8px", fontFamily: "'Syne',sans-serif" }}>{item.q}</h3>
+                <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#38bdf8", marginBottom: "8px", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>{item.q}</h3>
                 <p style={{ fontSize: "14px", color: "#94a3b8", lineHeight: "1.6", margin: 0 }}>{item.a}</p>
               </div>
             ))}

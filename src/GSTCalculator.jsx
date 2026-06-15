@@ -361,7 +361,7 @@ export default function GSTCalculator() {
         <div style={{ maxWidth: "1200px", margin: "0 auto", width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <Link href="/" style={{ textDecoration: "none" }}><div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
-  <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc" }}>
+  <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
     Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
 </div></Link>
@@ -389,7 +389,7 @@ export default function GSTCalculator() {
           <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "72px", height: "72px", borderRadius: "24px", background: "linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01))", border: "1px solid rgba(255,255,255,0.1)", marginBottom: "20px", boxShadow: "0 12px 32px rgba(0,0,0,0.2)" }}>
             <span style={{ fontSize: "36px", filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.3))" }}>🧮</span>
           </div>
-          <h1 className="gradient-text" style={{ fontSize: "42px", fontWeight: "800", fontFamily: "'Syne',sans-serif", marginBottom: "12px", letterSpacing: "-0.02em" }}>{seoH1}</h1>
+          <h1 className="gradient-text" style={{ fontSize: "42px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "12px", letterSpacing: "-0.02em" }}>{seoH1}</h1>
           <p style={{ color: "#94a3b8", fontSize: "16px", fontWeight: "400", letterSpacing: "0.01em" }}>Professional GST calculation for Indian businesses • All slabs supported</p>
         </div>
 
@@ -426,7 +426,7 @@ export default function GSTCalculator() {
                   if (val === "" || Number(val) >= 0) setAmount(val);
                 }} 
                 placeholder="0.00"
-                style={{ width: "100%", padding: "18px 0", background: "transparent", border: "none", fontSize: "28px", color: "#f8fafc", outline: "none", fontWeight: "800", fontFamily: "'Syne',sans-serif", letterSpacing: "-0.02em" }}
+                style={{ width: "100%", padding: "18px 0", background: "transparent", border: "none", fontSize: "28px", color: "#f8fafc", outline: "none", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", letterSpacing: "-0.02em" }}
               />
             </div>
           </div>
@@ -491,7 +491,7 @@ export default function GSTCalculator() {
                   if (val === "" || Number(val) >= 0) setCessRate(val === "" ? 0 : Number(val));
                 }} 
                 placeholder="0"
-                style={{ width: "100%", padding: "14px 0", background: "transparent", border: "none", fontSize: "18px", color: "#f8fafc", outline: "none", fontWeight: "600", fontFamily: "'Syne',sans-serif" }}
+                style={{ width: "100%", padding: "14px 0", background: "transparent", border: "none", fontSize: "18px", color: "#f8fafc", outline: "none", fontWeight: "600", fontFamily: "'Plus Jakarta Sans',sans-serif" }}
               />
               <span style={{ fontSize: "18px", color: "#64748b", fontWeight: "500", marginLeft: "12px" }}>%</span>
             </div>
@@ -556,7 +556,7 @@ export default function GSTCalculator() {
               {type === "exclusive" ? (
                 <>
                   <p style={{ color: "#bae6fd", fontSize: "13px", fontWeight: "800", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "16px", filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.5))" }}>Final Total Amount</p>
-                  <p style={{ fontSize: "clamp(36px, 10vw, 64px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", background: "linear-gradient(135deg, #ffffff, #bae6fd)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "countUp 0.4s cubic-bezier(0.16, 1, 0.3, 1)", lineHeight: 1.1, wordBreak: "break-word", filter: "drop-shadow(0 4px 20px rgba(0,118,255, 0.3))" }}>
+                  <p style={{ fontSize: "clamp(36px, 10vw, 64px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", background: "linear-gradient(135deg, #ffffff, #bae6fd)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "countUp 0.4s cubic-bezier(0.16, 1, 0.3, 1)", lineHeight: 1.1, wordBreak: "break-word", filter: "drop-shadow(0 4px 20px rgba(0,118,255, 0.3))" }}>
                     ₹{fmt(result.total)}
                   </p>
                   <div style={{ display: "inline-flex", alignItems: "center", gap: "12px", background: "rgba(0,0,0,0.2)", padding: "8px 20px", borderRadius: "30px", marginTop: "24px", border: "1px solid rgba(255,255,255,0.05)", flexWrap: "wrap", justifyContent: "center" }}>
@@ -577,7 +577,7 @@ export default function GSTCalculator() {
                     <span style={{ fontSize: "11px", color: "#2dd4bf", fontWeight: "700", letterSpacing: "0.08em" }}>GST REMOVED FROM ₹{fmt(result.total)}</span>
                   </div>
                   <p style={{ color: "#99f6e4", fontSize: "13px", fontWeight: "800", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "16px", filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.5))" }}>Base Amount (GST Removed)</p>
-                  <p style={{ fontSize: "clamp(36px, 10vw, 64px)", fontWeight: "800", fontFamily: "'Syne',sans-serif", background: "linear-gradient(135deg, #ffffff, #99f6e4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "countUp 0.4s cubic-bezier(0.16, 1, 0.3, 1)", lineHeight: 1.1, wordBreak: "break-word", filter: "drop-shadow(0 4px 20px rgba(0,198,255,0.3))" }}>
+                  <p style={{ fontSize: "clamp(36px, 10vw, 64px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", background: "linear-gradient(135deg, #ffffff, #99f6e4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "countUp 0.4s cubic-bezier(0.16, 1, 0.3, 1)", lineHeight: 1.1, wordBreak: "break-word", filter: "drop-shadow(0 4px 20px rgba(0,198,255,0.3))" }}>
                     ₹{fmt(result.base)}
                   </p>
                   <div style={{ display: "inline-flex", alignItems: "center", gap: "12px", background: "rgba(0,0,0,0.2)", padding: "8px 20px", borderRadius: "30px", marginTop: "24px", border: "1px solid rgba(255,255,255,0.05)", flexWrap: "wrap", justifyContent: "center" }}>
@@ -612,7 +612,7 @@ export default function GSTCalculator() {
                     <span style={{ fontSize: "16px" }}>{item.icon}</span>
                     <p style={{ color: "#94a3b8", fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.08em" }}>{item.label}</p>
                   </div>
-                  <p style={{ fontSize: "28px", fontWeight: "800", color: item.color, fontFamily: "'Syne',sans-serif", textShadow: `0 4px 12px ${item.color}40` }}>₹{fmt(item.value)}</p>
+                  <p style={{ fontSize: "28px", fontWeight: "800", color: item.color, fontFamily: "'Plus Jakarta Sans',sans-serif", textShadow: `0 4px 12px ${item.color}40` }}>₹{fmt(item.value)}</p>
                 </div>
               ))}
             </div>
@@ -715,7 +715,7 @@ export default function GSTCalculator() {
                     <span style={{ color: "#e2e8f0", fontSize: "15px", fontWeight: "600" }}>₹{fmt(h.amount)} <span style={{ color: "#64748b", fontWeight: "400" }}>@ {h.rate}%</span></span>
                     <span style={{ color: "#64748b", fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.05em" }}>{h.type} • {h.time}</span>
                   </div>
-                  <span style={{ color: "#bae6fd", fontWeight: "800", fontSize: "18px", fontFamily: "'Syne',sans-serif" }}>₹{fmt(h.total)}</span>
+                  <span style={{ color: "#bae6fd", fontWeight: "800", fontSize: "18px", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>₹{fmt(h.total)}</span>
                 </div>
               ))}
             </div>
@@ -725,7 +725,7 @@ export default function GSTCalculator() {
         <div style={{ marginTop: "80px", position: "relative" }}>
           <div style={{ position: "absolute", top: 0, left: "20%", right: "20%", height: "1px", background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)" }} />
           <div style={{ paddingTop: "64px" }}>
-            <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Syne',sans-serif", color: "#f8fafc", marginBottom: "32px", textAlign: "center" }}>Frequently Asked Questions</h2>
+            <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc", marginBottom: "32px", textAlign: "center" }}>Frequently Asked Questions</h2>
             <div className="responsive-grid" style={{ gap: "20px" }}>
               {[
                 { q: "What are GST slabs in India 2026?", a: "India has 6 GST slabs: 0% (essential items like milk, vegetables, books), 0.25% (rough precious stones), 3% (gold, silver), 5% (essential goods, restaurants, medicines), 12% (standard goods, clothing above ₹1000), 18% (most services, electronics, software), and 28% (luxury goods, automobiles, tobacco, cement)." },
@@ -738,7 +738,7 @@ export default function GSTCalculator() {
                 <div key={item.q} className="glass-panel" style={{ padding: "28px", borderRadius: "20px", transition: "all 0.3s ease" }}>
                   <div style={{ display: "flex", alignItems: "flex-start", gap: "12px", marginBottom: "12px" }}>
                     <div style={{ background: "rgba(0,118,255, 0.1)", color: "#0076ff", width: "24px", height: "24px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px", fontWeight: "800", flexShrink: 0, marginTop: "2px" }}>{i + 1}</div>
-                    <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#f1f5f9", fontFamily: "'Syne',sans-serif", lineHeight: "1.4" }}>{item.q}</h3>
+                    <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#f1f5f9", fontFamily: "'Plus Jakarta Sans',sans-serif", lineHeight: "1.4" }}>{item.q}</h3>
                   </div>
                   <p style={{ fontSize: "14px", color: "#94a3b8", lineHeight: "1.7", paddingLeft: "36px" }}>{item.a}</p>
                 </div>

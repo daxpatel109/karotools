@@ -133,6 +133,40 @@ function Particles() {
   );
 }
 
+// ── Popular Tool Card ─────────────────────────────────────────────
+function PopularToolCard({ item, index }) {
+  const [hovered, setHovered] = useState(false);
+  const accents = ["#0076ff","#00c6ff","#0076ff","#005ae6","#f59e0b","#10b981","#ef4444","#ec4899"];
+  const accent = accents[index % accents.length];
+
+  return (
+    <Link href={item.link} style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
+      <div onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
+        style={{ height: '100%', display: 'flex', flexDirection: 'column', background: hovered ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.025)", backdropFilter: "blur(24px)", border: `1px solid ${hovered ? `${accent}30` : "rgba(255,255,255,0.07)"}`, borderRadius: 24, padding: "28px 24px", cursor: "pointer", transition: "transform 0.2s ease, box-shadow 0.2s ease, background 0.3s, border-color 0.3s", boxShadow: hovered ? `0 12px 32px ${accent}20` : "0 4px 24px rgba(0,0,0,0.3)", position: "relative", overflow: "hidden", minHeight: 190, transform: hovered ? "translateY(-4px)" : "translateY(0)" }}>
+        
+        {/* Top glow line */}
+        <div style={{ position: "absolute", top: 0, left: "10%", right: "10%", height: 1, background: `linear-gradient(90deg, transparent, ${accent}, transparent)`, opacity: hovered ? 1 : 0.4, transition: "opacity 0.3s" }} />
+
+        {/* Background radial */}
+        <div style={{ position: "absolute", top: 0, right: 0, width: 120, height: 120, background: `radial-gradient(circle, ${accent}12, transparent 70%)`, pointerEvents: "none" }} />
+
+        {/* Icon */}
+        <div style={{ width: 54, height: 54, borderRadius: 16, background: `linear-gradient(135deg, ${accent}25, ${accent}08)`, border: `1px solid ${accent}30`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 26, marginBottom: 16, boxShadow: `0 4px 16px ${accent}20` }}>
+          {item.icon}
+        </div>
+
+        <h3 style={{ fontSize: 16, fontWeight: 700, color: "#f1f5f9", marginBottom: 8, fontFamily: "'Plus Jakarta Sans',sans-serif", letterSpacing: "-0.01em" }}>{item.title}</h3>
+        <p style={{ fontSize: 13, color: "#94a3b8", lineHeight: 1.65, marginBottom: 18, flexGrow: 1 }}>{item.desc}</p>
+
+        <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", justifyContent: "space-between", marginTop: "auto" }}>
+          <span style={{ background: `${accent}15`, color: accent, padding: "3px 12px", borderRadius: 20, fontSize: 11, fontWeight: 700, border: `1px solid ${accent}25`, whiteSpace: "nowrap" }}>🔥 {item.keyword}</span>
+          <span style={{ color: accent, fontSize: 18, fontWeight: 700, opacity: 0.8, transition: "transform 0.2s", transform: hovered ? "translateX(4px)" : "translateX(0)" }}>→</span>
+        </div>
+      </div>
+    </Link>
+  );
+}
+
 // ── Main Home ─────────────────────────────────────────────────────
 export default function Home() {
   const [search, setSearch] = useState("");
@@ -512,19 +546,7 @@ export default function Home() {
               { icon: "💰", title: "Freelance Rate Calculator", desc: "Calculate your perfect freelance hourly, daily & monthly rate in INR based on your expenses.", link: "/freelance-rate-calculator", keyword: "15,000+ monthly searches" },
             ].map((item, i) => (
               <Reveal key={item.title} delay={i * 0.1}>
-                <Link href={item.link} style={{ textDecoration: 'none', display: 'block' }}>
-                  <div style={{ background: "linear-gradient(135deg, rgba(0,118,255,0.06), rgba(0,198,255,0.03))", border: "1px solid rgba(0,118,255,0.15)", borderRadius: 20, padding: "32px 28px", cursor: "pointer", transition: "all 0.3s" }}
-                    onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-6px)"; e.currentTarget.style.boxShadow = "0 24px 48px rgba(0,118,255,0.15)"; }}
-                    onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}>
-                    <div style={{ fontSize: 40, marginBottom: 16 }}>{item.icon}</div>
-                    <h3 style={{ fontSize: 18, fontWeight: 700, color: "#f1f5f9", marginBottom: 10, fontFamily: "'Plus Jakarta Sans',sans-serif", lineHeight: 1.3 }}>{item.title}</h3>
-                    <p style={{ fontSize: 14, color: "#64748b", lineHeight: 1.65, marginBottom: 20 }}>{item.desc}</p>
-                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                      <span style={{ fontSize: 11, color: "#0076ff", fontWeight: 700, background: "rgba(0,118,255,0.1)", padding: "4px 12px", borderRadius: 20, border: "1px solid rgba(0,118,255,0.2)" }}>🔥 {item.keyword}</span>
-                      <span style={{ color: "#0076ff", fontWeight: 700 }}>Try Now →</span>
-                    </div>
-                  </div>
-                </Link>
+                <PopularToolCard item={item} index={i} />
               </Reveal>
             ))}
           </div>

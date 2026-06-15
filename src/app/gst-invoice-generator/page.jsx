@@ -1,4 +1,10 @@
-export const metadata = { title: "Free Online GST Invoice Generator For India — KaroTools", description: "Create professional GST invoices instantly with built-in MSME 45-day payment rule protections. Download as PDF. Free for Indian freelancers." };
+export const metadata = {
+  title: "GST Invoice Generator | KaroTools",
+  description: "Create professional GST-compliant invoices with logo and PDF download. Free invoice generator for Indian freelancers.",
+  alternates: {
+    canonical: "https://karotools.in/gst-invoice-generator",
+  },
+};
 import InvoiceGenerator from "../../InvoiceGenerator";
 
 export default function Page() {

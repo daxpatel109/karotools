@@ -3,6 +3,7 @@ import "../App.css";
 import "../ScrollPathSection.css";
 import Script from "next/script";
 import CookieBanner from "../CookieBanner";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 if (typeof window === "undefined") {
   global.localStorage = {
@@ -19,9 +20,6 @@ export const metadata = {
     default: "KaroTools — Free GST Calculator, Invoice Generator & Business Tools",
   },
   description: "Free online tools for Indian freelancers & small businesses — GST Calculator, GST Invoice Generator, Email Generator, Bio Generator, Freelance Rate Calculator. No login required. 100% free.",
-  alternates: {
-    canonical: "/",
-  },
   openGraph: {
     title: "Best Free Tools for Indian Freelancers — KaroTools",
     description: "GST Calculator, Invoice Generator, Email Writer & more — 100% free, no login needed. Built for India.",
@@ -91,17 +89,7 @@ export default function RootLayout({ children }) {
         }} type="application/ld+json" />
       </head>
       <body>
-        <Script strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=G-QB5S73V0TX`} />
-        <Script id="google-analytics" strategy="afterInteractive" dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-QB5S73V0TX', {
-              page_path: window.location.pathname,
-            });
-          `,
-        }} />
+        <GoogleAnalytics gaId="G-QB5S73V0TX" />
 
         <Script id="microsoft-clarity" strategy="afterInteractive" dangerouslySetInnerHTML={{
           __html: `

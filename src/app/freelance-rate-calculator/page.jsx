@@ -1,4 +1,10 @@
-export const metadata = { title: "Instant Freelance Hourly Rate Calculator — KaroTools", description: "A free, 3D interactive tool for freelancers to calculate hourly rates and auto-generate client pricing tiers." };
+export const metadata = {
+  title: "Freelance Rate Calculator India | KaroTools",
+  description: "Find your ideal freelance hourly, daily or monthly rate in INR based on expenses, income goals and billable hours.",
+  alternates: {
+    canonical: "https://karotools.in/freelance-rate-calculator",
+  },
+};
 import RateCalculator from "../../RateCalculator";
 
 export default function Page() {

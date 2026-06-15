@@ -144,6 +144,19 @@ export default function FIRECalculatorPage() {
       </nav>
 
       <main style={{ maxWidth: "820px", margin: "0 auto", padding: "56px 24px 100px", position: "relative", zIndex: 1 }}>
+        {/* Intro Section */}
+        <div style={{ textAlign: "center", marginBottom: 40, animation: "fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1)" }}>
+          <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "72px", height: "72px", borderRadius: "24px", background: "linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01))", border: "1px solid rgba(255,255,255,0.1)", marginBottom: "20px", boxShadow: "0 12px 32px rgba(0,0,0,0.2)" }}>
+            <span style={{ fontSize: "36px", filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.3))" }}>🔥</span>
+          </div>
+          <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", color: "#f8fafc", marginBottom: "16px", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
+            FIRE Calculator India for Freelancers
+          </h1>
+          <p style={{ fontSize: "16px", color: "#94a3b8", maxWidth: "600px", margin: "0 auto" }}>
+            Calculate your Financial Independence & Retire Early (FIRE) number. We use nominal compounding and separate Indian inflation models to accurately project your future.
+          </p>
+        </div>
+
         <FIRECalculator />
         <Script
           id="faq-schema"

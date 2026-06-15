@@ -175,59 +175,7 @@ export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const heroRef = useRef(null);
 
-  // SEO Setup
-  useEffect(() => {
-    document.title = "KaroTools - Free Tax Tools for Indian Freelancers";
-
-    const metas = [
-      ["description", "Free online tools for Indian freelancers & small businesses — GST Calculator, GST Invoice Generator, Email Generator, Bio Generator, Freelance Rate Calculator. No login required. 100% free."],
-      ["keywords", "free gst calculator india, gst invoice generator free india, freelance tools india, free invoice generator india, gst calculator online, bio generator instagram india, freelance rate calculator india, free business tools india, karotools, gst calculator 2026"],
-      ["robots", "index, follow"],
-      ["author", "KaroTools"],
-      ["og:title", "KaroTools — Free Business Tools for Indian Freelancers"],
-      ["og:description", "GST Calculator, Invoice Generator, Email Writer & more — 100% free, no login needed."],
-      ["og:type", "website"],
-      ["og:url", "https://karotools.in"],
-      ["twitter:card", "summary_large_image"],
-      ["twitter:title", "KaroTools — Free GST Calculator & Invoice Generator India"],
-      ["twitter:description", "Free tools for Indian freelancers. GST Calculator, Invoice Generator, Email Generator & more."],
-    ];
-
-    metas.forEach(([name, content]) => {
-      let el = document.querySelector(`meta[name="${name}"], meta[property="${name}"]`);
-      if (!el) { el = document.createElement("meta"); el.setAttribute(name.includes(":") ? "property" : "name", name); document.head.appendChild(el); }
-      el.content = content;
-    });
-
-    // Canonical
-    let canonical = document.querySelector('link[rel="canonical"]');
-    if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
-    canonical.href = "https://karotools.in";
-
-    // JSON-LD Schema
-    const schemas = [
-      { "@context": "https://schema.org", "@type": "WebSite", "name": "KaroTools", "url": "https://karotools.in", "description": "Free online business tools for Indian freelancers and small businesses", "potentialAction": { "@type": "SearchAction", "target": "https://karotools.in/?q={search_term_string}", "query-input": "required name=search_term_string" } },
-      { "@context": "https://schema.org", "@type": "Organization", "name": "KaroTools", "url": "https://karotools.in", "description": "Free GST Calculator, Invoice Generator & Business Tools for Indian Freelancers" },
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          { "@type": "Question", "name": "Is KaroTools completely free to use?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! All tools on KaroTools are 100% free — no login, no subscription, no hidden charges. We built this for Indian freelancers who shouldn't have to pay just to calculate GST or generate an invoice." } },
-          { "@type": "Question", "name": "Do I need to create an account?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely not. There's zero sign-up required. Just visit any tool, fill in your details, and get your result instantly. We believe in friction-free tools." } },
-          { "@type": "Question", "name": "Can I download my GST invoice as a PDF?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! Our GST Invoice Generator lets you download a professional PDF invoice instantly — with your logo, GSTIN, CGST/SGST or IGST breakdown, HSN/SAC codes, payment status, and authorized signature area." } },
-          { "@type": "Question", "name": "Are the GST calculations accurate and up-to-date?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Our GST Calculator follows official Indian GST rules — including CGST + SGST for intra-state transactions and IGST for inter-state transactions across all four slabs (5%, 12%, 18%, 28%). We also support custom GST rates." } },
-          { "@type": "Question", "name": "What tools does KaroTools offer?", "acceptedAnswer": { "@type": "Answer", "text": "Currently KaroTools offers: GST Calculator, GST Invoice Generator, Tax Calculators, and a Freelance Rate Calculator. We focus exclusively on practical financial tools to help Indian freelancers run their business." } },
-          { "@type": "Question", "name": "Who is KaroTools built for?", "acceptedAnswer": { "@type": "Answer", "text": "KaroTools is built specifically for Indian freelancers, consultants, UI/UX designers, web developers, content writers, photographers, and small business owners who need fast, reliable business tools without complexity." } }
-        ]
-      }
-    ];
-    schemas.forEach((schema, i) => {
-      let sc = document.querySelector(`#ld-json-${i}`);
-      if (!sc) { sc = document.createElement("script"); sc.id = `ld-json-${i}`; sc.type = "application/ld+json"; document.head.appendChild(sc); }
-      sc.text = JSON.stringify(schema);
-    });
-  }, []);
-
+  // SEO Setup is now handled in src/app/page.jsx (Server Component)
   useEffect(() => {
     const s = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", s);

@@ -11,16 +11,17 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
-    "framer-motion": "^12.38.0",
+    "framer-motion": "^12.40.0",
     "gsap": "^3.15.0",
     "jimp": "^1.6.1",
     "jspdf": "^4.2.1",
     "jspdf-autotable": "^5.0.7",
-    "lucide-react": "^1.14.0",
+    "lucide-react": "^1.18.0",
     "next": "^16.2.9",
     "qrcode.react": "^4.2.0",
     "react": "^19.2.7",
-    "react-dom": "^19.2.7"
+    "react-dom": "^19.2.7",
+    "recharts": "^3.8.1"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

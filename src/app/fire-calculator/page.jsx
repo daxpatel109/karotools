@@ -4,18 +4,24 @@ import Link from 'next/link';
 
 export const metadata = {
   title: 'India FIRE Calculator 2026 – Early Retirement Tool for Freelancers',
-  description: 'Calculate your FIRE number with our India-focused Retirement Calculator. Input expenses, ROI, inflation & use a 3.5% withdrawal rule. Plan Lean vs Fat FIRE as an Indian freelancer with interactive charts.',
+  description: 'Calculate your FIRE number in India using expenses, SIP, ROI, inflation and 3.5% withdrawal rate. Compare Lean, Regular and Fat FIRE targets.',
   alternates: {
     canonical: 'https://karotools.in/fire-calculator',
   },
   openGraph: {
     title: 'India FIRE Calculator 2026 – Early Retirement Tool for Freelancers',
-    description: 'Calculate your FIRE number with our India-focused Retirement Calculator. Input expenses, ROI, inflation & use a 3.5% withdrawal rule. Plan Lean vs Fat FIRE as an Indian freelancer with interactive charts.',
+    description: 'Calculate your FIRE number in India using expenses, SIP, ROI, inflation and 3.5% withdrawal rate. Compare Lean, Regular and Fat FIRE targets.',
     url: 'https://karotools.in/fire-calculator',
     siteName: 'KaroTools',
     locale: 'en_IN',
     type: 'website',
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "India FIRE Calculator 2026 – Retire Early Tool",
+    description: "Calculate your FIRE number, retirement age, Lean FIRE and Fat FIRE targets using expenses, SIP, ROI, inflation and 3.5% SWR.",
+    images: ["https://karotools.in/og-image.png"],
+  }
 };
 
 export default function FIRECalculatorPage() {

@@ -12,7 +12,7 @@ function formatCurrency(val) {
 }
 
 const containerVariants = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 1 },
   show: {
     opacity: 1,
     transition: { staggerChildren: 0.1 }
@@ -20,7 +20,7 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 1, y: 0 },
   show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 24 } }
 };
 
@@ -144,37 +144,37 @@ export default function FIRECalculator() {
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
             <div className="input-group">
               <label htmlFor="fire-age-input" style={{ display: "block", fontSize: "13px", color: "#94a3b8", marginBottom: "8px", fontWeight: "600" }}>Current Age</label>
-              <input id="fire-age-input" type="number" value={age} onChange={(e) => setAge(e.target.value)}
+              <input id="fire-age-input" type="number" min="18" max="80" value={age} onChange={(e) => setAge(e.target.value)}
                 aria-label="Current Age"
                 style={{ width: "100%", background: "rgba(0,0,0,0.3)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "12px", padding: "12px 16px", color: "#fff", fontSize: "16px", outline: "none" }} />
             </div>
             <div className="input-group">
               <label htmlFor="fire-expenses-input" style={{ display: "block", fontSize: "13px", color: "#94a3b8", marginBottom: "8px", fontWeight: "600" }}>Monthly Exp (₹)</label>
-              <input id="fire-expenses-input" type="number" value={monthlyExpenses} onChange={(e) => setMonthlyExpenses(e.target.value)}
+              <input id="fire-expenses-input" type="number" min="0" max="10000000" value={monthlyExpenses} onChange={(e) => setMonthlyExpenses(e.target.value)}
                 aria-label="Monthly Expenses in INR"
                 style={{ width: "100%", background: "rgba(0,0,0,0.3)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "12px", padding: "12px 16px", color: "#fff", fontSize: "16px", outline: "none" }} />
             </div>
             <div className="input-group">
               <label htmlFor="fire-corpus-input" style={{ display: "block", fontSize: "13px", color: "#94a3b8", marginBottom: "8px", fontWeight: "600" }}>Current Corpus (₹)</label>
-              <input id="fire-corpus-input" type="number" value={corpus} onChange={(e) => setCorpus(e.target.value)}
+              <input id="fire-corpus-input" type="number" min="0" max="1000000000" value={corpus} onChange={(e) => setCorpus(e.target.value)}
                 aria-label="Current Corpus in INR"
                 style={{ width: "100%", background: "rgba(0,0,0,0.3)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "12px", padding: "12px 16px", color: "#fff", fontSize: "16px", outline: "none" }} />
             </div>
             <div className="input-group">
               <label htmlFor="fire-sip-input" style={{ display: "block", fontSize: "13px", color: "#94a3b8", marginBottom: "8px", fontWeight: "600" }}>Monthly SIP (₹)</label>
-              <input id="fire-sip-input" type="number" value={sip} onChange={(e) => setSip(e.target.value)}
+              <input id="fire-sip-input" type="number" min="0" max="10000000" value={sip} onChange={(e) => setSip(e.target.value)}
                 aria-label="Monthly SIP Investment in INR"
                 style={{ width: "100%", background: "rgba(0,0,0,0.3)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "12px", padding: "12px 16px", color: "#fff", fontSize: "16px", outline: "none" }} />
             </div>
             <div className="input-group">
               <label htmlFor="fire-roi-input" style={{ display: "block", fontSize: "13px", color: "#94a3b8", marginBottom: "8px", fontWeight: "600" }}>Nominal ROI (%)</label>
-              <input id="fire-roi-input" type="number" value={roi} onChange={(e) => setRoi(e.target.value)}
+              <input id="fire-roi-input" type="number" min="0" max="30" value={roi} onChange={(e) => setRoi(e.target.value)}
                 aria-label="Expected Nominal Rate of Return percentage"
                 style={{ width: "100%", background: "rgba(0,0,0,0.3)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "12px", padding: "12px 16px", color: "#fff", fontSize: "16px", outline: "none" }} />
             </div>
             <div className="input-group">
               <label htmlFor="fire-inflation-input" style={{ display: "block", fontSize: "13px", color: "#94a3b8", marginBottom: "8px", fontWeight: "600" }}>Inflation (%)</label>
-              <input id="fire-inflation-input" type="number" value={inflation} onChange={(e) => setInflation(e.target.value)}
+              <input id="fire-inflation-input" type="number" min="0" max="20" value={inflation} onChange={(e) => setInflation(e.target.value)}
                 aria-label="Expected Inflation Rate percentage"
                 style={{ width: "100%", background: "rgba(0,0,0,0.3)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "12px", padding: "12px 16px", color: "#fff", fontSize: "16px", outline: "none" }} />
             </div>

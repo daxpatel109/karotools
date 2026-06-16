@@ -1,0 +1,169 @@
+import ArticleLayout from '../../../components/article/ArticleLayout';
+import { generateMetadata } from '../../../lib/seo';
+import { generateArticleSchema, generateFAQSchema } from '../../../lib/schema';
+import Link from 'next/link';
+
+export const metadataObj = {
+  title: "GST Composition Scheme Limit 2026: Eligibility, Rates, Rules & Benefits",
+  description: "Learn the GST Composition Scheme limit for 2026, eligibility rules, rates, who can opt, who cannot opt, returns, benefits, disadvantages, and regular GST vs composition GST in simple language.",
+  path: "/blog/gst-composition-scheme-limits",
+  datePublished: "2026-07-12T08:00:00Z",
+  keywords: [
+    "gst composition scheme limit 2026",
+    "gst composition scheme rates",
+    "gst composition scheme eligibility",
+    "gst composition scheme benefits",
+    "regular gst vs composition gst",
+    "composition scheme for service providers"
+  ],
+  schemas: [
+    generateArticleSchema({
+      title: "GST Composition Scheme Limit 2026: Eligibility, Rates, Rules & Benefits",
+      description: "Learn the GST Composition Scheme limit for 2026, eligibility rules, rates, who can opt, who cannot opt, returns, benefits, disadvantages, and regular GST vs composition GST in simple language.",
+      url: "https://karotools.in/blog/gst-composition-scheme-limits",
+      datePublished: "2026-07-12T08:00:00Z"
+    }),
+    generateFAQSchema([
+      { question: "What is the GST composition scheme limit in 2026?", answer: "For regular states, the limit is ₹1.5 crore for goods suppliers. For special category states like North-Eastern states and Himachal Pradesh, it is ₹75 lakh. For eligible service providers, the limit is ₹50 lakh." },
+      { question: "Can service providers choose the GST composition scheme?", answer: "Yes, eligible service providers (like freelancers, consultants) can opt for the scheme if their aggregate annual turnover is up to ₹50 lakh. The tax rate for them is 6%." },
+      { question: "What is the GST composition rate for traders?", answer: "The GST composition rate for traders and manufacturers of eligible goods is 1% (0.5% CGST + 0.5% SGST) of the turnover." },
+      { question: "What is the GST composition rate for restaurants?", answer: "Restaurants not serving alcohol can opt for the composition scheme and pay a GST rate of 5% on their turnover." },
+      { question: "Can a composition dealer issue a tax invoice?", answer: "No, a composition dealer cannot issue a regular tax invoice because they are not allowed to collect GST from their customers. Instead, they must issue a Bill of Supply." },
+      { question: "Can a composition dealer claim Input Tax Credit?", answer: "No. A major condition of the composition scheme is that the dealer cannot claim Input Tax Credit (ITC) on their purchases." },
+      { question: "What returns does a composition dealer file?", answer: "A composition dealer files a simple quarterly statement called CMP-08, and an annual return called GSTR-4." },
+      { question: "What is the difference between regular GST and composition GST?", answer: "Regular GST requires monthly filing, allows ITC, and lets you collect tax from customers. Composition GST has quarterly payments at a flat lower rate, no ITC, less paperwork, and you pay tax out of your own pocket." },
+      { question: "Is GST composition scheme good for freelancers?", answer: "It depends. If your expenses are very low (meaning you don't need ITC) and your clients are non-registered individuals, the 6% flat rate might save paperwork. But if your clients are GST-registered B2B businesses, they will want a regular tax invoice to claim ITC, making the normal scheme better." },
+      { question: "Who cannot opt for composition scheme?", answer: "Inter-state suppliers, casual taxable persons, non-resident taxable persons, suppliers of non-taxable goods, and businesses selling through e-commerce operators who collect TCS are generally not eligible." }
+    ])
+  ]
+};
+
+export const metadata = generateMetadata(metadataObj);
+
+export default function Layout({ children }) {
+  return <ArticleLayout meta={metadataObj}>{children}</ArticleLayout>;
+}
+
+The GST Composition Scheme (under Section 10 of the CGST Act) is designed to bring relief to small taxpayers, freelancers, and shopkeepers. It significantly reduces compliance burden, paperwork, and tax complexities.
+
+If you're wondering whether you qualify for the GST Composition Scheme in 2026, you're in the right place. Let's break down the rules, limits, and rates in simple language.
+
+## 1. What is GST Composition Scheme?
+
+The GST Composition Scheme is a simplified tax mechanism for small businesses and eligible service providers. Instead of filing tedious monthly returns and paying taxes at varying standard slab rates (like 12% or 18%), you simply pay a **flat, very low percentage** of your total turnover quarterly.
+
+## 2. GST Composition Scheme Limit in 2026
+
+The aggregate annual turnover limits to opt for this scheme are:
+
+* **₹1.5 Crore** for eligible manufacturers and traders of goods.
+* **₹75 Lakh** for businesses in Special Category States (such as North-Eastern states and Himachal Pradesh).
+* **₹50 Lakh** for eligible service providers (like freelancers, consultants, and agencies).
+
+If your business crosses these thresholds during the financial year, you must immediately transition to the normal GST scheme.
+
+## 3. Who Can Opt for Composition Scheme?
+
+* Small traders and manufacturers operating within a single state (intra-state).
+* Restaurants that do not serve alcohol.
+* Service providers and freelancers whose turnover is below ₹50 Lakhs.
+
+If you haven't registered yet, check out our guide on <Link href="/blog/how-to-register-gst-online">How to Register for GST Online</Link>.
+
+## 4. Who Cannot Opt for Composition Scheme?
+
+To maintain the simplified nature of the scheme, the government restricts certain categories:
+* **Inter-state suppliers** (businesses selling goods or services outside their registered state).
+* Casual taxable persons or non-resident taxable persons.
+* Businesses selling goods through an **e-commerce operator** (like Amazon or Flipkart) that is required to collect TCS.
+* Manufacturers of specific notified goods (like ice cream, pan masala, and tobacco).
+
+## 5. GST Composition Scheme Rates
+
+The tax rates under the composition scheme are much lower than regular GST slabs:
+* **1%** (0.5% CGST + 0.5% SGST) for manufacturers and traders of eligible goods.
+* **5%** (2.5% CGST + 2.5% SGST) for restaurants not serving alcohol.
+* **6%** (3% CGST + 3% SGST) for service providers.
+
+## 6. Composition Scheme for Service Providers
+
+Originally, the composition scheme was only for goods. However, recognizing the growth of the freelance and service economy, the government introduced the composition scheme for service providers. If you provide services (IT, consulting, design) and your turnover is under **₹50 Lakh**, you can opt-in and pay a flat **6%** tax on your turnover. 
+
+## 7. Returns to File: CMP-08 and GSTR-4
+
+One of the biggest reliefs of this scheme is the reduced compliance:
+* **Form CMP-08:** A simple statement filed **quarterly** to declare your turnover and pay the flat tax.
+* **Form GSTR-4:** Filed **annually** by April 30th of the following financial year.
+
+## 8. Bill of Supply Rules for Composition Dealers
+
+Unlike regular GST dealers, you **cannot issue a regular Tax Invoice**, and you **cannot collect GST from your customers**.
+
+Instead, you must issue a **Bill of Supply**. The top of the bill must clearly state: *"Composition taxable person, not eligible to collect tax on supplies."* 
+
+If you're transitioning out of the composition scheme and need to create regular tax invoices, use our <Link href="/gst-invoice-generator">Free GST Invoice Generator</Link>.
+
+## 9. Can Composition Dealers Claim Input Tax Credit?
+
+**No.** Because you are paying a heavily subsidized flat rate of tax, you are **not eligible to claim Input Tax Credit (ITC)** on the goods or services you purchase for your business. The tax you pay out of pocket (1%, 5%, or 6%) is a direct business cost.
+
+## 10. Benefits of Composition Scheme
+
+* **Less Paperwork:** Only quarterly statements and one annual return.
+* **Lower Tax Liability:** Flat, minimal rates.
+* **High Liquidity:** Taxes are paid quarterly, keeping cash flow steady.
+* **Peace of Mind:** No complicated ITC calculations or invoice matching.
+
+## 11. Disadvantages of Composition Scheme
+
+* **Limited Territory:** You cannot sell outside your state.
+* **No Input Tax Credit:** You absorb the tax paid on your business expenses.
+* **Not B2B Friendly:** Since you cannot issue tax invoices, your B2B clients cannot claim ITC on your services. They may prefer working with regular GST dealers.
+
+## 12. Regular GST vs Composition GST
+
+| Feature | Regular GST | Composition GST |
+| :--- | :--- | :--- |
+| **Tax Rate** | Standard rates (5%, 12%, 18%, 28%) | Flat rates (1%, 5%, 6%) |
+| **ITC** | Can claim Input Tax Credit | Cannot claim ITC |
+| **Invoicing** | Issues Tax Invoice, collects tax from customer | Issues Bill of Supply, cannot collect tax |
+| **Filing** | Monthly returns (GSTR-1, GSTR-3B) | Quarterly CMP-08, Annual GSTR-4 |
+| **Reach** | Inter-state and Intra-state | Intra-state only |
+
+<div style={{ background: "rgba(0,118,255,0.1)", border: "1px solid rgba(0,118,255,0.3)", borderRadius: "12px", padding: "24px", marginTop: "32px", marginBottom: "32px", textAlign: "center" }}>
+  <h3 style={{ marginTop: 0, color: "#fff", fontSize: "18px" }}>Not sure whether the composition scheme is better for you?</h3>
+  <p style={{ color: "#cbd5e1", marginBottom: "16px" }}>Calculate your potential tax outflow and compare Regular GST vs Composition Scheme limits.</p>
+  <Link href="/gst-calculator" style={{ display: "inline-block", background: "#0076ff", color: "#fff", padding: "10px 24px", borderRadius: "8px", textDecoration: "none", fontWeight: "600" }}>Use Our Free GST Calculator</Link>
+</div>
+
+## 13. FAQ
+
+### What is the GST composition scheme limit in 2026?
+For regular states, the limit is ₹1.5 crore for goods suppliers. For special category states like North-Eastern states and Himachal Pradesh, it is ₹75 lakh. For eligible service providers, the limit is ₹50 lakh.
+
+### Can service providers choose the GST composition scheme?
+Yes, eligible service providers (like freelancers, consultants) can opt for the scheme if their aggregate annual turnover is up to ₹50 lakh. The tax rate for them is 6%.
+
+### What is the GST composition rate for traders?
+The GST composition rate for traders and manufacturers of eligible goods is 1% (0.5% CGST + 0.5% SGST) of the turnover.
+
+### What is the GST composition rate for restaurants?
+Restaurants not serving alcohol can opt for the composition scheme and pay a GST rate of 5% on their turnover.
+
+### Can a composition dealer issue a tax invoice?
+No, a composition dealer cannot issue a regular tax invoice because they are not allowed to collect GST from their customers. Instead, they must issue a Bill of Supply.
+
+### Can a composition dealer claim Input Tax Credit?
+No. A major condition of the composition scheme is that the dealer cannot claim Input Tax Credit (ITC) on their purchases.
+
+### What returns does a composition dealer file?
+A composition dealer files a simple quarterly statement called CMP-08, and an annual return called GSTR-4.
+
+### What is the difference between regular GST and composition GST?
+Regular GST requires monthly filing, allows ITC, and lets you collect tax from customers. Composition GST has quarterly payments at a flat lower rate, no ITC, less paperwork, and you pay tax out of your own pocket.
+
+### Is GST composition scheme good for freelancers?
+It depends. If your expenses are very low (meaning you don't need ITC) and your clients are non-registered individuals, the 6% flat rate might save paperwork. But if your clients are GST-registered B2B businesses, they will want a regular tax invoice to claim ITC, making the normal scheme better.
+
+### Who cannot opt for composition scheme?
+Inter-state suppliers, casual taxable persons, non-resident taxable persons, suppliers of non-taxable goods, and businesses selling through e-commerce operators who collect TCS are generally not eligible.

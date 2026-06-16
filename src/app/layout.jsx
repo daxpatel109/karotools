@@ -89,7 +89,7 @@ export default function RootLayout({ children }) {
         }} type="application/ld+json" />
       </head>
       <body>
-        <GoogleAnalytics gaId="G-QB5S73V0TX" />
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || "G-QB5S73V0TX"} />
 
         <Script id="microsoft-clarity" strategy="afterInteractive" dangerouslySetInnerHTML={{
           __html: `

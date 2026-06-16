@@ -1,109 +1,85 @@
-export const metadata = { title: "Complete Free Guides For Indian Businesses — KaroTools" };
-import Link from "next/link";
+import Link from 'next/link';
+import { getMdxPages } from '../../lib/mdx';
+import { generateMetadata } from '../../lib/seo';
 
-const guides = [
-  {
-    title: "The Complete Guide to GST for Freelancers in India",
-    description: "Learn when to register for GST, what rates apply to different freelance services, and how to stay compliant without hiring expensive accountants.",
-    slug: "gst-for-freelancers-india",
-    category: "Tax & Compliance",
-    readTime: "8 min read",
-    color: "#0076ff"
-  },
-  {
-    title: "How to Price Your Freelance Services",
-    description: "Stop undercharging. Learn proven frameworks for calculating your hourly rate, moving to project-based pricing, and negotiating with Indian and international clients.",
-    slug: "how-to-price-freelance-services",
-    category: "Freelance Basics",
-    readTime: "6 min read",
-    color: "#10b981"
-  },
-  {
-    title: "Understanding Section 44ADA vs Normal Taxation",
-    description: "A deep dive into Presumptive Taxation. Discover if you qualify for the massive 50% tax-free bracket and how it compares to calculating strict expenses.",
-    slug: "section-44ada-vs-normal",
-    category: "Tax & Compliance",
-    readTime: "7 min read",
-    color: "#005ae6"
-  }
-];
+export const metadata = generateMetadata({
+  title: 'Free Business & Tax Guides for Indian Freelancers | KaroTools',
+  description: 'Practical guides on GST registration, composition schemes, invoicing, and tax compliance for freelancers and small businesses in India.',
+  path: '/guides',
+  keywords: [
+    "free GST guides for Indian freelancers",
+    "GST invoice format Excel free",
+    "GST calculator India",
+    "GST invoice generator free",
+    "business tools for freelancers India",
+    "tax tools for Indian freelancers",
+    "how to calculate GST inclusive price",
+    "how to remove GST from price"
+  ]
+});
 
-export default function GuidesHub() {
-  
+export default function GuidesIndex() {
+  const posts = [...getMdxPages('blog'), ...getMdxPages('guides')].sort((a, b) => new Date(b.date) - new Date(a.date));
+
   return (
-    <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans', sans-serif", color: "#f8fafc", paddingBottom: "100px" }}>
-      
-
-      {/* Navbar */}
-      <nav style={{ position: "sticky", top: 0, zIndex: 100, padding: "0 5vw", height: "70px", display: "flex", alignItems: "center", justifyContent: "space-between", background: "rgba(2,6,23,0.9)", backdropFilter: "blur(20px)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-        <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }}>
-            <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
-            <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
-              Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
-            </span>
-          </div>
-        </Link>
-        <Link href="/" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "#94a3b8", padding: "8px 16px", borderRadius: "10px", fontSize: "14px", fontWeight: "600", textDecoration: "none" }}>← Home</Link>
-      </nav>
-
-      {/* Header */}
-      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "80px 5vw 40px", textAlign: "center" }}>
-        <h1 style={{ fontSize: "clamp(40px, 6vw, 64px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "20px", color: "#f8fafc", lineHeight: 1.1 }}>
-          The Freelancer's <br/>
-          <span style={{ background: "linear-gradient(135deg, #38bdf8, #818cf8)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Knowledge Hub</span>
-        </h1>
-        <p style={{ color: "#94a3b8", fontSize: "18px", maxWidth: "600px", margin: "0 auto", lineHeight: 1.6 }}>
-          Practical, no-nonsense guides to help Indian freelancers navigate taxes, pricing, contracts, and business growth.
-        </p>
+    <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans', sans-serif", color: "#f8fafc" }}>
+      <style>{`
+        .article-card { transition: transform 0.2s, background 0.2s; background: rgba(255,255,255,0.02); }
+        .article-card:hover { transform: translateY(-4px); background: rgba(255,255,255,0.04); }
+      `}</style>
+      <div style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0 }}>
+        <div style={{ position: "absolute", top: "-10%", right: "-10%", width: "60%", height: "60%", background: "radial-gradient(circle, rgba(16,185,129, 0.05) 0%, transparent 60%)", filter: "blur(60px)" }} />
       </div>
 
-      {/* Grid */}
-      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 5vw" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: "32px" }}>
-          {guides.map((guide, idx) => (
-            <Link href={`/guides/${guide.slug}`} key={idx} style={{ textDecoration: "none" }}>
-              <div 
-                style={{ 
-                  background: "rgba(255,255,255,0.02)", 
-                  border: "1px solid rgba(255,255,255,0.05)", 
-                  borderRadius: "24px", 
-                  padding: "32px", 
-                  height: "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                  transition: "all 0.3s ease",
-                  cursor: "pointer",
-                  position: "relative",
-                  overflow: "hidden"
-                }}
-              >
-                {/* Subtle top glow */}
-                <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "4px", background: guide.color, opacity: 0.8 }} />
+      <nav className="glass-panel" style={{ position: "sticky", top: 0, zIndex: 100, padding: "0 24px", height: "72px", display: "flex", alignItems: "center", justifyContent: "space-between", background: "rgba(255, 255, 255, 0.02)", borderBottom: "1px solid rgba(255, 255, 255, 0.06)", backdropFilter: "blur(24px)" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <Link href="/" style={{ textDecoration: "none" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }}>
+              <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
+                Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
+              </span>
+            </div>
+          </Link>
+          <div style={{ display: "flex", gap: "16px" }}>
+            <Link href="/blog" style={{ color: "#cbd5e1", textDecoration: "none", fontSize: "14px", fontWeight: "600", display: "flex", alignItems: "center" }}>Blog</Link>
+            <Link href="/" style={{ padding: "8px 16px", borderRadius: "8px", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "#cbd5e1", textDecoration: "none", fontSize: "14px", fontWeight: "600" }}>Home</Link>
+          </div>
+        </div>
+      </nav>
 
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
-                  <span style={{ fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em", color: guide.color, textTransform: "uppercase", background: `${guide.color}22`, padding: "4px 10px", borderRadius: "20px" }}>
-                    {guide.category}
-                  </span>
-                  <span style={{ fontSize: "13px", color: "#64748b", fontWeight: "500" }}>{guide.readTime}</span>
-                </div>
-                
-                <h2 style={{ fontSize: "22px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginBottom: "16px", lineHeight: 1.3 }}>
-                  {guide.title}
-                </h2>
-                
-                <p style={{ fontSize: "15px", color: "#94a3b8", lineHeight: 1.6, margin: 0, flexGrow: 1 }}>
-                  {guide.description}
-                </p>
+      <main style={{ maxWidth: "1000px", margin: "0 auto", padding: "64px 24px 100px", position: "relative", zIndex: 1 }}>
+        <header style={{ textAlign: "center", marginBottom: "64px" }}>
+          <h1 style={{ fontSize: "clamp(36px, 5vw, 48px)", fontWeight: "800", marginBottom: "16px", fontFamily: "'Plus Jakarta Sans',sans-serif", letterSpacing: "-0.02em" }}>Free Business Guides for Indian Freelancers</h1>
+          <p style={{ fontSize: "18px", color: "#94a3b8", maxWidth: "600px", margin: "0 auto", lineHeight: "1.6" }}>
+            Step-by-step tutorials to master your taxes, compliance, and invoicing.
+          </p>
+        </header>
 
-                <div style={{ marginTop: "24px", display: "flex", alignItems: "center", color: guide.color, fontWeight: "600", fontSize: "14px", gap: "8px" }}>
-                  Read Guide <span>→</span>
+        <div style={{ background: "rgba(0,118,255,0.05)", border: "1px solid rgba(0,118,255,0.2)", borderRadius: "16px", padding: "32px", textAlign: "center", marginBottom: "48px" }}>
+          <h2 style={{ fontSize: "20px", color: "#fff", marginBottom: "16px", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>Need a quick answer?</h2>
+          <p style={{ color: "#94a3b8", marginBottom: "24px" }}>Use our interactive tools to calculate taxes or generate an invoice instantly.</p>
+          <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
+            <Link href="/gst-calculator" style={{ background: "#0076ff", color: "#fff", padding: "10px 20px", borderRadius: "8px", textDecoration: "none", fontWeight: "600" }}>GST Calculator</Link>
+            <Link href="/invoice-generator" style={{ background: "rgba(255,255,255,0.1)", color: "#fff", padding: "10px 20px", borderRadius: "8px", textDecoration: "none", fontWeight: "600" }}>Invoice Generator</Link>
+          </div>
+        </div>
+
+        <h2 style={{ fontSize: "24px", fontWeight: "700", marginBottom: "32px", color: "#f8fafc", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>GST Guides</h2>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "24px" }}>
+          {posts.map(post => (
+            <Link href={post.path} key={post.slug} style={{ textDecoration: "none" }}>
+              <article className="article-card" style={{ border: "1px solid rgba(255,255,255,0.06)", borderRadius: "16px", padding: "24px", height: "100%", display: "flex", flexDirection: "column" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px", fontSize: "12px", color: "#64748b", fontWeight: "600" }}>
+                  <span style={{ background: "rgba(56,189,248,0.1)", color: "#38bdf8", padding: "4px 10px", borderRadius: "20px" }}>{post.category}</span>
+                  <span>{post.readTime}</span>
                 </div>
-              </div>
+                <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#f1f5f9", marginBottom: "12px", lineHeight: "1.4", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>{post.title}</h3>
+                <p style={{ color: "#94a3b8", fontSize: "14px", lineHeight: "1.6", flexGrow: 1 }}>{post.description}</p>
+              </article>
             </Link>
           ))}
         </div>
-      </div>
+      </main>
     </div>
   );
 }

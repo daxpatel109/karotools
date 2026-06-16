@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import { sendGAEvent } from "@next/third-parties/google";
 
 export default function GSTCalculator() {
   const params = useParams();
@@ -63,9 +64,11 @@ export default function GSTCalculator() {
     { label: "🥇 Gold", rate: 3 },
   ];
 
-  // SERP SEO & Schema Injection
+  // SERP SEO & Schema Injection (Only for dynamic keyword routes)
   useEffect(() => {
     window.scrollTo(0, 0);
+    if (!keyword) return;
+
     document.title = seoTitle;
     
     let metaDescription = document.querySelector('meta[name="description"]');
@@ -108,7 +111,7 @@ export default function GSTCalculator() {
       if (document.head.contains(schemaScript)) document.head.removeChild(schemaScript);
       if (document.head.contains(faqSchemaScript)) document.head.removeChild(faqSchemaScript);
     };
-  }, []);
+  }, [keyword, seoTitle, seoDesc]);
 
   // Save to Local Storage
   useEffect(() => {
@@ -164,6 +167,16 @@ export default function GSTCalculator() {
       cessPercent: total > 0 ? Math.round((cess / total) * 100) : 0,
     };
     setResult(r);
+
+    // Fire event once per successful calculation update (debounced essentially by the user stopping typing)
+    const timeoutId = setTimeout(() => {
+      if (type === "exclusive") {
+        sendGAEvent("event", "gst_calculator_used", { tool_name: "GST Calculator", gst_rate: activeRate });
+      } else {
+        sendGAEvent("event", "gst_reverse_gst_used", { tool_name: "GST Calculator", gst_rate: activeRate });
+      }
+    }, 1000);
+    return () => clearTimeout(timeoutId);
   }, [amount, activeRate, type, roundOff, cessRate]);
 
   const addToHistory = () => {
@@ -187,9 +200,7 @@ export default function GSTCalculator() {
 
   const copyResult = () => {
     if (!result) return;
-    if (typeof window !== "undefined" && window.gtag) {
-      window.gtag("event", "gst_calculated", { event_category: "Calculator", event_label: type });
-    }
+    sendGAEvent("event", "gst_calculated", { event_category: "Calculator", event_label: type });
     const lines = [
       `GST Calculation — KaroTools`,
       `Amount: ₹${amount} | Rate: ${activeRate}% | Type: ${type}`,
@@ -397,7 +408,13 @@ export default function GSTCalculator() {
           <p style={{ color: "#64748b", fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "12px", marginLeft: "4px" }}>Quick Presets</p>
           <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
             {presets.map(p => (
-              <button key={p.label} onClick={() => { setPreset(p.label); setGstRate(p.rate); setIsCustom(false); setCustomRate(""); }}
+              <button key={p.label} onClick={() => { 
+                setPreset(p.label); 
+                setGstRate(p.rate); 
+                setIsCustom(false); 
+                setCustomRate(""); 
+                sendGAEvent("event", "gst_rate_changed", { new_rate: p.rate, preset: p.label });
+              }}
                 className="preset-btn"
                 style={{
                   border: "1px solid",
@@ -435,7 +452,13 @@ export default function GSTCalculator() {
             <label style={{ display: "block", fontWeight: "700", color: "#cbd5e1", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>GST Rate</label>
             <div className="responsive-grid-rates">
               {[0, 3, 5, 12, 18, 28].map(rate => (
-                <button key={rate} onClick={() => { setGstRate(rate); setIsCustom(false); setPreset(null); setCustomRate(""); }}
+                <button key={rate} onClick={() => { 
+                  setGstRate(rate); 
+                  setIsCustom(false); 
+                  setPreset(null); 
+                  setCustomRate(""); 
+                  sendGAEvent("event", "gst_rate_changed", { new_rate: rate });
+                }}
                   className="interactive-btn"
                   style={{
                     padding: "16px", borderRadius: "14px", border: "1px solid",

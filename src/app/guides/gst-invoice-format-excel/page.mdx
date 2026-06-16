@@ -1,0 +1,168 @@
+import ArticleLayout from '../../../components/article/ArticleLayout';
+import { generateMetadata } from '../../../lib/seo';
+import { generateFAQSchema } from '../../../lib/schema';
+import Link from 'next/link';
+
+export const metadataObj = {
+  title: "GST Invoice Format Excel Free – Template, Fields & Rules | KaroTools",
+  description: "Learn the correct GST invoice format in Excel: see example, mandatory fields, and download a free template. Use our free Invoice Generator for quick billing.",
+  path: "/guides/gst-invoice-format-excel",
+  datePublished: "2026-06-16T08:00:00Z",
+  keywords: [
+    "gst invoice format excel free",
+    "gst invoice template excel download",
+    "free gst invoice template excel",
+    "gst invoice mandatory fields",
+    "gst invoice format example",
+    "excel gst invoice format",
+    "gst invoice sample excel",
+    "gst invoice format pdf free",
+    "gst invoice format 2026",
+    "free gst invoice generator",
+    "gst invoice template word",
+    "gst invoice for freelancers"
+  ],
+  schemas: [
+    generateFAQSchema([
+      {
+        question: "Can I use this Excel template for my GST invoice?",
+        answer: "Yes. You can download our GST invoice format in Excel and customize it for your business. Ensure you fill in all mandatory fields like GSTIN, HSN codes, and tax rates."
+      },
+      {
+        question: "Does this template include SGST/CGST?",
+        answer: "Our Excel format auto-calculates CGST and SGST for intra-state sales. It also handles IGST for inter-state transactions."
+      },
+      {
+        question: "Can I convert the Excel invoice to PDF?",
+        answer: "Yes, you can 'Save As PDF' in Excel to generate a gst invoice format pdf free of cost, which is professional to send to clients."
+      },
+      {
+        question: "Is this format valid for freelancers?",
+        answer: "Absolutely. A GST invoice for freelancers requires the same mandatory fields (GSTIN, SAC code, 18% rate usually) as any regular business."
+      }
+    ])
+  ]
+};
+
+export const metadata = generateMetadata(metadataObj);
+
+export default function Page({ children }) {
+  return <ArticleLayout meta={metadataObj}>{children}</ArticleLayout>;
+}
+
+# Free GST Invoice Format in Excel: Template & Guide
+
+Creating a compliant **GST invoice** is essential if you run a registered business or freelance practice in India. Many small business owners prefer starting with a **gst invoice format excel free** download to handle their initial billing. 
+
+In this comprehensive guide, we will explain the mandatory fields required by law, show you a clear GST invoice format example, provide a free downloadable template, and introduce you to an even faster automated tool.
+
+## What is a GST Invoice?
+
+A GST invoice (or tax invoice) is a legal document issued by a registered seller to a buyer. It itemizes the goods or services provided, their quantities, and the total amount due, while explicitly breaking down the taxes charged under the Goods and Services Tax (GST) system—namely CGST, SGST, and IGST. 
+
+Issuing a proper GST bill format is not just about professionalism; it's a legal requirement. If your invoice lacks specific details, your buyer cannot claim Input Tax Credit (ITC), which could hurt your business relationships. For freelancers and small businesses who just completed [GST registration](/blog/how-to-register-gst-online), getting this format right is your first priority.
+
+## Mandatory Fields in a GST Invoice
+
+According to Rule 46 of the CGST Rules, to be legally valid, your invoice must include certain details. When setting up an **excel gst invoice format**, ensure these **gst invoice mandatory fields** are present:
+
+1. **Supplier Details:** Your business name, address, and GSTIN.
+2. **Tax Invoice Header:** The document must clearly state "Tax Invoice" at the top.
+3. **Invoice Number:** A unique, consecutive serial number (containing alphabets, numerals, or special characters like hyphen/slash) not exceeding 16 characters for a financial year.
+4. **Date of Issue:** The date the invoice is created.
+5. **Buyer Details:** Name, address, and GSTIN (if registered) of the recipient.
+6. **Place of Supply:** The state name and code, crucial for determining whether to apply IGST or CGST/SGST.
+7. **HSN or SAC Code:** Harmonized System of Nomenclature (for goods) or Services Accounting Code (for services).
+8. **Item Description:** Clear description of the goods or services.
+9. **Quantity & Taxable Value:** Quantity, unit, and the value of goods/services before tax.
+10. **Tax Rate & Amount:** The exact rate of tax (e.g., 5%, 12%, 18%) and the tax amount broken down into CGST, SGST, or IGST.
+11. **Signature:** A physical or digital signature of the supplier or authorized representative.
+
+*Need a template? Download ours below.*
+
+## Sample GST Invoice Format in Excel
+
+To help you visualize, here is a **gst invoice sample excel** structure. It contains a professional header, clearly separated billing details, an itemized table for HSN/SAC codes, and a bottom section that automatically totals the tax.
+
+<div style={{ background: "rgba(255,255,255,0.02)", padding: "20px", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.1)", textAlign: "center", marginBottom: "32px" }}>
+  <div style={{ display: "inline-block", background: "#0f172a", border: "1px solid #334155", padding: "40px", borderRadius: "8px", width: "100%", maxWidth: "600px", color: "#e2e8f0", textAlign: "left", fontFamily: "monospace" }}>
+    <h3 style={{ borderBottom: "1px solid #334155", paddingBottom: "10px", marginTop: 0 }}>TAX INVOICE</h3>
+    <p><strong>From:</strong> Your Company Name<br/>GSTIN: 27AAAAA0000A1Z5</p>
+    <p><strong>To:</strong> Client Name<br/>GSTIN: 29BBBBB1111B1Z5</p>
+    <table style={{ width: "100%", borderCollapse: "collapse", marginTop: "20px", fontSize: "14px" }}>
+      <thead>
+        <tr style={{ borderBottom: "1px solid #334155" }}>
+          <th style={{ padding: "8px", textAlign: "left" }}>Item</th>
+          <th style={{ padding: "8px", textAlign: "left" }}>SAC</th>
+          <th style={{ padding: "8px", textAlign: "right" }}>Value</th>
+          <th style={{ padding: "8px", textAlign: "right" }}>IGST (18%)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style={{ padding: "8px" }}>Web Development</td>
+          <td style={{ padding: "8px" }}>9983</td>
+          <td style={{ padding: "8px", textAlign: "right" }}>₹10,000</td>
+          <td style={{ padding: "8px", textAlign: "right" }}>₹1,800</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3 style={{ textAlign: "right", marginTop: "20px" }}>Total: ₹11,800</h3>
+  </div>
+  <p style={{ fontSize: "14px", color: "#94a3b8", marginTop: "12px" }}><em>Example of an inter-state GST invoice format for freelancers.</em></p>
+</div>
+
+Skip manual entry – use our free invoice generator instead!
+
+## How to Create a GST Invoice in Excel (Step-by-Step)
+
+If you prefer building your own from scratch or using our **gst invoice template excel download**, follow these steps:
+
+1. **Copy the Template:** Open our free excel file or create a new workbook.
+2. **Fill the Header:** Input your logo, company name, address, and your GSTIN at the top.
+3. **Add Client Details:** Ensure you correctly input the "Billed To" and "Shipped To" details, especially the State Code to determine the tax type.
+4. **Itemize Goods/Services:** List your items, their HSN/SAC codes, quantity, and base rate.
+5. **Calculate Taxes via Formulas:** Set up Excel formulas to multiply the base rate by the tax percentage. Remember: if the client is in the same state, split the tax evenly between CGST and SGST. If in a different state, charge IGST.
+6. **Save as PDF:** Always export your file to create a **gst invoice format pdf free** of tampering before emailing it to your client.
+
+<div style={{ background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.2)", padding: "24px", borderRadius: "16px", margin: "32px 0" }}>
+  <h3 style={{ color: "#34d399", marginTop: 0 }}>Prefer automated invoicing?</h3>
+  <p style={{ marginBottom: "16px" }}>
+    Not sure where to start? Try our **free GST Invoice Generator** to fill in details and generate a GST-compliant invoice in seconds. No Excel expertise needed! It automatically handles the CGST vs IGST math for you.
+  </p>
+  <Link data-analytics="guide_cta_invoice_generator_click" href="/gst-invoice-generator" style={{ display: "inline-block", background: "#10b981", color: "#fff", padding: "10px 20px", borderRadius: "8px", textDecoration: "none", fontWeight: "600" }}>
+    Use Free Invoice Generator Now →
+  </Link>
+</div>
+
+## Free GST Invoice Templates (Download)
+
+Ready to get started offline? We provide basic layouts that are fully compliant with **gst invoice format 2026** rules. 
+
+* [Download Excel Template (.xlsx)](#) *(Placeholder link)*
+* [Download Word Template (.docx)](#) *(Placeholder link)*
+
+These **free gst invoice template excel** files are unlocked, meaning you can customize fonts, colors, and add your own branding.
+
+## GST Invoice vs. Regular Invoice
+
+A regular invoice simply requests payment for goods or services and lists a total amount. A **GST Invoice**, however, is a strictly regulated document. 
+
+The primary difference is the explicit inclusion of the GSTINs of both parties, the HSN/SAC codes, and the segregated breakdown of taxes (CGST, SGST, IGST). A regular invoice (or a "Bill of Supply" issued by businesses under the [Composition Scheme](/blog/gst-composition-scheme-limits)) does not allow the buyer to claim ITC.
+
+## Frequently Asked Questions
+
+**Can I use this Excel template for my GST invoice?**  
+Yes. You can download our GST invoice format in Excel and customize it for your business. Ensure you fill in all mandatory fields like GSTIN, HSN codes, and tax rates.
+
+**Does this template include SGST/CGST?**  
+Our Excel format auto-calculates CGST and SGST for intra-state sales. It also handles IGST for inter-state transactions. You can also use our [GST Calculator](/gst-calculator) to double-check amounts.
+
+**Can I convert the Excel invoice to PDF?**  
+Yes, you can "Save As PDF" in Excel or Google Sheets to generate a professional PDF. Sending a PDF prevents clients from accidentally editing the document.
+
+**Is this format valid for freelancers?**  
+Absolutely. A **gst invoice for freelancers** requires the exact same mandatory fields (GSTIN, SAC code, 18% rate usually) as any regular corporate business.
+
+**Is the online generator completely free?**  
+Yes, the KaroTools **free gst invoice generator** requires no login, no subscription, and adds no watermarks to your PDFs.

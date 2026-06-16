@@ -4,6 +4,7 @@ import Link from "next/link";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { QRCodeCanvas } from "qrcode.react";
+import { sendGAEvent } from "@next/third-parties/google";
 
 const emptyItem = () => ({ desc: "", hsn: "", qty: 1, rate: "", discount: 0, gst: 18 });
 
@@ -79,6 +80,11 @@ export default function InvoiceGenerator() {
     return () => {
       if (document.head.contains(faqSchemaScript)) document.head.removeChild(faqSchemaScript);
     };
+  }, []);
+
+  // Track start event once per load
+  useEffect(() => {
+    sendGAEvent("event", "invoice_generator_started", { tool_name: "Invoice Generator" });
   }, []);
 
   useEffect(() => {
@@ -168,9 +174,7 @@ export default function InvoiceGenerator() {
   };
 
   const exportCSV = () => {
-    if (typeof window !== "undefined" && window.gtag) {
-      window.gtag("event", "invoice_csv_exported", { event_category: "Invoice" });
-    }
+    sendGAEvent("event", "invoice_csv_exported", { tool_name: "Invoice Generator" });
     const rows = [
       ["Invoice Number", invoice.number],
       ["Invoice Date", invoice.date],
@@ -219,9 +223,7 @@ export default function InvoiceGenerator() {
 
   const downloadPDF = async () => {
     if (!previewRef.current || isExporting) return;
-    if (typeof window !== "undefined" && window.gtag) {
-      window.gtag("event", "invoice_pdf_downloaded", { event_category: "Invoice" });
-    }
+    sendGAEvent("event", "invoice_generated", { tool_name: "Invoice Generator" });
     setIsExporting(true);
     
     // Temporarily remove transform to capture full resolution
@@ -241,6 +243,7 @@ export default function InvoiceGenerator() {
       const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
       pdf.addImage(imgData, "JPEG", 0, 0, pdfWidth, pdfHeight);
       pdf.save(`INV-${invoice.number || '0001'}.pdf`);
+      sendGAEvent("event", "invoice_pdf_downloaded", { tool_name: "Invoice Generator" });
     } catch (e) {
       console.error(e);
       alert("Error generating PDF. Please try again.");

@@ -1,0 +1,194 @@
+import ArticleLayout from '../../../components/article/ArticleLayout';
+import { generateMetadata } from '../../../lib/seo';
+import { generateFAQSchema } from '../../../lib/schema';
+import Link from 'next/link';
+
+export const metadataObj = {
+  title: "GST Return Due Dates 2026: GSTR-1, GSTR-3B, CMP-08 & GSTR-4 Calendar",
+  description: "Check GST return due dates for 2026 including GSTR-1, GSTR-3B, CMP-08 and GSTR-4. Learn filing frequency, late fees, interest and penalties in simple language.",
+  path: "/guides/gst-return-due-dates-calendar",
+  datePublished: "2026-06-16T10:00:00Z",
+  keywords: [
+    "gst return filing due date 2026",
+    "GST return due dates",
+    "GSTR-1 due date",
+    "GSTR-3B due date",
+    "GST return types and due dates",
+    "GST late fee for return filing",
+    "GST return filing calendar India",
+    "monthly GST return due date",
+    "quarterly GST return due date"
+  ],
+  schemas: [
+    generateFAQSchema([
+      {
+        question: "What is the GSTR-1 due date?",
+        answer: "For monthly filers, the GSTR-1 due date is the 11th of the following month. For quarterly filers (QRMP scheme), it is the 13th of the month following the end of the quarter."
+      },
+      {
+        question: "What is the GSTR-3B due date?",
+        answer: "For monthly filers, the GSTR-3B due date is the 20th of the following month. For quarterly filers, it is the 22nd or 24th of the month following the quarter, depending on your state."
+      },
+      {
+        question: "What is the due date for GST return filing in 2026?",
+        answer: "There are multiple due dates depending on your return type. Generally, monthly sales (GSTR-1) are due on the 11th, and monthly tax payments (GSTR-3B) are due on the 20th of every month."
+      },
+      {
+        question: "What is the late fee for delayed GST return filing?",
+        answer: "The late fee is typically ₹50 per day of delay (₹25 CGST + ₹25 SGST). If it is a Nil return (no business activity), the late fee is reduced to ₹20 per day."
+      },
+      {
+        question: "What is the difference between GSTR-1 and GSTR-3B?",
+        answer: "GSTR-1 is a statement of all your outward supplies (sales), showing the invoices you issued. GSTR-3B is a summary return where you declare your total tax liability, claim Input Tax Credit (ITC), and actually pay the tax."
+      },
+      {
+        question: "Who files CMP-08?",
+        answer: "CMP-08 is filed by businesses registered under the GST Composition Scheme. It is a quarterly statement-cum-challan to declare details or pay tax."
+      },
+      {
+        question: "Who files GSTR-4?",
+        answer: "GSTR-4 is the annual return filed by taxpayers opted into the GST Composition Scheme. It is due by the 30th of April following the financial year."
+      },
+      {
+        question: "Can GST return due dates change?",
+        answer: "Yes, the Central Board of Indirect Taxes and Customs (CBIC) occasionally extends due dates via official notifications, often due to portal glitches or natural disasters."
+      },
+      {
+        question: "What happens if I miss the GST return due date?",
+        answer: "If you miss the due date, you will incur a daily late fee. Additionally, if you have outstanding tax to pay, you will be charged 18% per annum interest on the tax amount."
+      },
+      {
+        question: "How can I calculate GST late fee?",
+        answer: "You can calculate your exact penalty by multiplying the number of days delayed by ₹50 (or ₹20 for Nil returns). You can also use the free KaroTools GST Late Fee Calculator to do the math automatically."
+      }
+    ])
+  ]
+};
+
+export const metadata = generateMetadata(metadataObj);
+
+export default function Page({ children }) {
+  return <ArticleLayout meta={metadataObj}>{children}</ArticleLayout>;
+}
+
+# GST Return Due Dates 2026: Filing Calendar for Indian Businesses
+
+Filing GST returns on time is one of the most critical compliance tasks for any business registered in India. Missing a **GST return filing due date 2026** can result in heavy late fees, 18% annual interest, and even the blocking of your E-way bills.
+
+If you are a freelancer, consultant, or small business owner, this complete **GST return filing calendar India** will help you track your monthly and quarterly deadlines.
+
+## What Are GST Returns?
+
+A GST return is a document containing details of all the income (sales) and expenses (purchases) that a taxpayer must file with the Indian tax authorities. The government uses this return to calculate your net tax liability. When you generate a bill using our [Free Invoice Generator](/invoice-generator), those exact invoice details must be reported in your GST returns.
+
+## GST Return Filing Calendar
+
+The due dates depend largely on your turnover and the scheme you have opted for. Here is a simple table summarizing the most common **GST return types and due dates**:
+
+| Return Form | Who Files This? | Filing Frequency | Standard Due Date |
+| :--- | :--- | :--- | :--- |
+| **GSTR-1** | Regular Taxpayers (Sales Details) | Monthly | 11th of the next month |
+| **GSTR-1 (QRMP)** | Small Taxpayers (Sales Details) | Quarterly | 13th of the month after the quarter |
+| **GSTR-3B** | Regular Taxpayers (Summary & Tax Payment) | Monthly | 20th of the next month |
+| **GSTR-3B (QRMP)** | Small Taxpayers (Summary & Tax Payment) | Quarterly | 22nd or 24th of the month after the quarter |
+| **CMP-08** | Composition Scheme Dealers | Quarterly | 18th of the month after the quarter |
+| **GSTR-4** | Composition Scheme Dealers | Annually | 30th April of the next financial year |
+| **GSTR-9** | Regular Taxpayers (Annual Return) | Annually | 31st December of the next financial year |
+
+*(Note: Due dates are strictly enforced but may change due to official CBIC notifications or GST portal technical issues. Always consult the official GST portal for real-time extensions.)*
+
+## GSTR-1 Due Date
+
+GSTR-1 contains the details of all outward supplies (your sales). 
+* The **monthly GST return due date** for GSTR-1 is the **11th** of the following month. 
+* If you are a small business (turnover up to ₹5 crore) opted into the QRMP scheme, your **quarterly GST return due date** for GSTR-1 is the **13th** of the month following the end of the quarter.
+
+## GSTR-3B Due Date
+
+GSTR-3B is a summary return where you declare your total tax liabilities, claim Input Tax Credit (ITC), and pay the tax.
+* For standard monthly filers, the **GSTR-3B due date** is the **20th** of the following month.
+* For quarterly filers (QRMP), the due date is the **22nd** (for Category X states) or the **24th** (for Category Y states) of the month following the quarter.
+
+<div style={{ background: "rgba(56, 189, 248, 0.05)", border: "1px solid rgba(56, 189, 248, 0.2)", padding: "24px", borderRadius: "16px", margin: "32px 0" }}>
+  <h3 style={{ color: "#38bdf8", marginTop: 0 }}>Need to calculate GST before filing?</h3>
+  <p style={{ marginBottom: "16px" }}>
+    If you need to verify your CGST, SGST, or IGST amounts before entering them into your GSTR-3B, use our free calculator.
+  </p>
+  <Link data-analytics="guide_cta_gst_calculator_click" href="/gst-calculator" style={{ display: "inline-block", background: "#38bdf8", color: "#0f172a", padding: "10px 20px", borderRadius: "8px", textDecoration: "none", fontWeight: "600" }}>
+    Use Free GST Calculator →
+  </Link>
+</div>
+
+## CMP-08 Due Date for Composition Dealers
+
+If you have opted for the [GST Composition Scheme](/blog/gst-composition-scheme-limits) to reduce your compliance burden, you do not file GSTR-1 or GSTR-3B. Instead, you file a simple statement called Form CMP-08 every quarter. The due date for CMP-08 is the **18th** of the month succeeding the quarter.
+
+## GSTR-4 Due Date
+
+In addition to the quarterly CMP-08, Composition Dealers must file an annual return called GSTR-4. The due date is **30th April** following the end of the financial year.
+
+## Monthly vs Quarterly GST Filing
+
+You might wonder whether you should file monthly or quarterly. In simple words:
+* **Monthly Filing:** Mandatory if your annual turnover exceeds ₹5 crore. It requires more frequent accounting but keeps your compliance strictly up to date.
+* **Quarterly Filing (QRMP Scheme):** Optional for small businesses with a turnover up to ₹5 crore. It allows you to file returns every three months (reducing paperwork), though you still must pay taxes monthly using a challan (PMT-06).
+
+## GST Late Fee for Delayed Returns
+
+If you miss your **GST return due dates**, you will be penalized. The standard **GST late fee for return filing** is:
+* **₹50 per day** of delay for a normal return.
+* **₹20 per day** of delay for a "Nil" return (if you had no sales or purchases in that period).
+
+This late fee is strictly enforced by the GST portal and will automatically appear in your next GSTR-3B ledger.
+
+<div style={{ background: "rgba(239, 68, 68, 0.05)", border: "1px solid rgba(239, 68, 68, 0.2)", padding: "24px", borderRadius: "16px", margin: "32px 0" }}>
+  <h3 style={{ color: "#ef4444", marginTop: 0 }}>Missed a GST return due date?</h3>
+  <p style={{ marginBottom: "16px" }}>
+    Don't panic! You can easily calculate exactly how much penalty and interest you owe using our dedicated late fee calculator.
+  </p>
+  <Link data-analytics="guide_cta_late_fee_calculator_click" href="/late-gst-penalty-calculator" style={{ display: "inline-block", background: "#ef4444", color: "#fff", padding: "10px 20px", borderRadius: "8px", textDecoration: "none", fontWeight: "600" }}>
+    Use GST Late Fee Calculator →
+  </Link>
+</div>
+
+## GST Interest on Late Tax Payment
+
+Aside from the flat daily late fee, if you owe the government tax money and pay it after the due date, you must pay interest. The statutory interest rate is **18% per annum** on the net tax liability, calculated from the day following the due date until the actual date of payment.
+
+## How to Avoid GST Return Filing Penalties
+
+1. **Use Good Invoicing Habits:** Issue bills on time and clearly format your taxes using proper [IGST vs CGST vs SGST](/guides/igst-vs-cgst-explained-india) breakdowns.
+2. **Reconcile Early:** Don't wait until the 20th. Reconcile your sales against your bank account by the 5th of every month.
+3. **File Nil Returns:** If you made no sales, you *still* have to file. A Nil return takes only two minutes but saves you ₹20 every single day in penalties.
+
+## Frequently Asked Questions
+
+**What is the GSTR-1 due date?**  
+For monthly filers, the GSTR-1 due date is the 11th of the following month. For quarterly filers (QRMP scheme), it is the 13th of the month following the end of the quarter.
+
+**What is the GSTR-3B due date?**  
+For monthly filers, the GSTR-3B due date is the 20th of the following month. For quarterly filers, it is the 22nd or 24th of the month following the quarter, depending on your state.
+
+**What is the due date for GST return filing in 2026?**  
+There are multiple due dates depending on your return type. Generally, monthly sales (GSTR-1) are due on the 11th, and monthly tax payments (GSTR-3B) are due on the 20th of every month.
+
+**What is the late fee for delayed GST return filing?**  
+The late fee is typically ₹50 per day of delay (₹25 CGST + ₹25 SGST). If it is a Nil return (no business activity), the late fee is reduced to ₹20 per day.
+
+**What is the difference between GSTR-1 and GSTR-3B?**  
+GSTR-1 is a statement of all your outward supplies (sales), showing the invoices you issued. GSTR-3B is a summary return where you declare your total tax liability, claim Input Tax Credit (ITC), and actually pay the tax.
+
+**Who files CMP-08?**  
+CMP-08 is filed by businesses registered under the GST Composition Scheme. It is a quarterly statement-cum-challan to declare details or pay tax.
+
+**Who files GSTR-4?**  
+GSTR-4 is the annual return filed by taxpayers opted into the GST Composition Scheme. It is due by the 30th of April following the financial year.
+
+**Can GST return due dates change?**  
+Yes, the Central Board of Indirect Taxes and Customs (CBIC) occasionally extends due dates via official notifications, often due to portal glitches or natural disasters.
+
+**What happens if I miss the GST return due date?**  
+If you miss the due date, you will incur a daily late fee. Additionally, if you have outstanding tax to pay, you will be charged 18% per annum interest on the tax amount.
+
+**How can I calculate GST late fee?**  
+You can calculate your exact penalty by multiplying the number of days delayed by ₹50 (or ₹20 for Nil returns). You can also use the free KaroTools GST Late Fee Calculator to do the math automatically.

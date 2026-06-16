@@ -1,0 +1,75 @@
+import ArticleLayout from '../../../components/article/ArticleLayout';
+import { generateMetadata } from '../../../lib/seo';
+import { generateHowToSchema } from '../../../lib/schema';
+import Link from 'next/link';
+
+export const metadataObj = {
+  title: "How to Register for GST Online in India (Step-by-Step, 2026)",
+  description: "A complete step-by-step guide to GST registration online in India. Learn the portal steps, documents required, and limits.",
+  path: "/blog/how-to-register-gst-online",
+  datePublished: "2026-07-05T08:00:00Z",
+  keywords: [
+    "gst registration online india",
+    "how to register gst online",
+    "gst registration documents required",
+    "gst registration threshold small business",
+    "gst registration process india"
+  ],
+  schemas: [
+    generateHowToSchema({
+      name: "How to Register for GST Online",
+      description: "Step by step process to register for GST on the official portal.",
+      steps: [
+        { name: "Step 1: Go to GST Portal", text: "Visit gst.gov.in and click on Services > Registration > New Registration." },
+        { name: "Step 2: Generate TRN", text: "Fill Part A with your PAN, Mobile Number, and Email ID to generate a Temporary Reference Number (TRN)." },
+        { name: "Step 3: Fill Part B", text: "Log in with your TRN and fill Part B with your business details, promoters, and authorized signatories." },
+        { name: "Step 4: Upload Documents", text: "Upload photographs, proof of address, and bank details." },
+        { name: "Step 5: Verify via Aadhaar", text: "Complete Aadhaar authentication to expedite the registration process." }
+      ]
+    })
+  ]
+};
+
+export const metadata = generateMetadata(metadataObj);
+
+export default function Layout({ children }) {
+  return <ArticleLayout meta={metadataObj}>{children}</ArticleLayout>;
+}
+
+Registering for GST is mandatory for many businesses and freelancers in India. This step-by-step guide walks you through the entire online registration process on the official portal.
+
+## Who Needs to Register for GST?
+
+For most service providers (including freelancers), GST registration is mandatory if your aggregate turnover exceeds **₹20 Lakhs** in a financial year (or ₹10 Lakhs in Special Category States). For businesses exclusively supplying goods, the limit is **₹40 Lakhs**.
+
+*Note: If you are an Indian freelancer with international clients, you must register for GST and file a LUT to export services without paying IGST, even if your turnover is below ₹20 Lakh.*
+
+## Step-by-Step Process to Register Online
+
+Follow these steps on the official [GST Portal](https://www.gst.gov.in):
+
+### 1. Generate a TRN (Temporary Reference Number)
+- Go to **Services > Registration > New Registration**.
+- Fill out **Part A** using your Legal Name, PAN, Email, and Mobile Number.
+- Verify via OTP to receive your TRN.
+
+### 2. Complete Part B of the Application
+- Log in using the TRN.
+- You will need to fill in comprehensive details about your business, proprietors/partners, and principal place of business.
+
+### 3. Upload the Required Documents
+Have the following ready in digital format:
+- PAN Card
+- Aadhaar Card
+- Proof of Business Address (Rent agreement, electricity bill)
+- Bank Account Proof (Cancelled cheque or passbook extract)
+
+### 4. Aadhaar Authentication
+Opting for Aadhaar authentication significantly speeds up the approval process. You will receive an authentication link on your registered email and mobile number.
+
+### 5. Receive your GSTIN
+Once submitted, an Application Reference Number (ARN) is generated. You can use this to track your status. Once approved by the tax officer, your 15-digit **GSTIN** and certificate will be issued.
+
+## Next Steps After Registration
+
+Once you receive your GSTIN, you must begin charging GST (if applicable) and filing regular returns. You can use our <Link href="/gst-invoice-generator">Free GST Invoice Generator</Link> to create professional, compliant invoices for your clients. To calculate the exact tax breakdown, use our <Link href="/gst-calculator">GST Calculator</Link>.

@@ -1,0 +1,183 @@
+import ArticleLayout from '../../../components/article/ArticleLayout';
+import { generateMetadata } from '../../../lib/seo';
+import { generateFAQSchema } from '../../../lib/schema';
+import Link from 'next/link';
+
+export const metadataObj = {
+  title: "IGST vs CGST vs SGST: Difference, Meaning & Examples",
+  description: "Understand the difference between IGST, CGST and SGST in India with simple examples. Learn when GST is intra-state or inter-state and calculate GST using KaroTools.",
+  path: "/guides/igst-vs-cgst-explained-india",
+  datePublished: "2026-06-16T10:00:00Z",
+  keywords: [
+    "igst vs cgst explained india",
+    "IGST vs CGST vs SGST",
+    "CGST SGST IGST difference",
+    "intra-state vs inter-state GST",
+    "when is IGST applicable",
+    "when CGST and SGST apply",
+    "GST invoice IGST CGST SGST",
+    "GST tax breakdown India"
+  ],
+  schemas: [
+    generateFAQSchema([
+      {
+        question: "What is the difference between IGST and CGST?",
+        answer: "IGST (Integrated GST) is collected by the Central Government on inter-state sales (between two different states). CGST (Central GST) is collected by the Central Government on intra-state sales (within the same state) alongside SGST."
+      },
+      {
+        question: "What is the difference between CGST and SGST?",
+        answer: "Both apply to intra-state sales. CGST is the central government's share of the tax revenue, while SGST is the state government's share. They are always charged together at equal rates."
+      },
+      {
+        question: "When is IGST applicable?",
+        answer: "IGST is applicable on inter-state supply of goods or services, meaning the supplier and the place of supply are in different states or union territories. It also applies to imports and exports."
+      },
+      {
+        question: "When do CGST and SGST apply?",
+        answer: "They apply when the supplier and the place of supply are in the same state or union territory (intra-state supply)."
+      },
+      {
+        question: "Is IGST used for inter-state supply?",
+        answer: "Yes, IGST is the only tax used for inter-state supply."
+      },
+      {
+        question: "How is GST split in the same state?",
+        answer: "If the total GST rate is 18%, it is split equally into 9% CGST and 9% SGST for transactions within the same state."
+      },
+      {
+        question: "How do I calculate IGST, CGST and SGST?",
+        answer: "Determine your state and your buyer's state. If they are the same, divide the total GST rate by 2 for CGST and SGST. If they are different, apply the full rate as IGST. You can use KaroTools' GST Calculator to do this instantly."
+      },
+      {
+        question: "Which tax should be shown on a GST invoice?",
+        answer: "If selling within your state, show both CGST and SGST columns on your invoice. If selling to another state, show only the IGST column. KaroTools Invoice Generator does this automatically."
+      }
+    ])
+  ]
+};
+
+export const metadata = generateMetadata(metadataObj);
+
+export default function Page({ children }) {
+  return <ArticleLayout meta={metadataObj}>{children}</ArticleLayout>;
+}
+
+# IGST vs CGST vs SGST: Difference, Meaning & Examples
+
+If you are a freelancer or small business owner who has recently completed [GST Registration Online](/blog/how-to-register-gst-online), one of the most confusing aspects of generating bills is the **GST tax breakdown India**. You must know exactly when to apply Integrated GST (IGST), Central GST (CGST), and State GST (SGST).
+
+In this complete guide on **IGST vs CGST explained India**, we'll break down the differences, give you clear examples, and show you exactly what to put on your invoices.
+
+## What is IGST, CGST and SGST?
+
+When the Goods and Services Tax was introduced in India, it replaced a complex web of older indirect taxes. To ensure both the Central and State governments receive their fair share of revenue, the system was divided into three primary components:
+
+* **CGST (Central Goods and Services Tax):** Revenue collected by the Central Government.
+* **SGST (State Goods and Services Tax):** Revenue collected by the State Government where the transaction takes place.
+* **IGST (Integrated Goods and Services Tax):** Revenue collected by the Central Government for inter-state transactions, which is later apportioned to the destination state.
+
+## What is the Difference Between IGST and CGST?
+
+The core **CGST SGST IGST difference** comes down to the location of the buyer and the seller. 
+
+**CGST** is always charged *alongside* SGST when you sell to someone in your own state. **IGST** is charged by itself when you sell to someone in a different state. You will never charge CGST and IGST on the same invoice item.
+
+## Intra-State Supply: CGST + SGST
+
+An **intra-state** supply occurs when the location of the supplier and the place of supply are in the **same state** or union territory. 
+
+**When CGST and SGST apply:** If your business is registered in Maharashtra and you provide consulting services to a client also located in Maharashtra, this is an intra-state supply. You must split the total GST rate equally between CGST and SGST.
+
+## Inter-State Supply: IGST
+
+An **inter-state** supply occurs when the supplier and the place of supply are in **different states**.
+
+**When is IGST applicable:** If your business is in Karnataka and you sell software to a client in Delhi, this is an inter-state supply. Instead of splitting the tax, you charge the entire GST amount under a single head: IGST.
+
+<div style={{ background: "rgba(56, 189, 248, 0.05)", border: "1px solid rgba(56, 189, 248, 0.2)", padding: "24px", borderRadius: "16px", margin: "32px 0" }}>
+  <h3 style={{ color: "#38bdf8", marginTop: 0 }}>Instantly Calculate Your Tax Breakdown</h3>
+  <p style={{ marginBottom: "16px" }}>
+    Don't want to calculate the splits manually? Use our free GST Calculator to calculate CGST, SGST and IGST instantly.
+  </p>
+  <Link data-analytics="guide_cta_gst_calculator_click" href="/gst-calculator" style={{ display: "inline-block", background: "#38bdf8", color: "#0f172a", padding: "10px 20px", borderRadius: "8px", textDecoration: "none", fontWeight: "600" }}>
+    Open Free GST Calculator →
+  </Link>
+</div>
+
+## IGST vs CGST vs SGST Example
+
+Let’s look at a practical **intra-state vs inter-state GST** example. Suppose you are a web developer based in Bangalore (Karnataka) offering a service worth ₹10,000. The standard GST rate for your service is 18%.
+
+**Scenario A: Client is in Karnataka (Intra-state)**
+* If seller and buyer are in the same state, GST is split into CGST + SGST.
+* Base Value: ₹10,000
+* CGST (9%): ₹900
+* SGST (9%): ₹900
+* Total Invoice Value: ₹11,800
+
+**Scenario B: Client is in Mumbai (Inter-state)**
+* If seller and buyer are in different states, IGST applies.
+* Base Value: ₹10,000
+* IGST (18%): ₹1,800
+* Total Invoice Value: ₹11,800
+
+Notice that the total amount the customer pays (₹11,800) remains exactly the same. Only the classification changes.
+
+## How GST Appears on an Invoice
+
+When setting up your **GST invoice IGST CGST SGST** columns, you must clearly distinguish the taxes. 
+
+If you are using a [GST Invoice Format in Excel](/guides/gst-invoice-format-excel), you should ideally have separate columns for CGST, SGST, and IGST. For intra-state bills, leave the IGST column blank. For inter-state bills, leave the CGST/SGST columns blank.
+
+<div style={{ background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.2)", padding: "24px", borderRadius: "16px", margin: "32px 0" }}>
+  <h3 style={{ color: "#34d399", marginTop: 0 }}>Automate Your Invoices</h3>
+  <p style={{ marginBottom: "16px" }}>
+    Create a GST invoice with the correct tax breakdown using our free Invoice Generator. Simply enter your state and your client's state, and we handle the IGST vs CGST logic for you!
+  </p>
+  <Link data-analytics="guide_cta_invoice_generator_click" href="/gst-invoice-generator" style={{ display: "inline-block", background: "#10b981", color: "#fff", padding: "10px 20px", borderRadius: "8px", textDecoration: "none", fontWeight: "600" }}>
+    Use Free Invoice Generator →
+  </Link>
+</div>
+
+## How to Calculate IGST, CGST and SGST
+
+To summarize the calculation rules:
+1. Determine the Base Price of your goods or services.
+2. Determine the applicable GST slab (e.g., 5%, 12%, 18%, 28%).
+3. Determine the Place of Supply.
+4. If State = State, apply `(GST Rate / 2)` as CGST and `(GST Rate / 2)` as SGST.
+5. If State ≠ State, apply the full `GST Rate` as IGST.
+
+*(Note: Businesses enrolled in the [GST Composition Scheme](/blog/gst-composition-scheme-limits) cannot collect these taxes from their customers on invoices.)*
+
+## Common Mistakes to Avoid
+
+* **Charging IGST within your own state:** This will cause mismatches in the government portal and your client will not be able to claim Input Tax Credit (ITC).
+* **Using SGST for a Union Territory:** If you operate in a Union Territory without a legislature (like Chandigarh or Andaman), you apply UTGST instead of SGST.
+* **Rounding Errors:** Make sure your fractional paise are rounded correctly to avoid filing discrepancies.
+
+## Frequently Asked Questions
+
+**What is the difference between IGST and CGST?**  
+IGST (Integrated GST) is collected by the Central Government on inter-state sales (between two different states). CGST (Central GST) is collected by the Central Government on intra-state sales (within the same state) alongside SGST.
+
+**What is the difference between CGST and SGST?**  
+Both apply to intra-state sales. CGST is the central government's share of the tax revenue, while SGST is the state government's share. They are always charged together at equal rates.
+
+**When is IGST applicable?**  
+IGST is applicable on inter-state supply of goods or services, meaning the supplier and the place of supply are in different states or union territories. It also applies to imports and exports.
+
+**When do CGST and SGST apply?**  
+They apply when the supplier and the place of supply are in the same state or union territory (intra-state supply).
+
+**Is IGST used for inter-state supply?**  
+Yes, IGST is the only tax used for inter-state supply.
+
+**How is GST split in the same state?**  
+If the total GST rate is 18%, it is split equally into 9% CGST and 9% SGST for transactions within the same state.
+
+**How do I calculate IGST, CGST and SGST?**  
+Determine your state and your buyer's state. If they are the same, divide the total GST rate by 2 for CGST and SGST. If they are different, apply the full rate as IGST. You can use KaroTools' GST Calculator to do this instantly.
+
+**Which tax should be shown on a GST invoice?**  
+If selling within your state, show both CGST and SGST columns on your invoice. If selling to another state, show only the IGST column. KaroTools Invoice Generator does this automatically.

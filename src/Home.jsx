@@ -503,6 +503,39 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── LATEST GST GUIDES ─────────────────────────────────── */}
+      <section style={{ position: "relative", zIndex: 1, padding: "100px 5vw", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
+        <div style={{ maxWidth: 1000, margin: "0 auto" }}>
+          <Reveal>
+            <div style={{ textAlign: "center", marginBottom: 56 }}>
+              <p style={{ fontSize: 12, fontWeight: 700, color: "#10b981", letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: 14 }}>— LEARN —</p>
+              <h2 style={{ fontSize: "clamp(26px, 3.5vw, 44px)", fontWeight: 800, fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", letterSpacing: "-0.02em" }}>Latest GST Guides</h2>
+            </div>
+          </Reveal>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(300px, 100%), 1fr))", gap: 20 }}>
+            {[
+              { category: "Registration", title: "How to Register for GST Online in India", desc: "A complete step-by-step guide to GST registration online in India. Learn the portal steps, documents required, and limits.", link: "/blog/how-to-register-gst-online" },
+              { category: "Rules", title: "GST Composition Scheme Limit 2026", desc: "Learn the GST Composition Scheme limit, eligibility rules, rates, who can opt, and regular GST vs composition GST.", link: "/blog/gst-composition-scheme-limits" },
+              { category: "Invoicing", title: "Free GST Invoice Format in Excel", desc: "A detailed guide on mandatory GST invoice fields and how to use our free format.", link: "/guides/gst-invoice-format-excel" },
+            ].map((item, i) => (
+              <Reveal key={item.title} delay={i * 0.1}>
+                <Link href={item.link} style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
+                  <div style={{ height: '100%', display: 'flex', flexDirection: 'column', background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 24, padding: "28px 24px", transition: "transform 0.2s ease, background 0.3s", position: "relative", overflow: "hidden" }}>
+                    <span style={{ background: "rgba(16,185,129,0.1)", color: "#34d399", padding: "4px 10px", borderRadius: "20px", fontSize: "11px", fontWeight: "700", alignSelf: "flex-start", marginBottom: "16px" }}>{item.category}</span>
+                    <h3 style={{ fontSize: 18, fontWeight: 700, color: "#f1f5f9", marginBottom: 12, fontFamily: "'Plus Jakarta Sans',sans-serif", lineHeight: 1.4 }}>{item.title}</h3>
+                    <p style={{ fontSize: 14, color: "#94a3b8", lineHeight: 1.65, flexGrow: 1 }}>{item.desc}</p>
+                    <div style={{ marginTop: 16, color: "#10b981", fontSize: 14, fontWeight: 600 }}>Read guide →</div>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+          <div style={{ textAlign: "center", marginTop: 40 }}>
+            <Link href="/blog" style={{ color: "#cbd5e1", fontSize: 15, fontWeight: 600, textDecoration: "none", borderBottom: "1px solid #cbd5e1", paddingBottom: 2 }}>View all guides</Link>
+          </div>
+        </div>
+      </section>
+
       {/* ── FAQ ──────────────────────────────────────────────── */}
       <section style={{ position: "relative", zIndex: 1, padding: "100px 5vw", borderTop: "1px solid rgba(255,255,255,0.04)", background: "rgba(255,255,255,0.01)" }}>
         <div style={{ maxWidth: 780, margin: "0 auto" }}>

@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { sendGAEvent } from "@next/third-parties/google";
 
 export default function LateGSTPenalty() {
   const [dueDate, setDueDate] = useState(() => {
@@ -14,36 +15,6 @@ export default function LateGSTPenalty() {
   const [liability, setLiability] = useState("");
   const [result, setResult] = useState(null);
 
-  // SEO
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    document.title = "Late GST Penalty Calculator India | KaroTools";
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.name = "description";
-      document.head.appendChild(metaDescription);
-    }
-    metaDescription.content = "Instantly calculate your late fee and 18% interest penalty for delayed GSTR-3B or GSTR-1 filing in India. Free tool for freelancers.";
-
-    // FAQ Schema
-    const faqSchemaScript = document.createElement('script');
-    faqSchemaScript.type = 'application/ld+json';
-    faqSchemaScript.innerHTML = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        { "@type": "Question", "name": "What is the late fee for GST filing in India?", "acceptedAnswer": { "@type": "Answer", "text": "The standard late fee is ₹50 per day for normal returns (₹25 CGST + ₹25 SGST) and ₹20 per day for Nil returns." } },
-        { "@type": "Question", "name": "How is interest calculated on late GST payments?", "acceptedAnswer": { "@type": "Answer", "text": "Interest is charged at 18% per annum on the net tax liability, calculated for the exact number of days delayed." } },
-        { "@type": "Question", "name": "Do I have to pay a penalty for a Nil Return?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. A penalty of ₹20 per day applies for late filing of Nil returns even if tax liability is zero." } }
-      ]
-    });
-    document.head.appendChild(faqSchemaScript);
-
-    return () => {
-      if (document.head.contains(faqSchemaScript)) document.head.removeChild(faqSchemaScript);
-    };
-  }, []);
 
   useEffect(() => {
     const dDate = new Date(dueDate);
@@ -85,6 +56,11 @@ export default function LateGSTPenalty() {
       interest: calculatedInterest,
       total: calculatedLateFee + calculatedInterest
     });
+
+    const timeoutId = setTimeout(() => {
+      sendGAEvent("event", "gst_late_fee_calculated", { tool_name: "Late Fee Calculator", days_delayed: diffDays });
+    }, 1000);
+    return () => clearTimeout(timeoutId);
 
   }, [dueDate, filingDate, isNil, liability]);
 
@@ -245,34 +221,6 @@ export default function LateGSTPenalty() {
 
           </div>
         )}
-
-        {/* DISCLAIMER */}
-        <div style={{ marginTop: "32px", padding: "20px", background: "rgba(245, 158, 11, 0.1)", border: "1px solid rgba(245, 158, 11, 0.3)", borderRadius: "16px", display: "flex", gap: "16px", alignItems: "flex-start" }}>
-          <span style={{ fontSize: "24px" }}>⚠️</span>
-          <div>
-            <h4 style={{ color: "#fbbf24", fontSize: "14px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "4px" }}>IMPORTANT DISCLAIMER</h4>
-            <p style={{ color: "#cbd5e1", fontSize: "14px", lineHeight: 1.6 }}>
-              This tool provides estimated calculations based on standard Indian GST rules (₹50/day normal, ₹20/day nil) and Section 50 interest rates (18% p.a.). Actual penalties may vary based on portal calculations, turnover caps, and government notifications. Please consult a Chartered Accountant (CA) before making final tax payments.
-            </p>
-          </div>
-        </div>
-
-        {/* FAQ SECTION */}
-        <div style={{ marginTop: "64px", animation: "fadeIn 1s cubic-bezier(0.16, 1, 0.3, 1)" }}>
-          <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "24px", color: "#f8fafc" }}>Frequently Asked Questions</h2>
-          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-            {[
-              { q: "What is the late fee for GST filing in India?", a: "The standard late fee is ₹50 per day for normal returns (₹25 CGST + ₹25 SGST) and ₹20 per day for Nil returns (₹10 CGST + ₹10 SGST). This is often capped based on your business turnover." },
-              { q: "How is interest calculated on late GST payments?", a: "Under Section 50 of the CGST Act, interest is charged at 18% per annum on the net tax liability (the actual tax you owe in cash). It is calculated precisely for the exact number of days delayed." },
-              { q: "Do I have to pay a penalty for a Nil Return?", a: "Yes. Even if your business had zero sales and zero tax liability, you are still legally required to file a Nil return. If you file late, a penalty of ₹20 per day applies." },
-            ].map((faq, i) => (
-              <div key={i} className="glass-panel" style={{ padding: "20px 24px", borderRadius: "16px" }}>
-                <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#f1f5f9", marginBottom: "8px" }}>{faq.q}</h3>
-                <p style={{ color: "#94a3b8", fontSize: "15px", lineHeight: 1.6 }}>{faq.a}</p>
-              </div>
-            ))}
-          </div>
-        </div>
 
       </div>
     </div>

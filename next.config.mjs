@@ -1,6 +1,18 @@
+import createMDX from '@next/mdx';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   reactStrictMode: true,
+  async redirects() {
+    return [
+      {
+        source: '/gst-invoice-generator',
+        destination: '/invoice-generator',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
@@ -32,4 +44,7 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+const withMDX = createMDX({});
+
+export default withMDX(nextConfig);
+

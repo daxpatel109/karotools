@@ -1,4 +1,4 @@
-export const metadata = { title: "Complete GST Guide For Indian Freelancers — KaroTools" };
+export const metadata = { title: "Complete GST Guide For Indian Freelancers — KaroTools", description: "A comprehensive guide to GST for Indian freelancers. Learn about registration limits, composition schemes, invoicing, and return filing." };
 import Link from "next/link";
 
 export default function Guide1() {

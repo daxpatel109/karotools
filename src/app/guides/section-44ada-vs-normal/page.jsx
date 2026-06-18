@@ -1,4 +1,4 @@
-export const metadata = { title: "Section 44ADA vs Normal Tax Guide For India — KaroTools" };
+export const metadata = { title: "Section 44ADA vs Normal Tax Guide For India — KaroTools", description: "Compare Section 44ADA presumptive taxation against the normal tax regime to find the best tax-saving strategy for your freelance business." };
 import Link from "next/link";
 
 export default function Guide3() {

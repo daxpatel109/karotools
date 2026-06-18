@@ -1,4 +1,4 @@
-export const metadata = { title: "How to Price Freelance Services In India — KaroTools" };
+export const metadata = { title: "How to Price Freelance Services In India — KaroTools", description: "Learn how to calculate your hourly rate, factor in taxes and expenses, and effectively price your freelance services in India." };
 import Link from "next/link";
 
 export default function Guide2() {

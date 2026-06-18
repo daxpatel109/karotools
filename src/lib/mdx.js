@@ -12,13 +12,32 @@ export function getMdxPages(directory) {
   
   for (const dir of dirs) {
     const mdxPath = path.join(targetDir, dir.name, 'page.mdx');
+    const jsxPath = path.join(targetDir, dir.name, 'page.jsx');
+    
     if (fs.existsSync(mdxPath)) {
       const content = fs.readFileSync(mdxPath, 'utf8');
       
-      // Simple regex extraction for metadataObj
       const titleMatch = content.match(/title:\s*["']([^"']+)["']/);
       const descMatch = content.match(/description:\s*["']([^"']+)["']/);
       const dateMatch = content.match(/datePublished:\s*["']([^"']+)["']/);
+      
+      if (titleMatch && descMatch) {
+        posts.push({
+          slug: dir.name,
+          title: titleMatch[1],
+          description: descMatch[1],
+          date: dateMatch ? dateMatch[1] : new Date().toISOString(),
+          path: `/${directory}/${dir.name}`,
+          category: directory === 'blog' ? 'Tax & Compliance' : 'Practical Guide',
+          readTime: Math.max(1, Math.ceil(content.split(' ').length / 200)) + " min read"
+        });
+      }
+    } else if (fs.existsSync(jsxPath)) {
+      const content = fs.readFileSync(jsxPath, 'utf8');
+      
+      const titleMatch = content.match(/"headline":\s*["']([^"']+)["']/);
+      const descMatch = content.match(/"description":\s*["']([^"']+)["']/);
+      const dateMatch = content.match(/"datePublished":\s*["']([^"']+)["']/);
       
       if (titleMatch && descMatch) {
         posts.push({

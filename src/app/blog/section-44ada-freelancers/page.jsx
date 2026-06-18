@@ -17,7 +17,7 @@ const articleSchema = {
     "logo": { "@type": "ImageObject", "url": "https://karotools.in/logo.png" }
   },
   "datePublished": "2026-06-14",
-  "dateModified": "2026-06-14",
+  "dateModified": "2026-06-18",
   "mainEntityOfPage": "https://karotools.in/blog/section-44ada-freelancers",
   "inLanguage": "en-IN"
 };

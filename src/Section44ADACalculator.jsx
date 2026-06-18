@@ -321,6 +321,14 @@ export default function TaxCalculator() {
             )}
           </div>
 
+          {/* Detailed Guide CTA */}
+          <div style={{ marginTop: "32px", textAlign: "center", background: "rgba(56,189,248,0.05)", border: "1px dashed rgba(56,189,248,0.2)", padding: "24px", borderRadius: "16px" }}>
+            <h3 style={{ fontSize: "16px", color: "#f8fafc", margin: "0 0 8px 0" }}>Want to see real examples and detailed rules?</h3>
+            <Link href="/blog/section-44ada-freelancers" style={{ color: "#38bdf8", textDecoration: "none", fontSize: "15px", fontWeight: "600" }}>
+              Read the Full Section 44ADA Guide →
+            </Link>
+          </div>
+
           {/* SEO FAQs */}
           <div style={{ marginTop: "64px", borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: "48px" }}>
             <h2 style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc", marginBottom: "28px", textAlign: "center" }}>Frequently Asked Questions</h2>

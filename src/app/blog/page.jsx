@@ -21,6 +21,20 @@ export const metadata = generateMetadata({
 
 export default function BlogIndex() {
   const posts = getMdxPages('blog');
+  
+  // Manually add the 44ADA guide since it's a JSX file, not MDX
+  posts.push({
+    slug: "section-44ada-freelancers",
+    title: "Section 44ADA for Freelancers India: Tax Saving Guide FY 2026-27",
+    description: "A practical guide to Section 44ADA presumptive taxation for Indian freelancers covering eligibility, the 50% rule, ₹50 lakh and ₹75 lakh limits, advance tax, ITR-4 filing, GST and examples.",
+    date: "2026-06-18T10:00:00Z",
+    path: "/blog/section-44ada-freelancers",
+    category: "Tax & Compliance",
+    readTime: "6 min read"
+  });
+  
+  // Re-sort by date just in case
+  posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
   return (
     <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans', sans-serif", color: "#f8fafc" }}>

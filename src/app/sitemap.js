@@ -22,6 +22,7 @@ export default function sitemap() {
     { path: "/contact", priority: 0.5, freq: "yearly" },
     { path: "/privacy-policy", priority: 0.5, freq: "yearly" },
     { path: "/terms", priority: 0.5, freq: "yearly" },
+    { path: "/blog/section-44ada-freelancers", priority: 0.8, freq: "monthly" },
   ];
 
   const sitemapItems = routes.map((route) => ({

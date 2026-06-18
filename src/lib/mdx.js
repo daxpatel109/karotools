@@ -35,16 +35,20 @@ export function getMdxPages(directory) {
     } else if (fs.existsSync(jsxPath)) {
       const content = fs.readFileSync(jsxPath, 'utf8');
       
-      const titleMatch = content.match(/"headline":\s*["']([^"']+)["']/);
-      const descMatch = content.match(/"description":\s*["']([^"']+)["']/);
-      const dateMatch = content.match(/"datePublished":\s*["']([^"']+)["']/);
+      let titleMatch = content.match(/"headline":\s*["']([^"']+)["']/);
+      let descMatch = content.match(/"description":\s*["']([^"']+)["']/);
+      let dateMatch = content.match(/"datePublished":\s*["']([^"']+)["']/);
       
+      if (!titleMatch) titleMatch = content.match(/title:\s*["']([^"']+)["']/);
+      if (!descMatch) descMatch = content.match(/description:\s*["']([^"']+)["']/);
+      if (!dateMatch) dateMatch = content.match(/date:\s*["']([^"']+)["']/);
+
       if (titleMatch && descMatch) {
         posts.push({
           slug: dir.name,
           title: titleMatch[1],
           description: descMatch[1],
-          date: dateMatch ? dateMatch[1] : new Date().toISOString(),
+          date: dateMatch ? dateMatch[1] : new Date('2026-06-15').toISOString(), // Fallback date
           path: `/${directory}/${dir.name}`,
           category: directory === 'blog' ? 'Tax & Compliance' : 'Practical Guide',
           readTime: Math.max(1, Math.ceil(content.split(' ').length / 200)) + " min read"

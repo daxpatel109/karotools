@@ -243,48 +243,34 @@ export default function BlogPost() {
             </div>
           </div>
 
-          <h2>Real Example: Freelancer Earning ₹18 Lakh in FY 2026-27</h2>
+          <h2>Real Example: Freelance UI/UX Designer</h2>
 
-          <p>Let's take a freelancer with eligible professional receipts of ₹18 lakh. Under Section 44ADA, 50% is treated as presumptive professional income.</p>
+          <p>Let's take a hypothetical example: Rohan is a freelance UI/UX designer earning ₹15,00,000 in a financial year.</p>
 
           <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "12px", padding: "24px", margin: "32px 0" }}>
-            <h4 style={{ marginTop: 0, marginBottom: "20px", fontSize: "16px", fontWeight: "800", color: "#fff" }}>📊 Example: ₹18,00,000 gross receipts under Section 44ADA</h4>
+            <h4 style={{ marginTop: 0, marginBottom: "20px", fontSize: "16px", fontWeight: "800", color: "#fff" }}>📊 Example: Rohan's ₹15,00,000 gross receipts under Section 44ADA</h4>
             <div style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px dashed rgba(255,255,255,0.1)" }}>
-              <span style={{ color: "#94a3b8" }}>Gross professional receipts</span>
-              <span style={{ fontWeight: "700", color: "#fff" }}>₹18,00,000</span>
+              <span style={{ color: "#94a3b8" }}>Gross receipts</span>
+              <span style={{ fontWeight: "700", color: "#fff" }}>₹15,00,000</span>
             </div>
             <div style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px dashed rgba(255,255,255,0.1)" }}>
-              <span style={{ color: "#94a3b8" }}>Deemed expenses under 44ADA: 50%</span>
-              <span style={{ fontWeight: "700", color: "#fff" }}>₹9,00,000</span>
+              <span style={{ color: "#94a3b8" }}>Presumptive income under 44ADA (50%)</span>
+              <span style={{ fontWeight: "700", color: "#fff" }}>₹7,50,000</span>
             </div>
-            <div style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px dashed rgba(255,255,255,0.1)" }}>
-              <span style={{ color: "#94a3b8" }}>Presumptive professional income</span>
-              <span style={{ fontWeight: "700", color: "#fff" }}>₹9,00,000</span>
+            <div style={{ marginTop: "16px", color: "#94a3b8", fontSize: "14px", lineHeight: "1.6" }}>
+              Tax is calculated on the taxable income of ₹7,50,000 after any other applicable deductions or rebate rules under the chosen tax regime. By opting for Section 44ADA, Rohan may reduce his compliance burden as he does not need to maintain detailed books of account or get an audit.
             </div>
-            <div style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px dashed rgba(255,255,255,0.1)" }}>
-              <span style={{ color: "#94a3b8" }}>New regime tax before rebate</span>
-              <span style={{ fontWeight: "700", color: "#fff" }}>₹30,000</span>
-            </div>
-            <div style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px dashed rgba(255,255,255,0.1)" }}>
-              <span style={{ color: "#94a3b8" }}>Section 87A rebate, because taxable income is within ₹12 lakh</span>
-              <span style={{ fontWeight: "700", color: "#34d399" }}>− ₹30,000</span>
-            </div>
-            <div style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px dashed rgba(255,255,255,0.1)" }}>
-              <span style={{ color: "#94a3b8" }}>Health & Education Cess</span>
-              <span style={{ fontWeight: "700", color: "#fff" }}>₹0</span>
-            </div>
-            <div style={{ display: "flex", justifyContent: "space-between", padding: "16px 0 0 0", borderTop: "2px solid rgba(255,255,255,0.2)" }}>
-              <span style={{ color: "#fff", fontWeight: "800", fontSize: "16px" }}>Estimated income tax payable</span>
-              <span style={{ fontWeight: "800", color: "#38bdf8", fontSize: "20px" }}>₹0</span>
+            <div style={{ marginTop: "24px", textAlign: "center" }}>
+              <Link href="/44ada-tax-calculator" style={{ display: "inline-block", background: "#38bdf8", color: "#0f172a", padding: "10px 20px", borderRadius: "8px", textDecoration: "none", fontWeight: "600" }}>
+                Use 44ADA Tax Calculator →
+              </Link>
             </div>
           </div>
 
-          <div className={styles.highlightBox} style={{ borderLeft: "4px solid #34d399", background: "rgba(52,211,153,0.05)" }}>
-            <p style={{ color: "#34d399", margin: 0 }}>✅ <strong>Correct calculation note</strong><br/>
-            For a freelancer-only professional income example, do not blindly subtract the ₹75,000 salary standard deduction. Standard deduction generally applies to salary or pension income, not pure professional receipts. If you have salary plus freelance income, calculate both heads separately.</p>
+          <div className={styles.highlightBox} style={{ borderLeft: "4px solid #f59e0b", background: "rgba(245,158,11,0.05)" }}>
+            <p style={{ color: "#fcd34d", margin: 0 }}>⚠️ <strong>Disclaimer</strong><br/>
+            This example is for education only. Actual tax depends on deductions, regime, rebates, other income, and latest Income Tax rules.</p>
           </div>
-
-          <p>Without Section 44ADA, the same freelancer would need to calculate actual income after real expenses. If actual expenses were only ₹2 lakh, professional profit could become ₹16 lakh instead of ₹9 lakh, creating a much higher tax bill. This is why 44ADA can be powerful for low-expense professionals.</p>
 
           <h2>New Tax Regime vs Old Tax Regime With Section 44ADA</h2>
 

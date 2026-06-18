@@ -38,38 +38,115 @@ export default function Layout({ children }) {
 
 Registering for GST is mandatory for many businesses and freelancers in India. This step-by-step guide walks you through the entire online registration process on the official portal.
 
-## Who Needs to Register for GST?
+## 1. Before You Start: Documents Needed
 
-For most service providers (including freelancers), GST registration is mandatory if your aggregate turnover exceeds **₹20 Lakhs** in a financial year (or ₹10 Lakhs in Special Category States). For businesses exclusively supplying goods, the limit is **₹40 Lakhs**.
+Before you open the portal, gather digital copies of your documents. Having everything ready ensures your session won't time out.
 
-*Note: If you are an Indian freelancer with international clients, you must register for GST and file a LUT to export services without paying IGST, even if your turnover is below ₹20 Lakh.*
-
-## Step-by-Step Process to Register Online
-
-Follow these steps on the official [GST Portal](https://www.gst.gov.in):
-
-### 1. Generate a TRN (Temporary Reference Number)
-- Go to **Services > Registration > New Registration**.
-- Fill out **Part A** using your Legal Name, PAN, Email, and Mobile Number.
-- Verify via OTP to receive your TRN.
-
-### 2. Complete Part B of the Application
-- Log in using the TRN.
-- You will need to fill in comprehensive details about your business, proprietors/partners, and principal place of business.
-
-### 3. Upload the Required Documents
-Have the following ready in digital format:
-- PAN Card
+- PAN Card of the business/proprietor
 - Aadhaar Card
-- Proof of Business Address (Rent agreement, electricity bill)
+- Proof of Business Address (Rent agreement, electricity bill, or NOC)
 - Bank Account Proof (Cancelled cheque or passbook extract)
+- Photograph of the proprietor/directors
 
-### 4. Aadhaar Authentication
-Opting for Aadhaar authentication significantly speeds up the approval process. You will receive an authentication link on your registered email and mobile number.
+<div style={{ background: "rgba(16, 185, 129, 0.05)", borderLeft: "4px solid #10b981", padding: "16px", margin: "24px 0", borderRadius: "0 8px 8px 0" }}>
+  <strong style={{ color: "#10b981" }}>Pro Tip:</strong> Keep your PAN, Aadhaar, address proof, and bank details ready in clear JPEG or PDF format before starting. Ensure your name matches exactly across your PAN and Aadhaar.
+</div>
 
-### 5. Receive your GSTIN
-Once submitted, an Application Reference Number (ARN) is generated. You can use this to track your status. Once approved by the tax officer, your 15-digit **GSTIN** and certificate will be issued.
+## 2. Step 1: Visit GST Registration Portal
 
-## Next Steps After Registration
+First, navigate to the official Indian government GST portal.
 
-Once you receive your GSTIN, you must begin charging GST (if applicable) and filing regular returns. You can use our <Link href="/gst-invoice-generator">Free GST Invoice Generator</Link> to create professional, compliant invoices for your clients. To calculate the exact tax breakdown, use our <Link href="/gst-calculator">GST Calculator</Link>.
+- Open your browser and go to [https://www.gst.gov.in](https://www.gst.gov.in)
+- Click on **Services** > **Registration** > **New Registration**.
+
+<div style={{ border: "2px dashed rgba(255,255,255,0.2)", padding: "40px", textAlign: "center", color: "#64748b", margin: "24px 0", borderRadius: "12px", background: "rgba(0,0,0,0.2)" }}>
+  [GST portal screenshot placeholder]
+</div>
+
+## 3. Step 2: Generate TRN
+
+You must first generate a Temporary Reference Number (TRN).
+
+- Select "New Registration".
+- Choose your taxpayer type (usually "Taxpayer").
+- Select your State and District.
+- Enter your Legal Name (exactly as on PAN) and your PAN number.
+- Enter your active Email ID and Mobile Number.
+
+<div style={{ background: "rgba(16, 185, 129, 0.05)", borderLeft: "4px solid #10b981", padding: "16px", margin: "24px 0", borderRadius: "0 8px 8px 0" }}>
+  <strong style={{ color: "#10b981" }}>Pro Tip:</strong> Ensure you have access to both the email and mobile number immediately, as OTPs are sent to both.
+</div>
+
+<div style={{ border: "2px dashed rgba(255,255,255,0.2)", padding: "40px", textAlign: "center", color: "#64748b", margin: "24px 0", borderRadius: "12px", background: "rgba(0,0,0,0.2)" }}>
+  [TRN generation screenshot placeholder]
+</div>
+
+## 4. Step 3: Verify OTP
+
+After clicking proceed:
+- You will receive two separate OTPs (one on email, one on mobile).
+- Enter both OTPs to verify your contact details.
+- The system will instantly generate your **TRN**.
+
+<div style={{ background: "rgba(16, 185, 129, 0.05)", borderLeft: "4px solid #10b981", padding: "16px", margin: "24px 0", borderRadius: "0 8px 8px 0" }}>
+  <strong style={{ color: "#10b981" }}>Pro Tip:</strong> Save your TRN safely! It is valid for 15 days, allowing you to pause and resume your application.
+</div>
+
+## 5. Step 4: Fill Part B
+
+Log back in using your TRN and the new OTP. You now need to complete "Part B" of the application, which has several tabs.
+
+- **Business Details:** Trade name, constitution of business.
+- **Promoters/Partners:** Personal details, DIN, Aadhaar.
+- **Authorized Signatory:** Designate who will sign returns.
+- **Principal Place of Business:** Enter your exact address.
+
+<div style={{ background: "rgba(16, 185, 129, 0.05)", borderLeft: "4px solid #10b981", padding: "16px", margin: "24px 0", borderRadius: "0 8px 8px 0" }}>
+  <strong style={{ color: "#10b981" }}>Pro Tip:</strong> Use the exact, correct business address as it appears on your electricity bill or rent agreement. Even a small typo can cause rejection.
+</div>
+
+<div style={{ border: "2px dashed rgba(255,255,255,0.2)", padding: "40px", textAlign: "center", color: "#64748b", margin: "24px 0", borderRadius: "12px", background: "rgba(0,0,0,0.2)" }}>
+  [Part B form screenshot placeholder]
+</div>
+
+## 6. Step 5: Upload Documents
+
+In the respective tabs of Part B, you must upload your proof documents. Ensure files are within the maximum size limits (usually 100KB for photos, 1MB for PDFs). Upload your address proof and bank details carefully.
+
+## 7. Step 6: Submit Application
+
+After filling all tabs:
+- Go to the **Verification** tab.
+- Check the declaration box.
+- Submit the application using **DSC** (Digital Signature Certificate) or **EVC** (Electronic Verification Code via Aadhaar OTP).
+- You will receive an **Application Reference Number (ARN)** on your email to track your status.
+
+## 8. Common GST Registration Rejection Reasons
+
+If your application is rejected, it is usually due to:
+- Mismatch between PAN name and Trade name.
+- Blurry or illegible document uploads.
+- Rent agreement not stamped or expired.
+- NOC from the landlord missing for shared/residential addresses.
+
+## 9. What to Do After GST Registration
+
+Once approved, you will receive your 15-digit GSTIN. 
+- You must begin issuing compliant tax invoices. Use our <Link href="/invoice-generator" style={{ color: "#38bdf8", textDecoration: "none" }}>Free Invoice Generator</Link> to create compliant bills.
+- Start calculating exact tax breakdowns using our <Link href="/gst-calculator" style={{ color: "#38bdf8", textDecoration: "none" }}>GST Calculator</Link>.
+- Prepare to file your GSTR-1 and GSTR-3B on time.
+
+## 10. FAQ
+
+**How long does it take to get a GST number?**
+If you opt for Aadhaar authentication and all documents are correct, you usually receive your GSTIN within 3 to 7 working days.
+
+**Is there a government fee for GST registration?**
+No, GST registration on the official portal is 100% free.
+
+**Can I register for GST using my residential address?**
+Yes, freelancers and small business owners can use their home address. You will need to provide an electricity bill and a No Objection Certificate (NOC) from the owner (if the house is not in your name).
+
+## 11. Disclaimer
+
+*Note: The official GST portal interface may be updated periodically by the government. Always refer to the official gst.gov.in portal and consult a CA for business-specific compliance.*

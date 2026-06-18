@@ -100,6 +100,30 @@ export default function ArticleLayout({ children, meta }) {
           {children}
 
           <TaxDisclaimer />
+          
+          <div className="glass-panel" style={{ marginTop: "48px", padding: "32px", borderRadius: "16px", border: "1px solid rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.03)" }}>
+            <div style={{ display: "flex", gap: "24px", alignItems: "flex-start", flexWrap: "wrap" }}>
+              <div style={{ flex: 1, minWidth: "250px" }}>
+                <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#f8fafc", margin: "0 0 8px 0" }}>Written by: KaroTools Editorial Team</h3>
+                <p style={{ color: "#94a3b8", fontSize: "14px", lineHeight: "1.6", margin: "0 0 16px 0" }}>
+                  KaroTools creates free GST, tax, invoice, and business calculators for Indian freelancers and small businesses.
+                </p>
+                <div style={{ display: "flex", gap: "16px", fontSize: "14px" }}>
+                  <Link href="/about" style={{ color: "#38bdf8", textDecoration: "none" }}>About Us</Link>
+                  <Link href="/contact" style={{ color: "#38bdf8", textDecoration: "none" }}>Contact Support</Link>
+                </div>
+              </div>
+              <div style={{ flex: 1, minWidth: "250px", borderLeft: "1px solid rgba(255,255,255,0.1)", paddingLeft: "24px" }}>
+                <h4 style={{ fontSize: "14px", fontWeight: "600", color: "#cbd5e1", margin: "0 0 8px 0", textTransform: "uppercase", letterSpacing: "0.5px" }}>Accuracy Note</h4>
+                <p style={{ color: "#64748b", fontSize: "13px", lineHeight: "1.6", margin: "0 0 12px 0" }}>
+                  This guide is written for educational purposes and is updated periodically. GST and Income Tax rules may change. Please verify with the official GST portal, Income Tax portal, CBIC notifications, or your CA before filing.
+                </p>
+                <p style={{ color: "#64748b", fontSize: "13px", margin: 0 }}>
+                  Last updated: {new Date(meta.dateModified || meta.datePublished).toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}
+                </p>
+              </div>
+            </div>
+          </div>
         </article>
       </main>
     </div>

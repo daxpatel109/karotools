@@ -43,11 +43,11 @@ export function getMdxPages(directory) {
       if (!descMatch) descMatch = content.match(/description:\s*["']([^"']+)["']/);
       if (!dateMatch) dateMatch = content.match(/date:\s*["']([^"']+)["']/);
 
-      if (titleMatch && descMatch) {
+      if (titleMatch) {
         posts.push({
           slug: dir.name,
           title: titleMatch[1],
-          description: descMatch[1],
+          description: descMatch ? descMatch[1] : "",
           date: dateMatch ? dateMatch[1] : new Date('2026-06-15').toISOString(), // Fallback date
           path: `/${directory}/${dir.name}`,
           category: directory === 'blog' ? 'Tax & Compliance' : 'Practical Guide',

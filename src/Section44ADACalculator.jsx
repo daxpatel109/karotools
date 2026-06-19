@@ -51,30 +51,36 @@ export default function Section44ADACalculator() {
     let tax = 0;
     let slabBreakdown = [];
 
-    if (profit > 300000) {
-      const slab1 = Math.min(profit - 300000, 400000);
+    if (profit > 400000) {
+      const slab1 = Math.min(profit - 400000, 400000);
       tax += slab1 * 0.05;
-      slabBreakdown.push({ range: "₹3L - ₹7L", rate: "5%", tax: slab1 * 0.05 });
+      slabBreakdown.push({ range: "₹4L - ₹8L", rate: "5%", tax: slab1 * 0.05 });
 
-      if (profit > 700000) {
-        const slab2 = Math.min(profit - 700000, 300000);
+      if (profit > 800000) {
+        const slab2 = Math.min(profit - 800000, 400000);
         tax += slab2 * 0.10;
-        slabBreakdown.push({ range: "₹7L - ₹10L", rate: "10%", tax: slab2 * 0.10 });
+        slabBreakdown.push({ range: "₹8L - ₹12L", rate: "10%", tax: slab2 * 0.10 });
 
-        if (profit > 1000000) {
-          const slab3 = Math.min(profit - 1000000, 200000);
+        if (profit > 1200000) {
+          const slab3 = Math.min(profit - 1200000, 400000);
           tax += slab3 * 0.15;
-          slabBreakdown.push({ range: "₹10L - ₹12L", rate: "15%", tax: slab3 * 0.15 });
+          slabBreakdown.push({ range: "₹12L - ₹16L", rate: "15%", tax: slab3 * 0.15 });
 
-          if (profit > 1200000) {
-            const slab4 = Math.min(profit - 1200000, 300000);
+          if (profit > 1600000) {
+            const slab4 = Math.min(profit - 1600000, 400000);
             tax += slab4 * 0.20;
-            slabBreakdown.push({ range: "₹12L - ₹15L", rate: "20%", tax: slab4 * 0.20 });
+            slabBreakdown.push({ range: "₹16L - ₹20L", rate: "20%", tax: slab4 * 0.20 });
 
-            if (profit > 1500000) {
-              const slab5 = profit - 1500000;
-              tax += slab5 * 0.30;
-              slabBreakdown.push({ range: "> ₹15L", rate: "30%", tax: slab5 * 0.30 });
+            if (profit > 2000000) {
+              const slab5 = Math.min(profit - 2000000, 400000);
+              tax += slab5 * 0.25;
+              slabBreakdown.push({ range: "₹20L - ₹24L", rate: "25%", tax: slab5 * 0.25 });
+
+              if (profit > 2400000) {
+                const slab6 = profit - 2400000;
+                tax += slab6 * 0.30;
+                slabBreakdown.push({ range: "> ₹24L", rate: "30%", tax: slab6 * 0.30 });
+              }
             }
           }
         }
@@ -84,11 +90,11 @@ export default function Section44ADACalculator() {
     let rebate87A = 0;
     let marginalRelief = 0;
 
-    if (profit <= 700000) {
+    if (profit <= 1200000) {
       rebate87A = tax;
       tax = 0;
-    } else if (profit <= 727777) {
-      const excessIncome = profit - 700000;
+    } else {
+      const excessIncome = profit - 1200000;
       if (tax > excessIncome) {
         marginalRelief = tax - excessIncome;
         tax = excessIncome;
@@ -292,7 +298,12 @@ export default function Section44ADACalculator() {
                 {/* Side by Side Comparison */}
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "32px" }}>
                   {/* 44ADA Column */}
-                  <div style={{ opacity: data.isOverLimit ? 0.3 : 1 }}>
+                  <div style={{ opacity: data.isOverLimit ? 0.3 : 1, position: "relative", filter: data.isOverLimit ? "grayscale(100%)" : "none" }}>
+                    {data.isOverLimit && (
+                      <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", background: "rgba(0,0,0,0.8)", padding: "12px 16px", borderRadius: "12px", color: "#fca5a5", fontSize: "14px", fontWeight: "700", textAlign: "center", width: "85%", zIndex: 10, border: "1px solid rgba(248,113,113,0.3)", backdropFilter: "blur(4px)" }}>
+                        Section 44ADA<br/><span style={{fontSize: "12px", fontWeight: "500", color: "#fecaca"}}>Not available for this input</span>
+                      </div>
+                    )}
                     <p style={{ fontSize: "13px", color: "#94a3b8", fontWeight: "600", borderBottom: "1px solid rgba(255,255,255,0.1)", paddingBottom: "8px", marginBottom: "16px" }}>Section 44ADA</p>
                     
                     <div style={{ marginBottom: "12px" }}>
@@ -350,10 +361,15 @@ export default function Section44ADACalculator() {
                         ))}
                         
                         {activeResult.rebate87A > 0 && (
-                          <div style={{ display: "flex", justifyContent: "space-between", fontSize: "13px", color: "#34d399", fontWeight: "500" }}>
-                            <span>Section 87A Rebate</span>
-                            <span>- ₹{fmt(activeResult.rebate87A)}</span>
-                          </div>
+                          <>
+                            <div style={{ display: "flex", justifyContent: "space-between", fontSize: "13px", color: "#34d399", fontWeight: "500" }}>
+                              <span>Section 87A Rebate</span>
+                              <span>- ₹{fmt(activeResult.rebate87A)}</span>
+                            </div>
+                            <p style={{ margin: "-8px 0 0 0", color: "#64748b", fontSize: "11px", fontStyle: "italic" }}>
+                              *Note: Special-rate incomes (like short-term capital gains) may have different rebate rules.
+                            </p>
+                          </>
                         )}
 
                         {activeResult.cess > 0 && (

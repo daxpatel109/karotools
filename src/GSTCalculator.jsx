@@ -722,38 +722,6 @@ export default function GSTCalculator() {
           </div>
         )}
 
-        <div style={{ marginTop: "80px", position: "relative" }}>
-          <div style={{ position: "absolute", top: 0, left: "20%", right: "20%", height: "1px", background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)" }} />
-          <div style={{ paddingTop: "64px" }}>
-            <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc", marginBottom: "32px", textAlign: "center" }}>Frequently Asked Questions</h2>
-            <div className="responsive-grid" style={{ gap: "20px" }}>
-              {[
-                { q: "What are GST slabs in India 2026?", a: "India has 6 GST slabs: 0% (essential items like milk, vegetables, books), 0.25% (rough precious stones), 3% (gold, silver), 5% (essential goods, restaurants, medicines), 12% (standard goods, clothing above ₹1000), 18% (most services, electronics, software), and 28% (luxury goods, automobiles, tobacco, cement)." },
-                { q: "What is GST on restaurant food?", a: "Restaurant GST is 5% for non-AC restaurants and standalone restaurants. AC restaurants in hotels with room tariff below ₹7500 also charge 5%. No ITC (Input Tax Credit) is available on restaurant services." },
-                { q: "What is GST on gold in India?", a: "GST on gold is 3% on the value of gold, plus 5% on making charges. This applies to gold jewellery, coins, and bars across India." },
-                { q: "What is GST on freelance services?", a: "Freelance services like web development, design, content writing, and consulting are taxed at 18% GST. Freelancers with annual turnover above ₹20 lakhs must register for GST." },
-                { q: "What is IGST vs CGST/SGST?", a: "For intra-state transactions (same state), GST splits equally into CGST (Central) + SGST (State). For inter-state transactions, IGST (Integrated GST) is charged instead — collected by the central government and shared with states." },
-                { q: "What is GST on clothing?", a: "Clothing and garments below ₹1000 are taxed at 5% GST. Garments above ₹1000 are taxed at 12% GST. This applies to readymade garments and apparel sold across India." },
-              ].map((item, i) => (
-                <div key={item.q} className="glass-panel" style={{ padding: "28px", borderRadius: "20px", transition: "all 0.3s ease" }}>
-                  <div style={{ display: "flex", alignItems: "flex-start", gap: "12px", marginBottom: "12px" }}>
-                    <div style={{ background: "rgba(0,118,255, 0.1)", color: "#0076ff", width: "24px", height: "24px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px", fontWeight: "800", flexShrink: 0, marginTop: "2px" }}>{i + 1}</div>
-                    <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#f1f5f9", fontFamily: "'Plus Jakarta Sans',sans-serif", lineHeight: "1.4" }}>{item.q}</h3>
-                  </div>
-                  <p style={{ fontSize: "14px", color: "#94a3b8", lineHeight: "1.7", paddingLeft: "36px" }}>{item.a}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Universal Legal Disclaimer */}
-        <div style={{ marginTop: "40px", padding: "20px", background: "rgba(0,0,0,0.3)", borderRadius: "12px", border: "1px dashed rgba(255,255,255,0.1)", textAlign: "center" }}>
-          <p style={{ color: "#64748b", fontSize: "12px", lineHeight: "1.6", margin: 0, fontFamily: "'DM Sans',sans-serif" }}>
-            <strong>Disclaimer:</strong> All calculators and tools on KaroTools.in are provided for educational and informational purposes only. While we strive to keep the logic updated with the latest Indian tax laws (FY 2026-27), the results generated are estimates and do not constitute professional financial, legal, or tax advice. We strongly recommend consulting a certified Chartered Accountant or legal professional before making any business decisions or filing your taxes. KaroTools is not responsible for any financial loss, penalties, or compliance errors resulting from the use of this website.
-          </p>
-        </div>
-
       </div>
     </div>
   );

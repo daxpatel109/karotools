@@ -12,10 +12,10 @@ export default function NormalTaxCalculator() {
   
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Non-44ADA Income Tax Calculator for High Earners (>₹75L)";
+    document.title = "Income Tax Calculator for Agencies & Freelancers | KaroTools";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) { meta = document.createElement('meta'); meta.name = "description"; document.head.appendChild(meta); }
-    meta.content = "Calculate your exact freelance tax liability under the New Tax Regime (FY 2026-27) if you earn over ₹75 Lakhs or have high actual expenses (No 44ADA).";
+    meta.content = "Calculate your exact tax liability under the New Tax Regime (FY 2026-27) by deducting actual business expenses. Best for agencies and high-earning freelancers.";
 
     // JSON-LD FAQ Schema
     const faqSchema = {
@@ -250,10 +250,10 @@ export default function NormalTaxCalculator() {
             <span style={{ background: "rgba(244,63,94,0.1)", color: "#fb7185", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em" }}>FY 2026-27 (NEW REGIME)</span>
             <h1 style={{ fontSize: "clamp(32px, 5vw, 42px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", margin: "0 0 16px 0", lineHeight: 1.1 }}>
               <span style={{ color: "#f8fafc" }}>Income Tax Calculator</span><br/>
-              <span style={{ background: "linear-gradient(135deg, #f43f5e, #ec4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>(Non-44ADA / &gt;₹75L)</span>
+              <span style={{ background: "linear-gradient(135deg, #f43f5e, #ec4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>(Actual Expenses Method)</span>
             </h1>
             <p style={{ color: "#94a3b8", fontSize: "16px", maxWidth: "600px", margin: "0 auto", lineHeight: 1.6 }}>
-              Calculate tax under normal provisions (claiming actual expenses) if you are not eligible for the 44ADA 50% flat deduction.
+              Calculate tax under the New Tax Regime by deducting actual business expenses from your revenue. Perfect for agencies, e-commerce, and high-earning freelancers.
             </p>
           </div>
 
@@ -261,10 +261,10 @@ export default function NormalTaxCalculator() {
             <div style={{ background: "rgba(0,118,255,0.1)", border: "1px solid rgba(0,118,255,0.3)", borderRadius: "16px", padding: "20px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: "12px", marginBottom: "8px" }}>
               <div style={{ fontSize: "24px" }}>ℹ️</div>
               <p style={{ margin: 0, color: "#e0f2fe", fontSize: "15px", lineHeight: "1.5" }}>
-                This is the actual expense method. If your net profit margin is below 50%, this is your primary way to calculate taxes.
+                Did you know? If your actual expenses are less than 50% of your revenue, you might save more tax by using the Presumptive Taxation Scheme (Section 44ADA).
               </p>
-              <Link href="/tax-calculator" style={{ background: "#0076ff", color: "#fff", textDecoration: "none", padding: "8px 16px", borderRadius: "8px", fontWeight: "600", fontSize: "14px", marginTop: "4px", transition: "opacity 0.2s" }} onMouseEnter={e => e.target.style.opacity = 0.9} onMouseLeave={e => e.target.style.opacity = 1}>
-                Check if 44ADA is Better
+              <Link href="/44ada-tax-calculator" style={{ background: "#0076ff", color: "#fff", textDecoration: "none", padding: "8px 16px", borderRadius: "8px", fontWeight: "600", fontSize: "14px", marginTop: "4px", transition: "opacity 0.2s" }} onMouseEnter={e => e.target.style.opacity = 0.9} onMouseLeave={e => e.target.style.opacity = 1}>
+                Open 44ADA Tax Calculator
               </Link>
             </div>
           )}

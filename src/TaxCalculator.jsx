@@ -24,10 +24,10 @@ export default function TaxCalculatorHub() {
       popular: true
     },
     {
-      title: "Non-44ADA Calculator",
-      subtitle: "For High Earners > ₹75L",
-      desc: "Calculate your exact tax liability by claiming actual business expenses under normal provisions. Required if you cross the 75L threshold.",
-      icon: "🏢",
+      title: "Income Tax Calculator",
+      subtitle: "Actual Expense Method",
+      desc: "Calculate your exact tax liability under the New Tax Regime by claiming actual business expenses. Perfect for agencies and high earners.",
+      icon: "⚖️",
       path: "/normal-tax-calculator",
       color: "#f43f5e",
       bg: "rgba(244,63,94,0.1)",

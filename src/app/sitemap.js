@@ -13,7 +13,6 @@ export default function sitemap() {
     { path: "/tax-calculator", priority: 0.9, freq: "monthly" },
     { path: "/advance-tax-calculator", priority: 0.8, freq: "monthly" },
     { path: "/44ada-tax-calculator", priority: 0.8, freq: "monthly" },
-    { path: "/normal-tax-calculator", priority: 0.8, freq: "monthly" },
     { path: "/freelance-rate-calculator", priority: 0.8, freq: "monthly" },
     { path: "/salary-vs-freelance", priority: 0.8, freq: "monthly" },
     { path: "/fire-calculator", priority: 0.8, freq: "monthly" },

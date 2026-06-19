@@ -11,6 +11,11 @@ const nextConfig = {
         destination: '/invoice-generator',
         permanent: true,
       },
+      {
+        source: '/normal-tax-calculator',
+        destination: '/44ada-tax-calculator',
+        permanent: true,
+      },
     ];
   },
   async headers() {

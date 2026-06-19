@@ -14,24 +14,14 @@ export default function TaxCalculatorHub() {
 
   const calculators = [
     {
-      title: "Section 44ADA Calculator",
-      subtitle: "For Freelancers < ₹75L",
-      desc: "Get a flat 50% deduction on your income. Perfect for software developers, consultants, and creators under the presumptive taxation scheme.",
-      icon: "⚡",
+      title: "Freelance Tax Calculator",
+      subtitle: "44ADA vs Actual Expenses",
+      desc: "Compare Section 44ADA vs Normal Provisions side-by-side to find out which tax scheme saves you more money.",
+      icon: "⚖️",
       path: "/44ada-tax-calculator",
       color: "#0076ff",
       bg: "rgba(0,118,255,0.1)",
       popular: true
-    },
-    {
-      title: "Income Tax Calculator",
-      subtitle: "Actual Expense Method",
-      desc: "Calculate your exact tax liability under the New Tax Regime by claiming actual business expenses. Perfect for agencies and high earners.",
-      icon: "⚖️",
-      path: "/normal-tax-calculator",
-      color: "#f43f5e",
-      bg: "rgba(244,63,94,0.1)",
-      popular: false
     },
     {
       title: "Advance Tax Calculator",

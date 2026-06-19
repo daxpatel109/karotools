@@ -729,51 +729,6 @@ export default function InvoiceGenerator() {
             </div>
           </div>
         </div>
-
-      {/* SEO CONTENT & FAQS */}
-      <div style={{ maxWidth: "1200px", margin: "60px auto", padding: "40px", background: "rgba(255,255,255,0.02)", borderTop: "1px solid rgba(255,255,255,0.05)", borderRadius: "24px" }}>
-        <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-          <h2 style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc", marginBottom: "16px" }}>How to Use the Free GST Invoice Generator</h2>
-          <p style={{ color: "#94a3b8", fontSize: "16px", lineHeight: "1.8", marginBottom: "24px" }}>
-            Creating a professional, legally compliant GST invoice shouldn't cost you a monthly subscription. Our tool is designed specifically for Indian freelancers and small businesses. Simply enter your business details, add your client's information, and input the items or services provided. The tool automatically calculates CGST, SGST, or IGST based on whether the transaction is within your state or interstate. Once you are done, click <strong>"Download PDF"</strong> to get a pristine, A4-ready invoice.
-          </p>
-
-          <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#f1f5f9", marginTop: "32px", marginBottom: "12px" }}>Features of this Invoice Maker</h3>
-          <ul style={{ color: "#94a3b8", fontSize: "15px", lineHeight: "1.8", paddingLeft: "20px", marginBottom: "32px" }}>
-            <li><strong>Auto GST Calculation:</strong> Select your state and the buyer's state, and the tool intelligently applies either IGST or CGST/SGST.</li>
-            <li><strong>MSME 45-Day Rule Compliance:</strong> Add your Udyam Registration number to automatically enforce the new 45-day MSME payment rules on your invoice.</li>
-            <li><strong>UPI QR Code Integration:</strong> Add your UPI ID, and a scannable QR code is embedded directly into the invoice, allowing clients to pay you instantly from their phone.</li>
-            <li><strong>100% Privacy:</strong> Your data never leaves your computer. We do not store your GSTIN, pan, or client data on our servers.</li>
-          </ul>
-
-          <h3 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc", marginTop: "48px", marginBottom: "24px" }}>Frequently Asked Questions</h3>
-          
-          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-            <div style={{ padding: "20px", background: "rgba(255,255,255,0.03)", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.05)" }}>
-              <h4 style={{ color: "#f8fafc", fontSize: "16px", fontWeight: "600", marginBottom: "8px" }}>Is this GST invoice legally valid?</h4>
-              <p style={{ color: "#94a3b8", fontSize: "14px", lineHeight: "1.6", margin: 0 }}>Yes, absolutely. As long as you provide your correct GSTIN, accurate HSN/SAC codes, and charge the correct tax rate, this invoice format fully complies with the billing rules set by the Government of India.</p>
-            </div>
-            
-            <div style={{ padding: "20px", background: "rgba(255,255,255,0.03)", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.05)" }}>
-              <h4 style={{ color: "#f8fafc", fontSize: "16px", fontWeight: "600", marginBottom: "8px" }}>Can freelancers use this invoice generator?</h4>
-              <p style={{ color: "#94a3b8", fontSize: "14px", lineHeight: "1.6", margin: 0 }}>Yes! If you are a freelancer offering services, simply enter the SAC code for your service (e.g., 9983 for IT consulting), set the quantity to 1, and the rate to your project fee. If you don't have a GSTIN, just leave it blank to generate a standard non-GST bill.</p>
-            </div>
-
-            <div style={{ padding: "20px", background: "rgba(255,255,255,0.03)", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.05)" }}>
-              <h4 style={{ color: "#f8fafc", fontSize: "16px", fontWeight: "600", marginBottom: "8px" }}>Do I need an account to download the PDF?</h4>
-              <p style={{ color: "#94a3b8", fontSize: "14px", lineHeight: "1.6", margin: 0 }}>No login, no watermark, and no premium upgrades. You can generate unlimited invoices and download them as high-quality PDFs completely free of charge.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Universal Legal Disclaimer (Moved out of app canvas) */}
-      <div style={{ padding: "40px 20px", background: "#020617", borderTop: "1px solid rgba(255,255,255,0.05)", textAlign: "center" }}>
-        <p style={{ color: "#64748b", fontSize: "12px", lineHeight: "1.6", margin: "0 auto", maxWidth: "800px", fontFamily: "'DM Sans',sans-serif" }}>
-          <strong>Disclaimer:</strong> All calculators and tools on KaroTools.in are provided for educational and informational purposes only. While we strive to keep the logic updated with the latest Indian tax laws (FY 2026-27), the results generated are estimates and do not constitute professional financial, legal, or tax advice. We strongly recommend consulting a certified Chartered Accountant or legal professional before making any business decisions or filing your taxes. KaroTools is not responsible for any financial loss, penalties, or compliance errors resulting from the use of this website.
-        </p>
-      </div>
-
     </div>
   );
 }

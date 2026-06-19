@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Navbar from "./components/Navbar";
 import ScrollPathSection from "./ScrollPathSection";
 
 // ── Cursor ───────────────────────────────────────────────────────
@@ -287,38 +288,7 @@ export default function Home() {
 
       {/* ── HEADER & NAVBAR ─────────────────────────────────── */}
       <header style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000, height: 72, background: scrolled ? "rgba(2,6,23,0.95)" : "transparent", backdropFilter: scrolled ? "blur(24px)" : "none", borderBottom: scrolled ? "1px solid rgba(255,255,255,0.05)" : "none", transition: "all 0.4s ease", animation: "slideDown 0.6s ease" }}>
-        <nav style={{ display: "flex", alignItems: "center", padding: "0 5vw", justifyContent: "space-between", height: "100%" }}>
-        {/* Logo */}
-        <div style={{ display: "flex", alignItems: "center", gap: 10, cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-          <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-  <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
-  <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
-    Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
-  </span>
-</div>
-        </div>
-
-        {/* Desktop Nav Links */}
-        <div className="desktop-nav">
-          <div style={{ display: "flex", alignItems: "center", background: "rgba(16, 185, 129, 0.1)", border: "1px solid rgba(16, 185, 129, 0.2)", padding: "4px 10px", borderRadius: "12px", marginRight: "12px" }}>
-            <span style={{ width: 6, height: 6, background: "#10b981", borderRadius: "50%", marginRight: 6, animation: "pulse 2s infinite" }}></span>
-            <span style={{ color: "#10b981", fontSize: 11, fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase" }}>Updated FY 2026-27</span>
-          </div>
-          <button className="nav-btn" onClick={() => document.getElementById("tools-section").scrollIntoView({ behavior: "smooth" })} style={{ padding: "8px 16px", background: "transparent", border: "none", color: "#64748b", fontSize: 14, fontWeight: 500, borderRadius: 8, transition: "all 0.2s", fontFamily: "'DM Sans',sans-serif" }}>Tools</button>
-          <Link href="/about" className="nav-btn" style={{ padding: "8px 16px", textDecoration: "none", background: "transparent", border: "none", color: "#64748b", fontSize: 14, fontWeight: 500, borderRadius: 8, transition: "all 0.2s", fontFamily: "'DM Sans',sans-serif" }}>About</Link>
-          <Link href="/blog" className="nav-btn" style={{ padding: "8px 16px", textDecoration: "none", background: "transparent", border: "none", color: "#64748b", fontSize: 14, fontWeight: 500, borderRadius: 8, transition: "all 0.2s", fontFamily: "'DM Sans',sans-serif" }}>Blog</Link>
-          <div style={{ width: 1, height: 20, background: "rgba(255,255,255,0.08)", margin: "0 8px" }} />
-          <button className="cta-btn-primary" onClick={() => document.getElementById("tools-section").scrollIntoView({ behavior: "smooth" })}
-            style={{ padding: "9px 22px", background: "linear-gradient(135deg, #0076ff, #00c6ff)", border: "none", borderRadius: 10, color: "#fff", fontSize: 14, fontWeight: 700, fontFamily: "'Plus Jakarta Sans',sans-serif", boxShadow: "0 4px 20px rgba(0,118,255,0.3)", transition: "all 0.3s", cursor: "pointer" }}>
-            Try Free Tools →
-          </button>
-        </div>
-
-        {/* Mobile Nav Toggle */}
-        <button className="mobile-nav-toggle" onClick={() => setIsMobileMenuOpen(true)}>
-          ☰
-        </button>
-        </nav>
+        <Navbar />
       </header>
 
       {/* ── MOBILE MENU OVERLAY ────────────────────────────────── */}

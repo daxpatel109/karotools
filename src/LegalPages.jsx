@@ -1,6 +1,7 @@
 "use client";
 import { useEffect } from "react";
 import Link from "next/link";
+import Navbar from "./components/Navbar";
 
 const legalContainerStyle = {
   minHeight: "100vh",
@@ -66,15 +67,7 @@ export function PrivacyPolicy() {
 
   return (
     <div style={legalContainerStyle}>
-      <nav style={navStyle}>
-        <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-  <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
-  <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
-    Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
-  </span>
-</div>
-        <Link href="/" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "14px", padding: "8px 16px", background: "rgba(255,255,255,0.05)", borderRadius: "8px" }}>← Back to Home</Link>
-      </nav>
+      <Navbar />
       <div style={contentStyle}>
         <h1 style={h1Style}>Privacy Policy</h1>
         <span style={dateStyle}>Effective Date: {new Date().toLocaleDateString('en-IN')}</span>

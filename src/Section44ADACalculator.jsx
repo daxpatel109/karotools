@@ -5,6 +5,7 @@ import Link from "next/link";
 export default function Section44ADACalculator() {
   const [grossReceipts, setGrossReceipts] = useState("");
   const [actualExpenses, setActualExpenses] = useState("");
+  const [cashExceeds5Percent, setCashExceeds5Percent] = useState(false);
 
   useEffect(() => {
     const savedGross = localStorage.getItem("tax_gross");
@@ -124,6 +125,9 @@ export default function Section44ADACalculator() {
     const normalResult = computeTax(normalProfit, receipts);
     const normalTakeHome = receipts - normalResult.totalTax - expenses;
 
+    const limit = cashExceeds5Percent ? 5000000 : 7500000;
+    const isOverLimit = receipts > limit;
+
     return {
       receipts,
       expenses,
@@ -131,7 +135,8 @@ export default function Section44ADACalculator() {
       normal: normalResult,
       adaTakeHome,
       normalTakeHome,
-      isOverLimit: receipts > 7500000,
+      isOverLimit,
+      limit,
       diff: Math.abs(adaResult.totalTax - normalResult.totalTax),
       winner: adaResult.totalTax <= normalResult.totalTax ? "ada" : "normal"
     };
@@ -213,16 +218,41 @@ export default function Section44ADACalculator() {
                 </p>
               </div>
 
+              <div style={{ marginTop: "16px", background: "rgba(255,255,255,0.02)", padding: "16px", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.05)" }}>
+                <label style={{ display: "flex", alignItems: "flex-start", gap: "12px", cursor: "pointer" }}>
+                  <input 
+                    type="checkbox" 
+                    checked={cashExceeds5Percent}
+                    onChange={e => setCashExceeds5Percent(e.target.checked)}
+                    style={{ marginTop: "4px", width: "16px", height: "16px", accentColor: "#10b981" }}
+                  />
+                  <div>
+                    <span style={{ fontSize: "14px", fontWeight: "600", color: "#e2e8f0", display: "block", marginBottom: "4px" }}>
+                      Cash Receipts exceed 5%?
+                    </span>
+                    <span style={{ fontSize: "12px", color: "#94a3b8", lineHeight: 1.5, display: "block" }}>
+                      The ₹75 lakh 44ADA limit generally applies when cash receipts do not exceed 5% of total receipts. Otherwise, the usual limit may be ₹50 lakh.
+                    </span>
+                  </div>
+                </label>
+              </div>
+
               {data && data.isOverLimit && (
                 <div style={{ background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.3)", borderRadius: "16px", padding: "20px", marginTop: "16px" }}>
                   <h3 style={{ margin: "0 0 10px 0", color: "#f87171", fontSize: "15px", display: "flex", alignItems: "center", gap: "8px" }}>
                     <span>⛔</span> Not Eligible for Section 44ADA
                   </h3>
                   <p style={{ margin: 0, color: "#fca5a5", fontSize: "14px", lineHeight: 1.6 }}>
-                    Your gross receipts exceed the <strong>₹75 Lakh</strong> limit. You must maintain full books of accounts and calculate tax under the Normal Method.
+                    Your gross receipts exceed the <strong>₹{data.limit === 5000000 ? "50 Lakh" : "75 Lakh"}</strong> limit. You must maintain full books of accounts and calculate tax under the Normal Method.
                   </p>
                 </div>
               )}
+              
+              <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "16px", padding: "16px", marginTop: "16px" }}>
+                <p style={{ margin: 0, color: "#94a3b8", fontSize: "12px", lineHeight: 1.6 }}>
+                  <strong>Note:</strong> Section 44ADA applies only to specified professionals. If you are unsure whether your profession qualifies, verify with a CA before filing.
+                </p>
+              </div>
             </div>
           </div>
 
@@ -253,7 +283,7 @@ export default function Section44ADACalculator() {
                     </p>
                     {data.diff > 0 && (
                       <p style={{ margin: "8px 0 0 0", fontSize: "14px", color: "#a7f3d0" }}>
-                        Saves you ₹{fmt(data.diff)} in taxes!
+                        Based on your inputs, this method may reduce your estimated tax by ₹{fmt(data.diff)}.
                       </p>
                     )}
                   </div>

@@ -33,6 +33,11 @@ export default function Guide3() {
           Understanding Section 44ADA vs Normal Taxation
         </h1>
 
+            <div style={{ display: "flex", gap: "16px", fontSize: "14px", color: "#64748b", alignItems: "center", marginBottom: "24px" }}>
+              <span>?? June 15, 2026</span>
+              <span>?? By <Link href="/author/dax-patel" style={{ color: "#38bdf8", textDecoration: "none" }}>Dax Patel</Link></span>
+            </div>
+
         <div style={{ fontSize: "18px", color: "#cbd5e1", display: "flex", flexDirection: "column", gap: "24px" }}>
           <p>
             If you are a freelancer, consultant, software developer, or designer in India, the government has created a special tax scheme just for you: <strong>Section 44ADA</strong>. It is designed to make tax filing incredibly simple and reduce your tax burden significantly.

@@ -7,7 +7,7 @@ export const metadata = {
   openGraph: {
     title: "HSN vs SAC Codes for Indian Freelancers",
     description: "Learn the difference between HSN and SAC codes for GST invoicing in India.",
-    url: "https://karotools.in/blog/hsn-sac-codes-freelancers",
+    url: "https://karotools.in/guides/hsn-sac-codes-freelancers",
     images: ["https://karotools.in/og-image.png"],
   }
 };
@@ -21,8 +21,8 @@ export default function BlogPost() {
           <Link href="/" style={{ color: "#fff", textDecoration: "none", fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: "-0.5px" }}>
             Karo<span style={{ color: "#38bdf8" }}>Tools</span>
           </Link>
-          <Link href="/blog" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "14px", fontWeight: "500" }}>
-            ← Back to Blog
+          <Link href="/guides" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "14px", fontWeight: "500" }}>
+            ← Back to Guides
           </Link>
         </div>
       </nav>
@@ -36,6 +36,11 @@ export default function BlogPost() {
             <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans', sans-serif", lineHeight: "1.1", marginBottom: "24px", color: "#fff" }}>
               HSN vs SAC Codes for Indian Freelancers: The 2026 Guide
             </h1>
+
+            <div style={{ display: "flex", gap: "16px", fontSize: "14px", color: "#64748b", alignItems: "center", marginBottom: "24px" }}>
+              <span>?? June 15, 2026</span>
+              <span>?? By <Link href="/author/dax-patel" style={{ color: "#38bdf8", textDecoration: "none" }}>Dax Patel</Link></span>
+            </div>
             <p style={{ fontSize: "18px", color: "#94a3b8", lineHeight: "1.6", margin: 0 }}>
               If you have crossed the GST registration threshold or are voluntarily registering for GST, you have likely encountered a confusing field on your invoice template: HSN/SAC Code. What does it mean?
             </p>

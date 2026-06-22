@@ -16,6 +16,31 @@ const nextConfig = {
         destination: '/44ada-tax-calculator',
         permanent: true,
       },
+      {
+        source: '/blog/proforma-invoice-guide',
+        destination: '/guides/proforma-invoice-guide',
+        permanent: true,
+      },
+      {
+        source: '/blog/how-to-make-gst-invoice-online-free',
+        destination: '/guides/how-to-make-gst-invoice-online-free',
+        permanent: true,
+      },
+      {
+        source: '/blog/how-to-register-gst-online',
+        destination: '/guides/how-to-register-gst-online',
+        permanent: true,
+      },
+      {
+        source: '/blog/hsn-sac-codes-freelancers',
+        destination: '/guides/hsn-sac-codes-freelancers',
+        permanent: true,
+      },
+      {
+        source: '/guides/gst-return-due-dates-calendar',
+        destination: '/blog/gst-return-due-dates-calendar',
+        permanent: true,
+      },
     ];
   },
   async headers() {

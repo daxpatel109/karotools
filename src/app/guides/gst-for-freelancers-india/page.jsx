@@ -33,6 +33,11 @@ export default function Guide1() {
           The Complete Guide to GST for Freelancers in India
         </h1>
 
+            <div style={{ display: "flex", gap: "16px", fontSize: "14px", color: "#64748b", alignItems: "center", marginBottom: "24px" }}>
+              <span>?? June 15, 2026</span>
+              <span>?? By <Link href="/author/dax-patel" style={{ color: "#38bdf8", textDecoration: "none" }}>Dax Patel</Link></span>
+            </div>
+
         <div style={{ fontSize: "18px", color: "#cbd5e1", display: "flex", flexDirection: "column", gap: "24px" }}>
           <p>
             One of the most confusing aspects of starting a freelance business in India is understanding GST (Goods and Services Tax). Do you need to register? What rate do you charge? What if your clients are overseas? Let's break it down simply.

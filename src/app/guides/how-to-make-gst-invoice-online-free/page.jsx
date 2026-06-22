@@ -27,7 +27,7 @@ const articleSchema = {
   "dateModified": "2026-06-13",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://karotools.in/blog/how-to-make-gst-invoice-online-free"
+    "@id": "https://karotools.in/guides/how-to-make-gst-invoice-online-free"
   }
 };
 
@@ -116,8 +116,8 @@ export default function BlogPost() {
               </span>
             </div>
           </Link>
-          <Link href="/blog" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "14px", fontWeight: "500" }}>
-            ← Back to Blog
+          <Link href="/guides" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "14px", fontWeight: "500" }}>
+            ← Back to Guides
           </Link>
         </div>
       </nav>

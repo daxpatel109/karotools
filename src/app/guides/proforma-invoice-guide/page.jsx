@@ -7,7 +7,7 @@ export const metadata = {
   openGraph: {
     title: "How to Create a Proforma Invoice",
     description: "Everything Indian freelancers need to know about Proforma Invoices vs standard Tax Invoices.",
-    url: "https://karotools.in/blog/proforma-invoice-guide",
+    url: "https://karotools.in/guides/proforma-invoice-guide",
     images: ["https://karotools.in/og-image.png"],
   }
 };
@@ -25,8 +25,8 @@ export default function BlogPost() {
               </span>
             </div>
           </Link>
-          <Link href="/blog" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "14px", fontWeight: "500" }}>
-            ← Back to Blog
+          <Link href="/guides" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "14px", fontWeight: "500" }}>
+            ← Back to Guides
           </Link>
         </div>
       </nav>
@@ -40,6 +40,11 @@ export default function BlogPost() {
             <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans', sans-serif", lineHeight: "1.1", marginBottom: "24px", color: "#fff" }}>
               Proforma Invoice vs Tax Invoice: What Freelancers Need to Know
             </h1>
+
+            <div style={{ display: "flex", gap: "16px", fontSize: "14px", color: "#64748b", alignItems: "center", marginBottom: "24px" }}>
+              <span>?? June 15, 2026</span>
+              <span>?? By <Link href="/author/dax-patel" style={{ color: "#38bdf8", textDecoration: "none" }}>Dax Patel</Link></span>
+            </div>
           </header>
 
           <div style={{ fontSize: "16px", color: "#cbd5e1", lineHeight: "1.8" }}>

@@ -95,8 +95,13 @@ export default function ArticleLayout({ children, meta }) {
           <header style={{ marginBottom: "40px", paddingBottom: "32px", borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
             <h1 style={{ marginBottom: "16px" }}>{meta.title}</h1>
             <p style={{ fontSize: "18px", color: "#94a3b8", marginBottom: "24px" }}>{meta.description}</p>
-            <div style={{ display: "flex", gap: "16px", fontSize: "14px", color: "#64748b" }}>
-              <span>Last updated: {new Date(meta.dateModified || meta.datePublished).toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+            <div style={{ display: "flex", gap: "16px", fontSize: "14px", color: "#64748b", alignItems: "center", flexWrap: "wrap" }}>
+              <span>📅 {new Date(meta.dateModified || meta.datePublished).toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+              {meta.author === "Dax Patel" ? (
+                <span>✍️ By <Link href="/author/dax-patel" style={{ color: "#38bdf8", textDecoration: "none" }}>Dax Patel</Link></span>
+              ) : (
+                <span>✍️ By {authorName}</span>
+              )}
             </div>
           </header>
           

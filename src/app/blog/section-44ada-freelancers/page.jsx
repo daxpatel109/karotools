@@ -117,6 +117,12 @@ export default function BlogPost() {
             </div>
           </header>
 
+          <img 
+              src="/44ada-social.png" 
+              alt="Section 44ADA Tax Planning for Indian Freelancers" 
+              style={{ width: "100%", height: "auto", borderRadius: "16px", marginBottom: "40px", border: "1px solid rgba(255,255,255,0.05)", boxShadow: "0 10px 40px rgba(0,0,0,0.5)" }} 
+            />
+
           <p>If you are an Indian freelancer, consultant or independent professional, you may not need to track every small business expense just to reduce your income tax. Section 44ADA of the Income Tax Act gives eligible professionals a simpler option: declare 50% of gross professional receipts as income, and treat the other 50% as deemed expenses.</p>
 
           <p>That means a freelancer with ₹18 lakh eligible professional receipts may show ₹9 lakh as presumptive professional income before tax regime calculations. The benefit is legal, but it only works when your profession, residency status, receipts limit and filing method are correct.</p>

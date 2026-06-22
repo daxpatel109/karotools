@@ -82,9 +82,7 @@ export default function Author() {
           </Link>
 
           {/* Post 2 */}
-          <Link href="/blog/msme-45-day-rule" style={{ display: "block", textDecoration: "none", padding: "32px", background: "rgba(255,255,255,0.02)", borderRadius: "20px", border: "1px solid rgba(255,255,255,0.05)", transition: "all 0.3s", cursor: "pointer" }}
-            
-            >
+          <Link href="/blog/msme-45-day-rule" style={{ display: "block", textDecoration: "none", padding: "32px", background: "rgba(255,255,255,0.02)", borderRadius: "20px", border: "1px solid rgba(255,255,255,0.05)", transition: "all 0.3s", cursor: "pointer" }}>
             <div style={{ display: "flex", gap: "12px", marginBottom: "16px", alignItems: "center" }}>
               <span style={{ background: "rgba(0,90,230,0.1)", color: "#a78bfa", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em" }}>LEGAL & TAX</span>
               <span style={{ color: "#64748b", fontSize: "14px" }}>June 6, 2026</span>
@@ -94,6 +92,62 @@ export default function Author() {
             </h3>
             <p style={{ color: "#94a3b8", fontSize: "16px", lineHeight: "1.6", margin: 0 }}>
               Learn how the government protects Indian freelancers from late payments, and how to enforce the 45-day rule.
+            </p>
+          </Link>
+
+          {/* Post 3 */}
+          <Link href="/blog/advance-tax-for-freelancers-india" style={{ display: "block", textDecoration: "none", padding: "32px", background: "rgba(255,255,255,0.02)", borderRadius: "20px", border: "1px solid rgba(255,255,255,0.05)", transition: "all 0.3s", cursor: "pointer" }}>
+            <div style={{ display: "flex", gap: "12px", marginBottom: "16px", alignItems: "center" }}>
+              <span style={{ background: "rgba(251,191,36,0.1)", color: "#fbbf24", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em" }}>TAX & COMPLIANCE</span>
+              <span style={{ color: "#64748b", fontSize: "14px" }}>June 14, 2026</span>
+            </div>
+            <h3 style={{ fontSize: "24px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc", marginBottom: "12px" }}>
+              How to Calculate Advance Tax for Freelancers in India (FY 2026-27)
+            </h3>
+            <p style={{ color: "#94a3b8", fontSize: "16px", lineHeight: "1.6", margin: 0 }}>
+              A complete guide on advance tax for Indian freelancers — deadlines, calculation method, Section 44ADA one-installment rule, and how to avoid penalties.
+            </p>
+          </Link>
+
+          {/* Post 4 */}
+          <Link href="/blog/freelance-hourly-rate-vs-salary-india" style={{ display: "block", textDecoration: "none", padding: "32px", background: "rgba(255,255,255,0.02)", borderRadius: "20px", border: "1px solid rgba(255,255,255,0.05)", transition: "all 0.3s", cursor: "pointer" }}>
+            <div style={{ display: "flex", gap: "12px", marginBottom: "16px", alignItems: "center" }}>
+              <span style={{ background: "rgba(16,185,129,0.1)", color: "#34d399", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em" }}>BUSINESS</span>
+              <span style={{ color: "#64748b", fontSize: "14px" }}>June 15, 2026</span>
+            </div>
+            <h3 style={{ fontSize: "24px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc", marginBottom: "12px" }}>
+              Freelance Hourly Rate vs Salary: How Much Should You Charge in India?
+            </h3>
+            <p style={{ color: "#94a3b8", fontSize: "16px", lineHeight: "1.6", margin: 0 }}>
+              Learn how to calculate your hourly rate as a freelancer in India to match your previous salary, factoring in taxes, software, and non-billable hours.
+            </p>
+          </Link>
+
+          {/* Post 5 */}
+          <Link href="/blog/gst-registration-threshold" style={{ display: "block", textDecoration: "none", padding: "32px", background: "rgba(255,255,255,0.02)", borderRadius: "20px", border: "1px solid rgba(255,255,255,0.05)", transition: "all 0.3s", cursor: "pointer" }}>
+            <div style={{ display: "flex", gap: "12px", marginBottom: "16px", alignItems: "center" }}>
+              <span style={{ background: "rgba(251,191,36,0.1)", color: "#fbbf24", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em" }}>TAX & COMPLIANCE</span>
+              <span style={{ color: "#64748b", fontSize: "14px" }}>June 15, 2026</span>
+            </div>
+            <h3 style={{ fontSize: "24px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc", marginBottom: "12px" }}>
+              GST Registration Threshold for Freelancers in India (₹20 Lakh Rule)
+            </h3>
+            <p style={{ color: "#94a3b8", fontSize: "16px", lineHeight: "1.6", margin: 0 }}>
+              Do freelancers need GST registration? A clear breakdown of the ₹20 Lakh limit, inter-state rules, and when you legally must register for GST.
+            </p>
+          </Link>
+
+          {/* Post 6 */}
+          <Link href="/blog/how-to-make-gst-invoice-online-free" style={{ display: "block", textDecoration: "none", padding: "32px", background: "rgba(255,255,255,0.02)", borderRadius: "20px", border: "1px solid rgba(255,255,255,0.05)", transition: "all 0.3s", cursor: "pointer" }}>
+            <div style={{ display: "flex", gap: "12px", marginBottom: "16px", alignItems: "center" }}>
+              <span style={{ background: "rgba(16,185,129,0.1)", color: "#34d399", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em" }}>PRACTICAL GUIDE</span>
+              <span style={{ color: "#64748b", fontSize: "14px" }}>June 15, 2026</span>
+            </div>
+            <h3 style={{ fontSize: "24px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc", marginBottom: "12px" }}>
+              How to Make a GST Invoice Online for Free in India
+            </h3>
+            <p style={{ color: "#94a3b8", fontSize: "16px", lineHeight: "1.6", margin: 0 }}>
+              A simple guide to creating valid GST invoices for your clients. Learn the mandatory fields, HSN codes, and how to use the free KaroTools invoice generator.
             </p>
           </Link>
 

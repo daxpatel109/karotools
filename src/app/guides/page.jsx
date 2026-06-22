@@ -42,8 +42,8 @@ export default function GuidesIndex() {
               </span>
             </div>
           </Link>
-          <div style={{ display: "flex", gap: "16px" }}>
-            <Link href="/blog" style={{ color: "#cbd5e1", textDecoration: "none", fontSize: "14px", fontWeight: "600", display: "flex", alignItems: "center" }}>Blog</Link>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "16px", flexShrink: 0 }}>
+            <Link href="/blog" style={{ color: "#cbd5e1", textDecoration: "none", fontSize: "14px", fontWeight: "600", display: "flex", alignItems: "center", whiteSpace: "nowrap" }}>Blog</Link>
             <Link href="/" style={{ padding: "8px 16px", borderRadius: "8px", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "#cbd5e1", textDecoration: "none", fontSize: "14px", fontWeight: "600" }}>Home</Link>
           </div>
         </div>

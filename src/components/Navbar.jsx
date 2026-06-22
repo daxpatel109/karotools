@@ -15,11 +15,11 @@ export default function Navbar() {
           </span>
         </div>
       </Link>
-      <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "16px" }}>
-        <Link href="/blog" style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "600", textDecoration: "none", transition: "color 0.2s" }}>Blog</Link>
-        <Link href="/guides" style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "600", textDecoration: "none", transition: "color 0.2s" }}>Guides</Link>
+      <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "16px", flexShrink: 0 }}>
+        <Link href="/blog" style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "600", textDecoration: "none", transition: "color 0.2s", whiteSpace: "nowrap" }}>Blog</Link>
+        <Link href="/guides" style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "600", textDecoration: "none", transition: "color 0.2s", whiteSpace: "nowrap" }}>Guides</Link>
         {pathname !== "/" && (
-          <Link href="/" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "#94a3b8", padding: "8px 16px", borderRadius: "10px", fontSize: "14px", fontWeight: "600", textDecoration: "none", transition: "all 0.2s" }}>← Home</Link>
+          <Link href="/" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "#94a3b8", padding: "8px 16px", borderRadius: "10px", fontSize: "14px", fontWeight: "600", textDecoration: "none", transition: "all 0.2s", whiteSpace: "nowrap" }}>← Home</Link>
         )}
       </div>
     </nav>

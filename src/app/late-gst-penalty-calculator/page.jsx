@@ -1,7 +1,7 @@
 import LateGSTPenalty from "../../LateGSTPenalty";
 import TaxDisclaimer from "../../components/article/TaxDisclaimer";
 import { generateMetadata } from "../../lib/seo";
-import { generateFAQSchema } from "../../lib/schema";
+import { generateFAQSchema, SchemaScript, generateSoftwareSchema, generateBreadcrumbSchema } from "../../lib/schema";
 import Link from "next/link";
 
 export const metadata = generateMetadata({
@@ -31,6 +31,20 @@ export default function Page() {
     <div style={{ background: "#020617", minHeight: "100vh" }}>
       {/* The Interactive Calculator (Client Component) */}
       <LateGSTPenalty />
+
+      {/* AEO Answer Block */}
+      <div style={{ maxWidth: "820px", margin: "40px auto 0", padding: "0 24px", position: "relative", zIndex: 1 }}>
+        <div className="glass-panel" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "24px", padding: "32px", marginBottom: "40px" }}>
+          <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginBottom: "16px" }}>How does the Late GST Penalty Calculator work?</h2>
+          <p style={{ color: "#94a3b8", fontSize: "16px", lineHeight: 1.8, marginBottom: "16px" }}>
+            The KaroTools Late GST Penalty Calculator helps Indian businesses compute exact late fees and interest for delayed GSTR-1 and GSTR-3B filings. It calculates daily late fees (₹50 for normal returns, ₹20 for Nil returns) and computes Section 50 interest at 18% per annum on the unpaid tax liability. Read our <Link href="/guides/gst-for-freelancers-india" style={{ color: "#38bdf8", textDecoration: "none" }}>GST Guide</Link> for more details.
+          </p>
+          <div style={{ background: "rgba(0,0,0,0.2)", border: "1px solid rgba(255,255,255,0.05)", padding: "16px", borderRadius: "8px" }}>
+            <p style={{ color: "#e2e8f0", fontSize: "14px", fontFamily: "monospace", margin: "0 0 8px 0" }}>Penalty = Days Delayed × Daily Late Fee</p>
+            <p style={{ color: "#e2e8f0", fontSize: "14px", fontFamily: "monospace", margin: "0" }}>Interest = Net Tax Liability × 18% × (Days Delayed / 365)</p>
+          </div>
+        </div>
+      </div>
 
       {/* SEO Content & Guide (Server Component) */}
       <article style={{ maxWidth: "820px", margin: "0 auto", padding: "0 24px 100px", color: "#f8fafc", fontFamily: "'DM Sans', sans-serif", position: "relative", zIndex: 1 }}>
@@ -90,13 +104,16 @@ export default function Page() {
 
       </article>
 
-      {/* Inject FAQ Schema into the Head */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(generateFAQSchema(faqs)).replace(/</g, '\\u003c')
-        }}
-      />
+      <SchemaScript schema={generateFAQSchema(faqs)} />
+      <SchemaScript schema={generateSoftwareSchema({
+        name: "KaroTools Late GST Penalty Calculator",
+        url: "https://karotools.in/late-gst-penalty-calculator",
+        description: "Calculate GST late fees and 18% interest on delayed GSTR-1, GSTR-3B, or Nil returns."
+      })} />
+      <SchemaScript schema={generateBreadcrumbSchema([
+        { name: "Home", url: "https://karotools.in" },
+        { name: "Late GST Penalty Calculator", url: "https://karotools.in/late-gst-penalty-calculator" }
+      ])} />
     </div>
   );
 }

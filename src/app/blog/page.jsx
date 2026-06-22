@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { getMdxPages } from '../../lib/mdx';
 import { generateMetadata } from '../../lib/seo';
+import { SchemaScript, generateBreadcrumbSchema } from '../../lib/schema';
 
 export const metadata = generateMetadata({
   title: 'KaroTools Blog | Tax & Business Guides for Indian Freelancers',
@@ -83,6 +84,10 @@ export default function BlogIndex() {
           )}
         </div>
       </main>
+      <SchemaScript schema={generateBreadcrumbSchema([
+        { name: "Home", url: "https://karotools.in" },
+        { name: "Blog", url: "https://karotools.in/blog" }
+      ])} />
     </div>
   );
 }

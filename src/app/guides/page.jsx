@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { getMdxPages } from '../../lib/mdx';
 import { generateMetadata } from '../../lib/seo';
+import { SchemaScript, generateBreadcrumbSchema } from '../../lib/schema';
 
 export const metadata = generateMetadata({
   title: 'Free Business & Tax Guides for Indian Freelancers | KaroTools',
@@ -81,6 +82,10 @@ export default function GuidesIndex() {
           ))}
         </div>
       </main>
+      <SchemaScript schema={generateBreadcrumbSchema([
+        { name: "Home", url: "https://karotools.in" },
+        { name: "Guides", url: "https://karotools.in/guides" }
+      ])} />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import InvoiceGenerator from "../../InvoiceGenerator";
 import TaxDisclaimer from "../../components/article/TaxDisclaimer";
 import { generateMetadata } from "../../lib/seo";
-import { generateFAQSchema } from "../../lib/schema";
+import { generateFAQSchema, SchemaScript, generateSoftwareSchema, generateBreadcrumbSchema } from "../../lib/schema";
 import Link from "next/link";
 
 export const metadata = generateMetadata({
@@ -45,6 +45,20 @@ export default function Page() {
     <div style={{ background: "#020617", minHeight: "100vh" }}>
       {/* The Interactive Generator (Client Component) */}
       <InvoiceGenerator />
+
+      {/* AEO Answer Block */}
+      <div style={{ maxWidth: "820px", margin: "40px auto 0", padding: "0 24px", position: "relative", zIndex: 1 }}>
+        <div className="glass-panel" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "24px", padding: "32px", marginBottom: "40px" }}>
+          <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginBottom: "16px" }}>How does the GST Invoice Generator work?</h2>
+          <p style={{ color: "#94a3b8", fontSize: "16px", lineHeight: 1.8, marginBottom: "16px" }}>
+            The KaroTools GST Invoice Generator helps you create professional tax invoices instantly. It automatically calculates CGST and SGST for local sales, or IGST for inter-state sales based on the GST rate you select. Once your details are filled, you can download a compliant PDF. Learn more in our <Link href="/guides/gst-invoice-format-excel" style={{ color: "#38bdf8", textDecoration: "none" }}>GST Invoice Format Guide</Link>.
+          </p>
+          <div style={{ background: "rgba(0,0,0,0.2)", border: "1px solid rgba(255,255,255,0.05)", padding: "16px", borderRadius: "8px" }}>
+            <p style={{ color: "#e2e8f0", fontSize: "14px", fontFamily: "monospace", margin: "0 0 8px 0" }}>Intra-state Tax = CGST (Rate/2) + SGST (Rate/2)</p>
+            <p style={{ color: "#e2e8f0", fontSize: "14px", fontFamily: "monospace", margin: "0" }}>Inter-state Tax = IGST (Full Rate)</p>
+          </div>
+        </div>
+      </div>
 
       {/* SEO Content & Guide (Server Component) */}
       <article style={{ maxWidth: "820px", margin: "0 auto", padding: "0 24px 100px", color: "#f8fafc", fontFamily: "'DM Sans', sans-serif", position: "relative", zIndex: 1 }}>
@@ -99,42 +113,16 @@ export default function Page() {
 
       </article>
 
-      {/* Inject FAQ Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(generateFAQSchema(faqs)).replace(/</g, '\\u003c')
-        }}
-      />
-      
-      {/* Inject SoftwareApplication Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "SoftwareApplication",
-            "name": "KaroTools GST Invoice Generator",
-            "url": "https://karotools.in/invoice-generator",
-            "applicationCategory": "FinancialApplication",
-            "operatingSystem": "WEB",
-            "isAccessibleForFree": true,
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "INR"
-            },
-            "featureList": [
-              "Create GST invoice",
-              "Add GSTIN",
-              "Add HSN/SAC code",
-              "CGST/SGST/IGST tax breakdown",
-              "PDF invoice download",
-              "Logo and signature support"
-            ]
-          }).replace(/</g, '\\u003c')
-        }}
-      />
+      <SchemaScript schema={generateFAQSchema(faqs)} />
+      <SchemaScript schema={generateSoftwareSchema({
+        name: "KaroTools GST Invoice Generator",
+        url: "https://karotools.in/invoice-generator",
+        description: "Create professional GST-compliant invoices instantly with auto-calculated CGST, SGST, and IGST. Download as PDF."
+      })} />
+      <SchemaScript schema={generateBreadcrumbSchema([
+        { name: "Home", url: "https://karotools.in" },
+        { name: "Invoice Generator", url: "https://karotools.in/invoice-generator" }
+      ])} />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import FIRECalculator from '../../FIRECalculator';
 import Script from 'next/script';
 import Link from 'next/link';
+import { SchemaScript, generateSoftwareSchema, generateBreadcrumbSchema } from "../../lib/schema";
 
 export const metadata = {
   title: 'India FIRE Calculator 2026 – Early Retirement Tool for Freelancers',
@@ -164,11 +165,31 @@ export default function FIRECalculatorPage() {
         </div>
 
         <FIRECalculator />
-        <Script
-          id="faq-schema"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        />
+        
+        {/* AEO Answer Block */}
+        <div style={{ maxWidth: "820px", margin: "40px auto 0", padding: "0 24px", position: "relative", zIndex: 1 }}>
+          <div className="glass-panel" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "24px", padding: "32px", marginBottom: "40px" }}>
+            <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginBottom: "16px" }}>How does the FIRE Calculator work?</h2>
+            <p style={{ color: "#94a3b8", fontSize: "16px", lineHeight: 1.8, marginBottom: "16px" }}>
+              The KaroTools FIRE Calculator helps you calculate the exact corpus you need to retire early in India. It projects your future expenses using inflation, calculates the compounding of your current investments and monthly SIPs, and applies a Safe Withdrawal Rate (SWR) to find your target. Compare your timeline with our <Link href="/sip-calculator" style={{ color: "#38bdf8", textDecoration: "none" }}>SIP Calculator</Link>.
+            </p>
+            <div style={{ background: "rgba(0,0,0,0.2)", border: "1px solid rgba(255,255,255,0.05)", padding: "16px", borderRadius: "8px" }}>
+              <p style={{ color: "#e2e8f0", fontSize: "14px", fontFamily: "monospace", margin: "0 0 8px 0" }}>FIRE Target = Annual Expenses at Retirement / Safe Withdrawal Rate</p>
+              <p style={{ color: "#e2e8f0", fontSize: "14px", fontFamily: "monospace", margin: "0" }}>Annual Expenses at Retirement = Current Expenses × (1 + Inflation Rate) ^ Years</p>
+            </div>
+          </div>
+        </div>
+
+        <SchemaScript schema={faqSchema} />
+        <SchemaScript schema={generateSoftwareSchema({
+          name: "KaroTools FIRE Calculator",
+          url: "https://karotools.in/fire-calculator",
+          description: "Calculate your Financial Independence and Retire Early (FIRE) number in India based on inflation, SIPs, and SWR."
+        })} />
+        <SchemaScript schema={generateBreadcrumbSchema([
+          { name: "Home", url: "https://karotools.in" },
+          { name: "FIRE Calculator", url: "https://karotools.in/fire-calculator" }
+        ])} />
         
         {/* Universal Legal Disclaimer */}
         <div style={{ marginTop: "40px", padding: "20px", background: "rgba(0,0,0,0.3)", borderRadius: "12px", border: "1px dashed rgba(255,255,255,0.1)", textAlign: "center" }}>

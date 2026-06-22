@@ -1,5 +1,6 @@
 export const metadata = { title: "Dax Patel: Expert For Indian Freelancers — KaroTools" };
 import Link from "next/link";
+import { SchemaScript, generateProfilePageSchema } from "../../../lib/schema";
 
 export default function Author() {
   
@@ -106,6 +107,7 @@ export default function Author() {
           <strong>Disclaimer:</strong> All calculators and tools on KaroTools.in are provided for educational and informational purposes only. While we strive to keep the logic updated with the latest Indian tax laws (FY 2026-27), the results generated are estimates and do not constitute professional financial, legal, or tax advice. We strongly recommend consulting a certified Chartered Accountant or legal professional before making any business decisions or filing your taxes. KaroTools is not responsible for any financial loss, penalties, or compliance errors resulting from the use of this website.
         </p>
       </footer>
+      <SchemaScript schema={generateProfilePageSchema()} />
     </div>
   );
 }

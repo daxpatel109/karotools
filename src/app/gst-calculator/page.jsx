@@ -1,7 +1,7 @@
 import GSTCalculator from "../../GSTCalculator";
 import TaxDisclaimer from "../../components/article/TaxDisclaimer";
 import { generateMetadata } from "../../lib/seo";
-import { generateFAQSchema } from "../../lib/schema";
+import { generateFAQSchema, SchemaScript, generateSoftwareSchema, generateBreadcrumbSchema } from "../../lib/schema";
 import Link from "next/link";
 
 export const metadata = generateMetadata({
@@ -51,6 +51,21 @@ export default function Page() {
     <div style={{ background: "#020617", minHeight: "100vh" }}>
       {/* The Interactive Calculator (Client Component) */}
       <GSTCalculator />
+
+      {/* AEO Answer Block */}
+      <div style={{ maxWidth: "820px", margin: "40px auto 0", padding: "0 24px", position: "relative", zIndex: 1 }}>
+        <div className="glass-panel" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "24px", padding: "32px", marginBottom: "40px" }}>
+          <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginBottom: "16px" }}>How does the GST Calculator work?</h2>
+          <p style={{ color: "#94a3b8", fontSize: "16px", lineHeight: 1.8, marginBottom: "16px" }}>
+            The KaroTools GST Calculator helps you add GST to a base amount or remove GST from an inclusive price using the selected Indian GST rate. To add GST, it calculates the GST amount and adds it to the base amount. To remove GST, it calculates the base amount first and separates the GST amount. Read our <Link href="/guides/gst-for-freelancers-india" style={{ color: "#38bdf8", textDecoration: "none" }}>GST Guide for Freelancers</Link> for more details.
+          </p>
+          <div style={{ background: "rgba(0,0,0,0.2)", border: "1px solid rgba(255,255,255,0.05)", padding: "16px", borderRadius: "8px" }}>
+            <p style={{ color: "#e2e8f0", fontSize: "14px", fontFamily: "monospace", margin: "0 0 8px 0" }}>Base Amount = Gross Price × 100 / (100 + GST Rate)</p>
+            <p style={{ color: "#e2e8f0", fontSize: "14px", fontFamily: "monospace", margin: "0 0 8px 0" }}>GST Amount = Gross Price - Base Amount</p>
+            <p style={{ color: "#e2e8f0", fontSize: "14px", fontFamily: "monospace", margin: "0" }}>Final Price = Base Amount + GST Amount</p>
+          </div>
+        </div>
+      </div>
 
       {/* SEO Content & Guide (Server Component) */}
       <article style={{ maxWidth: "820px", margin: "0 auto", padding: "0 24px 100px", color: "#f8fafc", fontFamily: "'DM Sans', sans-serif", position: "relative", zIndex: 1 }}>
@@ -132,41 +147,16 @@ export default function Page() {
 
       </article>
 
-        {/* Inject FAQ Schema into the Head */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(generateFAQSchema(faqs)).replace(/</g, '\\u003c')
-        }}
-      />
-      {/* Inject SoftwareApplication Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "SoftwareApplication",
-            "name": "KaroTools GST Calculator",
-            "url": "https://karotools.in/gst-calculator",
-            "applicationCategory": "FinancialApplication",
-            "operatingSystem": "WEB",
-            "isAccessibleForFree": true,
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "INR"
-            },
-            "featureList": [
-              "Add GST",
-              "Remove GST",
-              "CGST/SGST calculation",
-              "IGST calculation",
-              "Custom GST rate",
-              "Round-off support"
-            ]
-          }).replace(/</g, '\\u003c')
-        }}
-      />
+      <SchemaScript schema={generateFAQSchema(faqs)} />
+      <SchemaScript schema={generateSoftwareSchema({
+        name: "KaroTools GST Calculator",
+        url: "https://karotools.in/gst-calculator",
+        description: "Free online GST calculator for India. Add or remove GST from prices instantly with CGST/SGST/IGST breakdown."
+      })} />
+      <SchemaScript schema={generateBreadcrumbSchema([
+        { name: "Home", url: "https://karotools.in" },
+        { name: "GST Calculator", url: "https://karotools.in/gst-calculator" }
+      ])} />
     </div>
   );
 }

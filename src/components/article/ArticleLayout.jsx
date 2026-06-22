@@ -4,12 +4,15 @@ import { SchemaScript, generateArticleSchema } from '../../lib/schema';
 import ContentTracker from '../ContentTracker';
 
 export default function ArticleLayout({ children, meta }) {
+  const authorName = meta.author || "KaroTools Editorial Team";
+  
   const articleSchema = generateArticleSchema({
     title: meta.title,
     description: meta.description,
     url: `https://karotools.in${meta.path}`,
     datePublished: meta.datePublished,
     dateModified: meta.dateModified,
+    authorName: authorName
   });
 
   return (
@@ -104,7 +107,7 @@ export default function ArticleLayout({ children, meta }) {
           <div className="glass-panel" style={{ marginTop: "48px", padding: "32px", borderRadius: "16px", border: "1px solid rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.03)" }}>
             <div style={{ display: "flex", gap: "24px", alignItems: "flex-start", flexWrap: "wrap" }}>
               <div style={{ flex: 1, minWidth: "250px" }}>
-                <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#f8fafc", margin: "0 0 8px 0" }}>Written by: KaroTools Editorial Team</h3>
+                <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#f8fafc", margin: "0 0 8px 0" }}>Written by: {authorName}</h3>
                 <p style={{ color: "#94a3b8", fontSize: "14px", lineHeight: "1.6", margin: "0 0 16px 0" }}>
                   KaroTools creates free GST, tax, invoice, and business calculators for Indian freelancers and small businesses.
                 </p>

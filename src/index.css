@@ -27,6 +27,9 @@
   --card-border: rgba(0, 118, 255, 0.15);
   --card-hover-shadow: 0 16px 40px rgba(0, 118, 255, 0.12);
   --hero-highlight: linear-gradient(135deg, #0f172a 0%, #2563eb 50%, #0284c7 100%);
+  --card-bg: var(--bg-secondary);
+  --particle-svg-display: block;
+  --particle-circle-display: none;
 }
 
 .dark {
@@ -50,6 +53,9 @@
   --card-border: var(--glass-border);
   --card-hover-shadow: 0 12px 32px rgba(0, 118, 255, 0.2);
   --hero-highlight: linear-gradient(135deg, #ffffff 0%, #60a5fa 40%, #005ae6 80%);
+  --card-bg: var(--glass-bg);
+  --particle-svg-display: none;
+  --particle-circle-display: block;
 }
 
 body {

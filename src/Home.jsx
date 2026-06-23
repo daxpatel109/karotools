@@ -92,7 +92,7 @@ function ToolCard({ tool, index }) {
   return (
     <div ref={ref} style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(48px)", transition: `opacity 0.7s ease ${index * 0.08}s, transform 0.7s ease ${index * 0.08}s` }}>
       <div ref={cardRef} onMouseMove={onMove} onMouseLeave={onLeave} onMouseEnter={() => setHovered(true)}
-        style={{ background: "var(--bg-secondary)", backdropFilter: "blur(24px)", border: `1px solid ${hovered ? `${accent}60` : "var(--card-border)"}`, borderRadius: 24, padding: "28px 24px", cursor: tool.page ? "pointer" : "default", transition: "transform 0.2s ease, box-shadow 0.2s ease, background 0.3s, border-color 0.3s", boxShadow: hovered ? "var(--card-hover-shadow)" : "var(--card-shadow)", position: "relative", overflow: "hidden", minHeight: 190 }}>
+        style={{ background: "var(--card-bg)", backdropFilter: "blur(24px)", border: `1px solid ${hovered ? `${accent}60` : "var(--card-border)"}`, borderRadius: 24, padding: "28px 24px", cursor: tool.page ? "pointer" : "default", transition: "transform 0.2s ease, box-shadow 0.2s ease, background 0.3s, border-color 0.3s", boxShadow: hovered ? "var(--card-hover-shadow)" : "var(--card-shadow)", position: "relative", overflow: "hidden", minHeight: 190 }}>
 
         {/* Top glow line */}
         <div style={{ position: "absolute", top: 0, left: "10%", right: "10%", height: 1, background: `linear-gradient(90deg, transparent, ${accent}, transparent)`, opacity: hovered ? 1 : 0.4, transition: "opacity 0.3s" }} />
@@ -137,7 +137,7 @@ function FloatingIcons() {
   }));
   
   return (
-    <div style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0, overflow: "hidden" }}>
+    <div style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0, overflow: "hidden", display: "var(--particle-svg-display)" }}>
       {icons.map(p => (
         <div key={p.id} 
              style={{ position: "absolute", left: p.x + "%", top: p.y + "%", width: p.size, height: p.size, 
@@ -145,6 +145,21 @@ function FloatingIcons() {
                       animation: `particleFloat ${p.dur}s ${p.delay}s infinite ease-in-out alternate`, 
                       transform: `rotate(${p.rot}deg)` }} 
              dangerouslySetInnerHTML={{__html: p.svg}} />
+      ))}
+    </div>
+  );
+}
+
+// ── Floating Particle (Dark Mode) ──────────────────────────────
+function Particles() {
+  const particles = Array.from({ length: 20 }, (_, i) => ({
+    id: i, x: Math.random() * 100, y: Math.random() * 100,
+    size: Math.random() * 3 + 1, dur: Math.random() * 12 + 8, delay: Math.random() * 6
+  }));
+  return (
+    <div style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0, overflow: "hidden", display: "var(--particle-circle-display)" }}>
+      {particles.map(p => (
+        <div key={p.id} style={{ position: "absolute", left: p.x + "%", top: p.y + "%", width: p.size, height: p.size, borderRadius: "50%", background: `rgba(0,118,255,${Math.random() * 0.3 + 0.1})`, animation: `particleFloat ${p.dur}s ${p.delay}s infinite ease-in-out alternate`, boxShadow: `0 0 ${p.size * 4}px rgba(0,118,255,0.4)` }} />
       ))}
     </div>
   );
@@ -159,7 +174,7 @@ function PopularToolCard({ item, index }) {
   return (
     <Link href={item.link} style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
       <div onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
-        style={{ height: '100%', display: 'flex', flexDirection: 'column', background: "var(--bg-secondary)", backdropFilter: "blur(24px)", border: `1px solid ${hovered ? `${accent}60` : "var(--card-border)"}`, borderRadius: 24, padding: "28px 24px", cursor: "pointer", transition: "transform 0.2s ease, box-shadow 0.2s ease, background 0.3s, border-color 0.3s", boxShadow: hovered ? "var(--card-hover-shadow)" : "var(--card-shadow)", position: "relative", overflow: "hidden", minHeight: 190, transform: hovered ? "translateY(-4px)" : "translateY(0)" }}>
+        style={{ height: '100%', display: 'flex', flexDirection: 'column', background: "var(--card-bg)", backdropFilter: "blur(24px)", border: `1px solid ${hovered ? `${accent}60` : "var(--card-border)"}`, borderRadius: 24, padding: "28px 24px", cursor: "pointer", transition: "transform 0.2s ease, box-shadow 0.2s ease, background 0.3s, border-color 0.3s", boxShadow: hovered ? "var(--card-hover-shadow)" : "var(--card-shadow)", position: "relative", overflow: "hidden", minHeight: 190, transform: hovered ? "translateY(-4px)" : "translateY(0)" }}>
         
         {/* Top glow line */}
         <div style={{ position: "absolute", top: 0, left: "10%", right: "10%", height: 1, background: `linear-gradient(90deg, transparent, ${accent}, transparent)`, opacity: hovered ? 1 : 0.4, transition: "opacity 0.3s" }} />
@@ -291,6 +306,7 @@ export default function Home() {
 
       <Cursor />
       <FloatingIcons />
+      <Particles />
 
       {/* Ambient background */}
       <div style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0 }}>

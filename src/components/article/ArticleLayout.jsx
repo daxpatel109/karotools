@@ -1,10 +1,26 @@
 import Link from 'next/link';
 import TaxDisclaimer from './TaxDisclaimer';
-import { SchemaScript, generateArticleSchema } from '../../lib/schema';
+import { SchemaScript, generateArticleSchema, generateBreadcrumbSchema } from '../../lib/schema';
 import ContentTracker from '../ContentTracker';
 
 export default function ArticleLayout({ children, meta }) {
   const authorName = meta.author || "KaroTools Editorial Team";
+  
+  const dateString = meta.dateModified || meta.datePublished;
+  const dateObj = dateString ? new Date(dateString) : null;
+  const isValidDate = dateObj && !isNaN(dateObj);
+  const displayDate = isValidDate ? dateObj.toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' }) : "Updated for FY 2026-27";
+
+  const isGuide = meta.path?.startsWith('/guides');
+  const sectionName = isGuide ? "Guides" : "Blog";
+  const sectionPath = isGuide ? "/guides" : "/blog";
+  
+  const breadcrumbItems = [
+    { name: "Home", url: "https://karotools.in/" },
+    { name: sectionName, url: `https://karotools.in${sectionPath}` },
+    { name: meta.title, url: `https://karotools.in${meta.path}` }
+  ];
+  const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbItems);
   
   const articleSchema = generateArticleSchema({
     title: meta.title,
@@ -64,6 +80,7 @@ export default function ArticleLayout({ children, meta }) {
       `}} />
 
       <SchemaScript schema={articleSchema} />
+      <SchemaScript schema={breadcrumbSchema} />
 
       {meta.schemas && meta.schemas.map((schema, i) => (
         <SchemaScript key={i} schema={schema} />
@@ -93,10 +110,17 @@ export default function ArticleLayout({ children, meta }) {
       <main style={{ maxWidth: "820px", margin: "0 auto", padding: "56px 24px 100px", position: "relative", zIndex: 1 }}>
         <article className="mdx-content">
           <header style={{ marginBottom: "40px", paddingBottom: "32px", borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
+            <div style={{ marginBottom: "24px", fontSize: "14px", color: "#64748b", display: "flex", alignItems: "center", gap: "8px" }}>
+              <Link href="/" style={{ color: "#94a3b8", textDecoration: "none" }}>Home</Link>
+              <span>›</span>
+              <Link href={sectionPath} style={{ color: "#94a3b8", textDecoration: "none" }}>{sectionName}</Link>
+              <span>›</span>
+              <span style={{ color: "#cbd5e1" }}>{meta.title}</span>
+            </div>
             <h1 style={{ marginBottom: "16px" }}>{meta.title}</h1>
             <p style={{ fontSize: "18px", color: "#94a3b8", marginBottom: "24px" }}>{meta.description}</p>
             <div style={{ display: "flex", gap: "16px", fontSize: "14px", color: "#64748b", alignItems: "center", flexWrap: "wrap" }}>
-              <span>📅 {new Date(meta.dateModified || meta.datePublished).toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+              <span>📅 {displayDate}</span>
               {meta.author === "Dax Patel" ? (
                 <span>✍️ By <Link href="/author/dax-patel" style={{ color: "#38bdf8", textDecoration: "none" }}>Dax Patel</Link></span>
               ) : (
@@ -127,9 +151,30 @@ export default function ArticleLayout({ children, meta }) {
                   This guide is written for educational purposes and is updated periodically. GST and Income Tax rules may change. Please verify with the official GST portal, Income Tax portal, CBIC notifications, or your CA before filing.
                 </p>
                 <p style={{ color: "#64748b", fontSize: "13px", margin: 0 }}>
-                  Last updated: {new Date(meta.dateModified || meta.datePublished).toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}
+                  Last updated: {displayDate}
                 </p>
               </div>
+            </div>
+          </div>
+          
+          <div style={{ marginTop: "48px", borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "40px" }}>
+            <h3 style={{ fontSize: "24px", fontWeight: "700", color: "#f8fafc", marginBottom: "24px" }}>Related Guides & Tools</h3>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))", gap: "20px" }}>
+              <Link href="/gst-calculator" className="interactive-btn glass-panel" style={{ padding: "20px", borderRadius: "12px", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px" }}>
+                <span style={{ fontSize: "24px" }}>🧮</span>
+                <strong style={{ color: "#f8fafc", fontSize: "16px" }}>GST Calculator</strong>
+                <span style={{ color: "#94a3b8", fontSize: "14px" }}>Calculate inclusive/exclusive GST.</span>
+              </Link>
+              <Link href="/invoice-generator" className="interactive-btn glass-panel" style={{ padding: "20px", borderRadius: "12px", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px" }}>
+                <span style={{ fontSize: "24px" }}>📄</span>
+                <strong style={{ color: "#f8fafc", fontSize: "16px" }}>GST Invoice Generator</strong>
+                <span style={{ color: "#94a3b8", fontSize: "14px" }}>Create compliant GST invoices online.</span>
+              </Link>
+              <Link href="/blog/gst-registration-threshold" className="interactive-btn glass-panel" style={{ padding: "20px", borderRadius: "12px", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px" }}>
+                <span style={{ fontSize: "24px" }}>🏛️</span>
+                <strong style={{ color: "#f8fafc", fontSize: "16px" }}>GST Registration Rules</strong>
+                <span style={{ color: "#94a3b8", fontSize: "14px" }}>Do you need GST registration?</span>
+              </Link>
             </div>
           </div>
         </article>

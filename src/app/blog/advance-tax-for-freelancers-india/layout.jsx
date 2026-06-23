@@ -1,13 +1,10 @@
-export const metadata = {
-  title: "Make Free GST Invoice Online India FY 26-27 — KaroTools",
-  description: "Complete step-by-step guide to make GST invoice online free for Indian freelancers and small businesses using KaroTools.",
-  openGraph: {
-    title: "How to Make GST Invoice Online Free in 2026",
-    description: "Complete step-by-step guide to make GST invoice online free using KaroTools.",
-    url: "https://karotools.in/blog/how-to-make-gst-invoice-online-free",
-    images: ["https://karotools.in/og-image.png"],
-  }
-};
+import { generateMetadata } from "../../../lib/seo";
+
+export const metadata = generateMetadata({
+  title: "How to Calculate Advance Tax for Freelancers in India (FY 2026-27) — KaroTools",
+  description: "A complete guide on advance tax for Indian freelancers — deadlines, calculation method, Section 44ADA one-installment rule, and how to avoid penalties.",
+  path: "/blog/advance-tax-for-freelancers-india"
+});
 
 export default function Layout({ children }) {
   return children;

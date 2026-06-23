@@ -1,13 +1,10 @@
-export const metadata = {
-  title: "Make Free GST Invoice Online India FY 26-27 — KaroTools",
-  description: "Complete step-by-step guide to make GST invoice online free for Indian freelancers and small businesses using KaroTools.",
-  openGraph: {
-    title: "How to Make GST Invoice Online Free in 2026",
-    description: "Complete step-by-step guide to make GST invoice online free using KaroTools.",
-    url: "https://karotools.in/blog/how-to-make-gst-invoice-online-free",
-    images: ["https://karotools.in/og-image.png"],
-  }
-};
+import { generateMetadata } from "../../../lib/seo";
+
+export const metadata = generateMetadata({
+  title: "MSME 45-Day Payment Rule for Freelancers India 2026: Section 43B(h) Explained — KaroTools",
+  description: "How Indian freelancers can use the MSME 45-day payment rule under Section 43B(h) to get paid on time, enforce legal rights, and protect their income.",
+  path: "/blog/msme-45-day-rule"
+});
 
 export default function Layout({ children }) {
   return children;

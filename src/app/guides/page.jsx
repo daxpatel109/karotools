@@ -77,7 +77,8 @@ export default function GuidesIndex() {
                 </div>
                 <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#f1f5f9", marginBottom: "12px", lineHeight: "1.4", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>{post.title}</h3>
                 <p style={{ color: "#94a3b8", fontSize: "14px", lineHeight: "1.6", flexGrow: 1 }}>{post.description}</p>
-              </article>
+        </article>
+
             </Link>
           ))}
         </div>

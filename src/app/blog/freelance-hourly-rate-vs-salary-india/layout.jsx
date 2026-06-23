@@ -1,13 +1,10 @@
-export const metadata = {
-  title: "Make Free GST Invoice Online India FY 26-27 — KaroTools",
-  description: "Complete step-by-step guide to make GST invoice online free for Indian freelancers and small businesses using KaroTools.",
-  openGraph: {
-    title: "How to Make GST Invoice Online Free in 2026",
-    description: "Complete step-by-step guide to make GST invoice online free using KaroTools.",
-    url: "https://karotools.in/blog/how-to-make-gst-invoice-online-free",
-    images: ["https://karotools.in/og-image.png"],
-  }
-};
+import { generateMetadata } from "../../../lib/seo";
+
+export const metadata = generateMetadata({
+  title: "Freelance Hourly Rate vs Salary India: How Much Should I Charge in 2026? — KaroTools",
+  description: "Why directly converting your monthly salary to an hourly freelance rate will make you lose money — and how to calculate the right rate using the 30% premium rule.",
+  path: "/blog/freelance-hourly-rate-vs-salary-india"
+});
 
 export default function Layout({ children }) {
   return children;

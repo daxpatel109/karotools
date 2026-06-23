@@ -76,7 +76,8 @@ export default function BlogIndex() {
                 <div style={{ marginTop: "20px", fontSize: "12px", color: "#64748b" }}>
                   Last updated: {new Date(post.date).toLocaleDateString('en-IN', { year: 'numeric', month: 'short', day: 'numeric' })}
                 </div>
-              </article>
+        </article>
+
             </Link>
           ))}
           {posts.length === 0 && (

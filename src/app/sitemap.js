@@ -1,4 +1,5 @@
 import { getMdxPages } from '../lib/mdx';
+import { getSafeISODate } from '../lib/dateUtils';
 
 export default function sitemap() {
   const baseUrl = "https://karotools.in";
@@ -34,9 +35,12 @@ export default function sitemap() {
   const guidePosts = getMdxPages('guides');
 
   [...blogPosts, ...guidePosts].forEach(post => {
+    // Exclude redirected routes explicitly
+    if (post.path === '/guides/gst-return-due-dates-calendar') return;
+    
     sitemapItems.push({
       url: `${baseUrl}${post.path}`,
-      lastModified: new Date(post.date).toISOString(),
+      lastModified: getSafeISODate(post.date) || new Date().toISOString(),
       changeFrequency: "monthly",
       priority: 0.7,
     });

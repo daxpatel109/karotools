@@ -2,6 +2,7 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import Navbar from "./components/Navbar";
+import { formatSafeDate } from "./lib/dateUtils";
 
 const legalContainerStyle = {
   minHeight: "100vh",
@@ -70,7 +71,7 @@ export function PrivacyPolicy() {
       <Navbar />
       <div style={contentStyle}>
         <h1 style={h1Style}>Privacy Policy</h1>
-        <span style={dateStyle}>Effective Date: {new Date().toLocaleDateString('en-IN')}</span>
+        <span style={dateStyle}>Effective Date: {formatSafeDate(new Date())}</span>
 
         <p>KaroTools ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how your personal information is collected, used, and disclosed by KaroTools in accordance with the Information Technology Act, 2000 (India) and the General Data Protection Regulation (GDPR).</p>
 
@@ -116,7 +117,7 @@ export function TermsConditions() {
       </nav>
       <div style={contentStyle}>
         <h1 style={h1Style}>Terms & Conditions</h1>
-        <span style={dateStyle}>Effective Date: {new Date().toLocaleDateString('en-IN')}</span>
+        <span style={dateStyle}>Effective Date: {formatSafeDate(new Date())}</span>
 
         <p>These terms and conditions outline the rules and regulations for the use of KaroTools' Website and Enterprise Software Suite.</p>
 

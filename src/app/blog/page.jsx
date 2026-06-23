@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { getMdxPages } from '../../lib/mdx';
 import { generateMetadata } from '../../lib/seo';
 import { SchemaScript, generateBreadcrumbSchema } from '../../lib/schema';
+import { formatSafeDate } from '../../lib/dateUtils';
 
 export const metadata = generateMetadata({
   title: 'KaroTools Blog | Tax & Business Guides for Indian Freelancers',
@@ -74,7 +75,7 @@ export default function BlogIndex() {
                 <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#f1f5f9", marginBottom: "12px", lineHeight: "1.4", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>{post.title}</h3>
                 <p style={{ color: "#94a3b8", fontSize: "14px", lineHeight: "1.6", flexGrow: 1 }}>{post.description}</p>
                 <div style={{ marginTop: "20px", fontSize: "12px", color: "#64748b" }}>
-                  Last updated: {new Date(post.date).toLocaleDateString('en-IN', { year: 'numeric', month: 'short', day: 'numeric' })}
+                  Last updated: {formatSafeDate(post.date)}
                 </div>
         </article>
 

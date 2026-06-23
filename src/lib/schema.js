@@ -1,3 +1,5 @@
+import { getSafeISODate } from './dateUtils';
+
 export function generateFAQSchema(faqs) {
   if (!faqs || faqs.length === 0) return null;
   return {
@@ -76,19 +78,17 @@ export function generateOrganizationSchema() {
   };
 }
 
-export function generateArticleSchema({ title, description, url, datePublished, dateModified, authorName = "KaroTools" }) {
+export function generateArticleSchema({ title, description, url, datePublished, dateModified, authorName = "KaroTools Editorial Team" }) {
   const authorData = authorName === "Dax Patel" 
     ? generatePersonSchema() 
-    : { "@type": "Organization", "name": authorName };
+    : { "@type": "Organization", "name": authorName, "url": "https://karotools.in" };
 
-  return {
+  const schema = {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": title,
     "description": description,
     "url": url,
-    "datePublished": datePublished,
-    "dateModified": dateModified || datePublished,
     "author": authorData,
     "publisher": {
       "@type": "Organization",
@@ -99,6 +99,14 @@ export function generateArticleSchema({ title, description, url, datePublished, 
       }
     }
   };
+
+  const isoPub = getSafeISODate(datePublished);
+  const isoMod = getSafeISODate(dateModified) || isoPub;
+
+  if (isoPub) schema.datePublished = isoPub;
+  if (isoMod) schema.dateModified = isoMod;
+
+  return schema;
 }
 
 export function generateHowToSchema({ name, description, steps }) {

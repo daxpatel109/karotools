@@ -2,14 +2,13 @@ import Link from 'next/link';
 import TaxDisclaimer from './TaxDisclaimer';
 import { SchemaScript, generateArticleSchema, generateBreadcrumbSchema } from '../../lib/schema';
 import ContentTracker from '../ContentTracker';
+import { formatSafeDateLong } from '../../lib/dateUtils';
 
-export default function ArticleLayout({ children, meta }) {
+export default function ArticleLayout({ children, meta = {} }) {
   const authorName = meta.author || "KaroTools Editorial Team";
   
   const dateString = meta.dateModified || meta.datePublished;
-  const dateObj = dateString ? new Date(dateString) : null;
-  const isValidDate = dateObj && !isNaN(dateObj);
-  const displayDate = isValidDate ? dateObj.toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' }) : "Updated for FY 2026-27";
+  const displayDate = formatSafeDateLong(dateString);
 
   const isGuide = meta.path?.startsWith('/guides');
   const sectionName = isGuide ? "Guides" : "Blog";

@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Navbar from "./components/Navbar";
+import { formatSafeDate } from "./lib/dateUtils";
 
 export default function RateCalculator() {
   const [monthlyExpenses, setMonthlyExpenses] = useState(30000);
@@ -299,7 +300,7 @@ export default function RateCalculator() {
 
       <div className="print-only print-header" style={{ display: "none", textAlign: "center", paddingTop: "20px" }}>
         <h2 style={{ fontSize: "32px", fontFamily: "'Plus Jakarta Sans',sans-serif", margin: "0 0 10px 0" }}>Freelance Rate Strategy & Proposal</h2>
-        <p style={{ margin: 0, fontSize: "16px", color: "#64748b" }}>Generated securely via KaroTools • {new Date().toLocaleDateString('en-IN')}</p>
+        <p style={{ margin: 0, fontSize: "16px", color: "#64748b" }}>Generated securely via KaroTools • {formatSafeDate(new Date())}</p>
       </div>
 
       <div className="mobile-pad" style={{ maxWidth: "1024px", margin: "0 auto", position: "relative", zIndex: 1 }}>

@@ -105,8 +105,8 @@ function ToolCard({ tool, index }) {
           {tool.icon}
         </div>
 
-        <h3 style={{ fontSize: 16, fontWeight: 700, color: "var(--text-primary)", marginBottom: 8, fontFamily: "'Plus Jakarta Sans',sans-serif", letterSpacing: "-0.01em" }}>{tool.name}</h3>
-        <p style={{ fontSize: 13, color: "var(--text-secondary)", lineHeight: 1.65, marginBottom: 18 }}>{tool.description}</p>
+        <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--text-primary)", marginBottom: 8, fontFamily: "'Plus Jakarta Sans',sans-serif", letterSpacing: "-0.01em" }}>{tool.name}</h3>
+        <p style={{ fontSize: 14, color: "var(--text-secondary)", lineHeight: 1.6, marginBottom: 18 }}>{tool.description}</p>
 
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <span style={{ background: `${accent}15`, color: accent, padding: "3px 12px", borderRadius: 20, fontSize: 11, fontWeight: 700, border: `1px solid ${accent}25`, letterSpacing: "0.06em", textTransform: "uppercase" }}>{tool.category}</span>
@@ -172,8 +172,8 @@ function PopularToolCard({ item, index }) {
           {item.icon}
         </div>
 
-        <h3 style={{ fontSize: 16, fontWeight: 700, color: "var(--text-primary)", marginBottom: 8, fontFamily: "'Plus Jakarta Sans',sans-serif", letterSpacing: "-0.01em" }}>{item.title}</h3>
-        <p style={{ fontSize: 13, color: "var(--text-secondary)", lineHeight: 1.65, marginBottom: 18, flexGrow: 1 }}>{item.desc}</p>
+        <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--text-primary)", marginBottom: 8, fontFamily: "'Plus Jakarta Sans',sans-serif", letterSpacing: "-0.01em" }}>{item.title}</h3>
+        <p style={{ fontSize: 14, color: "var(--text-secondary)", lineHeight: 1.6, marginBottom: 18, flexGrow: 1 }}>{item.desc}</p>
 
         <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", justifyContent: "space-between", marginTop: "auto" }}>
           <span style={{ background: `${accent}15`, color: accent, padding: "3px 12px", borderRadius: 20, fontSize: 11, fontWeight: 700, border: `1px solid ${accent}25`, whiteSpace: "nowrap" }}>🔥 {item.keyword}</span>
@@ -351,7 +351,7 @@ export default function Home() {
 
         {/* H1 (SEO Optimized & Mobile Responsive) */}
         <h1 style={{ fontSize: "clamp(24px, 4vw, 46px)", fontWeight: 800, fontFamily: "'Plus Jakarta Sans',sans-serif", lineHeight: 1.15, marginBottom: 24, animation: "fadeInUp 0.7s 0.2s both", letterSpacing: "-0.02em", maxWidth: 1000, wordWrap: "break-word" }}>
-          <span style={{ background: "linear-gradient(135deg, #ffffff 0%, #60a5fa 40%, #005ae6 80%)", backgroundSize: "200% auto", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "shimmer 5s linear infinite" }}>
+            <span style={{ background: "var(--hero-highlight)", backgroundSize: "200% auto", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "shimmer 5s linear infinite" }}>
             Free Tax Calculators, GST & Business Tools
           </span>
           <br />
@@ -366,11 +366,11 @@ export default function Home() {
         {/* CTA Buttons */}
         <div style={{ display: "flex", gap: 14, marginBottom: 72, flexWrap: "wrap", justifyContent: "center", animation: "fadeInUp 0.7s 0.4s both" }}>
           <button className="cta-btn-primary" onClick={() => document.getElementById("tools-section").scrollIntoView({ behavior: "smooth" })}
-            style={{ padding: "17px 40px", background: "linear-gradient(135deg, #0076ff, #005ae6)", border: "none", borderRadius: 14, color: "#fff", fontSize: 17, fontWeight: 700, fontFamily: "'Plus Jakarta Sans',sans-serif", boxShadow: "0 8px 32px rgba(99,102,241,0.35)", transition: "all 0.3s", cursor: "pointer" }}>
+            style={{ padding: "17px 40px", background: "linear-gradient(135deg, #0284c7, #2563eb)", border: "none", borderRadius: 14, color: "#fff", fontSize: 17, fontWeight: 700, fontFamily: "'Plus Jakarta Sans',sans-serif", boxShadow: "0 8px 32px rgba(2, 132, 199, 0.35)", transition: "all 0.3s", cursor: "pointer" }}>
             Explore All Tools →
           </button>
           <Link href="/gst-calculator" style={{ textDecoration: 'none' }}>
-            <button className="cta-btn-secondary" style={{ padding: "17px 36px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 14, color: "var(--text-primary)", fontSize: 17, fontWeight: 600, fontFamily: "'DM Sans',sans-serif", transition: "all 0.3s", cursor: "pointer" }}>
+            <button className="cta-btn-secondary" style={{ padding: "17px 36px", background: "var(--bg-secondary)", border: "1px solid var(--card-border)", boxShadow: "var(--card-shadow)", borderRadius: 14, color: "var(--text-primary)", fontSize: 17, fontWeight: 600, fontFamily: "'DM Sans',sans-serif", transition: "all 0.3s", cursor: "pointer" }}>
               🧮 GST Calculator
             </button>
           </Link>
@@ -399,7 +399,7 @@ export default function Home() {
       <ScrollPathSection />
 
       {/* ── TOOLS SECTION ───────────────────────────────────── */}
-      <section id="tools-section" style={{ position: "relative", zIndex: 1, padding: "100px 5vw", background: "var(--section-alt-bg)" }}>
+      <section id="tools-section" style={{ position: "relative", zIndex: 1, padding: "85px 5vw", background: "var(--section-alt-bg)" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
 
         <Reveal>
@@ -443,7 +443,7 @@ export default function Home() {
       </section>
 
       {/* ── FEATURE STRIP ───────────────────────────────────── */}
-      <section style={{ position: "relative", zIndex: 1, padding: "100px 5vw", borderTop: "1px solid var(--border-color)", background: "var(--section-alt-bg-solid)" }}>
+      <section style={{ position: "relative", zIndex: 1, padding: "85px 5vw", borderTop: "1px solid var(--border-color)", background: "var(--section-alt-bg-solid)" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <Reveal>
             <div style={{ textAlign: "center", marginBottom: 60 }}>
@@ -473,7 +473,7 @@ export default function Home() {
       </section>
 
       {/* ── POPULAR TOOLS HIGHLIGHT ──────────────────────────── */}
-      <section style={{ position: "relative", zIndex: 1, padding: "100px 5vw", borderTop: "1px solid var(--border-color)", background: "var(--section-alt-bg)" }}>
+      <section style={{ position: "relative", zIndex: 1, padding: "85px 5vw", borderTop: "1px solid var(--border-color)", background: "var(--section-alt-bg)" }}>
         <div style={{ maxWidth: 1000, margin: "0 auto" }}>
           <Reveal>
             <div style={{ textAlign: "center", marginBottom: 56 }}>
@@ -497,7 +497,7 @@ export default function Home() {
       </section>
 
       {/* ── LATEST GST GUIDES ─────────────────────────────────── */}
-      <section style={{ position: "relative", zIndex: 1, padding: "100px 5vw", borderTop: "1px solid var(--border-color)", background: "var(--section-alt-bg-solid)" }}>
+      <section style={{ position: "relative", zIndex: 1, padding: "85px 5vw", borderTop: "1px solid var(--border-color)", background: "var(--section-alt-bg-solid)" }}>
         <div style={{ maxWidth: 1000, margin: "0 auto" }}>
           <Reveal>
             <div style={{ textAlign: "center", marginBottom: 56 }}>
@@ -530,7 +530,7 @@ export default function Home() {
       </section>
 
       {/* ── FAQ ──────────────────────────────────────────────── */}
-      <section style={{ position: "relative", zIndex: 1, padding: "100px 5vw", borderTop: "1px solid var(--border-color)", background: "var(--bg-secondary)" }}>
+      <section style={{ position: "relative", zIndex: 1, padding: "85px 5vw", borderTop: "1px solid var(--border-color)", background: "var(--bg-secondary)" }}>
         <div style={{ maxWidth: 780, margin: "0 auto" }}>
           <Reveal>
             <div style={{ textAlign: "center", marginBottom: 56 }}>
@@ -553,7 +553,7 @@ export default function Home() {
       </section>
 
       {/* ── CTA SECTION ─────────────────────────────────────── */}
-      <section style={{ position: "relative", zIndex: 1, padding: "100px 5vw", borderTop: "1px solid var(--border-color)", background: "var(--bg-secondary)" }}>
+      <section style={{ position: "relative", zIndex: 1, padding: "85px 5vw", borderTop: "1px solid var(--border-color)", background: "var(--bg-secondary)" }}>
         <Reveal>
           <div style={{ maxWidth: 820, margin: "0 auto", background: "linear-gradient(135deg, #0ea5e9, #0284c7)", boxShadow: "0 20px 40px rgba(14, 165, 233, 0.25)", borderRadius: 28, padding: "8vw 5vw", textAlign: "center", position: "relative", overflow: "hidden" }}>
             <div style={{ position: "absolute", top: 0, right: 0, width: 300, height: 300, background: "radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%)", pointerEvents: "none" }} />

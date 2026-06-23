@@ -175,7 +175,7 @@ export default function Section44ADACalculator() {
             FY 2026-27 Updated
           </div>
           <p style={{ color: "var(--text-secondary)", fontSize: "16px", maxWidth: "600px", margin: "0 auto", lineHeight: 1.6 }}>
-            Enter your income and expenses below. We'll automatically compare Section 44ADA (50% flat deduction) against the Normal method to tell you which saves you more tax.
+            Enter your income and expenses below. We'll automatically compare Section 44ADA against the Normal method to tell you which saves you more tax. Section 44ADA allows eligible professionals to declare 50% of gross professional receipts as presumptive income. The remaining 50% is treated as deemed business expenses. Final tax depends on tax regime, rebates, other income, deductions, and eligibility.
           </p>
         </div>
 
@@ -399,10 +399,10 @@ export default function Section44ADACalculator() {
           <div style={{ marginTop: "64px", borderTop: "1px solid var(--glass-bg)", paddingTop: "48px" }}>
             <h2 style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginBottom: "28px", textAlign: "center" }}>Frequently Asked Questions</h2>
             {[
-              { q: "What is Section 44ADA?", a: "Section 44ADA is a presumptive taxation scheme for specified professionals in India. It allows you to declare 50% of your gross receipts as taxable income, effectively giving you a flat 50% deduction for business expenses without needing to maintain detailed accounting books." },
+              { q: "What is Section 44ADA?", a: "Section 44ADA is a presumptive taxation scheme for specified professionals in India. Section 44ADA allows eligible professionals to declare 50% of gross professional receipts as presumptive income. The remaining 50% is treated as deemed business expenses. Final tax depends on tax regime, rebates, other income, deductions, and eligibility." },
               { q: "When should I choose the Actual Expenses method?", a: "If your actual business expenses (software, internet, travel, freelancer payouts) are significantly MORE than 50% of your revenue, the actual expenses method will save you more tax. However, you must maintain proper books of accounts and invoices." },
-              { q: "Who is eligible for Section 44ADA?", a: "Specified professionals including freelancers, software developers, consultants, doctors, lawyers, and interior decorators whose total gross receipts are under ₹75 Lakhs in a financial year are eligible." },
-              { q: "Can I claim standard deduction under 44ADA?", a: "No. The standard deduction of ₹75,000 (New Regime) applies only to salaried employees and pensioners. Freelancers using 44ADA cannot claim this deduction, but they already get a massive 50% flat deduction on gross receipts." }
+              { q: "Who is eligible for Section 44ADA?", a: "Section 44ADA applies only to specified resident professionals. Some IT/software, consulting, legal, medical, engineering, accounting, architecture and interior decoration professionals may qualify depending on the exact nature of services. The normal limit is ₹50 lakh, with a possible ₹75 lakh limit when cash/non-specified receipts do not exceed 5%. Verify with a CA if unsure." },
+              { q: "Can I claim standard deduction under 44ADA?", a: "No. The standard deduction of ₹75,000 (New Regime) applies only to salaried employees and pensioners. Freelancers using 44ADA cannot claim this deduction." }
             ].map(item => (
               <div key={item.q} style={{ marginBottom: "24px", background: "var(--glass-bg)", padding: "20px", borderRadius: "12px", border: "1px solid var(--glass-bg)" }}>
                 <h3 style={{ fontSize: "16px", fontWeight: "700", color: "#38bdf8", marginBottom: "8px", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>{item.q}</h3>

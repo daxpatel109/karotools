@@ -31,7 +31,7 @@ const allPosts = [
     category: "TAX SAVINGS",
     date: "June 7, 2026",
     readTime: "7 min read",
-    description: "Learn how Section 44ADA allows you to claim 50% of your income as completely tax-free.",
+    description: "Learn how Section 44ADA allows eligible professionals to declare 50% of gross receipts as presumptive income.",
     color: "#38bdf8", 
     bg: "rgba(56,189,248,0.1)"
   },

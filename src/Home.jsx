@@ -499,10 +499,10 @@ export default function Home() {
           </Reveal>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(300px, 100%), 1fr))", gap: 20 }}>
             {[
-              { icon: "🧮", title: "Free GST Calculator India", desc: "Calculate CGST, SGST & IGST instantly. All slabs, custom rates, round-off toggle, visual breakdown & copy result.", link: "/gst-calculator", keyword: "33,000+ monthly searches" },
-              { icon: "📄", title: "Free GST Invoice Generator", desc: "Create professional GST invoices with PDF download. Your logo, GSTIN, HSN/SAC codes — no software needed.", link: "/gst-invoice-generator", keyword: "28,000+ monthly searches" },
-              { icon: "🔥", title: "FIRE Calculator India", desc: "Calculate your early retirement number (Lean, Regular, Fat) with inflation & nominal compounding.", link: "/fire-calculator", keyword: "12,000+ monthly searches" },
-              { icon: "💰", title: "Freelance Rate Calculator", desc: "Calculate your perfect freelance hourly, daily & monthly rate in INR based on your expenses.", link: "/freelance-rate-calculator", keyword: "15,000+ monthly searches" },
+              { icon: "🧮", title: "Free GST Calculator India", desc: "Calculate CGST, SGST & IGST instantly. All slabs, custom rates, round-off toggle, visual breakdown & copy result.", link: "/gst-calculator", keyword: "GST Calculator India" },
+              { icon: "📄", title: "Free GST Invoice Generator", desc: "Create professional GST invoices with PDF download. Your logo, GSTIN, HSN/SAC codes - no software needed.", link: "/gst-invoice-generator", keyword: "Free Invoice Generator" },
+              { icon: "📈", title: "FIRE Calculator India", desc: "Calculate your early retirement number (Lean, Regular, Fat) with inflation & nominal compounding.", link: "/fire-calculator", keyword: "Early Retirement Calculator" },
+              { icon: "💰", title: "Freelance Rate Calculator", desc: "Calculate your perfect freelance hourly, daily & monthly rate in INR based on your expenses.", link: "/freelance-rate-calculator", keyword: "Freelance Rate Calculator" },
             ].map((item, i) => (
               <Reveal key={item.title} delay={i * 0.1}>
                 <PopularToolCard item={item} index={i} />
@@ -578,7 +578,7 @@ export default function Home() {
             <h2 style={{ fontSize: "clamp(26px, 4vw, 44px)", fontWeight: 800, fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#ffffff", marginBottom: 16, letterSpacing: "-0.025em", position: "relative", zIndex: 2 }}>
               Start Using KaroTools Today — It's Free
             </h2>
-            <p style={{ fontSize: 17, color: "rgba(255,255,255,0.9)", marginBottom: 40, maxWidth: 500, margin: "0 auto 40px", position: "relative", zIndex: 2 }}>Join thousands of Indian freelancers who save hours every week with our free business tools.</p>
+            <p style={{ fontSize: 17, color: "rgba(255,255,255,0.9)", marginBottom: 40, maxWidth: 500, margin: "0 auto 40px", position: "relative", zIndex: 2 }}>Built for high-demand GST and freelance tax use cases.</p>
             <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap", position: "relative", zIndex: 2 }}>
               <Link href="/gst-calculator" style={{ textDecoration: 'none' }}>
                 <button className="cta-btn-primary" style={{ padding: "15px 36px", background: "#ffffff", border: "none", borderRadius: 12, color: "#0284c7", fontSize: 16, fontWeight: 700, fontFamily: "'Plus Jakarta Sans',sans-serif", boxShadow: "0 8px 28px rgba(0,0,0,0.15)", cursor: "pointer", transition: "all 0.3s" }}>

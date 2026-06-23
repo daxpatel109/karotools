@@ -11,7 +11,7 @@ export default function BlogPost2() {
     // Meta Description
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) { meta = document.createElement('meta'); meta.name = "description"; document.head.appendChild(meta); }
-    meta.content = "Learn how Section 44ADA for freelancers allows you to claim 50% of your income as completely tax-free. The ultimate Indian presumptive taxation guide.";
+    meta.content = "Learn how Section 44ADA allows eligible professionals to declare 50% of gross receipts as presumptive income. The ultimate Indian presumptive taxation guide.";
 
     // JSON-LD FAQ Schema
     const schema = {
@@ -23,7 +23,7 @@ export default function BlogPost2() {
           "name": "What is Section 44ADA for freelancers?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Section 44ADA for freelancers is a presumptive taxation scheme by the Indian Government that allows specified professionals to declare 50% of their gross receipts as business profit, effectively making the other 50% tax-free without needing to maintain detailed expense receipts."
+            "text": "Section 44ADA for freelancers is a presumptive taxation scheme by the Indian Government that allows specified professionals to declare 50% of their gross receipts as business profit, treating the remaining 50% as deemed business expenses without needing to maintain detailed expense receipts."
           }
         },
         {

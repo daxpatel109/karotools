@@ -68,7 +68,7 @@ export default function LateGSTPenalty() {
   const fmt = (val) => Number(val).toLocaleString("en-IN", { maximumFractionDigits: 0 });
 
   return (
-    <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans', sans-serif", color: "#f8fafc" }}>
+    <div style={{ minHeight: "100vh", background: "var(--bg-primary)", fontFamily: "'DM Sans', sans-serif", color: "var(--text-primary)" }}>
       
       <style dangerouslySetInnerHTML={{ __html: `
         ::selection { background: rgba(239, 68, 68, 0.4); color: white; }
@@ -80,7 +80,7 @@ export default function LateGSTPenalty() {
           border: 1px solid rgba(255, 255, 255, 0.06);
           backdrop-filter: blur(24px);
           -webkit-backdrop-filter: blur(24px);
-          box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+          box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.4), inset 0 1px 0 var(--border-color);
         }
 
         .interactive-btn {
@@ -118,7 +118,7 @@ export default function LateGSTPenalty() {
             <span style={{ fontSize: "36px" }}>⚠️</span>
           </div>
           <h1 style={{ fontSize: "42px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "12px", background: "linear-gradient(135deg, #ffffff 0%, #fca5a5 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", letterSpacing: "-0.02em" }}>Late GST Penalty</h1>
-          <p style={{ color: "#94a3b8", fontSize: "16px" }}>Calculate late fees (₹50/day) & 18% interest instantly</p>
+          <p style={{ color: "var(--text-secondary)", fontSize: "16px" }}>Calculate late fees (₹50/day) & 18% interest instantly</p>
         </div>
 
         <div className="glass-panel" style={{ borderRadius: "28px", padding: "40px", marginBottom: "32px", animation: "fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1)" }}>
@@ -126,30 +126,30 @@ export default function LateGSTPenalty() {
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px", marginBottom: "32px" }}>
             {/* Due Date */}
             <div>
-              <label style={{ display: "block", fontWeight: "700", color: "#cbd5e1", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Due Date</label>
-              <div className="input-glow" style={{ borderRadius: "16px", border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.03)", display: "flex", alignItems: "center", padding: "12px 20px" }}>
+              <label style={{ display: "block", fontWeight: "700", color: "var(--text-primary)", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Due Date</label>
+              <div className="input-glow" style={{ borderRadius: "16px", border: "1px solid var(--border-color)", background: "var(--glass-bg)", display: "flex", alignItems: "center", padding: "12px 20px" }}>
                 <span style={{ fontSize: "20px", marginRight: "12px" }}>📅</span>
-                <input type="date" value={dueDate} onChange={e => setDueDate(e.target.value)} style={{ width: "100%", background: "transparent", border: "none", fontSize: "18px", color: "#f8fafc", outline: "none", fontWeight: "600", fontFamily: "'DM Sans',sans-serif" }} />
+                <input type="date" value={dueDate} onChange={e => setDueDate(e.target.value)} style={{ width: "100%", background: "transparent", border: "none", fontSize: "18px", color: "var(--text-primary)", outline: "none", fontWeight: "600", fontFamily: "'DM Sans',sans-serif" }} />
               </div>
             </div>
 
             {/* Filing Date */}
             <div>
-              <label style={{ display: "block", fontWeight: "700", color: "#cbd5e1", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Actual Filing Date</label>
-              <div className="input-glow" style={{ borderRadius: "16px", border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.03)", display: "flex", alignItems: "center", padding: "12px 20px" }}>
+              <label style={{ display: "block", fontWeight: "700", color: "var(--text-primary)", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Actual Filing Date</label>
+              <div className="input-glow" style={{ borderRadius: "16px", border: "1px solid var(--border-color)", background: "var(--glass-bg)", display: "flex", alignItems: "center", padding: "12px 20px" }}>
                 <span style={{ fontSize: "20px", marginRight: "12px" }}>📝</span>
-                <input type="date" value={filingDate} onChange={e => setFilingDate(e.target.value)} style={{ width: "100%", background: "transparent", border: "none", fontSize: "18px", color: "#f8fafc", outline: "none", fontWeight: "600", fontFamily: "'DM Sans',sans-serif" }} />
+                <input type="date" value={filingDate} onChange={e => setFilingDate(e.target.value)} style={{ width: "100%", background: "transparent", border: "none", fontSize: "18px", color: "var(--text-primary)", outline: "none", fontWeight: "600", fontFamily: "'DM Sans',sans-serif" }} />
               </div>
             </div>
           </div>
 
           <div style={{ marginBottom: "32px" }}>
-            <label style={{ display: "block", fontWeight: "700", color: "#cbd5e1", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Return Type</label>
-            <div style={{ display: "flex", background: "rgba(255,255,255,0.03)", borderRadius: "16px", padding: "6px", border: "1px solid rgba(255,255,255,0.08)" }}>
-              <button onClick={() => setIsNil(false)} style={{ flex: 1, padding: "14px", background: !isNil ? "linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05))" : "transparent", border: "none", borderRadius: "12px", color: !isNil ? "#fff" : "#64748b", fontWeight: "700", fontSize: "15px", cursor: "pointer", transition: "all 0.3s", boxShadow: !isNil ? "0 4px 12px rgba(0,0,0,0.1)" : "none" }}>
+            <label style={{ display: "block", fontWeight: "700", color: "var(--text-primary)", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Return Type</label>
+            <div style={{ display: "flex", background: "var(--glass-bg)", borderRadius: "16px", padding: "6px", border: "1px solid var(--glass-border)" }}>
+              <button onClick={() => setIsNil(false)} style={{ flex: 1, padding: "14px", background: !isNil ? "linear-gradient(135deg, var(--border-color), var(--glass-bg))" : "transparent", border: "none", borderRadius: "12px", color: !isNil ? "#fff" : "var(--text-secondary)", fontWeight: "700", fontSize: "15px", cursor: "pointer", transition: "all 0.3s", boxShadow: !isNil ? "0 4px 12px rgba(0,0,0,0.1)" : "none" }}>
                 Normal Return (₹50/day)
               </button>
-              <button onClick={() => setIsNil(true)} style={{ flex: 1, padding: "14px", background: isNil ? "linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05))" : "transparent", border: "none", borderRadius: "12px", color: isNil ? "#fff" : "#64748b", fontWeight: "700", fontSize: "15px", cursor: "pointer", transition: "all 0.3s", boxShadow: isNil ? "0 4px 12px rgba(0,0,0,0.1)" : "none" }}>
+              <button onClick={() => setIsNil(true)} style={{ flex: 1, padding: "14px", background: isNil ? "linear-gradient(135deg, var(--border-color), var(--glass-bg))" : "transparent", border: "none", borderRadius: "12px", color: isNil ? "#fff" : "var(--text-secondary)", fontWeight: "700", fontSize: "15px", cursor: "pointer", transition: "all 0.3s", boxShadow: isNil ? "0 4px 12px rgba(0,0,0,0.1)" : "none" }}>
                 Nil Return (₹20/day)
               </button>
             </div>
@@ -157,12 +157,12 @@ export default function LateGSTPenalty() {
 
           {!isNil && (
             <div>
-              <label style={{ display: "block", fontWeight: "700", color: "#cbd5e1", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Net Tax Liability (₹)</label>
-              <div className="input-glow" style={{ borderRadius: "16px", border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.03)", display: "flex", alignItems: "center", padding: "8px 20px" }}>
-                <span style={{ fontSize: "24px", color: "#64748b", fontWeight: "500", marginRight: "12px" }}>₹</span>
-                <input type="number" value={liability} onChange={e => setLiability(e.target.value)} placeholder="0.00" style={{ width: "100%", padding: "14px 0", background: "transparent", border: "none", fontSize: "28px", color: "#f8fafc", outline: "none", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", letterSpacing: "-0.02em" }} />
+              <label style={{ display: "block", fontWeight: "700", color: "var(--text-primary)", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Net Tax Liability (₹)</label>
+              <div className="input-glow" style={{ borderRadius: "16px", border: "1px solid var(--border-color)", background: "var(--glass-bg)", display: "flex", alignItems: "center", padding: "8px 20px" }}>
+                <span style={{ fontSize: "24px", color: "var(--text-secondary)", fontWeight: "500", marginRight: "12px" }}>₹</span>
+                <input type="number" value={liability} onChange={e => setLiability(e.target.value)} placeholder="0.00" style={{ width: "100%", padding: "14px 0", background: "transparent", border: "none", fontSize: "28px", color: "var(--text-primary)", outline: "none", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", letterSpacing: "-0.02em" }} />
               </div>
-              <p style={{ marginTop: "12px", fontSize: "13px", color: "#64748b" }}>*Interest of 18% p.a. is calculated on this unpaid tax amount.</p>
+              <p style={{ marginTop: "12px", fontSize: "13px", color: "var(--text-secondary)" }}>*Interest of 18% p.a. is calculated on this unpaid tax amount.</p>
             </div>
           )}
         </div>
@@ -175,25 +175,25 @@ export default function LateGSTPenalty() {
               <div style={{ textAlign: "center", padding: "20px 0" }}>
                 <div style={{ fontSize: "48px", marginBottom: "16px" }}>✅</div>
                 <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#4ade80", marginBottom: "8px" }}>Filed on Time!</h2>
-                <p style={{ color: "#94a3b8" }}>You have 0 days of delay. No penalty or interest applies.</p>
+                <p style={{ color: "var(--text-secondary)" }}>You have 0 days of delay. No penalty or interest applies.</p>
               </div>
             ) : (
               <>
                 <div style={{ textAlign: "center", marginBottom: "36px" }}>
                   <p style={{ fontSize: "14px", fontWeight: "700", color: "#ef4444", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "12px" }}>Total Days Delayed</p>
                   <h2 style={{ fontSize: "48px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#fff", lineHeight: 1 }}>
-                    {result.days} <span style={{ fontSize: "24px", color: "#94a3b8", fontWeight: "600" }}>Days</span>
+                    {result.days} <span style={{ fontSize: "24px", color: "var(--text-secondary)", fontWeight: "600" }}>Days</span>
                   </h2>
                 </div>
 
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px", marginBottom: "32px" }}>
-                  <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "20px", padding: "24px", textAlign: "center" }}>
-                    <p style={{ color: "#94a3b8", fontSize: "13px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "8px" }}>Late Fee Penalty</p>
-                    <p style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>₹{fmt(result.lateFee)}</p>
+                  <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: "20px", padding: "24px", textAlign: "center" }}>
+                    <p style={{ color: "var(--text-secondary)", fontSize: "13px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "8px" }}>Late Fee Penalty</p>
+                    <p style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)" }}>₹{fmt(result.lateFee)}</p>
                   </div>
-                  <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "20px", padding: "24px", textAlign: "center" }}>
-                    <p style={{ color: "#94a3b8", fontSize: "13px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "8px" }}>18% Interest</p>
-                    <p style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>₹{fmt(result.interest)}</p>
+                  <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: "20px", padding: "24px", textAlign: "center" }}>
+                    <p style={{ color: "var(--text-secondary)", fontSize: "13px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "8px" }}>18% Interest</p>
+                    <p style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)" }}>₹{fmt(result.interest)}</p>
                   </div>
                 </div>
 

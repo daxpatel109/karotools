@@ -31,7 +31,7 @@ export default function ArticleLayout({ children, meta = {} }) {
   });
 
   return (
-    <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans', sans-serif", color: "#f8fafc", selectionColor: "#fff", selectionBackground: "#0076ff" }}>
+    <div style={{ minHeight: "100vh", background: "var(--bg-primary)", fontFamily: "'DM Sans', sans-serif", color: "var(--text-primary)", selectionColor: "#fff", selectionBackground: "#0076ff" }}>
       <ContentTracker />
       <style dangerouslySetInnerHTML={{ __html: `
         ::selection { background: rgba(0,118,255, 0.4); color: white; }
@@ -52,9 +52,9 @@ export default function ArticleLayout({ children, meta = {} }) {
         }
 
         .home-btn {
-          background: rgba(255,255,255,0.03);
-          border: 1px solid rgba(255,255,255,0.08);
-          color: #cbd5e1;
+          background: var(--glass-bg);
+          border: 1px solid var(--glass-border);
+          color: var(--text-primary);
           text-decoration: none;
         }
         .home-btn:hover {
@@ -64,18 +64,18 @@ export default function ArticleLayout({ children, meta = {} }) {
         }
 
         /* MDX content styles */
-        .mdx-content h1 { font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin-bottom: 24px; color: #f8fafc; line-height: 1.1; font-family: 'Plus Jakarta Sans', sans-serif; }
-        .mdx-content h2 { font-size: 28px; font-weight: 700; margin-top: 48px; margin-bottom: 24px; color: #f8fafc; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .mdx-content h1 { font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin-bottom: 24px; color: var(--text-primary); line-height: 1.1; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .mdx-content h2 { font-size: 28px; font-weight: 700; margin-top: 48px; margin-bottom: 24px; color: var(--text-primary); font-family: 'Plus Jakarta Sans', sans-serif; }
         .mdx-content h3 { font-size: 20px; font-weight: 600; margin-top: 32px; margin-bottom: 16px; color: #38bdf8; font-family: 'Plus Jakarta Sans', sans-serif; }
-        .mdx-content p { color: #cbd5e1; line-height: 1.8; margin-bottom: 20px; font-size: 16px; }
-        .mdx-content ul, .mdx-content ol { color: #cbd5e1; line-height: 1.8; margin-bottom: 20px; padding-left: 24px; }
+        .mdx-content p { color: var(--text-primary); line-height: 1.8; margin-bottom: 20px; font-size: 16px; }
+        .mdx-content ul, .mdx-content ol { color: var(--text-primary); line-height: 1.8; margin-bottom: 20px; padding-left: 24px; }
         .mdx-content li { margin-bottom: 8px; }
         .mdx-content a { color: #38bdf8; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
         .mdx-content a:hover { border-bottom-color: #38bdf8; }
-        .mdx-content strong { color: #f8fafc; font-weight: 600; }
+        .mdx-content strong { color: var(--text-primary); font-weight: 600; }
         .mdx-content table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
-        .mdx-content th, .mdx-content td { padding: 12px; border: 1px solid rgba(255,255,255,0.1); text-align: left; }
-        .mdx-content th { background: rgba(255,255,255,0.05); color: #f8fafc; font-weight: 600; }
+        .mdx-content th, .mdx-content td { padding: 12px; border: 1px solid var(--border-color); text-align: left; }
+        .mdx-content th { background: var(--glass-bg); color: var(--text-primary); font-weight: 600; }
       `}} />
 
       <SchemaScript schema={articleSchema} />
@@ -95,7 +95,7 @@ export default function ArticleLayout({ children, meta = {} }) {
           <Link href="/" style={{ textDecoration: "none" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }}>
               <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
-              <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
+              <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)" }}>
                 Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
               </span>
             </div>
@@ -108,17 +108,17 @@ export default function ArticleLayout({ children, meta = {} }) {
 
       <main style={{ maxWidth: "820px", margin: "0 auto", padding: "56px 24px 100px", position: "relative", zIndex: 1 }}>
         <article className="mdx-content">
-          <header style={{ marginBottom: "40px", paddingBottom: "32px", borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
-            <div style={{ marginBottom: "24px", fontSize: "14px", color: "#64748b", display: "flex", alignItems: "center", gap: "8px" }}>
-              <Link href="/" style={{ color: "#94a3b8", textDecoration: "none" }}>Home</Link>
+          <header style={{ marginBottom: "40px", paddingBottom: "32px", borderBottom: "1px solid var(--border-color)" }}>
+            <div style={{ marginBottom: "24px", fontSize: "14px", color: "var(--text-secondary)", display: "flex", alignItems: "center", gap: "8px" }}>
+              <Link href="/" style={{ color: "var(--text-secondary)", textDecoration: "none" }}>Home</Link>
               <span>›</span>
-              <Link href={sectionPath} style={{ color: "#94a3b8", textDecoration: "none" }}>{sectionName}</Link>
+              <Link href={sectionPath} style={{ color: "var(--text-secondary)", textDecoration: "none" }}>{sectionName}</Link>
               <span>›</span>
-              <span style={{ color: "#cbd5e1" }}>{meta.title}</span>
+              <span style={{ color: "var(--text-primary)" }}>{meta.title}</span>
             </div>
             <h1 style={{ marginBottom: "16px" }}>{meta.title}</h1>
-            <p style={{ fontSize: "18px", color: "#94a3b8", marginBottom: "24px" }}>{meta.description}</p>
-            <div style={{ display: "flex", gap: "16px", fontSize: "14px", color: "#64748b", alignItems: "center", flexWrap: "wrap" }}>
+            <p style={{ fontSize: "18px", color: "var(--text-secondary)", marginBottom: "24px" }}>{meta.description}</p>
+            <div style={{ display: "flex", gap: "16px", fontSize: "14px", color: "var(--text-secondary)", alignItems: "center", flexWrap: "wrap" }}>
               <span>📅 {displayDate}</span>
               {meta.author === "Dax Patel" ? (
                 <span>✍️ By <Link href="/author/dax-patel" style={{ color: "#38bdf8", textDecoration: "none" }}>Dax Patel</Link></span>
@@ -132,11 +132,11 @@ export default function ArticleLayout({ children, meta = {} }) {
 
           <TaxDisclaimer />
           
-          <div className="glass-panel" style={{ marginTop: "48px", padding: "32px", borderRadius: "16px", border: "1px solid rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.03)" }}>
+          <div className="glass-panel" style={{ marginTop: "48px", padding: "32px", borderRadius: "16px", border: "1px solid var(--glass-border)", background: "var(--glass-bg)" }}>
             <div style={{ display: "flex", gap: "24px", alignItems: "flex-start", flexWrap: "wrap" }}>
               <div style={{ flex: 1, minWidth: "250px" }}>
-                <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#f8fafc", margin: "0 0 8px 0" }}>Written by: {authorName}</h3>
-                <p style={{ color: "#94a3b8", fontSize: "14px", lineHeight: "1.6", margin: "0 0 16px 0" }}>
+                <h3 style={{ fontSize: "18px", fontWeight: "700", color: "var(--text-primary)", margin: "0 0 8px 0" }}>Written by: {authorName}</h3>
+                <p style={{ color: "var(--text-secondary)", fontSize: "14px", lineHeight: "1.6", margin: "0 0 16px 0" }}>
                   Dax Patel creates practical GST, invoice, tax, and business tools for Indian freelancers, consultants, small businesses, and agencies through KaroTools.
                 </p>
                 <div style={{ display: "flex", gap: "16px", fontSize: "14px" }}>
@@ -144,35 +144,35 @@ export default function ArticleLayout({ children, meta = {} }) {
                   <Link href="/contact" style={{ color: "#38bdf8", textDecoration: "none" }}>Contact Support</Link>
                 </div>
               </div>
-              <div style={{ flex: 1, minWidth: "250px", borderLeft: "1px solid rgba(255,255,255,0.1)", paddingLeft: "24px" }}>
-                <h4 style={{ fontSize: "14px", fontWeight: "600", color: "#cbd5e1", margin: "0 0 8px 0", textTransform: "uppercase", letterSpacing: "0.5px" }}>Accuracy Note</h4>
-                <p style={{ color: "#64748b", fontSize: "13px", lineHeight: "1.6", margin: "0 0 12px 0" }}>
+              <div style={{ flex: 1, minWidth: "250px", borderLeft: "1px solid var(--border-color)", paddingLeft: "24px" }}>
+                <h4 style={{ fontSize: "14px", fontWeight: "600", color: "var(--text-primary)", margin: "0 0 8px 0", textTransform: "uppercase", letterSpacing: "0.5px" }}>Accuracy Note</h4>
+                <p style={{ color: "var(--text-secondary)", fontSize: "13px", lineHeight: "1.6", margin: "0 0 12px 0" }}>
                   This guide is written for educational purposes and is updated periodically. GST and Income Tax rules may change. Please verify with the official GST portal, Income Tax portal, CBIC notifications, or your CA before filing.
                 </p>
-                <p style={{ color: "#64748b", fontSize: "13px", margin: 0 }}>
+                <p style={{ color: "var(--text-secondary)", fontSize: "13px", margin: 0 }}>
                   Last updated: {displayDate}
                 </p>
               </div>
             </div>
           </div>
           
-          <div style={{ marginTop: "48px", borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "40px" }}>
-            <h3 style={{ fontSize: "24px", fontWeight: "700", color: "#f8fafc", marginBottom: "24px" }}>Related Guides & Tools</h3>
+          <div style={{ marginTop: "48px", borderTop: "1px solid var(--border-color)", paddingTop: "40px" }}>
+            <h3 style={{ fontSize: "24px", fontWeight: "700", color: "var(--text-primary)", marginBottom: "24px" }}>Related Guides & Tools</h3>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))", gap: "20px" }}>
               <Link href="/gst-calculator" className="interactive-btn glass-panel" style={{ padding: "20px", borderRadius: "12px", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px" }}>
                 <span style={{ fontSize: "24px" }}>🧮</span>
-                <strong style={{ color: "#f8fafc", fontSize: "16px" }}>GST Calculator</strong>
-                <span style={{ color: "#94a3b8", fontSize: "14px" }}>Calculate inclusive/exclusive GST.</span>
+                <strong style={{ color: "var(--text-primary)", fontSize: "16px" }}>GST Calculator</strong>
+                <span style={{ color: "var(--text-secondary)", fontSize: "14px" }}>Calculate inclusive/exclusive GST.</span>
               </Link>
               <Link href="/invoice-generator" className="interactive-btn glass-panel" style={{ padding: "20px", borderRadius: "12px", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px" }}>
                 <span style={{ fontSize: "24px" }}>📄</span>
-                <strong style={{ color: "#f8fafc", fontSize: "16px" }}>GST Invoice Generator</strong>
-                <span style={{ color: "#94a3b8", fontSize: "14px" }}>Create compliant GST invoices online.</span>
+                <strong style={{ color: "var(--text-primary)", fontSize: "16px" }}>GST Invoice Generator</strong>
+                <span style={{ color: "var(--text-secondary)", fontSize: "14px" }}>Create compliant GST invoices online.</span>
               </Link>
               <Link href="/blog/gst-registration-threshold" className="interactive-btn glass-panel" style={{ padding: "20px", borderRadius: "12px", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px" }}>
                 <span style={{ fontSize: "24px" }}>🏛️</span>
-                <strong style={{ color: "#f8fafc", fontSize: "16px" }}>GST Registration Rules</strong>
-                <span style={{ color: "#94a3b8", fontSize: "14px" }}>Do you need GST registration?</span>
+                <strong style={{ color: "var(--text-primary)", fontSize: "16px" }}>GST Registration Rules</strong>
+                <span style={{ color: "var(--text-secondary)", fontSize: "14px" }}>Do you need GST registration?</span>
               </Link>
             </div>
           </div>

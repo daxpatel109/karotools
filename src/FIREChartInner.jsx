@@ -22,18 +22,18 @@ export default function FIREChartInner({ chartData }) {
             <stop offset="95%" stopColor="#10b981" stopOpacity={0}/>
           </linearGradient>
         </defs>
-        <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" vertical={false} />
+        <CartesianGrid strokeDasharray="3 3" stroke="var(--glass-bg)" vertical={false} />
         <XAxis 
           dataKey="age" 
-          stroke="#64748b" 
-          tick={{fill: '#64748b', fontSize: 12}}
+          stroke="var(--text-secondary)" 
+          tick={{fill: 'var(--text-secondary)', fontSize: 12}}
           tickLine={false}
           axisLine={false}
           tickFormatter={(val) => `Age ${val}`}
         />
         <YAxis 
-          stroke="#64748b" 
-          tick={{fill: '#64748b', fontSize: 12}}
+          stroke="var(--text-secondary)" 
+          tick={{fill: 'var(--text-secondary)', fontSize: 12}}
           tickLine={false}
           axisLine={false}
           tickFormatter={(val) => {
@@ -44,9 +44,9 @@ export default function FIREChartInner({ chartData }) {
           width={60}
         />
         <Tooltip 
-          contentStyle={{ background: '#0f172a', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px', boxShadow: '0 12px 32px rgba(0,0,0,0.4)', color: '#f8fafc' }}
-          itemStyle={{ color: '#e2e8f0', fontWeight: '600' }}
-          labelStyle={{ color: '#94a3b8', marginBottom: '8px' }}
+          contentStyle={{ background: 'var(--bg-tertiary)', border: '1px solid var(--border-color)', borderRadius: '12px', boxShadow: '0 12px 32px rgba(0,0,0,0.4)', color: 'var(--text-primary)' }}
+          itemStyle={{ color: 'var(--text-primary)', fontWeight: '600' }}
+          labelStyle={{ color: 'var(--text-secondary)', marginBottom: '8px' }}
           formatter={(value, name) => [formatCurrency(value), name === 'wealth' ? 'Your Portfolio' : 'FIRE Target']}
           labelFormatter={(label) => `At Age ${label}`}
         />

@@ -69,21 +69,21 @@ export default function BlogPost() {
   };
 
   return (
-    <div style={{ backgroundColor: "#020617", minHeight: "100vh", color: "#f8fafc", fontFamily: "'Inter', sans-serif" }}>
+    <div style={{ backgroundColor: "var(--bg-primary)", minHeight: "100vh", color: "var(--text-primary)", fontFamily: "'Inter', sans-serif" }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema).replace(/</g, "\\u003c") }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c") }} />
 
-      <nav style={{ padding: "20px 0", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+      <nav style={{ padding: "20px 0", borderBottom: "1px solid var(--glass-bg)" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }}>
               <img src="/logo.png" alt="KaroTools Logo" style={{ height: "clamp(40px, 10vw, 56px)", margin: "0 -16px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
-              <span style={{ fontSize: "clamp(18px, 5vw, 22px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
+              <span style={{ fontSize: "clamp(18px, 5vw, 22px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)" }}>
                 Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
               </span>
             </div>
           </Link>
-          <Link href="/blog" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "14px", fontWeight: "500" }}>
+          <Link href="/blog" style={{ color: "var(--text-secondary)", textDecoration: "none", fontSize: "14px", fontWeight: "500" }}>
             ← Back to Blog
           </Link>
         </div>
@@ -99,10 +99,10 @@ export default function BlogPost() {
             <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans', sans-serif", lineHeight: "1.1", marginBottom: "24px", color: "#fff" }}>
               GST Registration Limit for Freelancers in India: The ₹20 Lakh Threshold Explained
             </h1>
-            <p style={{ fontSize: "18px", color: "#cbd5e1", lineHeight: "1.6", marginBottom: "24px" }}>
+            <p style={{ fontSize: "18px", color: "var(--text-primary)", lineHeight: "1.6", marginBottom: "24px" }}>
               Do you really need to register for GST and charge clients 18%? Here's the complete, plain-English answer for Indian freelancers — including rules for international clients.
             </p>
-            <div style={{ display: "flex", gap: "16px", fontSize: "14px", color: "#64748b", alignItems: "center" }}>
+            <div style={{ display: "flex", gap: "16px", fontSize: "14px", color: "var(--text-secondary)", alignItems: "center" }}>
               <span>📅 June 14, 2026</span>
               <span>⏱ 9 min read</span>
               <span>✍️ By <Link href="/author/dax-patel" style={{ color: "#38bdf8", textDecoration: "none" }}>Dax Patel</Link></span>
@@ -167,11 +167,11 @@ export default function BlogPost() {
           </div>
 
           {/* Custom Turnover Bar matched to Dark Theme */}
-          <div style={{ margin: "32px 0", padding: "24px", background: "rgba(255,255,255,0.02)", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.05)" }}>
-            <div style={{ fontSize: "14px", fontWeight: "600", color: "#94a3b8", marginBottom: "12px", textTransform: "uppercase", letterSpacing: "0.05em" }}>Your Turnover vs. the ₹20 Lakh GST Threshold</div>
-            <div style={{ height: "44px", borderRadius: "8px", overflow: "hidden", display: "flex", background: "rgba(255,255,255,0.05)", marginBottom: "16px" }}>
-              <div style={{ background: "#34d399", width: "55%", display: "flex", alignItems: "center", padding: "0 12px", fontSize: "13px", fontWeight: "700", color: "#020617" }}>Below ₹20L → No GST</div>
-              <div style={{ background: "#fbbf24", width: "20%", display: "flex", alignItems: "center", padding: "0 12px", fontSize: "13px", fontWeight: "700", color: "#020617" }}>₹20L → Register</div>
+          <div style={{ margin: "32px 0", padding: "24px", background: "var(--glass-bg)", borderRadius: "12px", border: "1px solid var(--glass-bg)" }}>
+            <div style={{ fontSize: "14px", fontWeight: "600", color: "var(--text-secondary)", marginBottom: "12px", textTransform: "uppercase", letterSpacing: "0.05em" }}>Your Turnover vs. the ₹20 Lakh GST Threshold</div>
+            <div style={{ height: "44px", borderRadius: "8px", overflow: "hidden", display: "flex", background: "var(--glass-bg)", marginBottom: "16px" }}>
+              <div style={{ background: "#34d399", width: "55%", display: "flex", alignItems: "center", padding: "0 12px", fontSize: "13px", fontWeight: "700", color: "var(--bg-primary)" }}>Below ₹20L → No GST</div>
+              <div style={{ background: "#fbbf24", width: "20%", display: "flex", alignItems: "center", padding: "0 12px", fontSize: "13px", fontWeight: "700", color: "var(--bg-primary)" }}>₹20L → Register</div>
               <div style={{ background: "#f87171", width: "25%", display: "flex", alignItems: "center", padding: "0 12px", fontSize: "13px", fontWeight: "700", color: "#fff" }}>₹20L+ → Collect GST</div>
             </div>
           </div>
@@ -327,29 +327,29 @@ export default function BlogPost() {
             ))}
           </div>
 
-          <div style={{ marginTop: "48px", padding: "20px", backgroundColor: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "8px", fontSize: "13px", color: "#64748b", lineHeight: "1.6" }}>
+          <div style={{ marginTop: "48px", padding: "20px", backgroundColor: "var(--glass-bg)", border: "1px solid var(--glass-bg)", borderRadius: "8px", fontSize: "13px", color: "var(--text-secondary)", lineHeight: "1.6" }}>
             <strong>Disclaimer:</strong> The information provided on KaroTools is for general informational purposes only and does not constitute professional financial, tax, or legal advice. Tax laws in India frequently change, and while we strive for accuracy, you should always consult with a qualified Chartered Accountant (CA) or legal professional before making any compliance decisions. KaroTools is not responsible for any errors, omissions, or actions taken based on this content.
           </div>
 
         
-          <div style={{ marginTop: "48px", padding: "32px", borderRadius: "16px", border: "1px solid rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.03)" }}>
-            <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#f8fafc", margin: "0 0 8px 0" }}>Written by: Dax Patel</h3>
-            <p style={{ color: "#94a3b8", fontSize: "14px", lineHeight: "1.6", margin: "0 0 16px 0" }}>
+          <div style={{ marginTop: "48px", padding: "32px", borderRadius: "16px", border: "1px solid var(--glass-border)", background: "var(--glass-bg)" }}>
+            <h3 style={{ fontSize: "18px", fontWeight: "700", color: "var(--text-primary)", margin: "0 0 8px 0" }}>Written by: Dax Patel</h3>
+            <p style={{ color: "var(--text-secondary)", fontSize: "14px", lineHeight: "1.6", margin: "0 0 16px 0" }}>
               Dax Patel creates practical GST, invoice, tax, and business tools for Indian freelancers, consultants, small businesses, and agencies through KaroTools.
             </p>
           </div>
           
-          <div style={{ marginTop: "48px", borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "40px" }}>
-            <h3 style={{ fontSize: "24px", fontWeight: "700", color: "#f8fafc", margin: "0 0 24px 0" }}>Related Guides & Tools</h3>
+          <div style={{ marginTop: "48px", borderTop: "1px solid var(--border-color)", paddingTop: "40px" }}>
+            <h3 style={{ fontSize: "24px", fontWeight: "700", color: "var(--text-primary)", margin: "0 0 24px 0" }}>Related Guides & Tools</h3>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))", gap: "20px" }}>
-              <Link href="/gst-calculator" style={{ padding: "20px", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.06)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "rgba(255,255,255,0.02)" }}>
-                <strong style={{ color: "#f8fafc", fontSize: "16px" }}>GST Calculator</strong>
+              <Link href="/gst-calculator" style={{ padding: "20px", borderRadius: "12px", border: "1px solid var(--glass-border)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "var(--glass-bg)" }}>
+                <strong style={{ color: "var(--text-primary)", fontSize: "16px" }}>GST Calculator</strong>
               </Link>
-              <Link href="/invoice-generator" style={{ padding: "20px", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.06)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "rgba(255,255,255,0.02)" }}>
-                <strong style={{ color: "#f8fafc", fontSize: "16px" }}>GST Invoice Generator</strong>
+              <Link href="/invoice-generator" style={{ padding: "20px", borderRadius: "12px", border: "1px solid var(--glass-border)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "var(--glass-bg)" }}>
+                <strong style={{ color: "var(--text-primary)", fontSize: "16px" }}>GST Invoice Generator</strong>
               </Link>
-              <Link href="/blog/gst-registration-threshold" style={{ padding: "20px", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.06)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "rgba(255,255,255,0.02)" }}>
-                <strong style={{ color: "#f8fafc", fontSize: "16px" }}>GST Registration Rules</strong>
+              <Link href="/blog/gst-registration-threshold" style={{ padding: "20px", borderRadius: "12px", border: "1px solid var(--glass-border)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "var(--glass-bg)" }}>
+                <strong style={{ color: "var(--text-primary)", fontSize: "16px" }}>GST Registration Rules</strong>
               </Link>
             </div>
           </div>

@@ -70,26 +70,26 @@ export default function BlogPost() {
   };
 
   return (
-    <div style={{ backgroundColor: "#020617", minHeight: "100vh", color: "#f8fafc", fontFamily: "'Inter', sans-serif" }}>
+    <div style={{ backgroundColor: "var(--bg-primary)", minHeight: "100vh", color: "var(--text-primary)", fontFamily: "'Inter', sans-serif" }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema).replace(/</g, "\\u003c") }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c") }} />
 
-      <nav style={{ padding: "20px 0", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+      <nav style={{ padding: "20px 0", borderBottom: "1px solid var(--glass-bg)" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }}>
               <img src="/logo.png" alt="KaroTools Logo" style={{ height: "clamp(40px, 10vw, 56px)", margin: "0 -16px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
-              <span style={{ fontSize: "clamp(18px, 5vw, 22px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
+              <span style={{ fontSize: "clamp(18px, 5vw, 22px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)" }}>
                 Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
               </span>
             </div>
           </Link>
-          <div style={{ display: "flex", gap: "8px", fontSize: "14px", color: "#64748b", alignItems: "center" }}>
-            <Link href="/" style={{ color: "#94a3b8", textDecoration: "none" }}>Home</Link>
+          <div style={{ display: "flex", gap: "8px", fontSize: "14px", color: "var(--text-secondary)", alignItems: "center" }}>
+            <Link href="/" style={{ color: "var(--text-secondary)", textDecoration: "none" }}>Home</Link>
             <span>›</span>
-            <Link href="/blog" style={{ color: "#94a3b8", textDecoration: "none" }}>Blog</Link>
+            <Link href="/blog" style={{ color: "var(--text-secondary)", textDecoration: "none" }}>Blog</Link>
             <span>›</span>
-            <span style={{ color: "#cbd5e1", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", maxWidth: "200px" }}>Advance Tax Guide</span>
+            <span style={{ color: "var(--text-primary)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", maxWidth: "200px" }}>Advance Tax Guide</span>
           </div>
         </div>
       </nav>
@@ -104,10 +104,10 @@ export default function BlogPost() {
             <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans', sans-serif", lineHeight: "1.1", marginBottom: "24px", color: "#fff", letterSpacing: "-0.5px" }}>
               How to Calculate Advance Tax for Freelancers in India (FY 2026-27)
             </h1>
-            <p style={{ fontSize: "18px", color: "#cbd5e1", lineHeight: "1.6", marginBottom: "24px" }}>
+            <p style={{ fontSize: "18px", color: "var(--text-primary)", lineHeight: "1.6", marginBottom: "24px" }}>
               Missing advance tax deadlines costs you 1% per month in penalty interest. Learn the exact dates, amounts, and 44ADA shortcut — with a free calculator.
             </p>
-            <div style={{ display: "flex", gap: "16px", fontSize: "14px", color: "#64748b", alignItems: "center" }}>
+            <div style={{ display: "flex", gap: "16px", fontSize: "14px", color: "var(--text-secondary)", alignItems: "center" }}>
               <span>📅 June 14, 2026</span>
               <span>⏱ 7 min read</span>
               <span>✍️ By <Link href="/author/dax-patel" style={{ color: "#38bdf8", textDecoration: "none" }}>Dax Patel</Link></span>
@@ -141,7 +141,7 @@ export default function BlogPost() {
 
           <div className={styles.steps}>
             <div className={styles.step}>
-              <div className={styles.stepNum} style={{ background: "#38bdf8", color: "#020617", fontSize: "12px", textAlign: "center", lineHeight: "1.2", padding: "4px" }}>JUN<br/>15</div>
+              <div className={styles.stepNum} style={{ background: "#38bdf8", color: "var(--bg-primary)", fontSize: "12px", textAlign: "center", lineHeight: "1.2", padding: "4px" }}>JUN<br/>15</div>
               <div className={styles.stepContent}>
                 <h3 style={{ margin: "0 0 4px 0", fontSize: "16px" }}>June 15, 2026 — 1st Installment</h3>
                 <span style={{ display: "inline-block", background: "rgba(56,189,248,0.1)", color: "#38bdf8", padding: "2px 8px", borderRadius: "4px", fontSize: "13px", fontWeight: "700", marginBottom: "8px" }}>≥ 15% of total tax</span>
@@ -149,7 +149,7 @@ export default function BlogPost() {
               </div>
             </div>
             <div className={styles.step}>
-              <div className={styles.stepNum} style={{ background: "#38bdf8", color: "#020617", fontSize: "12px", textAlign: "center", lineHeight: "1.2", padding: "4px" }}>SEP<br/>15</div>
+              <div className={styles.stepNum} style={{ background: "#38bdf8", color: "var(--bg-primary)", fontSize: "12px", textAlign: "center", lineHeight: "1.2", padding: "4px" }}>SEP<br/>15</div>
               <div className={styles.stepContent}>
                 <h3 style={{ margin: "0 0 4px 0", fontSize: "16px" }}>September 15, 2026 — 2nd Installment</h3>
                 <span style={{ display: "inline-block", background: "rgba(56,189,248,0.1)", color: "#38bdf8", padding: "2px 8px", borderRadius: "4px", fontSize: "13px", fontWeight: "700", marginBottom: "8px" }}>≥ 45% of total tax (cumulative)</span>
@@ -157,7 +157,7 @@ export default function BlogPost() {
               </div>
             </div>
             <div className={styles.step}>
-              <div className={styles.stepNum} style={{ background: "#38bdf8", color: "#020617", fontSize: "12px", textAlign: "center", lineHeight: "1.2", padding: "4px" }}>DEC<br/>15</div>
+              <div className={styles.stepNum} style={{ background: "#38bdf8", color: "var(--bg-primary)", fontSize: "12px", textAlign: "center", lineHeight: "1.2", padding: "4px" }}>DEC<br/>15</div>
               <div className={styles.stepContent}>
                 <h3 style={{ margin: "0 0 4px 0", fontSize: "16px" }}>December 15, 2026 — 3rd Installment</h3>
                 <span style={{ display: "inline-block", background: "rgba(56,189,248,0.1)", color: "#38bdf8", padding: "2px 8px", borderRadius: "4px", fontSize: "13px", fontWeight: "700", marginBottom: "8px" }}>≥ 75% of total tax (cumulative)</span>
@@ -184,9 +184,9 @@ export default function BlogPost() {
           <p>This is where eligible freelancers get a genuinely powerful benefit. If you are claiming <Link href="/blog/section-44ada-freelancers" style={{ color: "#38bdf8" }}>Section 44ADA (Presumptive Taxation)</Link> — which allows you to treat 50% of your gross receipts as taxable income without maintaining detailed expense records — the advance tax rules simplify dramatically.</p>
 
           <div className={styles.grid2Col}>
-            <div style={{ border: "1px solid rgba(255,255,255,0.1)", borderRadius: "12px", padding: "24px" }}>
+            <div style={{ border: "1px solid var(--border-color)", borderRadius: "12px", padding: "24px" }}>
               <h4 style={{ fontSize: "16px", fontWeight: "800", marginBottom: "16px" }}>🗓 Normal Regime</h4>
-              <ul style={{ margin: "0 0 0 20px", color: "#cbd5e1" }}>
+              <ul style={{ margin: "0 0 0 20px", color: "var(--text-primary)" }}>
                 <li>4 installment deadlines per year</li>
                 <li>Must estimate income quarterly</li>
                 <li>Penalty if any installment is short</li>
@@ -196,9 +196,9 @@ export default function BlogPost() {
             <div style={{ border: "2px solid #38bdf8", background: "rgba(56,189,248,0.05)", borderRadius: "12px", padding: "24px" }}>
               <h4 style={{ fontSize: "16px", fontWeight: "800", marginBottom: "16px", color: "#38bdf8", display: "flex", alignItems: "center", gap: "8px" }}>
                 ✅ Section 44ADA
-                <span style={{ background: "#34d399", color: "#020617", fontSize: "10px", padding: "2px 6px", borderRadius: "4px" }}>SIMPLER</span>
+                <span style={{ background: "#34d399", color: "var(--bg-primary)", fontSize: "10px", padding: "2px 6px", borderRadius: "4px" }}>SIMPLER</span>
               </h4>
-              <ul style={{ margin: "0 0 0 20px", color: "#cbd5e1" }}>
+              <ul style={{ margin: "0 0 0 20px", color: "var(--text-primary)" }}>
                 <li>Only <strong>1 deadline</strong> — March 15</li>
                 <li>Pay 100% in a single installment</li>
                 <li>No quarterly penalty risk</li>
@@ -263,26 +263,26 @@ export default function BlogPost() {
 
           <h3>Worked Example: Advance Tax Calculation for a Freelance Developer</h3>
 
-          <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "12px", padding: "24px", margin: "32px 0" }}>
+          <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-bg)", borderRadius: "12px", padding: "24px", margin: "32px 0" }}>
             <h4 style={{ marginTop: 0, marginBottom: "20px", fontSize: "16px", fontWeight: "800", color: "#fff" }}>📊 Example: Freelance Web Developer, FY 2026-27 (Section 44ADA)</h4>
-            <div style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px dashed rgba(255,255,255,0.1)" }}>
-              <span style={{ color: "#94a3b8" }}>Estimated Gross Receipts</span>
+            <div style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px dashed var(--border-color)" }}>
+              <span style={{ color: "var(--text-secondary)" }}>Estimated Gross Receipts</span>
               <span style={{ fontWeight: "700", color: "#fff" }}>₹18,00,000</span>
             </div>
-            <div style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px dashed rgba(255,255,255,0.1)" }}>
-              <span style={{ color: "#94a3b8" }}>Taxable Income (50% under 44ADA)</span>
+            <div style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px dashed var(--border-color)" }}>
+              <span style={{ color: "var(--text-secondary)" }}>Taxable Income (50% under 44ADA)</span>
               <span style={{ fontWeight: "700", color: "#fff" }}>₹9,00,000</span>
             </div>
-            <div style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px dashed rgba(255,255,255,0.1)" }}>
-              <span style={{ color: "#94a3b8" }}>Income Tax (New Regime slabs)</span>
+            <div style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px dashed var(--border-color)" }}>
+              <span style={{ color: "var(--text-secondary)" }}>Income Tax (New Regime slabs)</span>
               <span style={{ fontWeight: "700", color: "#fff" }}>₹54,000</span>
             </div>
-            <div style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px dashed rgba(255,255,255,0.1)" }}>
-              <span style={{ color: "#94a3b8" }}>Health & Education Cess (4%)</span>
+            <div style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px dashed var(--border-color)" }}>
+              <span style={{ color: "var(--text-secondary)" }}>Health & Education Cess (4%)</span>
               <span style={{ fontWeight: "700", color: "#fff" }}>₹2,160</span>
             </div>
-            <div style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px dashed rgba(255,255,255,0.1)" }}>
-              <span style={{ color: "#94a3b8" }}>TDS already deducted by clients</span>
+            <div style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px dashed var(--border-color)" }}>
+              <span style={{ color: "var(--text-secondary)" }}>TDS already deducted by clients</span>
               <span style={{ fontWeight: "700", color: "#fff" }}>− ₹0</span>
             </div>
             <div style={{ display: "flex", justifyContent: "space-between", padding: "16px 0 12px 0", borderTop: "2px solid rgba(255,255,255,0.2)" }}>
@@ -412,29 +412,29 @@ export default function BlogPost() {
             ))}
           </div>
 
-          <div style={{ marginTop: "48px", padding: "20px", backgroundColor: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "8px", fontSize: "13px", color: "#64748b", lineHeight: "1.6" }}>
+          <div style={{ marginTop: "48px", padding: "20px", backgroundColor: "var(--glass-bg)", border: "1px solid var(--glass-bg)", borderRadius: "8px", fontSize: "13px", color: "var(--text-secondary)", lineHeight: "1.6" }}>
             <strong>Disclaimer:</strong> The information provided on KaroTools is for general informational purposes only and does not constitute professional financial, tax, or legal advice. Tax laws in India frequently change, and while we strive for accuracy, you should always consult with a qualified Chartered Accountant (CA) or legal professional before making any compliance decisions. KaroTools is not responsible for any errors, omissions, or actions taken based on this content.
           </div>
 
         
-          <div style={{ marginTop: "48px", padding: "32px", borderRadius: "16px", border: "1px solid rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.03)" }}>
-            <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#f8fafc", margin: "0 0 8px 0" }}>Written by: Dax Patel</h3>
-            <p style={{ color: "#94a3b8", fontSize: "14px", lineHeight: "1.6", margin: "0 0 16px 0" }}>
+          <div style={{ marginTop: "48px", padding: "32px", borderRadius: "16px", border: "1px solid var(--glass-border)", background: "var(--glass-bg)" }}>
+            <h3 style={{ fontSize: "18px", fontWeight: "700", color: "var(--text-primary)", margin: "0 0 8px 0" }}>Written by: Dax Patel</h3>
+            <p style={{ color: "var(--text-secondary)", fontSize: "14px", lineHeight: "1.6", margin: "0 0 16px 0" }}>
               Dax Patel creates practical GST, invoice, tax, and business tools for Indian freelancers, consultants, small businesses, and agencies through KaroTools.
             </p>
           </div>
           
-          <div style={{ marginTop: "48px", borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "40px" }}>
-            <h3 style={{ fontSize: "24px", fontWeight: "700", color: "#f8fafc", margin: "0 0 24px 0" }}>Related Guides & Tools</h3>
+          <div style={{ marginTop: "48px", borderTop: "1px solid var(--border-color)", paddingTop: "40px" }}>
+            <h3 style={{ fontSize: "24px", fontWeight: "700", color: "var(--text-primary)", margin: "0 0 24px 0" }}>Related Guides & Tools</h3>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))", gap: "20px" }}>
-              <Link href="/gst-calculator" style={{ padding: "20px", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.06)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "rgba(255,255,255,0.02)" }}>
-                <strong style={{ color: "#f8fafc", fontSize: "16px" }}>GST Calculator</strong>
+              <Link href="/gst-calculator" style={{ padding: "20px", borderRadius: "12px", border: "1px solid var(--glass-border)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "var(--glass-bg)" }}>
+                <strong style={{ color: "var(--text-primary)", fontSize: "16px" }}>GST Calculator</strong>
               </Link>
-              <Link href="/invoice-generator" style={{ padding: "20px", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.06)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "rgba(255,255,255,0.02)" }}>
-                <strong style={{ color: "#f8fafc", fontSize: "16px" }}>GST Invoice Generator</strong>
+              <Link href="/invoice-generator" style={{ padding: "20px", borderRadius: "12px", border: "1px solid var(--glass-border)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "var(--glass-bg)" }}>
+                <strong style={{ color: "var(--text-primary)", fontSize: "16px" }}>GST Invoice Generator</strong>
               </Link>
-              <Link href="/blog/gst-registration-threshold" style={{ padding: "20px", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.06)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "rgba(255,255,255,0.02)" }}>
-                <strong style={{ color: "#f8fafc", fontSize: "16px" }}>GST Registration Rules</strong>
+              <Link href="/blog/gst-registration-threshold" style={{ padding: "20px", borderRadius: "12px", border: "1px solid var(--glass-border)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "var(--glass-bg)" }}>
+                <strong style={{ color: "var(--text-primary)", fontSize: "16px" }}>GST Registration Rules</strong>
               </Link>
             </div>
           </div>

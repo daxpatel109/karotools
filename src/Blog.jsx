@@ -82,7 +82,7 @@ export default function Blog() {
     : allPosts.filter(p => p.category.toUpperCase() === filter.toUpperCase());
 
   return (
-    <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans', sans-serif", color: "#f8fafc", position: "relative", overflow: "hidden" }}>
+    <div style={{ minHeight: "100vh", background: "var(--bg-primary)", fontFamily: "'DM Sans', sans-serif", color: "var(--text-primary)", position: "relative", overflow: "hidden" }}>
       
       {/* Ambient backgrounds */}
       <div style={{ position: "absolute", top: "0", left: "20%", width: "60%", height: "40%", background: "radial-gradient(ellipse, rgba(0,118,255,0.06) 0%, transparent 60%)", filter: "blur(80px)", pointerEvents: "none" }} />
@@ -98,43 +98,43 @@ export default function Blog() {
           <h1 style={{ fontSize: "clamp(36px, 6vw, 56px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "16px", color: "#fff", lineHeight: 1.1 }}>
             Insights for Indian <br/>Freelancers & Founders
           </h1>
-          <p style={{ color: "#94a3b8", fontSize: "18px", maxWidth: "600px", margin: "0 auto" }}>
+          <p style={{ color: "var(--text-secondary)", fontSize: "18px", maxWidth: "600px", margin: "0 auto" }}>
             The ultimate guides on tax compliance, pricing strategies, and client management in India.
           </p>
         </div>
 
         {/* Featured Hero Article */}
-        <Link href={featuredPost.slug} style={{ display: "block", textDecoration: "none", background: "linear-gradient(145deg, rgba(30,41,59,0.5) 0%, rgba(15,23,42,0.8) 100%)", borderRadius: "24px", border: "1px solid rgba(255,255,255,0.08)", padding: "clamp(32px, 5vw, 48px)", marginBottom: "64px", position: "relative", overflow: "hidden", transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)", cursor: "pointer" }}
+        <Link href={featuredPost.slug} style={{ display: "block", textDecoration: "none", background: "linear-gradient(145deg, rgba(30,41,59,0.5) 0%, rgba(15,23,42,0.8) 100%)", borderRadius: "24px", border: "1px solid var(--glass-border)", padding: "clamp(32px, 5vw, 48px)", marginBottom: "64px", position: "relative", overflow: "hidden", transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)", cursor: "pointer" }}
           onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-6px)"; e.currentTarget.style.boxShadow = "0 24px 48px -12px rgba(168,85,247,0.15)"; e.currentTarget.style.borderColor = "rgba(168,85,247,0.3)"; }}
-          onMouseLeave={(e) => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)"; }}>
+          onMouseLeave={(e) => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.borderColor = "var(--glass-border)"; }}>
           
           <div style={{ position: "absolute", top: 0, right: 0, width: "50%", height: "100%", background: "radial-gradient(circle at top right, rgba(168,85,247,0.1) 0%, transparent 60%)", pointerEvents: "none" }} />
           
           <div style={{ position: "relative", zIndex: 10, maxWidth: "700px" }}>
             <div style={{ display: "flex", gap: "12px", marginBottom: "20px", alignItems: "center", flexWrap: "wrap" }}>
               <span style={{ background: featuredPost.bg, color: featuredPost.color, padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em" }}>FEATURED • {featuredPost.category}</span>
-              <span style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "500" }}>{featuredPost.date}</span>
+              <span style={{ color: "var(--text-secondary)", fontSize: "14px", fontWeight: "500" }}>{featuredPost.date}</span>
             </div>
             <h2 style={{ fontSize: "clamp(28px, 4vw, 40px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#fff", marginBottom: "20px", lineHeight: "1.2" }}>
               {featuredPost.title}
             </h2>
-            <p style={{ color: "#cbd5e1", fontSize: "17px", lineHeight: "1.6", marginBottom: "32px", maxWidth: "600px" }}>
+            <p style={{ color: "var(--text-primary)", fontSize: "17px", lineHeight: "1.6", marginBottom: "32px", maxWidth: "600px" }}>
               {featuredPost.description}
             </p>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "#fff", fontWeight: "600", fontSize: "15px", background: "rgba(255,255,255,0.1)", padding: "10px 20px", borderRadius: "8px", border: "1px solid rgba(255,255,255,0.1)" }}>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "#fff", fontWeight: "600", fontSize: "15px", background: "var(--border-color)", padding: "10px 20px", borderRadius: "8px", border: "1px solid var(--border-color)" }}>
               Read Article →
             </div>
           </div>
         </Link>
 
         {/* Category Filters */}
-        <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginBottom: "40px", paddingBottom: "16px", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+        <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginBottom: "40px", paddingBottom: "16px", borderBottom: "1px solid var(--glass-bg)" }}>
           {categories.map((cat) => (
             <button key={cat} onClick={() => setFilter(cat)}
               style={{
-                background: filter === cat ? "#fff" : "rgba(255,255,255,0.03)",
-                color: filter === cat ? "#020617" : "#94a3b8",
-                border: filter === cat ? "1px solid #fff" : "1px solid rgba(255,255,255,0.1)",
+                background: filter === cat ? "#fff" : "var(--glass-bg)",
+                color: filter === cat ? "var(--bg-primary)" : "var(--text-secondary)",
+                border: filter === cat ? "1px solid #fff" : "1px solid var(--border-color)",
                 padding: "8px 20px",
                 borderRadius: "50px",
                 fontSize: "14px",
@@ -143,7 +143,7 @@ export default function Blog() {
                 transition: "all 0.2s"
               }}
               onMouseEnter={(e) => { if (filter !== cat) e.currentTarget.style.color = "#fff"; }}
-              onMouseLeave={(e) => { if (filter !== cat) e.currentTarget.style.color = "#94a3b8"; }}
+              onMouseLeave={(e) => { if (filter !== cat) e.currentTarget.style.color = "var(--text-secondary)"; }}
             >
               {cat}
             </button>
@@ -152,29 +152,29 @@ export default function Blog() {
 
         {/* Articles Grid */}
         {filteredPosts.length === 0 ? (
-          <div style={{ textAlign: "center", padding: "80px 0", color: "#64748b" }}>
+          <div style={{ textAlign: "center", padding: "80px 0", color: "var(--text-secondary)" }}>
             <p style={{ fontSize: "18px" }}>No articles found for this category yet.</p>
           </div>
         ) : (
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: "24px" }}>
             {filteredPosts.map((post, idx) => (
-              <Link key={idx} href={post.slug} style={{ display: "flex", flexDirection: "column", textDecoration: "none", padding: "32px", background: "rgba(255,255,255,0.02)", borderRadius: "20px", border: "1px solid rgba(255,255,255,0.05)", transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)", cursor: "pointer", height: "100%", position: "relative", overflow: "hidden" }}
+              <Link key={idx} href={post.slug} style={{ display: "flex", flexDirection: "column", textDecoration: "none", padding: "32px", background: "var(--glass-bg)", borderRadius: "20px", border: "1px solid var(--glass-bg)", transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)", cursor: "pointer", height: "100%", position: "relative", overflow: "hidden" }}
                 onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.04)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)"; e.currentTarget.style.transform = "translateY(-4px)"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.02)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)"; e.currentTarget.style.transform = "none"; }}>
+                onMouseLeave={(e) => { e.currentTarget.style.background = "var(--glass-bg)"; e.currentTarget.style.borderColor = "var(--glass-bg)"; e.currentTarget.style.transform = "none"; }}>
                 
                 <div style={{ position: "absolute", top: "-50%", left: "-50%", width: "200%", height: "200%", background: `radial-gradient(circle at 50% 0%, ${post.bg} 0%, transparent 50%)`, opacity: 0.5, pointerEvents: "none" }} />
 
                 <div style={{ display: "flex", gap: "10px", marginBottom: "20px", alignItems: "center", flexWrap: "wrap", position: "relative", zIndex: 10 }}>
                   <span style={{ color: post.color, fontSize: "11px", fontWeight: "800", letterSpacing: "0.06em" }}>{post.category}</span>
                   <span style={{ color: "#475569", fontSize: "12px" }}>•</span>
-                  <span style={{ color: "#64748b", fontSize: "13px", fontWeight: "500" }}>{post.readTime}</span>
+                  <span style={{ color: "var(--text-secondary)", fontSize: "13px", fontWeight: "500" }}>{post.readTime}</span>
                 </div>
                 
-                <h2 style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc", marginBottom: "16px", lineHeight: "1.4", position: "relative", zIndex: 10 }}>
+                <h2 style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginBottom: "16px", lineHeight: "1.4", position: "relative", zIndex: 10 }}>
                   {post.title}
                 </h2>
                 
-                <p style={{ color: "#94a3b8", fontSize: "15px", lineHeight: "1.6", margin: "0 0 24px 0", flexGrow: 1, position: "relative", zIndex: 10 }}>
+                <p style={{ color: "var(--text-secondary)", fontSize: "15px", lineHeight: "1.6", margin: "0 0 24px 0", flexGrow: 1, position: "relative", zIndex: 10 }}>
                   {post.description}
                 </p>
                 
@@ -189,7 +189,7 @@ export default function Blog() {
         {/* Bottom CTA Banner */}
         <div style={{ marginTop: "100px", padding: "48px 32px", background: "linear-gradient(135deg, rgba(0,118,255,0.1), rgba(0,90,230,0.1))", borderRadius: "24px", border: "1px solid rgba(0,118,255,0.2)", textAlign: "center" }}>
           <h2 style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#fff", marginBottom: "16px" }}>Run your freelance business smoothly</h2>
-          <p style={{ color: "#cbd5e1", fontSize: "17px", marginBottom: "32px", maxWidth: "500px", margin: "0 auto 32px" }}>Calculate taxes, generate invoices, and draft contracts in seconds. 100% Free.</p>
+          <p style={{ color: "var(--text-primary)", fontSize: "17px", marginBottom: "32px", maxWidth: "500px", margin: "0 auto 32px" }}>Calculate taxes, generate invoices, and draft contracts in seconds. 100% Free.</p>
           <button onClick={() => window.location.href = "/"} style={{ background: "#0076ff", color: "#fff", border: "none", padding: "14px 32px", borderRadius: "12px", fontSize: "16px", fontWeight: "700", cursor: "pointer", boxShadow: "0 8px 24px rgba(0,118,255,0.3)", transition: "transform 0.2s" }} onMouseEnter={e => e.currentTarget.style.transform="translateY(-2px)"} onMouseLeave={e => e.currentTarget.style.transform="none"}>
             Explore Free Tools →
           </button>
@@ -198,7 +198,7 @@ export default function Blog() {
       </main>
       
       {/* Footer */}
-      <footer style={{ borderTop: "1px solid rgba(255,255,255,0.05)", padding: "40px", textAlign: "center", color: "#64748b", fontSize: "14px", position: "relative", zIndex: 10 }}>
+      <footer style={{ borderTop: "1px solid var(--glass-bg)", padding: "40px", textAlign: "center", color: "var(--text-secondary)", fontSize: "14px", position: "relative", zIndex: 10 }}>
         © 2026 KaroTools.in — Made for Indian Freelancers
       </footer>
     </div>

@@ -74,7 +74,7 @@ export default function FIRECalculatorPage() {
   };
 
   return (
-    <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans', sans-serif", color: "#f8fafc", selectionColor: "#fff", selectionBackground: "#0076ff" }}>
+    <div style={{ minHeight: "100vh", background: "var(--bg-primary)", fontFamily: "'DM Sans', sans-serif", color: "var(--text-primary)", selectionColor: "#fff", selectionBackground: "#0076ff" }}>
       
       <style dangerouslySetInnerHTML={{ __html: `
         ::selection { background: rgba(0,118,255, 0.4); color: white; }
@@ -87,7 +87,7 @@ export default function FIRECalculatorPage() {
           border: 1px solid rgba(255, 255, 255, 0.06);
           backdrop-filter: blur(24px);
           -webkit-backdrop-filter: blur(24px);
-          box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+          box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.4), inset 0 1px 0 var(--border-color);
         }
 
         .interactive-btn {
@@ -104,9 +104,9 @@ export default function FIRECalculatorPage() {
         }
 
         .home-btn {
-          background: rgba(255,255,255,0.03);
-          border: 1px solid rgba(255,255,255,0.08);
-          color: #cbd5e1;
+          background: var(--glass-bg);
+          border: 1px solid var(--glass-border);
+          color: var(--text-primary);
           text-decoration: none;
         }
         .home-btn:hover {
@@ -127,7 +127,7 @@ export default function FIRECalculatorPage() {
           <Link href="/" style={{ textDecoration: "none" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }}>
               <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
-              <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
+              <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)" }}>
                 Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
               </span>
             </div>
@@ -153,13 +153,13 @@ export default function FIRECalculatorPage() {
       <main style={{ maxWidth: "820px", margin: "0 auto", padding: "56px 24px 100px", position: "relative", zIndex: 1 }}>
         {/* Intro Section */}
         <div style={{ textAlign: "center", marginBottom: 40, animation: "fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1)" }}>
-          <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "72px", height: "72px", borderRadius: "24px", background: "linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01))", border: "1px solid rgba(255,255,255,0.1)", marginBottom: "20px", boxShadow: "0 12px 32px rgba(0,0,0,0.2)" }}>
+          <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "72px", height: "72px", borderRadius: "24px", background: "linear-gradient(135deg, var(--glass-bg), rgba(255,255,255,0.01))", border: "1px solid var(--border-color)", marginBottom: "20px", boxShadow: "0 12px 32px rgba(0,0,0,0.2)" }}>
             <span style={{ fontSize: "36px", filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.3))" }}>🔥</span>
           </div>
-          <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", color: "#f8fafc", marginBottom: "16px", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
+          <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", color: "var(--text-primary)", marginBottom: "16px", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
             FIRE Calculator India for Freelancers
           </h1>
-          <p style={{ fontSize: "16px", color: "#94a3b8", maxWidth: "600px", margin: "0 auto" }}>
+          <p style={{ fontSize: "16px", color: "var(--text-secondary)", maxWidth: "600px", margin: "0 auto" }}>
             Calculate your Financial Independence & Retire Early (FIRE) number. We use nominal compounding and separate Indian inflation models to accurately project your future.
           </p>
         </div>
@@ -168,14 +168,14 @@ export default function FIRECalculatorPage() {
         
         {/* AEO Answer Block */}
         <div style={{ maxWidth: "820px", margin: "40px auto 0", padding: "0 24px", position: "relative", zIndex: 1 }}>
-          <div className="glass-panel" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "24px", padding: "32px", marginBottom: "40px" }}>
-            <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginBottom: "16px" }}>How does the FIRE Calculator work?</h2>
-            <p style={{ color: "#94a3b8", fontSize: "16px", lineHeight: 1.8, marginBottom: "16px" }}>
+          <div className="glass-panel" style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: "24px", padding: "32px", marginBottom: "40px" }}>
+            <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginBottom: "16px" }}>How does the FIRE Calculator work?</h2>
+            <p style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: 1.8, marginBottom: "16px" }}>
               The KaroTools FIRE Calculator helps you calculate the exact corpus you need to retire early in India. It projects your future expenses using inflation, calculates the compounding of your current investments and monthly SIPs, and applies a Safe Withdrawal Rate (SWR) to find your target. Compare your timeline with our <Link href="/sip-calculator" style={{ color: "#38bdf8", textDecoration: "none" }}>SIP Calculator</Link>.
             </p>
-            <div style={{ background: "rgba(0,0,0,0.2)", border: "1px solid rgba(255,255,255,0.05)", padding: "16px", borderRadius: "8px" }}>
-              <p style={{ color: "#e2e8f0", fontSize: "14px", fontFamily: "monospace", margin: "0 0 8px 0" }}>FIRE Target = Annual Expenses at Retirement / Safe Withdrawal Rate</p>
-              <p style={{ color: "#e2e8f0", fontSize: "14px", fontFamily: "monospace", margin: "0" }}>Annual Expenses at Retirement = Current Expenses × (1 + Inflation Rate) ^ Years</p>
+            <div style={{ background: "rgba(0,0,0,0.2)", border: "1px solid var(--glass-bg)", padding: "16px", borderRadius: "8px" }}>
+              <p style={{ color: "var(--text-primary)", fontSize: "14px", fontFamily: "monospace", margin: "0 0 8px 0" }}>FIRE Target = Annual Expenses at Retirement / Safe Withdrawal Rate</p>
+              <p style={{ color: "var(--text-primary)", fontSize: "14px", fontFamily: "monospace", margin: "0" }}>Annual Expenses at Retirement = Current Expenses × (1 + Inflation Rate) ^ Years</p>
             </div>
           </div>
         </div>
@@ -192,47 +192,47 @@ export default function FIRECalculatorPage() {
         ])} />
         
         {/* Universal Legal Disclaimer */}
-        <div style={{ marginTop: "40px", padding: "20px", background: "rgba(0,0,0,0.3)", borderRadius: "12px", border: "1px dashed rgba(255,255,255,0.1)", textAlign: "center" }}>
-          <p style={{ color: "#64748b", fontSize: "12px", lineHeight: "1.6", margin: 0, fontFamily: "'DM Sans',sans-serif" }}>
+        <div style={{ marginTop: "40px", padding: "20px", background: "rgba(0,0,0,0.3)", borderRadius: "12px", border: "1px dashed var(--border-color)", textAlign: "center" }}>
+          <p style={{ color: "var(--text-secondary)", fontSize: "12px", lineHeight: "1.6", margin: 0, fontFamily: "'DM Sans',sans-serif" }}>
             <strong>Disclaimer:</strong> This FIRE Calculator is for educational and informational purposes only. Results are based on assumptions entered by the user and should not be treated as investment, tax, retirement, or financial advice. Please consult a qualified financial advisor before making major financial decisions.
           </p>
         </div>
 
         {/* On-Page SEO / Content Section */}
-        <section style={{ marginTop: "60px", padding: "40px", background: "rgba(255, 255, 255, 0.02)", borderRadius: "20px", border: "1px solid rgba(255, 255, 255, 0.06)", color: "#f1f5f9", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>
+        <section style={{ marginTop: "60px", padding: "40px", background: "rgba(255, 255, 255, 0.02)", borderRadius: "20px", border: "1px solid rgba(255, 255, 255, 0.06)", color: "var(--text-primary)", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>
           <h2 style={{ fontSize: "28px", fontWeight: "700", marginBottom: "24px" }}>Frequently Asked Questions</h2>
           
           <div style={{ marginBottom: "24px" }}>
             <h3 style={{ fontSize: "18px", fontWeight: "600", color: "#38bdf8", marginBottom: "8px" }}>What is the FIRE number and how is it calculated?</h3>
-            <p style={{ color: "#94a3b8", lineHeight: "1.6" }}>
+            <p style={{ color: "var(--text-secondary)", lineHeight: "1.6" }}>
               Your FIRE number is the total corpus needed so that 4% (or your chosen withdrawal rate) covers all retirement expenses. In India, it’s typically Annual Expenses × 25 (at 4% SWR). Many experts use a lower 3–3.5% SWR here, implying ~28–33× expenses to account for higher inflation.
             </p>
           </div>
           
           <div style={{ marginBottom: "24px" }}>
             <h3 style={{ fontSize: "18px", fontWeight: "600", color: "#38bdf8", marginBottom: "8px" }}>Lean FIRE vs Fat FIRE – what’s the difference in India?</h3>
-            <p style={{ color: "#94a3b8", lineHeight: "1.6" }}>
+            <p style={{ color: "var(--text-secondary)", lineHeight: "1.6" }}>
               Lean FIRE means retiring on a very frugal budget (essentials-only). It often uses about 15× your annual expenses. Fat FIRE means a comfortable/luxurious retirement, roughly 50× expenses. Most people fall in between. Running our calculator for both scenarios helps set realistic goals.
             </p>
           </div>
           
           <div style={{ marginBottom: "24px" }}>
             <h3 style={{ fontSize: "18px", fontWeight: "600", color: "#38bdf8", marginBottom: "8px" }}>What safe withdrawal rate (SWR) should Indian retirees use?</h3>
-            <p style={{ color: "#94a3b8", lineHeight: "1.6" }}>
+            <p style={{ color: "var(--text-secondary)", lineHeight: "1.6" }}>
               Unlike the standard 4% rule (US-based), financial planners in India recommend 3–3.5% SWR due to higher long-term inflation (6–7% CPI) and cost risks. Using 3.5% means multiplying expenses by ~28.6 instead of 25. You can adjust this in our calculator’s slider.
             </p>
           </div>
 
           <div style={{ marginBottom: "24px" }}>
             <h3 style={{ fontSize: "18px", fontWeight: "600", color: "#38bdf8", marginBottom: "8px" }}>How can a freelancer in India plan for early retirement?</h3>
-            <p style={{ color: "#94a3b8", lineHeight: "1.6" }}>
+            <p style={{ color: "var(--text-secondary)", lineHeight: "1.6" }}>
               As a freelancer, you must self-fund retirement (no employer PF). Start by tracking your current expenses and setting a savings rate. Use tools like this FIRE calculator to project your corpus. Consider maxing SIPs, PPF/NPS contributions, and lowering costs. Consistent investing is key — even ₹5–10K per month can grow significantly over time.
             </p>
           </div>
 
           <div>
             <h3 style={{ fontSize: "18px", fontWeight: "600", color: "#38bdf8", marginBottom: "8px" }}>How does inflation affect my FIRE goal in India?</h3>
-            <p style={{ color: "#94a3b8", lineHeight: "1.6" }}>
+            <p style={{ color: "var(--text-secondary)", lineHeight: "1.6" }}>
               High Indian inflation (6–7%) means your expenses grow quickly. Our calculator adjusts future expenses using your inflation input. For example, ₹1L monthly today could cost ₹2L+ in 10–15 years, requiring a much larger corpus. Always use real (inflation-adjusted) returns when planning.
             </p>
           </div>

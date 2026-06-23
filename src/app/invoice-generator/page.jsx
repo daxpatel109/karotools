@@ -42,39 +42,39 @@ export default function Page() {
   ];
 
   return (
-    <div style={{ background: "#020617", minHeight: "100vh" }}>
+    <div style={{ background: "var(--bg-primary)", minHeight: "100vh" }}>
       {/* The Interactive Generator (Client Component) */}
       <InvoiceGenerator />
 
       {/* AEO Answer Block */}
       <div style={{ maxWidth: "820px", margin: "40px auto 0", padding: "0 24px", position: "relative", zIndex: 1 }}>
-        <div className="glass-panel" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "24px", padding: "32px", marginBottom: "40px" }}>
-          <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginBottom: "16px" }}>How does the GST Invoice Generator work?</h2>
-          <p style={{ color: "#94a3b8", fontSize: "16px", lineHeight: 1.8, marginBottom: "16px" }}>
+        <div className="glass-panel" style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: "24px", padding: "32px", marginBottom: "40px" }}>
+          <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginBottom: "16px" }}>How does the GST Invoice Generator work?</h2>
+          <p style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: 1.8, marginBottom: "16px" }}>
             The KaroTools GST Invoice Generator helps you create professional tax invoices instantly. It automatically calculates CGST and SGST for local sales, or IGST for inter-state sales based on the GST rate you select. Once your details are filled, you can download a compliant PDF. Learn more in our <Link href="/guides/gst-invoice-format-excel" style={{ color: "#38bdf8", textDecoration: "none" }}>GST Invoice Format Guide</Link>.
           </p>
-          <div style={{ background: "rgba(0,0,0,0.2)", border: "1px solid rgba(255,255,255,0.05)", padding: "16px", borderRadius: "8px" }}>
-            <p style={{ color: "#e2e8f0", fontSize: "14px", fontFamily: "monospace", margin: "0 0 8px 0" }}>Intra-state Tax = CGST (Rate/2) + SGST (Rate/2)</p>
-            <p style={{ color: "#e2e8f0", fontSize: "14px", fontFamily: "monospace", margin: "0" }}>Inter-state Tax = IGST (Full Rate)</p>
+          <div style={{ background: "rgba(0,0,0,0.2)", border: "1px solid var(--glass-bg)", padding: "16px", borderRadius: "8px" }}>
+            <p style={{ color: "var(--text-primary)", fontSize: "14px", fontFamily: "monospace", margin: "0 0 8px 0" }}>Intra-state Tax = CGST (Rate/2) + SGST (Rate/2)</p>
+            <p style={{ color: "var(--text-primary)", fontSize: "14px", fontFamily: "monospace", margin: "0" }}>Inter-state Tax = IGST (Full Rate)</p>
           </div>
         </div>
       </div>
 
       {/* SEO Content & Guide (Server Component) */}
-      <article style={{ maxWidth: "820px", margin: "0 auto", padding: "0 24px 100px", color: "#f8fafc", fontFamily: "'DM Sans', sans-serif", position: "relative", zIndex: 1 }}>
+      <article style={{ maxWidth: "820px", margin: "0 auto", padding: "0 24px 100px", color: "var(--text-primary)", fontFamily: "'DM Sans', sans-serif", position: "relative", zIndex: 1 }}>
         
-        <div className="glass-panel" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "24px", padding: "40px", marginBottom: "40px", marginTop: "40px" }}>
+        <div className="glass-panel" style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: "24px", padding: "40px", marginBottom: "40px", marginTop: "40px" }}>
           
-          <h2 style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "20px", color: "#f1f5f9" }}>Free GST Invoice Generator India</h2>
-          <p style={{ color: "#94a3b8", fontSize: "16px", lineHeight: 1.8, marginBottom: "24px" }}>
+          <h2 style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "20px", color: "var(--text-primary)" }}>Free GST Invoice Generator India</h2>
+          <p style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: 1.8, marginBottom: "24px" }}>
             Creating a professional tax invoice shouldn't be complicated. Our free GST Invoice Generator allows you to instantly generate a legally compliant bill without needing complex accounting software or struggling with a <Link href="/guides/gst-invoice-format-excel" style={{ color: "#38bdf8", textDecoration: "none" }}>GST invoice format in Excel</Link>. Simply fill in your details, add your items, and click generate!
           </p>
 
-          <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "20px", color: "#f1f5f9" }}>What Details Are Required in a GST Invoice?</h2>
-          <p style={{ color: "#94a3b8", fontSize: "16px", lineHeight: 1.8, marginBottom: "16px" }}>
+          <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "20px", color: "var(--text-primary)" }}>What Details Are Required in a GST Invoice?</h2>
+          <p style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: 1.8, marginBottom: "16px" }}>
             If you have recently completed your <Link href="/blog/how-to-register-gst-online" style={{ color: "#38bdf8", textDecoration: "none" }}>GST registration</Link>, it's critical to format your bills correctly. Under Indian law, your tax invoice must include:
           </p>
-          <ul style={{ color: "#94a3b8", fontSize: "16px", lineHeight: 1.8, marginBottom: "32px", paddingLeft: "20px" }}>
+          <ul style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: 1.8, marginBottom: "32px", paddingLeft: "20px" }}>
             <li>Your Business Name, Address, and <strong>GSTIN</strong></li>
             <li>Buyer's Name, Address, and GSTIN (if they are a registered business)</li>
             <li>Unique, consecutive <strong>Invoice Number</strong> and Date of Issue</li>
@@ -83,13 +83,13 @@ export default function Page() {
             <li>Rate and exact amount of taxes (CGST, SGST, IGST)</li>
           </ul>
 
-          <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "20px", color: "#f1f5f9" }}>CGST, SGST and IGST in GST Invoice</h2>
-          <p style={{ color: "#94a3b8", fontSize: "16px", lineHeight: 1.8, marginBottom: "24px" }}>
+          <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "20px", color: "var(--text-primary)" }}>CGST, SGST and IGST in GST Invoice</h2>
+          <p style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: 1.8, marginBottom: "24px" }}>
             Our generator automatically handles the tax math. However, understanding the difference is key to compliance. Read our complete guide on <Link href="/guides/igst-vs-cgst-explained-india" style={{ color: "#38bdf8", textDecoration: "none" }}>IGST vs CGST vs SGST</Link> to learn exactly when to apply each tax type. In short: charge IGST if your client is in a different state, and CGST + SGST if they are in the same state. Note that if you are opted into the <Link href="/blog/gst-composition-scheme-limits" style={{ color: "#38bdf8", textDecoration: "none" }}>GST Composition Scheme</Link>, you issue a "Bill of Supply" instead of a tax invoice and cannot collect GST.
           </p>
 
-          <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "20px", color: "#f1f5f9" }}>GST Invoice Format for Freelancers and Small Businesses</h2>
-          <p style={{ color: "#94a3b8", fontSize: "16px", lineHeight: 1.8, marginBottom: "24px" }}>
+          <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "20px", color: "var(--text-primary)" }}>GST Invoice Format for Freelancers and Small Businesses</h2>
+          <p style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: 1.8, marginBottom: "24px" }}>
             Whether you are a freelance designer, developer, or a small shop owner, this tool automatically generates the perfect GST bill format. It calculates totals, subtracts discounts, and breaks down the taxes. If you only know the final total price and need to extract the base amount for the invoice, you can use our <Link href="/gst-calculator" style={{ color: "#38bdf8", textDecoration: "none" }}>Reverse GST Calculator</Link> first.
           </p>
 
@@ -97,12 +97,12 @@ export default function Page() {
 
         {/* FAQ SECTION */}
         <div style={{ marginBottom: "40px" }}>
-          <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "24px", color: "#f8fafc" }}>Frequently Asked Questions</h2>
+          <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "24px", color: "var(--text-primary)" }}>Frequently Asked Questions</h2>
           <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
             {faqs.map((faq, i) => (
-              <div key={i} className="glass-panel" style={{ padding: "24px", borderRadius: "16px", background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}>
-                <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#f1f5f9", marginBottom: "12px" }}>{faq.question}</h3>
-                <p style={{ color: "#94a3b8", fontSize: "15px", lineHeight: 1.6 }}>{faq.answer}</p>
+              <div key={i} className="glass-panel" style={{ padding: "24px", borderRadius: "16px", background: "var(--glass-bg)", border: "1px solid var(--glass-border)" }}>
+                <h3 style={{ fontSize: "18px", fontWeight: "700", color: "var(--text-primary)", marginBottom: "12px" }}>{faq.question}</h3>
+                <p style={{ color: "var(--text-secondary)", fontSize: "15px", lineHeight: 1.6 }}>{faq.answer}</p>
               </div>
             ))}
           </div>

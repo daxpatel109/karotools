@@ -59,12 +59,12 @@ export default function BlogPost2() {
     };
   }, []);
 
-  const pStyle = { fontSize: "18px", color: "#94a3b8", lineHeight: "1.8", marginBottom: "24px" };
-  const h2Style = { fontSize: "32px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginTop: "48px", marginBottom: "20px" };
-  const h3Style = { fontSize: "24px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#e2e8f0", marginTop: "32px", marginBottom: "16px" };
+  const pStyle = { fontSize: "18px", color: "var(--text-secondary)", lineHeight: "1.8", marginBottom: "24px" };
+  const h2Style = { fontSize: "32px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "48px", marginBottom: "20px" };
+  const h3Style = { fontSize: "24px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" };
 
   return (
-    <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans', sans-serif", color: "#f8fafc" }}>
+    <div style={{ minHeight: "100vh", background: "var(--bg-primary)", fontFamily: "'DM Sans', sans-serif", color: "var(--text-primary)" }}>
       
 
       {/* Navbar */}
@@ -75,34 +75,34 @@ export default function BlogPost2() {
         
         <div style={{ display: "flex", gap: "12px", marginBottom: "24px", alignItems: "center" }}>
           <span style={{ background: "rgba(0,118,255,0.1)", color: "#38bdf8", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em" }}>TAX SAVINGS</span>
-          <span style={{ color: "#64748b", fontSize: "14px" }}>June 7, 2026 • 7 min read</span>
+          <span style={{ color: "var(--text-secondary)", fontSize: "14px" }}>June 7, 2026 • 7 min read</span>
         </div>
 
-        <h1 style={{ fontSize: "clamp(40px, 5vw, 56px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", lineHeight: 1.15, marginBottom: "32px", color: "#f8fafc" }}>
+        <h1 style={{ fontSize: "clamp(40px, 5vw, 56px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", lineHeight: 1.15, marginBottom: "32px", color: "var(--text-primary)" }}>
           Section 44ADA for Freelancers: The Ultimate Tax Saving Guide (FY 2026-27)
         </h1>
 
-        <div style={{ display: "flex", alignItems: "center", gap: "16px", paddingBottom: "40px", borderBottom: "1px solid rgba(255,255,255,0.05)", marginBottom: "48px" }}>
-          <div style={{ width: "56px", height: "56px", borderRadius: "50%", overflow: "hidden", background: "#0f172a", border: "2px solid #1e293b", position: "relative" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "16px", paddingBottom: "40px", borderBottom: "1px solid var(--glass-bg)", marginBottom: "48px" }}>
+          <div style={{ width: "56px", height: "56px", borderRadius: "50%", overflow: "hidden", background: "var(--bg-tertiary)", border: "2px solid #1e293b", position: "relative" }}>
             <img 
               src="/dax-profile.jpg" 
               alt="Dax Patel" 
               onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
               style={{ width: "100%", height: "100%", objectFit: "cover" }} 
             />
-            <div style={{ display: "none", width: "100%", height: "100%", alignItems: "center", justifyContent: "center", background: "linear-gradient(135deg, #0076ff, #00c6ff)", color: "#f8fafc", fontSize: "24px", fontWeight: "bold" }}>
+            <div style={{ display: "none", width: "100%", height: "100%", alignItems: "center", justifyContent: "center", background: "linear-gradient(135deg, #0076ff, #00c6ff)", color: "var(--text-primary)", fontSize: "24px", fontWeight: "bold" }}>
               DP
             </div>
           </div>
           <div>
-            <Link href="/author/dax-patel" style={{ margin: "0 0 4px 0", fontSize: "18px", fontWeight: "700", color: "#f1f5f9", textDecoration: "none", display: "inline-block" }} onMouseEnter={e => e.target.style.textDecoration = "underline"} onMouseLeave={e => e.target.style.textDecoration = "none"}>Dax Patel</Link>
-            <p style={{ margin: 0, fontSize: "14px", color: "#94a3b8" }}>Tax & Freelance Growth Expert</p>
+            <Link href="/author/dax-patel" style={{ margin: "0 0 4px 0", fontSize: "18px", fontWeight: "700", color: "var(--text-primary)", textDecoration: "none", display: "inline-block" }} onMouseEnter={e => e.target.style.textDecoration = "underline"} onMouseLeave={e => e.target.style.textDecoration = "none"}>Dax Patel</Link>
+            <p style={{ margin: 0, fontSize: "14px", color: "var(--text-secondary)" }}>Tax & Freelance Growth Expert</p>
           </div>
         </div>
 
         {/* Article Body */}
         <div style={{ fontSize: "18px" }}>
-          <p style={{ ...pStyle, fontSize: "22px", color: "#e2e8f0", lineHeight: "1.6", fontWeight: "500" }}>
+          <p style={{ ...pStyle, fontSize: "22px", color: "var(--text-primary)", lineHeight: "1.6", fontWeight: "500" }}>
             If you are a freelancer in India and you aren't using the presumptive taxation scheme, you are voluntarily donating lakhs of rupees to the government every single year. 
           </p>
 
@@ -123,7 +123,7 @@ export default function BlogPost2() {
 
           <div style={{ background: "rgba(0,118,255,0.05)", borderLeft: "4px solid #0076ff", padding: "24px", borderRadius: "0 12px 12px 0", margin: "40px 0" }}>
             <h3 style={{ margin: "0 0 12px 0", color: "#38bdf8", fontSize: "16px", textTransform: "uppercase", letterSpacing: "0.05em" }}>⚡ Try It Yourself</h3>
-            <p style={{ margin: 0, color: "#cbd5e1", fontSize: "16px", lineHeight: "1.6" }}>
+            <p style={{ margin: 0, color: "var(--text-primary)", fontSize: "16px", lineHeight: "1.6" }}>
               Want to see the exact math? Enter your total annual income into our free <Link href="/tax-calculator" style={{ color: "#38bdf8", fontWeight: "600", textDecoration: "underline" }}>freelance tax calculator</Link> to instantly see how much you save using Section 44ADA.
             </p>
           </div>
@@ -132,7 +132,7 @@ export default function BlogPost2() {
           <p style={pStyle}>
             According to the <a href="https://incometaxindia.gov.in" target="_blank" rel="nofollow noreferrer" style={{ color: "#38bdf8", textDecoration: "none" }}>Income Tax Department of India</a>, this scheme is strictly for specific professionals. If your profession falls under any of these categories, you are eligible:
           </p>
-          <ul style={{ ...pStyle, paddingLeft: "24px", background: "rgba(255,255,255,0.02)", padding: "24px 24px 24px 48px", borderRadius: "12px" }}>
+          <ul style={{ ...pStyle, paddingLeft: "24px", background: "var(--glass-bg)", padding: "24px 24px 24px 48px", borderRadius: "12px" }}>
             <li style={{ marginBottom: "12px" }}>Information Technology (Software developers, UI/UX designers)</li>
             <li style={{ marginBottom: "12px" }}>Technical Consultancy (Consultants, freelance PMs)</li>
             <li style={{ marginBottom: "12px" }}>Engineering & Architecture</li>
@@ -156,7 +156,7 @@ export default function BlogPost2() {
             Never accept money blindly into your bank account. For every single payment you receive, generate a professional invoice. If you don't have an invoicing tool, use a free <Link href="/gst-invoice-generator" style={{ color: "#0076ff", textDecoration: "none" }}>professional invoice generator</Link> to create legally compliant PDFs. If your clients are in India, you also need to track whether you cross the ₹20 Lakh GST threshold. (You can check your liability with our <Link href="/gst-calculator" style={{ color: "#0076ff", textDecoration: "none" }}>GST calculator</Link>).
           </p>
 
-          <hr style={{ border: "none", borderTop: "1px solid rgba(255,255,255,0.1)", margin: "64px 0" }} />
+          <hr style={{ border: "none", borderTop: "1px solid var(--border-color)", margin: "64px 0" }} />
 
           <h2 style={h2Style}>Frequently Asked Questions (FAQ)</h2>
           
@@ -182,16 +182,16 @@ export default function BlogPost2() {
           </div>
 
           <div style={{ marginTop: "64px", textAlign: "center", padding: "48px", background: "linear-gradient(135deg, rgba(0,118,255,0.1), rgba(0,198,255,0.1))", borderRadius: "24px", border: "1px solid rgba(0,118,255,0.2)" }}>
-            <h2 style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc", margin: "0 0 16px 0" }}>Ready to calculate your exact tax?</h2>
-            <p style={{ color: "#94a3b8", fontSize: "18px", marginBottom: "32px" }}>Use our completely free calculator built specifically for the new Indian tax slabs.</p>
+            <h2 style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", margin: "0 0 16px 0" }}>Ready to calculate your exact tax?</h2>
+            <p style={{ color: "var(--text-secondary)", fontSize: "18px", marginBottom: "32px" }}>Use our completely free calculator built specifically for the new Indian tax slabs.</p>
             <Link href="/tax-calculator" style={{ display: "inline-block", padding: "16px 36px", background: "linear-gradient(135deg, #0076ff, #00c6ff)", borderRadius: "12px", color: "white", fontSize: "18px", fontWeight: "700", textDecoration: "none", boxShadow: "0 8px 24px rgba(0,118,255,0.3)", transition: "transform 0.2s" }}>
               Calculate My Tax Now →
             </Link>
           </div>
 
           {/* Legal Disclaimer */}
-          <div style={{ marginTop: "64px", padding: "24px", background: "rgba(0,0,0,0.2)", borderRadius: "12px", border: "1px dashed rgba(255,255,255,0.1)", textAlign: "center" }}>
-            <p style={{ color: "#64748b", fontSize: "12px", lineHeight: "1.6", margin: 0 }}>
+          <div style={{ marginTop: "64px", padding: "24px", background: "rgba(0,0,0,0.2)", borderRadius: "12px", border: "1px dashed var(--border-color)", textAlign: "center" }}>
+            <p style={{ color: "var(--text-secondary)", fontSize: "12px", lineHeight: "1.6", margin: 0 }}>
               <strong>Disclaimer:</strong> The information provided in this blog post is for educational and informational purposes only and does not constitute legal, financial, or tax advice. Laws and regulations change frequently. Please consult a qualified legal professional or Chartered Accountant before drafting contracts, filing taxes, or making business decisions based on this content. KaroTools is not liable for any losses or damages arising from the use of this information.
             </p>
           </div>
@@ -200,7 +200,7 @@ export default function BlogPost2() {
       </article>
 
       {/* Footer */}
-      <footer style={{ borderTop: "1px solid rgba(255,255,255,0.05)", padding: "40px", textAlign: "center", color: "#64748b", fontSize: "14px" }}>
+      <footer style={{ borderTop: "1px solid var(--glass-bg)", padding: "40px", textAlign: "center", color: "var(--text-secondary)", fontSize: "14px" }}>
         © 2026 KaroTools.in — Made for Indian Freelancers
       </footer>
     </div>

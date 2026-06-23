@@ -4,6 +4,7 @@ import "../ScrollPathSection.css";
 import Script from "next/script";
 import CookieBanner from "../CookieBanner";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { ThemeProvider } from "../components/ThemeProvider";
 
 if (typeof window === "undefined") {
   global.localStorage = {
@@ -101,7 +102,9 @@ export default function RootLayout({ children }) {
           `
         }} />
 
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          {children}
+        </ThemeProvider>
         <CookieBanner />
 
         {/* AdSense Deferred */}

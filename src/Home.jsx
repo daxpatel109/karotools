@@ -92,7 +92,7 @@ function ToolCard({ tool, index }) {
   return (
     <div ref={ref} style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(48px)", transition: `opacity 0.7s ease ${index * 0.08}s, transform 0.7s ease ${index * 0.08}s` }}>
       <div ref={cardRef} onMouseMove={onMove} onMouseLeave={onLeave} onMouseEnter={() => setHovered(true)}
-        style={{ background: hovered ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.025)", backdropFilter: "blur(24px)", border: `1px solid ${hovered ? `${accent}30` : "rgba(255,255,255,0.07)"}`, borderRadius: 24, padding: "28px 24px", cursor: tool.page ? "pointer" : "default", transition: "transform 0.2s ease, box-shadow 0.2s ease, background 0.3s, border-color 0.3s", boxShadow: "0 4px 24px rgba(0,0,0,0.3)", position: "relative", overflow: "hidden", minHeight: 190 }}>
+        style={{ background: hovered ? "var(--glass-bg)" : "var(--glass-bg)", backdropFilter: "blur(24px)", border: `1px solid ${hovered ? `${accent}30` : "var(--glass-border)"}`, borderRadius: 24, padding: "28px 24px", cursor: tool.page ? "pointer" : "default", transition: "transform 0.2s ease, box-shadow 0.2s ease, background 0.3s, border-color 0.3s", boxShadow: "0 4px 24px rgba(0,0,0,0.3)", position: "relative", overflow: "hidden", minHeight: 190 }}>
 
         {/* Top glow line */}
         <div style={{ position: "absolute", top: 0, left: "10%", right: "10%", height: 1, background: `linear-gradient(90deg, transparent, ${accent}, transparent)`, opacity: hovered ? 1 : 0.4, transition: "opacity 0.3s" }} />
@@ -105,8 +105,8 @@ function ToolCard({ tool, index }) {
           {tool.icon}
         </div>
 
-        <h3 style={{ fontSize: 16, fontWeight: 700, color: "#f1f5f9", marginBottom: 8, fontFamily: "'Plus Jakarta Sans',sans-serif", letterSpacing: "-0.01em" }}>{tool.name}</h3>
-        <p style={{ fontSize: 13, color: "#94a3b8", lineHeight: 1.65, marginBottom: 18 }}>{tool.description}</p>
+        <h3 style={{ fontSize: 16, fontWeight: 700, color: "var(--text-primary)", marginBottom: 8, fontFamily: "'Plus Jakarta Sans',sans-serif", letterSpacing: "-0.01em" }}>{tool.name}</h3>
+        <p style={{ fontSize: 13, color: "var(--text-secondary)", lineHeight: 1.65, marginBottom: 18 }}>{tool.description}</p>
 
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <span style={{ background: `${accent}15`, color: accent, padding: "3px 12px", borderRadius: 20, fontSize: 11, fontWeight: 700, border: `1px solid ${accent}25`, letterSpacing: "0.06em", textTransform: "uppercase" }}>{tool.category}</span>
@@ -143,7 +143,7 @@ function PopularToolCard({ item, index }) {
   return (
     <Link href={item.link} style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
       <div onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
-        style={{ height: '100%', display: 'flex', flexDirection: 'column', background: hovered ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.025)", backdropFilter: "blur(24px)", border: `1px solid ${hovered ? `${accent}30` : "rgba(255,255,255,0.07)"}`, borderRadius: 24, padding: "28px 24px", cursor: "pointer", transition: "transform 0.2s ease, box-shadow 0.2s ease, background 0.3s, border-color 0.3s", boxShadow: hovered ? `0 12px 32px ${accent}20` : "0 4px 24px rgba(0,0,0,0.3)", position: "relative", overflow: "hidden", minHeight: 190, transform: hovered ? "translateY(-4px)" : "translateY(0)" }}>
+        style={{ height: '100%', display: 'flex', flexDirection: 'column', background: hovered ? "var(--glass-bg)" : "var(--glass-bg)", backdropFilter: "blur(24px)", border: `1px solid ${hovered ? `${accent}30` : "var(--glass-border)"}`, borderRadius: 24, padding: "28px 24px", cursor: "pointer", transition: "transform 0.2s ease, box-shadow 0.2s ease, background 0.3s, border-color 0.3s", boxShadow: hovered ? `0 12px 32px ${accent}20` : "0 4px 24px rgba(0,0,0,0.3)", position: "relative", overflow: "hidden", minHeight: 190, transform: hovered ? "translateY(-4px)" : "translateY(0)" }}>
         
         {/* Top glow line */}
         <div style={{ position: "absolute", top: 0, left: "10%", right: "10%", height: 1, background: `linear-gradient(90deg, transparent, ${accent}, transparent)`, opacity: hovered ? 1 : 0.4, transition: "opacity 0.3s" }} />
@@ -156,8 +156,8 @@ function PopularToolCard({ item, index }) {
           {item.icon}
         </div>
 
-        <h3 style={{ fontSize: 16, fontWeight: 700, color: "#f1f5f9", marginBottom: 8, fontFamily: "'Plus Jakarta Sans',sans-serif", letterSpacing: "-0.01em" }}>{item.title}</h3>
-        <p style={{ fontSize: 13, color: "#94a3b8", lineHeight: 1.65, marginBottom: 18, flexGrow: 1 }}>{item.desc}</p>
+        <h3 style={{ fontSize: 16, fontWeight: 700, color: "var(--text-primary)", marginBottom: 8, fontFamily: "'Plus Jakarta Sans',sans-serif", letterSpacing: "-0.01em" }}>{item.title}</h3>
+        <p style={{ fontSize: 13, color: "var(--text-secondary)", lineHeight: 1.65, marginBottom: 18, flexGrow: 1 }}>{item.desc}</p>
 
         <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", justifyContent: "space-between", marginTop: "auto" }}>
           <span style={{ background: `${accent}15`, color: accent, padding: "3px 12px", borderRadius: 20, fontSize: 11, fontWeight: 700, border: `1px solid ${accent}25`, whiteSpace: "nowrap" }}>🔥 {item.keyword}</span>
@@ -235,13 +235,13 @@ export default function Home() {
   ];
 
   return (
-    <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans',sans-serif", color: "#f1f5f9", overflowX: "hidden" }}>
+    <div style={{ minHeight: "100vh", background: "var(--bg-primary)", fontFamily: "'DM Sans',sans-serif", color: "var(--text-primary)", overflowX: "hidden" }}>
       
 
       <style>{`
         * { cursor: none !important; }
         ::-webkit-scrollbar { width: 4px; }
-        ::-webkit-scrollbar-track { background: #020617; }
+        ::-webkit-scrollbar-track { background: var(--bg-primary); }
         ::-webkit-scrollbar-thumb { background: linear-gradient(#0076ff, #00c6ff); border-radius: 4px; }
 
         @keyframes fadeInUp { from { opacity:0; transform:translateY(40px); } to { opacity:1; transform:translateY(0); } }
@@ -255,17 +255,17 @@ export default function Home() {
         @keyframes borderGlow { 0%,100%{box-shadow:0 0 20px rgba(0,118,255,0.2)} 50%{box-shadow:0 0 40px rgba(0,118,255,0.5)} }
 
         input::placeholder { color: #1e293b; }
-        .nav-btn:hover { color: #f1f5f9 !important; background: rgba(255,255,255,0.06) !important; }
-        .search-box:focus { border-color: rgba(0,118,255,0.5) !important; box-shadow: 0 0 0 4px rgba(0,118,255,0.08) !important; outline: none; background: rgba(255,255,255,0.06) !important; }
-        .filter-chip:hover { background: rgba(255,255,255,0.08) !important; color: #f1f5f9 !important; }
+        .nav-btn:hover { color: var(--text-primary) !important; background: var(--glass-border) !important; }
+        .search-box:focus { border-color: rgba(0,118,255,0.5) !important; box-shadow: 0 0 0 4px rgba(0,118,255,0.08) !important; outline: none; background: var(--glass-border) !important; }
+        .filter-chip:hover { background: var(--glass-border) !important; color: var(--text-primary) !important; }
         .feature-card:hover { transform: translateY(-6px) !important; border-color: rgba(0,118,255,0.2) !important; background: rgba(0,118,255,0.04) !important; }
         .faq-card:hover { border-color: rgba(0,118,255,0.2) !important; background: rgba(0,118,255,0.03) !important; }
         .footer-link:hover { color: #0076ff !important; }
         .cta-btn-primary:hover { transform: translateY(-3px) !important; box-shadow: 0 20px 48px rgba(0,118,255,0.45) !important; }
-        .cta-btn-secondary:hover { background: rgba(255,255,255,0.08) !important; border-color: rgba(0,118,255,0.3) !important; }
+        .cta-btn-secondary:hover { background: var(--glass-border) !important; border-color: rgba(0,118,255,0.3) !important; }
 
         .desktop-nav { display: flex; gap: 4px; alignItems: center; }
-        .mobile-nav-toggle { display: none; background: transparent; border: none; color: #f8fafc; font-size: 24px; cursor: pointer; padding: 4px; }
+        .mobile-nav-toggle { display: none; background: transparent; border: none; color: var(--text-primary); font-size: 24px; cursor: pointer; padding: 4px; }
         
         @media (max-width: 768px) {
           .desktop-nav { display: none !important; }
@@ -284,32 +284,32 @@ export default function Home() {
       </div>
 
       {/* Dot grid */}
-      <div style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0, backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.025) 1px, transparent 1px)", backgroundSize: "30px 30px" }} />
+      <div style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0, backgroundImage: "radial-gradient(circle, var(--glass-bg) 1px, transparent 1px)", backgroundSize: "30px 30px" }} />
 
       {/* ── HEADER & NAVBAR ─────────────────────────────────── */}
-      <header style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000, height: 72, background: scrolled ? "rgba(2,6,23,0.95)" : "transparent", backdropFilter: scrolled ? "blur(24px)" : "none", borderBottom: scrolled ? "1px solid rgba(255,255,255,0.05)" : "none", transition: "all 0.4s ease", animation: "slideDown 0.6s ease" }}>
+      <header style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000, height: 72, background: scrolled ? "rgba(2,6,23,0.95)" : "transparent", backdropFilter: scrolled ? "blur(24px)" : "none", borderBottom: scrolled ? "1px solid var(--glass-bg)" : "none", transition: "all 0.4s ease", animation: "slideDown 0.6s ease" }}>
         <Navbar />
       </header>
 
       {/* ── MOBILE MENU OVERLAY ────────────────────────────────── */}
       {isMobileMenuOpen && (
         <div style={{ position: "fixed", inset: 0, zIndex: 2000, background: "rgba(2,6,23,0.98)", backdropFilter: "blur(20px)", display: "flex", flexDirection: "column", animation: "slideDown 0.3s ease" }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0 5vw", height: 72, borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0 5vw", height: 72, borderBottom: "1px solid var(--glass-bg)" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
               <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
-  <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
+  <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)" }}>
     Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
 </div>
             </div>
-            <button onClick={() => setIsMobileMenuOpen(false)} style={{ background: "transparent", border: "none", color: "#f8fafc", fontSize: 32, cursor: "pointer", padding: "4px" }}>×</button>
+            <button onClick={() => setIsMobileMenuOpen(false)} style={{ background: "transparent", border: "none", color: "var(--text-primary)", fontSize: 32, cursor: "pointer", padding: "4px" }}>×</button>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 24, padding: "40px 5vw" }}>
-            <button onClick={() => { setIsMobileMenuOpen(false); document.getElementById("tools-section").scrollIntoView({ behavior: "smooth" }); }} style={{ background: "transparent", border: "none", color: "#f1f5f9", fontSize: 24, fontWeight: 700, fontFamily: "'Plus Jakarta Sans',sans-serif", textAlign: "left" }}>Tools</button>
-            <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} style={{ background: "transparent", border: "none", color: "#f1f5f9", fontSize: 24, fontWeight: 700, fontFamily: "'Plus Jakarta Sans',sans-serif", textAlign: "left" }}>About</Link>
-            <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} style={{ background: "transparent", border: "none", color: "#f1f5f9", fontSize: 24, fontWeight: 700, fontFamily: "'Plus Jakarta Sans',sans-serif", textAlign: "left" }}>Blog</Link>
-            <div style={{ height: 1, background: "rgba(255,255,255,0.08)", margin: "16px 0" }} />
+            <button onClick={() => { setIsMobileMenuOpen(false); document.getElementById("tools-section").scrollIntoView({ behavior: "smooth" }); }} style={{ background: "transparent", border: "none", color: "var(--text-primary)", fontSize: 24, fontWeight: 700, fontFamily: "'Plus Jakarta Sans',sans-serif", textAlign: "left" }}>Tools</button>
+            <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} style={{ background: "transparent", border: "none", color: "var(--text-primary)", fontSize: 24, fontWeight: 700, fontFamily: "'Plus Jakarta Sans',sans-serif", textAlign: "left" }}>About</Link>
+            <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} style={{ background: "transparent", border: "none", color: "var(--text-primary)", fontSize: 24, fontWeight: 700, fontFamily: "'Plus Jakarta Sans',sans-serif", textAlign: "left" }}>Blog</Link>
+            <div style={{ height: 1, background: "var(--glass-border)", margin: "16px 0" }} />
             <button onClick={() => { setIsMobileMenuOpen(false); document.getElementById("tools-section").scrollIntoView({ behavior: "smooth" }); }}
               style={{ padding: "16px", background: "linear-gradient(135deg, #0076ff, #005ae6)", border: "none", borderRadius: 12, color: "#fff", fontSize: 18, fontWeight: 700, fontFamily: "'Plus Jakarta Sans',sans-serif", textAlign: "center" }}>
               Explore Free Tools →
@@ -339,12 +339,12 @@ export default function Home() {
             Free Tax Calculators, GST & Business Tools
           </span>
           <br />
-          <span style={{ color: "#e2e8f0" }}>for Indian Freelancers</span>
+          <span style={{ color: "var(--text-primary)" }}>for Indian Freelancers</span>
         </h1>
 
         {/* Subtitle */}
-        <p style={{ fontSize: "clamp(16px, 2.2vw, 21px)", color: "#94a3b8", maxWidth: 580, lineHeight: 1.7, marginBottom: 48, animation: "fadeInUp 0.7s 0.3s both" }}>
-          Free <strong style={{ color: "#cbd5e1" }}>GST Calculator</strong>, <strong style={{ color: "#cbd5e1" }}>Invoice Generator</strong>, Email Writer & more — built for <strong style={{ color: "#cbd5e1" }}>Indian freelancers & small businesses</strong>. No login. No fees. Forever.
+        <p style={{ fontSize: "clamp(16px, 2.2vw, 21px)", color: "var(--text-secondary)", maxWidth: 580, lineHeight: 1.7, marginBottom: 48, animation: "fadeInUp 0.7s 0.3s both" }}>
+          Free <strong style={{ color: "var(--text-primary)" }}>GST Calculator</strong>, <strong style={{ color: "var(--text-primary)" }}>Invoice Generator</strong>, Email Writer & more — built for <strong style={{ color: "var(--text-primary)" }}>Indian freelancers & small businesses</strong>. No login. No fees. Forever.
         </p>
 
         {/* CTA Buttons */}
@@ -354,7 +354,7 @@ export default function Home() {
             Explore All Tools →
           </button>
           <Link href="/gst-calculator" style={{ textDecoration: 'none' }}>
-            <button className="cta-btn-secondary" style={{ padding: "17px 36px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 14, color: "#cbd5e1", fontSize: 17, fontWeight: 600, fontFamily: "'DM Sans',sans-serif", transition: "all 0.3s", cursor: "pointer" }}>
+            <button className="cta-btn-secondary" style={{ padding: "17px 36px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 14, color: "var(--text-primary)", fontSize: 17, fontWeight: 600, fontFamily: "'DM Sans',sans-serif", transition: "all 0.3s", cursor: "pointer" }}>
               🧮 GST Calculator
             </button>
           </Link>
@@ -363,7 +363,7 @@ export default function Home() {
         {/* Stats */}
         <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", animation: "fadeInUp 0.7s 0.5s both" }}>
           {stats.map((s, i) => (
-            <div key={s.label} style={{ padding: "0 36px", textAlign: "center", borderRight: i < stats.length - 1 ? "1px solid rgba(255,255,255,0.07)" : "none" }}>
+            <div key={s.label} style={{ padding: "0 36px", textAlign: "center", borderRight: i < stats.length - 1 ? "1px solid var(--glass-border)" : "none" }}>
               <div style={{ fontSize: 36, fontWeight: 800, fontFamily: "'Plus Jakarta Sans',sans-serif", background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
                 {s.pre ? s.suffix : ""}<Counter end={s.end} suffix={s.pre ? "" : s.suffix} />
               </div>
@@ -388,11 +388,11 @@ export default function Home() {
         <Reveal>
           <div style={{ textAlign: "center", marginBottom: 56 }}>
             <p style={{ fontSize: 12, fontWeight: 700, color: "#0076ff", letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: 14 }}>— FREE TOOLS —</p>
-            <h2 style={{ fontSize: "clamp(30px, 4.5vw, 52px)", fontWeight: 800, fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginBottom: 14, letterSpacing: "-0.025em", lineHeight: 1.1 }}>
+            <h2 style={{ fontSize: "clamp(30px, 4.5vw, 52px)", fontWeight: 800, fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginBottom: 14, letterSpacing: "-0.025em", lineHeight: 1.1 }}>
               Everything You Need to<br />
               <span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Run Your Freelance Business</span>
             </h2>
-            <p style={{ color: "#64748b", fontSize: 17, maxWidth: 500, margin: "0 auto" }}>Click any tool — no login, no signup, no cost. Ever.</p>
+            <p style={{ color: "var(--text-secondary)", fontSize: 17, maxWidth: 500, margin: "0 auto" }}>Click any tool — no login, no signup, no cost. Ever.</p>
           </div>
         </Reveal>
 
@@ -400,14 +400,14 @@ export default function Home() {
         <Reveal delay={0.1}>
           <div style={{ display: "flex", gap: 12, marginBottom: 44, flexWrap: "wrap", justifyContent: "center", alignItems: "center" }}>
             <div style={{ position: "relative", width: "100%", maxWidth: 380 }}>
-              <span style={{ position: "absolute", left: 16, top: "50%", transform: "translateY(-50%)", color: "#334155", fontSize: 16 }}>🔍</span>
+              <span style={{ position: "absolute", left: 16, top: "50%", transform: "translateY(-50%)", color: "var(--text-secondary)", fontSize: 16 }}>🔍</span>
               <input className="search-box" name="search" aria-label="Search tools" value={search} onChange={e => setSearch(e.target.value)} placeholder="Search tools..."
-                style={{ width: "100%", padding: "14px 16px 14px 46px", background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, fontSize: 15, color: "#f1f5f9", boxSizing: "border-box", transition: "all 0.3s", fontFamily: "'DM Sans',sans-serif" }} />
+                style={{ width: "100%", padding: "14px 16px 14px 46px", background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: 12, fontSize: 15, color: "var(--text-primary)", boxSizing: "border-box", transition: "all 0.3s", fontFamily: "'DM Sans',sans-serif" }} />
             </div>
             <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
               {filters.map(f => (
                 <button key={f} className="filter-chip" onClick={() => setActiveFilter(f)}
-                  style={{ padding: "11px 22px", borderRadius: 10, border: "1px solid", borderColor: activeFilter === f ? "rgba(0,118,255,0.5)" : "rgba(255,255,255,0.07)", background: activeFilter === f ? "rgba(0,118,255,0.12)" : "rgba(255,255,255,0.02)", color: activeFilter === f ? "#38bdf8" : "#64748b", fontSize: 13, fontWeight: 600, cursor: "pointer", transition: "all 0.2s", fontFamily: "'DM Sans',sans-serif" }}>
+                  style={{ padding: "11px 22px", borderRadius: 10, border: "1px solid", borderColor: activeFilter === f ? "rgba(0,118,255,0.5)" : "var(--glass-border)", background: activeFilter === f ? "rgba(0,118,255,0.12)" : "var(--glass-bg)", color: activeFilter === f ? "#38bdf8" : "var(--text-secondary)", fontSize: 13, fontWeight: 600, cursor: "pointer", transition: "all 0.2s", fontFamily: "'DM Sans',sans-serif" }}>
                   {f}
                 </button>
               ))}
@@ -430,7 +430,7 @@ export default function Home() {
           <Reveal>
             <div style={{ textAlign: "center", marginBottom: 60 }}>
               <p style={{ fontSize: 12, fontWeight: 700, color: "#00c6ff", letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: 14 }}>— WHY KAROTOOLS —</p>
-              <h2 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 800, fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", letterSpacing: "-0.025em" }}>
+              <h2 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 800, fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", letterSpacing: "-0.025em" }}>
                 Built for India.<br />By Freelancers, for Freelancers.
               </h2>
             </div>
@@ -438,10 +438,10 @@ export default function Home() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(280px, 100%), 1fr))", gap: 20 }}>
             {features.map((f, i) => (
               <Reveal key={f.title} delay={i * 0.07}>
-                <div className="feature-card" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 20, padding: "28px 26px", transition: "all 0.35s ease", cursor: "default" }}>
+                <div className="feature-card" style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: 20, padding: "28px 26px", transition: "all 0.35s ease", cursor: "default" }}>
                   <div style={{ fontSize: 36, marginBottom: 16 }}>{f.icon}</div>
-                  <h3 style={{ fontSize: 17, fontWeight: 700, color: "#f1f5f9", marginBottom: 10, fontFamily: "'Plus Jakarta Sans',sans-serif" }}>{f.title}</h3>
-                  <p style={{ fontSize: 14, color: "#64748b", lineHeight: 1.7 }}>{f.desc}</p>
+                  <h3 style={{ fontSize: 17, fontWeight: 700, color: "var(--text-primary)", marginBottom: 10, fontFamily: "'Plus Jakarta Sans',sans-serif" }}>{f.title}</h3>
+                  <p style={{ fontSize: 14, color: "var(--text-secondary)", lineHeight: 1.7 }}>{f.desc}</p>
                 </div>
               </Reveal>
             ))}
@@ -455,7 +455,7 @@ export default function Home() {
           <Reveal>
             <div style={{ textAlign: "center", marginBottom: 56 }}>
               <p style={{ fontSize: 12, fontWeight: 700, color: "#0076ff", letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: 14 }}>— MOST USED —</p>
-              <h2 style={{ fontSize: "clamp(26px, 3.5vw, 44px)", fontWeight: 800, fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", letterSpacing: "-0.02em" }}>Most Popular Tools</h2>
+              <h2 style={{ fontSize: "clamp(26px, 3.5vw, 44px)", fontWeight: 800, fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", letterSpacing: "-0.02em" }}>Most Popular Tools</h2>
             </div>
           </Reveal>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(300px, 100%), 1fr))", gap: 20 }}>
@@ -479,7 +479,7 @@ export default function Home() {
           <Reveal>
             <div style={{ textAlign: "center", marginBottom: 56 }}>
               <p style={{ fontSize: 12, fontWeight: 700, color: "#10b981", letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: 14 }}>— LEARN —</p>
-              <h2 style={{ fontSize: "clamp(26px, 3.5vw, 44px)", fontWeight: 800, fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", letterSpacing: "-0.02em" }}>Latest GST Guides</h2>
+              <h2 style={{ fontSize: "clamp(26px, 3.5vw, 44px)", fontWeight: 800, fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", letterSpacing: "-0.02em" }}>Latest GST Guides</h2>
             </div>
           </Reveal>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(300px, 100%), 1fr))", gap: 20 }}>
@@ -490,10 +490,10 @@ export default function Home() {
             ].map((item, i) => (
               <Reveal key={item.title} delay={i * 0.1}>
                 <Link href={item.link} style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
-                  <div style={{ height: '100%', display: 'flex', flexDirection: 'column', background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 24, padding: "28px 24px", transition: "transform 0.2s ease, background 0.3s", position: "relative", overflow: "hidden" }}>
+                  <div style={{ height: '100%', display: 'flex', flexDirection: 'column', background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: 24, padding: "28px 24px", transition: "transform 0.2s ease, background 0.3s", position: "relative", overflow: "hidden" }}>
                     <span style={{ background: "rgba(16,185,129,0.1)", color: "#34d399", padding: "4px 10px", borderRadius: "20px", fontSize: "11px", fontWeight: "700", alignSelf: "flex-start", marginBottom: "16px" }}>{item.category}</span>
-                    <h3 style={{ fontSize: 18, fontWeight: 700, color: "#f1f5f9", marginBottom: 12, fontFamily: "'Plus Jakarta Sans',sans-serif", lineHeight: 1.4 }}>{item.title}</h3>
-                    <p style={{ fontSize: 14, color: "#94a3b8", lineHeight: 1.65, flexGrow: 1 }}>{item.desc}</p>
+                    <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--text-primary)", marginBottom: 12, fontFamily: "'Plus Jakarta Sans',sans-serif", lineHeight: 1.4 }}>{item.title}</h3>
+                    <p style={{ fontSize: 14, color: "var(--text-secondary)", lineHeight: 1.65, flexGrow: 1 }}>{item.desc}</p>
                     <div style={{ marginTop: 16, color: "#10b981", fontSize: 14, fontWeight: 600 }}>Read guide →</div>
                   </div>
                 </Link>
@@ -501,7 +501,7 @@ export default function Home() {
             ))}
           </div>
           <div style={{ textAlign: "center", marginTop: 40 }}>
-            <Link href="/blog" style={{ color: "#cbd5e1", fontSize: 15, fontWeight: 600, textDecoration: "none", borderBottom: "1px solid #cbd5e1", paddingBottom: 2 }}>View all guides</Link>
+            <Link href="/blog" style={{ color: "var(--text-primary)", fontSize: 15, fontWeight: 600, textDecoration: "none", borderBottom: "1px solid var(--text-primary)", paddingBottom: 2 }}>View all guides</Link>
           </div>
         </div>
       </section>
@@ -512,16 +512,16 @@ export default function Home() {
           <Reveal>
             <div style={{ textAlign: "center", marginBottom: 56 }}>
               <p style={{ fontSize: 12, fontWeight: 700, color: "#0076ff", letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: 14 }}>— FAQ —</p>
-              <h2 style={{ fontSize: "clamp(26px, 3.5vw, 44px)", fontWeight: 800, fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", letterSpacing: "-0.02em" }}>Frequently Asked Questions</h2>
-              <p style={{ color: "#64748b", marginTop: 12, fontSize: 15 }}>Everything you need to know about KaroTools</p>
+              <h2 style={{ fontSize: "clamp(26px, 3.5vw, 44px)", fontWeight: 800, fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", letterSpacing: "-0.02em" }}>Frequently Asked Questions</h2>
+              <p style={{ color: "var(--text-secondary)", marginTop: 12, fontSize: 15 }}>Everything you need to know about KaroTools</p>
             </div>
           </Reveal>
           <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
             {faqs.map((f, i) => (
               <Reveal key={f.q} delay={i * 0.06}>
-                <div className="faq-card" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 16, padding: "24px 28px", transition: "all 0.3s" }}>
-                  <h3 style={{ fontSize: 15, fontWeight: 700, color: "#e2e8f0", marginBottom: 10, fontFamily: "'Plus Jakarta Sans',sans-serif" }}>{f.q}</h3>
-                  <p style={{ fontSize: 14, color: "#64748b", lineHeight: 1.75 }}>{f.a}</p>
+                <div className="faq-card" style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: 16, padding: "24px 28px", transition: "all 0.3s" }}>
+                  <h3 style={{ fontSize: 15, fontWeight: 700, color: "var(--text-primary)", marginBottom: 10, fontFamily: "'Plus Jakarta Sans',sans-serif" }}>{f.q}</h3>
+                  <p style={{ fontSize: 14, color: "var(--text-secondary)", lineHeight: 1.75 }}>{f.a}</p>
                 </div>
               </Reveal>
             ))}
@@ -536,10 +536,10 @@ export default function Home() {
             <div style={{ position: "absolute", top: 0, left: "5%", right: "5%", height: 1, background: "linear-gradient(90deg, transparent, rgba(0,118,255,0.6), transparent)" }} />
             <div style={{ position: "absolute", bottom: 0, left: "10%", right: "10%", height: 1, background: "linear-gradient(90deg, transparent, rgba(0,198,255,0.4), transparent)" }} />
             <div style={{ fontSize: 52, marginBottom: 24 }}>🚀</div>
-            <h2 style={{ fontSize: "clamp(26px, 4vw, 44px)", fontWeight: 800, fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginBottom: 16, letterSpacing: "-0.025em" }}>
+            <h2 style={{ fontSize: "clamp(26px, 4vw, 44px)", fontWeight: 800, fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginBottom: 16, letterSpacing: "-0.025em" }}>
               Start Using KaroTools Today — It's Free
             </h2>
-            <p style={{ fontSize: 17, color: "#94a3b8", marginBottom: 40, maxWidth: 500, margin: "0 auto 40px" }}>Join thousands of Indian freelancers who save hours every week with our free business tools.</p>
+            <p style={{ fontSize: 17, color: "var(--text-secondary)", marginBottom: 40, maxWidth: 500, margin: "0 auto 40px" }}>Join thousands of Indian freelancers who save hours every week with our free business tools.</p>
             <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/gst-calculator" style={{ textDecoration: 'none' }}>
                 <button className="cta-btn-primary" style={{ padding: "15px 36px", background: "linear-gradient(135deg, #0076ff, #00c6ff)", border: "none", borderRadius: 12, color: "#fff", fontSize: 16, fontWeight: 700, fontFamily: "'Plus Jakarta Sans',sans-serif", boxShadow: "0 8px 28px rgba(0,118,255,0.35)", cursor: "pointer", transition: "all 0.3s" }}>
@@ -547,7 +547,7 @@ export default function Home() {
                 </button>
               </Link>
               <Link href="/gst-invoice-generator" style={{ textDecoration: 'none' }}>
-                <button className="cta-btn-secondary" style={{ padding: "15px 32px", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 12, color: "#cbd5e1", fontSize: 16, fontWeight: 600, cursor: "pointer", transition: "all 0.3s" }}>
+                <button className="cta-btn-secondary" style={{ padding: "15px 32px", background: "var(--glass-bg)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 12, color: "var(--text-primary)", fontSize: 16, fontWeight: 600, cursor: "pointer", transition: "all 0.3s" }}>
                   📄 Invoice Generator →
                 </button>
               </Link>
@@ -557,7 +557,7 @@ export default function Home() {
       </section>
 
       {/* ── FOOTER ──────────────────────────────────────────── */}
-      <footer style={{ position: "relative", zIndex: 1, borderTop: "1px solid rgba(255,255,255,0.05)", padding: "56px 5vw 32px" }}>
+      <footer style={{ position: "relative", zIndex: 1, borderTop: "1px solid var(--glass-bg)", padding: "56px 5vw 32px" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(200px, 100%), 1fr))", gap: 48, marginBottom: 56 }}>
             {/* Brand */}
@@ -565,13 +565,13 @@ export default function Home() {
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 18 }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
-  <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
+  <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)" }}>
     Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
 </div>
               </div>
-              <p style={{ fontSize: 14, color: "#94a3b8", lineHeight: 1.75, maxWidth: 300 }}>Free online GST calculator, invoice generator and business tools for Indian freelancers and small businesses. No login required.</p>
-              <p style={{ fontSize: 12, color: "#64748b", marginTop: 16 }}>© 2026 KaroTools.in — Made with ❤️ in India 🇮🇳</p>
+              <p style={{ fontSize: 14, color: "var(--text-secondary)", lineHeight: 1.75, maxWidth: 300 }}>Free online GST calculator, invoice generator and business tools for Indian freelancers and small businesses. No login required.</p>
+              <p style={{ fontSize: 12, color: "var(--text-secondary)", marginTop: 16 }}>© 2026 KaroTools.in — Made with ❤️ in India 🇮🇳</p>
               {/* Buy Me A Coffee / UPI Link - Hidden for now
               <a href="https://buymeacoffee.com/" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: 24, padding: "10px 20px", background: "#f59e0b", color: "#1e293b", fontWeight: 800, fontFamily: "'Plus Jakarta Sans',sans-serif", borderRadius: 12, textDecoration: "none", fontSize: 14, boxShadow: "0 4px 14px rgba(245,158,11,0.2)" }}>
                 ☕ Buy Me A Coffee
@@ -581,15 +581,15 @@ export default function Home() {
 
             {/* Tools */}
             <div>
-              <p style={{ fontSize: 11, fontWeight: 700, color: "#cbd5e1", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 18 }}>Tools</p>
+              <p style={{ fontSize: 11, fontWeight: 700, color: "var(--text-primary)", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 18 }}>Tools</p>
               {["GST Calculator", "Invoice Generator", "Rate Calculator", "Tax Calculator"].map(t => (
-                <p key={t} className="footer-link" style={{ fontSize: 14, color: "#94a3b8", marginBottom: 12, cursor: "pointer", transition: "color 0.2s" }}>{t}</p>
+                <p key={t} className="footer-link" style={{ fontSize: 14, color: "var(--text-secondary)", marginBottom: 12, cursor: "pointer", transition: "color 0.2s" }}>{t}</p>
               ))}
             </div>
 
             {/* Company */}
             <div>
-              <p style={{ fontSize: 11, fontWeight: 700, color: "#cbd5e1", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 18 }}>Company</p>
+              <p style={{ fontSize: 11, fontWeight: 700, color: "var(--text-primary)", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 18 }}>Company</p>
               {[
                 { name: "About Us", path: "/about" },
                 { name: "Blog", path: "/blog" },
@@ -598,25 +598,25 @@ export default function Home() {
                 { name: "Privacy Policy", path: "/privacy-policy" },
                 { name: "Terms of Use", path: "/terms" }
               ].map(t => (
-                <Link key={t.name} href={t.path} className="footer-link" style={{ display: "block", textDecoration: "none", fontSize: 14, color: "#94a3b8", marginBottom: 12, cursor: "pointer", transition: "color 0.2s" }}>{t.name}</Link>
+                <Link key={t.name} href={t.path} className="footer-link" style={{ display: "block", textDecoration: "none", fontSize: 14, color: "var(--text-secondary)", marginBottom: 12, cursor: "pointer", transition: "color 0.2s" }}>{t.name}</Link>
               ))}
             </div>
 
             {/* Resources */}
             <div>
-              <p style={{ fontSize: 11, fontWeight: 700, color: "#cbd5e1", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 18 }}>Resources</p>
-              <Link href="/guides/gst-for-freelancers-india" className="footer-link" style={{ display: "block", textDecoration: "none", fontSize: 14, color: "#94a3b8", marginBottom: 12, transition: "color 0.2s" }}>GST Guide India</Link>
-              <Link href="/blog/how-to-make-gst-invoice-online-free" className="footer-link" style={{ display: "block", textDecoration: "none", fontSize: 14, color: "#94a3b8", marginBottom: 12, transition: "color 0.2s" }}>Invoice Format</Link>
-              <Link href="/blog/section-44ada-freelancers" className="footer-link" style={{ display: "block", textDecoration: "none", fontSize: 14, color: "#94a3b8", marginBottom: 12, transition: "color 0.2s" }}>44ADA Tax Tips</Link>
-              <Link href="/guides/how-to-price-freelance-services" className="footer-link" style={{ display: "block", textDecoration: "none", fontSize: 14, color: "#94a3b8", marginBottom: 12, transition: "color 0.2s" }}>Rate Guide</Link>
-              <Link href="/guides" className="footer-link" style={{ display: "block", textDecoration: "none", fontSize: 14, color: "#94a3b8", marginBottom: 12, transition: "color 0.2s" }}>View All Guides</Link>
+              <p style={{ fontSize: 11, fontWeight: 700, color: "var(--text-primary)", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 18 }}>Resources</p>
+              <Link href="/guides/gst-for-freelancers-india" className="footer-link" style={{ display: "block", textDecoration: "none", fontSize: 14, color: "var(--text-secondary)", marginBottom: 12, transition: "color 0.2s" }}>GST Guide India</Link>
+              <Link href="/blog/how-to-make-gst-invoice-online-free" className="footer-link" style={{ display: "block", textDecoration: "none", fontSize: 14, color: "var(--text-secondary)", marginBottom: 12, transition: "color 0.2s" }}>Invoice Format</Link>
+              <Link href="/blog/section-44ada-freelancers" className="footer-link" style={{ display: "block", textDecoration: "none", fontSize: 14, color: "var(--text-secondary)", marginBottom: 12, transition: "color 0.2s" }}>44ADA Tax Tips</Link>
+              <Link href="/guides/how-to-price-freelance-services" className="footer-link" style={{ display: "block", textDecoration: "none", fontSize: 14, color: "var(--text-secondary)", marginBottom: 12, transition: "color 0.2s" }}>Rate Guide</Link>
+              <Link href="/guides" className="footer-link" style={{ display: "block", textDecoration: "none", fontSize: 14, color: "var(--text-secondary)", marginBottom: 12, transition: "color 0.2s" }}>View All Guides</Link>
             </div>
           </div>
 
           {/* Bottom bar */}
           <div style={{ borderTop: "1px solid rgba(255,255,255,0.04)", paddingTop: 24, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
-            <p style={{ fontSize: 12, color: "#64748b" }}>Free GST Calculator India · Free Invoice Generator India · Free Business Tools for Freelancers</p>
-            <p style={{ fontSize: 12, color: "#64748b" }}>KaroTools.in — Karo Business, Bina Hassle Ke</p>
+            <p style={{ fontSize: 12, color: "var(--text-secondary)" }}>Free GST Calculator India · Free Invoice Generator India · Free Business Tools for Freelancers</p>
+            <p style={{ fontSize: 12, color: "var(--text-secondary)" }}>KaroTools.in — Karo Business, Bina Hassle Ke</p>
           </div>
 
           {/* General Website Disclaimer */}

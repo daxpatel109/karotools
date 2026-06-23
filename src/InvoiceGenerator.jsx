@@ -255,21 +255,21 @@ export default function InvoiceGenerator() {
     }
   };
 
-  const inp = { width: "100%", padding: "14px 16px", background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "10px", fontSize: "14px", color: "#f8fafc", outline: "none", transition: "all 0.2s", boxShadow: "inset 0 2px 4px rgba(0,0,0,0.2)" };
-  const lbl = { display: "block", fontWeight: "600", color: "#64748b", marginBottom: "8px", fontSize: "11px", letterSpacing: "0.08em", textTransform: "uppercase" };
-  const sec = { paddingBottom: "32px", marginBottom: "32px", borderBottom: "1px solid rgba(255,255,255,0.05)" };
+  const inp = { width: "100%", padding: "14px 16px", background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: "10px", fontSize: "14px", color: "var(--text-primary)", outline: "none", transition: "all 0.2s", boxShadow: "inset 0 2px 4px rgba(0,0,0,0.2)" };
+  const lbl = { display: "block", fontWeight: "600", color: "var(--text-secondary)", marginBottom: "8px", fontSize: "11px", letterSpacing: "0.08em", textTransform: "uppercase" };
+  const sec = { paddingBottom: "32px", marginBottom: "32px", borderBottom: "1px solid var(--glass-bg)" };
 
   const finalNotes = seller.udyam && !invoice.notes.includes("Section 43B(h)") 
     ? invoice.notes + msmeWarning 
     : invoice.notes;
 
   return (
-    <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans',sans-serif", color: "#f8fafc" }}>
+    <div style={{ minHeight: "100vh", background: "var(--bg-primary)", fontFamily: "'DM Sans',sans-serif", color: "var(--text-primary)" }}>
       
       <style>{`
         input::placeholder,textarea::placeholder{color:#475569}
         input:focus,textarea:focus,select:focus{border-color:rgba(0,118,255,0.5)!important;outline:none}
-        select option{background:#0f172a;color:#f8fafc}
+        select option{background:var(--bg-tertiary);color:var(--text-primary)}
         
         /* A4 Live Preview Scaling */
         .a4-preview-wrapper {
@@ -286,9 +286,9 @@ export default function InvoiceGenerator() {
           width: 794px;
           min-height: 1123px;
           background: white;
-          color: #0f172a;
+          color: var(--bg-tertiary);
           padding: 20mm;
-          box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.1);
+          box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5), 0 0 0 1px var(--border-color);
           font-family: 'DM Sans', sans-serif;
           position: relative;
           transform-origin: top left;
@@ -327,15 +327,15 @@ export default function InvoiceGenerator() {
           width: var(--sidebar-width, 480px);
           min-width: var(--sidebar-width, 480px);
           background: #080c17;
-          border-right: 1px solid rgba(255,255,255,0.05);
+          border-right: 1px solid var(--glass-bg);
           overflow-y: auto;
           padding: 40px;
         }
         .editor-sidebar::-webkit-scrollbar { width: 6px; }
-        .editor-sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
+        .editor-sidebar::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 10px; }
         .sidebar-resizer {
           width: 8px;
-          background: rgba(255,255,255,0.02);
+          background: var(--glass-bg);
           cursor: col-resize;
           z-index: 10;
           transition: background 0.2s;
@@ -345,8 +345,8 @@ export default function InvoiceGenerator() {
         }
         .canvas-area {
           flex: 1;
-          background-color: #020617;
-          background-image: radial-gradient(rgba(255,255,255,0.05) 1.5px, transparent 1.5px);
+          background-color: var(--bg-primary);
+          background-image: radial-gradient(var(--glass-bg) 1.5px, transparent 1.5px);
           background-size: 24px 24px;
           overflow-y: auto;
           display: flex;
@@ -392,7 +392,7 @@ export default function InvoiceGenerator() {
              width: 100% !important;
              min-width: auto !important;
              border-right: none;
-             border-bottom: 1px solid rgba(255,255,255,0.05);
+             border-bottom: 1px solid var(--glass-bg);
              padding: 24px 16px;
           }
           .sidebar-resizer { display: none !important; }
@@ -421,13 +421,20 @@ export default function InvoiceGenerator() {
             
             <div style={{ marginBottom: "40px" }}>
               <span style={{ background: "rgba(0,118,255,0.1)", color: "#38bdf8", padding: "6px 14px", borderRadius: "50px", fontSize: "11px", fontWeight: "700", letterSpacing: "0.05em", border: "1px solid rgba(0,118,255,0.2)" }}>PRO WORKSPACE</span>
-              <h1 style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", margin: "16px 0 8px 0", color: "#f8fafc", letterSpacing: "-0.5px" }}>
+              <h1 style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", margin: "16px 0 8px 0", color: "var(--text-primary)", letterSpacing: "-0.5px" }}>
                 Invoice Editor
               </h1>
-              <p style={{ color: "#64748b", fontSize: "14px", margin: 0 }}>Configure your beautiful, legal-grade invoice.</p>
+
+          {/* COMPLIANCE BADGE */}
+          <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "rgba(16, 185, 129, 0.1)", border: "1px solid rgba(16, 185, 129, 0.2)", color: "#10b981", padding: "6px 12px", borderRadius: "100px", fontSize: "13px", fontWeight: "600", marginBottom: "32px" }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 6L9 17l-5-5"/></svg>
+            GST Invoice Fields Included
+          </div>
+
+              <p style={{ color: "var(--text-secondary)", fontSize: "14px", margin: 0 }}>Configure your beautiful, legal-grade invoice.</p>
             </div>
 
-            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", marginBottom: "40px", gap: "16px", paddingBottom: "24px", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", marginBottom: "40px", gap: "16px", paddingBottom: "24px", borderBottom: "1px solid var(--glass-bg)" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "#10b981", fontSize: "12px", fontWeight: "600", background: "rgba(16,185,129,0.1)", padding: "6px 12px", borderRadius: "12px", flexShrink: 0, border: "1px solid rgba(16,185,129,0.2)" }}>
                 <span style={{ fontSize: "14px" }}>✅</span> Auto-saved
               </div>
@@ -442,7 +449,7 @@ export default function InvoiceGenerator() {
             </div>
 
             <div style={sec}>
-              <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#f8fafc", marginBottom: "20px" }}>1. Invoice Details</h2>
+              <h2 style={{ fontSize: "18px", fontWeight: "700", color: "var(--text-primary)", marginBottom: "20px" }}>1. Invoice Details</h2>
               <div className="split-3-col">
                 <div><label style={lbl}>Invoice No</label><input value={invoice.number} onChange={e => setInvoice({...invoice, number: e.target.value})} style={inp}/></div>
                 <div><label style={lbl}>Invoice Date</label><input type="date" value={invoice.date} onChange={e => setInvoice({...invoice, date: e.target.value})} style={inp}/></div>
@@ -451,7 +458,7 @@ export default function InvoiceGenerator() {
             </div>
 
             <div style={sec}>
-              <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#f8fafc", marginBottom: "20px" }}>2. Your Details</h2>
+              <h2 style={{ fontSize: "18px", fontWeight: "700", color: "var(--text-primary)", marginBottom: "20px" }}>2. Your Details</h2>
                 <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                   <div>
                     <label style={lbl}>Company Logo (Optional)</label>
@@ -479,7 +486,7 @@ export default function InvoiceGenerator() {
             </div>
 
             <div style={sec}>
-              <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#f8fafc", marginBottom: "20px" }}>3. Client Details</h2>
+              <h2 style={{ fontSize: "18px", fontWeight: "700", color: "var(--text-primary)", marginBottom: "20px" }}>3. Client Details</h2>
                 <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                   <div><label style={lbl}>Client Name *</label><input value={buyer.name} onChange={e => setBuyer({...buyer, name: e.target.value})} style={inp}/></div>
                   <div><label style={lbl}>Address</label><textarea value={buyer.address} onChange={e => setBuyer({...buyer, address: e.target.value})} style={{...inp, height: "80px", resize: "none"}}/></div>
@@ -499,9 +506,9 @@ export default function InvoiceGenerator() {
 
             <div style={sec}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
-                <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#f8fafc", margin: 0 }}>4. Items</h2>
+                <h2 style={{ fontSize: "18px", fontWeight: "700", color: "var(--text-primary)", margin: 0 }}>4. Items</h2>
                 <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                  <label style={{ fontSize: "12px", color: "#94a3b8" }}>Tax Type:</label>
+                  <label style={{ fontSize: "12px", color: "var(--text-secondary)" }}>Tax Type:</label>
                   <select value={transType} onChange={e => setTransType(e.target.value)} style={{...inp, width: "auto", padding: "6px 12px", cursor: "pointer"}}>
                     <option value="intra">Intra-state (CGST + SGST)</option>
                     <option value="inter">Inter-state (IGST)</option>
@@ -512,11 +519,19 @@ export default function InvoiceGenerator() {
               <div className="items-wrapper">
                 <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                   {items.map((item, i) => (
-                    <div key={i} style={{ background: "rgba(0,0,0,0.3)", padding: "16px", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.05)" }}>
+                    <div key={i} style={{ background: "rgba(0,0,0,0.3)", padding: "16px", borderRadius: "12px", border: "1px solid var(--glass-bg)" }}>
                       <div className="items-grid">
                         <div><label style={lbl}>Description</label><input value={item.desc} onChange={e => updateItem(i, "desc", e.target.value)} style={inp}/></div>
                         <div className="items-row-2">
-                          <div><label style={lbl}>HSN/SAC</label><input value={item.hsn} onChange={e => updateItem(i, "hsn", e.target.value)} style={inp}/></div>
+                          <div>
+                            <label style={{ ...lbl, display: "flex", alignItems: "center", gap: "6px" }}>
+                              HSN/SAC
+                              <span className="tooltip-container" tabIndex="0" title="Harmonized System of Nomenclature (HSN) or Service Accounting Code (SAC).">
+                                <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4m0-4h.01"></path></svg>
+                              </span>
+                            </label>
+                            <input value={item.hsn} onChange={e => updateItem(i, "hsn", e.target.value)} style={inp}/>
+                          </div>
                           <div><label style={lbl}>Qty</label><input type="number" value={item.qty} onChange={e => updateItem(i, "qty", e.target.value)} style={inp}/></div>
                         </div>
                         <div className="items-row-3">
@@ -546,7 +561,7 @@ export default function InvoiceGenerator() {
 
             <div className="split-2-col">
               <div style={sec}>
-                <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#f8fafc", marginBottom: "20px" }}>5. Bank Details</h2>
+                <h2 style={{ fontSize: "18px", fontWeight: "700", color: "var(--text-primary)", marginBottom: "20px" }}>5. Bank Details</h2>
                 <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                   <div><label style={lbl}>Account Name</label><input value={bank.accName} onChange={e => setBank({...bank, accName: e.target.value})} style={inp}/></div>
                   <div><label style={lbl}>Account Number</label><input value={bank.accNo} onChange={e => setBank({...bank, accNo: e.target.value})} style={inp}/></div>
@@ -555,7 +570,7 @@ export default function InvoiceGenerator() {
                 </div>
               </div>
               <div style={sec}>
-                <h2 style={{ fontSize: "18px", fontWeight: "700", color: "#f8fafc", marginBottom: "20px" }}>6. Terms & Notes</h2>
+                <h2 style={{ fontSize: "18px", fontWeight: "700", color: "var(--text-primary)", marginBottom: "20px" }}>6. Terms & Notes</h2>
                 <textarea value={invoice.notes} onChange={e => setInvoice({...invoice, notes: e.target.value})} style={{...inp, height: "160px", resize: "none"}} />
               </div>
             </div>
@@ -592,13 +607,13 @@ export default function InvoiceGenerator() {
                       <h2 style={{ fontSize: "36px", fontWeight: "800", color: "#0076ff", margin: "0 0 16px 0", letterSpacing: "-1px" }}>TAX INVOICE</h2>
                     )}
                     <div style={{ display: "flex", gap: "24px" }}>
-                      <div><div style={{ fontSize: "11px", color: "#64748b", fontWeight: "700", textTransform: "uppercase" }}>Invoice No</div><div style={{ fontSize: "14px", fontWeight: "600", color: "#0f172a" }}>{invoice.number || "-"}</div></div>
-                      <div><div style={{ fontSize: "11px", color: "#64748b", fontWeight: "700", textTransform: "uppercase" }}>Invoice Date</div><div style={{ fontSize: "14px", fontWeight: "600", color: "#0f172a" }}>{invoice.date || "-"}</div></div>
-                      {invoice.due && <div><div style={{ fontSize: "11px", color: "#64748b", fontWeight: "700", textTransform: "uppercase" }}>Due Date</div><div style={{ fontSize: "14px", fontWeight: "600", color: "#0f172a" }}>{invoice.due}</div></div>}
+                      <div><div style={{ fontSize: "11px", color: "var(--text-secondary)", fontWeight: "700", textTransform: "uppercase" }}>Invoice No</div><div style={{ fontSize: "14px", fontWeight: "600", color: "var(--bg-tertiary)" }}>{invoice.number || "-"}</div></div>
+                      <div><div style={{ fontSize: "11px", color: "var(--text-secondary)", fontWeight: "700", textTransform: "uppercase" }}>Invoice Date</div><div style={{ fontSize: "14px", fontWeight: "600", color: "var(--bg-tertiary)" }}>{invoice.date || "-"}</div></div>
+                      {invoice.due && <div><div style={{ fontSize: "11px", color: "var(--text-secondary)", fontWeight: "700", textTransform: "uppercase" }}>Due Date</div><div style={{ fontSize: "14px", fontWeight: "600", color: "var(--bg-tertiary)" }}>{invoice.due}</div></div>}
                     </div>
                   </div>
                   <div style={{ textAlign: "right" }}>
-                    <h2 style={{ fontSize: "24px", fontWeight: "700", margin: "0 0 4px 0", color: "#0f172a" }}>{seller.name || "Your Business Name"}</h2>
+                    <h2 style={{ fontSize: "24px", fontWeight: "700", margin: "0 0 4px 0", color: "var(--bg-tertiary)" }}>{seller.name || "Your Business Name"}</h2>
                     <p style={{ fontSize: "12px", color: "#475569", margin: 0, whiteSpace: "pre-wrap", maxWidth: "250px", marginLeft: "auto" }}>{seller.address}</p>
                     {seller.state !== "Select State" && <p style={{ fontSize: "12px", color: "#475569", margin: "4px 0 0 0" }}><strong>State:</strong> {seller.state}</p>}
                     {seller.gstin && <p style={{ fontSize: "12px", color: "#475569", margin: "2px 0 0 0" }}><strong>GSTIN:</strong> {seller.gstin}</p>}
@@ -608,9 +623,9 @@ export default function InvoiceGenerator() {
                 </div>
 
                 {/* Bill To */}
-                <div style={{ marginBottom: "40px", padding: "20px", background: "#f8fafc", borderRadius: "8px", borderLeft: "4px solid #0076ff" }}>
-                  <div style={{ fontSize: "11px", color: "#64748b", fontWeight: "700", textTransform: "uppercase", marginBottom: "8px" }}>Bill To</div>
-                  <h3 style={{ fontSize: "16px", fontWeight: "700", margin: "0 0 4px 0", color: "#0f172a" }}>{buyer.name || "Client Name"}</h3>
+                <div style={{ marginBottom: "40px", padding: "20px", background: "var(--text-primary)", borderRadius: "8px", borderLeft: "4px solid #0076ff" }}>
+                  <div style={{ fontSize: "11px", color: "var(--text-secondary)", fontWeight: "700", textTransform: "uppercase", marginBottom: "8px" }}>Bill To</div>
+                  <h3 style={{ fontSize: "16px", fontWeight: "700", margin: "0 0 4px 0", color: "var(--bg-tertiary)" }}>{buyer.name || "Client Name"}</h3>
                   {buyer.address && <p style={{ fontSize: "13px", color: "#475569", margin: "0 0 4px 0", whiteSpace: "pre-wrap" }}>{buyer.address}</p>}
                   {buyer.state !== "Select State" && <p style={{ fontSize: "13px", color: "#475569", margin: "0 0 2px 0" }}><strong>State:</strong> {buyer.state}</p>}
                   {buyer.gstin && <p style={{ fontSize: "13px", color: "#475569", margin: "0 0 2px 0" }}><strong>GSTIN:</strong> {buyer.gstin}</p>}
@@ -621,27 +636,34 @@ export default function InvoiceGenerator() {
                 <table style={{ width: "100%", borderCollapse: "collapse", marginBottom: "40px" }}>
                   <thead>
                     <tr>
-                      <th style={{ padding: "12px 8px", background: "#f1f5f9", color: "#475569", fontSize: "12px", textTransform: "uppercase", borderBottom: "2px solid #cbd5e1", textAlign: "left" }}>Description</th>
-                      <th style={{ padding: "12px 8px", background: "#f1f5f9", color: "#475569", fontSize: "12px", textTransform: "uppercase", borderBottom: "2px solid #cbd5e1", textAlign: "left" }}>HSN/SAC</th>
-                      <th style={{ padding: "12px 8px", background: "#f1f5f9", color: "#475569", fontSize: "12px", textTransform: "uppercase", borderBottom: "2px solid #cbd5e1", textAlign: "right" }}>Qty</th>
-                      <th style={{ padding: "12px 8px", background: "#f1f5f9", color: "#475569", fontSize: "12px", textTransform: "uppercase", borderBottom: "2px solid #cbd5e1", textAlign: "right" }}>Rate (₹)</th>
+                      <th style={{ padding: "12px 8px", background: "var(--text-primary)", color: "#475569", fontSize: "12px", textTransform: "uppercase", borderBottom: "2px solid var(--text-primary)", textAlign: "left" }}>Description</th>
+                      <th style={{ padding: "12px 8px", background: "var(--text-primary)", color: "#475569", fontSize: "12px", textTransform: "uppercase", borderBottom: "2px solid var(--text-primary)", textAlign: "left" }}>
+                        <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                          HSN/SAC
+                          <span className="tooltip-container" tabIndex="0" title="Harmonized System of Nomenclature (HSN) or Service Accounting Code (SAC). Used to classify goods and services under GST.">
+                            <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4m0-4h.01"></path></svg>
+                          </span>
+                        </span>
+                      </th>
+                      <th style={{ padding: "12px 8px", background: "var(--text-primary)", color: "#475569", fontSize: "12px", textTransform: "uppercase", borderBottom: "2px solid var(--text-primary)", textAlign: "right" }}>Qty</th>
+                      <th style={{ padding: "12px 8px", background: "var(--text-primary)", color: "#475569", fontSize: "12px", textTransform: "uppercase", borderBottom: "2px solid var(--text-primary)", textAlign: "right" }}>Rate (₹)</th>
                       {transType === "intra" ? (
                         <>
-                          <th style={{ padding: "12px 8px", background: "#f1f5f9", color: "#475569", fontSize: "12px", textTransform: "uppercase", borderBottom: "2px solid #cbd5e1", textAlign: "right" }}>CGST</th>
-                          <th style={{ padding: "12px 8px", background: "#f1f5f9", color: "#475569", fontSize: "12px", textTransform: "uppercase", borderBottom: "2px solid #cbd5e1", textAlign: "right" }}>SGST</th>
+                          <th style={{ padding: "12px 8px", background: "var(--text-primary)", color: "#475569", fontSize: "12px", textTransform: "uppercase", borderBottom: "2px solid var(--text-primary)", textAlign: "right" }}>CGST</th>
+                          <th style={{ padding: "12px 8px", background: "var(--text-primary)", color: "#475569", fontSize: "12px", textTransform: "uppercase", borderBottom: "2px solid var(--text-primary)", textAlign: "right" }}>SGST</th>
                         </>
                       ) : (
-                        <th style={{ padding: "12px 8px", background: "#f1f5f9", color: "#475569", fontSize: "12px", textTransform: "uppercase", borderBottom: "2px solid #cbd5e1", textAlign: "right" }}>IGST</th>
+                        <th style={{ padding: "12px 8px", background: "var(--text-primary)", color: "#475569", fontSize: "12px", textTransform: "uppercase", borderBottom: "2px solid var(--text-primary)", textAlign: "right" }}>IGST</th>
                       )}
-                      <th style={{ padding: "12px 8px", background: "#f1f5f9", color: "#475569", fontSize: "12px", textTransform: "uppercase", borderBottom: "2px solid #cbd5e1", textAlign: "right" }}>Total (₹)</th>
+                      <th style={{ padding: "12px 8px", background: "var(--text-primary)", color: "#475569", fontSize: "12px", textTransform: "uppercase", borderBottom: "2px solid var(--text-primary)", textAlign: "right" }}>Total (₹)</th>
                     </tr>
                   </thead>
                   <tbody>
                     {items.map((item, i) => {
                       const c = calcItem(item);
                       return (
-                        <tr key={i} style={{ borderBottom: "1px solid #e2e8f0" }}>
-                          <td style={{ padding: "16px 8px", fontSize: "13px", color: "#0f172a" }}>{item.desc || "-"}</td>
+                        <tr key={i} style={{ borderBottom: "1px solid var(--text-primary)" }}>
+                          <td style={{ padding: "16px 8px", fontSize: "13px", color: "var(--bg-tertiary)" }}>{item.desc || "-"}</td>
                           <td style={{ padding: "16px 8px", fontSize: "13px", color: "#475569" }}>{item.hsn || "-"}</td>
                           <td style={{ padding: "16px 8px", fontSize: "13px", color: "#475569", textAlign: "right" }}>{item.qty}</td>
                           <td style={{ padding: "16px 8px", fontSize: "13px", color: "#475569", textAlign: "right" }}>{fmtINR(item.rate)}</td>
@@ -653,7 +675,7 @@ export default function InvoiceGenerator() {
                           ) : (
                             <td style={{ padding: "16px 8px", fontSize: "13px", color: "#475569", textAlign: "right" }}>{item.gst}%</td>
                           )}
-                          <td style={{ padding: "16px 8px", fontSize: "13px", color: "#0f172a", fontWeight: "600", textAlign: "right" }}>{fmtINR(c.total)}</td>
+                          <td style={{ padding: "16px 8px", fontSize: "13px", color: "var(--bg-tertiary)", fontWeight: "600", textAlign: "right" }}>{fmtINR(c.total)}</td>
                         </tr>
                       );
                     })}
@@ -665,7 +687,7 @@ export default function InvoiceGenerator() {
                   
                   {/* Bank Details */}
                   <div style={{ width: "50%", paddingRight: "40px" }}>
-                    <div style={{ fontSize: "11px", color: "#64748b", fontWeight: "700", textTransform: "uppercase", marginBottom: "12px", borderBottom: "1px solid #e2e8f0", paddingBottom: "8px" }}>Bank Details</div>
+                    <div style={{ fontSize: "11px", color: "var(--text-secondary)", fontWeight: "700", textTransform: "uppercase", marginBottom: "12px", borderBottom: "1px solid var(--text-primary)", paddingBottom: "8px" }}>Bank Details</div>
                     <div style={{ display: "grid", gridTemplateColumns: "100px 1fr", gap: "8px", fontSize: "12px", color: "#475569" }}>
                       <div style={{ fontWeight: "600" }}>Account Name:</div><div>{bank.accName || "-"}</div>
                       <div style={{ fontWeight: "600" }}>Account No:</div><div>{bank.accNo || "-"}</div>
@@ -694,7 +716,7 @@ export default function InvoiceGenerator() {
                         <span>IGST</span><span>₹{fmtINR(totals.gst)}</span>
                       </div>
                     )}
-                    <div style={{ display: "flex", justifyContent: "space-between", marginTop: "12px", paddingTop: "12px", borderTop: "2px solid #cbd5e1", fontSize: "18px", fontWeight: "800", color: "#0f172a" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", marginTop: "12px", paddingTop: "12px", borderTop: "2px solid var(--text-primary)", fontSize: "18px", fontWeight: "800", color: "var(--bg-tertiary)" }}>
                       <span>Total Amount</span>
                       <span>₹{fmtINR(totals.total)}</span>
                     </div>
@@ -702,26 +724,26 @@ export default function InvoiceGenerator() {
                 </div>
 
                 {/* Terms / MSME Rule */}
-                <div style={{ padding: "20px", background: seller.udyam ? "rgba(0,118,255,0.05)" : "#f8fafc", border: seller.udyam ? "1px solid rgba(0,118,255,0.2)" : "1px solid #e2e8f0", borderRadius: "8px", marginBottom: "60px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <div style={{ padding: "20px", background: seller.udyam ? "rgba(0,118,255,0.05)" : "var(--text-primary)", border: seller.udyam ? "1px solid rgba(0,118,255,0.2)" : "1px solid var(--text-primary)", borderRadius: "8px", marginBottom: "60px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                   <div style={{ flex: 1, paddingRight: "20px" }}>
-                    <div style={{ fontSize: "11px", color: seller.udyam ? "#0076ff" : "#64748b", fontWeight: "700", textTransform: "uppercase", marginBottom: "8px" }}>Terms & Conditions</div>
+                    <div style={{ fontSize: "11px", color: seller.udyam ? "#0076ff" : "var(--text-secondary)", fontWeight: "700", textTransform: "uppercase", marginBottom: "8px" }}>Terms & Conditions</div>
                     <p style={{ fontSize: "12px", color: "#475569", margin: 0, whiteSpace: "pre-wrap", lineHeight: "1.6" }}>
                       {finalNotes}
                     </p>
                   </div>
                   {bank.upi && totals.total > 0 && (
-                    <div style={{ textAlign: "center", background: "#fff", padding: "10px", borderRadius: "8px", border: "1px solid #e2e8f0" }}>
+                    <div style={{ textAlign: "center", background: "#fff", padding: "10px", borderRadius: "8px", border: "1px solid var(--text-primary)" }}>
                       <QRCodeCanvas value={`upi://pay?pa=${bank.upi}&pn=${seller.name || "Business"}&am=${totals.total}&cu=INR`} size={80} />
-                      <div style={{ fontSize: "9px", color: "#64748b", marginTop: "6px", fontWeight: "700", textTransform: "uppercase" }}>Scan to Pay</div>
+                      <div style={{ fontSize: "9px", color: "var(--text-secondary)", marginTop: "6px", fontWeight: "700", textTransform: "uppercase" }}>Scan to Pay</div>
                     </div>
                   )}
                 </div>
 
                 {/* Signature Block */}
                 <div style={{ position: "absolute", bottom: "30mm", right: "20mm", textAlign: "center", width: "200px" }}>
-                  <div style={{ borderBottom: "1px solid #0f172a", height: "40px", marginBottom: "8px" }}></div>
-                  <div style={{ fontSize: "12px", color: "#0f172a", fontWeight: "700" }}>Authorized Signatory</div>
-                  <div style={{ fontSize: "10px", color: "#64748b" }}>For {seller.name || "Company Name"}</div>
+                  <div style={{ borderBottom: "1px solid var(--bg-tertiary)", height: "40px", marginBottom: "8px" }}></div>
+                  <div style={{ fontSize: "12px", color: "var(--bg-tertiary)", fontWeight: "700" }}>Authorized Signatory</div>
+                  <div style={{ fontSize: "10px", color: "var(--text-secondary)" }}>For {seller.name || "Company Name"}</div>
                 </div>
 
                 </div>

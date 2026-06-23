@@ -240,7 +240,7 @@ export default function GSTCalculator() {
   };
 
   return (
-    <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans', sans-serif", color: "#f8fafc", selectionColor: "#fff", selectionBackground: "#0076ff" }}>
+    <div style={{ minHeight: "100vh", background: "var(--bg-primary)", fontFamily: "'DM Sans', sans-serif", color: "var(--text-primary)", selectionColor: "#fff", selectionBackground: "#0076ff" }}>
       
       <style dangerouslySetInnerHTML={{ __html: `
         ::selection { background: rgba(0,118,255, 0.4); color: white; }
@@ -260,7 +260,7 @@ export default function GSTCalculator() {
           border: 1px solid rgba(255, 255, 255, 0.06);
           backdrop-filter: blur(24px);
           -webkit-backdrop-filter: blur(24px);
-          box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+          box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.4), inset 0 1px 0 var(--border-color);
         }
 
         .interactive-btn {
@@ -277,9 +277,9 @@ export default function GSTCalculator() {
         }
 
         .home-btn {
-          background: rgba(255,255,255,0.03);
-          border: 1px solid rgba(255,255,255,0.08);
-          color: #cbd5e1;
+          background: var(--glass-bg);
+          border: 1px solid var(--glass-border);
+          color: var(--text-primary);
           text-decoration: none;
         }
         .home-btn:hover {
@@ -298,7 +298,7 @@ export default function GSTCalculator() {
         }
         .preset-btn:hover {
           transform: translateY(-1px);
-          background: rgba(255,255,255,0.08) !important;
+          background: var(--glass-border) !important;
         }
 
         .responsive-grid {
@@ -342,7 +342,7 @@ export default function GSTCalculator() {
         }
         .breakdown-card:hover {
           transform: translateY(-4px);
-          background: rgba(255,255,255,0.05) !important;
+          background: var(--glass-bg) !important;
           border-color: rgba(255,255,255,0.15) !important;
         }
 
@@ -374,15 +374,27 @@ export default function GSTCalculator() {
       <div style={{ maxWidth: "820px", margin: "0 auto", padding: "56px 24px 100px", position: "relative", zIndex: 1 }}>
 
         <div style={{ textAlign: "center", marginBottom: "48px", animation: "fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1)" }}>
-          <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "72px", height: "72px", borderRadius: "24px", background: "linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01))", border: "1px solid rgba(255,255,255,0.1)", marginBottom: "20px", boxShadow: "0 12px 32px rgba(0,0,0,0.2)" }}>
+          <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "72px", height: "72px", borderRadius: "24px", background: "linear-gradient(135deg, var(--glass-bg), rgba(255,255,255,0.01))", border: "1px solid var(--border-color)", marginBottom: "20px", boxShadow: "0 12px 32px rgba(0,0,0,0.2)" }}>
             <span style={{ fontSize: "36px", filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.3))" }}>🧮</span>
           </div>
           <h1 className="gradient-text" style={{ fontSize: "42px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "12px", letterSpacing: "-0.02em" }}>{seoH1}</h1>
-          <p style={{ color: "#94a3b8", fontSize: "16px", fontWeight: "400", letterSpacing: "0.01em" }}>Professional GST calculation for Indian businesses • All slabs supported</p>
+
+          {/* COMPLIANCE BADGE */}
+          <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "rgba(16, 185, 129, 0.1)", border: "1px solid rgba(16, 185, 129, 0.2)", color: "#10b981", padding: "6px 12px", borderRadius: "100px", fontSize: "13px", fontWeight: "600", marginBottom: "32px" }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 6L9 17l-5-5"/></svg>
+            Updated for GST Calculations
+          </div>
+
+          <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "rgba(16, 185, 129, 0.1)", border: "1px solid rgba(16, 185, 129, 0.2)", color: "#10b981", padding: "6px 12px", borderRadius: "100px", fontSize: "13px", fontWeight: "600", marginBottom: "32px" }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 6L9 17l-5-5"/></svg>
+            FY 2026-27 Compliant
+          </div>
+
+          <p style={{ color: "var(--text-secondary)", fontSize: "16px", fontWeight: "400", letterSpacing: "0.01em" }}>Professional GST calculation for Indian businesses • All slabs supported</p>
         </div>
 
         <div style={{ marginBottom: "24px", animation: "fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1)" }}>
-          <p style={{ color: "#64748b", fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "12px", marginLeft: "4px" }}>Quick Presets</p>
+          <p style={{ color: "var(--text-secondary)", fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "12px", marginLeft: "4px" }}>Quick Presets</p>
           <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
             {presets.map(p => (
               <button key={p.label} onClick={() => { 
@@ -395,9 +407,9 @@ export default function GSTCalculator() {
                 className="preset-btn"
                 style={{
                   border: "1px solid",
-                  borderColor: preset === p.label ? "rgba(56, 189, 248, 0.6)" : "rgba(255,255,255,0.08)",
-                  background: preset === p.label ? "rgba(0,118,255, 0.15)" : "rgba(255,255,255,0.03)",
-                  color: preset === p.label ? "#bae6fd" : "#94a3b8",
+                  borderColor: preset === p.label ? "rgba(56, 189, 248, 0.6)" : "var(--glass-border)",
+                  background: preset === p.label ? "rgba(0,118,255, 0.15)" : "var(--glass-bg)",
+                  color: preset === p.label ? "#bae6fd" : "var(--text-secondary)",
                   boxShadow: preset === p.label ? "0 0 20px rgba(0,118,255, 0.15)" : "none",
                 }}>
                 {p.label} <span style={{ opacity: 0.6, marginLeft: "4px" }}>· {p.rate}%</span>
@@ -409,10 +421,9 @@ export default function GSTCalculator() {
         <div className="glass-panel" style={{ borderRadius: "28px", padding: "40px", marginBottom: "32px", animation: "fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1)" }}>
 
           <div style={{ marginBottom: "32px" }}>
-            <label style={{ display: "block", fontWeight: "700", color: "#cbd5e1", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Amount (₹)</label>
-            <div className="input-glow" style={{ borderRadius: "16px", border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.03)", display: "flex", alignItems: "center", padding: "4px 20px" }}>
-              <span style={{ fontSize: "24px", color: "#64748b", fontWeight: "500", marginRight: "12px" }}>₹</span>
-              {/* 🚀 SCROLL BUG FIX APPLIED HERE */}
+            <label style={{ display: "block", fontWeight: "700", color: "var(--text-primary)", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Amount (₹)</label>
+            <div className="input-glow" style={{ borderRadius: "16px", border: "1px solid var(--border-color)", background: "var(--glass-bg)", display: "flex", alignItems: "center", padding: "4px 20px" }}>
+              <span style={{ fontSize: "24px", color: "var(--text-secondary)", fontWeight: "500", marginRight: "12px" }}>₹</span>
               <input type="number" value={amount} 
                 onWheel={(e) => e.target.blur()}
                 onChange={e => {
@@ -420,13 +431,13 @@ export default function GSTCalculator() {
                   if (val === "" || Number(val) >= 0) setAmount(val);
                 }} 
                 placeholder="0.00"
-                style={{ width: "100%", padding: "18px 0", background: "transparent", border: "none", fontSize: "28px", color: "#f8fafc", outline: "none", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", letterSpacing: "-0.02em" }}
+                style={{ width: "100%", padding: "18px 0", background: "transparent", border: "none", fontSize: "28px", color: "var(--text-primary)", outline: "none", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", letterSpacing: "-0.02em" }}
               />
             </div>
           </div>
 
           <div style={{ marginBottom: "32px" }}>
-            <label style={{ display: "block", fontWeight: "700", color: "#cbd5e1", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>GST Rate</label>
+            <label style={{ display: "block", fontWeight: "700", color: "var(--text-primary)", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>GST Rate</label>
             <div className="responsive-grid-rates">
               {[0, 3, 5, 12, 18, 28].map(rate => (
                 <button key={rate} onClick={() => { 
@@ -439,11 +450,11 @@ export default function GSTCalculator() {
                   className="interactive-btn"
                   style={{
                     padding: "16px", borderRadius: "14px", border: "1px solid",
-                    borderColor: !isCustom && gstRate === rate ? "#0076ff" : "rgba(255,255,255,0.08)",
-                    background: !isCustom && gstRate === rate ? "linear-gradient(135deg, rgba(0,118,255, 0.2), rgba(0,198,255, 0.1))" : "rgba(255,255,255,0.02)",
-                    color: !isCustom && gstRate === rate ? "#bae6fd" : "#94a3b8",
+                    borderColor: !isCustom && gstRate === rate ? "#0076ff" : "var(--glass-border)",
+                    background: !isCustom && gstRate === rate ? "linear-gradient(135deg, rgba(0,118,255, 0.2), rgba(0,198,255, 0.1))" : "var(--glass-bg)",
+                    color: !isCustom && gstRate === rate ? "#bae6fd" : "var(--text-secondary)",
                     fontWeight: "700", cursor: "pointer", fontSize: "16px",
-                    boxShadow: !isCustom && gstRate === rate ? "0 4px 16px rgba(0,118,255, 0.2), inset 0 1px 1px rgba(255,255,255,0.1)" : "none"
+                    boxShadow: !isCustom && gstRate === rate ? "0 4px 16px rgba(0,118,255, 0.2), inset 0 1px 1px var(--border-color)" : "none"
                   }}>
                   {rate}%
                 </button>
@@ -453,11 +464,11 @@ export default function GSTCalculator() {
                 className="interactive-btn"
                 style={{
                   padding: "16px", borderRadius: "14px", border: "1px solid",
-                  borderColor: isCustom ? "#0076ff" : "rgba(255,255,255,0.08)",
-                  background: isCustom ? "linear-gradient(135deg, rgba(0,118,255, 0.2), rgba(0,198,255, 0.1))" : "rgba(255,255,255,0.02)",
-                  color: isCustom ? "#bae6fd" : "#94a3b8",
+                  borderColor: isCustom ? "#0076ff" : "var(--glass-border)",
+                  background: isCustom ? "linear-gradient(135deg, rgba(0,118,255, 0.2), rgba(0,198,255, 0.1))" : "var(--glass-bg)",
+                  color: isCustom ? "#bae6fd" : "var(--text-secondary)",
                   fontWeight: "700", cursor: "pointer", fontSize: "15px",
-                  boxShadow: isCustom ? "0 4px 16px rgba(0,118,255, 0.2), inset 0 1px 1px rgba(255,255,255,0.1)" : "none"
+                  boxShadow: isCustom ? "0 4px 16px rgba(0,118,255, 0.2), inset 0 1px 1px var(--border-color)" : "none"
                 }}>
                 Custom
               </button>
@@ -466,7 +477,6 @@ export default function GSTCalculator() {
             {isCustom && (
               <div style={{ marginTop: "16px", animation: "fadeIn 0.3s ease" }}>
                 <div className="input-glow" style={{ borderRadius: "14px", border: "1px solid rgba(56, 189, 248, 0.4)", background: "rgba(0,118,255, 0.05)", display: "flex", alignItems: "center", padding: "0 16px" }}>
-                  {/* 🚀 SCROLL BUG FIX APPLIED HERE TOO */}
                   <input type="number" value={customRate} 
                     onWheel={(e) => e.target.blur()}
                     onChange={e => {
@@ -474,7 +484,7 @@ export default function GSTCalculator() {
                       if (val === "" || (Number(val) >= 0 && Number(val) <= 100)) setCustomRate(val);
                     }} 
                     placeholder="Enter custom percentage (e.g., 3)"
-                    style={{ width: "100%", padding: "16px 0", background: "transparent", border: "none", fontSize: "16px", color: "#f8fafc", outline: "none", fontWeight: "600" }} />
+                    style={{ width: "100%", padding: "16px 0", background: "transparent", border: "none", fontSize: "16px", color: "var(--text-primary)", outline: "none", fontWeight: "600" }} />
                   <span style={{ color: "#38bdf8", fontWeight: "700" }}>%</span>
                 </div>
               </div>
@@ -482,8 +492,8 @@ export default function GSTCalculator() {
           </div>
 
           <div style={{ marginBottom: "32px" }}>
-            <label style={{ display: "block", fontWeight: "700", color: "#cbd5e1", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Compensation Cess (Optional)</label>
-            <div className="input-glow" style={{ borderRadius: "16px", border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.03)", display: "flex", alignItems: "center", padding: "4px 20px" }}>
+            <label style={{ display: "block", fontWeight: "700", color: "var(--text-primary)", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Compensation Cess (Optional)</label>
+            <div className="input-glow" style={{ borderRadius: "16px", border: "1px solid var(--border-color)", background: "var(--glass-bg)", display: "flex", alignItems: "center", padding: "4px 20px" }}>
               <input type="number" value={cessRate === 0 ? "" : cessRate} 
                 onWheel={(e) => e.target.blur()}
                 onChange={e => {
@@ -491,29 +501,29 @@ export default function GSTCalculator() {
                   if (val === "" || Number(val) >= 0) setCessRate(val === "" ? 0 : Number(val));
                 }} 
                 placeholder="0"
-                style={{ width: "100%", padding: "14px 0", background: "transparent", border: "none", fontSize: "18px", color: "#f8fafc", outline: "none", fontWeight: "600", fontFamily: "'Plus Jakarta Sans',sans-serif" }}
+                style={{ width: "100%", padding: "14px 0", background: "transparent", border: "none", fontSize: "18px", color: "var(--text-primary)", outline: "none", fontWeight: "600", fontFamily: "'Plus Jakarta Sans',sans-serif" }}
               />
-              <span style={{ fontSize: "18px", color: "#64748b", fontWeight: "500", marginLeft: "12px" }}>%</span>
+              <span style={{ fontSize: "18px", color: "var(--text-secondary)", fontWeight: "500", marginLeft: "12px" }}>%</span>
             </div>
-            <p style={{ color: "#64748b", fontSize: "11px", marginTop: "8px", paddingLeft: "4px" }}>Applicable mostly on 28% slab goods like automobiles, tobacco, and aerated drinks.</p>
+            <p style={{ color: "var(--text-secondary)", fontSize: "11px", marginTop: "8px", paddingLeft: "4px" }}>Applicable mostly on 28% slab goods like automobiles, tobacco, and aerated drinks.</p>
           </div>
 
           <div style={{ marginBottom: "32px" }}>
-            <label style={{ display: "block", fontWeight: "700", color: "#cbd5e1", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Transaction Type</label>
+            <label style={{ display: "block", fontWeight: "700", color: "var(--text-primary)", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Transaction Type</label>
             <div className="responsive-grid">
               {[["intra", "🏙 Intra-State", "CGST + SGST"], ["inter", "🌐 Inter-State", "IGST only"]].map(([val, label, sub]) => (
                 <button key={val} onClick={() => setTransactionType(val)}
                   className="interactive-btn"
                   style={{
                     padding: "16px 20px", borderRadius: "16px", border: "1px solid",
-                    borderColor: transactionType === val ? "#0076ff" : "rgba(255,255,255,0.08)",
-                    background: transactionType === val ? "linear-gradient(135deg, rgba(0,118,255, 0.15), rgba(0,198,255, 0.05))" : "rgba(255,255,255,0.02)",
-                    color: transactionType === val ? "#bae6fd" : "#94a3b8",
+                    borderColor: transactionType === val ? "#0076ff" : "var(--glass-border)",
+                    background: transactionType === val ? "linear-gradient(135deg, rgba(0,118,255, 0.15), rgba(0,198,255, 0.05))" : "var(--glass-bg)",
+                    color: transactionType === val ? "#bae6fd" : "var(--text-secondary)",
                     cursor: "pointer", textAlign: "left",
-                    boxShadow: transactionType === val ? "0 4px 16px rgba(0,118,255, 0.15), inset 0 1px 1px rgba(255,255,255,0.1)" : "none"
+                    boxShadow: transactionType === val ? "0 4px 16px rgba(0,118,255, 0.15), inset 0 1px 1px var(--border-color)" : "none"
                   }}>
-                  <div style={{ fontWeight: "700", fontSize: "15px", marginBottom: "4px", color: transactionType === val ? "#fff" : "#cbd5e1" }}>{label}</div>
-                  <div style={{ fontSize: "13px", color: transactionType === val ? "#38bdf8" : "#64748b", fontWeight: "500" }}>{sub}</div>
+                  <div style={{ fontWeight: "700", fontSize: "15px", marginBottom: "4px", color: transactionType === val ? "#fff" : "var(--text-primary)" }}>{label}</div>
+                  <div style={{ fontSize: "13px", color: transactionType === val ? "#38bdf8" : "var(--text-secondary)", fontWeight: "500" }}>{sub}</div>
                 </button>
               ))}
             </div>
@@ -525,23 +535,23 @@ export default function GSTCalculator() {
                 className="interactive-btn"
                 style={{
                   padding: "16px 20px", borderRadius: "16px", border: "1px solid",
-                  borderColor: type === val ? color : "rgba(255,255,255,0.08)",
-                  background: type === val ? bg : "rgba(255,255,255,0.02)",
-                  color: type === val ? "#fff" : "#94a3b8",
+                  borderColor: type === val ? color : "var(--glass-border)",
+                  background: type === val ? bg : "var(--glass-bg)",
+                  color: type === val ? "#fff" : "var(--text-secondary)",
                   fontWeight: "700", cursor: "pointer", fontSize: "15px",
-                  boxShadow: type === val ? `0 4px 16px ${bg}, inset 0 1px 1px rgba(255,255,255,0.1)` : "none"
+                  boxShadow: type === val ? `0 4px 16px ${bg}, inset 0 1px 1px var(--border-color)` : "none"
                 }}>
                 {label}
               </button>
             ))}
           </div>
 
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "16px 24px", background: "rgba(255,255,255,0.02)", borderRadius: "16px", border: "1px solid rgba(255,255,255,0.06)", transition: "all 0.3s ease" }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "16px 24px", background: "var(--glass-bg)", borderRadius: "16px", border: "1px solid var(--glass-border)", transition: "all 0.3s ease" }}>
             <div>
-              <p style={{ color: "#cbd5e1", fontWeight: "700", fontSize: "15px", marginBottom: "2px" }}>Auto Round Off</p>
-              <p style={{ color: "#64748b", fontSize: "13px", fontWeight: "500" }}>e.g. ₹1180.42 → ₹1180.00</p>
+              <p style={{ color: "var(--text-primary)", fontWeight: "700", fontSize: "15px", marginBottom: "2px" }}>Auto Round Off</p>
+              <p style={{ color: "var(--text-secondary)", fontSize: "13px", fontWeight: "500" }}>e.g. ₹1180.42 → ₹1180.00</p>
             </div>
-            <div onClick={() => setRoundOff(!roundOff)} style={{ width: "52px", height: "28px", borderRadius: "16px", background: roundOff ? "#0076ff" : "rgba(255,255,255,0.1)", cursor: "pointer", position: "relative", transition: "background 0.3s", boxShadow: roundOff ? "0 0 12px rgba(0,118,255, 0.4)" : "inset 0 2px 4px rgba(0,0,0,0.2)" }}>
+            <div onClick={() => setRoundOff(!roundOff)} style={{ width: "52px", height: "28px", borderRadius: "16px", background: roundOff ? "#0076ff" : "var(--border-color)", cursor: "pointer", position: "relative", transition: "background 0.3s", boxShadow: roundOff ? "0 0 12px rgba(0,118,255, 0.4)" : "inset 0 2px 4px rgba(0,0,0,0.2)" }}>
               <div style={{ position: "absolute", top: "4px", left: roundOff ? "28px" : "4px", width: "20px", height: "20px", borderRadius: "50%", background: "#fff", transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)", boxShadow: "0 2px 4px rgba(0,0,0,0.2)" }} />
             </div>
           </div>
@@ -559,14 +569,14 @@ export default function GSTCalculator() {
                   <p style={{ fontSize: "clamp(36px, 10vw, 64px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", background: "linear-gradient(135deg, #ffffff, #bae6fd)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "countUp 0.4s cubic-bezier(0.16, 1, 0.3, 1)", lineHeight: 1.1, wordBreak: "break-word", filter: "drop-shadow(0 4px 20px rgba(0,118,255, 0.3))" }}>
                     ₹{fmt(result.total)}
                   </p>
-                  <div style={{ display: "inline-flex", alignItems: "center", gap: "12px", background: "rgba(0,0,0,0.2)", padding: "8px 20px", borderRadius: "30px", marginTop: "24px", border: "1px solid rgba(255,255,255,0.05)", flexWrap: "wrap", justifyContent: "center" }}>
-                    <span style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "500" }}><strong style={{ color: "#cbd5e1" }}>₹{fmt(result.base)}</strong> Base</span>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: "12px", background: "rgba(0,0,0,0.2)", padding: "8px 20px", borderRadius: "30px", marginTop: "24px", border: "1px solid var(--glass-bg)", flexWrap: "wrap", justifyContent: "center" }}>
+                    <span style={{ color: "var(--text-secondary)", fontSize: "14px", fontWeight: "500" }}><strong style={{ color: "var(--text-primary)" }}>₹{fmt(result.base)}</strong> Base</span>
                     <span style={{ color: "#475569" }}>+</span>
-                    <span style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "500" }}><strong style={{ color: "#cbd5e1" }}>₹{fmt(result.gst)}</strong> GST</span>
+                    <span style={{ color: "var(--text-secondary)", fontSize: "14px", fontWeight: "500" }}><strong style={{ color: "var(--text-primary)" }}>₹{fmt(result.gst)}</strong> GST</span>
                     {cessRate > 0 && (
                       <>
                         <span style={{ color: "#475569" }}>+</span>
-                        <span style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "500" }}><strong style={{ color: "#cbd5e1" }}>₹{fmt(result.cess)}</strong> Cess</span>
+                        <span style={{ color: "var(--text-secondary)", fontSize: "14px", fontWeight: "500" }}><strong style={{ color: "var(--text-primary)" }}>₹{fmt(result.cess)}</strong> Cess</span>
                       </>
                     )}
                   </div>
@@ -580,18 +590,18 @@ export default function GSTCalculator() {
                   <p style={{ fontSize: "clamp(36px, 10vw, 64px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", background: "linear-gradient(135deg, #ffffff, #99f6e4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "countUp 0.4s cubic-bezier(0.16, 1, 0.3, 1)", lineHeight: 1.1, wordBreak: "break-word", filter: "drop-shadow(0 4px 20px rgba(0,198,255,0.3))" }}>
                     ₹{fmt(result.base)}
                   </p>
-                  <div style={{ display: "inline-flex", alignItems: "center", gap: "12px", background: "rgba(0,0,0,0.2)", padding: "8px 20px", borderRadius: "30px", marginTop: "24px", border: "1px solid rgba(255,255,255,0.05)", flexWrap: "wrap", justifyContent: "center" }}>
-                    <span style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "500" }}><strong style={{ color: "#cbd5e1" }}>₹{fmt(result.base)}</strong> Base</span>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: "12px", background: "rgba(0,0,0,0.2)", padding: "8px 20px", borderRadius: "30px", marginTop: "24px", border: "1px solid var(--glass-bg)", flexWrap: "wrap", justifyContent: "center" }}>
+                    <span style={{ color: "var(--text-secondary)", fontSize: "14px", fontWeight: "500" }}><strong style={{ color: "var(--text-primary)" }}>₹{fmt(result.base)}</strong> Base</span>
                     <span style={{ color: "#475569" }}>+</span>
-                    <span style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "500" }}><strong style={{ color: "#2dd4bf" }}>₹{fmt(result.gst)}</strong> GST</span>
+                    <span style={{ color: "var(--text-secondary)", fontSize: "14px", fontWeight: "500" }}><strong style={{ color: "#2dd4bf" }}>₹{fmt(result.gst)}</strong> GST</span>
                     {cessRate > 0 && (
                       <>
                         <span style={{ color: "#475569" }}>+</span>
-                        <span style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "500" }}><strong style={{ color: "#2dd4bf" }}>₹{fmt(result.cess)}</strong> Cess</span>
+                        <span style={{ color: "var(--text-secondary)", fontSize: "14px", fontWeight: "500" }}><strong style={{ color: "#2dd4bf" }}>₹{fmt(result.cess)}</strong> Cess</span>
                       </>
                     )}
                     <span style={{ color: "#475569" }}>=</span>
-                    <span style={{ color: "#94a3b8", fontSize: "14px", fontWeight: "500" }}><strong style={{ color: "#cbd5e1" }}>₹{fmt(result.total)}</strong> Paid</span>
+                    <span style={{ color: "var(--text-secondary)", fontSize: "14px", fontWeight: "500" }}><strong style={{ color: "var(--text-primary)" }}>₹{fmt(result.total)}</strong> Paid</span>
                   </div>
                 </>
               )}
@@ -604,13 +614,37 @@ export default function GSTCalculator() {
                 { label: `Total GST (${activeRate}%)`, value: result.gst, color: "#bae6fd", icon: "🏛" },
                 ...(cessRate > 0 ? [{ label: `Cess (${cessRate}%)`, value: result.cess, color: "#f87171", icon: "🔥" }] : []),
                 ...(transactionType === "intra"
-                  ? [{ label: "CGST (Central)", value: result.cgst, color: "#5eead4", icon: "🏛" }, { label: "SGST (State)", value: result.sgst, color: "#7dd3fc", icon: "🏛" }]
-                  : [{ label: "IGST (Integrated)", value: result.igst, color: "#fcd34d", icon: "🌐" }])
+                  ? [
+                    { label: (
+                      <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                        CGST
+                        <span className="tooltip-container" tabIndex="0" title="Central Goods and Services Tax: Collected by the Central Government on intra-state sales.">
+                          <svg width="14" height="14" fill="none" stroke="var(--text-secondary)" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4m0-4h.01"></path></svg>
+                        </span>
+                      </span>
+                    ), value: result.cgst, color: "#5eead4", icon: "🏛" }, 
+                    { label: (
+                      <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                        SGST
+                        <span className="tooltip-container" tabIndex="0" title="State Goods and Services Tax: Collected by the State Government on intra-state sales.">
+                          <svg width="14" height="14" fill="none" stroke="var(--text-secondary)" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4m0-4h.01"></path></svg>
+                        </span>
+                      </span>
+                    ), value: result.sgst, color: "#7dd3fc", icon: "🏛" }
+                  ]
+                  : [{ label: (
+                    <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                      IGST
+                      <span className="tooltip-container" tabIndex="0" title="Integrated Goods and Services Tax: Collected by the Central Government on inter-state sales.">
+                        <svg width="14" height="14" fill="none" stroke="var(--text-secondary)" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4m0-4h.01"></path></svg>
+                      </span>
+                    </span>
+                  ), value: result.igst, color: "#fcd34d", icon: "🌐" }])
               ].map((item, idx) => (
                 <div key={item.label} className="breakdown-card glass-panel" style={{ borderRadius: "20px", padding: "24px", display: "flex", flexDirection: "column", justifyContent: "space-between", animation: `fadeIn 0.5s ease ${(idx + 1) * 0.1}s both` }}>
                   <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "16px" }}>
                     <span style={{ fontSize: "16px" }}>{item.icon}</span>
-                    <p style={{ color: "#94a3b8", fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.08em" }}>{item.label}</p>
+                    <p style={{ color: "var(--text-secondary)", fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.08em" }}>{item.label}</p>
                   </div>
                   <p style={{ fontSize: "28px", fontWeight: "800", color: item.color, fontFamily: "'Plus Jakarta Sans',sans-serif", textShadow: `0 4px 12px ${item.color}40` }}>₹{fmt(item.value)}</p>
                 </div>
@@ -618,7 +652,7 @@ export default function GSTCalculator() {
             </div>
 
             <div className="glass-panel" style={{ borderRadius: "20px", padding: "28px", marginBottom: "24px" }}>
-              <p style={{ color: "#cbd5e1", fontSize: "13px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "20px" }}>Visual Breakdown</p>
+              <p style={{ color: "var(--text-primary)", fontSize: "13px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "20px" }}>Visual Breakdown</p>
               <div style={{ height: "14px", borderRadius: "8px", overflow: "hidden", display: "flex", gap: "4px", background: "rgba(0,0,0,0.3)", boxShadow: "inset 0 2px 4px rgba(0,0,0,0.2)" }}>
                 <div style={{ width: result.basePercent + "%", background: "linear-gradient(90deg, #2563eb, #60a5fa)", borderRadius: "8px", transition: "width 0.8s cubic-bezier(0.16, 1, 0.3, 1)", position: "relative", overflow: "hidden" }}>
                   <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, background: "linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)" }}/>
@@ -635,23 +669,23 @@ export default function GSTCalculator() {
               <div style={{ display: "flex", justifyContent: "space-between", marginTop: "16px", flexWrap: "wrap", gap: "10px" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                   <div style={{ width: "12px", height: "12px", borderRadius: "4px", background: "#0076ff" }} />
-                  <span style={{ fontSize: "14px", color: "#e2e8f0", fontWeight: "600" }}>Base <span style={{ color: "#94a3b8", fontWeight: "500", marginLeft: "4px" }}>{result.basePercent}%</span></span>
+                  <span style={{ fontSize: "14px", color: "var(--text-primary)", fontWeight: "600" }}>Base <span style={{ color: "var(--text-secondary)", fontWeight: "500", marginLeft: "4px" }}>{result.basePercent}%</span></span>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                   <div style={{ width: "12px", height: "12px", borderRadius: "4px", background: "#0076ff" }} />
-                  <span style={{ fontSize: "14px", color: "#e2e8f0", fontWeight: "600" }}>Tax <span style={{ color: "#94a3b8", fontWeight: "500", marginLeft: "4px" }}>{result.gstPercent}%</span></span>
+                  <span style={{ fontSize: "14px", color: "var(--text-primary)", fontWeight: "600" }}>Tax <span style={{ color: "var(--text-secondary)", fontWeight: "500", marginLeft: "4px" }}>{result.gstPercent}%</span></span>
                 </div>
                 {cessRate > 0 && (
                   <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                     <div style={{ width: "12px", height: "12px", borderRadius: "4px", background: "#ef4444" }} />
-                    <span style={{ fontSize: "14px", color: "#e2e8f0", fontWeight: "600" }}>Cess <span style={{ color: "#94a3b8", fontWeight: "500", marginLeft: "4px" }}>{result.cessPercent}%</span></span>
+                    <span style={{ fontSize: "14px", color: "var(--text-primary)", fontWeight: "600" }}>Cess <span style={{ color: "var(--text-secondary)", fontWeight: "500", marginLeft: "4px" }}>{result.cessPercent}%</span></span>
                   </div>
                 )}
               </div>
             </div>
 
-            <div style={{ background: "rgba(255,255,255,0.01)", border: "1px dashed rgba(255,255,255,0.1)", borderRadius: "16px", padding: "20px 24px", marginBottom: "24px" }}>
-              <p style={{ color: "#64748b", fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "12px" }}>Calculation Formula Used</p>
+            <div style={{ background: "rgba(255,255,255,0.01)", border: "1px dashed var(--border-color)", borderRadius: "16px", padding: "20px 24px", marginBottom: "24px" }}>
+              <p style={{ color: "var(--text-secondary)", fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "12px" }}>Calculation Formula Used</p>
               <p style={{ color: "#38bdf8", fontSize: "14px", fontFamily: "monospace", letterSpacing: "0.05em", background: "rgba(0,0,0,0.2)", padding: "12px", borderRadius: "8px", border: "1px solid rgba(0,118,255, 0.1)" }}>
                 {type === "exclusive"
                   ? `GST = ₹${amount} × ${activeRate} ÷ 100 = ₹${result.gst}${cessRate > 0 ? `\nCess = ₹${amount} × ${cessRate} ÷ 100 = ₹${result.cess}` : ""}`
@@ -704,16 +738,16 @@ export default function GSTCalculator() {
 
         {history.length > 0 && (
           <div className="glass-panel" style={{ marginTop: "40px", borderRadius: "24px", padding: "32px", animation: "fadeIn 0.6s ease" }}>
-            <p style={{ color: "#cbd5e1", fontSize: "14px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "20px", display: "flex", alignItems: "center", gap: "8px" }}>
+            <p style={{ color: "var(--text-primary)", fontSize: "14px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "20px", display: "flex", alignItems: "center", gap: "8px" }}>
               <span>🕒</span> Saved Calculations
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
               {history.map((h, i) => (
                 <div key={i + h.time} onClick={() => setAmount(h.amount)} className="breakdown-card"
-                  style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px 20px", background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "16px", cursor: "pointer" }}>
+                  style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px 20px", background: "var(--glass-bg)", border: "1px solid var(--glass-bg)", borderRadius: "16px", cursor: "pointer" }}>
                   <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-                    <span style={{ color: "#e2e8f0", fontSize: "15px", fontWeight: "600" }}>₹{fmt(h.amount)} <span style={{ color: "#64748b", fontWeight: "400" }}>@ {h.rate}%</span></span>
-                    <span style={{ color: "#64748b", fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.05em" }}>{h.type} • {h.time}</span>
+                    <span style={{ color: "var(--text-primary)", fontSize: "15px", fontWeight: "600" }}>₹{fmt(h.amount)} <span style={{ color: "var(--text-secondary)", fontWeight: "400" }}>@ {h.rate}%</span></span>
+                    <span style={{ color: "var(--text-secondary)", fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.05em" }}>{h.type} • {h.time}</span>
                   </div>
                   <span style={{ color: "#bae6fd", fontWeight: "800", fontSize: "18px", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>₹{fmt(h.total)}</span>
                 </div>

@@ -42,8 +42,8 @@ export default function CookieBanner() {
       <div style={{ display: "flex", gap: "16px", alignItems: "flex-start" }}>
         <div style={{ fontSize: "24px" }}>🍪</div>
         <div>
-          <h3 style={{ margin: "0 0 8px 0", color: "#f8fafc", fontSize: "16px", fontWeight: "700" }}>We value your privacy</h3>
-          <p style={{ margin: 0, color: "#94a3b8", fontSize: "14px", lineHeight: "1.5" }}>
+          <h3 style={{ margin: "0 0 8px 0", color: "var(--text-primary)", fontSize: "16px", fontWeight: "700" }}>We value your privacy</h3>
+          <p style={{ margin: 0, color: "var(--text-secondary)", fontSize: "14px", lineHeight: "1.5" }}>
             We use cookies to enhance your browsing experience, serve personalized ads, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.
             Read our <Link href="/privacy-policy" style={{ color: "#38bdf8", textDecoration: "none" }}>Privacy Policy</Link> for more information.
           </p>

@@ -41,7 +41,7 @@ export default function BlogPost4() {
   }, []);
 
   return (
-    <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans', sans-serif", color: "#f8fafc", lineHeight: "1.8", paddingBottom: "80px" }}>
+    <div style={{ minHeight: "100vh", background: "var(--bg-primary)", fontFamily: "'DM Sans', sans-serif", color: "var(--text-primary)", lineHeight: "1.8", paddingBottom: "80px" }}>
       
       
       {/* Navbar */}
@@ -53,18 +53,18 @@ export default function BlogPost4() {
         {/* Meta */}
         <div style={{ display: "flex", gap: "16px", marginBottom: "24px", alignItems: "center", flexWrap: "wrap" }}>
           <span style={{ background: "rgba(16,185,129,0.1)", color: "#34d399", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em" }}>PRICING GUIDE</span>
-          <span style={{ color: "#64748b", fontSize: "14px" }}>June 7, 2026</span>
-          <span style={{ color: "#64748b", fontSize: "14px" }}>•</span>
-          <span style={{ color: "#64748b", fontSize: "14px" }}>8 min read</span>
+          <span style={{ color: "var(--text-secondary)", fontSize: "14px" }}>June 7, 2026</span>
+          <span style={{ color: "var(--text-secondary)", fontSize: "14px" }}>•</span>
+          <span style={{ color: "var(--text-secondary)", fontSize: "14px" }}>8 min read</span>
         </div>
 
         {/* Title */}
-        <h1 style={{ fontSize: "clamp(36px, 5vw, 56px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", lineHeight: 1.15, marginBottom: "32px", color: "#f8fafc", letterSpacing: "-0.02em" }}>
+        <h1 style={{ fontSize: "clamp(36px, 5vw, 56px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", lineHeight: 1.15, marginBottom: "32px", color: "var(--text-primary)", letterSpacing: "-0.02em" }}>
           Freelance Hourly Rate vs Salary: How Much Should I Charge in India?
         </h1>
 
-        <div style={{ display: "flex", alignItems: "center", gap: "16px", paddingBottom: "40px", borderBottom: "1px solid rgba(255,255,255,0.05)", marginBottom: "48px" }}>
-          <div style={{ width: "48px", height: "48px", borderRadius: "50%", overflow: "hidden", background: "#0f172a", border: "2px solid #1e293b", position: "relative" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "16px", paddingBottom: "40px", borderBottom: "1px solid var(--glass-bg)", marginBottom: "48px" }}>
+          <div style={{ width: "48px", height: "48px", borderRadius: "50%", overflow: "hidden", background: "var(--bg-tertiary)", border: "2px solid #1e293b", position: "relative" }}>
             <img 
               src="/dax-profile.jpg" 
               alt="Dax Patel" 
@@ -74,13 +74,13 @@ export default function BlogPost4() {
             <div style={{ display: "none", width: "100%", height: "100%", alignItems: "center", justifyContent: "center", background: "linear-gradient(135deg,#38bdf8,#818cf8)", color: "white", fontWeight: "bold", fontSize: "20px" }}>DP</div>
           </div>
           <div>
-            <Link href="/author/dax-patel" style={{ fontWeight: "700", color: "#f1f5f9", fontSize: "16px", textDecoration: "none" }} onMouseEnter={e => e.target.style.textDecoration = "underline"} onMouseLeave={e => e.target.style.textDecoration = "none"}>Dax Patel</Link>
-            <div style={{ color: "#64748b", fontSize: "14px" }}>Founder, KaroTools</div>
+            <Link href="/author/dax-patel" style={{ fontWeight: "700", color: "var(--text-primary)", fontSize: "16px", textDecoration: "none" }} onMouseEnter={e => e.target.style.textDecoration = "underline"} onMouseLeave={e => e.target.style.textDecoration = "none"}>Dax Patel</Link>
+            <div style={{ color: "var(--text-secondary)", fontSize: "14px" }}>Founder, KaroTools</div>
           </div>
         </div>
 
         {/* Body */}
-        <div style={{ fontSize: "18px", color: "#cbd5e1", display: "flex", flexDirection: "column", gap: "24px" }}>
+        <div style={{ fontSize: "18px", color: "var(--text-primary)", display: "flex", flexDirection: "column", gap: "24px" }}>
           <p>
             One of the biggest mistakes Indian employees make when transitioning to freelancing is directly converting their monthly corporate salary into an hourly rate. 
           </p>
@@ -89,23 +89,23 @@ export default function BlogPost4() {
             If you make ₹1,00,000 a month at your job and you divide that by 160 hours, you might think your freelance rate should be ₹625/hour. <strong>If you charge this, you will lose money.</strong>
           </p>
 
-          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginTop: "32px", marginBottom: "16px" }}>
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>
             Why Freelance Rates Must Be Higher
           </h2>
 
           <p>When you are a salaried employee, your company pays for a lot of hidden costs. As a freelancer, you have to cover these yourself:</p>
-          <ul style={{ paddingLeft: "24px", color: "#94a3b8" }}>
-            <li style={{ marginBottom: "12px" }}><strong style={{ color: "#e2e8f0" }}>Unpaid Time Off:</strong> When you take a 2-week vacation or get sick at a corporate job, you still get paid. If a freelancer doesn't work, they earn ₹0.</li>
-            <li style={{ marginBottom: "12px" }}><strong style={{ color: "#e2e8f0" }}>Business Expenses:</strong> You have to pay for your own laptop, Adobe/Figma subscriptions, internet, and office space.</li>
-            <li style={{ marginBottom: "12px" }}><strong style={{ color: "#e2e8f0" }}>Unbillable Hours:</strong> You will spend at least 25% of your week sending emails, creating proposals, invoicing, and doing marketing. Nobody pays you for these hours.</li>
-            <li style={{ marginBottom: "12px" }}><strong style={{ color: "#e2e8f0" }}>Dry Spells:</strong> Clients come and go. You need a 15% safety margin built into your rate to survive the months where you don't find work.</li>
+          <ul style={{ paddingLeft: "24px", color: "var(--text-secondary)" }}>
+            <li style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Unpaid Time Off:</strong> When you take a 2-week vacation or get sick at a corporate job, you still get paid. If a freelancer doesn't work, they earn ₹0.</li>
+            <li style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Business Expenses:</strong> You have to pay for your own laptop, Adobe/Figma subscriptions, internet, and office space.</li>
+            <li style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Unbillable Hours:</strong> You will spend at least 25% of your week sending emails, creating proposals, invoicing, and doing marketing. Nobody pays you for these hours.</li>
+            <li style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>Dry Spells:</strong> Clients come and go. You need a 15% safety margin built into your rate to survive the months where you don't find work.</li>
           </ul>
 
           <p style={{ marginTop: "24px" }}>
             <strong>The Takeaway:</strong> Never convert your monthly salary directly into an hourly rate. A freelancer wearing 5 hats (marketing, sales, admin, dev, finance) needs to charge a premium to survive. Use the calculator, trust the math, and price yourself like a business.
           </p>
 
-          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginTop: "32px", marginBottom: "16px" }}>
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>
             The 30% Premium Rule
           </h2>
 
@@ -115,7 +115,7 @@ export default function BlogPost4() {
 
           <div style={{ background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.2)", borderRadius: "16px", padding: "24px", marginTop: "24px", marginBottom: "24px" }}>
             <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#34d399", marginBottom: "12px" }}>Calculate Your Exact Target Rate</h3>
-            <p style={{ color: "#94a3b8", fontSize: "16px", marginBottom: "20px" }}>
+            <p style={{ color: "var(--text-secondary)", fontSize: "16px", marginBottom: "20px" }}>
               Instead of guessing, use our free Salary vs Freelance calculator. Just plug in your current salary, your expected software expenses, and how many weeks of vacation you want to take. It will instantly output the exact hourly, daily, and monthly rate you need to charge.
             </p>
             <Link href="/salary-vs-freelance" style={{ display: "inline-block", background: "linear-gradient(135deg, #10b981, #059669)", color: "#fff", padding: "12px 24px", borderRadius: "10px", textDecoration: "none", fontWeight: "700", fontSize: "15px" }}>
@@ -123,7 +123,7 @@ export default function BlogPost4() {
             </Link>
           </div>
 
-          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginTop: "32px", marginBottom: "16px" }}>
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>
             Don't Undervalue Yourself
           </h2>
 
@@ -134,7 +134,7 @@ export default function BlogPost4() {
             Run your numbers through the calculator, find your break-even point, and start charging what you are actually worth!
           </p>
 
-          <div style={{ marginTop: "48px", padding: "20px", backgroundColor: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "8px", fontSize: "13px", color: "#64748b", lineHeight: "1.6" }}>
+          <div style={{ marginTop: "48px", padding: "20px", backgroundColor: "var(--glass-bg)", border: "1px solid var(--glass-bg)", borderRadius: "8px", fontSize: "13px", color: "var(--text-secondary)", lineHeight: "1.6" }}>
             <strong>Disclaimer:</strong> The information provided on KaroTools is for general informational purposes only and does not constitute professional financial, tax, or legal advice. Tax laws in India frequently change, and while we strive for accuracy, you should always consult with a qualified Chartered Accountant (CA) or legal professional before making any compliance decisions. KaroTools is not responsible for any errors, omissions, or actions taken based on this content.
           </div>
 

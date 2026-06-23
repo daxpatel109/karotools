@@ -13,12 +13,12 @@ export default function BlogPost1() {
     meta.content = "Learn how Section 43B(h) of the Income Tax Act protects Indian freelancers from late payments, and how to enforce the 45-day rule with your clients.";
   }, []);
 
-  const pStyle = { fontSize: "17px", color: "#94a3b8", lineHeight: "1.8", marginBottom: "24px" };
-  const h2Style = { fontSize: "28px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginTop: "48px", marginBottom: "20px" };
-  const h3Style = { fontSize: "20px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#e2e8f0", marginTop: "32px", marginBottom: "16px" };
+  const pStyle = { fontSize: "17px", color: "var(--text-secondary)", lineHeight: "1.8", marginBottom: "24px" };
+  const h2Style = { fontSize: "28px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "48px", marginBottom: "20px" };
+  const h3Style = { fontSize: "20px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" };
 
   return (
-    <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans', sans-serif", color: "#f8fafc" }}>
+    <div style={{ minHeight: "100vh", background: "var(--bg-primary)", fontFamily: "'DM Sans', sans-serif", color: "var(--text-primary)" }}>
       
 
       {/* Navbar */}
@@ -29,34 +29,34 @@ export default function BlogPost1() {
         
         <div style={{ display: "flex", gap: "12px", marginBottom: "24px", alignItems: "center" }}>
           <span style={{ background: "rgba(0,90,230,0.1)", color: "#a78bfa", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em" }}>LEGAL & TAX</span>
-          <span style={{ color: "#64748b", fontSize: "14px" }}>June 6, 2026 • 5 min read</span>
+          <span style={{ color: "var(--text-secondary)", fontSize: "14px" }}>June 6, 2026 • 5 min read</span>
         </div>
 
-        <h1 style={{ fontSize: "clamp(36px, 5vw, 52px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", lineHeight: 1.15, marginBottom: "32px", color: "#f8fafc" }}>
+        <h1 style={{ fontSize: "clamp(36px, 5vw, 52px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", lineHeight: 1.15, marginBottom: "32px", color: "var(--text-primary)" }}>
           The Freelancer's Guide to the MSME 45-Day Payment Rule (Section 43B(h))
         </h1>
 
-        <div style={{ display: "flex", alignItems: "center", gap: "16px", paddingBottom: "40px", borderBottom: "1px solid rgba(255,255,255,0.05)", marginBottom: "48px" }}>
-          <div style={{ width: "48px", height: "48px", borderRadius: "50%", overflow: "hidden", background: "#0f172a", border: "2px solid #1e293b", position: "relative" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "16px", paddingBottom: "40px", borderBottom: "1px solid var(--glass-bg)", marginBottom: "48px" }}>
+          <div style={{ width: "48px", height: "48px", borderRadius: "50%", overflow: "hidden", background: "var(--bg-tertiary)", border: "2px solid #1e293b", position: "relative" }}>
             <img 
               src="/dax-profile.jpg" 
               alt="Dax Patel" 
               onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
               style={{ width: "100%", height: "100%", objectFit: "cover" }} 
             />
-            <div style={{ display: "none", width: "100%", height: "100%", alignItems: "center", justifyContent: "center", background: "linear-gradient(135deg, #0076ff, #005ae6)", color: "#f8fafc", fontSize: "20px", fontWeight: "bold" }}>
+            <div style={{ display: "none", width: "100%", height: "100%", alignItems: "center", justifyContent: "center", background: "linear-gradient(135deg, #0076ff, #005ae6)", color: "var(--text-primary)", fontSize: "20px", fontWeight: "bold" }}>
               DP
             </div>
           </div>
           <div>
-            <Link href="/author/dax-patel" style={{ margin: "0 0 4px 0", fontWeight: "600", color: "#e2e8f0", textDecoration: "none", display: "inline-block" }} onMouseEnter={e => e.target.style.textDecoration = "underline"} onMouseLeave={e => e.target.style.textDecoration = "none"}>Dax Patel</Link>
-            <p style={{ margin: 0, fontSize: "13px", color: "#64748b" }}>Empowering Indian Freelancers</p>
+            <Link href="/author/dax-patel" style={{ margin: "0 0 4px 0", fontWeight: "600", color: "var(--text-primary)", textDecoration: "none", display: "inline-block" }} onMouseEnter={e => e.target.style.textDecoration = "underline"} onMouseLeave={e => e.target.style.textDecoration = "none"}>Dax Patel</Link>
+            <p style={{ margin: 0, fontSize: "13px", color: "var(--text-secondary)" }}>Empowering Indian Freelancers</p>
           </div>
         </div>
 
         {/* Article Body */}
         <div style={{ fontSize: "18px" }}>
-          <p style={{ ...pStyle, fontSize: "20px", color: "#e2e8f0", lineHeight: "1.6" }}>
+          <p style={{ ...pStyle, fontSize: "20px", color: "var(--text-primary)", lineHeight: "1.6" }}>
             Late payments are the number one reason freelancers and small agencies fail in India. You do the work, submit the invoice, and then... silence. The client says "it's with finance" for three months. 
           </p>
 
@@ -86,7 +86,7 @@ export default function BlogPost1() {
 
           <div style={{ background: "rgba(0,118,255,0.05)", borderLeft: "4px solid #0076ff", padding: "24px", borderRadius: "0 12px 12px 0", margin: "40px 0" }}>
             <h3 style={{ margin: "0 0 12px 0", color: "#60a5fa", fontSize: "16px", textTransform: "uppercase", letterSpacing: "0.05em" }}>💡 Pro Tip</h3>
-            <p style={{ margin: 0, color: "#cbd5e1", fontSize: "16px", lineHeight: "1.6" }}>
+            <p style={{ margin: 0, color: "var(--text-primary)", fontSize: "16px", lineHeight: "1.6" }}>
               Always include your Udyam Registration Number (URN) on your invoices. It signals to the client's finance team that late payments will trigger tax disallowances for them.
             </p>
           </div>
@@ -105,7 +105,7 @@ export default function BlogPost1() {
             If you are drafting a contract, make sure to include wording similar to this:
           </p>
 
-          <div style={{ background: "#0f172a", padding: "24px", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.1)", marginBottom: "32px", fontFamily: "monospace", fontSize: "14px", color: "#a78bfa", lineHeight: "1.6" }}>
+          <div style={{ background: "var(--bg-tertiary)", padding: "24px", borderRadius: "12px", border: "1px solid var(--border-color)", marginBottom: "32px", fontFamily: "monospace", fontSize: "14px", color: "#a78bfa", lineHeight: "1.6" }}>
             "If the Freelancer is registered under the Udyam/MSME portal... the Client is legally obligated to release all pending payments within 45 days of invoice generation or acceptance of work. Delayed payments beyond 45 days shall attract compound interest..."
           </div>
 
@@ -124,8 +124,8 @@ export default function BlogPost1() {
           </div>
 
           {/* Legal Disclaimer */}
-          <div style={{ marginTop: "64px", padding: "24px", background: "rgba(0,0,0,0.2)", borderRadius: "12px", border: "1px dashed rgba(255,255,255,0.1)", textAlign: "center" }}>
-            <p style={{ color: "#64748b", fontSize: "12px", lineHeight: "1.6", margin: 0 }}>
+          <div style={{ marginTop: "64px", padding: "24px", background: "rgba(0,0,0,0.2)", borderRadius: "12px", border: "1px dashed var(--border-color)", textAlign: "center" }}>
+            <p style={{ color: "var(--text-secondary)", fontSize: "12px", lineHeight: "1.6", margin: 0 }}>
               <strong>Disclaimer:</strong> The information provided in this blog post is for educational and informational purposes only and does not constitute legal, financial, or tax advice. Laws and regulations change frequently. Please consult a qualified legal professional or Chartered Accountant before drafting contracts, filing taxes, or making business decisions based on this content. KaroTools is not liable for any losses or damages arising from the use of this information.
             </p>
           </div>
@@ -134,7 +134,7 @@ export default function BlogPost1() {
       </article>
 
       {/* Footer minimal */}
-      <footer style={{ borderTop: "1px solid rgba(255,255,255,0.05)", padding: "40px", textAlign: "center", color: "#64748b", fontSize: "14px" }}>
+      <footer style={{ borderTop: "1px solid var(--glass-bg)", padding: "40px", textAlign: "center", color: "var(--text-secondary)", fontSize: "14px" }}>
         © 2026 KaroTools.in — Made for Indian Freelancers
       </footer>
     </div>

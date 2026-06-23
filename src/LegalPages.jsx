@@ -6,9 +6,9 @@ import { formatSafeDate } from "./lib/dateUtils";
 
 const legalContainerStyle = {
   minHeight: "100vh",
-  background: "#080814",
+  background: "var(--bg-secondary)",
   fontFamily: "'DM Sans', sans-serif",
-  color: "#e2e8f0",
+  color: "var(--text-primary)",
   padding: "48px 20px 80px",
   lineHeight: "1.8",
 };
@@ -20,14 +20,14 @@ const navStyle = {
   maxWidth: "960px",
   margin: "0 auto 48px",
   paddingBottom: "24px",
-  borderBottom: "1px solid rgba(255,255,255,0.05)"
+  borderBottom: "1px solid var(--glass-bg)"
 };
 
 const contentStyle = {
   maxWidth: "800px",
   margin: "0 auto",
-  background: "rgba(255,255,255,0.02)",
-  border: "1px solid rgba(255,255,255,0.05)",
+  background: "var(--glass-bg)",
+  border: "1px solid var(--glass-bg)",
   borderRadius: "24px",
   padding: "48px",
   boxShadow: "0 24px 60px -12px rgba(0,0,0,0.4)"
@@ -37,7 +37,7 @@ const h1Style = {
   fontSize: "36px",
   fontWeight: "800",
   fontFamily: "'Plus Jakarta Sans', sans-serif",
-  color: "#f8fafc",
+  color: "var(--text-primary)",
   marginBottom: "16px",
   background: "linear-gradient(135deg, #a78bfa, #60a5fa)",
   WebkitBackgroundClip: "text",
@@ -47,7 +47,7 @@ const h1Style = {
 const h2Style = {
   fontSize: "20px",
   fontWeight: "700",
-  color: "#f1f5f9",
+  color: "var(--text-primary)",
   marginTop: "32px",
   marginBottom: "16px",
   fontFamily: "'Plus Jakarta Sans', sans-serif"
@@ -55,7 +55,7 @@ const h2Style = {
 
 const dateStyle = {
   fontSize: "14px",
-  color: "#64748b",
+  color: "var(--text-secondary)",
   marginBottom: "40px",
   display: "block"
 };
@@ -77,7 +77,7 @@ export function PrivacyPolicy() {
 
         <h2 style={h2Style}>1. Information We Collect</h2>
         <p>We do not require you to create an account to use our core tools. We only collect:</p>
-        <ul style={{ paddingLeft: "20px", marginBottom: "16px", color: "#cbd5e1" }}>
+        <ul style={{ paddingLeft: "20px", marginBottom: "16px", color: "var(--text-primary)" }}>
           <li style={{ marginBottom: "8px" }}><strong>Usage Data:</strong> Through Google Analytics (IP address, browser type, pages visited) to improve our software.</li>
           <li style={{ marginBottom: "8px" }}><strong>Local Storage:</strong> Our calculators (like the GST Calculator) may store your recent history in your browser's local storage. This data never leaves your device.</li>
         </ul>
@@ -109,11 +109,11 @@ export function TermsConditions() {
       <nav style={navStyle}>
         <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
-  <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
+  <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)" }}>
     Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
 </div>
-        <Link href="/" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "14px", padding: "8px 16px", background: "rgba(255,255,255,0.05)", borderRadius: "8px" }}>← Back to Home</Link>
+        <Link href="/" style={{ color: "var(--text-secondary)", textDecoration: "none", fontSize: "14px", padding: "8px 16px", background: "var(--glass-bg)", borderRadius: "8px" }}>← Back to Home</Link>
       </nav>
       <div style={contentStyle}>
         <h1 style={h1Style}>Terms & Conditions</h1>
@@ -126,7 +126,7 @@ export function TermsConditions() {
 
         <h2 style={h2Style}>2. License & Use of Tools</h2>
         <p>KaroTools grants you a non-exclusive, non-transferable, limited license to use our web-based tools (GST Calculator, Invoice Generator, etc.) for your personal or business operations. You may not:</p>
-        <ul style={{ paddingLeft: "20px", marginBottom: "16px", color: "#cbd5e1" }}>
+        <ul style={{ paddingLeft: "20px", marginBottom: "16px", color: "var(--text-primary)" }}>
           <li style={{ marginBottom: "8px" }}>Republish material, code, or algorithms from KaroTools.</li>
           <li style={{ marginBottom: "8px" }}>Sell, rent, or sub-license material from KaroTools.</li>
           <li style={{ marginBottom: "8px" }}>Attempt to reverse-engineer any software contained on the website.</li>
@@ -156,29 +156,29 @@ export function ContactUs() {
       <nav style={navStyle}>
         <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
   <img src="/logo.png" alt="KaroTools Logo" style={{ height: "56px", margin: "0 -24px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
-  <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
+  <span style={{ fontSize: "22px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)" }}>
     Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
   </span>
 </div>
-        <Link href="/" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "14px", padding: "8px 16px", background: "rgba(255,255,255,0.05)", borderRadius: "8px" }}>← Back to Home</Link>
+        <Link href="/" style={{ color: "var(--text-secondary)", textDecoration: "none", fontSize: "14px", padding: "8px 16px", background: "var(--glass-bg)", borderRadius: "8px" }}>← Back to Home</Link>
       </nav>
       <div style={contentStyle}>
         <h1 style={h1Style}>Contact Our Team</h1>
-        <p style={{ color: "#94a3b8", fontSize: "16px", marginBottom: "32px" }}>We build enterprise-grade tools for modern Indian businesses. Whether you need support, want to report a bug, or inquire about business partnerships, we are here to help.</p>
+        <p style={{ color: "var(--text-secondary)", fontSize: "16px", marginBottom: "32px" }}>We build enterprise-grade tools for modern Indian businesses. Whether you need support, want to report a bug, or inquire about business partnerships, we are here to help.</p>
         
         <div style={{ background: "rgba(124,58,237,0.05)", border: "1px solid rgba(124,58,237,0.2)", borderRadius: "16px", padding: "32px", display: "flex", flexDirection: "column", gap: "24px" }}>
           <div>
-            <span style={{ display: "block", fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.1em", color: "#64748b", fontWeight: "700", marginBottom: "8px" }}>General Support & Inquiries</span>
+            <span style={{ display: "block", fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--text-secondary)", fontWeight: "700", marginBottom: "8px" }}>General Support & Inquiries</span>
             <a href="mailto:support@karotools.in" style={{ fontSize: "20px", fontWeight: "700", color: "#a78bfa", textDecoration: "none" }}>support@karotools.in</a>
           </div>
           
           <div>
-            <span style={{ display: "block", fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.1em", color: "#64748b", fontWeight: "700", marginBottom: "8px" }}>Headquarters</span>
-            <span style={{ fontSize: "16px", color: "#cbd5e1" }}>Digital First<br/>India</span>
+            <span style={{ display: "block", fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--text-secondary)", fontWeight: "700", marginBottom: "8px" }}>Headquarters</span>
+            <span style={{ fontSize: "16px", color: "var(--text-primary)" }}>Digital First<br/>India</span>
           </div>
 
-          <div style={{ marginTop: "16px", paddingTop: "24px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
-            <p style={{ fontSize: "14px", color: "#64748b", margin: 0 }}>We typically respond to all inquiries within 24-48 business hours.</p>
+          <div style={{ marginTop: "16px", paddingTop: "24px", borderTop: "1px solid var(--glass-bg)" }}>
+            <p style={{ fontSize: "14px", color: "var(--text-secondary)", margin: 0 }}>We typically respond to all inquiries within 24-48 business hours.</p>
           </div>
         </div>
       </div>

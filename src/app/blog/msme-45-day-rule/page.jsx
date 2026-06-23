@@ -75,21 +75,21 @@ export default function BlogPost() {
   };
 
   return (
-    <div style={{ backgroundColor: "#020617", minHeight: "100vh", color: "#f8fafc", fontFamily: "'Inter', sans-serif" }}>
+    <div style={{ backgroundColor: "var(--bg-primary)", minHeight: "100vh", color: "var(--text-primary)", fontFamily: "'Inter', sans-serif" }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema).replace(/</g, "\\u003c") }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c") }} />
 
-      <nav style={{ padding: "20px 0", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+      <nav style={{ padding: "20px 0", borderBottom: "1px solid var(--glass-bg)" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }}>
               <img src="/logo.png" alt="KaroTools Logo" style={{ height: "clamp(40px, 10vw, 56px)", margin: "0 -16px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
-              <span style={{ fontSize: "clamp(18px, 5vw, 22px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
+              <span style={{ fontSize: "clamp(18px, 5vw, 22px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)" }}>
                 Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
               </span>
             </div>
           </Link>
-          <Link href="/blog" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "14px", fontWeight: "500" }}>
+          <Link href="/blog" style={{ color: "var(--text-secondary)", textDecoration: "none", fontSize: "14px", fontWeight: "500" }}>
             ← Back to Blog
           </Link>
         </div>
@@ -105,32 +105,32 @@ export default function BlogPost() {
             <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans', sans-serif", lineHeight: "1.1", marginBottom: "24px", color: "#fff" }}>
               The MSME 45-Day Payment Rule for Freelancers in India: Stop Chasing Clients Forever
             </h1>
-            <p style={{ fontSize: "18px", color: "#cbd5e1", lineHeight: "1.6", marginBottom: "24px" }}>
+            <p style={{ fontSize: "18px", color: "var(--text-primary)", lineHeight: "1.6", marginBottom: "24px" }}>
               Section 43B(h) of the Income Tax Act gives Udyam-registered freelancers an iron-clad legal shield. Here's exactly how to use it to get paid on time — every time.
             </p>
-            <div style={{ display: "flex", gap: "16px", fontSize: "14px", color: "#64748b", alignItems: "center" }}>
+            <div style={{ display: "flex", gap: "16px", fontSize: "14px", color: "var(--text-secondary)", alignItems: "center" }}>
               <span>📅 June 14, 2026</span>
               <span>⏱ 8 min read</span>
               <span>✍️ By <Link href="/author/dax-patel" style={{ color: "#38bdf8", textDecoration: "none" }}>Dax Patel</Link></span>
             </div>
           </header>
 
-          <div style={{ display: "flex", flexWrap: "wrap", borderTop: "1px solid rgba(255,255,255,0.05)", borderBottom: "1px solid rgba(255,255,255,0.05)", padding: "24px 0", marginBottom: "40px", gap: "24px", justifyContent: "space-around" }}>
+          <div style={{ display: "flex", flexWrap: "wrap", borderTop: "1px solid var(--glass-bg)", borderBottom: "1px solid var(--glass-bg)", padding: "24px 0", marginBottom: "40px", gap: "24px", justifyContent: "space-around" }}>
             <div style={{ textAlign: "center" }}>
               <span style={{ fontSize: "32px", fontWeight: "900", color: "#a78bfa", display: "block", lineHeight: 1 }}>45</span>
-              <span style={{ fontSize: "12px", color: "#94a3b8", fontWeight: "500", marginTop: "8px", display: "block" }}>Days Max Payment Window</span>
+              <span style={{ fontSize: "12px", color: "var(--text-secondary)", fontWeight: "500", marginTop: "8px", display: "block" }}>Days Max Payment Window</span>
             </div>
             <div style={{ textAlign: "center" }}>
               <span style={{ fontSize: "32px", fontWeight: "900", color: "#a78bfa", display: "block", lineHeight: 1 }}>3×</span>
-              <span style={{ fontSize: "12px", color: "#94a3b8", fontWeight: "500", marginTop: "8px", display: "block" }}>RBI Rate Late Interest Penalty</span>
+              <span style={{ fontSize: "12px", color: "var(--text-secondary)", fontWeight: "500", marginTop: "8px", display: "block" }}>RBI Rate Late Interest Penalty</span>
             </div>
             <div style={{ textAlign: "center" }}>
               <span style={{ fontSize: "32px", fontWeight: "900", color: "#a78bfa", display: "block", lineHeight: 1 }}>₹0</span>
-              <span style={{ fontSize: "12px", color: "#94a3b8", fontWeight: "500", marginTop: "8px", display: "block" }}>Cost of Udyam Registration</span>
+              <span style={{ fontSize: "12px", color: "var(--text-secondary)", fontWeight: "500", marginTop: "8px", display: "block" }}>Cost of Udyam Registration</span>
             </div>
             <div style={{ textAlign: "center" }}>
               <span style={{ fontSize: "32px", fontWeight: "900", color: "#a78bfa", display: "block", lineHeight: 1 }}>15m</span>
-              <span style={{ fontSize: "12px", color: "#94a3b8", fontWeight: "500", marginTop: "8px", display: "block" }}>Time to Register Online</span>
+              <span style={{ fontSize: "12px", color: "var(--text-secondary)", fontWeight: "500", marginTop: "8px", display: "block" }}>Time to Register Online</span>
             </div>
           </div>
 
@@ -187,34 +187,34 @@ export default function BlogPost() {
 
           <p>Two separate legal consequences hit the client simultaneously when they violate the MSME 45-day payment rule:</p>
 
-          <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "12px", padding: "24px", margin: "32px 0" }}>
+          <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-bg)", borderRadius: "12px", padding: "24px", margin: "32px 0" }}>
             <h3 style={{ marginTop: 0, marginBottom: "20px", fontSize: "18px" }}>📊 Example: Client Owes You ₹1,00,000 — Delayed by 3 Months</h3>
-            <div style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-              <span style={{ color: "#94a3b8" }}>Your Invoice Amount</span>
+            <div style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px solid var(--glass-bg)" }}>
+              <span style={{ color: "var(--text-secondary)" }}>Your Invoice Amount</span>
               <span style={{ fontWeight: "700", color: "#fff" }}>₹1,00,000</span>
             </div>
-            <div style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-              <span style={{ color: "#94a3b8" }}>RBI Bank Rate (2026)</span>
+            <div style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px solid var(--glass-bg)" }}>
+              <span style={{ color: "var(--text-secondary)" }}>RBI Bank Rate (2026)</span>
               <span style={{ fontWeight: "700", color: "#fff" }}>6.25% per annum</span>
             </div>
-            <div style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-              <span style={{ color: "#94a3b8" }}>Penalty Interest Rate (3× Bank Rate)</span>
+            <div style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px solid var(--glass-bg)" }}>
+              <span style={{ color: "var(--text-secondary)" }}>Penalty Interest Rate (3× Bank Rate)</span>
               <span style={{ fontWeight: "700", color: "#f87171" }}>18.75% per annum (compounded)</span>
             </div>
-            <div style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-              <span style={{ color: "#94a3b8" }}>Interest Owed to You (3 months late)</span>
+            <div style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px solid var(--glass-bg)" }}>
+              <span style={{ color: "var(--text-secondary)" }}>Interest Owed to You (3 months late)</span>
               <span style={{ fontWeight: "700", color: "#f87171" }}>≈ ₹4,800 – ₹5,200</span>
             </div>
-            <div style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-              <span style={{ color: "#94a3b8" }}>Client's Tax Deduction Disallowed</span>
+            <div style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px solid var(--glass-bg)" }}>
+              <span style={{ color: "var(--text-secondary)" }}>Client's Tax Deduction Disallowed</span>
               <span style={{ fontWeight: "700", color: "#f87171" }}>₹1,00,000 (entire amount blocked)</span>
             </div>
-            <div style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-              <span style={{ color: "#94a3b8" }}>Client's Extra Tax Burden (30% bracket)</span>
+            <div style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px solid var(--glass-bg)" }}>
+              <span style={{ color: "var(--text-secondary)" }}>Client's Extra Tax Burden (30% bracket)</span>
               <span style={{ fontWeight: "700", color: "#f87171" }}>≈ ₹30,000 additional tax</span>
             </div>
             <div style={{ display: "flex", justifyContent: "space-between", padding: "12px 0" }}>
-              <span style={{ color: "#94a3b8" }}>Your Invoice Amount (unchanged)</span>
+              <span style={{ color: "var(--text-secondary)" }}>Your Invoice Amount (unchanged)</span>
               <span style={{ fontWeight: "700", color: "#34d399" }}>₹1,00,000 + interest</span>
             </div>
           </div>
@@ -326,14 +326,14 @@ export default function BlogPost() {
               </div>
             </div>
             <div className={styles.step}>
-              <div className={styles.stepNum} style={{ background: "#fbbf24", color: "#020617" }}>D30</div>
+              <div className={styles.stepNum} style={{ background: "#fbbf24", color: "var(--bg-primary)" }}>D30</div>
               <div className={styles.stepContent}>
                 <h3>Day 30 — Friendly Reminder</h3>
                 <p>Send a polite reminder email. Mention the due date, your URN, and that the MSME payment protection applies. Keep the tone professional — this is usually enough to trigger payment from reputable clients.</p>
               </div>
             </div>
             <div className={styles.step}>
-              <div className={styles.stepNum} style={{ background: "#fbbf24", color: "#020617" }}>D43</div>
+              <div className={styles.stepNum} style={{ background: "#fbbf24", color: "var(--bg-primary)" }}>D43</div>
               <div className={styles.stepContent}>
                 <h3>Day 43 — Formal Notice</h3>
                 <p>Two days before the deadline, send a formal email explicitly referencing Section 43B(h) of the Income Tax Act and Section 15 of the MSMED Act 2006. State that interest will begin accruing from Day 46 at 3× the RBI bank rate.</p>
@@ -347,7 +347,7 @@ export default function BlogPost() {
               </div>
             </div>
             <div className={styles.step}>
-              <div className={styles.stepNum} style={{ background: "#34d399", color: "#020617" }}>✓</div>
+              <div className={styles.stepNum} style={{ background: "#34d399", color: "var(--bg-primary)" }}>✓</div>
               <div className={styles.stepContent}>
                 <h3>Payment Received — Issue Acknowledgment</h3>
                 <p>Once paid, send a payment receipt and thank-you note. The relationship is preserved, and your record of timely enforcement builds a professional reputation that attracts better clients.</p>
@@ -359,8 +359,8 @@ export default function BlogPost() {
 
           <p>The most powerful use of the MSME 45-day payment rule is <em>preventative</em>. A client who sees this clause in your contract before the project starts will have their finance team treat your invoices as a legal compliance priority — not a favor.</p>
 
-          <div style={{ background: "rgba(15,23,42,0.6)", padding: "24px", borderRadius: "12px", borderLeft: "4px solid #a78bfa", fontFamily: "monospace", fontSize: "14px", lineHeight: "1.8", color: "#cbd5e1", margin: "32px 0" }}>
-            <div style={{ fontFamily: "sans-serif", fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.08em", color: "#94a3b8", marginBottom: "16px" }}>📋 MSME Payment Protection Clause — Copy & Paste</div>
+          <div style={{ background: "rgba(15,23,42,0.6)", padding: "24px", borderRadius: "12px", borderLeft: "4px solid #a78bfa", fontFamily: "monospace", fontSize: "14px", lineHeight: "1.8", color: "var(--text-primary)", margin: "32px 0" }}>
+            <div style={{ fontFamily: "sans-serif", fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--text-secondary)", marginBottom: "16px" }}>📋 MSME Payment Protection Clause — Copy & Paste</div>
             <strong style={{ color: "#38bdf8" }}>MSME Payment Terms & Legal Protection</strong><br/><br/>
             <span style={{ color: "#a78bfa", fontWeight: "700" }}>[Freelancer/Service Provider Name]</span> is a registered Micro/Small Enterprise under the Micro, Small and Medium Enterprises Development (MSMED) Act, 2006, with <strong style={{ color: "#34d399" }}>Udyam Registration Number: UDYAM-XX-00-XXXXXXX</strong>.<br/><br/>
             Pursuant to <span style={{ color: "#a78bfa", fontWeight: "700" }}>Section 15 of the MSMED Act, 2006</span>, read with <span style={{ color: "#a78bfa", fontWeight: "700" }}>Section 43B(h) of the Income Tax Act, 1961</span> (as amended by the Finance Act, 2023), the Client is legally obligated to release all payments within <strong style={{ color: "#fbbf24" }}>45 days</strong> of the date of acceptance of services or delivery of work, as applicable.<br/><br/>
@@ -406,29 +406,29 @@ export default function BlogPost() {
             ))}
           </div>
 
-          <div style={{ marginTop: "48px", padding: "20px", backgroundColor: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "8px", fontSize: "13px", color: "#64748b", lineHeight: "1.6" }}>
+          <div style={{ marginTop: "48px", padding: "20px", backgroundColor: "var(--glass-bg)", border: "1px solid var(--glass-bg)", borderRadius: "8px", fontSize: "13px", color: "var(--text-secondary)", lineHeight: "1.6" }}>
             <strong>Disclaimer:</strong> The information provided on KaroTools is for general informational purposes only and does not constitute professional financial, tax, or legal advice. Tax laws in India frequently change, and while we strive for accuracy, you should always consult with a qualified Chartered Accountant (CA) or legal professional before making any compliance decisions. KaroTools is not responsible for any errors, omissions, or actions taken based on this content.
           </div>
 
         
-          <div style={{ marginTop: "48px", padding: "32px", borderRadius: "16px", border: "1px solid rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.03)" }}>
-            <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#f8fafc", margin: "0 0 8px 0" }}>Written by: Dax Patel</h3>
-            <p style={{ color: "#94a3b8", fontSize: "14px", lineHeight: "1.6", margin: "0 0 16px 0" }}>
+          <div style={{ marginTop: "48px", padding: "32px", borderRadius: "16px", border: "1px solid var(--glass-border)", background: "var(--glass-bg)" }}>
+            <h3 style={{ fontSize: "18px", fontWeight: "700", color: "var(--text-primary)", margin: "0 0 8px 0" }}>Written by: Dax Patel</h3>
+            <p style={{ color: "var(--text-secondary)", fontSize: "14px", lineHeight: "1.6", margin: "0 0 16px 0" }}>
               Dax Patel creates practical GST, invoice, tax, and business tools for Indian freelancers, consultants, small businesses, and agencies through KaroTools.
             </p>
           </div>
           
-          <div style={{ marginTop: "48px", borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "40px" }}>
-            <h3 style={{ fontSize: "24px", fontWeight: "700", color: "#f8fafc", margin: "0 0 24px 0" }}>Related Guides & Tools</h3>
+          <div style={{ marginTop: "48px", borderTop: "1px solid var(--border-color)", paddingTop: "40px" }}>
+            <h3 style={{ fontSize: "24px", fontWeight: "700", color: "var(--text-primary)", margin: "0 0 24px 0" }}>Related Guides & Tools</h3>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))", gap: "20px" }}>
-              <Link href="/gst-calculator" style={{ padding: "20px", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.06)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "rgba(255,255,255,0.02)" }}>
-                <strong style={{ color: "#f8fafc", fontSize: "16px" }}>GST Calculator</strong>
+              <Link href="/gst-calculator" style={{ padding: "20px", borderRadius: "12px", border: "1px solid var(--glass-border)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "var(--glass-bg)" }}>
+                <strong style={{ color: "var(--text-primary)", fontSize: "16px" }}>GST Calculator</strong>
               </Link>
-              <Link href="/invoice-generator" style={{ padding: "20px", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.06)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "rgba(255,255,255,0.02)" }}>
-                <strong style={{ color: "#f8fafc", fontSize: "16px" }}>GST Invoice Generator</strong>
+              <Link href="/invoice-generator" style={{ padding: "20px", borderRadius: "12px", border: "1px solid var(--glass-border)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "var(--glass-bg)" }}>
+                <strong style={{ color: "var(--text-primary)", fontSize: "16px" }}>GST Invoice Generator</strong>
               </Link>
-              <Link href="/blog/gst-registration-threshold" style={{ padding: "20px", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.06)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "rgba(255,255,255,0.02)" }}>
-                <strong style={{ color: "#f8fafc", fontSize: "16px" }}>GST Registration Rules</strong>
+              <Link href="/blog/gst-registration-threshold" style={{ padding: "20px", borderRadius: "12px", border: "1px solid var(--glass-border)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "var(--glass-bg)" }}>
+                <strong style={{ color: "var(--text-primary)", fontSize: "16px" }}>GST Registration Rules</strong>
               </Link>
             </div>
           </div>

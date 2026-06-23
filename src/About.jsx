@@ -10,7 +10,7 @@ export default function About() {
   }, []);
 
   return (
-    <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans', sans-serif", color: "#f8fafc" }}>
+    <div style={{ minHeight: "100vh", background: "var(--bg-primary)", fontFamily: "'DM Sans', sans-serif", color: "var(--text-primary)" }}>
       
 
       {/* Navbar */}
@@ -24,7 +24,7 @@ export default function About() {
         <h1 style={{ fontSize: "clamp(40px, 6vw, 64px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "24px", background: "linear-gradient(135deg,#ffffff,#818cf8)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", lineHeight: 1.1 }}>
           Empowering Indian Freelancers
         </h1>
-        <p style={{ color: "#94a3b8", fontSize: "18px", lineHeight: "1.7", maxWidth: "600px", margin: "0 auto" }}>
+        <p style={{ color: "var(--text-secondary)", fontSize: "18px", lineHeight: "1.7", maxWidth: "600px", margin: "0 auto" }}>
           KaroTools is on a mission to build the absolute best free business tools for the modern Indian workforce. No logins, no fees, no hassle.
         </p>
       </div>
@@ -32,12 +32,12 @@ export default function About() {
       {/* Content */}
       <div style={{ maxWidth: "800px", margin: "0 auto", padding: "0 24px 100px" }}>
         
-        <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "24px", padding: "48px", marginBottom: "40px" }}>
-          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginBottom: "20px" }}>The Problem We're Solving</h2>
-          <p style={{ fontSize: "16px", color: "#94a3b8", lineHeight: "1.8", marginBottom: "20px" }}>
+        <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-bg)", borderRadius: "24px", padding: "48px", marginBottom: "40px" }}>
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginBottom: "20px" }}>The Problem We're Solving</h2>
+          <p style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: "1.8", marginBottom: "20px" }}>
             As a freelancer in India, you have a hundred things to worry about: finding clients, delivering work, managing taxes, and getting paid. The last thing you need is software that slows you down.
           </p>
-          <p style={{ fontSize: "16px", color: "#94a3b8", lineHeight: "1.8" }}>
+          <p style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: "1.8" }}>
             We noticed that most free tools out there (like GST calculators or invoice generators) were either terribly designed, cluttered with intrusive ads, or forced you to create an account just to use them. We decided to change that.
           </p>
         </div>
@@ -45,19 +45,19 @@ export default function About() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "24px", marginBottom: "40px" }}>
           <div style={{ background: "linear-gradient(135deg, rgba(0,118,255,0.05), transparent)", border: "1px solid rgba(0,118,255,0.15)", borderRadius: "24px", padding: "32px" }}>
             <div style={{ fontSize: "32px", marginBottom: "16px" }}>🔓</div>
-            <h3 style={{ fontSize: "20px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginBottom: "12px" }}>Zero Login Policy</h3>
-            <p style={{ fontSize: "15px", color: "#94a3b8", lineHeight: "1.7" }}>Your time is valuable. Our tools are instantly accessible the moment you open the website. We never ask for your email address.</p>
+            <h3 style={{ fontSize: "20px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginBottom: "12px" }}>Zero Login Policy</h3>
+            <p style={{ fontSize: "15px", color: "var(--text-secondary)", lineHeight: "1.7" }}>Your time is valuable. Our tools are instantly accessible the moment you open the website. We never ask for your email address.</p>
           </div>
           <div style={{ background: "linear-gradient(135deg, rgba(0,90,230,0.05), transparent)", border: "1px solid rgba(0,90,230,0.15)", borderRadius: "24px", padding: "32px" }}>
             <div style={{ fontSize: "32px", marginBottom: "16px" }}>🔒</div>
-            <h3 style={{ fontSize: "20px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginBottom: "12px" }}>Absolute Privacy</h3>
-            <p style={{ fontSize: "15px", color: "#94a3b8", lineHeight: "1.7" }}>Because we process tools locally, your financial inputs (like GSTINs, client names, and invoice amounts) stay on your device and are never sent to our servers. We use basic analytics and ad services to keep the site free, but your raw financial inputs remain private.</p>
+            <h3 style={{ fontSize: "20px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginBottom: "12px" }}>Absolute Privacy</h3>
+            <p style={{ fontSize: "15px", color: "var(--text-secondary)", lineHeight: "1.7" }}>Because we process tools locally, your financial inputs (like GSTINs, client names, and invoice amounts) stay on your device and are never sent to our servers. We use basic analytics and ad services to keep the site free, but your raw financial inputs remain private.</p>
           </div>
         </div>
 
-        <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "24px", padding: "48px", textAlign: "center" }}>
-          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginBottom: "20px" }}>Join the Community</h2>
-          <p style={{ fontSize: "16px", color: "#94a3b8", lineHeight: "1.8", marginBottom: "32px", maxWidth: "500px", margin: "0 auto 32px" }}>
+        <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-bg)", borderRadius: "24px", padding: "48px", textAlign: "center" }}>
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginBottom: "20px" }}>Join the Community</h2>
+          <p style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: "1.8", marginBottom: "32px", maxWidth: "500px", margin: "0 auto 32px" }}>
             KaroTools is growing every day. We are constantly building new tools to make your business run smoother.
           </p>
           <Link href="/" style={{ display: "inline-block", padding: "16px 36px", background: "linear-gradient(135deg, #6366f1, #005ae6)", border: "none", borderRadius: "12px", color: "#fff", fontSize: "16px", fontWeight: "700", textDecoration: "none", boxShadow: "0 8px 24px rgba(0,90,230,0.3)", transition: "transform 0.2s" }} onMouseEnter={e => e.target.style.transform = "translateY(-2px)"} onMouseLeave={e => e.target.style.transform = "translateY(0)"}>

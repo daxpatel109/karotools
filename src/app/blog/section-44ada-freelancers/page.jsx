@@ -77,21 +77,21 @@ export default function BlogPost() {
   };
 
   return (
-    <div style={{ backgroundColor: "#020617", minHeight: "100vh", color: "#f8fafc", fontFamily: "'Inter', sans-serif" }}>
+    <div style={{ backgroundColor: "var(--bg-primary)", minHeight: "100vh", color: "var(--text-primary)", fontFamily: "'Inter', sans-serif" }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema).replace(/</g, "\\u003c") }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c") }} />
 
-      <nav style={{ padding: "20px 0", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+      <nav style={{ padding: "20px 0", borderBottom: "1px solid var(--glass-bg)" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }}>
               <img src="/logo.png" alt="KaroTools Logo" style={{ height: "clamp(40px, 10vw, 56px)", margin: "0 -16px 0 0", objectFit: "contain", position: "relative", zIndex: 10 }} />
-              <span style={{ fontSize: "clamp(18px, 5vw, 22px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f8fafc" }}>
+              <span style={{ fontSize: "clamp(18px, 5vw, 22px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)" }}>
                 Karo<span style={{ background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Tools</span>
               </span>
             </div>
           </Link>
-          <Link href="/blog" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "14px", fontWeight: "500" }}>
+          <Link href="/blog" style={{ color: "var(--text-secondary)", textDecoration: "none", fontSize: "14px", fontWeight: "500" }}>
             ← Back to Blog
           </Link>
         </div>
@@ -107,10 +107,10 @@ export default function BlogPost() {
             <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans', sans-serif", lineHeight: "1.1", marginBottom: "24px", color: "#fff", letterSpacing: "-0.5px" }}>
               Section 44ADA for Freelancers: The Complete Tax Saving Guide for FY 2026-27
             </h1>
-            <p style={{ fontSize: "18px", color: "#cbd5e1", lineHeight: "1.6", marginBottom: "24px" }}>
+            <p style={{ fontSize: "18px", color: "var(--text-primary)", lineHeight: "1.6", marginBottom: "24px" }}>
               Eligible Indian freelancers and professionals can legally declare only 50% of their gross professional receipts as taxable income under Section 44ADA. Here is who qualifies, how the ₹50 lakh / ₹75 lakh limit works, how much tax you may save, and how to file correctly.
             </p>
-            <div style={{ display: "flex", gap: "16px", fontSize: "14px", color: "#64748b", alignItems: "center" }}>
+            <div style={{ display: "flex", gap: "16px", fontSize: "14px", color: "var(--text-secondary)", alignItems: "center" }}>
               <span>📅 June 14, 2026</span>
               <span>⏱ 9 min read</span>
               <span>✍️ By <Link href="/author/dax-patel" style={{ color: "#38bdf8", textDecoration: "none" }}>Dax Patel</Link></span>
@@ -120,7 +120,7 @@ export default function BlogPost() {
           <img 
               src="/44ada-social.png" 
               alt="Section 44ADA Tax Planning for Indian Freelancers" 
-              style={{ width: "100%", height: "auto", borderRadius: "16px", marginBottom: "40px", border: "1px solid rgba(255,255,255,0.05)", boxShadow: "0 10px 40px rgba(0,0,0,0.5)" }} 
+              style={{ width: "100%", height: "auto", borderRadius: "16px", marginBottom: "40px", border: "1px solid var(--glass-bg)", boxShadow: "0 10px 40px rgba(0,0,0,0.5)" }} 
             />
 
           <p>If you are an Indian freelancer, consultant or independent professional, you may not need to track every small business expense just to reduce your income tax. Section 44ADA of the Income Tax Act gives eligible professionals a simpler option: declare 50% of gross professional receipts as income, and treat the other 50% as deemed expenses.</p>
@@ -130,7 +130,7 @@ export default function BlogPost() {
           <div style={{ background: "linear-gradient(135deg, rgba(52,211,153,0.1) 0%, rgba(16,185,129,0.05) 100%)", border: "1px solid rgba(52,211,153,0.3)", borderRadius: "16px", padding: "40px 32px", textAlign: "center", margin: "48px 0" }}>
             <div style={{ color: "#34d399", fontSize: "14px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "12px" }}>Main 44ADA Benefit</div>
             <div style={{ fontSize: "clamp(56px, 10vw, 80px)", fontWeight: "900", color: "#34d399", lineHeight: "1", letterSpacing: "-3px", marginBottom: "16px", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>50%</div>
-            <div style={{ color: "#cbd5e1", fontSize: "16px", maxWidth: "560px", margin: "0 auto", lineHeight: "1.6" }}>
+            <div style={{ color: "var(--text-primary)", fontSize: "16px", maxWidth: "560px", margin: "0 auto", lineHeight: "1.6" }}>
               Eligible professionals can declare 50% of gross professional receipts as taxable professional income. No separate expense deduction is allowed after choosing this presumptive method.
             </div>
           </div>
@@ -140,16 +140,16 @@ export default function BlogPost() {
           <p>Section 44ADA is a presumptive taxation scheme for specified professionals. Instead of calculating actual profit by subtracting every business expense from income, eligible professionals can declare income at a fixed rate: <strong>50% of gross professional receipts</strong>.</p>
 
           <div style={{ display: "flex", alignItems: "center", gap: "16px", margin: "40px 0", flexWrap: "wrap", justifyContent: "center" }}>
-            <div style={{ flex: "1", minWidth: "160px", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "12px", textAlign: "center", padding: "20px 16px", background: "rgba(255,255,255,0.02)" }}>
-              <div style={{ fontSize: "12px", color: "#94a3b8", textTransform: "uppercase", fontWeight: "700", letterSpacing: "0.05em", marginBottom: "8px" }}>Gross receipts</div>
+            <div style={{ flex: "1", minWidth: "160px", border: "1px solid var(--border-color)", borderRadius: "12px", textAlign: "center", padding: "20px 16px", background: "var(--glass-bg)" }}>
+              <div style={{ fontSize: "12px", color: "var(--text-secondary)", textTransform: "uppercase", fontWeight: "700", letterSpacing: "0.05em", marginBottom: "8px" }}>Gross receipts</div>
               <div style={{ fontSize: "28px", color: "#fff", fontWeight: "800" }}>₹20L</div>
             </div>
-            <div style={{ color: "#64748b", fontSize: "24px", fontWeight: "800" }}>×</div>
+            <div style={{ color: "var(--text-secondary)", fontSize: "24px", fontWeight: "800" }}>×</div>
             <div style={{ flex: "1", minWidth: "160px", border: "1px solid rgba(56,189,248,0.3)", borderRadius: "12px", textAlign: "center", padding: "20px 16px", background: "rgba(56,189,248,0.1)" }}>
               <div style={{ fontSize: "12px", color: "#38bdf8", textTransform: "uppercase", fontWeight: "700", letterSpacing: "0.05em", marginBottom: "8px" }}>Presumptive income</div>
               <div style={{ fontSize: "28px", color: "#38bdf8", fontWeight: "800" }}>50%</div>
             </div>
-            <div style={{ color: "#64748b", fontSize: "24px", fontWeight: "800" }}>=</div>
+            <div style={{ color: "var(--text-secondary)", fontSize: "24px", fontWeight: "800" }}>=</div>
             <div style={{ flex: "1", minWidth: "160px", border: "1px solid rgba(52,211,153,0.3)", borderRadius: "12px", textAlign: "center", padding: "20px 16px", background: "rgba(52,211,153,0.1)" }}>
               <div style={{ fontSize: "12px", color: "#34d399", textTransform: "uppercase", fontWeight: "700", letterSpacing: "0.05em", marginBottom: "8px" }}>Taxable professional income</div>
               <div style={{ fontSize: "28px", color: "#34d399", fontWeight: "800" }}>₹10L</div>
@@ -168,35 +168,35 @@ export default function BlogPost() {
           <p>Section 44ADA is available to a <strong>resident individual</strong> or <strong>resident partnership firm other than LLP</strong> carrying on a specified profession. It is not meant for every online earner or every freelancer.</p>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "16px", margin: "32px 0" }}>
-            <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "12px", padding: "20px" }}>
+            <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-bg)", borderRadius: "12px", padding: "20px" }}>
               <div style={{ fontSize: "24px", marginBottom: "12px" }}>💻</div>
               <h3 style={{ fontSize: "16px", fontWeight: "800", color: "#fff", margin: "0 0 8px 0" }}>Technical consultancy</h3>
-              <p style={{ fontSize: "14px", color: "#94a3b8", margin: 0, lineHeight: "1.5" }}>IT consultants, software consultants, data consultants and similar professional advisory work may fit depending on actual service nature.</p>
+              <p style={{ fontSize: "14px", color: "var(--text-secondary)", margin: 0, lineHeight: "1.5" }}>IT consultants, software consultants, data consultants and similar professional advisory work may fit depending on actual service nature.</p>
             </div>
-            <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "12px", padding: "20px" }}>
+            <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-bg)", borderRadius: "12px", padding: "20px" }}>
               <div style={{ fontSize: "24px", marginBottom: "12px" }}>⚖️</div>
               <h3 style={{ fontSize: "16px", fontWeight: "800", color: "#fff", margin: "0 0 8px 0" }}>Legal profession</h3>
-              <p style={{ fontSize: "14px", color: "#94a3b8", margin: 0, lineHeight: "1.5" }}>Advocates, legal consultants and other legal professionals.</p>
+              <p style={{ fontSize: "14px", color: "var(--text-secondary)", margin: 0, lineHeight: "1.5" }}>Advocates, legal consultants and other legal professionals.</p>
             </div>
-            <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "12px", padding: "20px" }}>
+            <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-bg)", borderRadius: "12px", padding: "20px" }}>
               <div style={{ fontSize: "24px", marginBottom: "12px" }}>🏥</div>
               <h3 style={{ fontSize: "16px", fontWeight: "800", color: "#fff", margin: "0 0 8px 0" }}>Medical profession</h3>
-              <p style={{ fontSize: "14px", color: "#94a3b8", margin: 0, lineHeight: "1.5" }}>Doctors, dentists, surgeons, physiotherapists and other eligible medical professionals.</p>
+              <p style={{ fontSize: "14px", color: "var(--text-secondary)", margin: 0, lineHeight: "1.5" }}>Doctors, dentists, surgeons, physiotherapists and other eligible medical professionals.</p>
             </div>
-            <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "12px", padding: "20px" }}>
+            <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-bg)", borderRadius: "12px", padding: "20px" }}>
               <div style={{ fontSize: "24px", marginBottom: "12px" }}>🏗️</div>
               <h3 style={{ fontSize: "16px", fontWeight: "800", color: "#fff", margin: "0 0 8px 0" }}>Engineering or architecture</h3>
-              <p style={{ fontSize: "14px", color: "#94a3b8", margin: 0, lineHeight: "1.5" }}>Engineers, architects and professional consultants working in these fields.</p>
+              <p style={{ fontSize: "14px", color: "var(--text-secondary)", margin: 0, lineHeight: "1.5" }}>Engineers, architects and professional consultants working in these fields.</p>
             </div>
-            <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "12px", padding: "20px" }}>
+            <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-bg)", borderRadius: "12px", padding: "20px" }}>
               <div style={{ fontSize: "24px", marginBottom: "12px" }}>📊</div>
               <h3 style={{ fontSize: "16px", fontWeight: "800", color: "#fff", margin: "0 0 8px 0" }}>Accountancy</h3>
-              <p style={{ fontSize: "14px", color: "#94a3b8", margin: 0, lineHeight: "1.5" }}>Chartered accountants, cost accountants and eligible accounting professionals.</p>
+              <p style={{ fontSize: "14px", color: "var(--text-secondary)", margin: 0, lineHeight: "1.5" }}>Chartered accountants, cost accountants and eligible accounting professionals.</p>
             </div>
-            <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "12px", padding: "20px" }}>
+            <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-bg)", borderRadius: "12px", padding: "20px" }}>
               <div style={{ fontSize: "24px", marginBottom: "12px" }}>🎨</div>
               <h3 style={{ fontSize: "16px", fontWeight: "800", color: "#fff", margin: "0 0 8px 0" }}>Interior decoration</h3>
-              <p style={{ fontSize: "14px", color: "#94a3b8", margin: 0, lineHeight: "1.5" }}>Interior designers, decor consultants and space planning professionals.</p>
+              <p style={{ fontSize: "14px", color: "var(--text-secondary)", margin: 0, lineHeight: "1.5" }}>Interior designers, decor consultants and space planning professionals.</p>
             </div>
           </div>
 
@@ -253,21 +253,21 @@ export default function BlogPost() {
 
           <p>Let's take a hypothetical example: Rohan is a freelance UI/UX designer earning ₹15,00,000 in a financial year.</p>
 
-          <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "12px", padding: "24px", margin: "32px 0" }}>
+          <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-bg)", borderRadius: "12px", padding: "24px", margin: "32px 0" }}>
             <h4 style={{ marginTop: 0, marginBottom: "20px", fontSize: "16px", fontWeight: "800", color: "#fff" }}>📊 Example: Rohan's ₹15,00,000 gross receipts under Section 44ADA</h4>
-            <div style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px dashed rgba(255,255,255,0.1)" }}>
-              <span style={{ color: "#94a3b8" }}>Gross receipts</span>
+            <div style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px dashed var(--border-color)" }}>
+              <span style={{ color: "var(--text-secondary)" }}>Gross receipts</span>
               <span style={{ fontWeight: "700", color: "#fff" }}>₹15,00,000</span>
             </div>
-            <div style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px dashed rgba(255,255,255,0.1)" }}>
-              <span style={{ color: "#94a3b8" }}>Presumptive income under 44ADA (50%)</span>
+            <div style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px dashed var(--border-color)" }}>
+              <span style={{ color: "var(--text-secondary)" }}>Presumptive income under 44ADA (50%)</span>
               <span style={{ fontWeight: "700", color: "#fff" }}>₹7,50,000</span>
             </div>
-            <div style={{ marginTop: "16px", color: "#94a3b8", fontSize: "14px", lineHeight: "1.6" }}>
+            <div style={{ marginTop: "16px", color: "var(--text-secondary)", fontSize: "14px", lineHeight: "1.6" }}>
               Tax is calculated on the taxable income of ₹7,50,000 after any other applicable deductions or rebate rules under the chosen tax regime. By opting for Section 44ADA, Rohan may reduce his compliance burden as he does not need to maintain detailed books of account or get an audit.
             </div>
             <div style={{ marginTop: "24px", textAlign: "center" }}>
-              <Link href="/44ada-tax-calculator" style={{ display: "inline-block", background: "#38bdf8", color: "#0f172a", padding: "10px 20px", borderRadius: "8px", textDecoration: "none", fontWeight: "600" }}>
+              <Link href="/44ada-tax-calculator" style={{ display: "inline-block", background: "#38bdf8", color: "var(--bg-tertiary)", padding: "10px 20px", borderRadius: "8px", textDecoration: "none", fontWeight: "600" }}>
                 Use 44ADA Tax Calculator →
               </Link>
             </div>
@@ -286,12 +286,12 @@ export default function BlogPost() {
             <div style={{ border: "2px solid #34d399", background: "rgba(52,211,153,0.05)", borderRadius: "12px", padding: "24px" }}>
               <h4 style={{ fontSize: "16px", fontWeight: "800", marginBottom: "8px", color: "#fff" }}>New Tax Regime</h4>
               <div style={{ fontSize: "32px", fontWeight: "900", color: "#34d399", letterSpacing: "-1px", marginBottom: "12px" }}>Simpler</div>
-              <p style={{ color: "#cbd5e1", fontSize: "14px", lineHeight: "1.6", margin: 0 }}>Lower slab rates, default regime, ₹12 lakh rebate threshold for eligible resident individuals, but most old deductions like 80C and 80D are not available.</p>
+              <p style={{ color: "var(--text-primary)", fontSize: "14px", lineHeight: "1.6", margin: 0 }}>Lower slab rates, default regime, ₹12 lakh rebate threshold for eligible resident individuals, but most old deductions like 80C and 80D are not available.</p>
             </div>
-            <div style={{ border: "1px solid rgba(255,255,255,0.1)", borderRadius: "12px", padding: "24px", background: "rgba(255,255,255,0.02)" }}>
+            <div style={{ border: "1px solid var(--border-color)", borderRadius: "12px", padding: "24px", background: "var(--glass-bg)" }}>
               <h4 style={{ fontSize: "16px", fontWeight: "800", marginBottom: "8px", color: "#fff" }}>Old Tax Regime</h4>
               <div style={{ fontSize: "32px", fontWeight: "900", color: "#fff", letterSpacing: "-1px", marginBottom: "12px" }}>Deduction-heavy</div>
-              <p style={{ color: "#94a3b8", fontSize: "14px", lineHeight: "1.6", margin: 0 }}>Useful when you have large 80C, 80D, HRA, home loan or other eligible deductions. Business/profession taxpayers must be careful with regime switching rules.</p>
+              <p style={{ color: "var(--text-secondary)", fontSize: "14px", lineHeight: "1.6", margin: 0 }}>Useful when you have large 80C, 80D, HRA, home loan or other eligible deductions. Business/profession taxpayers must be careful with regime switching rules.</p>
             </div>
           </div>
 
@@ -373,7 +373,7 @@ export default function BlogPost() {
           <h2>When Section 44ADA May Not Be Best</h2>
 
           <p>44ADA is not always the lowest-tax option. It may not be suitable when:</p>
-          <ul style={{ color: "#cbd5e1" }}>
+          <ul style={{ color: "var(--text-primary)" }}>
             <li>Your actual business expenses are more than 50% of receipts.</li>
             <li>Your profession does not clearly fall under the specified list.</li>
             <li>Your gross receipts cross the allowed limit.</li>
@@ -415,29 +415,29 @@ export default function BlogPost() {
             ))}
           </div>
 
-          <div style={{ marginTop: "48px", padding: "20px", backgroundColor: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "8px", fontSize: "13px", color: "#64748b", lineHeight: "1.6" }}>
+          <div style={{ marginTop: "48px", padding: "20px", backgroundColor: "var(--glass-bg)", border: "1px solid var(--glass-bg)", borderRadius: "8px", fontSize: "13px", color: "var(--text-secondary)", lineHeight: "1.6" }}>
             <strong>Disclaimer:</strong> The information provided on KaroTools is for general informational purposes only and does not constitute professional financial, tax, or legal advice. Tax laws in India frequently change, and while we strive for accuracy, you should always consult with a qualified Chartered Accountant (CA) or legal professional before making any compliance decisions. KaroTools is not responsible for any errors, omissions, or actions taken based on this content.
           </div>
 
         
-          <div style={{ marginTop: "48px", padding: "32px", borderRadius: "16px", border: "1px solid rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.03)" }}>
-            <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#f8fafc", margin: "0 0 8px 0" }}>Written by: Dax Patel</h3>
-            <p style={{ color: "#94a3b8", fontSize: "14px", lineHeight: "1.6", margin: "0 0 16px 0" }}>
+          <div style={{ marginTop: "48px", padding: "32px", borderRadius: "16px", border: "1px solid var(--glass-border)", background: "var(--glass-bg)" }}>
+            <h3 style={{ fontSize: "18px", fontWeight: "700", color: "var(--text-primary)", margin: "0 0 8px 0" }}>Written by: Dax Patel</h3>
+            <p style={{ color: "var(--text-secondary)", fontSize: "14px", lineHeight: "1.6", margin: "0 0 16px 0" }}>
               Dax Patel creates practical GST, invoice, tax, and business tools for Indian freelancers, consultants, small businesses, and agencies through KaroTools.
             </p>
           </div>
           
-          <div style={{ marginTop: "48px", borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "40px" }}>
-            <h3 style={{ fontSize: "24px", fontWeight: "700", color: "#f8fafc", margin: "0 0 24px 0" }}>Related Guides & Tools</h3>
+          <div style={{ marginTop: "48px", borderTop: "1px solid var(--border-color)", paddingTop: "40px" }}>
+            <h3 style={{ fontSize: "24px", fontWeight: "700", color: "var(--text-primary)", margin: "0 0 24px 0" }}>Related Guides & Tools</h3>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))", gap: "20px" }}>
-              <Link href="/gst-calculator" style={{ padding: "20px", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.06)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "rgba(255,255,255,0.02)" }}>
-                <strong style={{ color: "#f8fafc", fontSize: "16px" }}>GST Calculator</strong>
+              <Link href="/gst-calculator" style={{ padding: "20px", borderRadius: "12px", border: "1px solid var(--glass-border)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "var(--glass-bg)" }}>
+                <strong style={{ color: "var(--text-primary)", fontSize: "16px" }}>GST Calculator</strong>
               </Link>
-              <Link href="/invoice-generator" style={{ padding: "20px", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.06)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "rgba(255,255,255,0.02)" }}>
-                <strong style={{ color: "#f8fafc", fontSize: "16px" }}>GST Invoice Generator</strong>
+              <Link href="/invoice-generator" style={{ padding: "20px", borderRadius: "12px", border: "1px solid var(--glass-border)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "var(--glass-bg)" }}>
+                <strong style={{ color: "var(--text-primary)", fontSize: "16px" }}>GST Invoice Generator</strong>
               </Link>
-              <Link href="/blog/gst-registration-threshold" style={{ padding: "20px", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.06)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "rgba(255,255,255,0.02)" }}>
-                <strong style={{ color: "#f8fafc", fontSize: "16px" }}>GST Registration Rules</strong>
+              <Link href="/blog/gst-registration-threshold" style={{ padding: "20px", borderRadius: "12px", border: "1px solid var(--glass-border)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "var(--glass-bg)" }}>
+                <strong style={{ color: "var(--text-primary)", fontSize: "16px" }}>GST Registration Rules</strong>
               </Link>
             </div>
           </div>

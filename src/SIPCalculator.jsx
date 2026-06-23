@@ -79,7 +79,7 @@ export default function SIPCalculator() {
   const percentageReturns = (results.estReturns / results.totalValue) * 100;
 
   return (
-    <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans', sans-serif", color: "#f8fafc", position: "relative", overflow: "hidden" }}>
+    <div style={{ minHeight: "100vh", background: "var(--bg-primary)", fontFamily: "'DM Sans', sans-serif", color: "var(--text-primary)", position: "relative", overflow: "hidden" }}>
       
 
       {/* Background Orbs */}
@@ -98,7 +98,8 @@ export default function SIPCalculator() {
           <h1 style={{ fontSize: "clamp(32px, 5vw, 56px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "16px", letterSpacing: "-0.02em" }}>
             SIP Return Calculator
           </h1>
-          <p style={{ color: "#94a3b8", fontSize: "18px", maxWidth: "600px", margin: "0 auto", lineHeight: "1.6" }}>
+
+          <p style={{ color: "var(--text-secondary)", fontSize: "18px", maxWidth: "600px", margin: "0 auto", lineHeight: "1.6" }}>
             Calculate the future value of your monthly Mutual Fund investments and see the true power of compounding.
           </p>
         </div>
@@ -106,13 +107,13 @@ export default function SIPCalculator() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 350px), 1fr))", gap: "32px" }}>
           
           {/* Controls Panel */}
-          <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "24px", padding: "32px" }}>
-            <h2 style={{ fontSize: "20px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "32px", color: "#f8fafc" }}>Investment Details</h2>
+          <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-bg)", borderRadius: "24px", padding: "32px" }}>
+            <h2 style={{ fontSize: "20px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "32px", color: "var(--text-primary)" }}>Investment Details</h2>
             
             {/* Monthly Investment */}
             <div style={{ marginBottom: "32px" }}>
               <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "16px" }}>
-                <label style={{ fontSize: "14px", fontWeight: "600", color: "#94a3b8" }}>Monthly Investment</label>
+                <label style={{ fontSize: "14px", fontWeight: "600", color: "var(--text-secondary)" }}>Monthly Investment</label>
                 <span style={{ fontSize: "16px", fontWeight: "700", color: "#34d399", background: "rgba(16,185,129,0.1)", padding: "4px 12px", borderRadius: "8px" }}>
                   {formatINR(monthlyInvestment)}
                 </span>
@@ -122,7 +123,7 @@ export default function SIPCalculator() {
                 min="500" max="100000" step="500"
                 value={monthlyInvestment} 
                 onChange={(e) => setMonthlyInvestment(Number(e.target.value))}
-                style={{ width: "100%", accentColor: "#10b981", height: "6px", borderRadius: "10px", outline: "none", WebkitAppearance: "none", background: "rgba(255,255,255,0.1)" }}
+                style={{ width: "100%", accentColor: "#10b981", height: "6px", borderRadius: "10px", outline: "none", WebkitAppearance: "none", background: "var(--border-color)" }}
               />
               <div style={{ display: "flex", justifyContent: "space-between", marginTop: "8px", fontSize: "12px", color: "#475569", fontWeight: "600" }}>
                 <span>₹500</span>
@@ -133,8 +134,8 @@ export default function SIPCalculator() {
             {/* Expected Return */}
             <div style={{ marginBottom: "32px" }}>
               <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "16px" }}>
-                <label style={{ fontSize: "14px", fontWeight: "600", color: "#94a3b8" }}>Expected Return Rate (p.a)</label>
-                <span style={{ fontSize: "16px", fontWeight: "700", color: "#f8fafc", background: "rgba(255,255,255,0.05)", padding: "4px 12px", borderRadius: "8px" }}>
+                <label style={{ fontSize: "14px", fontWeight: "600", color: "var(--text-secondary)" }}>Expected Return Rate (p.a)</label>
+                <span style={{ fontSize: "16px", fontWeight: "700", color: "var(--text-primary)", background: "var(--glass-bg)", padding: "4px 12px", borderRadius: "8px" }}>
                   {returnRate}%
                 </span>
               </div>
@@ -143,7 +144,7 @@ export default function SIPCalculator() {
                 min="1" max="30" step="0.5"
                 value={returnRate} 
                 onChange={(e) => setReturnRate(Number(e.target.value))}
-                style={{ width: "100%", accentColor: "#10b981", height: "6px", borderRadius: "10px", outline: "none", WebkitAppearance: "none", background: "rgba(255,255,255,0.1)" }}
+                style={{ width: "100%", accentColor: "#10b981", height: "6px", borderRadius: "10px", outline: "none", WebkitAppearance: "none", background: "var(--border-color)" }}
               />
               <div style={{ display: "flex", justifyContent: "space-between", marginTop: "8px", fontSize: "12px", color: "#475569", fontWeight: "600" }}>
                 <span>1%</span>
@@ -154,8 +155,8 @@ export default function SIPCalculator() {
             {/* Time Period */}
             <div style={{ marginBottom: "16px" }}>
               <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "16px" }}>
-                <label style={{ fontSize: "14px", fontWeight: "600", color: "#94a3b8" }}>Time Period</label>
-                <span style={{ fontSize: "16px", fontWeight: "700", color: "#f8fafc", background: "rgba(255,255,255,0.05)", padding: "4px 12px", borderRadius: "8px" }}>
+                <label style={{ fontSize: "14px", fontWeight: "600", color: "var(--text-secondary)" }}>Time Period</label>
+                <span style={{ fontSize: "16px", fontWeight: "700", color: "var(--text-primary)", background: "var(--glass-bg)", padding: "4px 12px", borderRadius: "8px" }}>
                   {timePeriod} {timePeriod === 1 ? 'Year' : 'Years'}
                 </span>
               </div>
@@ -164,7 +165,7 @@ export default function SIPCalculator() {
                 min="1" max="40" step="1"
                 value={timePeriod} 
                 onChange={(e) => setTimePeriod(Number(e.target.value))}
-                style={{ width: "100%", accentColor: "#10b981", height: "6px", borderRadius: "10px", outline: "none", WebkitAppearance: "none", background: "rgba(255,255,255,0.1)" }}
+                style={{ width: "100%", accentColor: "#10b981", height: "6px", borderRadius: "10px", outline: "none", WebkitAppearance: "none", background: "var(--border-color)" }}
               />
               <div style={{ display: "flex", justifyContent: "space-between", marginTop: "8px", fontSize: "12px", color: "#475569", fontWeight: "600" }}>
                 <span>1 Yr</span>
@@ -184,16 +185,16 @@ export default function SIPCalculator() {
 
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))", gap: "24px", marginBottom: "40px" }}>
                 <div>
-                  <div style={{ fontSize: "13px", color: "#94a3b8", fontWeight: "600", marginBottom: "8px", display: "flex", alignItems: "center", gap: "8px" }}>
+                  <div style={{ fontSize: "13px", color: "var(--text-secondary)", fontWeight: "600", marginBottom: "8px", display: "flex", alignItems: "center", gap: "8px" }}>
                     <div style={{ width: "10px", height: "10px", borderRadius: "3px", background: "#0076ff" }}></div>
                     Total Invested
                   </div>
-                  <div style={{ fontSize: "clamp(18px, 5vw, 24px)", fontWeight: "700", color: "#f8fafc", wordBreak: "break-all" }}>
+                  <div style={{ fontSize: "clamp(18px, 5vw, 24px)", fontWeight: "700", color: "var(--text-primary)", wordBreak: "break-all" }}>
                     {formatINR(results.totalInvested)}
                   </div>
                 </div>
                 <div>
-                  <div style={{ fontSize: "13px", color: "#94a3b8", fontWeight: "600", marginBottom: "8px", display: "flex", alignItems: "center", gap: "8px" }}>
+                  <div style={{ fontSize: "13px", color: "var(--text-secondary)", fontWeight: "600", marginBottom: "8px", display: "flex", alignItems: "center", gap: "8px" }}>
                     <div style={{ width: "10px", height: "10px", borderRadius: "3px", background: "#10b981" }}></div>
                     Wealth Gained
                   </div>
@@ -204,7 +205,7 @@ export default function SIPCalculator() {
               </div>
 
               {/* Visual Breakdown Bar */}
-              <div style={{ width: "100%", height: "24px", borderRadius: "12px", background: "#0f172a", display: "flex", overflow: "hidden", border: "1px solid rgba(255,255,255,0.05)" }}>
+              <div style={{ width: "100%", height: "24px", borderRadius: "12px", background: "var(--bg-tertiary)", display: "flex", overflow: "hidden", border: "1px solid var(--glass-bg)" }}>
                 <div style={{ width: `${percentageInvested}%`, background: "#0076ff", transition: "width 0.3s ease" }}></div>
                 <div style={{ width: `${percentageReturns}%`, background: "#10b981", transition: "width 0.3s ease" }}></div>
               </div>
@@ -216,35 +217,35 @@ export default function SIPCalculator() {
         </div>
 
         {/* SEO Text Content below calculator */}
-        <div style={{ marginTop: "80px", borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: "60px", maxWidth: "800px", margin: "80px auto 0" }}>
-          <h2 style={{ fontSize: "32px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "24px", color: "#f1f5f9" }}>How does a SIP Calculator work?</h2>
-          <p style={{ color: "#94a3b8", fontSize: "18px", lineHeight: "1.7", marginBottom: "24px" }}>
+        <div style={{ marginTop: "80px", borderTop: "1px solid var(--glass-bg)", paddingTop: "60px", maxWidth: "800px", margin: "80px auto 0" }}>
+          <h2 style={{ fontSize: "32px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "24px", color: "var(--text-primary)" }}>How does a SIP Calculator work?</h2>
+          <p style={{ color: "var(--text-secondary)", fontSize: "18px", lineHeight: "1.7", marginBottom: "24px" }}>
             A Systematic Investment Plan (SIP) allows you to invest a fixed amount of money at regular intervals into mutual funds. The true power of a SIP comes from <strong>compounding</strong>, where your returns start generating their own returns over time.
           </p>
-          <p style={{ color: "#94a3b8", fontSize: "18px", lineHeight: "1.7", marginBottom: "60px" }}>
+          <p style={{ color: "var(--text-secondary)", fontSize: "18px", lineHeight: "1.7", marginBottom: "60px" }}>
             This free SIP calculator uses the standard compound interest formula to project the future value of your investments in India, assuming a constant rate of return. While mutual funds are subject to market risks, historical data for Indian index funds (like Nifty 50) shows an average long-term return of 12% to 15%.
           </p>
 
-          <h2 style={{ fontSize: "32px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "32px", color: "#f1f5f9" }}>Frequently Asked Questions (FAQ)</h2>
+          <h2 style={{ fontSize: "32px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "32px", color: "var(--text-primary)" }}>Frequently Asked Questions (FAQ)</h2>
           
           <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-            <div style={{ background: "rgba(255,255,255,0.02)", padding: "24px", borderRadius: "16px", border: "1px solid rgba(255,255,255,0.05)" }}>
-              <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#f8fafc", marginBottom: "12px" }}>What is a good expected return rate to input?</h3>
-              <p style={{ color: "#94a3b8", fontSize: "16px", lineHeight: "1.6", margin: 0 }}>
+            <div style={{ background: "var(--glass-bg)", padding: "24px", borderRadius: "16px", border: "1px solid var(--glass-bg)" }}>
+              <h3 style={{ fontSize: "20px", fontWeight: "700", color: "var(--text-primary)", marginBottom: "12px" }}>What is a good expected return rate to input?</h3>
+              <p style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: "1.6", margin: 0 }}>
                 If you are investing in Indian equity mutual funds or index funds (like the Nifty 50) for a long-term horizon (7+ years), a conservative and realistic expected return rate is typically between <strong>10% to 12% per annum</strong>. Small-cap funds may offer higher returns but come with much higher risk.
               </p>
             </div>
 
-            <div style={{ background: "rgba(255,255,255,0.02)", padding: "24px", borderRadius: "16px", border: "1px solid rgba(255,255,255,0.05)" }}>
-              <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#f8fafc", marginBottom: "12px" }}>Are SIP returns taxable in India?</h3>
-              <p style={{ color: "#94a3b8", fontSize: "16px", lineHeight: "1.6", margin: 0 }}>
+            <div style={{ background: "var(--glass-bg)", padding: "24px", borderRadius: "16px", border: "1px solid var(--glass-bg)" }}>
+              <h3 style={{ fontSize: "20px", fontWeight: "700", color: "var(--text-primary)", marginBottom: "12px" }}>Are SIP returns taxable in India?</h3>
+              <p style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: "1.6", margin: 0 }}>
                 Yes. For equity mutual funds, if you hold the investment for more than 1 year, the gains are classified as Long Term Capital Gains (LTCG). Currently, LTCG over ₹1 Lakh in a financial year is taxed at 10% (plus applicable surcharge and cess) without indexation benefits.
               </p>
             </div>
 
-            <div style={{ background: "rgba(255,255,255,0.02)", padding: "24px", borderRadius: "16px", border: "1px solid rgba(255,255,255,0.05)" }}>
-              <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#f8fafc", marginBottom: "12px" }}>What is the formula used in this SIP calculator?</h3>
-              <p style={{ color: "#94a3b8", fontSize: "16px", lineHeight: "1.6", margin: 0 }}>
+            <div style={{ background: "var(--glass-bg)", padding: "24px", borderRadius: "16px", border: "1px solid var(--glass-bg)" }}>
+              <h3 style={{ fontSize: "20px", fontWeight: "700", color: "var(--text-primary)", marginBottom: "12px" }}>What is the formula used in this SIP calculator?</h3>
+              <p style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: "1.6", margin: 0 }}>
                 We use the standard mathematical compounding formula: <strong>M = P × ({"{[1 + i]^n - 1}"} / i) × (1 + i)</strong>. Where 'M' is the total maturity amount, 'P' is the monthly investment, 'i' is the monthly interest rate (annual rate / 12 / 100), and 'n' is the total number of months.
               </p>
             </div>
@@ -252,8 +253,8 @@ export default function SIPCalculator() {
         </div>
 
         {/* Universal Legal Disclaimer */}
-        <div style={{ marginTop: "40px", padding: "20px", background: "rgba(0,0,0,0.3)", borderRadius: "12px", border: "1px dashed rgba(255,255,255,0.1)", textAlign: "center" }}>
-          <p style={{ color: "#64748b", fontSize: "12px", lineHeight: "1.6", margin: 0, fontFamily: "'DM Sans',sans-serif" }}>
+        <div style={{ marginTop: "40px", padding: "20px", background: "rgba(0,0,0,0.3)", borderRadius: "12px", border: "1px dashed var(--border-color)", textAlign: "center" }}>
+          <p style={{ color: "var(--text-secondary)", fontSize: "12px", lineHeight: "1.6", margin: 0, fontFamily: "'DM Sans',sans-serif" }}>
             <strong>Disclaimer:</strong> All calculators and tools on KaroTools.in are provided for educational and informational purposes only. While we strive to keep the logic updated with the latest Indian tax laws (FY 2026-27), the results generated are estimates and do not constitute professional financial, legal, or tax advice. We strongly recommend consulting a certified Chartered Accountant or legal professional before making any business decisions or filing your taxes. KaroTools is not responsible for any financial loss, penalties, or compliance errors resulting from the use of this website.
           </p>
         </div>

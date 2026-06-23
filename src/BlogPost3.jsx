@@ -41,7 +41,7 @@ export default function BlogPost3() {
   }, []);
 
   return (
-    <div style={{ minHeight: "100vh", background: "#020617", fontFamily: "'DM Sans', sans-serif", color: "#f8fafc", lineHeight: "1.8", paddingBottom: "80px" }}>
+    <div style={{ minHeight: "100vh", background: "var(--bg-primary)", fontFamily: "'DM Sans', sans-serif", color: "var(--text-primary)", lineHeight: "1.8", paddingBottom: "80px" }}>
       
       
       {/* Navbar */}
@@ -53,18 +53,18 @@ export default function BlogPost3() {
         {/* Meta */}
         <div style={{ display: "flex", gap: "16px", marginBottom: "24px", alignItems: "center", flexWrap: "wrap" }}>
           <span style={{ background: "rgba(0,118,255,0.1)", color: "#38bdf8", padding: "6px 14px", borderRadius: "50px", fontSize: "12px", fontWeight: "700", letterSpacing: "0.05em" }}>TAX SAVINGS</span>
-          <span style={{ color: "#64748b", fontSize: "14px" }}>June 7, 2026</span>
-          <span style={{ color: "#64748b", fontSize: "14px" }}>•</span>
-          <span style={{ color: "#64748b", fontSize: "14px" }}>6 min read</span>
+          <span style={{ color: "var(--text-secondary)", fontSize: "14px" }}>June 7, 2026</span>
+          <span style={{ color: "var(--text-secondary)", fontSize: "14px" }}>•</span>
+          <span style={{ color: "var(--text-secondary)", fontSize: "14px" }}>6 min read</span>
         </div>
 
         {/* Title */}
-        <h1 style={{ fontSize: "clamp(36px, 5vw, 56px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", lineHeight: 1.15, marginBottom: "32px", color: "#f8fafc", letterSpacing: "-0.02em" }}>
+        <h1 style={{ fontSize: "clamp(36px, 5vw, 56px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", lineHeight: 1.15, marginBottom: "32px", color: "var(--text-primary)", letterSpacing: "-0.02em" }}>
           How to Calculate Advance Tax for Freelancers in India (FY 2026-27)
         </h1>
 
-        <div style={{ display: "flex", alignItems: "center", gap: "16px", paddingBottom: "40px", borderBottom: "1px solid rgba(255,255,255,0.05)", marginBottom: "48px" }}>
-          <div style={{ width: "48px", height: "48px", borderRadius: "50%", overflow: "hidden", background: "#0f172a", border: "2px solid #1e293b", position: "relative" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "16px", paddingBottom: "40px", borderBottom: "1px solid var(--glass-bg)", marginBottom: "48px" }}>
+          <div style={{ width: "48px", height: "48px", borderRadius: "50%", overflow: "hidden", background: "var(--bg-tertiary)", border: "2px solid #1e293b", position: "relative" }}>
             <img 
               src="/dax-profile.jpg" 
               alt="Dax Patel" 
@@ -74,13 +74,13 @@ export default function BlogPost3() {
             <div style={{ display: "none", width: "100%", height: "100%", alignItems: "center", justifyContent: "center", background: "linear-gradient(135deg,#38bdf8,#818cf8)", color: "white", fontWeight: "bold", fontSize: "20px" }}>DP</div>
           </div>
           <div>
-            <Link href="/author/dax-patel" style={{ fontWeight: "700", color: "#f1f5f9", fontSize: "16px", textDecoration: "none" }} onMouseEnter={e => e.target.style.textDecoration = "underline"} onMouseLeave={e => e.target.style.textDecoration = "none"}>Dax Patel</Link>
-            <div style={{ color: "#64748b", fontSize: "14px" }}>Founder, KaroTools</div>
+            <Link href="/author/dax-patel" style={{ fontWeight: "700", color: "var(--text-primary)", fontSize: "16px", textDecoration: "none" }} onMouseEnter={e => e.target.style.textDecoration = "underline"} onMouseLeave={e => e.target.style.textDecoration = "none"}>Dax Patel</Link>
+            <div style={{ color: "var(--text-secondary)", fontSize: "14px" }}>Founder, KaroTools</div>
           </div>
         </div>
 
         {/* Body */}
-        <div style={{ fontSize: "18px", color: "#cbd5e1", display: "flex", flexDirection: "column", gap: "24px" }}>
+        <div style={{ fontSize: "18px", color: "var(--text-primary)", display: "flex", flexDirection: "column", gap: "24px" }}>
           <p>
             If you are a freelancer in India and your total tax liability for the financial year is expected to be more than ₹10,000, you cannot wait until July to pay your taxes. The Income Tax Department requires you to pay it in installments throughout the year. This is known as <strong>Advance Tax</strong>.
           </p>
@@ -89,19 +89,19 @@ export default function BlogPost3() {
             Many freelancers ignore this rule and end up paying massive penalty interest (under Section 234B and 234C) when they file their ITR. In this guide, we'll explain how to calculate it and exactly when you need to pay it.
           </p>
 
-          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginTop: "32px", marginBottom: "16px" }}>
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>
             The Four Deadlines (Normal Rule)
           </h2>
 
           <p>If you file your taxes under the normal tax slabs (without claiming Section 44ADA), you must pay your advance tax in four installments:</p>
-          <ul style={{ paddingLeft: "24px", color: "#94a3b8" }}>
-            <li style={{ marginBottom: "12px" }}><strong style={{ color: "#e2e8f0" }}>June 15:</strong> 15% of total tax liability</li>
-            <li style={{ marginBottom: "12px" }}><strong style={{ color: "#e2e8f0" }}>September 15:</strong> 45% of total tax liability</li>
-            <li style={{ marginBottom: "12px" }}><strong style={{ color: "#e2e8f0" }}>December 15:</strong> 75% of total tax liability</li>
-            <li style={{ marginBottom: "12px" }}><strong style={{ color: "#e2e8f0" }}>March 15:</strong> 100% of total tax liability</li>
+          <ul style={{ paddingLeft: "24px", color: "var(--text-secondary)" }}>
+            <li style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>June 15:</strong> 15% of total tax liability</li>
+            <li style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>September 15:</strong> 45% of total tax liability</li>
+            <li style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>December 15:</strong> 75% of total tax liability</li>
+            <li style={{ marginBottom: "12px" }}><strong style={{ color: "var(--text-primary)" }}>March 15:</strong> 100% of total tax liability</li>
           </ul>
 
-          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginTop: "32px", marginBottom: "16px" }}>
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>
             The "One Installment" Rule (Section 44ADA)
           </h2>
 
@@ -114,7 +114,7 @@ export default function BlogPost3() {
 
           <div style={{ background: "rgba(0,118,255,0.05)", border: "1px solid rgba(0,118,255,0.2)", borderRadius: "16px", padding: "24px", marginTop: "24px", marginBottom: "24px" }}>
             <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#38bdf8", marginBottom: "12px" }}>Don't want to do the math?</h3>
-            <p style={{ color: "#94a3b8", fontSize: "16px", marginBottom: "20px" }}>
+            <p style={{ color: "var(--text-secondary)", fontSize: "16px", marginBottom: "20px" }}>
               I built a completely free visual calculator that automatically calculates your Advance Tax deadlines, exact split amounts, and applies the 44ADA rule for you.
             </p>
             <Link href="/advance-tax-calculator" style={{ display: "inline-block", background: "linear-gradient(135deg, #0076ff, #00c6ff)", color: "#fff", padding: "12px 24px", borderRadius: "10px", textDecoration: "none", fontWeight: "700", fontSize: "15px" }}>
@@ -122,7 +122,7 @@ export default function BlogPost3() {
             </Link>
           </div>
 
-          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#f1f5f9", marginTop: "32px", marginBottom: "16px" }}>
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>
             What happens if I miss the deadline?
           </h2>
 
@@ -137,7 +137,7 @@ export default function BlogPost3() {
             <strong>The Takeaway:</strong> Estimate your income in June, use the <Link href="/advance-tax-calculator" style={{ color: "#38bdf8", textDecoration: "none" }}>Advance Tax Calculator</Link> to get your exact numbers, and set a calendar reminder to pay on the e-Filing portal!
           </p>
 
-          <div style={{ marginTop: "48px", padding: "20px", backgroundColor: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "8px", fontSize: "13px", color: "#64748b", lineHeight: "1.6" }}>
+          <div style={{ marginTop: "48px", padding: "20px", backgroundColor: "var(--glass-bg)", border: "1px solid var(--glass-bg)", borderRadius: "8px", fontSize: "13px", color: "var(--text-secondary)", lineHeight: "1.6" }}>
             <strong>Disclaimer:</strong> The information provided on KaroTools is for general informational purposes only and does not constitute professional financial, tax, or legal advice. Tax laws in India frequently change, and while we strive for accuracy, you should always consult with a qualified Chartered Accountant (CA) or legal professional before making any compliance decisions. KaroTools is not responsible for any errors, omissions, or actions taken based on this content.
           </div>
 

@@ -92,7 +92,7 @@ function ToolCard({ tool, index }) {
   return (
     <div ref={ref} style={{ opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(48px)", transition: `opacity 0.7s ease ${index * 0.08}s, transform 0.7s ease ${index * 0.08}s` }}>
       <div ref={cardRef} onMouseMove={onMove} onMouseLeave={onLeave} onMouseEnter={() => setHovered(true)}
-        style={{ background: hovered ? "var(--glass-bg)" : "var(--glass-bg)", backdropFilter: "blur(24px)", border: `1px solid ${hovered ? `${accent}30` : "var(--glass-border)"}`, borderRadius: 24, padding: "28px 24px", cursor: tool.page ? "pointer" : "default", transition: "transform 0.2s ease, box-shadow 0.2s ease, background 0.3s, border-color 0.3s", boxShadow: "0 4px 24px rgba(0,0,0,0.3)", position: "relative", overflow: "hidden", minHeight: 190 }}>
+        style={{ background: "var(--bg-secondary)", backdropFilter: "blur(24px)", border: `1px solid ${hovered ? `${accent}60` : "var(--card-border)"}`, borderRadius: 24, padding: "28px 24px", cursor: tool.page ? "pointer" : "default", transition: "transform 0.2s ease, box-shadow 0.2s ease, background 0.3s, border-color 0.3s", boxShadow: hovered ? "var(--card-hover-shadow)" : "var(--card-shadow)", position: "relative", overflow: "hidden", minHeight: 190 }}>
 
         {/* Top glow line */}
         <div style={{ position: "absolute", top: 0, left: "10%", right: "10%", height: 1, background: `linear-gradient(90deg, transparent, ${accent}, transparent)`, opacity: hovered ? 1 : 0.4, transition: "opacity 0.3s" }} />
@@ -119,16 +119,32 @@ function ToolCard({ tool, index }) {
   );
 }
 
-// ── Floating Particle ─────────────────────────────────────────────
-function Particles() {
-  const particles = Array.from({ length: 20 }, (_, i) => ({
+// ── Floating Icons ─────────────────────────────────────────────
+function FloatingIcons() {
+  const svgs = [
+    '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><line x1="8" y1="10" x2="16" y2="10"></line><line x1="8" y1="14" x2="16" y2="14"></line><line x1="12" y1="10" x2="12" y2="14"></line></svg>',
+    '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>',
+    '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 3h12M6 8h12M9 13h6M10 21l6-8H8"></path></svg>',
+    '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>',
+    '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>'
+  ];
+
+  const icons = Array.from({ length: 15 }, (_, i) => ({
     id: i, x: Math.random() * 100, y: Math.random() * 100,
-    size: Math.random() * 3 + 1, dur: Math.random() * 12 + 8, delay: Math.random() * 6
+    size: Math.random() * 24 + 16, dur: Math.random() * 20 + 15, delay: Math.random() * 6,
+    svg: svgs[i % svgs.length],
+    rot: Math.random() * 360
   }));
+  
   return (
     <div style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0, overflow: "hidden" }}>
-      {particles.map(p => (
-        <div key={p.id} style={{ position: "absolute", left: p.x + "%", top: p.y + "%", width: p.size, height: p.size, borderRadius: "50%", background: `rgba(0,118,255,${Math.random() * 0.3 + 0.1})`, animation: `particleFloat ${p.dur}s ${p.delay}s infinite ease-in-out alternate`, boxShadow: `0 0 ${p.size * 4}px rgba(0,118,255,0.4)` }} />
+      {icons.map(p => (
+        <div key={p.id} 
+             style={{ position: "absolute", left: p.x + "%", top: p.y + "%", width: p.size, height: p.size, 
+                      color: "var(--accent-color)", opacity: 0.15,
+                      animation: `particleFloat ${p.dur}s ${p.delay}s infinite ease-in-out alternate`, 
+                      transform: `rotate(${p.rot}deg)` }} 
+             dangerouslySetInnerHTML={{__html: p.svg}} />
       ))}
     </div>
   );
@@ -143,7 +159,7 @@ function PopularToolCard({ item, index }) {
   return (
     <Link href={item.link} style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
       <div onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
-        style={{ height: '100%', display: 'flex', flexDirection: 'column', background: hovered ? "var(--glass-bg)" : "var(--glass-bg)", backdropFilter: "blur(24px)", border: `1px solid ${hovered ? `${accent}30` : "var(--glass-border)"}`, borderRadius: 24, padding: "28px 24px", cursor: "pointer", transition: "transform 0.2s ease, box-shadow 0.2s ease, background 0.3s, border-color 0.3s", boxShadow: hovered ? `0 12px 32px ${accent}20` : "0 4px 24px rgba(0,0,0,0.3)", position: "relative", overflow: "hidden", minHeight: 190, transform: hovered ? "translateY(-4px)" : "translateY(0)" }}>
+        style={{ height: '100%', display: 'flex', flexDirection: 'column', background: "var(--bg-secondary)", backdropFilter: "blur(24px)", border: `1px solid ${hovered ? `${accent}60` : "var(--card-border)"}`, borderRadius: 24, padding: "28px 24px", cursor: "pointer", transition: "transform 0.2s ease, box-shadow 0.2s ease, background 0.3s, border-color 0.3s", boxShadow: hovered ? "var(--card-hover-shadow)" : "var(--card-shadow)", position: "relative", overflow: "hidden", minHeight: 190, transform: hovered ? "translateY(-4px)" : "translateY(0)" }}>
         
         {/* Top glow line */}
         <div style={{ position: "absolute", top: 0, left: "10%", right: "10%", height: 1, background: `linear-gradient(90deg, transparent, ${accent}, transparent)`, opacity: hovered ? 1 : 0.4, transition: "opacity 0.3s" }} />
@@ -235,7 +251,7 @@ export default function Home() {
   ];
 
   return (
-    <div style={{ minHeight: "100vh", background: "var(--bg-primary)", fontFamily: "'DM Sans',sans-serif", color: "var(--text-primary)", overflowX: "hidden" }}>
+    <div style={{ minHeight: "100vh", background: "var(--hero-gradient)", fontFamily: "'DM Sans',sans-serif", color: "var(--text-primary)", overflowX: "hidden" }}>
       
 
       <style>{`
@@ -274,7 +290,7 @@ export default function Home() {
       `}</style>
 
       <Cursor />
-      <Particles />
+      <FloatingIcons />
 
       {/* Ambient background */}
       <div style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0 }}>
@@ -383,7 +399,8 @@ export default function Home() {
       <ScrollPathSection />
 
       {/* ── TOOLS SECTION ───────────────────────────────────── */}
-      <section id="tools-section" style={{ position: "relative", zIndex: 1, padding: "100px 5vw", maxWidth: 1280, margin: "0 auto" }}>
+      <section id="tools-section" style={{ position: "relative", zIndex: 1, padding: "100px 5vw", background: "var(--section-alt-bg)" }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto" }}>
 
         <Reveal>
           <div style={{ textAlign: "center", marginBottom: 56 }}>
@@ -422,14 +439,20 @@ export default function Home() {
             </Link>
           ))}
         </div>
+        </div>
       </section>
 
       {/* ── FEATURE STRIP ───────────────────────────────────── */}
-      <section style={{ position: "relative", zIndex: 1, padding: "100px 5vw", borderTop: "1px solid rgba(255,255,255,0.04)", background: "rgba(255,255,255,0.01)" }}>
+      <section style={{ position: "relative", zIndex: 1, padding: "100px 5vw", borderTop: "1px solid var(--border-color)", background: "var(--section-alt-bg-solid)" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <Reveal>
             <div style={{ textAlign: "center", marginBottom: 60 }}>
               <p style={{ fontSize: 12, fontWeight: 700, color: "#00c6ff", letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: 14 }}>— WHY KAROTOOLS —</p>
+              <div style={{ width: 40, height: 4, display: "flex", margin: "0 auto 24px", borderRadius: 2, overflow: "hidden" }}>
+                <div style={{ flex: 1, background: "#FF9933" }} />
+                <div style={{ flex: 1, background: "#FFFFFF" }} />
+                <div style={{ flex: 1, background: "#138808" }} />
+              </div>
               <h2 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 800, fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", letterSpacing: "-0.025em" }}>
                 Built for India.<br />By Freelancers, for Freelancers.
               </h2>
@@ -450,7 +473,7 @@ export default function Home() {
       </section>
 
       {/* ── POPULAR TOOLS HIGHLIGHT ──────────────────────────── */}
-      <section style={{ position: "relative", zIndex: 1, padding: "100px 5vw", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
+      <section style={{ position: "relative", zIndex: 1, padding: "100px 5vw", borderTop: "1px solid var(--border-color)", background: "var(--section-alt-bg)" }}>
         <div style={{ maxWidth: 1000, margin: "0 auto" }}>
           <Reveal>
             <div style={{ textAlign: "center", marginBottom: 56 }}>
@@ -474,7 +497,7 @@ export default function Home() {
       </section>
 
       {/* ── LATEST GST GUIDES ─────────────────────────────────── */}
-      <section style={{ position: "relative", zIndex: 1, padding: "100px 5vw", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
+      <section style={{ position: "relative", zIndex: 1, padding: "100px 5vw", borderTop: "1px solid var(--border-color)", background: "var(--section-alt-bg-solid)" }}>
         <div style={{ maxWidth: 1000, margin: "0 auto" }}>
           <Reveal>
             <div style={{ textAlign: "center", marginBottom: 56 }}>
@@ -507,7 +530,7 @@ export default function Home() {
       </section>
 
       {/* ── FAQ ──────────────────────────────────────────────── */}
-      <section style={{ position: "relative", zIndex: 1, padding: "100px 5vw", borderTop: "1px solid rgba(255,255,255,0.04)", background: "rgba(255,255,255,0.01)" }}>
+      <section style={{ position: "relative", zIndex: 1, padding: "100px 5vw", borderTop: "1px solid var(--border-color)", background: "var(--bg-secondary)" }}>
         <div style={{ maxWidth: 780, margin: "0 auto" }}>
           <Reveal>
             <div style={{ textAlign: "center", marginBottom: 56 }}>
@@ -530,24 +553,24 @@ export default function Home() {
       </section>
 
       {/* ── CTA SECTION ─────────────────────────────────────── */}
-      <section style={{ position: "relative", zIndex: 1, padding: "100px 5vw", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
+      <section style={{ position: "relative", zIndex: 1, padding: "100px 5vw", borderTop: "1px solid var(--border-color)", background: "var(--bg-secondary)" }}>
         <Reveal>
-          <div style={{ maxWidth: 820, margin: "0 auto", background: "linear-gradient(135deg, rgba(0,118,255,0.1), rgba(0,198,255,0.06))", border: "1px solid rgba(0,118,255,0.18)", borderRadius: 28, padding: "8vw 5vw", textAlign: "center", position: "relative", overflow: "hidden" }}>
-            <div style={{ position: "absolute", top: 0, left: "5%", right: "5%", height: 1, background: "linear-gradient(90deg, transparent, rgba(0,118,255,0.6), transparent)" }} />
-            <div style={{ position: "absolute", bottom: 0, left: "10%", right: "10%", height: 1, background: "linear-gradient(90deg, transparent, rgba(0,198,255,0.4), transparent)" }} />
-            <div style={{ fontSize: 52, marginBottom: 24 }}>🚀</div>
-            <h2 style={{ fontSize: "clamp(26px, 4vw, 44px)", fontWeight: 800, fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginBottom: 16, letterSpacing: "-0.025em" }}>
+          <div style={{ maxWidth: 820, margin: "0 auto", background: "linear-gradient(135deg, #0ea5e9, #0284c7)", boxShadow: "0 20px 40px rgba(14, 165, 233, 0.25)", borderRadius: 28, padding: "8vw 5vw", textAlign: "center", position: "relative", overflow: "hidden" }}>
+            <div style={{ position: "absolute", top: 0, right: 0, width: 300, height: 300, background: "radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%)", pointerEvents: "none" }} />
+            <div style={{ position: "absolute", bottom: 0, left: 0, width: 300, height: 300, background: "radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%)", pointerEvents: "none" }} />
+            <div style={{ fontSize: 52, marginBottom: 24, position: "relative", zIndex: 2 }}>🚀</div>
+            <h2 style={{ fontSize: "clamp(26px, 4vw, 44px)", fontWeight: 800, fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#ffffff", marginBottom: 16, letterSpacing: "-0.025em", position: "relative", zIndex: 2 }}>
               Start Using KaroTools Today — It's Free
             </h2>
-            <p style={{ fontSize: 17, color: "var(--text-secondary)", marginBottom: 40, maxWidth: 500, margin: "0 auto 40px" }}>Join thousands of Indian freelancers who save hours every week with our free business tools.</p>
-            <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
+            <p style={{ fontSize: 17, color: "rgba(255,255,255,0.9)", marginBottom: 40, maxWidth: 500, margin: "0 auto 40px", position: "relative", zIndex: 2 }}>Join thousands of Indian freelancers who save hours every week with our free business tools.</p>
+            <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap", position: "relative", zIndex: 2 }}>
               <Link href="/gst-calculator" style={{ textDecoration: 'none' }}>
-                <button className="cta-btn-primary" style={{ padding: "15px 36px", background: "linear-gradient(135deg, #0076ff, #00c6ff)", border: "none", borderRadius: 12, color: "#fff", fontSize: 16, fontWeight: 700, fontFamily: "'Plus Jakarta Sans',sans-serif", boxShadow: "0 8px 28px rgba(0,118,255,0.35)", cursor: "pointer", transition: "all 0.3s" }}>
+                <button className="cta-btn-primary" style={{ padding: "15px 36px", background: "#ffffff", border: "none", borderRadius: 12, color: "#0284c7", fontSize: 16, fontWeight: 700, fontFamily: "'Plus Jakarta Sans',sans-serif", boxShadow: "0 8px 28px rgba(0,0,0,0.15)", cursor: "pointer", transition: "all 0.3s" }}>
                   🧮 GST Calculator →
                 </button>
               </Link>
               <Link href="/gst-invoice-generator" style={{ textDecoration: 'none' }}>
-                <button className="cta-btn-secondary" style={{ padding: "15px 32px", background: "var(--glass-bg)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 12, color: "var(--text-primary)", fontSize: 16, fontWeight: 600, cursor: "pointer", transition: "all 0.3s" }}>
+                <button className="cta-btn-secondary" style={{ padding: "15px 32px", background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.3)", borderRadius: 12, color: "#ffffff", fontSize: 16, fontWeight: 600, cursor: "pointer", transition: "all 0.3s" }}>
                   📄 Invoice Generator →
                 </button>
               </Link>

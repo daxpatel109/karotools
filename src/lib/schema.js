@@ -78,10 +78,10 @@ export function generateOrganizationSchema() {
   };
 }
 
-export function generateArticleSchema({ title, description, url, datePublished, dateModified, authorName = "KaroTools Editorial Team" }) {
-  const authorData = authorName === "Dax Patel" 
-    ? generatePersonSchema() 
-    : { "@type": "Organization", "name": authorName, "url": "https://karotools.in" };
+export function generateArticleSchema({ title, description, url, datePublished, dateModified, authorName = "Dax Patel" }) {
+  const authorData = authorName === "KaroTools" || authorName === "KaroTools Editorial Team"
+    ? { "@type": "Organization", "name": "KaroTools", "url": "https://karotools.in" }
+    : { "@type": "Person", "name": authorName };
 
   const schema = {
     "@context": "https://schema.org",

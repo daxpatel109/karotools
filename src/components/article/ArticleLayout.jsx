@@ -5,7 +5,7 @@ import ContentTracker from '../ContentTracker';
 import { formatSafeDateLong } from '../../lib/dateUtils';
 
 export default function ArticleLayout({ children, meta = {} }) {
-  const authorName = meta.author || "KaroTools Editorial Team";
+  const authorName = meta.author || "Dax Patel";
   
   const dateString = meta.dateModified || meta.datePublished;
   const displayDate = formatSafeDateLong(dateString);
@@ -137,7 +137,7 @@ export default function ArticleLayout({ children, meta = {} }) {
               <div style={{ flex: 1, minWidth: "250px" }}>
                 <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#f8fafc", margin: "0 0 8px 0" }}>Written by: {authorName}</h3>
                 <p style={{ color: "#94a3b8", fontSize: "14px", lineHeight: "1.6", margin: "0 0 16px 0" }}>
-                  KaroTools creates free GST, tax, invoice, and business calculators for Indian freelancers and small businesses.
+                  Dax Patel creates practical GST, invoice, tax, and business tools for Indian freelancers, consultants, small businesses, and agencies through KaroTools.
                 </p>
                 <div style={{ display: "flex", gap: "16px", fontSize: "14px" }}>
                   <Link href="/about" style={{ color: "#38bdf8", textDecoration: "none" }}>About Us</Link>

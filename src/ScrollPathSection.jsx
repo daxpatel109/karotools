@@ -73,7 +73,7 @@ export default function ScrollPathSection() {
     },
     {
       title: "Work Smarter",
-      text: "Use email, bio, contract and rate tools to manage client work.",
+      text: "Use GST, invoice, tax and rate tools to manage freelance work faster.",
       align: "right",
       icon: "💼"
     }

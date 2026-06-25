@@ -41,7 +41,7 @@ export default function BlogPost() {
           <span>By <Link href="/author/dax-patel" style={{ color: "#38bdf8", textDecoration: "none" }}>Dax Patel</Link></span>
         </div>
             <p style={{ fontSize: "18px", color: "var(--text-secondary)", lineHeight: "1.6", margin: 0 }}>
-              If you have crossed the GST registration threshold or are voluntarily registering for GST, you have likely encountered a confusing field on your invoice template: HSN/SAC Code. What does it mean?
+              Confused by the HSN/SAC code field on your GST invoice? Here is everything freelancers need to know about SAC codes and when to use them.
             </p>
           </header>
 
@@ -113,23 +113,42 @@ export default function BlogPost() {
             </div>
           </div>
         
-          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>What is the Difference Between HSN and SAC Codes?</h2>
-          <p>
-            HSN (Harmonized System of Nomenclature) codes are internationally recognized codes used to classify physical goods. 
-            SAC (Services Accounting Code) codes are issued by the Central Board of Indirect Taxes and Customs (CBIC) in India strictly to classify services. 
-            Since freelancers primarily provide services (like coding, writing, designing, consulting), they will almost always use SAC codes on their invoices, not HSN codes. 
-            Using the wrong code can lead to incorrect GST rate application and potential compliance notices from the GST department.
-          </p>
-          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>How Do I Find My Specific SAC Code?</h2>
-          <p>
-            Finding the correct SAC code involves understanding the broad categories of services defined under GST. 
-            For example, IT and software development services generally fall under heading 9983, specifically 998314 for IT design and development services. 
-            Consulting services might fall under 998311, while advertising and marketing services fall under 99836.
-            If your exact service isn't listed, you must choose the closest matching category or consult a Chartered Accountant. 
-            It is mandatory to display the SAC code on all B2B (Business to Business) tax invoices, and it is highly recommended for B2C (Business to Consumer) invoices as well to ensure total compliance.
-          </p>
+            <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>What is the Difference Between HSN and SAC Codes?</h2>
+            <p>
+              In simple words, HSN (Harmonized System of Nomenclature) codes are used globally to classify physical goods and products. SAC (Services Accounting Code) codes are used in India specifically to classify services. Since freelancers provide services like writing, designing, or coding, you will almost always use SAC codes on your invoices instead of HSN codes.
+            </p>
+            
+            <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>When do Freelancers Usually Need SAC on Invoices?</h2>
+            <p>
+              If you are registered for GST, you must include a valid 6-digit SAC code on your B2B (Business to Business) tax invoices. For B2C (Business to Consumer) invoices, it is highly recommended to include it as well. It tells the government exactly what type of service you provided, ensuring the correct GST rate is applied to the transaction.
+            </p>
 
-        </article>
+            <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>How Do I Find My Specific SAC Code?</h2>
+            <p>
+              Finding the correct SAC code involves understanding the broad categories of services defined under GST. 
+              For example, IT and software development services generally fall under heading 9983, specifically 998314 for IT design and development services. 
+              Consulting services might fall under 998311, while advertising and marketing services fall under 99836.
+              If your exact service isn't listed, you must choose the closest matching category or consult a Chartered Accountant. 
+            </p>
+            
+            <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>How to Avoid Common Invoice Mistakes</h2>
+            <ul style={{ paddingLeft: "20px", marginBottom: "20px" }}>
+              <li style={{ marginBottom: "12px" }}><strong>Mixing Goods and Services:</strong> Never use an HSN code for a pure service. Always use an SAC code (starting with 99) for freelance services.</li>
+              <li style={{ marginBottom: "12px" }}><strong>Using Outdated Codes:</strong> Ensure you are using the latest 6-digit SAC code as mandated by the CBIC. Using 4-digit codes on B2B invoices can lead to rejection by the client's finance team.</li>
+              <li style={{ marginBottom: "12px" }}><strong>Incorrect GST Rates:</strong> The SAC code determines the GST rate (usually 18% for freelance services). Ensure the rate matches the code.</li>
+            </ul>
+
+            <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>Practical Checklist Before Sending a GST Invoice</h2>
+            <p style={{ marginBottom: "16px" }}>Always verify these details before sending your invoice to a client:</p>
+            <ul style={{ paddingLeft: "20px", marginBottom: "20px" }}>
+              <li style={{ marginBottom: "8px" }}>Does the invoice have a unique invoice number and date?</li>
+              <li style={{ marginBottom: "8px" }}>Is your GSTIN and the client's GSTIN clearly stated?</li>
+              <li style={{ marginBottom: "8px" }}>Have you included the correct 6-digit SAC code for each line item?</li>
+              <li style={{ marginBottom: "8px" }}>Is the IGST or CGST/SGST breakdown calculated correctly based on the place of supply?</li>
+              <li style={{ marginBottom: "8px" }}>Have you signed the invoice (digitally or physically)?</li>
+            </ul>
+
+          </article>
 
       </main>
     

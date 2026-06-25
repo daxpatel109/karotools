@@ -122,7 +122,7 @@ export default function BlogPost() {
             Direct salary ÷ working hours = freelance rate is a trap. It ignores taxes, unpaid leave, business expenses, and the hours you spend on admin work that clients never pay for. Keep reading for the correct formula.</p>
           </div>
 
-          <h2>Why Your Freelance Hourly Rate Must Be Higher Than Your Salary Equivalent</h2>
+          <h2>Why Must Your Freelance Hourly Rate Be Higher Than Your Salary?</h2>
 
           <p>When you are a salaried employee, your company quietly covers a mountain of costs on your behalf. The moment you go freelance, every single one of those costs lands on your plate. Here is what changes — and what you must account for when setting your rate:</p>
 

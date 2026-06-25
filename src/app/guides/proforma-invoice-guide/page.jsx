@@ -94,9 +94,30 @@ export default function BlogPost() {
             </div>
 
             <h2 style={{ fontSize: "24px", fontWeight: "700", color: "var(--text-primary)", marginTop: "40px", marginBottom: "16px" }}>When should you send one?</h2>
+            <p style={{ marginBottom: "20px" }}>
+              Freelancers and agencies typically send a Proforma Invoice in the following situations:
+            </p>
             <ul style={{ paddingLeft: "20px", marginBottom: "20px" }}>
-              <li><strong>Advance Payments:</strong> If you require a 50% upfront deposit before starting a project, clients often need a Proforma Invoice to process the advance payment internally.</li>
-              <li><strong>Budget Approval:</strong> When a client's finance team needs to approve the estimated cost of your project before issuing a Purchase Order (PO).</li>
+              <li style={{ marginBottom: "12px" }}><strong>Advance Payments:</strong> When you require a 50% upfront deposit to begin work, corporate clients often need a Proforma Invoice to process the advance payment internally.</li>
+              <li style={{ marginBottom: "12px" }}><strong>Budget Approval:</strong> When a client's finance team needs to approve the estimated cost of your project before they can issue an official Purchase Order (PO).</li>
+              <li style={{ marginBottom: "12px" }}><strong>Scope Agreement:</strong> To clearly outline the expected deliverables, timelines, and costs so there are no surprises once the final Tax Invoice is issued.</li>
+            </ul>
+
+            <h2 style={{ fontSize: "24px", fontWeight: "700", color: "var(--text-primary)", marginTop: "40px", marginBottom: "16px" }}>What to include before client approval</h2>
+            <p style={{ marginBottom: "16px" }}>To prevent scope creep and ensure smooth approval, your Proforma Invoice must include:</p>
+            <ul style={{ paddingLeft: "20px", marginBottom: "20px" }}>
+              <li style={{ marginBottom: "8px" }}>Clear label stating "PROFORMA INVOICE" at the top.</li>
+              <li style={{ marginBottom: "8px" }}>Date of issue and validity period (e.g., "Valid for 30 days").</li>
+              <li style={{ marginBottom: "8px" }}>Detailed breakdown of services, estimated hours, and rates.</li>
+              <li style={{ marginBottom: "8px" }}>Estimated GST calculations based on the expected place of supply.</li>
+              <li style={{ marginBottom: "8px" }}>Payment terms and conditions for the advance deposit.</li>
+            </ul>
+
+            <h2 style={{ fontSize: "24px", fontWeight: "700", color: "var(--text-primary)", marginTop: "40px", marginBottom: "16px" }}>Common mistakes freelancers should avoid</h2>
+            <ul style={{ paddingLeft: "20px", marginBottom: "20px" }}>
+              <li style={{ marginBottom: "12px" }}><strong>Recording it as Income:</strong> Never log a Proforma Invoice as income in accounting software like Tally. Wait for the actual payment or the final Tax Invoice.</li>
+              <li style={{ marginBottom: "12px" }}><strong>Using the Same Invoice Number:</strong> Do not use your standard Tax Invoice numbering sequence for Proforma Invoices. Use a separate sequence like "PRO-001".</li>
+              <li style={{ marginBottom: "12px" }}><strong>Forgetting the Validity Date:</strong> Always add an expiration date to protect yourself against price changes if the client delays approval for months.</li>
             </ul>
 
             <h2 style={{ fontSize: "24px", fontWeight: "700", color: "var(--text-primary)", marginTop: "40px", marginBottom: "16px" }}>How to create one using KaroTools</h2>
@@ -144,21 +165,6 @@ export default function BlogPost() {
               </Link>
             </div>
           </div>
-        
-          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>What is a Proforma Invoice?</h2>
-          <p>
-            A Proforma Invoice is essentially a preliminary bill or a detailed quotation sent to a buyer in advance of a shipment or delivery of goods/services. 
-            It notes the kind and quantity of goods, their value, and other important information such as weight and transportation charges. 
-            Unlike a regular Tax Invoice, a Proforma Invoice is not a legal document used for accounting. It does not demand payment, nor can it be used by the buyer to claim Input Tax Credit (ITC) under GST. 
-            It is purely an agreement of the terms of the transaction before the actual work or shipping begins.
-          </p>
-          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>When Should You Send a Proforma Invoice?</h2>
-          <p>
-            Freelancers and agencies typically send a Proforma Invoice when a client requests a breakdown of costs before committing to a project. 
-            It is also heavily used in international trade to help buyers arrange for foreign exchange or open a Letter of Credit. 
-            Once the client approves the Proforma Invoice and the service is delivered (or advance payment is received), the freelancer must issue a final, legally binding Tax Invoice. 
-            Never record a Proforma Invoice in your accounting software as revenue, as no actual financial transaction has taken place yet.
-          </p>
 
         </article>
 

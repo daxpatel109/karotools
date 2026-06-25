@@ -397,6 +397,15 @@ export default function BlogPost() {
             </Link>
           </div>
 
+          <div style={{ background: "rgba(124,58,237,0.05)", border: "1px solid rgba(124,58,237,0.2)", borderRadius: "16px", padding: "24px", marginTop: "32px", marginBottom: "32px" }}>
+            <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#a78bfa", marginBottom: "8px" }}>Try the Free Tax Calculators</h3>
+            <p style={{ color: "var(--text-secondary)", fontSize: "15px", marginBottom: "16px" }}>Stop guessing your tax installments. Use our free tools to estimate your Advance Tax easily.</p>
+            <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
+              <Link href="/advance-tax-calculator" style={{ background: "rgba(124,58,237,0.1)", border: "1px solid rgba(124,58,237,0.2)", color: "#a78bfa", fontWeight: "600", fontSize: "14px", textDecoration: "none", padding: "10px 16px", borderRadius: "8px" }}>Advance Tax Calculator</Link>
+              <Link href="/tax-calculator" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--text-primary)", fontWeight: "600", fontSize: "14px", textDecoration: "none", padding: "10px 16px", borderRadius: "8px" }}>General Tax Calculator</Link>
+            </div>
+          </div>
+
           <h2>Frequently Asked Questions (FAQ)</h2>
 
           <div className={styles.faqSection} itemScope itemType="https://schema.org/FAQPage">

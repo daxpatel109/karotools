@@ -244,6 +244,15 @@ export default function BlogPost() {
 
           <p>Your skills have a real market value. The math just needs to reflect it.</p>
 
+          <div style={{ background: "rgba(245,158,11,0.05)", border: "1px solid rgba(245,158,11,0.2)", borderRadius: "16px", padding: "24px", marginTop: "32px", marginBottom: "32px" }}>
+            <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#f59e0b", marginBottom: "8px" }}>Compare Your Salary vs Freelance Rate</h3>
+            <p style={{ color: "var(--text-secondary)", fontSize: "15px", marginBottom: "16px" }}>Ready to calculate the exact hourly rate you need to replace your corporate salary? Use our free tool or read the comprehensive pricing guide.</p>
+            <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
+              <Link href="/salary-vs-freelance" style={{ background: "rgba(245,158,11,0.1)", border: "1px solid rgba(245,158,11,0.2)", color: "#f59e0b", fontWeight: "600", fontSize: "14px", textDecoration: "none", padding: "10px 16px", borderRadius: "8px" }}>Salary vs Freelance Calculator</Link>
+              <Link href="/guides/how-to-price-freelance-services" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--text-primary)", fontWeight: "600", fontSize: "14px", textDecoration: "none", padding: "10px 16px", borderRadius: "8px" }}>Read Pricing Guide</Link>
+            </div>
+          </div>
+
           <h2>Frequently Asked Questions (FAQ)</h2>
 
           <div className={styles.faqSection} itemScope itemType="https://schema.org/FAQPage">

@@ -400,6 +400,15 @@ export default function BlogPost() {
             </Link>
           </div>
 
+          <div style={{ background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.2)", borderRadius: "16px", padding: "24px", marginTop: "32px", marginBottom: "32px" }}>
+            <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#10b981", marginBottom: "8px" }}>Free 44ADA Calculator & Guide</h3>
+            <p style={{ color: "var(--text-secondary)", fontSize: "15px", marginBottom: "16px" }}>Ready to see how much tax you save? Use our calculator or read the complete comparison guide.</p>
+            <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
+              <Link href="/44ada-tax-calculator" style={{ background: "rgba(16,185,129,0.1)", border: "1px solid rgba(16,185,129,0.2)", color: "#10b981", fontWeight: "600", fontSize: "14px", textDecoration: "none", padding: "10px 16px", borderRadius: "8px" }}>44ADA Tax Calculator</Link>
+              <Link href="/guides/section-44ada-vs-normal" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--text-primary)", fontWeight: "600", fontSize: "14px", textDecoration: "none", padding: "10px 16px", borderRadius: "8px" }}>Read Comparison Guide</Link>
+            </div>
+          </div>
+
           <h2>Frequently Asked Questions (FAQ)</h2>
 
           <div className={styles.faqSection} itemScope itemType="https://schema.org/FAQPage">

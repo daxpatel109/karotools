@@ -312,6 +312,15 @@ export default function BlogPost() {
             </Link>
           </div>
 
+          <div style={{ background: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)", borderRadius: "16px", padding: "24px", marginTop: "32px", marginBottom: "32px" }}>
+            <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#38bdf8", marginBottom: "8px" }}>Try the Free GST Tools</h3>
+            <p style={{ color: "var(--text-secondary)", fontSize: "15px", marginBottom: "16px" }}>Whether you need to calculate exact GST amounts or read a comprehensive guide on how GST applies to your freelance business, we've got you covered.</p>
+            <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
+              <Link href="/gst-calculator" style={{ background: "rgba(56,189,248,0.1)", border: "1px solid rgba(56,189,248,0.2)", color: "#38bdf8", fontWeight: "600", fontSize: "14px", textDecoration: "none", padding: "10px 16px", borderRadius: "8px" }}>Open GST Calculator</Link>
+              <Link href="/guides/gst-for-freelancers-india" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--text-primary)", fontWeight: "600", fontSize: "14px", textDecoration: "none", padding: "10px 16px", borderRadius: "8px" }}>Read GST Guide</Link>
+            </div>
+          </div>
+
           <h2>Frequently Asked Questions (FAQ)</h2>
 
           <div className={styles.faqSection} itemScope itemType="https://schema.org/FAQPage">

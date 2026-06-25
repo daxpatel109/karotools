@@ -71,7 +71,7 @@ export default function About() {
         <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-bg)", borderRadius: "24px", padding: "48px", textAlign: "center" }}>
           <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginBottom: "20px" }}>Join the Community</h2>
           <p style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: "1.8", marginBottom: "32px", maxWidth: "500px", margin: "0 auto 32px" }}>
-            KaroTools is growing every day. We are constantly building new tools to make your business run smoother. Follow our blog for the latest updates on freelance taxation and business strategies.
+            We are constantly building new tools to make your business run smoother. Follow our blog for the latest updates on freelance taxation and business strategies.
           </p>
           <Link href="/" style={{ display: "inline-block", padding: "16px 36px", background: "linear-gradient(135deg, #6366f1, #005ae6)", border: "none", borderRadius: "12px", color: "#fff", fontSize: "16px", fontWeight: "700", textDecoration: "none", boxShadow: "0 8px 24px rgba(0,90,230,0.3)", transition: "transform 0.2s" }} onMouseEnter={e => e.target.style.transform = "translateY(-2px)"} onMouseLeave={e => e.target.style.transform = "translateY(0)"}>
             Explore the Tools

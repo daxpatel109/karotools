@@ -134,7 +134,7 @@ export default function BlogPost() {
       </main>
     
       <SchemaScript schema={generateBreadcrumbSchema([{name: "Home", url: "https://karotools.in"}, {name: "hsn sac codes freelancers", url: "https://karotools.in/guides/hsn-sac-codes-freelancers"}])} />
-      <SchemaScript schema={generateArticleSchema({title: "KaroTools Guide", description: "Guide", url: "https://karotools.in/guides/hsn-sac-codes-freelancers", datePublished: "2026-01-01"})} />
+      <SchemaScript schema={generateArticleSchema({title: "SAC Codes for Freelancers (Software, Design, Consulting)", description: "Find the correct SAC codes and GST rates for freelance software developers, designers, consultants, and writers in India.", url: "https://karotools.in/guides/hsn-sac-codes-freelancers", datePublished: "2026-06-16"})} />
 </div>
   );
 }

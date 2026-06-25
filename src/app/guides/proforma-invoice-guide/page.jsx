@@ -131,7 +131,7 @@ export default function BlogPost() {
       </main>
     
       <SchemaScript schema={generateBreadcrumbSchema([{name: "Home", url: "https://karotools.in"}, {name: "proforma invoice guide", url: "https://karotools.in/guides/proforma-invoice-guide"}])} />
-      <SchemaScript schema={generateArticleSchema({title: "KaroTools Guide", description: "Guide", url: "https://karotools.in/guides/proforma-invoice-guide", datePublished: "2026-01-01"})} />
+      <SchemaScript schema={generateArticleSchema({title: "Proforma Invoice vs Tax Invoice: What is the Difference?", description: "Understand the difference between a proforma invoice and a tax invoice, when to use each, and how to create them.", url: "https://karotools.in/guides/proforma-invoice-guide", datePublished: "2026-06-17"})} />
 </div>
   );
 }

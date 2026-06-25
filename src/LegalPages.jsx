@@ -104,8 +104,7 @@ export function PrivacyPolicy() {
         <h2 style={h2Style}>8. Contact Us</h2>
         <p>For any privacy-related inquiries, data deletion requests, or questions regarding our data processing practices, please contact our Data Protection Officer at: <strong style={{ color: "#a78bfa" }}>support@karotools.in</strong></p>
         <SchemaScript schema={generateBreadcrumbSchema([{name: "Home", url: "https://karotools.in"}, {name: "Privacy Policy", url: "https://karotools.in/privacy-policy"}])} />
-        <SchemaScript schema={generateBreadcrumbSchema([{name: "Home", url: "https://karotools.in"}, {name: "Contact Us", url: "https://karotools.in/contact"}])} />
-<SchemaScript schema={generateOrganizationSchema()} />
+        <SchemaScript schema={generateOrganizationSchema()} />
       </div>
     </div>
   );
@@ -163,8 +162,7 @@ export function TermsConditions() {
         <h2 style={h2Style}>8. Modifications to Terms</h2>
         <p>KaroTools reserves the right to revise these terms at any time as it sees fit. By using this website, you are expected to review these Terms on a regular basis to ensure you understand all terms and conditions governing use of this website. Your continued use of the site following the posting of changes will mean that you accept and agree to the changes.</p>
         <SchemaScript schema={generateBreadcrumbSchema([{name: "Home", url: "https://karotools.in"}, {name: "Terms", url: "https://karotools.in/terms"}])} />
-        <SchemaScript schema={generateBreadcrumbSchema([{name: "Home", url: "https://karotools.in"}, {name: "Contact Us", url: "https://karotools.in/contact"}])} />
-<SchemaScript schema={generateOrganizationSchema()} />
+        <SchemaScript schema={generateOrganizationSchema()} />
       </div>
     </div>
   );

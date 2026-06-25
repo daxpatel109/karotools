@@ -148,7 +148,7 @@ export default function Guide1() {
 
     
       <SchemaScript schema={generateBreadcrumbSchema([{name: "Home", url: "https://karotools.in"}, {name: "gst for freelancers india", url: "https://karotools.in/guides/gst-for-freelancers-india"}])} />
-      <SchemaScript schema={generateArticleSchema({title: "KaroTools Guide", description: "Guide", url: "https://karotools.in/guides/gst-for-freelancers-india", datePublished: "2026-01-01"})} />
+      <SchemaScript schema={generateArticleSchema({title: "Complete GST Guide for Indian Freelancers (2026)", description: "Learn everything about GST for freelancers in India: registration rules, 18% rate, export of services (LUT), and invoicing.", url: "https://karotools.in/guides/gst-for-freelancers-india", datePublished: "2026-06-15"})} />
 </div>
   );
 }

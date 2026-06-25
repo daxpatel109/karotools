@@ -34,8 +34,8 @@ export default function Guide2() {
         </h1>
 
         <div style={{ display: "flex", gap: "16px", fontSize: "14px", color: "var(--text-secondary)", alignItems: "center", marginBottom: "24px" }}>
-          <span>📅 June 15, 2026</span>
-          <span>✍️ By <Link href="/author/dax-patel" style={{ color: "#38bdf8", textDecoration: "none" }}>Dax Patel</Link></span>
+          <span>June 15, 2026</span>
+          <span>By <Link href="/author/dax-patel" style={{ color: "#38bdf8", textDecoration: "none" }}>Dax Patel</Link></span>
         </div>
 
         <div style={{ fontSize: "18px", color: "var(--text-primary)", display: "flex", flexDirection: "column", gap: "24px" }}>
@@ -103,6 +103,25 @@ export default function Guide2() {
               Create Contract →
             </Link>
           </div>
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>How Do You Calculate a Freelance Hourly Rate?</h2>
+          <p>
+            Calculating a freelance hourly rate requires you to work backwards from your target annual income. 
+            Unlike a salaried employee who is paid for 40 hours a week regardless of productivity, a freelancer only gets paid for "billable hours" — the actual time spent working directly on client projects. 
+            You must account for non-billable hours spent on marketing, administration, accounting, and client acquisition.
+          </p>
+          <p>
+            Start by defining your target annual income, adding your business expenses (software, hardware, internet), and adding your tax liability. 
+            Divide this total by your estimated annual billable hours (typically around 1,000 to 1,200 hours per year, not 2,000). 
+            This formula gives you your minimum viable hourly rate. 
+            If you simply take a full-time salary and divide by 2,000 hours, you will severely underprice yourself and struggle to survive financially.
+          </p>
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>What is Value-Based Pricing?</h2>
+          <p>
+            As you gain experience, you should transition from hourly pricing to value-based pricing. 
+            In value-based pricing, you charge based on the financial impact your work has on the client's business, rather than the hours it takes you to complete it. 
+            For example, if your copywriting landing page increases a client's sales by ₹5 Lakhs per month, charging ₹50,000 for the project is highly justifiable, even if it only took you 10 hours to write. 
+            This approach decouples your time from your earning potential and is the key to scaling your freelance business in India.
+          </p>
         </div>
       
         <div style={{ marginTop: "48px", padding: "32px", borderRadius: "16px", border: "1px solid var(--glass-border)", background: "var(--glass-bg)" }}>
@@ -126,32 +145,12 @@ export default function Guide2() {
             </Link>
           </div>
         </div>
-      
-          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>How Do You Calculate a Freelance Hourly Rate?</h2>
-          <p>
-            Calculating a freelance hourly rate requires you to work backwards from your target annual income. 
-            Unlike a salaried employee who is paid for 40 hours a week regardless of productivity, a freelancer only gets paid for "billable hours" — the actual time spent working directly on client projects. 
-            You must account for non-billable hours spent on marketing, administration, accounting, and client acquisition.
-          </p>
-          <p>
-            Start by defining your target annual income, adding your business expenses (software, hardware, internet), and adding your tax liability. 
-            Divide this total by your estimated annual billable hours (typically around 1,000 to 1,200 hours per year, not 2,000). 
-            This formula gives you your minimum viable hourly rate. 
-            If you simply take a full-time salary and divide by 2,000 hours, you will severely underprice yourself and struggle to survive financially.
-          </p>
-          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>What is Value-Based Pricing?</h2>
-          <p>
-            As you gain experience, you should transition from hourly pricing to value-based pricing. 
-            In value-based pricing, you charge based on the financial impact your work has on the client's business, rather than the hours it takes you to complete it. 
-            For example, if your copywriting landing page increases a client's sales by ₹5 Lakhs per month, charging ₹50,000 for the project is highly justifiable, even if it only took you 10 hours to write. 
-            This approach decouples your time from your earning potential and is the key to scaling your freelance business in India.
-          </p>
 
-        </article>
+      </article>
 
     
-      <SchemaScript schema={generateBreadcrumbSchema([{name: "Home", url: "https://karotools.in"}, {name: "how to price freelance services", url: "https://karotools.in/guides/how-to-price-freelance-services"}])} />
-      <SchemaScript schema={generateArticleSchema({title: "KaroTools Guide", description: "Guide", url: "https://karotools.in/guides/how-to-price-freelance-services", datePublished: "2026-01-01"})} />
+      <SchemaScript schema={generateBreadcrumbSchema([{name: "Home", url: "https://karotools.in"}, {name: "Guides", url: "https://karotools.in/guides"}, {name: "How to Price Freelance Services", url: "https://karotools.in/guides/how-to-price-freelance-services"}])} />
+      <SchemaScript schema={generateArticleSchema({title: "How to Price Freelance Services In India", description: "Learn how to calculate your hourly rate, factor in taxes and expenses, and effectively price your freelance services in India.", url: "https://karotools.in/guides/how-to-price-freelance-services", datePublished: "2026-06-15"})} />
 </div>
   );
 }

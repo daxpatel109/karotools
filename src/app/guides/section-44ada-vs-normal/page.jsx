@@ -135,7 +135,7 @@ export default function Guide3() {
 
     
       <SchemaScript schema={generateBreadcrumbSchema([{name: "Home", url: "https://karotools.in"}, {name: "section 44ada vs normal", url: "https://karotools.in/guides/section-44ada-vs-normal"}])} />
-      <SchemaScript schema={generateArticleSchema({title: "KaroTools Guide", description: "Guide", url: "https://karotools.in/guides/section-44ada-vs-normal", datePublished: "2026-01-01"})} />
+      <SchemaScript schema={generateArticleSchema({title: "Section 44ADA vs Normal Taxation for Freelancers", description: "Compare Section 44ADA presumptive taxation with the normal taxation scheme. Find out which is better for your freelance income.", url: "https://karotools.in/guides/section-44ada-vs-normal", datePublished: "2026-06-18"})} />
 </div>
   );
 }

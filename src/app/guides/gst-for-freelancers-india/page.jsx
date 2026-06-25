@@ -44,15 +44,51 @@ export default function Guide1() {
             One of the most confusing aspects of starting a freelance business in India is understanding GST (Goods and Services Tax). Do you need to register? What rate do you charge? What if your clients are overseas? Let's break it down simply.
           </p>
 
-          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>
-            1. Do you need to register for GST?
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "16px", marginBottom: "8px" }}>
+            When should freelancers register for GST?
           </h2>
+          <div style={{ background: "rgba(0,0,0,0.2)", padding: "16px", borderRadius: "12px", borderLeft: "4px solid #0076ff", marginBottom: "16px" }}>
+            <p style={{ margin: 0, fontSize: "16px", lineHeight: "1.6" }}>Freelancers in India must register for GST when their aggregate annual turnover exceeds ₹20 Lakhs (₹10 Lakhs in special category states) or if they provide OIDAR services to unregistered entities.</p>
+          </div>
           <p>
             As a freelancer (which falls under the "services" category), you are only required to register for GST if your aggregate turnover (total revenue before expenses) exceeds <strong>₹20 Lakhs in a financial year</strong> (₹10 Lakhs for special category states).
           </p>
           <p>
             <strong>Exceptions:</strong> If you sell through an e-commerce operator or provide OIDAR (Online Information Database Access and Retrieval) services to unregistered entities, you may need mandatory registration regardless of turnover.
           </p>
+
+          <table style={{ width: "100%", borderCollapse: "collapse", marginTop: "24px", marginBottom: "24px", textAlign: "left", fontSize: "15px" }}>
+            <thead>
+              <tr style={{ background: "rgba(255,255,255,0.05)", borderBottom: "1px solid var(--border-color)" }}>
+                <th style={{ padding: "12px", color: "var(--text-primary)" }}>Feature</th>
+                <th style={{ padding: "12px", color: "var(--text-primary)" }}>GST Registered</th>
+                <th style={{ padding: "12px", color: "var(--text-primary)" }}>Not Registered</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+                <td style={{ padding: "12px", color: "var(--text-secondary)" }}>Invoicing</td>
+                <td style={{ padding: "12px", color: "var(--text-primary)" }}>Must issue "Tax Invoice"</td>
+                <td style={{ padding: "12px", color: "var(--text-primary)" }}>Must issue "Bill of Supply"</td>
+              </tr>
+              <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+                <td style={{ padding: "12px", color: "var(--text-secondary)" }}>Input Tax Credit (ITC)</td>
+                <td style={{ padding: "12px", color: "var(--text-primary)" }}>Can claim ITC on expenses</td>
+                <td style={{ padding: "12px", color: "var(--text-primary)" }}>Cannot claim ITC</td>
+              </tr>
+              <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+                <td style={{ padding: "12px", color: "var(--text-secondary)" }}>Compliance</td>
+                <td style={{ padding: "12px", color: "var(--text-primary)" }}>Monthly/Quarterly returns</td>
+                <td style={{ padding: "12px", color: "var(--text-primary)" }}>None</td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <div style={{ background: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)", borderRadius: "16px", padding: "24px", marginTop: "24px", marginBottom: "24px" }}>
+            <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#38bdf8", marginBottom: "12px" }}>Make compliant GST Invoices easily</h3>
+            <p style={{ color: "var(--text-secondary)", fontSize: "15px", marginBottom: "16px" }}>Whether you need a Tax Invoice or a Bill of Supply, our free invoice generator has you covered.</p>
+            <Link href="/invoice-generator" style={{ color: "#38bdf8", fontWeight: "600", textDecoration: "none" }}>Open Invoice Generator →</Link>
+          </div>
 
           <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>
             2. What GST Rate Applies to Freelancers?

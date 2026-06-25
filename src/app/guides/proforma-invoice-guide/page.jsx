@@ -47,17 +47,51 @@ export default function BlogPost() {
           </header>
 
           <div style={{ fontSize: "16px", color: "var(--text-primary)", lineHeight: "1.8" }}>
+            <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "16px", marginBottom: "8px" }}>
+              What is a proforma invoice?
+            </h2>
+            <div style={{ background: "rgba(0,0,0,0.2)", padding: "16px", borderRadius: "12px", borderLeft: "4px solid #38bdf8", marginBottom: "24px" }}>
+              <p style={{ margin: 0, fontSize: "16px", lineHeight: "1.6" }}>A proforma invoice is a preliminary bill of sale sent to clients in advance of delivering goods or services. It acts as an estimate for budgeting but is not a legally binding document and cannot be used to claim Input Tax Credit (ITC).</p>
+            </div>
             <p style={{ marginBottom: "20px" }}>
               Before a freelance project officially starts, corporate clients often ask for a "Proforma Invoice." If you're used to only sending an invoice after the work is completed, this can be confusing.
-            </p>
-
-            <h2 style={{ fontSize: "24px", fontWeight: "700", color: "var(--text-primary)", marginTop: "40px", marginBottom: "16px" }}>What is a Proforma Invoice?</h2>
-            <p style={{ marginBottom: "20px" }}>
-              A proforma invoice is essentially a <strong>preliminary bill of sale or quotation</strong> sent to a buyer in advance of a delivery of goods or services. It declares the seller's commitment to provide the specified services at the specified prices.
             </p>
             <p style={{ marginBottom: "20px" }}>
               Unlike a standard Tax Invoice, a Proforma Invoice does not trigger a demand for immediate payment, and it is <strong>not a legally binding financial document</strong> for accounting purposes. Your client cannot use a proforma invoice to claim Input Tax Credit (ITC) for GST.
             </p>
+            
+            <table style={{ width: "100%", borderCollapse: "collapse", marginTop: "24px", marginBottom: "24px", textAlign: "left", fontSize: "15px" }}>
+              <thead>
+                <tr style={{ background: "rgba(255,255,255,0.05)", borderBottom: "1px solid var(--border-color)" }}>
+                  <th style={{ padding: "12px", color: "var(--text-primary)" }}>Feature</th>
+                  <th style={{ padding: "12px", color: "var(--text-primary)" }}>Proforma Invoice</th>
+                  <th style={{ padding: "12px", color: "var(--text-primary)" }}>Tax Invoice</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+                  <td style={{ padding: "12px", color: "var(--text-secondary)" }}>Purpose</td>
+                  <td style={{ padding: "12px", color: "var(--text-primary)" }}>Pre-delivery cost estimate</td>
+                  <td style={{ padding: "12px", color: "var(--text-primary)" }}>Official demand for payment</td>
+                </tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+                  <td style={{ padding: "12px", color: "var(--text-secondary)" }}>Legal Status</td>
+                  <td style={{ padding: "12px", color: "var(--text-primary)" }}>Not legally binding</td>
+                  <td style={{ padding: "12px", color: "var(--text-primary)" }}>Legally binding</td>
+                </tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+                  <td style={{ padding: "12px", color: "var(--text-secondary)" }}>ITC Claim</td>
+                  <td style={{ padding: "12px", color: "var(--text-primary)" }}>Cannot be used for ITC</td>
+                  <td style={{ padding: "12px", color: "var(--text-primary)" }}>Can be used to claim ITC</td>
+                </tr>
+              </tbody>
+            </table>
+            
+            <div style={{ background: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)", borderRadius: "16px", padding: "24px", marginTop: "24px", marginBottom: "24px" }}>
+              <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#38bdf8", marginBottom: "12px" }}>Generate professional invoices instantly</h3>
+              <p style={{ color: "var(--text-secondary)", fontSize: "15px", marginBottom: "16px" }}>Use our free invoice generator to create proforma or regular tax invoices without watermarks.</p>
+              <Link href="/invoice-generator" style={{ color: "#38bdf8", fontWeight: "600", textDecoration: "none" }}>Open Invoice Generator →</Link>
+            </div>
 
             <h2 style={{ fontSize: "24px", fontWeight: "700", color: "var(--text-primary)", marginTop: "40px", marginBottom: "16px" }}>When should you send one?</h2>
             <ul style={{ paddingLeft: "20px", marginBottom: "20px" }}>

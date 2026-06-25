@@ -40,6 +40,12 @@ export default function Guide3() {
         </div>
 
         <div style={{ fontSize: "18px", color: "var(--text-primary)", display: "flex", flexDirection: "column", gap: "24px" }}>
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "16px", marginBottom: "8px" }}>
+            What is Section 44ADA?
+          </h2>
+          <div style={{ background: "rgba(0,0,0,0.2)", padding: "16px", borderRadius: "12px", borderLeft: "4px solid #6366f1", marginBottom: "8px" }}>
+            <p style={{ margin: 0, fontSize: "16px", lineHeight: "1.6" }}>Section 44ADA is a presumptive taxation scheme for Indian professionals. It assumes 50% of your gross receipts are business expenses, allowing you to pay tax only on the remaining 50% profit without maintaining detailed books of accounts.</p>
+          </div>
           <p>
             If you are a freelancer, consultant, software developer, or designer in India, the government has created a special tax scheme just for you: <strong>Section 44ADA</strong>. It is designed to make tax filing incredibly simple and reduce your tax burden significantly.
           </p>
@@ -55,6 +61,34 @@ export default function Guide3() {
           <p>
             To use this method, you are legally required to maintain strict books of accounts, collect receipts for every single business expense (internet, laptop depreciation, server costs, travel), and in some cases, undergo an official tax audit.
           </p>
+          
+          <table style={{ width: "100%", borderCollapse: "collapse", marginTop: "24px", marginBottom: "24px", textAlign: "left", fontSize: "15px" }}>
+            <thead>
+              <tr style={{ background: "rgba(255,255,255,0.05)", borderBottom: "1px solid var(--border-color)" }}>
+                <th style={{ padding: "12px", color: "var(--text-primary)" }}>Feature</th>
+                <th style={{ padding: "12px", color: "var(--text-primary)" }}>Section 44ADA</th>
+                <th style={{ padding: "12px", color: "var(--text-primary)" }}>Normal Taxation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+                <td style={{ padding: "12px", color: "var(--text-secondary)" }}>Profit Declaration</td>
+                <td style={{ padding: "12px", color: "var(--text-primary)" }}>Flat 50% of gross receipts</td>
+                <td style={{ padding: "12px", color: "var(--text-primary)" }}>Actual Revenue - Actual Expenses</td>
+              </tr>
+              <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+                <td style={{ padding: "12px", color: "var(--text-secondary)" }}>Books of Accounts</td>
+                <td style={{ padding: "12px", color: "var(--text-primary)" }}>Not required</td>
+                <td style={{ padding: "12px", color: "var(--text-primary)" }}>Strictly required</td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <div style={{ background: "rgba(124,58,237,0.05)", border: "1px solid rgba(124,58,237,0.2)", borderRadius: "16px", padding: "24px", marginTop: "24px", marginBottom: "24px" }}>
+            <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#a78bfa", marginBottom: "12px" }}>Compare your taxes instantly</h3>
+            <p style={{ color: "var(--text-secondary)", fontSize: "15px", marginBottom: "16px" }}>Use our advanced tax calculator to compare your liability under the old and new tax regimes.</p>
+            <Link href="/tax-calculator" style={{ color: "#a78bfa", fontWeight: "600", textDecoration: "none" }}>Open Tax Calculator →</Link>
+          </div>
 
           <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>
             The Magic of Section 44ADA (Presumptive Taxation)

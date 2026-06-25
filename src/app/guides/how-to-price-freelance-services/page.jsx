@@ -39,6 +39,12 @@ export default function Guide2() {
         </div>
 
         <div style={{ fontSize: "18px", color: "var(--text-primary)", display: "flex", flexDirection: "column", gap: "24px" }}>
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "16px", marginBottom: "8px" }}>
+            How should freelancers price services?
+          </h2>
+          <div style={{ background: "rgba(0,0,0,0.2)", padding: "16px", borderRadius: "12px", borderLeft: "4px solid #10b981", marginBottom: "16px" }}>
+            <p style={{ margin: 0, fontSize: "16px", lineHeight: "1.6" }}>Freelancers should price services based on their value, market rates, and living expenses. Common methods include hourly rates for undefined scopes, project-based pricing for clear deliverables, and monthly retainers for ongoing work.</p>
+          </div>
           <p>
             The most common mistake new freelancers make is pulling a number out of thin air or simply copying what competitors are charging. If you don't calculate your rates based on your actual lifestyle costs, you will eventually burn out.
           </p>
@@ -64,6 +70,39 @@ export default function Guide2() {
             <Link href="/freelance-rate-calculator" style={{ display: "inline-block", background: "linear-gradient(135deg, #10b981, #059669)", color: "#fff", padding: "12px 24px", borderRadius: "10px", textDecoration: "none", fontWeight: "700", fontSize: "15px" }}>
               Calculate Hourly Rate →
             </Link>
+          </div>
+          
+          <table style={{ width: "100%", borderCollapse: "collapse", marginTop: "24px", marginBottom: "24px", textAlign: "left", fontSize: "15px" }}>
+            <thead>
+              <tr style={{ background: "rgba(255,255,255,0.05)", borderBottom: "1px solid var(--border-color)" }}>
+                <th style={{ padding: "12px", color: "var(--text-primary)" }}>Pricing Model</th>
+                <th style={{ padding: "12px", color: "var(--text-primary)" }}>Best Used For</th>
+                <th style={{ padding: "12px", color: "var(--text-primary)" }}>Pros & Cons</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+                <td style={{ padding: "12px", color: "var(--text-secondary)" }}>Hourly Pricing</td>
+                <td style={{ padding: "12px", color: "var(--text-primary)" }}>Undefined scopes, consulting, maintenance</td>
+                <td style={{ padding: "12px", color: "var(--text-primary)" }}>Guaranteed pay for time, but punishes efficiency</td>
+              </tr>
+              <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+                <td style={{ padding: "12px", color: "var(--text-secondary)" }}>Project Pricing</td>
+                <td style={{ padding: "12px", color: "var(--text-primary)" }}>Clear deliverables, website builds, logos</td>
+                <td style={{ padding: "12px", color: "var(--text-primary)" }}>Rewards speed and expertise, but risks scope creep</td>
+              </tr>
+              <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+                <td style={{ padding: "12px", color: "var(--text-secondary)" }}>Monthly Retainer</td>
+                <td style={{ padding: "12px", color: "var(--text-primary)" }}>Ongoing SEO, social media management</td>
+                <td style={{ padding: "12px", color: "var(--text-primary)" }}>Predictable recurring revenue, requires high trust</td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <div style={{ background: "rgba(245,158,11,0.05)", border: "1px solid rgba(245,158,11,0.2)", borderRadius: "16px", padding: "24px", marginTop: "24px", marginBottom: "24px" }}>
+            <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#f59e0b", marginBottom: "12px" }}>Should you quit your job to freelance?</h3>
+            <p style={{ color: "var(--text-secondary)", fontSize: "15px", marginBottom: "16px" }}>Compare your current corporate salary to potential freelance earnings, factoring in taxes and lost benefits.</p>
+            <Link href="/salary-vs-freelance" style={{ color: "#f59e0b", fontWeight: "600", textDecoration: "none" }}>Compare Salary vs Freelance →</Link>
           </div>
 
           <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>

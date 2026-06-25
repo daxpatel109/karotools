@@ -102,7 +102,7 @@ export function PrivacyPolicy() {
         <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Effective Date" at the top. You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
 
         <h2 style={h2Style}>8. Contact Us</h2>
-        <p>For any privacy-related inquiries, data deletion requests, or questions regarding our data processing practices, please contact our Data Protection Officer at: <strong style={{ color: "#a78bfa" }}>support@karotools.in</strong></p>
+        <p>For any privacy-related inquiries, data deletion requests, or questions regarding our data processing practices, please <Link href="/contact" style={{ color: "#a78bfa", textDecoration: "none" }}>contact our Data Protection Officer</Link> at: <strong style={{ color: "#a78bfa" }}>support@karotools.in</strong></p>
         <SchemaScript schema={generateBreadcrumbSchema([{name: "Home", url: "https://karotools.in"}, {name: "Privacy Policy", url: "https://karotools.in/privacy-policy"}])} />
         <SchemaScript schema={generateOrganizationSchema()} />
       </div>
@@ -161,6 +161,9 @@ export function TermsConditions() {
 
         <h2 style={h2Style}>8. Modifications to Terms</h2>
         <p>KaroTools reserves the right to revise these terms at any time as it sees fit. By using this website, you are expected to review these Terms on a regular basis to ensure you understand all terms and conditions governing use of this website. Your continued use of the site following the posting of changes will mean that you accept and agree to the changes.</p>
+
+        <h2 style={h2Style}>9. Contact Us</h2>
+        <p>If you have any questions or require support regarding these terms, please <Link href="/contact" style={{ color: "#a78bfa", textDecoration: "none" }}>contact us</Link>.</p>
         <SchemaScript schema={generateBreadcrumbSchema([{name: "Home", url: "https://karotools.in"}, {name: "Terms", url: "https://karotools.in/terms"}])} />
         <SchemaScript schema={generateOrganizationSchema()} />
       </div>
@@ -187,7 +190,7 @@ export function ContactUs() {
       </nav>
       <div style={contentStyle}>
         <h1 style={h1Style}>Contact Our Team</h1>
-        <p style={{ color: "var(--text-secondary)", fontSize: "16px", marginBottom: "32px", lineHeight: 1.8 }}>We build enterprise-grade tools for modern Indian businesses. Our mission is to empower freelancers, consultants, and small business owners with completely free, loginless, and highly accurate tools. Whether you need support with a specific calculator, want to report a technical bug, or wish to inquire about strategic business partnerships, our dedicated team is always here to help you succeed.</p>
+        <p style={{ color: "var(--text-secondary)", fontSize: "16px", marginBottom: "32px", lineHeight: 1.8 }}>We build enterprise-grade tools for modern Indian businesses. Learn more <Link href="/about" style={{ color: "#a78bfa", textDecoration: "none" }}>about us</Link> or check out our <Link href="/blog" style={{ color: "#a78bfa", textDecoration: "none" }}>blog</Link>. Our mission is to empower freelancers, consultants, and small business owners with completely free, loginless, and highly accurate tools. Whether you need support with a specific calculator, want to report a technical bug, or wish to inquire about strategic business partnerships, our dedicated team is always here to help you succeed.</p>
         
         <div style={{ background: "rgba(124,58,237,0.05)", border: "1px solid rgba(124,58,237,0.2)", borderRadius: "16px", padding: "32px", display: "flex", flexDirection: "column", gap: "24px", marginBottom: "48px" }}>
           <div>

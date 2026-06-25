@@ -1,16 +1,15 @@
+import { SchemaScript, generateBreadcrumbSchema, generateArticleSchema } from "../../../lib/schema";
 import Link from "next/link";
 import React from "react";
 
-export const metadata = {
-  title: "Complete SAC & HSN Codes List For India — KaroTools",
+export const metadata = { title: "Complete SAC & HSN Codes List For India — KaroTools",
   description: "Learn the difference between HSN and SAC codes for GST invoicing in India. Discover the exact 6-digit SAC codes for developers, designers, and consultants.",
   openGraph: {
     title: "HSN vs SAC Codes for Indian Freelancers",
     description: "Learn the difference between HSN and SAC codes for GST invoicing in India.",
     url: "https://karotools.in/guides/hsn-sac-codes-freelancers",
     images: ["https://karotools.in/og-image.png"],
-  }
-};
+  }, alternates: { canonical: "https://karotools.in/guides/hsn-sac-codes-freelancers" }  };
 
 export default function BlogPost() {
   return (
@@ -113,9 +112,29 @@ export default function BlogPost() {
               </Link>
             </div>
           </div>
+        
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>What is the Difference Between HSN and SAC Codes?</h2>
+          <p>
+            HSN (Harmonized System of Nomenclature) codes are internationally recognized codes used to classify physical goods. 
+            SAC (Services Accounting Code) codes are issued by the Central Board of Indirect Taxes and Customs (CBIC) in India strictly to classify services. 
+            Since freelancers primarily provide services (like coding, writing, designing, consulting), they will almost always use SAC codes on their invoices, not HSN codes. 
+            Using the wrong code can lead to incorrect GST rate application and potential compliance notices from the GST department.
+          </p>
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>How Do I Find My Specific SAC Code?</h2>
+          <p>
+            Finding the correct SAC code involves understanding the broad categories of services defined under GST. 
+            For example, IT and software development services generally fall under heading 9983, specifically 998314 for IT design and development services. 
+            Consulting services might fall under 998311, while advertising and marketing services fall under 99836.
+            If your exact service isn't listed, you must choose the closest matching category or consult a Chartered Accountant. 
+            It is mandatory to display the SAC code on all B2B (Business to Business) tax invoices, and it is highly recommended for B2C (Business to Consumer) invoices as well to ensure total compliance.
+          </p>
+
         </article>
 
       </main>
-    </div>
+    
+      <SchemaScript schema={generateBreadcrumbSchema([{name: "Home", url: "https://karotools.in"}, {name: "hsn sac codes freelancers", url: "https://karotools.in/guides/hsn-sac-codes-freelancers"}])} />
+      <SchemaScript schema={generateArticleSchema({title: "KaroTools Guide", description: "Guide", url: "https://karotools.in/guides/hsn-sac-codes-freelancers", datePublished: "2026-01-01"})} />
+</div>
   );
 }

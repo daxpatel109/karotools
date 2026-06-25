@@ -55,10 +55,23 @@ export default function About() {
           </div>
         </div>
 
+        <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-bg)", borderRadius: "24px", padding: "48px", marginBottom: "40px" }}>
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginBottom: "20px" }}>Why We Build Free Tools</h2>
+          <p style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: "1.8", marginBottom: "20px" }}>
+            The Indian freelancing economy is booming, yet the software ecosystem supporting it remains fragmented, expensive, or bloated with unnecessary features. Many new freelancers struggle with understanding complex tax codes, correctly formatting GST invoices, or predicting their advance tax liabilities. We believe that basic financial utility tools should be a public good, not a paid subscription.
+          </p>
+          <p style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: "1.8", marginBottom: "20px" }}>
+            By removing the friction of paywalls and mandatory accounts, we empower independent professionals to focus on what they do best: delivering exceptional work to their clients. KaroTools is entirely funded through unobtrusive advertisements and strategic partnerships, allowing us to maintain our "forever free" promise to the community.
+          </p>
+          <p style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: "1.8" }}>
+            Whether you are a graphic designer in Bengaluru, a freelance writer in Pune, or an independent consultant in Delhi, our tools are meticulously crafted to support your specific regulatory and financial needs under Indian law. We constantly update our calculators to reflect the latest Union Budget changes and GST council decisions.
+          </p>
+        </div>
+
         <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-bg)", borderRadius: "24px", padding: "48px", textAlign: "center" }}>
           <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginBottom: "20px" }}>Join the Community</h2>
           <p style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: "1.8", marginBottom: "32px", maxWidth: "500px", margin: "0 auto 32px" }}>
-            KaroTools is growing every day. We are constantly building new tools to make your business run smoother.
+            KaroTools is growing every day. We are constantly building new tools to make your business run smoother. Follow our blog for the latest updates on freelance taxation and business strategies.
           </p>
           <Link href="/" style={{ display: "inline-block", padding: "16px 36px", background: "linear-gradient(135deg, #6366f1, #005ae6)", border: "none", borderRadius: "12px", color: "#fff", fontSize: "16px", fontWeight: "700", textDecoration: "none", boxShadow: "0 8px 24px rgba(0,90,230,0.3)", transition: "transform 0.2s" }} onMouseEnter={e => e.target.style.transform = "translateY(-2px)"} onMouseLeave={e => e.target.style.transform = "translateY(0)"}>
             Explore the Tools

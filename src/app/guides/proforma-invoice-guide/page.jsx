@@ -1,16 +1,15 @@
+import { SchemaScript, generateBreadcrumbSchema, generateArticleSchema } from "../../../lib/schema";
 import Link from "next/link";
 import React from "react";
 
-export const metadata = {
-  title: "Easy Proforma Invoice Complete Guide India — KaroTools",
+export const metadata = { title: "Easy Proforma Invoice Complete Guide India — KaroTools",
   description: "Learn what a proforma invoice is, when freelancers should send one, and how to create a free professional PDF quotation for Indian clients.",
   openGraph: {
     title: "How to Create a Proforma Invoice",
     description: "Everything Indian freelancers need to know about Proforma Invoices vs standard Tax Invoices.",
     url: "https://karotools.in/guides/proforma-invoice-guide",
     images: ["https://karotools.in/og-image.png"],
-  }
-};
+  }, alternates: { canonical: "https://karotools.in/guides/proforma-invoice-guide" }  };
 
 export default function BlogPost() {
   return (
@@ -111,9 +110,28 @@ export default function BlogPost() {
               </Link>
             </div>
           </div>
+        
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>What is a Proforma Invoice?</h2>
+          <p>
+            A Proforma Invoice is essentially a preliminary bill or a detailed quotation sent to a buyer in advance of a shipment or delivery of goods/services. 
+            It notes the kind and quantity of goods, their value, and other important information such as weight and transportation charges. 
+            Unlike a regular Tax Invoice, a Proforma Invoice is not a legal document used for accounting. It does not demand payment, nor can it be used by the buyer to claim Input Tax Credit (ITC) under GST. 
+            It is purely an agreement of the terms of the transaction before the actual work or shipping begins.
+          </p>
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>When Should You Send a Proforma Invoice?</h2>
+          <p>
+            Freelancers and agencies typically send a Proforma Invoice when a client requests a breakdown of costs before committing to a project. 
+            It is also heavily used in international trade to help buyers arrange for foreign exchange or open a Letter of Credit. 
+            Once the client approves the Proforma Invoice and the service is delivered (or advance payment is received), the freelancer must issue a final, legally binding Tax Invoice. 
+            Never record a Proforma Invoice in your accounting software as revenue, as no actual financial transaction has taken place yet.
+          </p>
+
         </article>
 
       </main>
-    </div>
+    
+      <SchemaScript schema={generateBreadcrumbSchema([{name: "Home", url: "https://karotools.in"}, {name: "proforma invoice guide", url: "https://karotools.in/guides/proforma-invoice-guide"}])} />
+      <SchemaScript schema={generateArticleSchema({title: "KaroTools Guide", description: "Guide", url: "https://karotools.in/guides/proforma-invoice-guide", datePublished: "2026-01-01"})} />
+</div>
   );
 }

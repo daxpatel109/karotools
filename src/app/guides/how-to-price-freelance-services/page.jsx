@@ -1,11 +1,11 @@
-export const metadata = { title: "How to Price Freelance Services In India — KaroTools", description: "Learn how to calculate your hourly rate, factor in taxes and expenses, and effectively price your freelance services in India." };
+import { SchemaScript, generateBreadcrumbSchema, generateArticleSchema } from "../../../lib/schema";
+export const metadata = { title: "How to Price Freelance Services In India — KaroTools", description: "Learn how to calculate your hourly rate, factor in taxes and expenses, and effectively price your freelance services in India.", alternates: { canonical: "https://karotools.in/guides/how-to-price-freelance-services" }  };
 import Link from "next/link";
 
 export default function Guide2() {
   
   return (
     <div style={{ minHeight: "100vh", background: "var(--bg-primary)", fontFamily: "'DM Sans', sans-serif", color: "var(--text-primary)", lineHeight: "1.8", paddingBottom: "80px" }}>
-      
       
       {/* Navbar */}
       <nav style={{ position: "sticky", top: 0, zIndex: 100, padding: "10px 20px", minHeight: "70px", display: "flex", flexWrap: "wrap", gap: "12px", alignItems: "center", justifyContent: "space-between", background: "var(--bg-primary)", backdropFilter: "blur(20px)", borderBottom: "1px solid var(--glass-bg)" }}>
@@ -33,10 +33,10 @@ export default function Guide2() {
           How to Price Your Freelance Services
         </h1>
 
-            <div style={{ display: "flex", gap: "16px", fontSize: "14px", color: "var(--text-secondary)", alignItems: "center", marginBottom: "24px" }}>
-              <span>?? June 15, 2026</span>
-              <span>?? By <Link href="/author/dax-patel" style={{ color: "#38bdf8", textDecoration: "none" }}>Dax Patel</Link></span>
-            </div>
+        <div style={{ display: "flex", gap: "16px", fontSize: "14px", color: "var(--text-secondary)", alignItems: "center", marginBottom: "24px" }}>
+          <span>📅 June 15, 2026</span>
+          <span>✍️ By <Link href="/author/dax-patel" style={{ color: "#38bdf8", textDecoration: "none" }}>Dax Patel</Link></span>
+        </div>
 
         <div style={{ fontSize: "18px", color: "var(--text-primary)", display: "flex", flexDirection: "column", gap: "24px" }}>
           <p>
@@ -70,17 +70,28 @@ export default function Guide2() {
             Hourly vs. Project Pricing
           </h2>
           <p>
-            Once you know your baseline hourly rate, you should aim to transition to <strong>Project-Based Pricing</strong> as soon as possible.
+            Once you know your baseline hourly rate, you should aim to transition to <strong>Project-Based Pricing</strong> as soon as possible. When you charge hourly, you are punished for being efficient. If you learn to do a task twice as fast, you make half as much money. By charging per project, you align your incentives with the client: they get the result they want, and you get rewarded for speed and expertise.
           </p>
+
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>
+            Value-Based Pricing
+          </h2>
           <p>
-            When you charge hourly, you are punished for being efficient. If you learn to do a task twice as fast, you make half as much money. By charging per project (or per deliverable), you align your incentives with the client: they get the result they want, and you get rewarded for speed and expertise.
+            If your work directly increases a client's revenue or decreases their costs, you should explore <strong>Value-Based Pricing</strong>. Instead of pricing based on your time, you price based on the financial value you deliver. For example, if your new e-commerce landing page design will generate an extra ₹10 Lakhs in sales for the client over the next year, charging ₹1 Lakh for the design is incredibly reasonable, even if it only takes you 10 hours to build.
+          </p>
+
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>
+            Retainer Agreements for Stability
+          </h2>
+          <p>
+            The biggest stress for freelancers is unpredictable income. To combat "feast or famine" cycles, package your services into monthly retainers. A retainer is a recurring monthly fee a client pays you to guarantee a certain amount of your time or specific deliverables each month (e.g., writing 4 blog posts a month for ₹40,000). This provides you with stable cash flow and reduces the time you spend constantly hunting for new clients.
           </p>
 
           <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>
             Protecting Your Rate with a Contract
           </h2>
           <p>
-            Pricing means nothing if the client constantly asks for "one more small change" (Scope Creep). To protect your effective hourly rate on fixed-price projects, you must have a contract that clearly defines the number of revisions.
+            Pricing means nothing if the client constantly asks for "one more small change" (Scope Creep). To protect your effective hourly rate on fixed-price projects, you must have a contract that clearly defines the number of revisions, the timeline, and the specific deliverables. Always require an upfront deposit (usually 50%) before commencing any work to secure client commitment.
           </p>
 
           <div style={{ background: "rgba(0,90,230,0.05)", border: "1px solid rgba(0,90,230,0.2)", borderRadius: "16px", padding: "24px", marginTop: "24px", marginBottom: "24px" }}>
@@ -94,29 +105,53 @@ export default function Guide2() {
           </div>
         </div>
       
-          <div style={{ marginTop: "48px", padding: "32px", borderRadius: "16px", border: "1px solid var(--glass-border)", background: "var(--glass-bg)" }}>
-            <h3 style={{ fontSize: "18px", fontWeight: "700", color: "var(--text-primary)", margin: "0 0 8px 0" }}>Written by: Dax Patel</h3>
-            <p style={{ color: "var(--text-secondary)", fontSize: "14px", lineHeight: "1.6", margin: "0 0 16px 0" }}>
-              Dax Patel creates practical GST, invoice, tax, and business tools for Indian freelancers, consultants, small businesses, and agencies through KaroTools.
-            </p>
+        <div style={{ marginTop: "48px", padding: "32px", borderRadius: "16px", border: "1px solid var(--glass-border)", background: "var(--glass-bg)" }}>
+          <h3 style={{ fontSize: "18px", fontWeight: "700", color: "var(--text-primary)", margin: "0 0 8px 0" }}>Written by: Dax Patel</h3>
+          <p style={{ color: "var(--text-secondary)", fontSize: "14px", lineHeight: "1.6", margin: "0 0 16px 0" }}>
+            Dax Patel creates practical GST, invoice, tax, and business tools for Indian freelancers, consultants, small businesses, and agencies through KaroTools.
+          </p>
+        </div>
+        
+        <div style={{ marginTop: "48px", borderTop: "1px solid var(--border-color)", paddingTop: "40px" }}>
+          <h3 style={{ fontSize: "24px", fontWeight: "700", color: "var(--text-primary)", margin: "0 0 24px 0" }}>Related Guides & Tools</h3>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))", gap: "20px" }}>
+            <Link href="/gst-calculator" style={{ padding: "20px", borderRadius: "12px", border: "1px solid var(--glass-border)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "var(--glass-bg)" }}>
+              <strong style={{ color: "var(--text-primary)", fontSize: "16px" }}>GST Calculator</strong>
+            </Link>
+            <Link href="/invoice-generator" style={{ padding: "20px", borderRadius: "12px", border: "1px solid var(--glass-border)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "var(--glass-bg)" }}>
+              <strong style={{ color: "var(--text-primary)", fontSize: "16px" }}>GST Invoice Generator</strong>
+            </Link>
+            <Link href="/blog/gst-registration-threshold" style={{ padding: "20px", borderRadius: "12px", border: "1px solid var(--glass-border)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "var(--glass-bg)" }}>
+              <strong style={{ color: "var(--text-primary)", fontSize: "16px" }}>GST Registration Rules</strong>
+            </Link>
           </div>
-          
-          <div style={{ marginTop: "48px", borderTop: "1px solid var(--border-color)", paddingTop: "40px" }}>
-            <h3 style={{ fontSize: "24px", fontWeight: "700", color: "var(--text-primary)", margin: "0 0 24px 0" }}>Related Guides & Tools</h3>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))", gap: "20px" }}>
-              <Link href="/gst-calculator" style={{ padding: "20px", borderRadius: "12px", border: "1px solid var(--glass-border)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "var(--glass-bg)" }}>
-                <strong style={{ color: "var(--text-primary)", fontSize: "16px" }}>GST Calculator</strong>
-              </Link>
-              <Link href="/invoice-generator" style={{ padding: "20px", borderRadius: "12px", border: "1px solid var(--glass-border)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "var(--glass-bg)" }}>
-                <strong style={{ color: "var(--text-primary)", fontSize: "16px" }}>GST Invoice Generator</strong>
-              </Link>
-              <Link href="/blog/gst-registration-threshold" style={{ padding: "20px", borderRadius: "12px", border: "1px solid var(--glass-border)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "var(--glass-bg)" }}>
-                <strong style={{ color: "var(--text-primary)", fontSize: "16px" }}>GST Registration Rules</strong>
-              </Link>
-            </div>
-          </div>
+        </div>
+      
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>How Do You Calculate a Freelance Hourly Rate?</h2>
+          <p>
+            Calculating a freelance hourly rate requires you to work backwards from your target annual income. 
+            Unlike a salaried employee who is paid for 40 hours a week regardless of productivity, a freelancer only gets paid for "billable hours" — the actual time spent working directly on client projects. 
+            You must account for non-billable hours spent on marketing, administration, accounting, and client acquisition.
+          </p>
+          <p>
+            Start by defining your target annual income, adding your business expenses (software, hardware, internet), and adding your tax liability. 
+            Divide this total by your estimated annual billable hours (typically around 1,000 to 1,200 hours per year, not 2,000). 
+            This formula gives you your minimum viable hourly rate. 
+            If you simply take a full-time salary and divide by 2,000 hours, you will severely underprice yourself and struggle to survive financially.
+          </p>
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>What is Value-Based Pricing?</h2>
+          <p>
+            As you gain experience, you should transition from hourly pricing to value-based pricing. 
+            In value-based pricing, you charge based on the financial impact your work has on the client's business, rather than the hours it takes you to complete it. 
+            For example, if your copywriting landing page increases a client's sales by ₹5 Lakhs per month, charging ₹50,000 for the project is highly justifiable, even if it only took you 10 hours to write. 
+            This approach decouples your time from your earning potential and is the key to scaling your freelance business in India.
+          </p>
+
         </article>
 
-    </div>
+    
+      <SchemaScript schema={generateBreadcrumbSchema([{name: "Home", url: "https://karotools.in"}, {name: "how to price freelance services", url: "https://karotools.in/guides/how-to-price-freelance-services"}])} />
+      <SchemaScript schema={generateArticleSchema({title: "KaroTools Guide", description: "Guide", url: "https://karotools.in/guides/how-to-price-freelance-services", datePublished: "2026-01-01"})} />
+</div>
   );
 }

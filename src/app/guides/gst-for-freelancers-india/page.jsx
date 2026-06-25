@@ -1,4 +1,5 @@
-export const metadata = { title: "Complete GST Guide For Indian Freelancers — KaroTools", description: "A comprehensive guide to GST for Indian freelancers. Learn about registration limits, composition schemes, invoicing, and return filing." };
+import { SchemaScript, generateBreadcrumbSchema, generateArticleSchema } from "../../../lib/schema";
+export const metadata = { title: "Complete GST Guide For Indian Freelancers — KaroTools", description: "A comprehensive guide to GST for Indian freelancers. Learn about registration limits, composition schemes, invoicing, and return filing.", alternates: { canonical: "https://karotools.in/guides/gst-for-freelancers-india" }  };
 import Link from "next/link";
 
 export default function Guide1() {
@@ -126,8 +127,28 @@ export default function Guide1() {
               </Link>
             </div>
           </div>
+        
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>Do Freelancers Really Need GST Registration?</h2>
+          <p>
+            One of the most common questions freelancers ask is whether GST registration is absolutely mandatory. 
+            The short answer is: it depends on your client base and your total turnover. If you only serve clients within your own state (intra-state) and your turnover is strictly under ₹20 Lakhs, you do not need GST. However, the moment you provide services to a client outside your state (inter-state) or a foreign client (export of services), GST registration becomes legally mandatory, regardless of how small your income is.
+          </p>
+          <p>
+            Many freelancers voluntarily register for GST even if their turnover is low, because it allows them to claim Input Tax Credit (ITC) on business expenses like laptops, software subscriptions, and internet bills. Furthermore, corporate clients often prefer working with GST-registered freelancers, as it makes their accounting smoother.
+          </p>
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>How to File GST Returns as a Freelancer?</h2>
+          <p>
+            If you are registered under the regular GST scheme, you will typically need to file GSTR-1 and GSTR-3B. 
+            GSTR-1 is where you declare your outbound supplies (the invoices you raised). GSTR-3B is where you declare the actual tax you have collected and the Input Tax Credit you are claiming, and where you pay the net tax liability.
+            If you have opted for the QRMP (Quarterly Return Monthly Payment) scheme, your compliance burden is reduced, allowing you to file returns quarterly rather than monthly, though tax payments are still monthly. 
+            Always ensure your invoices contain your correct GSTIN, the client's GSTIN (if B2B), and the correct HSN/SAC code to avoid compliance penalties.
+          </p>
+
         </article>
 
-    </div>
+    
+      <SchemaScript schema={generateBreadcrumbSchema([{name: "Home", url: "https://karotools.in"}, {name: "gst for freelancers india", url: "https://karotools.in/guides/gst-for-freelancers-india"}])} />
+      <SchemaScript schema={generateArticleSchema({title: "KaroTools Guide", description: "Guide", url: "https://karotools.in/guides/gst-for-freelancers-india", datePublished: "2026-01-01"})} />
+</div>
   );
 }

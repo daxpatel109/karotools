@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { SchemaScript, generateBreadcrumbSchema } from "../../../lib/schema";
 import Link from "next/link";
 import styles from "./blog.module.css";
 
@@ -103,6 +104,7 @@ export default function BlogPost() {
 
   return (
     <div style={{ backgroundColor: "var(--bg-primary)", minHeight: "100vh", color: "var(--text-primary)", fontFamily: "'Inter', sans-serif" }}>
+      <SchemaScript schema={generateBreadcrumbSchema([{ name: "Home", url: "https://karotools.in" }, { name: "Guides", url: "https://karotools.in/guides" }, { name: "Make GST Invoice Online", url: "https://karotools.in/guides/how-to-make-gst-invoice-online-free" }])} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema).replace(/</g, "\\u003c") }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c") }} />
 

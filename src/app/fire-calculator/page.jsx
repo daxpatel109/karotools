@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { SchemaScript, generateSoftwareSchema, generateBreadcrumbSchema } from "../../lib/schema";
 
 export const metadata = {
-  title: 'India FIRE Calculator 2026 – Early Retirement Tool for Freelancers',
-  description: 'Calculate your FIRE number in India using expenses, SIP, ROI, inflation and 3.5% withdrawal rate. Compare Lean, Regular and Fat FIRE targets.',
+  title: 'India FIRE Calculator 2026 – Early Retirement Tool',
+  description: 'Calculate your FIRE number in India using monthly expenses, ROI, and inflation. Compare Lean, Regular and Fat FIRE targets.',
   alternates: {
     canonical: 'https://karotools.in/fire-calculator',
   },

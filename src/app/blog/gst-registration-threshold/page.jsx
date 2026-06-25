@@ -1,4 +1,5 @@
 "use client";
+import { SchemaScript, generateBreadcrumbSchema, generateArticleSchema } from "../../../lib/schema";
 import React, { useState } from "react";
 import Link from "next/link";
 import styles from "./blog.module.css";
@@ -356,6 +357,8 @@ export default function BlogPost() {
         </article>
 
       </main>
-    </div>
+    
+      <SchemaScript schema={generateBreadcrumbSchema([{name: "Home", url: "https://karotools.in"}, {name: "gst registration threshold", url: "https://karotools.in/blog/gst-registration-threshold"}])} />
+</div>
   );
 }

@@ -1,4 +1,5 @@
 import Home from "../Home";
+import { SchemaScript, generateOrganizationSchema } from "../lib/schema";
 
 export const metadata = {
   title: "Free Tax, GST & Business Tools for Freelancers – KaroTools",
@@ -17,5 +18,10 @@ export const metadata = {
 };
 
 export default function Page() {
-  return <Home />;
+  return (
+    <>
+      <Home />
+      <SchemaScript schema={generateOrganizationSchema()} />
+    </>
+  );
 }

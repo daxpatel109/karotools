@@ -2,7 +2,7 @@ import { SchemaScript, generateSoftwareSchema, generateBreadcrumbSchema } from "
 import Link from "next/link";
 import SalaryVsFreelanceCalculator from "../../SalaryVsFreelanceCalculator";
 
-export const metadata = { title: "Free Salary vs Freelance Rate Calculator – KaroTools", description: "Compare your current salary to freelance rates. Calculate the exact hourly, daily, and monthly rate you need to charge as a freelancer in India to maintain your lifestyle." };
+export const metadata = { title: "Free Salary vs Freelance Rate Calculator – KaroTools", description: "Compare salary to freelance rates. Calculate the exact hourly, daily, and monthly rate needed as an Indian freelancer to maintain your lifestyle.", alternates: { canonical: "https://karotools.in/salary-vs-freelance" }  };
 
 export default function Page() {
   return (

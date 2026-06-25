@@ -2,7 +2,7 @@ import { SchemaScript, generateSoftwareSchema, generateBreadcrumbSchema } from "
 import Link from "next/link";
 import SIPCalculator from "../../SIPCalculator";
 
-export const metadata = { title: "Instant Free SIP Calculator For India – KaroTools", description: "Calculate your Mutual Fund and SIP returns in India. Free compounding calculator showing invested amount vs expected returns over time." };
+export const metadata = { title: "Instant Free SIP Calculator For India – KaroTools", description: "Calculate your Mutual Fund and SIP returns in India. Free compounding calculator showing invested amount vs expected returns over time.", alternates: { canonical: "https://karotools.in/sip-calculator" }  };
 
 export default function Page() {
   return (

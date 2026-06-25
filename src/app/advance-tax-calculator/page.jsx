@@ -2,7 +2,7 @@ import AdvanceTaxCalculator from "../../AdvanceTaxCalculator";
 import { SchemaScript, generateSoftwareSchema, generateBreadcrumbSchema } from "../../lib/schema";
 import Link from "next/link";
 
-export const metadata = { title: "Free Advance Tax Calculator FY 2026-27 – KaroTools", description: "Calculate your Advance Tax installments and due dates for FY 2026-27. Free calculator for Indian freelancers, businesses, and professionals." };
+export const metadata = { title: "Free Advance Tax Calculator FY 2026-27 – KaroTools", description: "Calculate your Advance Tax installments and due dates for FY 2026-27. Free calculator for Indian freelancers, businesses, and professionals.", alternates: { canonical: "https://karotools.in/advance-tax-calculator" }  };
 
 export default function Page() {
   return (

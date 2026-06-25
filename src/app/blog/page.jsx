@@ -54,8 +54,8 @@ export default function BlogIndex() {
       <main style={{ maxWidth: "1000px", margin: "0 auto", padding: "64px 24px 100px", position: "relative", zIndex: 1 }}>
         <header style={{ textAlign: "center", marginBottom: "64px" }}>
           <h1 style={{ fontSize: "clamp(40px, 6vw, 56px)", fontWeight: "800", marginBottom: "16px", fontFamily: "'Plus Jakarta Sans',sans-serif", letterSpacing: "-0.02em" }}>KaroTools Blog</h1>
-          <p style={{ fontSize: "18px", color: "var(--text-secondary)", maxWidth: "600px", margin: "0 auto", lineHeight: "1.6" }}>
-            GST, tax, invoicing, freelancer and small business guides for India.
+          <p style={{ fontSize: "18px", color: "var(--text-secondary)", maxWidth: "800px", margin: "0 auto", lineHeight: "1.6" }}>
+            GST, tax, invoicing, and compliance guides tailored for Indian freelancers, agencies, and small businesses. We break down complex Indian tax rules into simple, actionable steps so you can focus on growing your business. Explore our articles on advance tax, 44ADA presumptive taxation, GST limits, return due dates, and hourly rate calculations to stay compliant and profitable in 2026.
           </p>
           <div style={{ marginTop: "32px", display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/gst-calculator" style={{ background: "rgba(0,118,255,0.1)", border: "1px solid rgba(0,118,255,0.3)", color: "#38bdf8", padding: "10px 20px", borderRadius: "12px", textDecoration: "none", fontWeight: "600" }}>GST Calculator</Link>

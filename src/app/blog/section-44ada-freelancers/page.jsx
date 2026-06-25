@@ -1,4 +1,5 @@
 "use client";
+import { SchemaScript, generateBreadcrumbSchema, generateArticleSchema } from "../../../lib/schema";
 import React, { useState } from "react";
 import Link from "next/link";
 import styles from "./blog.module.css";
@@ -7,7 +8,7 @@ const articleSchema = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "headline": "Section 44ADA for Freelancers India: Tax Saving Guide FY 2026-27",
-  "description": "A practical guide to Section 44ADA presumptive taxation for Indian freelancers covering eligibility, the 50% rule, ₹50 lakh and ₹75 lakh limits, advance tax, ITR-4 filing, GST and examples.",
+  "description": "Guide to Section 44ADA presumptive taxation for Indian freelancers. Learn about eligibility, the 50% rule, ₹75 lakh limit, and ITR-4.",
   "image": "https://karotools.in/og/section-44ada-freelancers.png",
   "author": { "@type": "Person", "name": "Dax Patel" },
   "publisher": {
@@ -444,6 +445,8 @@ export default function BlogPost() {
         </article>
 
       </main>
-    </div>
+    
+      <SchemaScript schema={generateBreadcrumbSchema([{name: "Home", url: "https://karotools.in"}, {name: "section 44ada freelancers", url: "https://karotools.in/blog/section-44ada-freelancers"}])} />
+</div>
   );
 }

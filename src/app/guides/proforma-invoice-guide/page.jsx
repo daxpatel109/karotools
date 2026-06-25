@@ -40,10 +40,10 @@ export default function BlogPost() {
               Proforma Invoice vs Tax Invoice: What Freelancers Need to Know
             </h1>
 
-            <div style={{ display: "flex", gap: "16px", fontSize: "14px", color: "var(--text-secondary)", alignItems: "center", marginBottom: "24px" }}>
-              <span>?? June 15, 2026</span>
-              <span>?? By <Link href="/author/dax-patel" style={{ color: "#38bdf8", textDecoration: "none" }}>Dax Patel</Link></span>
-            </div>
+        <div style={{ display: "flex", gap: "16px", fontSize: "14px", color: "var(--text-secondary)", alignItems: "center", marginBottom: "24px" }}>
+          <span>June 15, 2026</span>
+          <span>By <Link href="/author/dax-patel" style={{ color: "#38bdf8", textDecoration: "none" }}>Dax Patel</Link></span>
+        </div>
           </header>
 
           <div style={{ fontSize: "16px", color: "var(--text-primary)", lineHeight: "1.8" }}>

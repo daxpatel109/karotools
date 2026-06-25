@@ -36,10 +36,10 @@ export default function BlogPost() {
               HSN vs SAC Codes for Indian Freelancers: The 2026 Guide
             </h1>
 
-            <div style={{ display: "flex", gap: "16px", fontSize: "14px", color: "var(--text-secondary)", alignItems: "center", marginBottom: "24px" }}>
-              <span>?? June 15, 2026</span>
-              <span>?? By <Link href="/author/dax-patel" style={{ color: "#38bdf8", textDecoration: "none" }}>Dax Patel</Link></span>
-            </div>
+        <div style={{ display: "flex", gap: "16px", fontSize: "14px", color: "var(--text-secondary)", alignItems: "center", marginBottom: "24px" }}>
+          <span>June 15, 2026</span>
+          <span>By <Link href="/author/dax-patel" style={{ color: "#38bdf8", textDecoration: "none" }}>Dax Patel</Link></span>
+        </div>
             <p style={{ fontSize: "18px", color: "var(--text-secondary)", lineHeight: "1.6", margin: 0 }}>
               If you have crossed the GST registration threshold or are voluntarily registering for GST, you have likely encountered a confusing field on your invoice template: HSN/SAC Code. What does it mean?
             </p>

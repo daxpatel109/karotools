@@ -161,6 +161,25 @@ export default function Guide2() {
             For example, if your copywriting landing page increases a client's sales by ₹5 Lakhs per month, charging ₹50,000 for the project is highly justifiable, even if it only took you 10 hours to write. 
             This approach decouples your time from your earning potential and is the key to scaling your freelance business in India.
           </p>
+
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>Practical Pricing Formulas</h2>
+          <p>
+            Here are three simple formulas you can use today to structure your quotes:
+          </p>
+          <ul style={{ paddingLeft: "24px", color: "var(--text-secondary)", marginBottom: "16px" }}>
+            <li style={{ marginBottom: "12px" }}><strong>The Hybrid Formula:</strong> (Estimated Hours × Hourly Rate) + 20% Contingency Buffer. Always add a buffer because projects almost always take longer than you expect.</li>
+            <li style={{ marginBottom: "12px" }}><strong>The Three-Tier Pricing Model:</strong> When sending a proposal, never send just one price. Give them three options: <em>Basic</em> (The minimum they asked for), <em>Standard</em> (What you actually recommend, priced 20-30% higher), and <em>Premium</em> (A comprehensive package priced 2x higher). You will be surprised how often clients choose the Premium option.</li>
+            <li style={{ marginBottom: "12px" }}><strong>The 10% Value Rule:</strong> If you are using Value-Based Pricing, aim to charge roughly 10% to 15% of the total financial upside you bring to the client in the first year.</li>
+          </ul>
+
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>Negotiation Tips for Indian Freelancers</h2>
+          <p>
+            Many Indian clients will try to negotiate your rate down. Instead of lowering your price, lower the scope of the project. If a client says your ₹40,000 quote for a website is too high and they only have ₹25,000, do not say "Okay, I will do the whole thing for ₹25,000." This destroys your credibility. 
+          </p>
+          <p>
+            Instead, reply: <em>"I completely understand your budget constraints. For ₹25,000, we can drop the custom blog design and the SEO setup, and just focus on a highly converting 3-page core website. Will that work for you?"</em> 
+            This proves your rate is fixed and fair, and forces the client to prioritize what they actually need.
+          </p>
         </div>
       
         <div style={{ marginTop: "48px", padding: "32px", borderRadius: "16px", border: "1px solid var(--glass-border)", background: "var(--glass-bg)" }}>

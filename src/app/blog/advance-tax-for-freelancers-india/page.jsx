@@ -116,7 +116,8 @@ export default function BlogPost() {
             </div>
           </header>
 
-          <p>You landed a good project, invoiced your client, and moved on. But quietly, the Income Tax Department is keeping score. If your total tax liability for FY 2026-27 exceeds ₹10,000 — which it almost certainly does if you're a full-time freelancer — you are legally required to pay your taxes in installments throughout the year. This is called <strong>Advance Tax</strong>.</p>
+          <p>Advance tax is income tax paid in installments throughout the year instead of as a lump sum. Any Indian freelancer whose estimated tax liability for FY 2026-27 exceeds ₹10,000 must legally pay advance tax.</p>
+          <p>You landed a good project, invoiced your client, and moved on. But quietly, the Income Tax Department is keeping score. If you fail to pay on time, you face interest penalties under Sections 234B and 234C.</p>
 
           <p>Most Indian freelancers discover this rule the hard way: when they file their ITR in July and find a surprise interest penalty waiting for them. This guide explains everything — the deadlines, the calculation method, the Section 44ADA shortcut, and exactly how to pay — so you never pay a rupee more than you owe.</p>
 

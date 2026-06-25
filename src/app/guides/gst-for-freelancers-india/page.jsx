@@ -180,6 +180,37 @@ export default function Guide1() {
             Always ensure your invoices contain your correct GSTIN, the client's GSTIN (if B2B), and the correct HSN/SAC code to avoid compliance penalties.
           </p>
 
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>Practical Example for Service-Based Freelancers</h2>
+          <p>
+            Let's look at a concrete example. Suppose you are a freelance graphic designer based in Maharashtra. 
+            You design a brand identity for a client located in Delhi and charge ₹50,000 for your services. 
+            Because this is an inter-state transaction (from Maharashtra to Delhi), you are legally required to be registered for GST (since inter-state service supply necessitates registration, though some recent notifications provide exemptions up to ₹20 Lakhs, many corporate clients mandate it anyway).
+          </p>
+          <p>
+            On your invoice, you will apply the standard 18% GST rate for professional services. 
+            Your invoice breakdown will look like this:
+          </p>
+          <ul style={{ paddingLeft: "24px", color: "var(--text-secondary)", marginBottom: "16px" }}>
+            <li style={{ marginBottom: "8px" }}>Base Service Fee: ₹50,000</li>
+            <li style={{ marginBottom: "8px" }}>IGST (18%): ₹9,000</li>
+            <li style={{ marginBottom: "8px" }}><strong>Total Invoice Value: ₹59,000</strong></li>
+          </ul>
+          <p>
+            When the client pays you ₹59,000, you keep your ₹50,000 revenue. The ₹9,000 is collected on behalf of the government and must be deposited when you file your GSTR-3B return. If you purchased a new laptop for ₹1,00,000 (which included ₹18,000 in GST) to do this work, you can claim that ₹18,000 as Input Tax Credit (ITC). This means your ₹9,000 liability is completely offset by your ITC, and you pay ₹0 in cash for that month, while carrying forward the remaining ₹9,000 ITC to future months.
+          </p>
+
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>The Freelancer's GST Checklist</h2>
+          <p>
+            To stay compliant and stress-free, follow this simple checklist for managing your freelance business finances:
+          </p>
+          <ul style={{ paddingLeft: "24px", color: "var(--text-secondary)" }}>
+            <li style={{ marginBottom: "12px" }}><strong>When GST Matters:</strong> Monitor your aggregate annual turnover closely. Register immediately if you cross ₹20 Lakhs (or ₹10 Lakhs in special states) or if you start working with B2B clients in other states who demand a GST invoice.</li>
+            <li style={{ marginBottom: "12px" }}><strong>Invoicing:</strong> Never use a standard "Bill of Supply" if you are registered and charging GST. You must issue a formal "Tax Invoice" containing both your GSTIN and your client's GSTIN.</li>
+            <li style={{ marginBottom: "12px" }}><strong>Records Maintenance:</strong> Keep strict digital copies of every invoice you issue and every expense receipt on which you plan to claim Input Tax Credit (ITC). The government requires you to maintain these records for up to 72 months.</li>
+            <li style={{ marginBottom: "12px" }}><strong>Payment Tracking:</strong> Keep GST collections in a separate bank account or clearly marked in your ledger. Do not treat GST collected as your income. It belongs to the government and must be paid by the 20th of the following month.</li>
+            <li style={{ marginBottom: "12px" }}><strong>Exporting Services:</strong> If you work with international clients via Upwork or direct wire transfers, file your Letter of Undertaking (LUT) at the start of every financial year (April 1st) so you can legally export without charging 18% IGST.</li>
+          </ul>
+
         </article>
 
     

@@ -110,7 +110,8 @@ export default function BlogPost() {
             </div>
           </header>
 
-          <p>One of the most searched questions among Indian freelancers right now is: <strong>"What is the GST registration limit for freelancers in India, and do I have to charge my clients 18%?"</strong> The answer is not a simple yes or no — it depends on your annual turnover, your state, and where your clients are located. This guide covers everything for <strong>FY 2026-27</strong>, with clear visuals and examples you can actually use.</p>
+          <p>The GST registration limit for freelancers in India is ₹20 lakhs in aggregate annual turnover (₹10 lakhs in special category states). Once your total revenue crosses this limit, registration becomes mandatory.</p>
+          <p>One of the most searched questions among freelancers is whether they have to charge 18%. The answer depends on your exact turnover, state, and client location. This guide covers the <strong>FY 2026-27</strong> rules with clear examples.</p>
 
           <h2>1. What Is the GST Registration Limit for Freelancers in India?</h2>
 

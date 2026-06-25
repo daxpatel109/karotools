@@ -165,6 +165,37 @@ export default function Guide3() {
             This not only reduces your tax burden but drastically simplifies your compliance.
           </p>
 
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>Who should choose 44ADA vs Normal Taxation?</h2>
+          <p>
+            While 44ADA is generally the most popular route, there are distinct profiles of freelancers who benefit from each scheme.
+          </p>
+          <ul style={{ paddingLeft: "24px", color: "var(--text-secondary)", marginBottom: "16px" }}>
+            <li style={{ marginBottom: "12px" }}><strong>Freelancers who should prefer 44ADA:</strong> Software developers, UI/UX designers, copywriters, and remote consultants working from home. Your overhead costs are likely just a laptop and internet connection, making your real expenses far lower than 50%. The presumptive scheme offers you a huge tax shield.</li>
+            <li style={{ marginBottom: "12px" }}><strong>Freelancers who might prefer Normal Taxation:</strong> Video producers, hardware consultants, or agencies that outsource heavy amounts of work. If you are paying 60% of your revenue to subcontractors, buying expensive camera gear, or renting a physical studio, your real expenses exceed 50%. You should maintain books and claim your actual expenses to minimize your tax liability.</li>
+          </ul>
+
+          <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>A Simple Calculation Scenario</h2>
+          <p>
+            Consider a freelance developer earning ₹20,000,000 in a year (₹20 Lakhs). Their only real expenses are ₹1,00,000 for a laptop and internet.
+          </p>
+          <p>
+            <strong>Scenario A (Normal Taxation):</strong><br />
+            Gross Revenue: ₹20,00,000<br />
+            Actual Expenses: ₹1,00,000<br />
+            Taxable Profit: ₹19,00,000<br />
+            <em>Result: Tax is calculated on ₹19 Lakhs, leading to a massive tax bill.</em>
+          </p>
+          <p>
+            <strong>Scenario B (Section 44ADA):</strong><br />
+            Gross Revenue: ₹20,00,000<br />
+            Presumed Expenses (50%): ₹10,00,000<br />
+            Taxable Profit: ₹10,00,000<br />
+            <em>Result: Tax is calculated on only ₹10 Lakhs. The developer legally saves a substantial amount of tax without maintaining heavy documentation.</em>
+          </p>
+          <p>
+            <em>Disclaimer: Taxation laws are subject to change. The scenarios above are strictly for illustrative purposes. Always consult a certified Chartered Accountant (CA) for personalized advice regarding your specific business structure before filing your final return.</em>
+          </p>
+
         </article>
 
     

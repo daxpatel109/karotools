@@ -135,7 +135,8 @@ export default function BlogPost() {
             </div>
           </div>
 
-          <p>Late payments kill more freelance careers than bad clients ever will. You finish the project, send the invoice, and then enter a purgatory of "following up on my previous email" messages for months. For Indian freelancers, this isn't just frustrating — it's a financial crisis that compounds over time.</p>
+          <p>The MSME 45-day payment rule (Section 43B(h)) mandates that companies must pay Udyam-registered micro and small enterprises within 45 days. If delayed, companies cannot claim tax deductions for those expenses and must pay compound interest.</p>
+          <p>Late payments kill more freelance careers than bad clients ever will. This rule is a financial lifeline for Indian freelancers, giving you legal leverage to ensure you get paid on time without constantly following up on emails.</p>
           <p>The good news: the Government of India handed freelancers one of the most powerful payment enforcement tools in the world with the <strong>MSME 45-day payment rule under Section 43B(h)</strong>. If you are Udyam-registered and know how to use this law, you can legally force clients to pay on time — or make their accountant's life a nightmare at tax time.</p>
           <p>This guide covers everything: what the law actually says, exactly who it applies to, how to register for Udyam in under 15 minutes, how to calculate the penalty your client owes, the exact contract clause to include, and how to enforce it without burning the relationship.</p>
 

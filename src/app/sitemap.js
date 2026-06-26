@@ -18,6 +18,7 @@ export default function sitemap() {
     { path: "/salary-vs-freelance", priority: 0.8, freq: "monthly" },
     { path: "/fire-calculator", priority: 0.8, freq: "monthly" },
     { path: "/sip-calculator", priority: 0.8, freq: "monthly" },
+    { path: "/upwork-fiverr-fee-calculator-india", priority: 0.9, freq: "monthly" },
     { path: "/about", priority: 0.6, freq: "monthly" },
     { path: "/contact", priority: 0.5, freq: "yearly" },
     { path: "/privacy-policy", priority: 0.5, freq: "yearly" },

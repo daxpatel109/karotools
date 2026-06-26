@@ -108,16 +108,16 @@ export default function ClientCalculator() {
   return (
     <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "40px 24px", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "32px", fontFamily: "var(--font-inter, sans-serif)" }}>
       {/* Input Section */}
-      <div style={{ background: "var(--bg-secondary, #1e293b)", padding: "32px", borderRadius: "16px", border: "1px solid var(--border-color, #334155)" }}>
-        <h2 style={{ fontSize: "20px", fontWeight: "700", color: "var(--text-primary, #fff)", marginBottom: "24px" }}>Project & Fee Assumptions</h2>
+      <div style={{ background: "var(--bg-secondary)", padding: "32px", borderRadius: "16px", border: "1px solid var(--border-color)" }}>
+        <h2 style={{ fontSize: "20px", fontWeight: "700", color: "var(--text-primary)", marginBottom: "24px" }}>Project & Fee Assumptions</h2>
         
         {/* Basic Inputs */}
         <div style={{ display: "grid", gap: "20px" }}>
           <div>
-            <label style={{ display: "block", fontSize: "14px", color: "var(--text-secondary, #94a3b8)", marginBottom: "8px" }}>Project Amount</label>
+            <label style={{ display: "block", fontSize: "14px", color: "var(--text-secondary)", marginBottom: "8px" }}>Project Amount</label>
             <div style={{ display: "flex", gap: "12px" }}>
-              <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} style={{ flex: 1, background: "var(--bg-primary, #0f172a)", border: "1px solid var(--border-color, #334155)", color: "#fff", padding: "12px 16px", borderRadius: "8px", fontSize: "16px" }} />
-              <select value={currency} onChange={(e) => handleCurrencyChange(e.target.value)} style={{ width: "100px", background: "var(--bg-primary, #0f172a)", border: "1px solid var(--border-color, #334155)", color: "#fff", padding: "12px 16px", borderRadius: "8px", fontSize: "16px" }}>
+              <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} style={{ flex: 1, background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "16px" }} />
+              <select value={currency} onChange={(e) => handleCurrencyChange(e.target.value)} style={{ width: "100px", background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "16px" }}>
                 <option value="USD">USD</option>
                 <option value="EUR">EUR</option>
                 <option value="GBP">GBP</option>
@@ -127,13 +127,13 @@ export default function ClientCalculator() {
           </div>
 
           <div>
-            <label style={{ display: "block", fontSize: "14px", color: "var(--text-secondary, #94a3b8)", marginBottom: "8px" }}>Exchange Rate to INR (Editable assumption)</label>
-            <input type="number" step="0.01" value={exchangeRate} onChange={(e) => setExchangeRate(e.target.value)} style={{ width: "100%", background: "var(--bg-primary, #0f172a)", border: "1px solid var(--border-color, #334155)", color: "#fff", padding: "12px 16px", borderRadius: "8px", fontSize: "16px" }} />
+            <label style={{ display: "block", fontSize: "14px", color: "var(--text-secondary)", marginBottom: "8px" }}>Exchange Rate to INR (Editable assumption)</label>
+            <input type="number" step="0.01" value={exchangeRate} onChange={(e) => setExchangeRate(e.target.value)} style={{ width: "100%", background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "16px" }} />
           </div>
 
           <div>
-            <label style={{ display: "block", fontSize: "14px", color: "var(--text-secondary, #94a3b8)", marginBottom: "8px" }}>Platform</label>
-            <select value={platform} onChange={(e) => handlePlatformChange(e.target.value)} style={{ width: "100%", background: "var(--bg-primary, #0f172a)", border: "1px solid var(--border-color, #334155)", color: "#fff", padding: "12px 16px", borderRadius: "8px", fontSize: "16px" }}>
+            <label style={{ display: "block", fontSize: "14px", color: "var(--text-secondary)", marginBottom: "8px" }}>Platform</label>
+            <select value={platform} onChange={(e) => handlePlatformChange(e.target.value)} style={{ width: "100%", background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "16px" }}>
               <option value="Upwork">Upwork</option>
               <option value="Fiverr">Fiverr</option>
               <option value="Freelancer.com">Freelancer.com</option>
@@ -142,39 +142,39 @@ export default function ClientCalculator() {
           </div>
 
           <div>
-            <label style={{ display: "block", fontSize: "14px", color: "var(--text-secondary, #94a3b8)", marginBottom: "8px" }}>Platform Fee % (Editable assumption)</label>
-            <input type="number" step="0.1" value={platformFeePercent} onChange={(e) => setPlatformFeePercent(e.target.value)} style={{ width: "100%", background: "var(--bg-primary, #0f172a)", border: "1px solid var(--border-color, #334155)", color: "#fff", padding: "12px 16px", borderRadius: "8px", fontSize: "16px" }} />
+            <label style={{ display: "block", fontSize: "14px", color: "var(--text-secondary)", marginBottom: "8px" }}>Platform Fee % (Editable assumption)</label>
+            <input type="number" step="0.1" value={platformFeePercent} onChange={(e) => setPlatformFeePercent(e.target.value)} style={{ width: "100%", background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "16px" }} />
           </div>
 
-          <div style={{ padding: "16px", background: "var(--bg-primary, #0f172a)", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.05)" }}>
+          <div style={{ padding: "16px", background: "var(--bg-primary)", borderRadius: "12px", border: "1px solid var(--border-color)" }}>
             <label style={{ display: "flex", alignItems: "center", justifyContent: "space-between", cursor: "pointer", marginBottom: !gstinProvided ? "16px" : "0" }}>
-              <span style={{ fontSize: "15px", color: "#fff" }}>GSTIN Provided to Platform?</span>
+              <span style={{ fontSize: "15px", color: "var(--text-primary)" }}>GSTIN Provided to Platform?</span>
               <input type="checkbox" checked={gstinProvided} onChange={(e) => setGstinProvided(e.target.checked)} style={{ width: "20px", height: "20px" }} />
             </label>
             {!gstinProvided && (
               <div>
-                <label style={{ display: "block", fontSize: "13px", color: "var(--text-secondary, #94a3b8)", marginBottom: "8px" }}>GST estimate on platform fees % (Assumption)</label>
-                <input type="number" step="0.1" value={gstPercent} onChange={(e) => setGstPercent(e.target.value)} style={{ width: "100%", background: "var(--bg-secondary, #1e293b)", border: "1px solid var(--border-color, #334155)", color: "#fff", padding: "10px 14px", borderRadius: "8px", fontSize: "15px" }} />
+                <label style={{ display: "block", fontSize: "13px", color: "var(--text-secondary)", marginBottom: "8px" }}>GST estimate on platform fees % (Assumption)</label>
+                <input type="number" step="0.1" value={gstPercent} onChange={(e) => setGstPercent(e.target.value)} style={{ width: "100%", background: "var(--bg-secondary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "10px 14px", borderRadius: "8px", fontSize: "15px" }} />
               </div>
             )}
           </div>
 
-          <div style={{ padding: "16px", background: "var(--bg-primary, #0f172a)", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.05)" }}>
+          <div style={{ padding: "16px", background: "var(--bg-primary)", borderRadius: "12px", border: "1px solid var(--border-color)" }}>
             <label style={{ display: "flex", alignItems: "center", justifyContent: "space-between", cursor: "pointer", marginBottom: withholdingEnabled ? "16px" : "0" }}>
-              <span style={{ fontSize: "15px", color: "#fff" }}>Indian Withholding / TDS Deducted?</span>
+              <span style={{ fontSize: "15px", color: "var(--text-primary)" }}>Indian Withholding / TDS Deducted?</span>
               <input type="checkbox" checked={withholdingEnabled} onChange={(e) => setWithholdingEnabled(e.target.checked)} style={{ width: "20px", height: "20px" }} />
             </label>
             {withholdingEnabled && (
               <div>
-                <label style={{ display: "block", fontSize: "13px", color: "var(--text-secondary, #94a3b8)", marginBottom: "8px" }}>Indian withholding % (Editable assumption)</label>
-                <input type="number" step="0.01" value={withholdingPercent} onChange={(e) => setWithholdingPercent(e.target.value)} style={{ width: "100%", background: "var(--bg-secondary, #1e293b)", border: "1px solid var(--border-color, #334155)", color: "#fff", padding: "10px 14px", borderRadius: "8px", fontSize: "15px" }} />
+                <label style={{ display: "block", fontSize: "13px", color: "var(--text-secondary)", marginBottom: "8px" }}>Indian withholding % (Editable assumption)</label>
+                <input type="number" step="0.01" value={withholdingPercent} onChange={(e) => setWithholdingPercent(e.target.value)} style={{ width: "100%", background: "var(--bg-secondary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "10px 14px", borderRadius: "8px", fontSize: "15px" }} />
               </div>
             )}
           </div>
 
           <div>
-            <label style={{ display: "block", fontSize: "14px", color: "var(--text-secondary, #94a3b8)", marginBottom: "8px" }}>Payout Method</label>
-            <select value={payoutMethod} onChange={(e) => handlePayoutMethodChange(e.target.value)} style={{ width: "100%", background: "var(--bg-primary, #0f172a)", border: "1px solid var(--border-color, #334155)", color: "#fff", padding: "12px 16px", borderRadius: "8px", fontSize: "16px" }}>
+            <label style={{ display: "block", fontSize: "14px", color: "var(--text-secondary)", marginBottom: "8px" }}>Payout Method</label>
+            <select value={payoutMethod} onChange={(e) => handlePayoutMethodChange(e.target.value)} style={{ width: "100%", background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "16px" }}>
               <option value="Wise">Wise</option>
               <option value="Payoneer">Payoneer</option>
               <option value="Direct Bank">Direct Bank (e.g. Upwork to Local)</option>
@@ -185,18 +185,18 @@ export default function ClientCalculator() {
 
           <div style={{ display: "flex", gap: "12px" }}>
              <div style={{ flex: 1 }}>
-              <label style={{ display: "block", fontSize: "13px", color: "var(--text-secondary, #94a3b8)", marginBottom: "8px" }}>FX Markup Loss %</label>
-              <input type="number" step="0.1" value={fxMarkupPercent} onChange={(e) => setFxMarkupPercent(e.target.value)} style={{ width: "100%", background: "var(--bg-primary, #0f172a)", border: "1px solid var(--border-color, #334155)", color: "#fff", padding: "12px 16px", borderRadius: "8px", fontSize: "15px" }} />
+              <label style={{ display: "block", fontSize: "13px", color: "var(--text-secondary)", marginBottom: "8px" }}>FX Markup Loss %</label>
+              <input type="number" step="0.1" value={fxMarkupPercent} onChange={(e) => setFxMarkupPercent(e.target.value)} style={{ width: "100%", background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "15px" }} />
             </div>
             <div style={{ flex: 1 }}>
-              <label style={{ display: "block", fontSize: "13px", color: "var(--text-secondary, #94a3b8)", marginBottom: "8px" }}>Fixed Withdrawal Fee ({currency})</label>
-              <input type="number" step="0.01" value={withdrawalFee} onChange={(e) => setWithdrawalFee(e.target.value)} style={{ width: "100%", background: "var(--bg-primary, #0f172a)", border: "1px solid var(--border-color, #334155)", color: "#fff", padding: "12px 16px", borderRadius: "8px", fontSize: "15px" }} />
+              <label style={{ display: "block", fontSize: "13px", color: "var(--text-secondary)", marginBottom: "8px" }}>Fixed Withdrawal Fee ({currency})</label>
+              <input type="number" step="0.01" value={withdrawalFee} onChange={(e) => setWithdrawalFee(e.target.value)} style={{ width: "100%", background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "15px" }} />
             </div>
           </div>
           
           <div>
-            <label style={{ display: "block", fontSize: "13px", color: "var(--text-secondary, #94a3b8)", marginBottom: "8px" }}>Indian Bank Receiving Fee (INR)</label>
-            <input type="number" step="1" value={bankReceivingFee} onChange={(e) => setBankReceivingFee(e.target.value)} style={{ width: "100%", background: "var(--bg-primary, #0f172a)", border: "1px solid var(--border-color, #334155)", color: "#fff", padding: "12px 16px", borderRadius: "8px", fontSize: "15px" }} />
+            <label style={{ display: "block", fontSize: "13px", color: "var(--text-secondary)", marginBottom: "8px" }}>Indian Bank Receiving Fee (INR)</label>
+            <input type="number" step="1" value={bankReceivingFee} onChange={(e) => setBankReceivingFee(e.target.value)} style={{ width: "100%", background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "15px" }} />
           </div>
 
         </div>
@@ -221,20 +221,20 @@ export default function ClientCalculator() {
         </div>
 
         {/* Deductions Breakdown */}
-        <div style={{ background: "var(--bg-secondary, #1e293b)", padding: "32px", borderRadius: "16px", border: "1px solid var(--border-color, #334155)" }}>
-          <h2 style={{ fontSize: "18px", fontWeight: "700", color: "var(--text-primary, #fff)", marginBottom: "20px" }}>Deductions Breakdown</h2>
+        <div style={{ background: "var(--bg-secondary)", padding: "32px", borderRadius: "16px", border: "1px solid var(--border-color)" }}>
+          <h2 style={{ fontSize: "18px", fontWeight: "700", color: "var(--text-primary)", marginBottom: "20px" }}>Deductions Breakdown</h2>
           
           <div style={{ display: "grid", gap: "16px" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", borderBottom: "1px solid rgba(255,255,255,0.05)", paddingBottom: "12px" }}>
-              <span style={{ color: "var(--text-secondary, #94a3b8)", fontSize: "15px" }}>Platform Fee Estimate</span>
+            <div style={{ display: "flex", justifyContent: "space-between", borderBottom: "1px solid var(--border-color)", paddingBottom: "12px" }}>
+              <span style={{ color: "var(--text-secondary)", fontSize: "15px" }}>Platform Fee Estimate</span>
               <div style={{ textAlign: "right" }}>
                 <div style={{ color: "#ef4444", fontWeight: "600" }}>-₹{Math.round(platformFeeINR).toLocaleString("en-IN")}</div>
-                <div style={{ fontSize: "12px", color: "var(--text-secondary, #94a3b8)" }}>({platformFeeForeign.toFixed(2)} {currency})</div>
+                <div style={{ fontSize: "12px", color: "var(--text-secondary)" }}>({platformFeeForeign.toFixed(2)} {currency})</div>
               </div>
             </div>
 
-            <div style={{ display: "flex", justifyContent: "space-between", borderBottom: "1px solid rgba(255,255,255,0.05)", paddingBottom: "12px" }}>
-              <span style={{ color: "var(--text-secondary, #94a3b8)", fontSize: "15px", paddingRight: "10px" }}>GST Estimate on Platform Fees</span>
+            <div style={{ display: "flex", justifyContent: "space-between", borderBottom: "1px solid var(--border-color)", paddingBottom: "12px" }}>
+              <span style={{ color: "var(--text-secondary)", fontSize: "15px", paddingRight: "10px" }}>GST Estimate on Platform Fees</span>
               <div style={{ textAlign: "right", maxWidth: "160px" }}>
                 {gstinProvided ? (
                   <div style={{ fontSize: "12px", color: "#10b981", lineHeight: "1.3" }}>
@@ -247,7 +247,7 @@ export default function ClientCalculator() {
             </div>
 
             {withholdingEnabled && (
-              <div style={{ display: "flex", justifyContent: "space-between", borderBottom: "1px solid rgba(255,255,255,0.05)", paddingBottom: "12px" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", borderBottom: "1px solid var(--border-color)", paddingBottom: "12px" }}>
                 <span style={{ color: "var(--text-secondary, #94a3b8)", fontSize: "15px" }}>Indian Withholding Estimate</span>
                 <div style={{ textAlign: "right" }}>
                   <div style={{ color: "#ef4444", fontWeight: "600" }}>-₹{Math.round(withholdingINR).toLocaleString("en-IN")}</div>
@@ -256,7 +256,7 @@ export default function ClientCalculator() {
               </div>
             )}
 
-            <div style={{ display: "flex", justifyContent: "space-between", borderBottom: "1px solid rgba(255,255,255,0.05)", paddingBottom: "12px" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", borderBottom: "1px solid var(--border-color)", paddingBottom: "12px" }}>
               <span style={{ color: "var(--text-secondary, #94a3b8)", fontSize: "15px" }}>Fixed Withdrawal Fee</span>
               <div style={{ textAlign: "right" }}>
                 <div style={{ color: "#ef4444", fontWeight: "600" }}>-₹{Math.round(withdrawalFeeINR).toLocaleString("en-IN")}</div>

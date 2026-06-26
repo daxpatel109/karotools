@@ -1,6 +1,7 @@
 import ClientCalculator from "./ClientCalculator";
 import { SchemaScript, generateSoftwareSchema, generateBreadcrumbSchema, generateFAQSchema } from "../../lib/schema";
 import Link from "next/link";
+import Navbar from "../../components/Navbar";
 
 export const metadata = {
   title: "Upwork & Fiverr Fee Calculator India | Estimate Take-Home INR",
@@ -48,6 +49,8 @@ export default function Page() {
         { name: "Upwork & Fiverr Take-Home Calculator", url: "https://karotools.in/upwork-fiverr-fee-calculator-india" }
       ])} />
       <SchemaScript schema={generateFAQSchema(faqs)} />
+
+      <Navbar />
 
       {/* Header */}
       <div style={{ textAlign: "center", padding: "60px 24px 20px" }}>

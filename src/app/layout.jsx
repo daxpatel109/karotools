@@ -45,6 +45,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <meta name="trustpilot-one-time-domain-verification-id" content="e4e32cde-c73f-41b4-86bb-98009c4efc3a"/>
         <meta name="google-adsense-account" content="ca-pub-7694069908908392" />
         <link rel="icon" type="image/png" href="/logo.png" />
         <link rel="apple-touch-icon" href="/logo.png" />

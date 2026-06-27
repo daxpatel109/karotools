@@ -106,7 +106,7 @@ export default function ClientCalculator() {
   const potentialSavings = maxINR - estimatedFinalINR;
 
   return (
-    <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "40px 24px", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "32px", fontFamily: "var(--font-inter, sans-serif)" }}>
+    <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "40px 5vw", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))", gap: "32px", fontFamily: "var(--font-inter, sans-serif)", overflowX: "hidden" }}>
       {/* Input Section */}
       <div style={{ background: "var(--bg-secondary)", padding: "32px", borderRadius: "16px", border: "1px solid var(--border-color)" }}>
         <h2 style={{ fontSize: "20px", fontWeight: "700", color: "var(--text-primary)", marginBottom: "24px" }}>Project & Fee Assumptions</h2>
@@ -183,7 +183,7 @@ export default function ClientCalculator() {
             </select>
           </div>
 
-          <div style={{ display: "flex", gap: "12px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))", gap: "12px" }}>
              <div style={{ flex: 1 }}>
               <label style={{ display: "block", fontSize: "13px", color: "var(--text-secondary)", marginBottom: "8px" }}>FX Markup Loss %</label>
               <input type="number" step="0.1" value={fxMarkupPercent} onChange={(e) => setFxMarkupPercent(e.target.value)} style={{ width: "100%", background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "15px" }} />
@@ -225,17 +225,17 @@ export default function ClientCalculator() {
           <h2 style={{ fontSize: "18px", fontWeight: "700", color: "var(--text-primary)", marginBottom: "20px" }}>Deductions Breakdown</h2>
           
           <div style={{ display: "grid", gap: "16px" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", borderBottom: "1px solid var(--border-color)", paddingBottom: "12px" }}>
-              <span style={{ color: "var(--text-secondary)", fontSize: "15px" }}>Platform Fee Estimate</span>
-              <div style={{ textAlign: "right" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", gap: "12px", borderBottom: "1px solid var(--border-color)", paddingBottom: "12px" }}>
+              <span style={{ color: "var(--text-secondary)", fontSize: "15px", flex: 1 }}>Platform Fee Estimate</span>
+              <div style={{ textAlign: "right", flexShrink: 0 }}>
                 <div style={{ color: "#ef4444", fontWeight: "600" }}>-₹{Math.round(platformFeeINR).toLocaleString("en-IN")}</div>
                 <div style={{ fontSize: "12px", color: "var(--text-secondary)" }}>({platformFeeForeign.toFixed(2)} {currency})</div>
               </div>
             </div>
 
-            <div style={{ display: "flex", justifyContent: "space-between", borderBottom: "1px solid var(--border-color)", paddingBottom: "12px" }}>
-              <span style={{ color: "var(--text-secondary)", fontSize: "15px", paddingRight: "10px" }}>GST Estimate on Platform Fees</span>
-              <div style={{ textAlign: "right", maxWidth: "160px" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", gap: "12px", borderBottom: "1px solid var(--border-color)", paddingBottom: "12px" }}>
+              <span style={{ color: "var(--text-secondary)", fontSize: "15px", flex: 1 }}>GST Estimate on Platform Fees</span>
+              <div style={{ textAlign: "right", flexShrink: 0, maxWidth: "180px" }}>
                 {gstinProvided ? (
                   <div style={{ fontSize: "12px", color: "#10b981", lineHeight: "1.3" }}>
                     GST estimate not added as direct cost in this calculation. Verify platform invoice and input-credit treatment with your tax advisor.
@@ -247,28 +247,28 @@ export default function ClientCalculator() {
             </div>
 
             {withholdingEnabled && (
-              <div style={{ display: "flex", justifyContent: "space-between", borderBottom: "1px solid var(--border-color)", paddingBottom: "12px" }}>
-                <span style={{ color: "var(--text-secondary, #94a3b8)", fontSize: "15px" }}>Indian Withholding Estimate</span>
-                <div style={{ textAlign: "right" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", gap: "12px", borderBottom: "1px solid var(--border-color)", paddingBottom: "12px" }}>
+                <span style={{ color: "var(--text-secondary)", fontSize: "15px", flex: 1 }}>Indian Withholding Tax / TDS</span>
+                <div style={{ textAlign: "right", flexShrink: 0 }}>
                   <div style={{ color: "#ef4444", fontWeight: "600" }}>-₹{Math.round(withholdingINR).toLocaleString("en-IN")}</div>
                   <div style={{ fontSize: "12px", color: "var(--text-secondary, #94a3b8)" }}>({withholdingForeign.toFixed(2)} {currency})</div>
                 </div>
               </div>
             )}
-
-            <div style={{ display: "flex", justifyContent: "space-between", borderBottom: "1px solid var(--border-color)", paddingBottom: "12px" }}>
-              <span style={{ color: "var(--text-secondary, #94a3b8)", fontSize: "15px" }}>Fixed Withdrawal Fee</span>
-              <div style={{ textAlign: "right" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", gap: "12px", borderBottom: "1px solid var(--border-color)", paddingBottom: "12px" }}>
+              <span style={{ color: "var(--text-secondary)", fontSize: "15px", flex: 1 }}>Withdrawal + Bank Fee</span>
+              <div style={{ textAlign: "right", flexShrink: 0 }}>
                 <div style={{ color: "#ef4444", fontWeight: "600" }}>-₹{Math.round(withdrawalFeeINR).toLocaleString("en-IN")}</div>
-                <div style={{ fontSize: "12px", color: "var(--text-secondary, #94a3b8)" }}>({withdrawalFeeForeign.toFixed(2)} {currency})</div>
+                <div style={{ fontSize: "12px", color: "var(--text-secondary)" }}>({withdrawalFeeForeign.toFixed(2)} {currency})</div>
               </div>
             </div>
 
-            <div style={{ display: "flex", justifyContent: "space-between", borderBottom: "1px solid rgba(255,255,255,0.05)", paddingBottom: "12px" }}>
-              <span style={{ color: "var(--text-secondary, #94a3b8)", fontSize: "15px" }}>FX Markup Loss Estimate</span>
-              <div style={{ color: "#ef4444", fontWeight: "600" }}>-₹{Math.round(fxMarkupLossINR).toLocaleString("en-IN")}</div>
+            <div style={{ display: "flex", justifyContent: "space-between", gap: "12px", borderBottom: "1px solid var(--border-color)", paddingBottom: "12px" }}>
+              <span style={{ color: "var(--text-secondary)", fontSize: "15px", flex: 1 }}>FX Markup Loss Estimate</span>
+              <div style={{ textAlign: "right", flexShrink: 0 }}>
+                <div style={{ color: "#ef4444", fontWeight: "600" }}>-₹{Math.round(fxMarkupLossINR).toLocaleString("en-IN")}</div>
+              </div>
             </div>
-
             {numBankReceivingFee > 0 && (
               <div style={{ display: "flex", justifyContent: "space-between", paddingBottom: "4px" }}>
                 <span style={{ color: "var(--text-secondary, #94a3b8)", fontSize: "15px" }}>Indian Bank Receiving Fee</span>

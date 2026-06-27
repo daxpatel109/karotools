@@ -108,7 +108,7 @@ export default function ClientCalculator() {
   return (
     <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "clamp(20px, 5vw, 40px) clamp(16px, 4vw, 24px)", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))", gap: "clamp(16px, 4vw, 32px)", fontFamily: "var(--font-inter, sans-serif)", overflowX: "hidden" }}>
       {/* Input Section */}
-      <div style={{ background: "var(--bg-secondary)", padding: "clamp(16px, 5vw, 32px)", borderRadius: "16px", border: "1px solid var(--border-color)" }}>
+      <div style={{ background: "var(--bg-secondary)", padding: "clamp(16px, 5vw, 32px)", borderRadius: "16px", border: "1px solid var(--border-color)", minWidth: 0 }}>
         <h2 style={{ fontSize: "20px", fontWeight: "700", color: "var(--text-primary)", marginBottom: "24px" }}>Project & Fee Assumptions</h2>
         
         {/* Basic Inputs */}
@@ -117,7 +117,7 @@ export default function ClientCalculator() {
             <label style={{ display: "block", fontSize: "14px", color: "var(--text-secondary)", marginBottom: "8px" }}>Project Amount</label>
             <div style={{ display: "flex", gap: "12px" }}>
               <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} style={{ flex: 1, background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "16px" }} />
-              <select value={currency} onChange={(e) => handleCurrencyChange(e.target.value)} style={{ width: "100px", background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "16px" }}>
+              <select value={currency} onChange={(e) => handleCurrencyChange(e.target.value)} style={{ width: "100px", minWidth: 0, background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "16px" }}>
                 <option value="USD">USD</option>
                 <option value="EUR">EUR</option>
                 <option value="GBP">GBP</option>
@@ -128,12 +128,12 @@ export default function ClientCalculator() {
 
           <div>
             <label style={{ display: "block", fontSize: "14px", color: "var(--text-secondary)", marginBottom: "8px" }}>Exchange Rate to INR (Editable assumption)</label>
-            <input type="number" step="0.01" value={exchangeRate} onChange={(e) => setExchangeRate(e.target.value)} style={{ width: "100%", background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "16px" }} />
+            <input type="number" step="0.01" value={exchangeRate} onChange={(e) => setExchangeRate(e.target.value)} style={{ width: "100%", minWidth: 0, background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "16px" }} />
           </div>
 
           <div>
             <label style={{ display: "block", fontSize: "14px", color: "var(--text-secondary)", marginBottom: "8px" }}>Platform</label>
-            <select value={platform} onChange={(e) => handlePlatformChange(e.target.value)} style={{ width: "100%", background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "16px" }}>
+            <select value={platform} onChange={(e) => handlePlatformChange(e.target.value)} style={{ width: "100%", minWidth: 0, background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "16px" }}>
               <option value="Upwork">Upwork</option>
               <option value="Fiverr">Fiverr</option>
               <option value="Freelancer.com">Freelancer.com</option>
@@ -143,7 +143,7 @@ export default function ClientCalculator() {
 
           <div>
             <label style={{ display: "block", fontSize: "14px", color: "var(--text-secondary)", marginBottom: "8px" }}>Platform Fee % (Editable assumption)</label>
-            <input type="number" step="0.1" value={platformFeePercent} onChange={(e) => setPlatformFeePercent(e.target.value)} style={{ width: "100%", background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "16px" }} />
+            <input type="number" step="0.1" value={platformFeePercent} onChange={(e) => setPlatformFeePercent(e.target.value)} style={{ width: "100%", minWidth: 0, background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "16px" }} />
           </div>
 
           <div style={{ padding: "16px", background: "var(--bg-primary)", borderRadius: "12px", border: "1px solid var(--border-color)" }}>
@@ -154,7 +154,7 @@ export default function ClientCalculator() {
             {!gstinProvided && (
               <div>
                 <label style={{ display: "block", fontSize: "13px", color: "var(--text-secondary)", marginBottom: "8px" }}>GST estimate on platform fees % (Assumption)</label>
-                <input type="number" step="0.1" value={gstPercent} onChange={(e) => setGstPercent(e.target.value)} style={{ width: "100%", background: "var(--bg-secondary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "10px 14px", borderRadius: "8px", fontSize: "15px" }} />
+                <input type="number" step="0.1" value={gstPercent} onChange={(e) => setGstPercent(e.target.value)} style={{ width: "100%", minWidth: 0, background: "var(--bg-secondary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "10px 14px", borderRadius: "8px", fontSize: "15px" }} />
               </div>
             )}
           </div>
@@ -167,14 +167,14 @@ export default function ClientCalculator() {
             {withholdingEnabled && (
               <div>
                 <label style={{ display: "block", fontSize: "13px", color: "var(--text-secondary)", marginBottom: "8px" }}>Indian withholding % (Editable assumption)</label>
-                <input type="number" step="0.01" value={withholdingPercent} onChange={(e) => setWithholdingPercent(e.target.value)} style={{ width: "100%", background: "var(--bg-secondary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "10px 14px", borderRadius: "8px", fontSize: "15px" }} />
+                <input type="number" step="0.01" value={withholdingPercent} onChange={(e) => setWithholdingPercent(e.target.value)} style={{ width: "100%", minWidth: 0, background: "var(--bg-secondary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "10px 14px", borderRadius: "8px", fontSize: "15px" }} />
               </div>
             )}
           </div>
 
           <div>
             <label style={{ display: "block", fontSize: "14px", color: "var(--text-secondary)", marginBottom: "8px" }}>Payout Method</label>
-            <select value={payoutMethod} onChange={(e) => handlePayoutMethodChange(e.target.value)} style={{ width: "100%", background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "16px" }}>
+            <select value={payoutMethod} onChange={(e) => handlePayoutMethodChange(e.target.value)} style={{ width: "100%", minWidth: 0, background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "16px" }}>
               <option value="Wise">Wise</option>
               <option value="Payoneer">Payoneer</option>
               <option value="Direct Bank">Direct Bank (e.g. Upwork to Local)</option>
@@ -186,24 +186,24 @@ export default function ClientCalculator() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))", gap: "12px" }}>
              <div style={{ flex: 1 }}>
               <label style={{ display: "block", fontSize: "13px", color: "var(--text-secondary)", marginBottom: "8px" }}>FX Markup Loss %</label>
-              <input type="number" step="0.1" value={fxMarkupPercent} onChange={(e) => setFxMarkupPercent(e.target.value)} style={{ width: "100%", background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "15px" }} />
+              <input type="number" step="0.1" value={fxMarkupPercent} onChange={(e) => setFxMarkupPercent(e.target.value)} style={{ width: "100%", minWidth: 0, background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "15px" }} />
             </div>
             <div style={{ flex: 1 }}>
               <label style={{ display: "block", fontSize: "13px", color: "var(--text-secondary)", marginBottom: "8px" }}>Fixed Withdrawal Fee ({currency})</label>
-              <input type="number" step="0.01" value={withdrawalFee} onChange={(e) => setWithdrawalFee(e.target.value)} style={{ width: "100%", background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "15px" }} />
+              <input type="number" step="0.01" value={withdrawalFee} onChange={(e) => setWithdrawalFee(e.target.value)} style={{ width: "100%", minWidth: 0, background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "15px" }} />
             </div>
           </div>
           
           <div>
             <label style={{ display: "block", fontSize: "13px", color: "var(--text-secondary)", marginBottom: "8px" }}>Indian Bank Receiving Fee (INR)</label>
-            <input type="number" step="1" value={bankReceivingFee} onChange={(e) => setBankReceivingFee(e.target.value)} style={{ width: "100%", background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "15px" }} />
+            <input type="number" step="1" value={bankReceivingFee} onChange={(e) => setBankReceivingFee(e.target.value)} style={{ width: "100%", minWidth: 0, background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "15px" }} />
           </div>
 
         </div>
       </div>
 
       {/* Output Section */}
-      <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "24px", minWidth: 0 }}>
         
         {/* Main Highlight Card */}
         <div style={{ background: "linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%)", padding: "clamp(16px, 5vw, 32px)", borderRadius: "16px", color: "#fff", boxShadow: "0 10px 25px -5px rgba(37, 99, 235, 0.4)" }}>

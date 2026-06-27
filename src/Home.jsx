@@ -229,6 +229,7 @@ export default function Home() {
     { icon: "💼", name: "Salary vs Freelance", description: "Compare your current salary to freelance rates. Find exactly what you need to charge to maintain your lifestyle.", category: "Finance", page: "/salary-vs-freelance" },
     { icon: "📈", name: "SIP Calculator", description: "Calculate your Mutual Fund returns and see the true power of compounding over 10 or 20 years.", category: "Finance", page: "/sip-calculator" },
     { icon: "💰", name: "Rate Calculator", description: "Calculate your perfect freelance hourly, daily & monthly rate in INR based on your expenses.", category: "Finance", page: "/freelance-rate-calculator" },
+    { icon: "💸", name: "Upwork & Fiverr Calculator", description: "Estimate your true take-home pay in INR. Calculate platform fees, GST reverse charge, 194O TDS, and FX markup loss.", category: "Finance", page: "/upwork-fiverr-fee-calculator-india" },
     { icon: "🔥", name: "FIRE Calculator", description: "Calculate your early retirement number (Lean, Regular, Fat) with inflation & nominal compounding.", category: "Finance", page: "/fire-calculator" },
   ];
 
@@ -501,7 +502,7 @@ export default function Home() {
             {[
               { icon: "🧮", title: "Free GST Calculator India", desc: "Calculate CGST, SGST & IGST instantly. All slabs, custom rates, round-off toggle, visual breakdown & copy result.", link: "/gst-calculator", keyword: "GST Calculator India" },
               { icon: "📄", title: "Free GST Invoice Generator", desc: "Create professional GST invoices with PDF download. Your logo, GSTIN, HSN/SAC codes - no software needed.", link: "/gst-invoice-generator", keyword: "Free Invoice Generator" },
-              { icon: "📈", title: "FIRE Calculator India", desc: "Calculate your early retirement number (Lean, Regular, Fat) with inflation & nominal compounding.", link: "/fire-calculator", keyword: "Early Retirement Calculator" },
+              { icon: "💸", title: "Upwork & Fiverr Calculator", desc: "Estimate your true take-home pay in INR. Calculate platform fees, GST reverse charge, 194O TDS, and FX markup loss.", link: "/upwork-fiverr-fee-calculator-india", keyword: "Upwork Fee Calculator" },
               { icon: "💰", title: "Freelance Rate Calculator", desc: "Calculate your perfect freelance hourly, daily & monthly rate in INR based on your expenses.", link: "/freelance-rate-calculator", keyword: "Freelance Rate Calculator" },
             ].map((item, i) => (
               <Reveal key={item.title} delay={i * 0.1}>

@@ -41,6 +41,7 @@ export default function Page() {
                 <Link href="/gst-calculator" style={{ background: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)", color: "#38bdf8", padding: "16px", borderRadius: "12px", textDecoration: "none", fontWeight: "600" }}>GST Calculator</Link>
                 <Link href="/tax-calculator" style={{ background: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)", color: "#38bdf8", padding: "16px", borderRadius: "12px", textDecoration: "none", fontWeight: "600" }}>Income Tax Calculator</Link>
                 <Link href="/invoice-generator" style={{ background: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)", color: "#38bdf8", padding: "16px", borderRadius: "12px", textDecoration: "none", fontWeight: "600" }}>GST Invoice Generator</Link>
+                <Link href="/upwork-fiverr-fee-calculator-india" style={{ background: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)", color: "#38bdf8", padding: "16px", borderRadius: "12px", textDecoration: "none", fontWeight: "600" }}>Upwork & Fiverr Payout Calculator</Link>
                 <Link href="/salary-vs-freelance" style={{ background: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)", color: "#38bdf8", padding: "16px", borderRadius: "12px", textDecoration: "none", fontWeight: "600" }}>Salary vs Freelance Calculator</Link>
               </div>
             </div>

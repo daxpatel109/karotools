@@ -106,9 +106,9 @@ export default function ClientCalculator() {
   const potentialSavings = maxINR - estimatedFinalINR;
 
   return (
-    <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "40px 5vw", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))", gap: "32px", fontFamily: "var(--font-inter, sans-serif)", overflowX: "hidden" }}>
+    <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "clamp(20px, 5vw, 40px) clamp(16px, 4vw, 24px)", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))", gap: "clamp(16px, 4vw, 32px)", fontFamily: "var(--font-inter, sans-serif)", overflowX: "hidden" }}>
       {/* Input Section */}
-      <div style={{ background: "var(--bg-secondary)", padding: "32px", borderRadius: "16px", border: "1px solid var(--border-color)" }}>
+      <div style={{ background: "var(--bg-secondary)", padding: "clamp(16px, 5vw, 32px)", borderRadius: "16px", border: "1px solid var(--border-color)" }}>
         <h2 style={{ fontSize: "20px", fontWeight: "700", color: "var(--text-primary)", marginBottom: "24px" }}>Project & Fee Assumptions</h2>
         
         {/* Basic Inputs */}
@@ -206,7 +206,7 @@ export default function ClientCalculator() {
       <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
         
         {/* Main Highlight Card */}
-        <div style={{ background: "linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%)", padding: "32px", borderRadius: "16px", color: "#fff", boxShadow: "0 10px 25px -5px rgba(37, 99, 235, 0.4)" }}>
+        <div style={{ background: "linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%)", padding: "clamp(16px, 5vw, 32px)", borderRadius: "16px", color: "#fff", boxShadow: "0 10px 25px -5px rgba(37, 99, 235, 0.4)" }}>
           <div style={{ fontSize: "15px", opacity: 0.9, marginBottom: "8px" }}>Estimated Final INR in Bank</div>
           <div style={{ fontSize: "42px", fontWeight: "800", letterSpacing: "-1px", marginBottom: "16px" }}>
             ₹{Math.round(estimatedFinalINR).toLocaleString("en-IN")}
@@ -221,7 +221,7 @@ export default function ClientCalculator() {
         </div>
 
         {/* Deductions Breakdown */}
-        <div style={{ background: "var(--bg-secondary)", padding: "32px", borderRadius: "16px", border: "1px solid var(--border-color)" }}>
+        <div style={{ background: "var(--bg-secondary)", padding: "clamp(16px, 5vw, 32px)", borderRadius: "16px", border: "1px solid var(--border-color)" }}>
           <h2 style={{ fontSize: "18px", fontWeight: "700", color: "var(--text-primary)", marginBottom: "20px" }}>Deductions Breakdown</h2>
           
           <div style={{ display: "grid", gap: "16px" }}>

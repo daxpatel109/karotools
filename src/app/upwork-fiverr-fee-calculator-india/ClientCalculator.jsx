@@ -106,17 +106,17 @@ export default function ClientCalculator() {
   const potentialSavings = maxINR - estimatedFinalINR;
 
   return (
-    <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "clamp(20px, 5vw, 40px) clamp(16px, 4vw, 24px)", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))", gap: "clamp(16px, 4vw, 32px)", fontFamily: "var(--font-inter, sans-serif)", overflowX: "hidden" }}>
+    <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "clamp(20px, 5vw, 40px) clamp(16px, 4vw, 24px)", display: "flex", flexWrap: "wrap", gap: "clamp(16px, 4vw, 32px)", fontFamily: "var(--font-inter, sans-serif)", overflowX: "hidden" }}>
       {/* Input Section */}
-      <div style={{ background: "var(--bg-secondary)", padding: "clamp(16px, 5vw, 32px)", borderRadius: "16px", border: "1px solid var(--border-color)", minWidth: 0 }}>
+      <div style={{ flex: "1 1 320px", background: "var(--bg-secondary)", padding: "clamp(16px, 5vw, 32px)", borderRadius: "16px", border: "1px solid var(--border-color)", minWidth: 0 }}>
         <h2 style={{ fontSize: "20px", fontWeight: "700", color: "var(--text-primary)", marginBottom: "24px" }}>Project & Fee Assumptions</h2>
         
         {/* Basic Inputs */}
         <div style={{ display: "grid", gap: "20px" }}>
           <div>
             <label style={{ display: "block", fontSize: "14px", color: "var(--text-secondary)", marginBottom: "8px" }}>Project Amount</label>
-            <div style={{ display: "flex", gap: "12px" }}>
-              <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} style={{ flex: 1, background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "16px" }} />
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
+              <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} style={{ flex: "1 1 120px", minWidth: 0, background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "16px" }} />
               <select value={currency} onChange={(e) => handleCurrencyChange(e.target.value)} style={{ width: "100px", minWidth: 0, background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "16px" }}>
                 <option value="USD">USD</option>
                 <option value="EUR">EUR</option>
@@ -183,12 +183,12 @@ export default function ClientCalculator() {
             </select>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))", gap: "12px" }}>
-             <div style={{ flex: 1 }}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
+             <div style={{ flex: "1 1 130px", minWidth: 0 }}>
               <label style={{ display: "block", fontSize: "13px", color: "var(--text-secondary)", marginBottom: "8px" }}>FX Markup Loss %</label>
               <input type="number" step="0.1" value={fxMarkupPercent} onChange={(e) => setFxMarkupPercent(e.target.value)} style={{ width: "100%", minWidth: 0, background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "15px" }} />
             </div>
-            <div style={{ flex: 1 }}>
+            <div style={{ flex: "1 1 130px", minWidth: 0 }}>
               <label style={{ display: "block", fontSize: "13px", color: "var(--text-secondary)", marginBottom: "8px" }}>Fixed Withdrawal Fee ({currency})</label>
               <input type="number" step="0.01" value={withdrawalFee} onChange={(e) => setWithdrawalFee(e.target.value)} style={{ width: "100%", minWidth: 0, background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "15px" }} />
             </div>
@@ -203,7 +203,7 @@ export default function ClientCalculator() {
       </div>
 
       {/* Output Section */}
-      <div style={{ display: "flex", flexDirection: "column", gap: "24px", minWidth: 0 }}>
+      <div style={{ flex: "1 1 320px", display: "flex", flexDirection: "column", gap: "24px", minWidth: 0 }}>
         
         {/* Main Highlight Card */}
         <div style={{ background: "linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%)", padding: "clamp(16px, 5vw, 32px)", borderRadius: "16px", color: "#fff", boxShadow: "0 10px 25px -5px rgba(37, 99, 235, 0.4)" }}>

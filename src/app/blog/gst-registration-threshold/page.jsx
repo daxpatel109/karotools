@@ -113,7 +113,26 @@ export default function BlogPost() {
           <p>The GST registration limit for freelancers in India is ₹20 lakhs in aggregate annual turnover (₹10 lakhs in special category states). Once your total revenue crosses this limit, registration becomes mandatory.</p>
           <p>One of the most searched questions among freelancers is whether they have to charge 18%. The answer depends on your exact turnover, state, and client location. This guide covers the <strong>FY 2026-27</strong> rules with clear examples.</p>
 
-          <h2>1. What Is the GST Registration Limit for Freelancers in India?</h2>
+          <div style={{ background: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)", borderRadius: "12px", padding: "20px", margin: "24px 0" }}>
+            <h3 style={{ margin: "0 0 12px 0", color: "#38bdf8", fontSize: "18px", fontWeight: "700" }}>⚡ Quick Answer</h3>
+            <p style={{ margin: 0, color: "var(--text-secondary)", lineHeight: "1.6" }}>
+              The GST registration limit for freelancers is ₹20 lakhs (₹10 lakhs in special category states) in total aggregate turnover. If you earn below this, you are exempt. If you cross this limit, registration is mandatory. For international clients, you do not charge GST (it's zero-rated), but you must file an LUT to export services without paying IGST upfront.
+            </p>
+          </div>
+
+          <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: "12px", padding: "20px", margin: "24px 0" }}>
+            <h3 style={{ margin: "0 0 12px 0", color: "var(--text-primary)", fontSize: "16px", fontWeight: "700" }}>Table of Contents</h3>
+            <ul style={{ margin: 0, paddingLeft: "20px", color: "#38bdf8", lineHeight: "1.8" }}>
+              <li><a href="#what-is-limit" style={{ color: "#38bdf8", textDecoration: "none" }}>1. What Is the GST Registration Limit?</a></li>
+              <li><a href="#aggregate-turnover" style={{ color: "#38bdf8", textDecoration: "none" }}>2. What Counts as "Aggregate Turnover"?</a></li>
+              <li><a href="#international-clients" style={{ color: "#38bdf8", textDecoration: "none" }}>3. Rules for International Clients</a></li>
+              <li><a href="#lut" style={{ color: "#38bdf8", textDecoration: "none" }}>4. What is a Letter of Undertaking (LUT)?</a></li>
+              <li><a href="#voluntary-registration" style={{ color: "#38bdf8", textDecoration: "none" }}>5. Should You Voluntarily Register?</a></li>
+              <li><a href="#how-to-calculate" style={{ color: "#38bdf8", textDecoration: "none" }}>6. How to Calculate GST</a></li>
+              <li><a href="#faq" style={{ color: "#38bdf8", textDecoration: "none" }}>7. Frequently Asked Questions (FAQ)</a></li>
+            </ul>
+          </div>
+          <h2 id="what-is-limit">1. What Is the GST Registration Limit for Freelancers in India?</h2>
 
           <p>Under the Goods and Services Tax (GST) Act, freelancers who provide services — including developers, designers, writers, photographers, and consultants — are classified as <strong>service providers</strong>. The law sets a turnover-based threshold below which GST registration is <em>not mandatory</em>.</p>
 
@@ -152,7 +171,7 @@ export default function BlogPost() {
             </tbody>
           </table>
 
-          <h2>2. What Counts as "Aggregate Turnover" Under GST?</h2>
+          <h2 id="aggregate-turnover">2. What Counts as "Aggregate Turnover" Under GST?</h2>
 
           <p>Many freelancers make the mistake of only counting income from local clients when calculating their turnover. But for GST purposes, <strong>aggregate turnover includes every rupee you earn</strong>, regardless of where the client is based.</p>
 
@@ -178,7 +197,7 @@ export default function BlogPost() {
             </div>
           </div>
 
-          <h2>3. GST Rules for Freelancers Working with International Clients</h2>
+          <h2 id="international-clients">3. GST Rules for Freelancers Working with International Clients</h2>
 
           <p>This is where most confusion lies. If you work with US, UK, Australian, or other overseas clients and receive payment in <strong>foreign currency (convertible exchange)</strong>, your services are classified as <strong>Export of Services</strong> under GST law.</p>
 
@@ -208,7 +227,7 @@ export default function BlogPost() {
             </div>
           </div>
 
-          <h2>4. What is a Letter of Undertaking (LUT) and Do You Need One?</h2>
+          <h2 id="lut">4. What is a Letter of Undertaking (LUT) and Do You Need One?</h2>
 
           <p>A <strong>Letter of Undertaking (LUT)</strong> is a document filed annually on the GST portal that lets you export services <em>without paying IGST</em>. Without an LUT, you would have to pay the tax first and then claim a refund — which creates a cash flow headache for freelancers.</p>
 
@@ -245,7 +264,7 @@ export default function BlogPost() {
 
           <p>The LUT must be renewed at the start of every financial year. You can file it online on the official GST portal under Services → User Services → Furnish Letter of Undertaking (LUT). There is no fee for filing.</p>
 
-          <h2>5. Should You Voluntarily Register for GST Below ₹20 Lakhs?</h2>
+          <h2 id="voluntary-registration">5. Should You Voluntarily Register for GST Below ₹20 Lakhs?</h2>
 
           <p>Voluntary GST registration is allowed and can make strategic sense in some cases. Here's how to decide:</p>
 
@@ -263,7 +282,7 @@ export default function BlogPost() {
             </div>
           </div>
 
-          <h2>6. How to Calculate GST If You Must Charge It</h2>
+          <h2 id="how-to-calculate">6. How to Calculate GST If You Must Charge It</h2>
 
           <p>Once you cross the <strong>GST registration limit for freelancers in India</strong>, here is how GST is applied to your invoices:</p>
 
@@ -322,7 +341,7 @@ export default function BlogPost() {
             </div>
           </div>
 
-          <h2>Frequently Asked Questions (FAQ)</h2>
+          <h2 id="faq">Frequently Asked Questions (FAQ)</h2>
 
           <div className={styles.faqSection} itemScope itemType="https://schema.org/FAQPage">
             {faqSchema.mainEntity.map((faq, idx) => (

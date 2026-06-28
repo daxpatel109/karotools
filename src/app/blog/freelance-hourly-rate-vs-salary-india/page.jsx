@@ -117,12 +117,27 @@ export default function BlogPost() {
 
           <p><strong>Wrong. This math will make you lose money — and we're going to show you exactly why.</strong></p>
 
+          <div style={{ background: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)", borderRadius: "12px", padding: "20px", margin: "24px 0" }}>
+            <h3 style={{ margin: "0 0 12px 0", color: "#38bdf8", fontSize: "18px", fontWeight: "700" }}>⚡ Quick Answer</h3>
+            <p style={{ margin: 0, color: "var(--text-secondary)", lineHeight: "1.6" }}>
+              Directly dividing your salary by 160 hours ignores business expenses, unpaid leaves, and unbillable admin hours. To calculate your actual freelance hourly rate, you must add a 30% to 50% premium on top of your salaried equivalent just to break even and maintain the same lifestyle.
+            </p>
+          </div>
+
+          <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: "12px", padding: "20px", margin: "24px 0" }}>
+            <h3 style={{ margin: "0 0 12px 0", color: "var(--text-primary)", fontSize: "16px", fontWeight: "700" }}>Table of Contents</h3>
+            <ul style={{ margin: 0, paddingLeft: "20px", color: "#38bdf8", lineHeight: "1.8" }}>
+              <li><a href="#why-higher" style={{ color: "#38bdf8", textDecoration: "none" }}>1. Why Must Your Freelance Rate Be Higher?</a></li>
+              <li><a href="#formula" style={{ color: "#38bdf8", textDecoration: "none" }}>2. The Freelance Hourly Rate Formula</a></li>
+              <li><a href="#faq" style={{ color: "#38bdf8", textDecoration: "none" }}>3. Frequently Asked Questions (FAQ)</a></li>
+            </ul>
+          </div>
           <div className={styles.highlightBox} style={{ borderLeft: "4px solid #fbbf24", background: "rgba(251,191,36,0.05)" }}>
             <p style={{ color: "#fbbf24", margin: 0 }}>⚠️ <strong>Common Mistake — Avoid This</strong><br/>
             Direct salary ÷ working hours = freelance rate is a trap. It ignores taxes, unpaid leave, business expenses, and the hours you spend on admin work that clients never pay for. Keep reading for the correct formula.</p>
           </div>
 
-          <h2>Why Must Your Freelance Hourly Rate Be Higher Than Your Salary?</h2>
+          <h2 id="why-higher">Why Must Your Freelance Hourly Rate Be Higher Than Your Salary?</h2>
 
           <p>When you are a salaried employee, your company quietly covers a mountain of costs on your behalf. The moment you go freelance, every single one of those costs lands on your plate. Here is what changes — and what you must account for when setting your rate:</p>
 
@@ -146,7 +161,7 @@ export default function BlogPost() {
             As a freelancer, you are not just a developer or designer or writer. You are also your own marketing team, sales team, finance department, and HR. Wearing these five hats means your time is worth more — not the same — as a salaried professional's. Price accordingly.</p>
           </div>
 
-          <h2>The Freelance Hourly Rate Formula: What You Should Actually Charge</h2>
+          <h2 id="formula">The Freelance Hourly Rate Formula: What You Should Actually Charge</h2>
 
           <p>Instead of the flawed salary ÷ hours calculation, here is the correct way to find your <strong>minimum viable freelance rate in India</strong>:</p>
 
@@ -253,7 +268,7 @@ export default function BlogPost() {
             </div>
           </div>
 
-          <h2>Frequently Asked Questions (FAQ)</h2>
+          <h2 id="faq">Frequently Asked Questions (FAQ)</h2>
 
           <div className={styles.faqSection} itemScope itemType="https://schema.org/FAQPage">
             {faqSchema.mainEntity.map((faq, idx) => (

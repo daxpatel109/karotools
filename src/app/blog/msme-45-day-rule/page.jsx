@@ -140,7 +140,26 @@ export default function BlogPost() {
           <p>The good news: the Government of India handed freelancers one of the most powerful payment enforcement tools in the world with the <strong>MSME 45-day payment rule under Section 43B(h)</strong>. If you are Udyam-registered and know how to use this law, you can legally force clients to pay on time — or make their accountant's life a nightmare at tax time.</p>
           <p>This guide covers everything: what the law actually says, exactly who it applies to, how to register for Udyam in under 15 minutes, how to calculate the penalty your client owes, the exact contract clause to include, and how to enforce it without burning the relationship.</p>
 
-          <h2>📋 What Is the MSME 45-Day Payment Rule (Section 43B(h))?</h2>
+          <div style={{ background: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)", borderRadius: "12px", padding: "20px", margin: "24px 0" }}>
+            <h3 style={{ margin: "0 0 12px 0", color: "#38bdf8", fontSize: "18px", fontWeight: "700" }}>⚡ Quick Answer</h3>
+            <p style={{ margin: 0, color: "var(--text-secondary)", lineHeight: "1.6" }}>
+              Under Section 43B(h), any Indian business that buys your services must pay you within 45 days (if there's a contract) or 15 days (if no contract). To get this protection, you must be a Udyam-registered Micro or Small Enterprise. If they pay late, they owe you compound interest at 3x the RBI rate and lose their tax deduction for the payment.
+            </p>
+          </div>
+
+          <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: "12px", padding: "20px", margin: "24px 0" }}>
+            <h3 style={{ margin: "0 0 12px 0", color: "var(--text-primary)", fontSize: "16px", fontWeight: "700" }}>Table of Contents</h3>
+            <ul style={{ margin: 0, paddingLeft: "20px", color: "#38bdf8", lineHeight: "1.8" }}>
+              <li><a href="#what-is-the-rule" style={{ color: "#38bdf8", textDecoration: "none" }}>1. What Is the MSME 45-Day Rule?</a></li>
+              <li><a href="#penalties" style={{ color: "#38bdf8", textDecoration: "none" }}>2. What Are the Actual Penalties?</a></li>
+              <li><a href="#does-it-apply" style={{ color: "#38bdf8", textDecoration: "none" }}>3. Does It Apply to Freelancers?</a></li>
+              <li><a href="#how-to-register" style={{ color: "#38bdf8", textDecoration: "none" }}>4. How to Get Udyam Registration</a></li>
+              <li><a href="#payment-timeline" style={{ color: "#38bdf8", textDecoration: "none" }}>5. The Payment Timeline: Day-by-Day</a></li>
+              <li><a href="#contract-clause" style={{ color: "#38bdf8", textDecoration: "none" }}>6. The Exact Contract Clause to Include</a></li>
+              <li><a href="#faq" style={{ color: "#38bdf8", textDecoration: "none" }}>7. Frequently Asked Questions (FAQ)</a></li>
+            </ul>
+          </div>
+          <h2 id="what-is-the-rule">📋 What Is the MSME 45-Day Payment Rule (Section 43B(h))?</h2>
 
           <p>In the Finance Act of 2023, Parliament added a new clause — clause (h) — to Section 43B of the Income Tax Act. This clause does something revolutionary: it <strong>denies a tax deduction to any business that pays an MSME supplier late</strong>.</p>
           <p>Before this, a company could record your invoice as an expense and claim a tax deduction on it — even if they hadn't paid you yet. Section 43B(h) closed this loophole permanently for Micro and Small Enterprises.</p>
@@ -185,7 +204,7 @@ export default function BlogPost() {
             <p style={{ color: "#fbbf24" }}>⚠️ <strong>Important:</strong> The 45-day clock starts from the <em>date of acceptance</em> of work — not from the date you send the invoice. Always get written acknowledgment of project completion from your client to lock in this date.</p>
           </div>
 
-          <h2>🧮 What Are the Actual Penalties When a Client Pays Late?</h2>
+          <h2 id="penalties">🧮 What Are the Actual Penalties When a Client Pays Late?</h2>
 
           <p>Two separate legal consequences hit the client simultaneously when they violate the MSME 45-day payment rule:</p>
 
@@ -223,7 +242,7 @@ export default function BlogPost() {
 
           <p>In plain terms: a client who delays your ₹1 lakh invoice by just 3 months faces a potential ₹30,000+ extra tax bill. That's a far more powerful incentive than any follow-up email you'll ever write.</p>
 
-          <h2>🏢 Does the MSME 45-Day Payment Rule Apply to Freelancers?</h2>
+          <h2 id="does-it-apply">🏢 Does the MSME 45-Day Payment Rule Apply to Freelancers?</h2>
 
           <p>Yes — with one non-negotiable condition: <strong>you must be registered on the Udyam portal</strong>. Without a Udyam Registration Number (URN), this law does not protect you, regardless of how long you've been working.</p>
 
@@ -264,7 +283,7 @@ export default function BlogPost() {
             <p style={{ color: "#34d399" }}>✅ Individual freelancers, sole proprietors, and service professionals — developers, designers, writers, photographers, video editors, digital marketers, consultants — can all register as Micro Enterprises on Udyam. For a freelancer in India, the investment limit is essentially irrelevant, so only the ₹5 crore turnover ceiling applies.</p>
           </div>
 
-          <h2>📝 How to Get Udyam Registration as a Freelancer (Step-by-Step)</h2>
+          <h2 id="how-to-register">📝 How to Get Udyam Registration as a Freelancer (Step-by-Step)</h2>
 
           <p>Udyam Registration is free, paperless, and takes under 15 minutes on the official government portal. Here's the exact process:</p>
 
@@ -310,7 +329,7 @@ export default function BlogPost() {
             <p style={{ color: "#c084fc" }}>💡 <strong>Pro Tip:</strong> Start adding your Udyam Registration Number (URN) to every invoice you send. This one change signals to the client's finance team that the MSME 45-day payment rule applies, and their accounts payable department will automatically flag your invoice for priority processing to avoid a tax disallowance. Use our <Link href="/gst-invoice-generator" style={{ color: "#c084fc", textDecoration: "underline" }}>free GST Invoice Generator</Link> which has a built-in Udyam/MSME number field.</p>
           </div>
 
-          <h2>⏱ The Payment Timeline: Day-by-Day What Happens</h2>
+          <h2 id="payment-timeline">⏱ The Payment Timeline: Day-by-Day What Happens</h2>
 
           <div className={styles.steps}>
             <div className={styles.step}>
@@ -357,7 +376,7 @@ export default function BlogPost() {
             </div>
           </div>
 
-          <h2>📄 The Exact Contract Clause to Include in Every Project</h2>
+          <h2 id="contract-clause">📄 The Exact Contract Clause to Include in Every Project</h2>
 
           <p>The most powerful use of the MSME 45-day payment rule is <em>preventative</em>. A client who sees this clause in your contract before the project starts will have their finance team treat your invoices as a legal compliance priority — not a favor.</p>
 
@@ -392,7 +411,7 @@ export default function BlogPost() {
             </Link>
           </div>
 
-          <h2>Frequently Asked Questions (FAQ)</h2>
+          <h2 id="faq">Frequently Asked Questions (FAQ)</h2>
 
           <div className={styles.faqSection} itemScope itemType="https://schema.org/FAQPage">
             {faqSchema.mainEntity.map((faq, idx) => (

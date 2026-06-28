@@ -129,6 +129,27 @@ export default function BlogPost() {
 
           <p>That means a freelancer with ₹18 lakh eligible professional receipts may show ₹9 lakh as presumptive professional income before tax regime calculations. The benefit is legal, but it only works when your profession, residency status, receipts limit and filing method are correct.</p>
 
+          <div style={{ background: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)", borderRadius: "12px", padding: "20px", margin: "24px 0" }}>
+            <h3 style={{ margin: "0 0 12px 0", color: "#38bdf8", fontSize: "18px", fontWeight: "700" }}>⚡ Quick Answer</h3>
+            <p style={{ margin: 0, color: "var(--text-secondary)", lineHeight: "1.6" }}>
+              Section 44ADA allows eligible freelancers (like tech consultants, designers, writers, doctors) to declare exactly 50% of their gross annual receipts as taxable income. You don't need to maintain detailed expense records. The limit is ₹50 lakhs, but can go up to ₹75 lakhs if your cash receipts are under 5%.
+            </p>
+          </div>
+
+          <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: "12px", padding: "20px", margin: "24px 0" }}>
+            <h3 style={{ margin: "0 0 12px 0", color: "var(--text-primary)", fontSize: "16px", fontWeight: "700" }}>Table of Contents</h3>
+            <ul style={{ margin: 0, paddingLeft: "20px", color: "#38bdf8", lineHeight: "1.8" }}>
+              <li><a href="#what-is-44ada" style={{ color: "#38bdf8", textDecoration: "none" }}>1. What Is Section 44ADA?</a></li>
+              <li><a href="#eligibility" style={{ color: "#38bdf8", textDecoration: "none" }}>2. Who Is Eligible?</a></li>
+              <li><a href="#income-limit" style={{ color: "#38bdf8", textDecoration: "none" }}>3. ₹50 Lakh or ₹75 Lakh Limit?</a></li>
+              <li><a href="#real-example" style={{ color: "#38bdf8", textDecoration: "none" }}>4. Real Example: Freelance Designer</a></li>
+              <li><a href="#tax-regimes" style={{ color: "#38bdf8", textDecoration: "none" }}>5. New vs Old Tax Regime</a></li>
+              <li><a href="#how-to-file" style={{ color: "#38bdf8", textDecoration: "none" }}>6. How to File ITR Under 44ADA</a></li>
+              <li><a href="#gst-differences" style={{ color: "#38bdf8", textDecoration: "none" }}>7. GST and Section 44ADA</a></li>
+              <li><a href="#when-not-best" style={{ color: "#38bdf8", textDecoration: "none" }}>8. When 44ADA May Not Be Best</a></li>
+              <li><a href="#faq" style={{ color: "#38bdf8", textDecoration: "none" }}>9. Frequently Asked Questions (FAQ)</a></li>
+            </ul>
+          </div>
           <div style={{ background: "linear-gradient(135deg, rgba(52,211,153,0.1) 0%, rgba(16,185,129,0.05) 100%)", border: "1px solid rgba(52,211,153,0.3)", borderRadius: "16px", padding: "40px 32px", textAlign: "center", margin: "48px 0" }}>
             <div style={{ color: "#34d399", fontSize: "14px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "12px" }}>Main 44ADA Benefit</div>
             <div style={{ fontSize: "clamp(56px, 10vw, 80px)", fontWeight: "900", color: "#34d399", lineHeight: "1", letterSpacing: "-3px", marginBottom: "16px", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>50%</div>
@@ -137,7 +158,7 @@ export default function BlogPost() {
             </div>
           </div>
 
-          <h2>What Is Section 44ADA?</h2>
+          <h2 id="what-is-44ada">What Is Section 44ADA?</h2>
 
           <p>Section 44ADA is a presumptive taxation scheme for specified professionals. Instead of calculating actual profit by subtracting every business expense from income, eligible professionals can declare income at a fixed rate: <strong>50% of gross professional receipts</strong>.</p>
 
@@ -165,7 +186,7 @@ export default function BlogPost() {
             Section 44ADA is useful when your actual expenses are less than 50% of your income. For many freelancers, actual costs are much lower than 50%, so the scheme can reduce taxable income and compliance work.</p>
           </div>
 
-          <h2>Who Is Eligible for Section 44ADA?</h2>
+          <h2 id="eligibility">Who Is Eligible for Section 44ADA?</h2>
 
           <p>Section 44ADA is available to a <strong>resident individual</strong> or <strong>resident partnership firm other than LLP</strong> carrying on a specified profession. It is not meant for every online earner or every freelancer.</p>
 
@@ -207,7 +228,7 @@ export default function BlogPost() {
             Do not claim 44ADA only because you are "freelancing." Social media income, YouTube income, affiliate income, commission income, advertising income and general content creator income may not automatically qualify. For software development, design, writing or marketing work, classification depends on the exact service, contract and invoice wording. Confirm with a CA when unsure.</p>
           </div>
 
-          <h2>Section 44ADA Income Limit: ₹50 Lakh or ₹75 Lakh?</h2>
+          <h2 id="income-limit">Section 44ADA Income Limit: ₹50 Lakh or ₹75 Lakh?</h2>
 
           <p>Section 44ADA has two practical receipt limits. The normal limit is ₹50 lakh. The extended limit is ₹75 lakh when cash and other non-specified receipts do not exceed 5% of total gross receipts.</p>
 
@@ -251,7 +272,7 @@ export default function BlogPost() {
             </div>
           </div>
 
-          <h2>Real Example: Freelance UI/UX Designer</h2>
+          <h2 id="real-example">Real Example: Freelance UI/UX Designer</h2>
 
           <p>Let's take a hypothetical example: Rohan is a freelance UI/UX designer earning ₹15,00,000 in a financial year.</p>
 
@@ -280,7 +301,7 @@ export default function BlogPost() {
             This example is for education only. Actual tax depends on deductions, regime, rebates, other income, and latest Income Tax rules.</p>
           </div>
 
-          <h2>New Tax Regime vs Old Tax Regime With Section 44ADA</h2>
+          <h2 id="tax-regimes">New Tax Regime vs Old Tax Regime With Section 44ADA</h2>
 
           <p>The 44ADA calculation is the same in both regimes: eligible presumptive income is normally 50% of gross receipts. The difference comes after that, when you calculate final tax.</p>
 
@@ -299,7 +320,7 @@ export default function BlogPost() {
 
           <p>For many freelancers with low deductions, the new regime is simpler. But if you regularly use 80C, 80D, home loan interest or other deductions, compare both before filing. Business/profession taxpayers should also note that switching between regimes is more restricted than for non-business taxpayers.</p>
 
-          <h2>How to File ITR Under Section 44ADA</h2>
+          <h2 id="how-to-file">How to File ITR Under Section 44ADA</h2>
 
           <div className={styles.steps}>
             <div className={styles.step}>
@@ -361,7 +382,7 @@ export default function BlogPost() {
             </div>
           </div>
 
-          <h2>GST and Section 44ADA Are Different</h2>
+          <h2 id="gst-differences">GST and Section 44ADA Are Different</h2>
 
           <p>Section 44ADA is an income tax rule. GST is a separate indirect tax law. Using 44ADA does not automatically remove GST responsibilities.</p>
 
@@ -372,7 +393,7 @@ export default function BlogPost() {
             A freelancer can be eligible for 44ADA under income tax and still have GST obligations. Use separate records for income tax, GST invoices, GST returns and foreign inward remittance proof where relevant.</p>
           </div>
 
-          <h2>When Section 44ADA May Not Be Best</h2>
+          <h2 id="when-not-best">When Section 44ADA May Not Be Best</h2>
 
           <p>44ADA is not always the lowest-tax option. It may not be suitable when:</p>
           <ul style={{ color: "var(--text-primary)" }}>
@@ -410,7 +431,7 @@ export default function BlogPost() {
             </div>
           </div>
 
-          <h2>Frequently Asked Questions (FAQ)</h2>
+          <h2 id="faq">Frequently Asked Questions (FAQ)</h2>
 
           <div className={styles.faqSection} itemScope itemType="https://schema.org/FAQPage">
             {faqSchema.mainEntity.map((faq, idx) => (

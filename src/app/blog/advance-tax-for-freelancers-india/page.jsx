@@ -121,12 +121,29 @@ export default function BlogPost() {
 
           <p>Most Indian freelancers discover this rule the hard way: when they file their ITR in July and find a surprise interest penalty waiting for them. This guide explains everything — the deadlines, the calculation method, the Section 44ADA shortcut, and exactly how to pay — so you never pay a rupee more than you owe.</p>
 
+          <div style={{ background: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)", borderRadius: "12px", padding: "20px", margin: "24px 0" }}>
+            <h3 style={{ margin: "0 0 12px 0", color: "#38bdf8", fontSize: "18px", fontWeight: "700" }}>⚡ Quick Answer</h3>
+            <p style={{ margin: 0, color: "var(--text-secondary)", lineHeight: "1.6" }}>
+              If your total tax liability for the year exceeds ₹10,000, you must pay Advance Tax. Freelancers on the normal regime must pay in 4 installments (June 15, Sep 15, Dec 15, Mar 15). If you claim Section 44ADA, you only need to make one payment by March 15. Missing these dates triggers a 1% per month penalty under Sections 234B and 234C.
+            </p>
+          </div>
+
+          <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: "12px", padding: "20px", margin: "24px 0" }}>
+            <h3 style={{ margin: "0 0 12px 0", color: "var(--text-primary)", fontSize: "16px", fontWeight: "700" }}>Table of Contents</h3>
+            <ul style={{ margin: 0, paddingLeft: "20px", color: "#38bdf8", lineHeight: "1.8" }}>
+              <li><a href="#what-is-advance-tax" style={{ color: "#38bdf8", textDecoration: "none" }}>1. What Is Advance Tax and Why Do Freelancers Need to Pay It?</a></li>
+              <li><a href="#due-dates" style={{ color: "#38bdf8", textDecoration: "none" }}>2. Advance Tax Due Dates for Freelancers</a></li>
+              <li><a href="#how-to-calculate" style={{ color: "#38bdf8", textDecoration: "none" }}>3. How to Calculate Advance Tax for Freelancers</a></li>
+              <li><a href="#penalties" style={{ color: "#38bdf8", textDecoration: "none" }}>4. Penalties for Missing Deadlines — Section 234B and 234C</a></li>
+              <li><a href="#faq" style={{ color: "#38bdf8", textDecoration: "none" }}>5. Frequently Asked Questions (FAQ)</a></li>
+            </ul>
+          </div>
           <div className={styles.highlightBox} style={{ borderLeft: "4px solid #ef4444", background: "rgba(239,68,68,0.05)" }}>
             <p style={{ color: "#ef4444", margin: 0 }}>⚠️ <strong>The ₹10,000 Rule — Does It Apply to You?</strong><br/>
             If your estimated income tax liability for the full financial year is more than ₹10,000 after subtracting TDS, you must pay advance tax. Since most freelancers and self-employed professionals have zero TDS deducted on their income, this threshold applies to virtually every freelancer earning above ₹5–6 lakhs annually.</p>
           </div>
 
-          <h2>What Is Advance Tax and Why Do Freelancers Need to Pay It?</h2>
+          <h2 id="what-is-advance-tax">What Is Advance Tax and Why Do Freelancers Need to Pay It?</h2>
 
           <p>Advance Tax is the system by which India's Income Tax Department collects taxes from you as you earn — not after the year ends. The logic is simple: salaried employees have TDS cut every month automatically by their employer. Freelancers do not. The government fills that gap through advance tax payments made in installments across the financial year.</p>
 
@@ -134,7 +151,7 @@ export default function BlogPost() {
 
           <p>The good news: freelancers claiming <strong>Section 44ADA</strong> get a significantly simpler deal than everyone else. You may only need to pay once instead of four times. More on that shortly.</p>
 
-          <h2>Advance Tax Due Dates for Freelancers in FY 2026-27</h2>
+          <h2 id="due-dates">Advance Tax Due Dates for Freelancers in FY 2026-27</h2>
 
           <p>There are two sets of rules depending on how you file your taxes. Here are both, clearly laid out:</p>
 
@@ -221,7 +238,7 @@ export default function BlogPost() {
             </div>
           </div>
 
-          <h2>How to Calculate Advance Tax for Freelancers — Step by Step</h2>
+          <h2 id="how-to-calculate">How to Calculate Advance Tax for Freelancers — Step by Step</h2>
 
           <p>Here is the exact process to calculate your advance tax liability for FY 2026-27. Work through each step or let the <Link href="/advance-tax-calculator" style={{ color: "#38bdf8" }}>Advance Tax Calculator</Link> handle it automatically.</p>
 
@@ -299,7 +316,7 @@ export default function BlogPost() {
 
           <p>For the same developer on the <strong>normal regime</strong>, the advance tax split would be: ₹8,424 by June 15 → ₹16,848 by September 15 → ₹16,848 by December 15 → ₹14,040 by March 15. That is four calendar reminders versus one. Section 44ADA is not just a tax saving — it is a compliance simplification.</p>
 
-          <h2>Penalties for Missing Advance Tax Deadlines — Section 234B and 234C</h2>
+          <h2 id="penalties">Penalties for Missing Advance Tax Deadlines — Section 234B and 234C</h2>
 
           <p>The Income Tax Department charges interest — not a fixed fine — when you miss or underpay advance tax. Here is exactly how both penalty sections work:</p>
 
@@ -407,7 +424,7 @@ export default function BlogPost() {
             </div>
           </div>
 
-          <h2>Frequently Asked Questions (FAQ)</h2>
+          <h2 id="faq">Frequently Asked Questions (FAQ)</h2>
 
           <div className={styles.faqSection} itemScope itemType="https://schema.org/FAQPage">
             {faqSchema.mainEntity.map((faq, idx) => (

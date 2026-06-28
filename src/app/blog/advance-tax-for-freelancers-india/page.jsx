@@ -130,7 +130,7 @@ export default function BlogPost() {
 
           <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: "12px", padding: "20px", margin: "24px 0" }}>
             <h3 style={{ margin: "0 0 12px 0", color: "var(--text-primary)", fontSize: "16px", fontWeight: "700" }}>Table of Contents</h3>
-            <ul style={{ margin: 0, paddingLeft: "20px", color: "#38bdf8", lineHeight: "1.8" }}>
+            <ul style={{ margin: 0, paddingLeft: "20px", color: "#38bdf8", lineHeight: "1.8", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "8px" }}>
               <li><a href="#what-is-advance-tax" style={{ color: "#38bdf8", textDecoration: "none" }}>1. What Is Advance Tax and Why Do Freelancers Need to Pay It?</a></li>
               <li><a href="#due-dates" style={{ color: "#38bdf8", textDecoration: "none" }}>2. Advance Tax Due Dates for Freelancers</a></li>
               <li><a href="#how-to-calculate" style={{ color: "#38bdf8", textDecoration: "none" }}>3. How to Calculate Advance Tax for Freelancers</a></li>
@@ -416,11 +416,11 @@ export default function BlogPost() {
           </div>
 
           <div style={{ background: "rgba(124,58,237,0.05)", border: "1px solid rgba(124,58,237,0.2)", borderRadius: "16px", padding: "24px", marginTop: "32px", marginBottom: "32px" }}>
-            <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#a78bfa", marginBottom: "8px" }}>Try the Free Tax Calculators</h3>
+            <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#a78bfa", marginBottom: "8px" }}>Calculate Advance Tax instantly with our free Calculator</h3>
             <p style={{ color: "var(--text-secondary)", fontSize: "15px", marginBottom: "16px" }}>Stop guessing your tax installments. Use our free tools to estimate your Advance Tax easily.</p>
             <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
-              <Link href="/advance-tax-calculator" style={{ background: "rgba(124,58,237,0.1)", border: "1px solid rgba(124,58,237,0.2)", color: "#a78bfa", fontWeight: "600", fontSize: "14px", textDecoration: "none", padding: "10px 16px", borderRadius: "8px" }}>Advance Tax Calculator</Link>
-              <Link href="/tax-calculator" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--text-primary)", fontWeight: "600", fontSize: "14px", textDecoration: "none", padding: "10px 16px", borderRadius: "8px" }}>General Tax Calculator</Link>
+              <Link href="/advance-tax-calculator" style={{ background: "rgba(124,58,237,0.1)", border: "1px solid rgba(124,58,237,0.2)", color: "#a78bfa", fontWeight: "600", fontSize: "14px", textDecoration: "none", padding: "10px 16px", borderRadius: "8px" }}>Use Free Advance Tax Calculator</Link>
+              <Link href="/tax-calculator" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--text-primary)", fontWeight: "600", fontSize: "14px", textDecoration: "none", padding: "10px 16px", borderRadius: "8px" }}>Use Free Tax Calculator</Link>
             </div>
           </div>
 

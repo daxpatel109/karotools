@@ -126,7 +126,7 @@ export default function BlogPost() {
 
           <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: "12px", padding: "20px", margin: "24px 0" }}>
             <h3 style={{ margin: "0 0 12px 0", color: "var(--text-primary)", fontSize: "16px", fontWeight: "700" }}>Table of Contents</h3>
-            <ul style={{ margin: 0, paddingLeft: "20px", color: "#38bdf8", lineHeight: "1.8" }}>
+            <ul style={{ margin: 0, paddingLeft: "20px", color: "#38bdf8", lineHeight: "1.8", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "8px" }}>
               <li><a href="#why-higher" style={{ color: "#38bdf8", textDecoration: "none" }}>1. Why Must Your Freelance Rate Be Higher?</a></li>
               <li><a href="#formula" style={{ color: "#38bdf8", textDecoration: "none" }}>2. The Freelance Hourly Rate Formula</a></li>
               <li><a href="#faq" style={{ color: "#38bdf8", textDecoration: "none" }}>3. Frequently Asked Questions (FAQ)</a></li>
@@ -260,10 +260,10 @@ export default function BlogPost() {
           <p>Your skills have a real market value. The math just needs to reflect it.</p>
 
           <div style={{ background: "rgba(245,158,11,0.05)", border: "1px solid rgba(245,158,11,0.2)", borderRadius: "16px", padding: "24px", marginTop: "32px", marginBottom: "32px" }}>
-            <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#f59e0b", marginBottom: "8px" }}>Compare Your Salary vs Freelance Rate</h3>
+            <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#f59e0b", marginBottom: "8px" }}>Calculate your Freelance Rate instantly with our free Calculator</h3>
             <p style={{ color: "var(--text-secondary)", fontSize: "15px", marginBottom: "16px" }}>Ready to calculate the exact hourly rate you need to replace your corporate salary? Use our free tool or read the comprehensive pricing guide.</p>
             <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
-              <Link href="/salary-vs-freelance" style={{ background: "rgba(245,158,11,0.1)", border: "1px solid rgba(245,158,11,0.2)", color: "#f59e0b", fontWeight: "600", fontSize: "14px", textDecoration: "none", padding: "10px 16px", borderRadius: "8px" }}>Salary vs Freelance Calculator</Link>
+              <Link href="/salary-vs-freelance" style={{ background: "rgba(245,158,11,0.1)", border: "1px solid rgba(245,158,11,0.2)", color: "#f59e0b", fontWeight: "600", fontSize: "14px", textDecoration: "none", padding: "10px 16px", borderRadius: "8px" }}>Use Free Salary vs Freelance Calculator</Link>
               <Link href="/guides/how-to-price-freelance-services" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--text-primary)", fontWeight: "600", fontSize: "14px", textDecoration: "none", padding: "10px 16px", borderRadius: "8px" }}>Read Pricing Guide</Link>
             </div>
           </div>

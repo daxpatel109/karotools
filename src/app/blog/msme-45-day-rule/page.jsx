@@ -149,7 +149,7 @@ export default function BlogPost() {
 
           <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: "12px", padding: "20px", margin: "24px 0" }}>
             <h3 style={{ margin: "0 0 12px 0", color: "var(--text-primary)", fontSize: "16px", fontWeight: "700" }}>Table of Contents</h3>
-            <ul style={{ margin: 0, paddingLeft: "20px", color: "#38bdf8", lineHeight: "1.8" }}>
+            <ul style={{ margin: 0, paddingLeft: "20px", color: "#38bdf8", lineHeight: "1.8", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "8px" }}>
               <li><a href="#what-is-the-rule" style={{ color: "#38bdf8", textDecoration: "none" }}>1. What Is the MSME 45-Day Rule?</a></li>
               <li><a href="#penalties" style={{ color: "#38bdf8", textDecoration: "none" }}>2. What Are the Actual Penalties?</a></li>
               <li><a href="#does-it-apply" style={{ color: "#38bdf8", textDecoration: "none" }}>3. Does It Apply to Freelancers?</a></li>
@@ -391,10 +391,10 @@ export default function BlogPost() {
           <p>Want the complete contract with scope protection, IP transfer clauses, and revision limits? Our free tool generates the full contract in PDF format in under 60 seconds.</p>
 
           <div className={styles.ctaBlock}>
-            <h3>📑 Get the Free Freelancer Contract Generator</h3>
-            <p>The MSME 45-day payment clause, IP assignment, scope creep protection, and limitation of liability — all included. Generate a legally-sound PDF contract in 60 seconds. No login required.</p>
+            <h3>Generate your contract instantly with our free Contract Generator</h3>
+            <p>The MSME 45-day payment clause, IP assignment, scope creep protection, and limitation of liability — all included. Generate a legally-sound PDF contract in 60 seconds.</p>
             <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap", marginTop: "16px" }}>
-              <Link href="/contract-generator" className={styles.ctaBtn}>Generate Free Contract →</Link>
+              <Link href="/contract-generator" className={styles.ctaBtn}>Use Free Contract Generator</Link>
             </div>
           </div>
 

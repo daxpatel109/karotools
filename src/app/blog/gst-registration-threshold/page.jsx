@@ -122,7 +122,7 @@ export default function BlogPost() {
 
           <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: "12px", padding: "20px", margin: "24px 0" }}>
             <h3 style={{ margin: "0 0 12px 0", color: "var(--text-primary)", fontSize: "16px", fontWeight: "700" }}>Table of Contents</h3>
-            <ul style={{ margin: 0, paddingLeft: "20px", color: "#38bdf8", lineHeight: "1.8" }}>
+            <ul style={{ margin: 0, paddingLeft: "20px", color: "#38bdf8", lineHeight: "1.8", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "8px" }}>
               <li><a href="#what-is-limit" style={{ color: "#38bdf8", textDecoration: "none" }}>1. What Is the GST Registration Limit?</a></li>
               <li><a href="#aggregate-turnover" style={{ color: "#38bdf8", textDecoration: "none" }}>2. What Counts as "Aggregate Turnover"?</a></li>
               <li><a href="#international-clients" style={{ color: "#38bdf8", textDecoration: "none" }}>3. Rules for International Clients</a></li>
@@ -332,12 +332,11 @@ export default function BlogPost() {
             </Link>
           </div>
 
-          <div style={{ background: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)", borderRadius: "16px", padding: "24px", marginTop: "32px", marginBottom: "32px" }}>
-            <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#38bdf8", marginBottom: "8px" }}>Try the Free GST Tools</h3>
-            <p style={{ color: "var(--text-secondary)", fontSize: "15px", marginBottom: "16px" }}>Whether you need to calculate exact GST amounts or read a comprehensive guide on how GST applies to your freelance business, we've got you covered.</p>
+          <div style={{ background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.2)", borderRadius: "16px", padding: "24px", marginTop: "32px", marginBottom: "32px" }}>
+            <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#10b981", marginBottom: "8px" }}>Calculate GST instantly with our free GST Calculator</h3>
+            <p style={{ color: "var(--text-secondary)", fontSize: "15px", marginBottom: "16px" }}>Need to figure out the exact GST amount to charge your clients? Use our free tool.</p>
             <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
-              <Link href="/gst-calculator" style={{ background: "rgba(56,189,248,0.1)", border: "1px solid rgba(56,189,248,0.2)", color: "#38bdf8", fontWeight: "600", fontSize: "14px", textDecoration: "none", padding: "10px 16px", borderRadius: "8px" }}>Open GST Calculator</Link>
-              <Link href="/guides/gst-for-freelancers-india" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--text-primary)", fontWeight: "600", fontSize: "14px", textDecoration: "none", padding: "10px 16px", borderRadius: "8px" }}>Read GST Guide</Link>
+              <Link href="/gst-calculator" style={{ background: "rgba(16,185,129,0.1)", border: "1px solid rgba(16,185,129,0.2)", color: "#10b981", fontWeight: "600", fontSize: "14px", textDecoration: "none", padding: "10px 16px", borderRadius: "8px" }}>Use Free GST Calculator</Link>
             </div>
           </div>
 

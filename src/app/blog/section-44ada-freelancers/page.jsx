@@ -138,7 +138,7 @@ export default function BlogPost() {
 
           <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: "12px", padding: "20px", margin: "24px 0" }}>
             <h3 style={{ margin: "0 0 12px 0", color: "var(--text-primary)", fontSize: "16px", fontWeight: "700" }}>Table of Contents</h3>
-            <ul style={{ margin: 0, paddingLeft: "20px", color: "#38bdf8", lineHeight: "1.8" }}>
+            <ul style={{ margin: 0, paddingLeft: "20px", color: "#38bdf8", lineHeight: "1.8", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "8px" }}>
               <li><a href="#what-is-44ada" style={{ color: "#38bdf8", textDecoration: "none" }}>1. What Is Section 44ADA?</a></li>
               <li><a href="#eligibility" style={{ color: "#38bdf8", textDecoration: "none" }}>2. Who Is Eligible?</a></li>
               <li><a href="#income-limit" style={{ color: "#38bdf8", textDecoration: "none" }}>3. ₹50 Lakh or ₹75 Lakh Limit?</a></li>
@@ -423,10 +423,10 @@ export default function BlogPost() {
           </div>
 
           <div style={{ background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.2)", borderRadius: "16px", padding: "24px", marginTop: "32px", marginBottom: "32px" }}>
-            <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#10b981", marginBottom: "8px" }}>Free 44ADA Calculator & Guide</h3>
-            <p style={{ color: "var(--text-secondary)", fontSize: "15px", marginBottom: "16px" }}>Ready to see how much tax you save? Use our calculator or read the complete comparison guide.</p>
+            <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#10b981", marginBottom: "8px" }}>Calculate your 44ADA Tax instantly with our free Calculator</h3>
+            <p style={{ color: "var(--text-secondary)", fontSize: "15px", marginBottom: "16px" }}>Ready to see how much tax you save? Use our free calculator or read the complete comparison guide.</p>
             <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
-              <Link href="/44ada-tax-calculator" style={{ background: "rgba(16,185,129,0.1)", border: "1px solid rgba(16,185,129,0.2)", color: "#10b981", fontWeight: "600", fontSize: "14px", textDecoration: "none", padding: "10px 16px", borderRadius: "8px" }}>44ADA Tax Calculator</Link>
+              <Link href="/44ada-tax-calculator" style={{ background: "rgba(16,185,129,0.1)", border: "1px solid rgba(16,185,129,0.2)", color: "#10b981", fontWeight: "600", fontSize: "14px", textDecoration: "none", padding: "10px 16px", borderRadius: "8px" }}>Use Free 44ADA Tax Calculator</Link>
               <Link href="/guides/section-44ada-vs-normal" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "var(--text-primary)", fontWeight: "600", fontSize: "14px", textDecoration: "none", padding: "10px 16px", borderRadius: "8px" }}>Read Comparison Guide</Link>
             </div>
           </div>

@@ -78,7 +78,7 @@ If you are a freelancer who has recently completed [GST Registration Online](/gu
 
 <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: "12px", padding: "20px", margin: "24px 0" }}>
   <h3 style={{ margin: "0 0 12px 0", color: "var(--text-primary)", fontSize: "16px", fontWeight: "700" }}>Table of Contents</h3>
-  <ul style={{ margin: 0, paddingLeft: "20px", color: "#38bdf8", lineHeight: "1.8" }}>
+  <ul style={{ margin: 0, paddingLeft: "20px", color: "#38bdf8", lineHeight: "1.8", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "8px" }}>
     <li><a href="#what-is-igst-cgst-sgst" style={{ color: "#38bdf8", textDecoration: "none" }}>1. What is IGST, CGST and SGST?</a></li>
     <li><a href="#difference" style={{ color: "#38bdf8", textDecoration: "none" }}>2. What is the Difference Between IGST and CGST?</a></li>
     <li><a href="#intra-state" style={{ color: "#38bdf8", textDecoration: "none" }}>3. Intra-State Supply: CGST + SGST</a></li>
@@ -121,12 +121,12 @@ An **inter-state** supply occurs when the supplier and the place of supply are i
 **When is IGST applicable:** If your business is in Karnataka and you sell software to a client in Delhi, this is an inter-state supply. Instead of splitting the tax, you charge the entire GST amount under a single head: IGST.
 
 <div style={{ background: "rgba(56, 189, 248, 0.05)", border: "1px solid rgba(56, 189, 248, 0.2)", padding: "24px", borderRadius: "16px", margin: "32px 0" }}>
-  <h3 style={{ color: "#38bdf8", marginTop: 0 }}>Instantly Calculate Your Tax Breakdown</h3>
-  <p style={{ marginBottom: "16px" }}>
+  <h3 style={{ color: "#38bdf8", marginTop: 0, fontSize: "20px", fontWeight: "700" }}>Instantly Calculate Your Tax Breakdown</h3>
+  <p style={{ marginBottom: "16px", color: "var(--text-secondary)" }}>
     Don't want to calculate the splits manually? Use our free GST Calculator to calculate CGST, SGST and IGST instantly.
   </p>
-  <Link data-analytics="guide_cta_gst_calculator_click" href="/gst-calculator" style={{ display: "inline-block", background: "#38bdf8", color: "#0f172a", padding: "10px 20px", borderRadius: "8px", textDecoration: "none", fontWeight: "600" }}>
-    Open Free GST Calculator →
+  <Link data-analytics="guide_cta_gst_calculator_click" href="/gst-calculator" style={{ display: "inline-block", background: "linear-gradient(135deg, #38bdf8, #0ea5e9)", color: "#0f172a", padding: "12px 24px", borderRadius: "10px", textDecoration: "none", fontWeight: "700", fontSize: "15px" }}>
+    Use Free GST Calculator
   </Link>
 </div>
 
@@ -156,12 +156,12 @@ When setting up your **GST invoice IGST CGST SGST** columns, you must clearly di
 If you are using a [GST Invoice Format in Excel](/guides/gst-invoice-format-excel), you should ideally have separate columns for CGST, SGST, and IGST. For intra-state bills, leave the IGST column blank. For inter-state bills, leave the CGST/SGST columns blank.
 
 <div style={{ background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.2)", padding: "24px", borderRadius: "16px", margin: "32px 0" }}>
-  <h3 style={{ color: "#34d399", marginTop: 0 }}>Automate Your Invoices</h3>
-  <p style={{ marginBottom: "16px" }}>
+  <h3 style={{ color: "#10b981", marginTop: 0, fontSize: "20px", fontWeight: "700" }}>Automate Your Invoices</h3>
+  <p style={{ marginBottom: "16px", color: "var(--text-secondary)" }}>
     Create a GST invoice with the correct tax breakdown using our free Invoice Generator. Simply enter your state and your client's state, and we handle the IGST vs CGST logic for you!
   </p>
-  <Link data-analytics="guide_cta_invoice_generator_click" href="/gst-invoice-generator" style={{ display: "inline-block", background: "#10b981", color: "#fff", padding: "10px 20px", borderRadius: "8px", textDecoration: "none", fontWeight: "600" }}>
-    Use Free Invoice Generator →
+  <Link data-analytics="guide_cta_invoice_generator_click" href="/invoice-generator" style={{ display: "inline-block", background: "linear-gradient(135deg, #10b981, #059669)", color: "#fff", padding: "12px 24px", borderRadius: "10px", textDecoration: "none", fontWeight: "700", fontSize: "15px" }}>
+    Use Free GST Invoice Generator
   </Link>
 </div>
 
@@ -255,3 +255,18 @@ Determine your state and your buyer's state. If they are the same, divide the to
 
 **Which tax should be shown on a GST invoice?**  
 If selling within your state, show both CGST and SGST columns on your invoice. If selling to another state, show only the IGST column. KaroTools Invoice Generator does this automatically.
+
+<div style={{ marginTop: "48px", borderTop: "1px solid var(--border-color)", paddingTop: "40px" }}>
+  <h3 style={{ fontSize: "24px", fontWeight: "700", color: "var(--text-primary)", margin: "0 0 24px 0" }}>Related Guides & Tools</h3>
+  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))", gap: "20px" }}>
+    <Link href="/gst-calculator" style={{ padding: "20px", borderRadius: "12px", border: "1px solid var(--glass-border)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "var(--glass-bg)" }}>
+      <strong style={{ color: "var(--text-primary)", fontSize: "16px" }}>GST Calculator</strong>
+    </Link>
+    <Link href="/guides/how-to-make-gst-invoice-online-free" style={{ padding: "20px", borderRadius: "12px", border: "1px solid var(--glass-border)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "var(--glass-bg)" }}>
+      <strong style={{ color: "var(--text-primary)", fontSize: "16px" }}>How to Make GST Invoice Guide</strong>
+    </Link>
+    <Link href="/guides/hsn-sac-codes-freelancers" style={{ padding: "20px", borderRadius: "12px", border: "1px solid var(--glass-border)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "var(--glass-bg)" }}>
+      <strong style={{ color: "var(--text-primary)", fontSize: "16px" }}>HSN & SAC Codes Guide</strong>
+    </Link>
+  </div>
+</div>

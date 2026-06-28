@@ -1,6 +1,6 @@
 import ArticleLayout from '../../../components/article/ArticleLayout';
 import { generateMetadata } from '../../../lib/seo';
-import { generateHowToSchema } from '../../../lib/schema';
+import { generateHowToSchema, generateFAQSchema } from '../../../lib/schema';
 import Link from 'next/link';
 
 export const metadataObj = {
@@ -28,7 +28,29 @@ export const metadataObj = {
         { name: "Step 4: Upload Documents", text: "Upload photographs, proof of address, and bank details." },
         { name: "Step 5: Verify via Aadhaar", text: "Complete Aadhaar authentication to expedite the registration process." }
       ]
-    })
+    }),
+    generateFAQSchema([
+      {
+        question: "Is there any government fee for GST registration?",
+        answer: "No, registering for GST directly on the official portal (gst.gov.in) is 100% free of charge. You only pay fees if you hire a Chartered Accountant (CA) or agency to do it for you."
+      },
+      {
+        question: "Can I register for GST using my residential/home address?",
+        answer: "Yes, absolutely. Millions of freelancers and remote workers use their home address as their Principal Place of Business. You simply need to provide the home's electricity bill and an NOC from the legal owner (e.g., your parents or landlord)."
+      },
+      {
+        question: "Do I need a separate current bank account before applying?",
+        answer: "No, you can use your personal savings account to apply for GST initially. However, once your GSTIN is approved, it is highly recommended to open a dedicated current account in your trade name for easier accounting."
+      },
+      {
+        question: "What happens if I cross ₹20 lakhs but don't register?",
+        answer: "Failing to register for GST when you cross the mandatory threshold is a serious offense. You will be liable to pay a penalty of ₹10,000 or 100% of the tax due (whichever is higher), plus interest on unpaid taxes."
+      },
+      {
+        question: "How long does it take to get a GST number?",
+        answer: "If you use Aadhaar authentication and all submitted documents are clear and accurate, you will typically receive your GSTIN within 3 to 7 working days."
+      }
+    ])
   ]
 };
 
@@ -51,7 +73,7 @@ Registering for GST is mandatory if your turnover crosses ₹20 lakhs or if you 
 
 <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: "12px", padding: "20px", margin: "24px 0" }}>
   <h3 style={{ margin: "0 0 12px 0", color: "var(--text-primary)", fontSize: "16px", fontWeight: "700" }}>Table of Contents</h3>
-  <ul style={{ margin: 0, paddingLeft: "20px", color: "#38bdf8", lineHeight: "1.8" }}>
+  <ul style={{ margin: 0, paddingLeft: "20px", color: "#38bdf8", lineHeight: "1.8", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "8px" }}>
     <li><a href="#who-needs-registration" style={{ color: "#38bdf8", textDecoration: "none" }}>1. Who Needs GST Registration in India?</a></li>
     <li><a href="#documents-required" style={{ color: "#38bdf8", textDecoration: "none" }}>2. Documents Required for GST Registration</a></li>
     <li><a href="#step-by-step" style={{ color: "#38bdf8", textDecoration: "none" }}>3. Step-by-Step Online Registration Process</a></li>
@@ -152,9 +174,19 @@ Congratulations! Once your application is approved, you will receive an email co
 
 1. **First Login:** Log into the GST portal using the temporary credentials and immediately create a new, secure username and password.
 2. **Download Certificate:** Navigate to *Services > User Services > View/Download Certificates* and download your official GST Registration Certificate (Form GST REG-06).
-3. **Issue Compliant Invoices:** You must now legally issue tax invoices containing your GSTIN, the client's GSTIN, and the correct HSN/SAC codes. Use our <Link href="/invoice-generator" style={{ color: "#38bdf8", textDecoration: "none" }}>Free GST Invoice Generator</Link> to create 100% compliant bills in seconds.
+3. **Issue Compliant Invoices:** You must now legally issue tax invoices containing your GSTIN, the client's GSTIN, and the correct HSN/SAC codes. Learn more in our <Link href="/guides/hsn-sac-codes-freelancers" style={{ color: "#38bdf8", textDecoration: "none" }}>SAC Codes Guide</Link>.
 4. **File Returns on Time:** Note your GST return filing frequency (Monthly or Quarterly under the QRMP scheme). Missing deadlines will result in late fees (₹50 per day) and interest.
 5. **File LUT for Exports:** If you have international clients, file a Letter of Undertaking (LUT) on the portal immediately. This allows you to export services without paying 18% IGST upfront.
+
+<div style={{ background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.2)", padding: "24px", borderRadius: "16px", margin: "32px 0" }}>
+  <h3 style={{ color: "#10b981", marginTop: 0, fontSize: "20px", fontWeight: "700" }}>Got your GSTIN? Start Invoicing Immediately</h3>
+  <p style={{ marginBottom: "16px", color: "var(--text-secondary)" }}>
+    Once your registration is approved, you must issue compliant tax invoices. Use our **free GST Invoice Generator** to instantly generate beautiful, 100% compliant PDF invoices without wrestling with Excel formulas.
+  </p>
+  <Link href="/invoice-generator" style={{ display: "inline-block", background: "linear-gradient(135deg, #10b981, #059669)", color: "#fff", padding: "12px 24px", borderRadius: "10px", textDecoration: "none", fontWeight: "700", fontSize: "15px" }}>
+    Use Free GST Invoice Generator
+  </Link>
+</div>
 
 <h2 id="faq">6. Frequently Asked Questions (FAQ)</h2>
 
@@ -169,3 +201,21 @@ No, you can use your personal savings account to apply for GST initially. Howeve
 
 **What happens if I cross ₹20 lakhs but don't register?**
 Failing to register for GST when you cross the mandatory threshold is a serious offense. You will be liable to pay a penalty of ₹10,000 or 100% of the tax due (whichever is higher), plus interest on unpaid taxes.
+
+**How long does it take to get a GST number?**
+If you use Aadhaar authentication and all submitted documents are clear and accurate, you will typically receive your GSTIN within 3 to 7 working days.
+
+<div style={{ marginTop: "48px", borderTop: "1px solid var(--border-color)", paddingTop: "40px" }}>
+  <h3 style={{ fontSize: "24px", fontWeight: "700", color: "var(--text-primary)", margin: "0 0 24px 0" }}>Related Guides & Tools</h3>
+  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))", gap: "20px" }}>
+    <Link href="/gst-calculator" style={{ padding: "20px", borderRadius: "12px", border: "1px solid var(--glass-border)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "var(--glass-bg)" }}>
+      <strong style={{ color: "var(--text-primary)", fontSize: "16px" }}>GST Calculator</strong>
+    </Link>
+    <Link href="/guides/gst-invoice-format-excel" style={{ padding: "20px", borderRadius: "12px", border: "1px solid var(--glass-border)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "var(--glass-bg)" }}>
+      <strong style={{ color: "var(--text-primary)", fontSize: "16px" }}>GST Invoice Format Guide</strong>
+    </Link>
+    <Link href="/blog/gst-registration-threshold" style={{ padding: "20px", borderRadius: "12px", border: "1px solid var(--glass-border)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "var(--glass-bg)" }}>
+      <strong style={{ color: "var(--text-primary)", fontSize: "16px" }}>GST Threshold Rules</strong>
+    </Link>
+  </div>
+</div>

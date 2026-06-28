@@ -1,4 +1,4 @@
-import { SchemaScript, generateBreadcrumbSchema, generateArticleSchema } from "../../../lib/schema";
+import { SchemaScript, generateBreadcrumbSchema, generateArticleSchema, generateFAQSchema } from "../../../lib/schema";
 import Link from "next/link";
 import React from "react";
 
@@ -47,7 +47,26 @@ export default function BlogPost() {
           </header>
 
           <div style={{ fontSize: "16px", color: "var(--text-primary)", lineHeight: "1.8" }}>
-            <h2 style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "16px", marginBottom: "8px" }}>
+            <div style={{ background: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)", borderRadius: "12px", padding: "20px", margin: "24px 0" }}>
+              <h3 style={{ margin: "0 0 12px 0", color: "#38bdf8", fontSize: "18px", fontWeight: "700" }}>⚡ Quick Answer</h3>
+              <p style={{ margin: 0, color: "var(--text-secondary)", lineHeight: "1.6" }}>
+                A proforma invoice is a preliminary bill sent to a client before delivering goods or services. It acts as an estimate for budgeting and advance payments, but it is not a legally binding tax document. It cannot be used to claim Input Tax Credit (ITC). Use a Proforma Invoice to request advance payments or get budget approval.
+              </p>
+            </div>
+
+            <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: "12px", padding: "20px", margin: "24px 0" }}>
+              <h3 style={{ margin: "0 0 12px 0", color: "var(--text-primary)", fontSize: "16px", fontWeight: "700" }}>Table of Contents</h3>
+              <ul style={{ margin: 0, paddingLeft: "20px", color: "#38bdf8", lineHeight: "1.8", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "8px" }}>
+                <li><a href="#what-is" style={{ color: "#38bdf8", textDecoration: "none" }}>1. What is a proforma invoice?</a></li>
+                <li><a href="#when-to-send" style={{ color: "#38bdf8", textDecoration: "none" }}>2. When should you send one?</a></li>
+                <li><a href="#what-to-include" style={{ color: "#38bdf8", textDecoration: "none" }}>3. What to include before client approval</a></li>
+                <li><a href="#common-mistakes" style={{ color: "#38bdf8", textDecoration: "none" }}>4. Common mistakes to avoid</a></li>
+                <li><a href="#how-to-create" style={{ color: "#38bdf8", textDecoration: "none" }}>5. How to create one</a></li>
+                <li><a href="#faq" style={{ color: "#38bdf8", textDecoration: "none" }}>6. Frequently Asked Questions</a></li>
+              </ul>
+            </div>
+
+            <h2 id="what-is" style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "16px", marginBottom: "8px" }}>
               What is a proforma invoice?
             </h2>
             <div style={{ background: "rgba(0,0,0,0.2)", padding: "16px", borderRadius: "12px", borderLeft: "4px solid #38bdf8", marginBottom: "24px" }}>
@@ -87,13 +106,13 @@ export default function BlogPost() {
               </tbody>
             </table>
             
-            <div style={{ background: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)", borderRadius: "16px", padding: "24px", marginTop: "24px", marginBottom: "24px" }}>
-              <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#38bdf8", marginBottom: "12px" }}>Generate professional invoices instantly</h3>
+            <div style={{ background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.2)", borderRadius: "16px", padding: "24px", marginTop: "24px", marginBottom: "24px" }}>
+              <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#10b981", marginBottom: "12px" }}>Generate professional invoices instantly</h3>
               <p style={{ color: "var(--text-secondary)", fontSize: "15px", marginBottom: "16px" }}>Use our free invoice generator to create proforma or regular tax invoices without watermarks.</p>
-              <Link href="/invoice-generator" style={{ color: "#38bdf8", fontWeight: "600", textDecoration: "none" }}>Open Invoice Generator →</Link>
+              <Link href="/invoice-generator" style={{ display: "inline-block", background: "linear-gradient(135deg, #10b981, #059669)", color: "#fff", padding: "12px 24px", borderRadius: "10px", textDecoration: "none", fontWeight: "700", fontSize: "15px" }}>Use Free Invoice Generator</Link>
             </div>
 
-            <h2 style={{ fontSize: "24px", fontWeight: "700", color: "var(--text-primary)", marginTop: "40px", marginBottom: "16px" }}>When should you send one?</h2>
+            <h2 id="when-to-send" style={{ fontSize: "24px", fontWeight: "700", color: "var(--text-primary)", marginTop: "40px", marginBottom: "16px" }}>When should you send one?</h2>
             <p style={{ marginBottom: "20px" }}>
               Freelancers and agencies typically send a Proforma Invoice in the following situations:
             </p>
@@ -103,7 +122,7 @@ export default function BlogPost() {
               <li style={{ marginBottom: "12px" }}><strong>Scope Agreement:</strong> To clearly outline the expected deliverables, timelines, and costs so there are no surprises once the final Tax Invoice is issued.</li>
             </ul>
 
-            <h2 style={{ fontSize: "24px", fontWeight: "700", color: "var(--text-primary)", marginTop: "40px", marginBottom: "16px" }}>What to include before client approval</h2>
+            <h2 id="what-to-include" style={{ fontSize: "24px", fontWeight: "700", color: "var(--text-primary)", marginTop: "40px", marginBottom: "16px" }}>What to include before client approval</h2>
             <p style={{ marginBottom: "16px" }}>To prevent scope creep and ensure smooth approval, your Proforma Invoice must include:</p>
             <ul style={{ paddingLeft: "20px", marginBottom: "20px" }}>
               <li style={{ marginBottom: "8px" }}>Clear label stating "PROFORMA INVOICE" at the top.</li>
@@ -113,14 +132,14 @@ export default function BlogPost() {
               <li style={{ marginBottom: "8px" }}>Payment terms and conditions for the advance deposit.</li>
             </ul>
 
-            <h2 style={{ fontSize: "24px", fontWeight: "700", color: "var(--text-primary)", marginTop: "40px", marginBottom: "16px" }}>Common mistakes freelancers should avoid</h2>
+            <h2 id="common-mistakes" style={{ fontSize: "24px", fontWeight: "700", color: "var(--text-primary)", marginTop: "40px", marginBottom: "16px" }}>Common mistakes freelancers should avoid</h2>
             <ul style={{ paddingLeft: "20px", marginBottom: "20px" }}>
               <li style={{ marginBottom: "12px" }}><strong>Recording it as Income:</strong> Never log a Proforma Invoice as income in accounting software like Tally. Wait for the actual payment or the final Tax Invoice.</li>
               <li style={{ marginBottom: "12px" }}><strong>Using the Same Invoice Number:</strong> Do not use your standard Tax Invoice numbering sequence for Proforma Invoices. Use a separate sequence like "PRO-001".</li>
               <li style={{ marginBottom: "12px" }}><strong>Forgetting the Validity Date:</strong> Always add an expiration date to protect yourself against price changes if the client delays approval for months.</li>
             </ul>
 
-            <h2 style={{ fontSize: "24px", fontWeight: "700", color: "var(--text-primary)", marginTop: "40px", marginBottom: "16px" }}>How to create one using KaroTools</h2>
+            <h2 id="how-to-create" style={{ fontSize: "24px", fontWeight: "700", color: "var(--text-primary)", marginTop: "40px", marginBottom: "16px" }}>How to create one using KaroTools</h2>
             <p style={{ marginBottom: "20px" }}>
               You don't need a separate software tool to create a Proforma Invoice. You can use our standard GST Invoice Generator.
             </p>
@@ -128,14 +147,36 @@ export default function BlogPost() {
               Simply open the tool, and in the "Invoice Settings" panel, change the document title from <strong>"TAX INVOICE"</strong> to <strong>"PROFORMA INVOICE"</strong>. Fill in your estimated line items and download the PDF. Once the project is complete, you can generate the final Tax Invoice.
             </p>
 
-            <div style={{ backgroundColor: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)", borderRadius: "16px", padding: "32px", marginTop: "48px", textAlign: "center" }}>
+            <div style={{ backgroundColor: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)", borderRadius: "16px", padding: "32px", marginTop: "48px", textAlign: "center", marginBottom: "48px" }}>
               <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#fff", marginBottom: "16px" }}>Create your Proforma Invoice for Free</h3>
               <p style={{ color: "var(--text-secondary)", marginBottom: "24px", fontSize: "15px" }}>
                 Generate a beautiful, watermark-free PDF in seconds. Completely free and runs securely in your browser.
               </p>
-              <Link href="/gst-invoice-generator" style={{ display: "inline-block", backgroundColor: "#38bdf8", color: "var(--bg-primary)", padding: "12px 24px", borderRadius: "8px", fontWeight: "700", textDecoration: "none", transition: "all 0.2s" }}>
-                Open Invoice Generator →
+              <Link href="/invoice-generator" style={{ display: "inline-block", background: "linear-gradient(135deg, #38bdf8, #0ea5e9)", color: "#0f172a", padding: "12px 24px", borderRadius: "10px", fontWeight: "700", textDecoration: "none", transition: "all 0.2s" }}>
+                Use Free Invoice Generator
               </Link>
+            </div>
+
+            <h2 id="faq" style={{ fontSize: "24px", fontWeight: "700", color: "var(--text-primary)", marginTop: "40px", marginBottom: "16px" }}>Frequently Asked Questions</h2>
+            <div style={{ marginBottom: "16px" }}>
+              <strong>Is a proforma invoice legally binding?</strong>
+              <p style={{ marginTop: "8px", color: "var(--text-secondary)" }}>No, it is not a legally binding document. It is simply an estimate or quote provided in advance of the transaction.</p>
+            </div>
+            <div style={{ marginBottom: "16px" }}>
+              <strong>Can I use a proforma invoice to claim ITC?</strong>
+              <p style={{ marginTop: "8px", color: "var(--text-secondary)" }}>No. Since a proforma invoice is not an official tax document, neither you nor your client can use it to claim Input Tax Credit (ITC).</p>
+            </div>
+            <div style={{ marginBottom: "16px" }}>
+              <strong>Do I charge GST on a proforma invoice?</strong>
+              <p style={{ marginTop: "8px", color: "var(--text-secondary)" }}>You can include estimated GST calculations so the client knows the total expected budget, but you do not actually collect or remit GST until the final Tax Invoice is issued.</p>
+            </div>
+            <div style={{ marginBottom: "16px" }}>
+              <strong>Can a proforma invoice be cancelled?</strong>
+              <p style={{ marginTop: "8px", color: "var(--text-secondary)" }}>Yes, since it's just an estimate, it can be cancelled, ignored, or revised at any time without any accounting or tax consequences.</p>
+            </div>
+            <div style={{ marginBottom: "16px" }}>
+              <strong>Is a proforma invoice the same as a quotation?</strong>
+              <p style={{ marginTop: "8px", color: "var(--text-secondary)" }}>Yes, in the freelancing and service industry, they are often used interchangeably. Both serve as a pre-delivery estimate of costs.</p>
             </div>
 
             <div style={{ marginTop: "48px", padding: "20px", backgroundColor: "var(--glass-bg)", border: "1px solid var(--glass-bg)", borderRadius: "8px", fontSize: "13px", color: "var(--text-secondary)", lineHeight: "1.6" }}>
@@ -172,6 +213,28 @@ export default function BlogPost() {
     
       <SchemaScript schema={generateBreadcrumbSchema([{name: "Home", url: "https://karotools.in"}, {name: "proforma invoice guide", url: "https://karotools.in/guides/proforma-invoice-guide"}])} />
       <SchemaScript schema={generateArticleSchema({title: "Proforma Invoice vs Tax Invoice: What is the Difference?", description: "Understand the difference between a proforma invoice and a tax invoice, when to use each, and how to create them.", url: "https://karotools.in/guides/proforma-invoice-guide", datePublished: "2026-06-17"})} />
+      <SchemaScript schema={generateFAQSchema([
+        {
+          question: "Is a proforma invoice legally binding?",
+          answer: "No, it is not a legally binding document. It is simply an estimate or quote provided in advance of the transaction."
+        },
+        {
+          question: "Can I use a proforma invoice to claim ITC?",
+          answer: "No. Since a proforma invoice is not an official tax document, neither you nor your client can use it to claim Input Tax Credit (ITC)."
+        },
+        {
+          question: "Do I charge GST on a proforma invoice?",
+          answer: "You can include estimated GST calculations so the client knows the total expected budget, but you do not actually collect or remit GST until the final Tax Invoice is issued."
+        },
+        {
+          question: "Can a proforma invoice be cancelled?",
+          answer: "Yes, since it's just an estimate, it can be cancelled, ignored, or revised at any time without any accounting or tax consequences."
+        },
+        {
+          question: "Is a proforma invoice the same as a quotation?",
+          answer: "Yes, in the freelancing and service industry, they are often used interchangeably. Both serve as a pre-delivery estimate of costs."
+        }
+      ])} />
 </div>
   );
 }

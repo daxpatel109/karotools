@@ -26,20 +26,20 @@ export const metadataObj = {
   schemas: [
     generateFAQSchema([
       {
-        question: "Can I use this Excel template for my GST invoice?",
-        answer: "Yes. You can download our GST invoice format in Excel and customize it for your business. Ensure you fill in all mandatory fields like GSTIN, HSN codes, and tax rates."
-      },
-      {
-        question: "Does this template include SGST/CGST?",
-        answer: "Our Excel format auto-calculates CGST and SGST for intra-state sales. It also handles IGST for inter-state transactions."
-      },
-      {
         question: "Can I convert the Excel invoice to PDF?",
-        answer: "Yes, you can 'Save As PDF' in Excel to generate a gst invoice format pdf free of cost, which is professional to send to clients."
+        answer: "Yes, you must always 'Save As PDF' in Excel or Google Sheets to generate a professional, uneditable PDF. Sending a raw Excel file is unprofessional and allows the client to accidentally edit formulas or amounts. Our online invoice generator automatically provides a secure PDF download."
       },
       {
         question: "Is this format valid for freelancers?",
-        answer: "Absolutely. A GST invoice for freelancers requires the same mandatory fields (GSTIN, SAC code, 18% rate usually) as any regular business."
+        answer: "Absolutely. A gst invoice for freelancers requires the exact same mandatory fields (GSTIN, SAC code, standard 18% rate) as a large corporate business. There is no 'lite' version of a tax invoice for freelancers."
+      },
+      {
+        question: "Does the format handle SGST/CGST automatically?",
+        answer: "If you use our free online generator, it automatically calculates CGST and SGST (9% each) if the client is in the same state as you, or IGST (18%) if they are in a different state. If you are using a manual Excel template, you must remember to apply the correct formulas yourself."
+      },
+      {
+        question: "Is the online generator completely free?",
+        answer: "Yes, the KaroTools free gst invoice generator requires no login, no subscription, no credit card, and adds absolutely zero watermarks to your PDFs. It runs entirely in your browser for maximum privacy."
       }
     ])
   ]
@@ -66,7 +66,7 @@ In this comprehensive guide, we will explain the mandatory fields required by la
 
 <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: "12px", padding: "20px", margin: "24px 0" }}>
   <h3 style={{ margin: "0 0 12px 0", color: "var(--text-primary)", fontSize: "16px", fontWeight: "700" }}>Table of Contents</h3>
-  <ul style={{ margin: 0, paddingLeft: "20px", color: "#38bdf8", lineHeight: "1.8" }}>
+  <ul style={{ margin: 0, paddingLeft: "20px", color: "#38bdf8", lineHeight: "1.8", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "8px" }}>
     <li><a href="#what-is-a-gst-invoice" style={{ color: "#38bdf8", textDecoration: "none" }}>1. What is a GST Invoice?</a></li>
     <li><a href="#what-should-it-include" style={{ color: "#38bdf8", textDecoration: "none" }}>2. What should a GST invoice format in Excel include?</a></li>
     <li><a href="#mandatory-fields" style={{ color: "#38bdf8", textDecoration: "none" }}>3. Mandatory Fields in a GST Invoice</a></li>
@@ -114,12 +114,12 @@ While using a free excel template is common, it carries significant risks:
 - **State Code Confusion:** Remembering when to apply IGST (different state) vs CGST/SGST (same state) requires manual verification every time.
 
 <div style={{ background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.2)", padding: "24px", borderRadius: "16px", margin: "32px 0" }}>
-  <h3 style={{ color: "#34d399", marginTop: 0 }}>Prefer automated, error-free invoicing?</h3>
-  <p style={{ marginBottom: "16px" }}>
+  <h3 style={{ color: "#10b981", marginTop: 0, fontSize: "20px", fontWeight: "700" }}>Prefer automated, error-free invoicing?</h3>
+  <p style={{ marginBottom: "16px", color: "var(--text-secondary)" }}>
     Stop struggling with Excel formulas. Try our **free GST Invoice Generator** to fill in your details and instantly generate a 100% compliant, beautifully formatted PDF invoice in seconds. It automatically handles the CGST vs IGST math, formatting, and mandatory fields for you.
   </p>
-  <Link href="/invoice-generator" style={{ display: "inline-block", background: "#10b981", color: "#fff", padding: "10px 20px", borderRadius: "8px", textDecoration: "none", fontWeight: "600" }}>
-    Launch Free Invoice Generator →
+  <Link href="/invoice-generator" style={{ display: "inline-block", background: "linear-gradient(135deg, #10b981, #059669)", color: "#fff", padding: "12px 24px", borderRadius: "10px", textDecoration: "none", fontWeight: "700", fontSize: "15px" }}>
+    Use Free GST Invoice Generator
   </Link>
 </div>
 
@@ -176,3 +176,18 @@ If you use our free online generator, it automatically calculates CGST and SGST 
 
 **Is the online generator completely free?**  
 Yes, the KaroTools **free gst invoice generator** requires no login, no subscription, no credit card, and adds absolutely zero watermarks to your PDFs. It runs entirely in your browser for maximum privacy.
+
+<div style={{ marginTop: "48px", borderTop: "1px solid var(--border-color)", paddingTop: "40px" }}>
+  <h3 style={{ fontSize: "24px", fontWeight: "700", color: "var(--text-primary)", margin: "0 0 24px 0" }}>Related Guides & Tools</h3>
+  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))", gap: "20px" }}>
+    <Link href="/gst-calculator" style={{ padding: "20px", borderRadius: "12px", border: "1px solid var(--glass-border)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "var(--glass-bg)" }}>
+      <strong style={{ color: "var(--text-primary)", fontSize: "16px" }}>GST Calculator</strong>
+    </Link>
+    <Link href="/guides/how-to-price-freelance-services" style={{ padding: "20px", borderRadius: "12px", border: "1px solid var(--glass-border)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "var(--glass-bg)" }}>
+      <strong style={{ color: "var(--text-primary)", fontSize: "16px" }}>Freelance Pricing Guide</strong>
+    </Link>
+    <Link href="/blog/section-44ada-freelancers" style={{ padding: "20px", borderRadius: "12px", border: "1px solid var(--glass-border)", textDecoration: "none", display: "flex", flexDirection: "column", gap: "8px", background: "var(--glass-bg)" }}>
+      <strong style={{ color: "var(--text-primary)", fontSize: "16px" }}>Section 44ADA Guide</strong>
+    </Link>
+  </div>
+</div>

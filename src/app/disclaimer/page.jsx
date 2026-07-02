@@ -1,5 +1,6 @@
 import { SchemaScript, generateBreadcrumbSchema } from "../../lib/schema";
-import Navbar from "../../components/Navbar";
+import TrustPageLayout, { TrustSectionCard } from "../../components/TrustPageLayout";
+import { AlertTriangle, Info, BookText, ShieldX } from "lucide-react";
 
 export const metadata = { 
   title: "Disclaimer | KaroTools", 
@@ -9,32 +10,48 @@ export const metadata = {
 
 export default function DisclaimerPage() {
   return (
-    <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-['DM_Sans']">
-      <Navbar />
-      <div className="max-w-4xl mx-auto px-6 py-20">
-        <h1 className="text-4xl md:text-5xl font-extrabold font-['Plus_Jakarta_Sans'] mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-[#818cf8] text-center">
-          Legal & Tax Disclaimer
-        </h1>
-        <div className="glass-panel p-8 md:p-12 rounded-3xl border border-[var(--glass-border)] bg-[var(--glass-bg)] mt-12 space-y-6">
-          <p className="text-xl font-bold text-yellow-400 mb-6">Important Notice: Please read carefully.</p>
-          <p className="text-[var(--text-secondary)] leading-relaxed">
-            <strong>1. Not a Tax or Legal Advisor:</strong> KaroTools is a software utility platform, not a Chartered Accountancy firm, law firm, or professional tax advisor. The creators and maintainers of KaroTools do not provide personalized tax, legal, or financial advice.
-          </p>
-          <p className="text-[var(--text-secondary)] leading-relaxed">
-            <strong>2. Educational Purposes Only:</strong> All calculators, generators, guides, and blog posts on this website are provided for informational and educational purposes only. They are designed to help you estimate your tax liability based on simplified, standard scenarios.
-          </p>
-          <p className="text-[var(--text-secondary)] leading-relaxed">
-            <strong>3. Verify with Official Sources:</strong> Tax laws in India (Income Tax Act, 1961, CGST Act, 2017) are complex and subject to frequent amendments. You must always verify the outputs of our tools with the official government portals (e.g., incometaxindia.gov.in, gst.gov.in) before filing returns or making payments.
-          </p>
-          <p className="text-[var(--text-secondary)] leading-relaxed">
-            <strong>4. No Liability:</strong> KaroTools and its maintainers shall not be held liable for any penalties, financial losses, legal actions, or damages resulting from decisions made based on the information or calculations provided on this website. Use the tools at your own risk.
-          </p>
-          <p className="text-[var(--text-secondary)] leading-relaxed">
-            By using KaroTools, you acknowledge that you have read, understood, and agreed to this disclaimer.
+    <>
+      <TrustPageLayout
+        title="Legal & Tax Disclaimer"
+        subtitle="Important notice regarding the use of our calculators and content."
+        lastUpdated="February 2026"
+      >
+        <div className="bg-yellow-500 bg-opacity-10 border border-yellow-500 border-opacity-30 rounded-2xl p-6 mb-8 flex items-start gap-4">
+          <AlertTriangle className="w-8 h-8 text-yellow-500 flex-shrink-0 mt-1" />
+          <p className="text-yellow-200 text-lg leading-relaxed m-0 font-medium">
+            Please read this disclaimer carefully before using any tool, calculator, or guide on KaroTools.
           </p>
         </div>
-      </div>
+
+        <TrustSectionCard title="1. Not a Tax or Legal Advisor" icon={ShieldX}>
+          <p>
+            KaroTools is a software utility platform, not a Chartered Accountancy firm, law firm, or professional tax advisor. The creators and maintainers of KaroTools do not provide personalized tax, legal, or financial advice.
+          </p>
+        </TrustSectionCard>
+
+        <TrustSectionCard title="2. Educational Purposes Only" icon={BookText}>
+          <p>
+            All calculators, generators, guides, and blog posts on this website are provided for informational and educational purposes only. They are designed to help you estimate your tax liability based on simplified, standard scenarios.
+          </p>
+        </TrustSectionCard>
+
+        <TrustSectionCard title="3. Verify with Official Sources" icon={Info}>
+          <p>
+            Tax laws in India (Income Tax Act, 1961, CGST Act, 2017) are complex and subject to frequent amendments. You must always verify the outputs of our tools with the official government portals (e.g., incometaxindia.gov.in, gst.gov.in) before filing returns or making payments.
+          </p>
+        </TrustSectionCard>
+
+        <TrustSectionCard title="4. No Liability" icon={AlertTriangle}>
+          <p>
+            KaroTools and its maintainers shall not be held liable for any penalties, financial losses, legal actions, or damages resulting from decisions made based on the information or calculations provided on this website. Use the tools at your own risk.
+          </p>
+        </TrustSectionCard>
+
+        <p className="text-center text-[var(--text-secondary)] italic mt-12">
+          By using KaroTools, you acknowledge that you have read, understood, and agreed to this disclaimer.
+        </p>
+      </TrustPageLayout>
       <SchemaScript schema={generateBreadcrumbSchema([{name: "Home", url: "https://karotools.in"}, {name: "Disclaimer", url: "https://karotools.in/disclaimer"}])} />
-    </div>
+    </>
   );
 }

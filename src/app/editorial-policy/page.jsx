@@ -31,7 +31,7 @@ export default function EditorialPolicyPage() {
 
         <TrustSectionCard title="3. Updates and Corrections" icon={RefreshCw}>
           <p>
-            We update our content annually (after the Union Budget) and periodically as new GST notifications arise. If an error is found, we issue a correction immediately. You can report errors to <a href="mailto:daxpatel093@gmail.com" className="text-[#38bdf8] hover:underline">daxpatel093@gmail.com</a>.
+            We update our content annually (after the Union Budget) and periodically as new GST notifications arise. If an error is found, we issue a correction immediately. You can report errors to <a href="mailto:daxpatel093@gmail.com" style={{ color: "#38bdf8", textDecoration: "underline" }}>daxpatel093@gmail.com</a>.
           </p>
         </TrustSectionCard>
 

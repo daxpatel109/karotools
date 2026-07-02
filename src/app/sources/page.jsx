@@ -43,23 +43,23 @@ export default function SourcesPage() {
         subtitle="We rely on publicly available data from the Government of India. Below are the primary portals we use to verify our calculators and guides."
         lastUpdated="February 2026"
       >
-        <div className="grid gap-6 md:grid-cols-2">
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "24px" }}>
           {sources.map((source, idx) => {
             const Icon = source.icon;
             return (
-              <div key={idx} className="glass-panel p-8 rounded-3xl border border-[var(--glass-border)] bg-[var(--glass-bg)] hover:border-[#38bdf8] transition-colors flex flex-col h-full shadow-sm">
-                <div className="flex justify-between items-start mb-4">
-                  <div className="flex items-center gap-3">
-                    <div className="p-3 bg-[rgba(56,189,248,0.1)] rounded-xl border border-[rgba(56,189,248,0.2)]">
-                      <Icon className="w-6 h-6 text-[#38bdf8]" />
+              <div key={idx} className="trust-card" style={{ padding: "32px", borderRadius: "24px", border: "1px solid var(--glass-border)", background: "var(--glass-bg)", display: "flex", flexDirection: "column", height: "100%", boxShadow: "var(--card-shadow)" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "16px" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                    <div style={{ padding: "12px", background: "rgba(56,189,248,0.1)", borderRadius: "12px", border: "1px solid rgba(56,189,248,0.2)" }}>
+                      <Icon style={{ width: "24px", height: "24px", color: "#38bdf8" }} />
                     </div>
-                    <h2 className="text-xl font-bold font-['Plus_Jakarta_Sans'] text-[var(--text-primary)] leading-tight">{source.name}</h2>
+                    <h2 style={{ fontSize: "20px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans', sans-serif", color: "var(--text-primary)", lineHeight: "1.3" }}>{source.name}</h2>
                   </div>
-                  <a href={source.url} target="_blank" rel="noopener noreferrer" className="text-[var(--text-secondary)] hover:text-[#38bdf8] transition-colors p-2" title="Visit Official Website">
-                    <ExternalLink className="w-5 h-5" />
+                  <a href={source.url} target="_blank" rel="noopener noreferrer" className="trust-link" style={{ color: "var(--text-secondary)", padding: "8px" }} title="Visit Official Website">
+                    <ExternalLink style={{ width: "20px", height: "20px" }} />
                   </a>
                 </div>
-                <p className="text-[var(--text-secondary)] text-base leading-relaxed flex-grow mt-2">{source.desc}</p>
+                <p style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: "1.7", flexGrow: 1, marginTop: "8px" }}>{source.desc}</p>
               </div>
             );
           })}

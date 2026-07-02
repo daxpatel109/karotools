@@ -28,7 +28,7 @@ export default function MethodologyPage() {
             We base our formulas strictly on publicly available information published by the Government of India. For example, our 44ADA calculator strictly adheres to the limits defined by the Income Tax Department, while our GST tools use standard CGST, SGST, and IGST rates mandated by the CBIC.
           </p>
           <p>
-            You can view the full list of our data sources on our <Link href="/sources" className="text-[#38bdf8] hover:underline">Official Sources page</Link>.
+            You can view the full list of our data sources on our <Link href="/sources" style={{ color: "#38bdf8", textDecoration: "underline" }}>Official Sources page</Link>.
           </p>
         </TrustSectionCard>
 

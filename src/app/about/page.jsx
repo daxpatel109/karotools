@@ -39,9 +39,9 @@ export default function AboutPage() {
           <p>
             <strong>Commitment to Accuracy:</strong> We regularly monitor the Union Budget and GST Council meetings to keep our formulas updated. You can read more on our <Link href="/methodology" className="text-[#38bdf8] hover:underline">Methodology page</Link>.
           </p>
-          <div className="bg-yellow-500 bg-opacity-10 border border-yellow-500 border-opacity-30 rounded-xl p-5 mt-6">
-            <strong className="text-yellow-500 block mb-2">Disclaimer:</strong> 
-            <span className="text-yellow-200">KaroTools is for educational purposes only. Our tools provide estimations based on publicly available information. Users must verify with official government sources or consult a qualified tax professional for personal advice.</span>
+          <div style={{ background: "rgba(234,179,8,0.1)", border: "1px solid rgba(234,179,8,0.3)", borderRadius: "12px", padding: "20px", marginTop: "24px" }}>
+            <strong style={{ color: "#eab308", display: "block", marginBottom: "8px" }}>Disclaimer:</strong> 
+            <span style={{ color: "#fef08a" }}>KaroTools is for educational purposes only. Our tools provide estimations based on publicly available information. Users must verify with official government sources or consult a qualified tax professional for personal advice.</span>
           </div>
         </TrustSectionCard>
       </TrustPageLayout>

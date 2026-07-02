@@ -16,9 +16,9 @@ export default function DisclaimerPage() {
         subtitle="Important notice regarding the use of our calculators and content."
         lastUpdated="February 2026"
       >
-        <div className="bg-yellow-500 bg-opacity-10 border border-yellow-500 border-opacity-30 rounded-2xl p-6 mb-8 flex items-start gap-4">
-          <AlertTriangle className="w-8 h-8 text-yellow-500 flex-shrink-0 mt-1" />
-          <p className="text-yellow-200 text-lg leading-relaxed m-0 font-medium">
+        <div style={{ background: "rgba(234,179,8,0.1)", border: "1px solid rgba(234,179,8,0.3)", borderRadius: "16px", padding: "24px", marginBottom: "32px", display: "flex", alignItems: "flex-start", gap: "16px" }}>
+          <AlertTriangle style={{ width: "32px", height: "32px", color: "#eab308", flexShrink: 0, marginTop: "4px" }} />
+          <p style={{ color: "#fef08a", fontSize: "18px", lineHeight: "1.7", margin: 0, fontWeight: "500" }}>
             Please read this disclaimer carefully before using any tool, calculator, or guide on KaroTools.
           </p>
         </div>

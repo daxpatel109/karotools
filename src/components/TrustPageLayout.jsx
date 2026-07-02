@@ -3,16 +3,40 @@ import Navbar from './Navbar';
 import Link from 'next/link';
 import { Calendar, ShieldCheck, ArrowLeft } from 'lucide-react';
 
-export function TrustSectionCard({ title, children, icon: Icon, className = "" }) {
+export function TrustSectionCard({ title, children, icon: Icon, style = {} }) {
   return (
-    <section className={`glass-panel p-6 md:p-10 rounded-3xl border border-[var(--glass-border)] bg-[var(--glass-bg)] hover:border-[rgba(56,189,248,0.3)] transition-colors shadow-sm ${className}`}>
+    <section className="trust-card" style={{
+      background: "var(--glass-bg)",
+      padding: "32px",
+      borderRadius: "24px",
+      border: "1px solid var(--glass-border)",
+      marginBottom: "32px",
+      boxShadow: "var(--card-shadow)",
+      ...style
+    }}>
       {title && (
-        <h2 className="text-xl md:text-2xl font-bold font-['Plus_Jakarta_Sans'] mb-4 flex items-center gap-3 text-[var(--text-primary)]">
-          {Icon && <Icon className="w-6 h-6 text-[#38bdf8] flex-shrink-0" />}
+        <h2 style={{
+          fontSize: "22px",
+          fontWeight: "700",
+          fontFamily: "'Plus Jakarta Sans', sans-serif",
+          marginBottom: "16px",
+          display: "flex",
+          alignItems: "center",
+          gap: "12px",
+          color: "var(--text-primary)"
+        }}>
+          {Icon && <Icon style={{ width: "24px", height: "24px", color: "#38bdf8", flexShrink: 0 }} />}
           {title}
         </h2>
       )}
-      <div className="text-[var(--text-secondary)] text-base md:text-lg leading-relaxed space-y-4">
+      <div style={{
+        color: "var(--text-secondary)",
+        fontSize: "16px",
+        lineHeight: "1.8",
+        display: "flex",
+        flexDirection: "column",
+        gap: "16px"
+      }}>
         {children}
       </div>
     </section>
@@ -27,67 +51,161 @@ export default function TrustPageLayout({
   badge = "KaroTools Trust Center",
 }) {
   return (
-    <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-['DM_Sans']">
+    <div style={{
+      minHeight: "100vh",
+      background: "var(--bg-primary)",
+      color: "var(--text-primary)",
+      fontFamily: "'DM Sans', sans-serif"
+    }}>
+      <style dangerouslySetInnerHTML={{__html: `
+        .trust-card { transition: border-color 0.3s ease; }
+        .trust-card:hover { border-color: rgba(56,189,248,0.3) !important; }
+        .trust-link { transition: color 0.2s ease; }
+        .trust-link:hover { color: #38bdf8 !important; }
+        .trust-btn { transition: all 0.2s ease; }
+        .trust-btn:hover { border-color: #38bdf8 !important; color: #38bdf8 !important; }
+      `}} />
       <Navbar />
       
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+      <main style={{
+        maxWidth: "900px",
+        margin: "0 auto",
+        padding: "64px 24px 80px 24px"
+      }}>
         
         {/* Breadcrumb / Back */}
-        <div className="mb-8">
-          <Link href="/" className="inline-flex items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-[#38bdf8] transition-colors no-underline">
-            <ArrowLeft className="w-4 h-4" /> Back to Home
+        <div style={{ marginBottom: "32px" }}>
+          <Link href="/" className="trust-link" style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "8px",
+            fontSize: "14px",
+            color: "var(--text-secondary)",
+            textDecoration: "none"
+          }}>
+            <ArrowLeft style={{ width: "16px", height: "16px" }} /> Back to Home
           </Link>
         </div>
 
         {/* Hero Section */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--glass-bg)] border border-[var(--glass-border)] text-xs font-bold text-[#38bdf8] uppercase tracking-wider mb-6">
-            <ShieldCheck className="w-4 h-4" />
+        <div style={{ textAlign: "center", maxWidth: "700px", margin: "0 auto 64px auto" }}>
+          <div style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "8px",
+            padding: "8px 16px",
+            borderRadius: "9999px",
+            background: "var(--glass-bg)",
+            border: "1px solid var(--glass-border)",
+            fontSize: "12px",
+            fontWeight: "700",
+            color: "#38bdf8",
+            textTransform: "uppercase",
+            letterSpacing: "0.05em",
+            marginBottom: "24px"
+          }}>
+            <ShieldCheck style={{ width: "16px", height: "16px" }} />
             {badge}
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-['Plus_Jakarta_Sans'] mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-[#818cf8] leading-tight">
+          <h1 style={{
+            fontSize: "clamp(32px, 5vw, 48px)",
+            fontWeight: "800",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            marginBottom: "24px",
+            background: "linear-gradient(to right, #ffffff, #818cf8)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            lineHeight: "1.2"
+          }}>
             {title}
           </h1>
           {subtitle && (
-            <p className="text-[var(--text-secondary)] text-lg md:text-xl leading-relaxed mb-8">
+            <p style={{
+              color: "var(--text-secondary)",
+              fontSize: "clamp(16px, 2vw, 18px)",
+              lineHeight: "1.7",
+              marginBottom: "32px"
+            }}>
               {subtitle}
             </p>
           )}
           {lastUpdated && (
-            <div className="inline-flex items-center gap-2 text-sm text-[var(--text-secondary)] opacity-80">
-              <Calendar className="w-4 h-4 text-[#38bdf8]" />
+            <div style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "8px",
+              fontSize: "14px",
+              color: "var(--text-secondary)",
+              opacity: "0.8"
+            }}>
+              <Calendar style={{ width: "16px", height: "16px", color: "#38bdf8" }} />
               <span>Last Updated: {lastUpdated}</span>
             </div>
           )}
         </div>
 
         {/* Main Content Area */}
-        <div className="space-y-8">
+        <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
           {children}
         </div>
 
         {/* CTA Tools Link */}
-        <div className="mt-20 pt-12 border-t border-[var(--border-color)]">
-          <h3 className="text-xl font-bold font-['Plus_Jakarta_Sans'] mb-8 text-center text-[var(--text-primary)]">Explore Free Tools</h3>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/gst-calculator" className="glass-panel px-6 py-3 rounded-xl border border-[var(--glass-border)] hover:border-[#38bdf8] transition-colors text-sm font-medium no-underline text-[var(--text-primary)] hover:text-[#38bdf8]">GST Calculator</Link>
-            <Link href="/invoice-generator" className="glass-panel px-6 py-3 rounded-xl border border-[var(--glass-border)] hover:border-[#38bdf8] transition-colors text-sm font-medium no-underline text-[var(--text-primary)] hover:text-[#38bdf8]">Invoice Generator</Link>
-            <Link href="/44ada-tax-calculator" className="glass-panel px-6 py-3 rounded-xl border border-[var(--glass-border)] hover:border-[#38bdf8] transition-colors text-sm font-medium no-underline text-[var(--text-primary)] hover:text-[#38bdf8]">44ADA Calculator</Link>
-            <Link href="/tax-calculator" className="glass-panel px-6 py-3 rounded-xl border border-[var(--glass-border)] hover:border-[#38bdf8] transition-colors text-sm font-medium no-underline text-[var(--text-primary)] hover:text-[#38bdf8]">Income Tax Hub</Link>
+        <div style={{
+          marginTop: "80px",
+          paddingTop: "48px",
+          borderTop: "1px solid var(--border-color)",
+          textAlign: "center"
+        }}>
+          <h3 style={{
+            fontSize: "20px",
+            fontWeight: "700",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            marginBottom: "32px",
+            color: "var(--text-primary)"
+          }}>Explore Free Tools</h3>
+          <div style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            gap: "16px"
+          }}>
+            <Link href="/gst-calculator" className="trust-btn" style={{ padding: "12px 24px", background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: "12px", color: "var(--text-primary)", textDecoration: "none", fontSize: "14px", fontWeight: "500" }}>GST Calculator</Link>
+            <Link href="/invoice-generator" className="trust-btn" style={{ padding: "12px 24px", background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: "12px", color: "var(--text-primary)", textDecoration: "none", fontSize: "14px", fontWeight: "500" }}>Invoice Generator</Link>
+            <Link href="/44ada-tax-calculator" className="trust-btn" style={{ padding: "12px 24px", background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: "12px", color: "var(--text-primary)", textDecoration: "none", fontSize: "14px", fontWeight: "500" }}>44ADA Calculator</Link>
+            <Link href="/tax-calculator" className="trust-btn" style={{ padding: "12px 24px", background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: "12px", color: "var(--text-primary)", textDecoration: "none", fontSize: "14px", fontWeight: "500" }}>Income Tax Hub</Link>
           </div>
         </div>
 
         {/* Trust Navigation */}
-        <div className="mt-16 pt-8 border-t border-[var(--border-color)] text-center pb-8">
-          <h3 className="text-sm font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-6">Related Trust Pages</h3>
-          <div className="flex flex-wrap justify-center gap-x-6 gap-y-4 text-sm text-[var(--text-secondary)] font-medium">
-            <Link href="/about" className="hover:text-[#38bdf8] transition-colors no-underline text-inherit">About</Link>
-            <Link href="/methodology" className="hover:text-[#38bdf8] transition-colors no-underline text-inherit">Methodology</Link>
-            <Link href="/sources" className="hover:text-[#38bdf8] transition-colors no-underline text-inherit">Sources</Link>
-            <Link href="/editorial-policy" className="hover:text-[#38bdf8] transition-colors no-underline text-inherit">Editorial Policy</Link>
-            <Link href="/disclaimer" className="hover:text-[#38bdf8] transition-colors no-underline text-inherit">Disclaimer</Link>
-            <Link href="/privacy-policy" className="hover:text-[#38bdf8] transition-colors no-underline text-inherit">Privacy Policy</Link>
-            <Link href="/contact" className="hover:text-[#38bdf8] transition-colors no-underline text-inherit">Contact</Link>
+        <div style={{
+          marginTop: "64px",
+          paddingTop: "32px",
+          borderTop: "1px solid var(--border-color)",
+          textAlign: "center"
+        }}>
+          <h3 style={{
+            fontSize: "14px",
+            fontWeight: "700",
+            color: "var(--text-secondary)",
+            textTransform: "uppercase",
+            letterSpacing: "0.05em",
+            marginBottom: "24px"
+          }}>Related Trust Pages</h3>
+          <div style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            gap: "24px",
+            fontSize: "14px",
+            fontWeight: "500"
+          }}>
+            <Link href="/about" className="trust-link" style={{ color: "var(--text-secondary)", textDecoration: "none" }}>About</Link>
+            <Link href="/methodology" className="trust-link" style={{ color: "var(--text-secondary)", textDecoration: "none" }}>Methodology</Link>
+            <Link href="/sources" className="trust-link" style={{ color: "var(--text-secondary)", textDecoration: "none" }}>Sources</Link>
+            <Link href="/editorial-policy" className="trust-link" style={{ color: "var(--text-secondary)", textDecoration: "none" }}>Editorial Policy</Link>
+            <Link href="/disclaimer" className="trust-link" style={{ color: "var(--text-secondary)", textDecoration: "none" }}>Disclaimer</Link>
+            <Link href="/privacy-policy" className="trust-link" style={{ color: "var(--text-secondary)", textDecoration: "none" }}>Privacy Policy</Link>
+            <Link href="/contact" className="trust-link" style={{ color: "var(--text-secondary)", textDecoration: "none" }}>Contact</Link>
           </div>
         </div>
 

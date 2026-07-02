@@ -369,7 +369,7 @@ export default function Home() {
         {/* H1 (SEO Optimized & Mobile Responsive) */}
         <h1 style={{ fontSize: "clamp(24px, 4vw, 46px)", fontWeight: 800, fontFamily: "'Plus Jakarta Sans',sans-serif", lineHeight: 1.15, marginBottom: 24, animation: "fadeInUp 0.7s 0.2s both", letterSpacing: "-0.02em", maxWidth: 1000, wordWrap: "break-word" }}>
             <span style={{ background: "var(--hero-highlight)", backgroundSize: "200% auto", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "shimmer 5s linear infinite" }}>
-            Free Tax Calculators, GST & Business Tools
+            Free Tax, GST, Invoice & Business Tools
           </span>
           <br />
           <span style={{ color: "var(--text-primary)" }}>for Indian Freelancers</span>

@@ -33,7 +33,7 @@ export default function Page() {
             </p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "32px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "32px", marginBottom: "48px" }}>
             {/* Popular Free Tools */}
             <div>
               <h2 style={{ fontSize: "20px", fontWeight: "700", marginBottom: "20px", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>Popular Free Tools</h2>
@@ -46,15 +46,53 @@ export default function Page() {
               </div>
             </div>
 
-            {/* Guides for Indian Freelancers */}
+            {/* GST & Invoice Tools */}
             <div>
-              <h2 style={{ fontSize: "20px", fontWeight: "700", marginBottom: "20px", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>Guides for Indian Freelancers</h2>
+              <h2 style={{ fontSize: "20px", fontWeight: "700", marginBottom: "20px", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>GST & Invoice Tools</h2>
               <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                <Link href="/gst-calculator" style={{ background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.2)", color: "#10b981", padding: "16px", borderRadius: "12px", textDecoration: "none", fontWeight: "600" }}>Live GST Calculator</Link>
+                <Link href="/invoice-generator" style={{ background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.2)", color: "#10b981", padding: "16px", borderRadius: "12px", textDecoration: "none", fontWeight: "600" }}>Free Invoice Generator</Link>
                 <Link href="/guides/gst-for-freelancers-india" style={{ background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.2)", color: "#10b981", padding: "16px", borderRadius: "12px", textDecoration: "none", fontWeight: "600" }}>GST for Freelancers Guide</Link>
-                <Link href="/guides/section-44ada-vs-normal" style={{ background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.2)", color: "#10b981", padding: "16px", borderRadius: "12px", textDecoration: "none", fontWeight: "600" }}>Section 44ADA vs Normal Tax</Link>
-                <Link href="/guides/how-to-price-freelance-services" style={{ background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.2)", color: "#10b981", padding: "16px", borderRadius: "12px", textDecoration: "none", fontWeight: "600" }}>How to Price Freelance Services</Link>
-                <Link href="/guides/proforma-invoice-guide" style={{ background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.2)", color: "#10b981", padding: "16px", borderRadius: "12px", textDecoration: "none", fontWeight: "600" }}>Proforma Invoice Guide</Link>
+                <Link href="/guides/how-to-register-gst-online" style={{ background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.2)", color: "#10b981", padding: "16px", borderRadius: "12px", textDecoration: "none", fontWeight: "600" }}>How to Register for GST</Link>
               </div>
+            </div>
+
+            {/* Freelancer Tax Toolkit */}
+            <div>
+              <h2 style={{ fontSize: "20px", fontWeight: "700", marginBottom: "20px", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>Freelancer Tax Toolkit</h2>
+              <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                <Link href="/44ada-tax-calculator" style={{ background: "rgba(245,158,11,0.05)", border: "1px solid rgba(245,158,11,0.2)", color: "#f59e0b", padding: "16px", borderRadius: "12px", textDecoration: "none", fontWeight: "600" }}>Understand Section 44ADA</Link>
+                <Link href="/guides/section-44ada-vs-normal" style={{ background: "rgba(245,158,11,0.05)", border: "1px solid rgba(245,158,11,0.2)", color: "#f59e0b", padding: "16px", borderRadius: "12px", textDecoration: "none", fontWeight: "600" }}>44ADA vs Normal Scheme</Link>
+                <Link href="/advance-tax-calculator" style={{ background: "rgba(245,158,11,0.05)", border: "1px solid rgba(245,158,11,0.2)", color: "#f59e0b", padding: "16px", borderRadius: "12px", textDecoration: "none", fontWeight: "600" }}>Calculate Advance Tax</Link>
+                <Link href="/guides/how-to-price-freelance-services" style={{ background: "rgba(245,158,11,0.05)", border: "1px solid rgba(245,158,11,0.2)", color: "#f59e0b", padding: "16px", borderRadius: "12px", textDecoration: "none", fontWeight: "600" }}>Price Your Services</Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Why Trust KaroTools Section */}
+          <div style={{ background: "var(--card-bg)", backdropFilter: "blur(24px)", border: "1px solid var(--card-border)", borderRadius: "24px", padding: "32px", marginBottom: "48px" }}>
+            <h2 style={{ fontSize: "20px", fontWeight: "700", marginBottom: "16px", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>Why Trust KaroTools?</h2>
+            <ul style={{ fontSize: "15px", color: "var(--text-secondary)", lineHeight: "1.8", margin: 0, paddingLeft: "20px" }}>
+              <li><strong>Free Forever:</strong> Tools for Indian freelancers and small businesses, with absolutely no login required.</li>
+              <li><strong>Educational Focus:</strong> Built to help you understand taxes using clear formulas and real-world examples.</li>
+              <li><strong>Reliable Data:</strong> Calculations are designed using publicly available information and official sources where applicable.</li>
+              <li><strong>Transparent:</strong> Read about our <Link href="/methodology" style={{ color: "#38bdf8", textDecoration: "none" }}>Calculation Methodology</Link> and <Link href="/editorial-policy" style={{ color: "#38bdf8", textDecoration: "none" }}>Editorial Policy</Link>.</li>
+            </ul>
+          </div>
+
+          {/* Footer & Disclaimer */}
+          <div style={{ borderTop: "1px solid var(--card-border)", paddingTop: "32px", marginTop: "32px", textAlign: "center" }}>
+            <p style={{ fontSize: "14px", color: "var(--text-secondary)", marginBottom: "24px", padding: "16px", background: "rgba(245,158,11,0.05)", border: "1px solid rgba(245,158,11,0.2)", borderRadius: "12px", display: "inline-block" }}>
+              <strong>Disclaimer:</strong> KaroTools provides educational calculators and tools. Results are estimates and should be verified with official sources or a qualified professional before making financial decisions.
+            </p>
+            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "16px", fontSize: "14px", fontWeight: "500" }}>
+              <Link href="/about" style={{ color: "var(--text-secondary)", textDecoration: "none" }}>About</Link>
+              <Link href="/methodology" style={{ color: "var(--text-secondary)", textDecoration: "none" }}>Methodology</Link>
+              <Link href="/sources" style={{ color: "var(--text-secondary)", textDecoration: "none" }}>Sources</Link>
+              <Link href="/editorial-policy" style={{ color: "var(--text-secondary)", textDecoration: "none" }}>Editorial Policy</Link>
+              <Link href="/disclaimer" style={{ color: "var(--text-secondary)", textDecoration: "none" }}>Disclaimer</Link>
+              <Link href="/privacy-policy" style={{ color: "var(--text-secondary)", textDecoration: "none" }}>Privacy Policy</Link>
+              <Link href="/contact" style={{ color: "var(--text-secondary)", textDecoration: "none" }}>Contact</Link>
             </div>
           </div>
 

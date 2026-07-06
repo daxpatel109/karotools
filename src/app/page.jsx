@@ -42,6 +42,8 @@ export default function Page() {
                 <Link href="/tax-calculator" style={{ background: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)", color: "#38bdf8", padding: "16px", borderRadius: "12px", textDecoration: "none", fontWeight: "600" }}>Income Tax Calculator</Link>
                 <Link href="/invoice-generator" style={{ background: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)", color: "#38bdf8", padding: "16px", borderRadius: "12px", textDecoration: "none", fontWeight: "600" }}>GST Invoice Generator</Link>
                 <Link href="/upwork-fiverr-fee-calculator-india" style={{ background: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)", color: "#38bdf8", padding: "16px", borderRadius: "12px", textDecoration: "none", fontWeight: "600" }}>Upwork & Fiverr Payout Calculator</Link>
+                <Link href="/freelance-rate-calculator" style={{ background: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)", color: "#38bdf8", padding: "16px", borderRadius: "12px", textDecoration: "none", fontWeight: "600" }}>Freelance Rate Calculator</Link>
+                <Link href="/fire-calculator" style={{ background: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)", color: "#38bdf8", padding: "16px", borderRadius: "12px", textDecoration: "none", fontWeight: "600" }}>FIRE Calculator</Link>
                 <Link href="/salary-vs-freelance" style={{ background: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)", color: "#38bdf8", padding: "16px", borderRadius: "12px", textDecoration: "none", fontWeight: "600" }}>Salary vs Freelance Calculator</Link>
               </div>
             </div>
@@ -53,6 +55,7 @@ export default function Page() {
                 <Link href="/gst-calculator" style={{ background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.2)", color: "#10b981", padding: "16px", borderRadius: "12px", textDecoration: "none", fontWeight: "600" }}>Live GST Calculator</Link>
                 <Link href="/invoice-generator" style={{ background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.2)", color: "#10b981", padding: "16px", borderRadius: "12px", textDecoration: "none", fontWeight: "600" }}>Free Invoice Generator</Link>
                 <Link href="/guides/gst-for-freelancers-india" style={{ background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.2)", color: "#10b981", padding: "16px", borderRadius: "12px", textDecoration: "none", fontWeight: "600" }}>GST for Freelancers Guide</Link>
+                <Link href="/guides/how-to-make-gst-invoice-online-free" style={{ background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.2)", color: "#10b981", padding: "16px", borderRadius: "12px", textDecoration: "none", fontWeight: "600" }}>How to Make GST Invoice Online</Link>
                 <Link href="/guides/how-to-register-gst-online" style={{ background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.2)", color: "#10b981", padding: "16px", borderRadius: "12px", textDecoration: "none", fontWeight: "600" }}>How to Register for GST</Link>
               </div>
             </div>
@@ -86,6 +89,7 @@ export default function Page() {
               <strong>Disclaimer:</strong> KaroTools provides educational calculators and tools. Results are estimates and should be verified with official sources or a qualified professional before making financial decisions.
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "16px", fontSize: "14px", fontWeight: "500" }}>
+              <Link href="/tools" style={{ color: "var(--text-secondary)", textDecoration: "none" }}>All Tools</Link>
               <Link href="/about" style={{ color: "var(--text-secondary)", textDecoration: "none" }}>About</Link>
               <Link href="/methodology" style={{ color: "var(--text-secondary)", textDecoration: "none" }}>Methodology</Link>
               <Link href="/sources" style={{ color: "var(--text-secondary)", textDecoration: "none" }}>Sources</Link>

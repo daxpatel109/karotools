@@ -41,6 +41,46 @@ const nextConfig = {
         destination: '/blog/gst-return-due-dates-calendar',
         permanent: true,
       },
+      {
+        source: '/gst-calculator/18-percent-gst-calculator',
+        destination: '/gst-calculator',
+        permanent: true,
+      },
+      {
+        source: '/gst-calculator/inclusive-exclusive-gst-calculator',
+        destination: '/gst-calculator',
+        permanent: true,
+      },
+      {
+        source: '/gst-calculator/reverse-gst-calculator',
+        destination: '/gst-calculator',
+        permanent: true,
+      },
+      {
+        source: '/blog/make-gst-invoice-online-free',
+        destination: '/guides/how-to-make-gst-invoice-online-free',
+        permanent: true,
+      },
+      {
+        source: '/rate-calculator',
+        destination: '/freelance-rate-calculator',
+        permanent: true,
+      },
+      {
+        source: '/email-generator',
+        destination: '/tools',
+        permanent: true,
+      },
+      {
+        source: '/bio-generator',
+        destination: '/tools',
+        permanent: true,
+      },
+      {
+        source: '/contract-generator',
+        destination: '/tools',
+        permanent: true,
+      },
     ];
   },
   async headers() {

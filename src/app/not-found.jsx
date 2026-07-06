@@ -101,25 +101,14 @@ export default function NotFound() {
           transition={{ duration: 0.6, delay: 0.5 }}
           style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "16px" }}
         >
-          <Link href="/gst-calculator" style={{ textDecoration: "none" }}>
-            <motion.div 
-              whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(16,185,129,0.4)" }}
-              whileTap={{ scale: 0.95 }}
-              style={{ display: "flex", alignItems: "center", gap: "8px", background: "rgba(16,185,129,0.1)", border: "1px solid rgba(16,185,129,0.3)", padding: "16px 24px", borderRadius: "16px", color: "#10b981", fontWeight: "600", cursor: "pointer" }}
-            >
-              <Zap size={20} />
-              GST Calculator
-            </motion.div>
-          </Link>
-
-          <Link href="/invoice-generator" style={{ textDecoration: "none" }}>
+          <Link href="/" style={{ textDecoration: "none" }}>
             <motion.div 
               whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(56,189,248,0.4)" }}
               whileTap={{ scale: 0.95 }}
               style={{ display: "flex", alignItems: "center", gap: "8px", background: "rgba(56,189,248,0.1)", border: "1px solid rgba(56,189,248,0.3)", padding: "16px 24px", borderRadius: "16px", color: "#38bdf8", fontWeight: "600", cursor: "pointer" }}
             >
-              <FileText size={20} />
-              Invoice Generator
+              <Search size={20} />
+              Homepage
             </motion.div>
           </Link>
 

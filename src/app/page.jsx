@@ -57,6 +57,7 @@ export default function Page() {
                 <Link href="/guides/gst-for-freelancers-india" style={{ background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.2)", color: "#10b981", padding: "16px", borderRadius: "12px", textDecoration: "none", fontWeight: "600" }}>GST for Freelancers Guide</Link>
                 <Link href="/guides/how-to-make-gst-invoice-online-free" style={{ background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.2)", color: "#10b981", padding: "16px", borderRadius: "12px", textDecoration: "none", fontWeight: "600" }}>How to Make GST Invoice Online</Link>
                 <Link href="/guides/how-to-register-gst-online" style={{ background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.2)", color: "#10b981", padding: "16px", borderRadius: "12px", textDecoration: "none", fontWeight: "600" }}>How to Register for GST</Link>
+                <Link href="/guides/hsn-sac-codes-freelancers" style={{ background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.2)", color: "#10b981", padding: "16px", borderRadius: "12px", textDecoration: "none", fontWeight: "600" }}>HSN & SAC Codes for Freelancers</Link>
               </div>
             </div>
 

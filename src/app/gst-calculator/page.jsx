@@ -44,6 +44,14 @@ export default function Page() {
     {
       question: "Can I use KaroTools GST Calculator for reverse GST?",
       answer: "Yes! Simply toggle our GST Calculator India tool to 'Inclusive', enter the final amount, and it will instantly perform a reverse GST calculation for you."
+    },
+    {
+      question: "Is GST mandatory for freelancers in India?",
+      answer: "No, GST is not mandatory for all freelancers in India. You only need to register for and charge GST if your total freelance income exceeds ₹20 Lakhs in a financial year (or ₹10 Lakhs in special category states). However, if you export freelance services to clients outside India (like Upwork or Fiverr), GST registration is mandatory regardless of your income."
+    },
+    {
+      question: "What is the GST registration threshold for freelancers?",
+      answer: "The GST registration threshold for service-based freelancers is ₹20 Lakhs per year for normal states, and ₹10 Lakhs per year for special category states. If you cross this threshold, you must register for a GSTIN and charge 18% GST on your domestic invoices."
     }
   ];
 

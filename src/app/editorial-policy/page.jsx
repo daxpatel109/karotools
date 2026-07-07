@@ -15,7 +15,7 @@ export default function EditorialPolicyPage() {
       <TrustPageLayout
         title="Editorial Policy"
         subtitle="Our commitment to accuracy, unbiased information, and strict adherence to official sources."
-        lastUpdated="February 2026"
+        lastUpdated="July 2026"
       >
         <TrustSectionCard title="1. Source-First Content" icon={BookOpen}>
           <p>

@@ -41,7 +41,7 @@ export default function SourcesPage() {
       <TrustPageLayout
         title="Official Sources"
         subtitle="We rely on publicly available data from the Government of India. Below are the primary portals we use to verify our calculators and guides."
-        lastUpdated="February 2026"
+        lastUpdated="July 2026"
       >
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "24px" }}>
           {sources.map((source, idx) => {

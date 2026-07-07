@@ -15,7 +15,7 @@ export default function AboutPage() {
       <TrustPageLayout
         title="About KaroTools"
         subtitle="KaroTools is built to help Indian freelancers, consultants, creators, agencies, and small businesses access free tax, GST, invoice, and business tools."
-        lastUpdated="February 2026"
+        lastUpdated="July 2026"
       >
         <TrustSectionCard title="Why We Built This" icon={Heart}>
           <p>

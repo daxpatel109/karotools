@@ -14,7 +14,7 @@ export default function DisclaimerPage() {
       <TrustPageLayout
         title="Legal & Tax Disclaimer"
         subtitle="Important notice regarding the use of our calculators and content."
-        lastUpdated="February 2026"
+        lastUpdated="July 2026"
       >
         <div style={{ background: "rgba(234,179,8,0.1)", border: "1px solid rgba(234,179,8,0.3)", borderRadius: "16px", padding: "24px", marginBottom: "32px", display: "flex", alignItems: "flex-start", gap: "16px" }}>
           <AlertTriangle style={{ width: "32px", height: "32px", color: "#eab308", flexShrink: 0, marginTop: "4px" }} />

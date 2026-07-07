@@ -15,7 +15,7 @@ export default function MethodologyPage() {
       <TrustPageLayout
         title="Calculation Methodology"
         subtitle="Transparency in how we build and maintain our tax and finance tools."
-        lastUpdated="February 2026"
+        lastUpdated="July 2026"
       >
         <TrustSectionCard title="1. How Calculators Are Designed" icon={Code}>
           <p>

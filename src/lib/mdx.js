@@ -26,7 +26,7 @@ export function getMdxPages(directory) {
           slug: dir.name,
           title: titleMatch[1],
           description: descMatch[1],
-          date: dateMatch ? dateMatch[1] : new Date().toISOString(),
+          date: dateMatch ? dateMatch[1] : new Date('2026-06-12').toISOString(),
           path: `/${directory}/${dir.name}`,
           category: directory === 'blog' ? 'Tax & Compliance' : 'Practical Guide',
           readTime: Math.max(1, Math.ceil(content.split(' ').length / 200)) + " min read"

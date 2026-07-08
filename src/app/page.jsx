@@ -45,7 +45,6 @@ export default function Page() {
                 <Link href="/freelance-rate-calculator" style={{ background: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)", color: "#38bdf8", padding: "16px", borderRadius: "12px", textDecoration: "none", fontWeight: "600" }}>Freelance Rate Calculator</Link>
                 <Link href="/fire-calculator" style={{ background: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)", color: "#38bdf8", padding: "16px", borderRadius: "12px", textDecoration: "none", fontWeight: "600" }}>FIRE Calculator</Link>
                 <Link href="/salary-vs-freelance" style={{ background: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)", color: "#38bdf8", padding: "16px", borderRadius: "12px", textDecoration: "none", fontWeight: "600" }}>Salary vs Freelance Calculator</Link>
-                <Link href="/ugc-professor-salary-calculator" style={{ background: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)", color: "#38bdf8", padding: "16px", borderRadius: "12px", textDecoration: "none", fontWeight: "600" }}>UGC Professor Salary Calculator</Link>
               </div>
             </div>
 

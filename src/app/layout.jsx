@@ -37,7 +37,7 @@ export const metadata = {
     images: ["https://karotools.in/og-image.png"],
   },
   verification: {
-    google: "H31sONZs31eYgdPLszQc9kToZ5yeh32I8a0RpMvurpI",
+    google: "FRY2kNGngjmC8U07y0Mh_s4ldS7PeXa8oQo3MciDEOA",
   },
 };
 

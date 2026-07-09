@@ -191,7 +191,7 @@ export default function Section44ADACalculator() {
                 <div style={{ position: "relative" }}>
                   <span style={{ position: "absolute", left: "16px", top: "50%", transform: "translateY(-50%)", color: "var(--text-secondary)", fontSize: "18px", fontWeight: "600" }}>₹</span>
                   <input 
-                    type="number" 
+                    type="number" inputMode="decimal" 
                     value={grossReceipts} 
                     onChange={e => setGrossReceipts(e.target.value)} 
                     placeholder="2000000" 
@@ -207,7 +207,7 @@ export default function Section44ADACalculator() {
                 <div style={{ position: "relative" }}>
                   <span style={{ position: "absolute", left: "16px", top: "50%", transform: "translateY(-50%)", color: "var(--text-secondary)", fontSize: "18px", fontWeight: "600" }}>₹</span>
                   <input 
-                    type="number" 
+                    type="number" inputMode="decimal" 
                     value={actualExpenses} 
                     onChange={e => setActualExpenses(e.target.value)} 
                     placeholder="e.g. 500000" 

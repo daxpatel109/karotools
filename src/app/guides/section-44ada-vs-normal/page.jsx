@@ -125,7 +125,7 @@ export default function Guide3() {
           <div style={{ background: "rgba(0,90,230,0.05)", border: "1px solid rgba(0,90,230,0.2)", borderRadius: "16px", padding: "24px", marginTop: "24px", marginBottom: "24px" }}>
             <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#005ae6", marginBottom: "12px" }}>Calculate Your Section 44ADA Tax</h3>
             <p style={{ color: "var(--text-secondary)", fontSize: "16px", marginBottom: "20px" }}>
-              See exactly how much you can save. Enter your total revenue and let our tool apply the 50% deduction and the latest tax slabs automatically.
+              See exactly how much you can save. Enter your total revenue and let our tool apply the presumptive taxation treatment and the latest tax slabs automatically.
             </p>
             <Link href="/44ada-tax-calculator" style={{ display: "inline-block", background: "linear-gradient(135deg, #005ae6, #6d28d9)", color: "#fff", padding: "12px 24px", borderRadius: "10px", textDecoration: "none", fontWeight: "700", fontSize: "15px" }}>
               Open Section 44ADA Calculator →
@@ -227,7 +227,7 @@ export default function Guide3() {
           </div>
           <div style={{ marginBottom: "16px" }}>
             <strong style={{ fontSize: "18px" }}>Can I claim actual expenses under 44ADA?</strong>
-            <p style={{ marginTop: "8px", color: "var(--text-secondary)", fontSize: "16px" }}>No. If you choose 44ADA, you are automatically given a flat 50% deduction. You cannot claim any actual expenses on top of this 50%.</p>
+            <p style={{ marginTop: "8px", color: "var(--text-secondary)", fontSize: "16px" }}>No. If you choose 44ADA, you are automatically given a flat presumptive taxation treatment. You cannot claim any actual expenses on top of this 50%.</p>
           </div>
           <div style={{ marginBottom: "16px" }}>
             <strong style={{ fontSize: "18px" }}>Who cannot opt for Section 44ADA?</strong>
@@ -254,7 +254,7 @@ export default function Guide3() {
         },
         {
           question: "Can I claim actual expenses under 44ADA?",
-          answer: "No. If you choose 44ADA, you are automatically given a flat 50% deduction. You cannot claim any actual expenses on top of this 50%."
+          answer: "No. If you choose 44ADA, you are automatically given a flat presumptive taxation treatment. You cannot claim any actual expenses on top of this 50%."
         },
         {
           question: "Who cannot opt for Section 44ADA?",

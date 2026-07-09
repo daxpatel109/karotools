@@ -160,7 +160,7 @@ export default function LateGSTPenalty() {
               <label style={{ display: "block", fontWeight: "700", color: "var(--text-primary)", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Net Tax Liability (₹)</label>
               <div className="input-glow" style={{ borderRadius: "16px", border: "1px solid var(--border-color)", background: "var(--glass-bg)", display: "flex", alignItems: "center", padding: "8px 20px" }}>
                 <span style={{ fontSize: "24px", color: "var(--text-secondary)", fontWeight: "500", marginRight: "12px" }}>₹</span>
-                <input type="number" value={liability} onChange={e => setLiability(e.target.value)} placeholder="0.00" style={{ width: "100%", padding: "14px 0", background: "transparent", border: "none", fontSize: "28px", color: "var(--text-primary)", outline: "none", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", letterSpacing: "-0.02em" }} />
+                <input type="number" inputMode="decimal" value={liability} onChange={e => setLiability(e.target.value)} placeholder="0.00" style={{ width: "100%", padding: "14px 0", background: "transparent", border: "none", fontSize: "28px", color: "var(--text-primary)", outline: "none", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", letterSpacing: "-0.02em" }} />
               </div>
               <p style={{ marginTop: "12px", fontSize: "13px", color: "var(--text-secondary)" }}>*Interest of 18% p.a. is calculated on this unpaid tax amount.</p>
             </div>

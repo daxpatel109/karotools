@@ -532,14 +532,14 @@ export default function InvoiceGenerator() {
                             </label>
                             <input value={item.hsn} onChange={e => updateItem(i, "hsn", e.target.value)} style={inp}/>
                           </div>
-                          <div><label style={lbl}>Qty</label><input type="number" value={item.qty} onChange={e => updateItem(i, "qty", e.target.value)} style={inp}/></div>
+                          <div><label style={lbl}>Qty</label><input type="number" inputMode="decimal" value={item.qty} onChange={e => updateItem(i, "qty", e.target.value)} style={inp}/></div>
                         </div>
                         <div className="items-row-3">
-                          <div><label style={lbl}>Rate</label><input type="number" value={item.rate} onChange={e => updateItem(i, "rate", e.target.value)} style={inp}/></div>
+                          <div><label style={lbl}>Rate</label><input type="number" inputMode="decimal" value={item.rate} onChange={e => updateItem(i, "rate", e.target.value)} style={inp}/></div>
                           <div>
                             <label style={lbl}>GST %</label>
                             <input 
-                              type="number" 
+                              type="number" inputMode="decimal" 
                               list={`gst-list-${i}`}
                               value={item.gst === 0 && item.gst !== "" ? 0 : item.gst} 
                               onChange={e => updateItem(i, "gst", e.target.value === "" ? "" : parseFloat(e.target.value))} 

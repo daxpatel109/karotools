@@ -116,7 +116,7 @@ export default function ClientCalculator() {
           <div>
             <label style={{ display: "block", fontSize: "14px", color: "var(--text-secondary)", marginBottom: "8px" }}>Project Amount</label>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
-              <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} style={{ flex: "1 1 120px", minWidth: 0, background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "16px" }} />
+              <input type="number" inputMode="decimal" value={amount} onChange={(e) => setAmount(e.target.value)} style={{ flex: "1 1 120px", minWidth: 0, background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "16px" }} />
               <select value={currency} onChange={(e) => handleCurrencyChange(e.target.value)} style={{ width: "100px", minWidth: 0, background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "16px" }}>
                 <option value="USD">USD</option>
                 <option value="EUR">EUR</option>
@@ -128,7 +128,7 @@ export default function ClientCalculator() {
 
           <div>
             <label style={{ display: "block", fontSize: "14px", color: "var(--text-secondary)", marginBottom: "8px" }}>Exchange Rate to INR (Editable assumption)</label>
-            <input type="number" step="0.01" value={exchangeRate} onChange={(e) => setExchangeRate(e.target.value)} style={{ width: "100%", minWidth: 0, background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "16px" }} />
+            <input type="number" inputMode="decimal" step="0.01" value={exchangeRate} onChange={(e) => setExchangeRate(e.target.value)} style={{ width: "100%", minWidth: 0, background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "16px" }} />
           </div>
 
           <div>
@@ -143,7 +143,7 @@ export default function ClientCalculator() {
 
           <div>
             <label style={{ display: "block", fontSize: "14px", color: "var(--text-secondary)", marginBottom: "8px" }}>Platform Fee % (Editable assumption)</label>
-            <input type="number" step="0.1" value={platformFeePercent} onChange={(e) => setPlatformFeePercent(e.target.value)} style={{ width: "100%", minWidth: 0, background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "16px" }} />
+            <input type="number" inputMode="decimal" step="0.1" value={platformFeePercent} onChange={(e) => setPlatformFeePercent(e.target.value)} style={{ width: "100%", minWidth: 0, background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "16px" }} />
           </div>
 
           <div style={{ padding: "16px", background: "var(--bg-primary)", borderRadius: "12px", border: "1px solid var(--border-color)" }}>
@@ -154,7 +154,7 @@ export default function ClientCalculator() {
             {!gstinProvided && (
               <div>
                 <label style={{ display: "block", fontSize: "13px", color: "var(--text-secondary)", marginBottom: "8px" }}>GST estimate on platform fees % (Assumption)</label>
-                <input type="number" step="0.1" value={gstPercent} onChange={(e) => setGstPercent(e.target.value)} style={{ width: "100%", minWidth: 0, background: "var(--bg-secondary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "10px 14px", borderRadius: "8px", fontSize: "15px" }} />
+                <input type="number" inputMode="decimal" step="0.1" value={gstPercent} onChange={(e) => setGstPercent(e.target.value)} style={{ width: "100%", minWidth: 0, background: "var(--bg-secondary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "10px 14px", borderRadius: "8px", fontSize: "15px" }} />
               </div>
             )}
           </div>
@@ -167,7 +167,7 @@ export default function ClientCalculator() {
             {withholdingEnabled && (
               <div>
                 <label style={{ display: "block", fontSize: "13px", color: "var(--text-secondary)", marginBottom: "8px" }}>Indian withholding % (Editable assumption)</label>
-                <input type="number" step="0.01" value={withholdingPercent} onChange={(e) => setWithholdingPercent(e.target.value)} style={{ width: "100%", minWidth: 0, background: "var(--bg-secondary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "10px 14px", borderRadius: "8px", fontSize: "15px" }} />
+                <input type="number" inputMode="decimal" step="0.01" value={withholdingPercent} onChange={(e) => setWithholdingPercent(e.target.value)} style={{ width: "100%", minWidth: 0, background: "var(--bg-secondary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "10px 14px", borderRadius: "8px", fontSize: "15px" }} />
               </div>
             )}
           </div>
@@ -186,17 +186,17 @@ export default function ClientCalculator() {
           <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
              <div style={{ flex: "1 1 130px", minWidth: 0 }}>
               <label style={{ display: "block", fontSize: "13px", color: "var(--text-secondary)", marginBottom: "8px" }}>FX Markup Loss %</label>
-              <input type="number" step="0.1" value={fxMarkupPercent} onChange={(e) => setFxMarkupPercent(e.target.value)} style={{ width: "100%", minWidth: 0, background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "15px" }} />
+              <input type="number" inputMode="decimal" step="0.1" value={fxMarkupPercent} onChange={(e) => setFxMarkupPercent(e.target.value)} style={{ width: "100%", minWidth: 0, background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "15px" }} />
             </div>
             <div style={{ flex: "1 1 130px", minWidth: 0 }}>
               <label style={{ display: "block", fontSize: "13px", color: "var(--text-secondary)", marginBottom: "8px" }}>Fixed Withdrawal Fee ({currency})</label>
-              <input type="number" step="0.01" value={withdrawalFee} onChange={(e) => setWithdrawalFee(e.target.value)} style={{ width: "100%", minWidth: 0, background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "15px" }} />
+              <input type="number" inputMode="decimal" step="0.01" value={withdrawalFee} onChange={(e) => setWithdrawalFee(e.target.value)} style={{ width: "100%", minWidth: 0, background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "15px" }} />
             </div>
           </div>
           
           <div>
             <label style={{ display: "block", fontSize: "13px", color: "var(--text-secondary)", marginBottom: "8px" }}>Indian Bank Receiving Fee (INR)</label>
-            <input type="number" step="1" value={bankReceivingFee} onChange={(e) => setBankReceivingFee(e.target.value)} style={{ width: "100%", minWidth: 0, background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "15px" }} />
+            <input type="number" inputMode="decimal" step="1" value={bankReceivingFee} onChange={(e) => setBankReceivingFee(e.target.value)} style={{ width: "100%", minWidth: 0, background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "15px" }} />
           </div>
 
         </div>

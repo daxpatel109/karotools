@@ -79,7 +79,7 @@ export function generateOrganizationSchema() {
 }
 
 export function generateArticleSchema({ title, description, url, datePublished, dateModified, authorName = "Dax Patel" }) {
-  const authorData = authorName === "KaroTools" || authorName === "KaroTools Editorial Team"
+  const authorData = authorName === "KaroTools" || authorName === "KaroTools"
     ? { "@type": "Organization", "name": "KaroTools", "url": "https://karotools.in" }
     : { "@type": "Person", "name": authorName };
 

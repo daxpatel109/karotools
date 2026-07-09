@@ -139,7 +139,7 @@ export default function RateCalculator() {
           <div className="input-focus-wrap" style={{ display: "flex", alignItems: "center", background: "rgba(0,0,0,0.25)", border: "1px solid var(--glass-border)", borderRadius: "12px", padding: "8px 16px", transition: "all 0.3s ease", boxShadow: "inset 0 2px 4px rgba(0,0,0,0.2)", flex: "1 1 auto", minWidth: "160px" }}>
             {prefix && <span style={{ color: "var(--text-secondary)", fontWeight: "700", marginRight: "6px", fontSize: "16px" }}>{prefix}</span>}
             <input 
-              type="number" 
+              type="number" inputMode="decimal" 
               value={value === 0 ? "" : value} 
               onChange={(e) => setter(e.target.value === "" ? 0 : Number(e.target.value))}
               onBlur={() => {
@@ -429,7 +429,7 @@ export default function RateCalculator() {
                 style={{ borderRadius: "20px", padding: "clamp(24px, 4vw, 32px)", borderTop: "4px solid #00c6ff", transition: "transform 0.1s ease-out", transformStyle: "preserve-3d" }}
               >
                 <h3 style={{ fontSize: "clamp(18px, 4vw, 20px)", fontWeight: "800", color: "#00c6ff", fontFamily: "'Plus Jakarta Sans',sans-serif", transform: "translateZ(20px)" }}>Premium Retainer</h3>
-                <p style={{ fontSize: "13px", color: "var(--text-secondary)", marginBottom: "20px", transform: "translateZ(20px)", minHeight: "40px" }}>High-touch involvement. Acts as an integrated team.</p>
+                <p style={{ fontSize: "13px", color: "var(--text-secondary)", marginBottom: "20px", transform: "translateZ(20px)", minHeight: "40px" }}>High-touch involvement. Acts as an professional workflow.</p>
                 <div style={{ fontSize: "clamp(28px, 6vw, 36px)", fontWeight: "800", color: "var(--text-primary)", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "24px", transform: "translateZ(40px)", wordBreak: "break-word" }}>₹{fmt(tierElite)}<span style={{ fontSize: "16px", color: "var(--text-secondary)" }}>/mo</span></div>
                 <ul style={{ listStyle: "none", padding: 0, margin: 0, color: "var(--text-primary)", fontSize: "14px", transform: "translateZ(10px)" }}>
                   <li style={{ marginBottom: "12px", display: "flex", gap: "8px" }}><span style={{ color: "#00c6ff" }}>✓</span> ~50 Hours of Focus</li>
@@ -481,7 +481,7 @@ export default function RateCalculator() {
         {/* Universal Legal Disclaimer */}
         <div className="no-print" style={{ marginTop: "40px", padding: "20px", background: "rgba(0,0,0,0.3)", borderRadius: "12px", border: "1px dashed var(--border-color)", textAlign: "center" }}>
           <p style={{ color: "var(--text-secondary)", fontSize: "12px", lineHeight: "1.6", margin: 0, fontFamily: "'DM Sans',sans-serif" }}>
-            <strong>Disclaimer:</strong> All calculators and tools on KaroTools.in are provided for educational and informational purposes only. While we strive to keep the logic updated with the latest Indian tax laws (FY 2026-27), the results generated are estimates and do not constitute professional financial, legal, or tax advice. We strongly recommend consulting a certified Chartered Accountant or legal professional before making any business decisions or filing your taxes. KaroTools is not responsible for any financial loss, penalties, or compliance errors resulting from the use of this website.
+            <strong>Disclaimer:</strong> All calculators and tools on KaroTools.in are provided for educational and informational purposes only. While we strive to keep the logic updated with the applicable tax rates where verified (FY 2026-27), the results generated are estimates and do not constitute professional financial, legal, or tax advice. We strongly recommend consulting a certified Chartered Accountant or legal professional before making any business decisions or filing your taxes. KaroTools is not responsible for any financial loss, penalties, or compliance errors resulting from the use of this website.
           </p>
         </div>
 

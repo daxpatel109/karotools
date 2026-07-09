@@ -27,7 +27,7 @@ export default function Page() {
     },
     {
       question: "Should I use Wise, Payoneer, PayPal, or direct bank?",
-      answer: "The best method depends on payout fees, FX markup, withdrawal charges, speed, and availability. Use the comparison result in our tool as an estimate, not a guaranteed recommendation."
+      answer: "The best method depends on payout fees, FX markup, withdrawal charges, speed, and availability. Use the comparison result in our tool as an estimate, not a informational estimate."
     },
     {
       question: "Is this calculator exact?",

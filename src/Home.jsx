@@ -244,8 +244,7 @@ export default function Home() {
   const stats = [
     { end: 11, suffix: "+", label: "Free Tools", icon: "🛠" },
     { end: 0, suffix: "₹", label: "Forever Free", icon: "💎", pre: true },
-    { end: 100, suffix: "%", label: "No Login", icon: "🔓" },
-    { end: 10, suffix: "K+", label: "Users Served", icon: "🇮🇳" },
+    { end: 100, suffix: "%", label: "No Login", icon: "🔓" }
   ];
 
   const features = [
@@ -662,7 +661,7 @@ export default function Home() {
           {/* General Website Disclaimer */}
           <div style={{ borderTop: "1px solid rgba(255,255,255,0.04)", paddingTop: 24, marginTop: 24, textAlign: "center" }}>
             <p style={{ fontSize: 11, color: "#475569", lineHeight: 1.6, maxWidth: 1000, margin: "0 auto" }}>
-              <strong>Disclaimer:</strong> All calculators and tools on KaroTools.in are provided for educational and informational purposes only. While we strive to keep the logic updated with the latest Indian tax laws (FY 2026-27), the results generated are estimates and do not constitute professional financial, legal, or tax advice. We strongly recommend consulting a certified Chartered Accountant or legal professional before making any business decisions or filing your taxes. KaroTools is not responsible for any financial loss, penalties, or compliance errors resulting from the use of this website.
+              <strong>Disclaimer:</strong> All calculators and tools on KaroTools.in are provided for educational and informational purposes only. While we strive to keep the logic updated with the applicable tax rates where verified (FY 2026-27), the results generated are estimates and do not constitute professional financial, legal, or tax advice. We strongly recommend consulting a certified Chartered Accountant or legal professional before making any business decisions or filing your taxes. KaroTools is not responsible for any financial loss, penalties, or compliance errors resulting from the use of this website.
             </p>
           </div>
         </div>

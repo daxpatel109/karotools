@@ -189,7 +189,7 @@ export function ContactUs() {
         <Link href="/" style={{ color: "var(--text-secondary)", textDecoration: "none", fontSize: "14px", padding: "8px 16px", background: "var(--glass-bg)", borderRadius: "8px" }}>← Back to Home</Link>
       </nav>
       <div style={contentStyle}>
-        <h1 style={h1Style}>Contact Our Team</h1>
+        <h1 style={h1Style}>Contact Us</h1>
         <p style={{ color: "var(--text-secondary)", fontSize: "16px", marginBottom: "32px", lineHeight: 1.8 }}>We build enterprise-grade tools for modern Indian businesses. Learn more <Link href="/about" style={{ color: "#a78bfa", textDecoration: "none" }}>about us</Link> or check out our <Link href="/blog" style={{ color: "#a78bfa", textDecoration: "none" }}>blog</Link>. Our mission is to empower freelancers, consultants, and small business owners with completely free, loginless, and highly accurate tools. Whether you need support with a specific calculator, want to report a technical bug, or wish to inquire about strategic business partnerships, our dedicated team is always here to help you succeed.</p>
         
         <div style={{ background: "rgba(124,58,237,0.05)", border: "1px solid rgba(124,58,237,0.2)", borderRadius: "16px", padding: "32px", display: "flex", flexDirection: "column", gap: "24px", marginBottom: "48px" }}>

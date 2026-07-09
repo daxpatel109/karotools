@@ -162,7 +162,7 @@ export default function BlogPost() {
           <h2 id="what-is-the-rule">📋 What Is the MSME 45-Day Payment Rule (Section 43B(h))?</h2>
 
           <p>In the Finance Act of 2023, Parliament added a new clause — clause (h) — to Section 43B of the Income Tax Act. This clause does something revolutionary: it <strong>denies a tax deduction to any business that pays an MSME supplier late</strong>.</p>
-          <p>Before this, a company could record your invoice as an expense and claim a tax deduction on it — even if they hadn't paid you yet. Section 43B(h) closed this loophole permanently for Micro and Small Enterprises.</p>
+          <p>Before this, a company could record your invoice as an expense and claim a tax deduction on it — even if they hadn't paid you yet. Section 43B(h) closed this tax provision permanently for Micro and Small Enterprises.</p>
 
           <div className={styles.highlightBox} style={{ borderLeft: "4px solid #38bdf8" }}>
             <p style={{ color: "#38bdf8" }}>⚡ <strong>The Core Rule in Plain English:</strong> If your client (any Indian business — company, LLP, startup, agency, or proprietorship) buys services from you and you are registered as a Micro or Small Enterprise under Udyam, they <em>must pay your invoice</em> within <strong>45 days</strong> (if a written agreement exists) or <strong>15 days</strong> (if no written agreement exists). Miss the deadline = lose the tax deduction + pay you compound interest.</p>

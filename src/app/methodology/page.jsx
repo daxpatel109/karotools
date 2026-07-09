@@ -34,7 +34,7 @@ export default function MethodologyPage() {
 
         <TrustSectionCard title="3. Versioning & Update Process" icon={RefreshCcw}>
           <p>
-            Tax rules change frequently. We prominently display a "Last Updated" badge on our tools (e.g., "Updated for FY 2025-26"). Whenever the Union Budget is passed or a new GST notification is issued, our team reviews the changes internally and updates the logic accordingly.
+            Tax rules change frequently. We prominently display a "Last Updated" badge on our tools (e.g., "Updated for FY 2025-26"). Whenever the Union Budget is passed or a new GST notification is issued, our we review the changes internally and updates the logic accordingly.
           </p>
         </TrustSectionCard>
 

@@ -107,7 +107,7 @@ export default function BlogPost2() {
           </p>
 
           <p style={pStyle}>
-            For independent professionals like software developers, graphic designers, and consultants, the Income Tax Department introduced a massive loophole disguised as a benefit: <strong>Section 44ADA for freelancers</strong>. It is entirely legal, widely used, and can slash your tax liability by 50% or more. Let's break down exactly how it works.
+            For independent professionals like software developers, graphic designers, and consultants, the Income Tax Department introduced a massive tax provision disguised as a benefit: <strong>Section 44ADA for freelancers</strong>. It is entirely legal, widely used, and can slash your tax liability by 50% or more. Let's break down exactly how it works.
           </p>
 
           <h2 style={h2Style}>What is Section 44ADA for Freelancers?</h2>
@@ -163,7 +163,7 @@ export default function BlogPost2() {
           <div style={{ marginBottom: "32px" }}>
             <h3 style={h3Style}>Can I claim additional expenses under Section 44ADA?</h3>
             <p style={pStyle}>
-              No. When you opt for Section 44ADA for freelancers, the 50% deduction is deemed to cover all your business expenses including rent, laptop purchases, and internet. You cannot claim any additional business expenses on top of the 50%.
+              No. When you opt for Section 44ADA for freelancers, the presumptive taxation treatment is deemed to cover all your business expenses including rent, laptop purchases, and internet. You cannot claim any additional business expenses on top of the 50%.
             </p>
           </div>
 

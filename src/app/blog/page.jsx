@@ -17,7 +17,7 @@ export const metadata = generateMetadata({
     "IGST vs CGST explained India",
     "GST for freelancers India",
     "GST registration threshold small business",
-    "GST invoice mandatory fields India"
+    "GST invoice required fields India"
   ]
 });
 

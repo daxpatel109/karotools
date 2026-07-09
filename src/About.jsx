@@ -61,7 +61,7 @@ export default function About() {
             The Indian freelancing economy is booming, yet the software ecosystem supporting it remains fragmented, expensive, or bloated with unnecessary features. Many new freelancers struggle with understanding complex tax codes, correctly formatting GST invoices, or predicting their advance tax liabilities. We believe that basic financial utility tools should be a public good, not a paid subscription.
           </p>
           <p style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: "1.8", marginBottom: "20px" }}>
-            By removing the friction of paywalls and mandatory accounts, we empower independent professionals to focus on what they do best: delivering exceptional work to their clients. KaroTools is entirely funded through unobtrusive advertisements and strategic partnerships, allowing us to maintain our "forever free" promise to the community.
+            By removing the friction of paywalls and required accounts, we empower independent professionals to focus on what they do best: delivering exceptional work to their clients. KaroTools is entirely funded through unobtrusive advertisements and strategic partnerships, allowing us to maintain our "forever free" promise to the community.
           </p>
           <p style={{ fontSize: "16px", color: "var(--text-secondary)", lineHeight: "1.8" }}>
             Whether you are a graphic designer in Bengaluru, a freelance writer in Pune, or an independent consultant in Delhi, our tools are meticulously crafted to support your specific regulatory and financial needs under Indian law. We constantly update our calculators to reflect the latest Union Budget changes and GST council decisions.

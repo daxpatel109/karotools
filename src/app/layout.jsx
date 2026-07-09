@@ -63,19 +63,6 @@ export default function RootLayout({ children }) {
               "@context": "https://schema.org",
               "@graph": [
                 {
-                  "@type": "WebApplication",
-                  "name": "KaroTools GST Calculator & Invoice Generator",
-                  "url": "https://karotools.in",
-                  "description": "Free online business tools for Indian freelancers and small businesses, including GST calculation and PDF invoice generation without watermarks.",
-                  "applicationCategory": "BusinessApplication",
-                  "operatingSystem": "All",
-                  "offers": {
-                    "@type": "Offer",
-                    "price": "0",
-                    "priceCurrency": "INR"
-                  }
-                },
-                {
                   "@type": "WebSite",
                   "name": "KaroTools",
                   "url": "https://karotools.in",

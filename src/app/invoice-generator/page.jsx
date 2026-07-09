@@ -58,7 +58,7 @@ export default function Page() {
           </div>
           <div style={{ background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.2)", borderRadius: "16px", padding: "24px" }}>
             <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#10b981", marginBottom: "8px" }}>GST Invoice Format</h3>
-            <p style={{ color: "var(--text-secondary)", fontSize: "15px", marginBottom: "16px" }}>Understand the mandatory fields required for a compliant GST invoice.</p>
+            <p style={{ color: "var(--text-secondary)", fontSize: "15px", marginBottom: "16px" }}>Understand the required fields required for a compliant GST invoice.</p>
             <Link href="/guides/gst-invoice-format-excel" style={{ color: "#10b981", fontWeight: "600", fontSize: "15px", textDecoration: "none" }}>See Invoice Format →</Link>
           </div>
         </div>

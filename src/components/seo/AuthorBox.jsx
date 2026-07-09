@@ -3,7 +3,7 @@ import { User, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 
 export default function AuthorBox({ 
-  name = "KaroTools Team", 
+  name = "KaroTools", 
   role = "Maintained by KaroTools",
   description = "Free online tools for Indian freelancers & small businesses.",
   href = "/about"

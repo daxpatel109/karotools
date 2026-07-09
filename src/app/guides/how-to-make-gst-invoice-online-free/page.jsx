@@ -231,7 +231,7 @@ export default function BlogPost() {
 
           <h3 id="legal-requirements">What a Valid GST Invoice Must Include (Legal Requirements)</h3>
 
-          <p>Before you make GST invoice online free, it helps to know what the GST law actually requires. Under the CGST Act, 2017, every tax invoice must contain the following mandatory fields:</p>
+          <p>Before you make GST invoice online free, it helps to know what the GST law actually requires. Under the CGST Act, 2017, every tax invoice must contain the following required fields:</p>
 
           <ul>
             <li>Your legal business name, address, and <strong>GSTIN</strong></li>

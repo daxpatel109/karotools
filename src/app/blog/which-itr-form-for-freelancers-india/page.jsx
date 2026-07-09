@@ -241,7 +241,7 @@ export default function BlogPost() {
             </tbody>
           </table>
 
-          <p>This does not mean 50% is tax-free. A safer way to understand it is: <strong>50% of gross professional receipts is treated as presumptive income, and tax is then calculated on total taxable income based on applicable rules.</strong></p>
+          <p>This does not mean 50% is excluded from taxation. A safer way to understand it is: <strong>50% of gross professional receipts is treated as presumptive income, and tax is then calculated on total taxable income based on applicable rules.</strong></p>
           <p>Section 44ADA may be useful for freelancers and consultants whose actual expenses are low and whose profession is eligible. It may not be suitable for everyone. If your actual expenses are high, or your work does not clearly fall within eligible professional categories, you should verify before using it.</p>
 
           <h2 id="check-ais">What To Check in AIS and Form 26AS</h2>
@@ -320,8 +320,8 @@ export default function BlogPost() {
 
           <h2 id="sources">Sources reviewed</h2>
           <ul style={{ margin: "0 0 16px 20px", color: "var(--text-secondary)" }}>
-            <li>Income Tax Department – ITR forms/downloads</li>
-            <li>Income Tax e-filing portal</li>
+            <li><a href="https://www.incometax.gov.in/iec/foportal/downloads/income-tax-returns" target="_blank" rel="noopener noreferrer" style={{ color: "#38bdf8" }}>Income Tax Department – ITR forms/downloads</a></li>
+            <li><a href="https://www.incometax.gov.in/iec/foportal/" target="_blank" rel="noopener noreferrer" style={{ color: "#38bdf8" }}>Income Tax e-filing portal</a></li>
             <li><Link href="/sources" style={{ color: "#38bdf8" }}>KaroTools Sources page</Link></li>
           </ul>
           <p>Reviewed against publicly available official sources as of 9 July 2026. Please verify with official sources before filing.</p>
@@ -334,7 +334,7 @@ export default function BlogPost() {
           </div>
 
           <div style={{ marginTop: "48px", padding: "20px", backgroundColor: "var(--glass-bg)", border: "1px solid var(--glass-bg)", borderRadius: "8px", fontSize: "13px", color: "var(--text-secondary)", lineHeight: "1.6" }}>
-            <strong><Link href="/disclaimer" style={{ color: "#38bdf8" }}>Disclaimer</Link>:</strong> KaroTools provides educational calculators and guides. This article is for general information only. Tax, GST, and financial rules may vary based on your facts and official updates. Please verify with official sources or consult a qualified professional before making financial decisions. For our calculation process, see our <Link href="/methodology" style={{ color: "#38bdf8" }}>Methodology</Link>.
+            <strong><Link href="/disclaimer" style={{ color: "#38bdf8" }}>Disclaimer</Link>:</strong> KaroTools provides educational calculators and guides. This article is for general information only. Tax, GST, and financial rules may vary based on your facts and official updates. Please verify with official sources or consult a qualified professional before making financial decisions. For our calculation process and source policy, see our <Link href="/methodology" style={{ color: "#38bdf8" }}>Methodology</Link>, <Link href="/sources" style={{ color: "#38bdf8" }}>Sources</Link>, <Link href="/disclaimer" style={{ color: "#38bdf8" }}>Disclaimer</Link>, and <Link href="/about" style={{ color: "#38bdf8" }}>About</Link> pages.
           </div>
 
         </article>

@@ -50,7 +50,7 @@ export default function BlogPost() {
             <div style={{ background: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)", borderRadius: "12px", padding: "20px", margin: "24px 0" }}>
               <h3 style={{ margin: "0 0 12px 0", color: "#38bdf8", fontSize: "18px", fontWeight: "700" }}>⚡ Quick Answer</h3>
               <p style={{ margin: 0, color: "var(--text-secondary)", lineHeight: "1.6" }}>
-                A proforma invoice is a preliminary bill sent to a client before delivering goods or services. It acts as an estimate for budgeting and advance payments, but it is not a legally binding tax document. It cannot be used to claim Input Tax Credit (ITC). Use a Proforma Invoice to request advance payments or get budget approval.
+                A proforma invoice is a preliminary bill shared before a sale is finalized. It helps explain price, items, taxes, and terms before issuing a final invoice.
               </p>
             </div>
 
@@ -70,7 +70,7 @@ export default function BlogPost() {
               What is a proforma invoice?
             </h2>
             <div style={{ background: "rgba(0,0,0,0.2)", padding: "16px", borderRadius: "12px", borderLeft: "4px solid #38bdf8", marginBottom: "24px" }}>
-              <p style={{ margin: 0, fontSize: "16px", lineHeight: "1.6" }}>A proforma invoice is a preliminary bill of sale sent to clients in advance of delivering goods or services. It acts as an estimate for budgeting but is not a legally binding document and cannot be used to claim Input Tax Credit (ITC).</p>
+              <p style={{ margin: 0, fontSize: "16px", lineHeight: "1.6" }}>A proforma invoice is a preliminary bill shared before a sale is finalized. It helps explain price, items, taxes, and terms before issuing a final invoice.</p>
             </div>
             <p style={{ marginBottom: "20px" }}>
               Before a freelance project officially starts, corporate clients often ask for a "Proforma Invoice." If you're used to only sending an invoice after the work is completed, this can be confusing.

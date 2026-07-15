@@ -2,13 +2,19 @@ import Section44ADACalculator from "../../Section44ADACalculator";
 import { SchemaScript, generateSoftwareSchema, generateBreadcrumbSchema, generateFAQSchema } from "../../lib/schema";
 import Link from "next/link";
 
-export const metadata = { title: "Best Free 44ADA Tax Calculator FY 2026-27 – KaroTools", description: "Calculate your estimated income tax under Section 44ADA (Presumptive Taxation) for Indian freelancers using the New Tax Regime.", alternates: { canonical: "https://karotools.in/44ada-tax-calculator" }  };
+import { generateMetadata } from "../../lib/seo";
+
+export const metadata = generateMetadata({
+  title: "Best Free 44ADA Tax Calculator FY 2026-27 – KaroTools",
+  description: "Calculate your estimated income tax under Section 44ADA (Presumptive Taxation) for Indian freelancers using the New Tax Regime.",
+  path: "/44ada-tax-calculator"
+});
 
 export default function Page() {
   const faqs = [
     {
       question: "How to calculate 44ADA tax for freelancers?",
-      answer: "To calculate 44ADA tax for freelancers, you only need to declare 50% of your total gross receipts as your taxable business income. For example, if you earn ₹10 Lakhs, only ₹5 Lakhs is taxable. Then, you apply the normal income tax slab rates to that 50% amount to find your final tax liability."
+      answer: "Section 44ADA lets eligible professionals estimate taxable income using presumptive taxation, usually by treating 50% of gross receipts as income where conditions apply."
     },
     {
       question: "Which ITR form should a freelancer file in India, ITR-3 or ITR-4?",

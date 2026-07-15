@@ -12,6 +12,12 @@ export function generateMetadata({ title, description, path, keywords = [], type
       description,
       url,
       siteName: 'KaroTools',
+      images: [{ 
+        url: 'https://karotools.in/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'KaroTools Free Calculators'
+      }],
       locale: 'en_IN',
       type,
     },

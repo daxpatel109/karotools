@@ -78,8 +78,6 @@ export default function BlogPost() {
 
   return (
     <div style={{ backgroundColor: "var(--bg-primary)", minHeight: "100vh", color: "var(--text-primary)", fontFamily: "'Inter', sans-serif" }}>
-      <title>Which ITR Form Should Freelancers Use in India? ITR-3 vs ITR-4</title>
-      <meta name="description" content="Understand whether freelancers may use ITR-3 or ITR-4, how Section 44ADA fits, and what to check before filing your return." />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema).replace(/</g, "\\u003c") }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c") }} />

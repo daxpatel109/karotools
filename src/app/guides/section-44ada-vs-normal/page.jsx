@@ -43,7 +43,7 @@ export default function Guide3() {
           <div style={{ background: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)", borderRadius: "12px", padding: "20px", margin: "0 0 24px 0" }}>
             <h3 style={{ margin: "0 0 12px 0", color: "#38bdf8", fontSize: "18px", fontWeight: "700" }}>⚡ Quick Answer</h3>
             <p style={{ margin: 0, color: "var(--text-secondary)", lineHeight: "1.6", fontSize: "16px" }}>
-              Section 44ADA allows freelancers to flatly declare 50% of their gross revenue as profit and pay tax on that amount, with no need for detailed books of accounts. Normal taxation requires you to subtract actual provable expenses from your revenue to find your profit. If your real expenses are less than 50% of your revenue (common for freelancers), 44ADA is significantly better.
+              Section 44ADA uses a simplified presumptive income method, while normal taxation uses actual income and expenses. The better option depends on eligibility and records.
             </p>
           </div>
 

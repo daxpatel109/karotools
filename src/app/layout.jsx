@@ -18,22 +18,38 @@ export const metadata = {
   metadataBase: new URL("https://karotools.in"),
   title: {
     template: "%s",
-    default: "KaroTools — Free GST Calculator, Invoice Generator & Business Tools",
+    default: "KaroTools — Free GST, Tax, Invoice & Business Tools",
   },
-  description: "Free online tools for Indian freelancers & small businesses — GST Calculator, GST Invoice Generator, Email Generator, Bio Generator, Freelance Rate Calculator. No login required. 100% free.",
+  description: "Free educational calculators and business tools for Indian freelancers and small businesses. Estimate GST, tax, invoices, pricing, and more.",
+  authors: [{ name: "Dax Patel" }],
+  publisher: "KaroTools",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+    },
+  },
   openGraph: {
-    title: "Best Free Tools for Indian Freelancers — KaroTools",
-    description: "GST Calculator, Invoice Generator, Email Writer & more — 100% free, no login needed. Built for India.",
+    title: "KaroTools — Free GST, Tax, Invoice & Business Tools",
+    description: "Free educational calculators and business tools for Indian freelancers and small businesses. Estimate GST, tax, invoices, pricing, and more.",
     url: "https://karotools.in",
     siteName: "KaroTools",
-    images: [{ url: "https://karotools.in/og-image.png" }],
+    images: [{ 
+      url: "https://karotools.in/og-image.png",
+      width: 1200,
+      height: 630,
+      alt: "KaroTools Free Calculators"
+    }],
     locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "KaroTools — Free GST Calculator, Invoice Generator & Business Tools",
-    description: "Free tools for Indian freelancers. GST Calculator, Invoice Generator, Email Generator & more.",
+    title: "KaroTools — Free GST, Tax, Invoice & Business Tools",
+    description: "Free educational calculators and business tools for Indian freelancers and small businesses. Estimate GST, tax, invoices, pricing, and more.",
     images: ["https://karotools.in/og-image.png"],
   },
   verification: {

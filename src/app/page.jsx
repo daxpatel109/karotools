@@ -3,16 +3,22 @@ import { SchemaScript, generateOrganizationSchema } from "../lib/schema";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Free Tax, GST & Business Tools for Freelancers – KaroTools",
-  description: "KaroTools offers free Indian financial tools like GST calculator, invoice generator, FIRE calculator and more for freelancers and small businesses. No login required.",
+  title: "KaroTools — Free GST, Tax, Invoice & Business Tools",
+  description: "Free educational calculators and business tools for Indian freelancers and small businesses. Estimate GST, tax, invoices, pricing, and more.",
   alternates: {
     canonical: "https://karotools.in",
   },
   openGraph: {
-    title: "Free Tax, GST & Business Tools for Freelancers – KaroTools",
-    description: "KaroTools offers free Indian financial tools like GST calculator, invoice generator, FIRE calculator and more for freelancers and small businesses. No login required.",
+    title: "KaroTools — Free GST, Tax, Invoice & Business Tools",
+    description: "Free educational calculators and business tools for Indian freelancers and small businesses. Estimate GST, tax, invoices, pricing, and more.",
     url: "https://karotools.in",
     siteName: "KaroTools",
+    images: [{ 
+      url: "https://karotools.in/og-image.png",
+      width: 1200,
+      height: 630,
+      alt: "KaroTools Free Calculators"
+    }],
     locale: "en_IN",
     type: "website",
   },

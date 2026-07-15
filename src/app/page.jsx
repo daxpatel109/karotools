@@ -84,23 +84,6 @@ export default function Page() {
             </ul>
           </div>
 
-          {/* Footer & Disclaimer */}
-          <div style={{ borderTop: "1px solid var(--card-border)", paddingTop: "32px", marginTop: "32px", textAlign: "center" }}>
-            <p style={{ fontSize: "14px", color: "var(--text-secondary)", marginBottom: "24px", padding: "16px", background: "rgba(245,158,11,0.05)", border: "1px solid rgba(245,158,11,0.2)", borderRadius: "12px", display: "inline-block" }}>
-              <strong>Disclaimer:</strong> KaroTools provides educational calculators and tools. Results are estimates and should be verified with official sources or a qualified professional before making financial decisions.
-            </p>
-            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "16px", fontSize: "14px", fontWeight: "500" }}>
-              <Link href="/tools" style={{ color: "var(--text-secondary)", textDecoration: "none" }}>All Tools</Link>
-              <Link href="/about" style={{ color: "var(--text-secondary)", textDecoration: "none" }}>About</Link>
-              <Link href="/methodology" style={{ color: "var(--text-secondary)", textDecoration: "none" }}>Methodology</Link>
-              <Link href="/sources" style={{ color: "var(--text-secondary)", textDecoration: "none" }}>Sources</Link>
-              <Link href="/editorial-policy" style={{ color: "var(--text-secondary)", textDecoration: "none" }}>Editorial Policy</Link>
-              <Link href="/disclaimer" style={{ color: "var(--text-secondary)", textDecoration: "none" }}>Disclaimer</Link>
-              <Link href="/privacy-policy" style={{ color: "var(--text-secondary)", textDecoration: "none" }}>Privacy Policy</Link>
-              <Link href="/contact" style={{ color: "var(--text-secondary)", textDecoration: "none" }}>Contact</Link>
-            </div>
-          </div>
-
         </div>
       </div>
       <SchemaScript schema={generateOrganizationSchema()} />

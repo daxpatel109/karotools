@@ -242,14 +242,15 @@ export default function Home() {
   });
 
   const stats = [
-    { end: 11, suffix: "+", label: "Free Tools", icon: "🛠" },
-    { end: 0, suffix: "₹", label: "Forever Free", icon: "💎", pre: true },
-    { end: 100, suffix: "%", label: "No Login", icon: "🔓" }
+    { label: "Free Tools", icon: "🛠" },
+    { label: "No Login Required", icon: "🔓" },
+    { label: "Educational Estimates", icon: "📊" },
+    { label: "Made for Indian Freelancers", icon: "🇮🇳" }
   ];
 
   const features = [
     { icon: "🔓", title: "Zero Login Required", desc: "No account, no email, no password. Just open any tool and use it instantly. Your privacy is our priority." },
-    { icon: "₹", title: "100% Free Forever", desc: "Every single tool on KaroTools is completely free. No premium plans, no feature locks, no hidden charges." },
+    { icon: "₹", title: "Free to Use", desc: "KaroTools offers free educational calculators and business tools. Some features, pages, or policies may change as the product evolves." },
     { icon: "🇮🇳", title: "Built for India", desc: "GST slabs, INR formatting, CGST/SGST/IGST — every tool is designed around Indian tax laws and business norms." },
     { icon: "⚡", title: "Instant Results", desc: "No loading spinners for basic tools. Results appear live as you type. Engineered for speed." },
     { icon: "📱", title: "Works on Any Device", desc: "Fully responsive on phone, tablet and laptop. Use KaroTools from anywhere, anytime." },
@@ -260,7 +261,7 @@ export default function Home() {
     { q: "Is KaroTools completely free to use?", a: "Yes! All tools on KaroTools are 100% free — no login, no subscription, no hidden charges. We built this for Indian freelancers who shouldn't have to pay just to calculate GST or generate an invoice." },
     { q: "Do I need to create an account?", a: "Absolutely not. There's zero sign-up required. Just visit any tool, fill in your details, and get your result instantly. We believe in friction-free tools." },
     { q: "Can I download my GST invoice as a PDF?", a: "Yes! Our GST Invoice Generator lets you download a professional PDF invoice instantly — with your logo, GSTIN, CGST/SGST or IGST breakdown, HSN/SAC codes, payment status, and authorized signature area." },
-    { q: "Are the GST calculations accurate and up-to-date?", a: "Absolutely. Our GST Calculator follows official Indian GST rules — including CGST + SGST for intra-state transactions and IGST for inter-state transactions across all four slabs (5%, 12%, 18%, 28%). We also support custom GST rates." },
+    { q: "How should I use the GST calculator results?", a: "The GST calculator provides educational estimates based on selected GST rates and transaction type. Please verify final GST treatment with official sources or a qualified professional before filing or making compliance decisions." },
     { q: "What tools does KaroTools offer?", a: "Currently KaroTools offers: GST Calculator, GST Invoice Generator, Tax Calculators, and a Freelance Rate Calculator. We focus exclusively on practical financial tools to help Indian freelancers run their business." },
     { q: "Who is KaroTools built for?", a: "KaroTools is built specifically for Indian freelancers, consultants, UI/UX designers, web developers, content writers, photographers, and small business owners who need fast, reliable business tools without complexity." },
   ];
@@ -353,6 +354,15 @@ export default function Home() {
       {/* ── HERO ─────────────────────────────────────────────── */}
       <section style={{ position: "relative", zIndex: 1, minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "130px 24px 80px", overflow: "hidden" }}>
 
+        {/* Seasonal Banner */}
+        <div style={{ background: "rgba(245,158,11,0.1)", border: "1px solid rgba(245,158,11,0.3)", borderRadius: "12px", padding: "12px 24px", marginBottom: "40px", display: "flex", alignItems: "center", gap: "16px", flexWrap: "wrap", justifyContent: "center", animation: "fadeInUp 0.5s both" }}>
+          <span style={{ fontSize: "14px", color: "#f59e0b", fontWeight: "600" }}>⚠️ ITR filing season: Estimate your tax before filing.</span>
+          <div style={{ display: "flex", gap: "12px" }}>
+            <Link href="/tax-calculator" style={{ fontSize: "13px", fontWeight: "700", color: "#fff", background: "#f59e0b", padding: "6px 16px", borderRadius: "20px", textDecoration: "none" }}>Try free tax tools</Link>
+            <Link href="/44ada-tax-calculator" style={{ fontSize: "13px", fontWeight: "600", color: "#f59e0b", border: "1px solid #f59e0b", padding: "6px 16px", borderRadius: "20px", textDecoration: "none" }}>44ADA Calculator</Link>
+          </div>
+        </div>
+
         <div ref={heroRef} style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
           {[300, 460, 620, 780, 940].map((size, i) => (
             <div key={size} style={{ position: "absolute", top: "50%", left: "50%", width: size, height: size, border: `1px solid rgba(0,118,255,${0.07 - i * 0.012})`, borderRadius: "50%", animation: `rotateRing ${18 + i * 7}s linear infinite ${i % 2 ? "reverse" : ""}` }} />
@@ -393,13 +403,11 @@ export default function Home() {
         </div>
 
         {/* Stats */}
-        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", animation: "fadeInUp 0.7s 0.5s both" }}>
+        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "24px", animation: "fadeInUp 0.7s 0.5s both" }}>
           {stats.map((s, i) => (
-            <div key={s.label} style={{ padding: "0 36px", textAlign: "center", borderRight: i < stats.length - 1 ? "1px solid var(--glass-border)" : "none" }}>
-              <div style={{ fontSize: 36, fontWeight: 800, fontFamily: "'Plus Jakarta Sans',sans-serif", background: "linear-gradient(135deg, #0076ff, #005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-                {s.pre ? s.suffix : ""}<Counter end={s.end} suffix={s.pre ? "" : s.suffix} />
-              </div>
-              <div style={{ fontSize: 13, color: "#475569", fontWeight: 500, marginTop: 6 }}>{s.icon} {s.label}</div>
+            <div key={s.label} style={{ padding: "16px 24px", background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: "16px", textAlign: "center", display: "flex", alignItems: "center", gap: "12px" }}>
+              <div style={{ fontSize: 24 }}>{s.icon}</div>
+              <div style={{ fontSize: 14, color: "var(--text-primary)", fontWeight: 600 }}>{s.label}</div>
             </div>
           ))}
         </div>
@@ -413,6 +421,25 @@ export default function Home() {
 
       {/* ── SCROLL PATH WORKFLOW ────────────────────────────── */}
       <ScrollPathSection />
+
+      {/* ── BUILT FOR INDIAN FREELANCERS ───────────────────────── */}
+      <section style={{ position: "relative", zIndex: 1, padding: "60px 5vw", background: "var(--bg-secondary)" }}>
+        <div style={{ maxWidth: 1000, margin: "0 auto", textAlign: "center" }}>
+          <Reveal>
+            <h2 style={{ fontSize: "clamp(24px, 3.5vw, 36px)", fontWeight: 800, fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginBottom: 12 }}>Built for Indian freelancers</h2>
+            <p style={{ color: "var(--text-secondary)", fontSize: 16, marginBottom: 40 }}>Simple GST, tax, invoice, and business tools for common freelance workflows in India.</p>
+          </Reveal>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: 16 }}>
+            {["Freelance Developers", "Designers", "Consultants", "Content Writers", "Agency Owners", "Private Tutors"].map((audience, i) => (
+              <Reveal key={audience} delay={i * 0.05}>
+                <div style={{ padding: "16px", background: "var(--card-bg)", border: "1px solid var(--card-border)", borderRadius: "12px", fontSize: "14px", fontWeight: "600", color: "var(--text-primary)", boxShadow: "var(--card-shadow)" }}>
+                  {audience}
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ── TOOLS SECTION ───────────────────────────────────── */}
       <section id="tools-section" style={{ position: "relative", zIndex: 1, padding: "85px 5vw", background: "var(--section-alt-bg)" }}>
@@ -470,7 +497,7 @@ export default function Home() {
                 <div style={{ flex: 1, background: "#138808" }} />
               </div>
               <h2 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 800, fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", letterSpacing: "-0.025em" }}>
-                Built for India.<br />By Freelancers, for Freelancers.
+                Built for India.<br />Made for Freelancers.
               </h2>
             </div>
           </Reveal>
@@ -503,6 +530,31 @@ export default function Home() {
               { icon: "📄", title: "Free GST Invoice Generator", desc: "Create professional GST invoices with PDF download. Your logo, GSTIN, HSN/SAC codes - no software needed.", link: "/gst-invoice-generator", keyword: "Free Invoice Generator" },
               { icon: "💸", title: "Upwork & Fiverr Calculator", desc: "Estimate your true take-home pay in INR. Calculate platform fees, GST reverse charge, 194O TDS, and FX markup loss.", link: "/upwork-fiverr-fee-calculator-india", keyword: "Upwork Fee Calculator" },
               { icon: "💰", title: "Freelance Rate Calculator", desc: "Calculate your perfect freelance hourly, daily & monthly rate in INR based on your expenses.", link: "/freelance-rate-calculator", keyword: "Freelance Rate Calculator" },
+            ].map((item, i) => (
+              <Reveal key={item.title} delay={i * 0.1}>
+                <PopularToolCard item={item} index={i} />
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── NICHE TOOLS HIGHLIGHT ──────────────────────────── */}
+      <section style={{ position: "relative", zIndex: 1, padding: "85px 5vw", borderTop: "1px solid var(--border-color)", background: "var(--bg-secondary)" }}>
+        <div style={{ maxWidth: 1000, margin: "0 auto" }}>
+          <Reveal>
+            <div style={{ textAlign: "center", marginBottom: 56 }}>
+              <h2 style={{ fontSize: "clamp(24px, 3.5vw, 36px)", fontWeight: 800, fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", letterSpacing: "-0.02em" }}>Freelancer-focused tools you may not find everywhere</h2>
+              <p style={{ color: "var(--text-secondary)", fontSize: 16, marginTop: 12 }}>Go beyond GST with tools for pricing, platform fees, tax estimates, and freelance income planning.</p>
+            </div>
+          </Reveal>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(300px, 100%), 1fr))", gap: 20 }}>
+            {[
+              { icon: "💰", title: "Freelance Rate Calculator", desc: "Calculate your perfect hourly, daily & monthly rate in INR based on your exact expenses.", link: "/freelance-rate-calculator", keyword: "Rate Calculator" },
+              { icon: "💼", title: "Salary vs Freelance", desc: "Compare your current salary to freelance rates to maintain your lifestyle.", link: "/salary-vs-freelance", keyword: "Compare Income" },
+              { icon: "💸", title: "Upwork/Fiverr Fee Calculator", desc: "Estimate your true take-home pay in INR. Calculate platform fees and FX markup loss.", link: "/upwork-fiverr-fee-calculator-india", keyword: "Platform Fees" },
+              { icon: "🔥", title: "FIRE Calculator India", desc: "Calculate your early retirement number with inflation & nominal compounding.", link: "/fire-calculator", keyword: "FIRE India" },
+              { icon: "⚖️", title: "44ADA Tax Calculator", desc: "Understand Section 44ADA presumptive taxation and how much tax you can save.", link: "/44ada-tax-calculator", keyword: "Section 44ADA" }
             ].map((item, i) => (
               <Reveal key={item.title} delay={i * 0.1}>
                 <PopularToolCard item={item} index={i} />

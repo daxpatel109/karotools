@@ -73,14 +73,14 @@ export default function Page() {
             </div>
           </div>
 
-          {/* Why Trust KaroTools Section */}
+          {/* Why Freelancers Use KaroTools Section */}
           <div style={{ background: "var(--card-bg)", backdropFilter: "blur(24px)", border: "1px solid var(--card-border)", borderRadius: "24px", padding: "32px", marginBottom: "48px" }}>
-            <h2 style={{ fontSize: "20px", fontWeight: "700", marginBottom: "16px", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>Why Trust KaroTools?</h2>
+            <h2 style={{ fontSize: "20px", fontWeight: "700", marginBottom: "16px", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>Why freelancers use KaroTools</h2>
             <ul style={{ fontSize: "15px", color: "var(--text-secondary)", lineHeight: "1.8", margin: 0, paddingLeft: "20px" }}>
-              <li><strong>Free Forever:</strong> Tools for Indian freelancers and small businesses, with absolutely no login required.</li>
-              <li><strong>Educational Focus:</strong> Built to help you understand taxes using clear formulas and real-world examples.</li>
-              <li><strong>Reliable Data:</strong> Calculations are designed using publicly available information and official sources where applicable.</li>
-              <li><strong>Transparent:</strong> Read about our <Link href="/methodology" style={{ color: "#38bdf8", textDecoration: "none" }}>Calculation Methodology</Link> and <Link href="/editorial-policy" style={{ color: "#38bdf8", textDecoration: "none" }}>Editorial Policy</Link>.</li>
+              <li><strong>Free to use:</strong> No login required.</li>
+              <li><strong>Built for Indian freelance workflows:</strong> GST, tax, invoice, and pricing tools in one place.</li>
+              <li><strong>Clear educational estimates:</strong> Calculations designed using publicly available information.</li>
+              <li><strong>Transparent:</strong> Learn more on our <Link href="/methodology" style={{ color: "#38bdf8", textDecoration: "none" }}>Methodology</Link>, <Link href="/sources" style={{ color: "#38bdf8", textDecoration: "none" }}>Sources</Link>, <Link href="/disclaimer" style={{ color: "#38bdf8", textDecoration: "none" }}>Disclaimer</Link>, and <Link href="/about" style={{ color: "#38bdf8", textDecoration: "none" }}>About</Link> pages.</li>
             </ul>
           </div>
 

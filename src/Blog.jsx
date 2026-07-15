@@ -95,7 +95,7 @@ export default function Blog() {
         
         {/* Page Header */}
         <div style={{ textAlign: "center", marginBottom: "60px" }}>
-          <h1 style={{ fontSize: "clamp(36px, 6vw, 56px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "16px", color: "#fff", lineHeight: 1.1 }}>
+          <h1 style={{ fontSize: "clamp(36px, 6vw, 56px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "16px", color: "var(--text-primary)", lineHeight: 1.1 }}>
             Insights for Indian <br/>Freelancers & Founders
           </h1>
           <p style={{ color: "var(--text-secondary)", fontSize: "18px", maxWidth: "600px", margin: "0 auto" }}>
@@ -188,7 +188,7 @@ export default function Blog() {
 
         {/* Bottom CTA Banner */}
         <div style={{ marginTop: "100px", padding: "48px 32px", background: "linear-gradient(135deg, rgba(0,118,255,0.1), rgba(0,90,230,0.1))", borderRadius: "24px", border: "1px solid rgba(0,118,255,0.2)", textAlign: "center" }}>
-          <h2 style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#fff", marginBottom: "16px" }}>Run your freelance business smoothly</h2>
+          <h2 style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginBottom: "16px" }}>Run your freelance business smoothly</h2>
           <p style={{ color: "var(--text-primary)", fontSize: "17px", marginBottom: "32px", maxWidth: "500px", margin: "0 auto 32px" }}>Calculate taxes, generate invoices, and draft contracts in seconds. 100% Free.</p>
           <button onClick={() => window.location.href = "/"} style={{ background: "#0076ff", color: "#fff", border: "none", padding: "14px 32px", borderRadius: "12px", fontSize: "16px", fontWeight: "700", cursor: "pointer", boxShadow: "0 8px 24px rgba(0,118,255,0.3)", transition: "transform 0.2s" }} onMouseEnter={e => e.currentTarget.style.transform="translateY(-2px)"} onMouseLeave={e => e.currentTarget.style.transform="none"}>
             Explore Free Tools →

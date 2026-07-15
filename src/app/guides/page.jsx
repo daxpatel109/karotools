@@ -59,7 +59,7 @@ export default function GuidesIndex() {
         </header>
 
         <div style={{ background: "rgba(0,118,255,0.05)", border: "1px solid rgba(0,118,255,0.2)", borderRadius: "16px", padding: "32px", textAlign: "center", marginBottom: "48px" }}>
-          <h2 style={{ fontSize: "20px", color: "#fff", marginBottom: "16px", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>Need a quick answer?</h2>
+          <h2 style={{ fontSize: "20px", color: "var(--text-primary)", marginBottom: "16px", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>Need a quick answer?</h2>
           <p style={{ color: "var(--text-secondary)", marginBottom: "24px" }}>Use our interactive tools to calculate taxes or generate an invoice instantly.</p>
           <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/gst-calculator" style={{ background: "#0076ff", color: "#fff", padding: "10px 20px", borderRadius: "8px", textDecoration: "none", fontWeight: "600" }}>GST Calculator</Link>

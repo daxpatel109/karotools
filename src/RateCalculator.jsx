@@ -136,7 +136,7 @@ export default function RateCalculator() {
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px", flexWrap: "wrap", gap: "16px" }}>
           <label style={{ fontSize: "13px", fontWeight: "700", color: "var(--text-primary)", textTransform: "uppercase", letterSpacing: "0.08em", flex: "1 1 120px", wordWrap: "break-word" }}>{label}</label>
           
-          <div className="input-focus-wrap" style={{ display: "flex", alignItems: "center", background: "rgba(0,0,0,0.25)", border: "1px solid var(--glass-border)", borderRadius: "12px", padding: "8px 16px", transition: "all 0.3s ease", boxShadow: "inset 0 2px 4px rgba(0,0,0,0.2)", flex: "1 1 auto", minWidth: "160px" }}>
+          <div className="input-focus-wrap" style={{ display: "flex", alignItems: "center", background: "var(--bg-tertiary)", border: "1px solid var(--glass-border)", borderRadius: "12px", padding: "8px 16px", transition: "all 0.3s ease", boxShadow: "inset 0 2px 4px rgba(0,0,0,0.2)", flex: "1 1 auto", minWidth: "160px" }}>
             {prefix && <span style={{ color: "var(--text-secondary)", fontWeight: "700", marginRight: "6px", fontSize: "16px" }}>{prefix}</span>}
             <input 
               type="number" inputMode="decimal" 
@@ -172,7 +172,7 @@ export default function RateCalculator() {
   };
 
   return (
-    <div style={{ minHeight: "100vh", background: "var(--bg-primary)", fontFamily: "'DM Sans', sans-serif", color: "var(--text-primary)", selectionColor: "#fff", selectionBackground: "#0076ff" }}>
+    <div style={{ minHeight: "100vh", background: "var(--bg-primary)", fontFamily: "'DM Sans', sans-serif", color: "var(--text-primary)", selectionColor: "var(--text-primary)", selectionBackground: "#0076ff" }}>
       
       
       <style dangerouslySetInnerHTML={{ __html: `
@@ -358,7 +358,7 @@ export default function RateCalculator() {
                 { label: "Weekly Target", value: weeklyRate, color: "#a78bfa", icon: "📅" },
                 { label: "Monthly Goal", value: projectRate, color: "#fcd34d", icon: "🎯" },
               ].map((item) => (
-                <div key={item.label} style={{ background: "rgba(0,0,0,0.3)", borderRadius: "16px", padding: "clamp(12px, 2vw, 16px)", border: "1px solid var(--glass-bg)", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "8px" }}>
+                <div key={item.label} style={{ background: "var(--glass-bg)", borderRadius: "16px", padding: "clamp(12px, 2vw, 16px)", border: "1px solid var(--glass-bg)", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "8px" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                     <span>{item.icon}</span>
                     <span style={{ color: "var(--text-secondary)", fontSize: "clamp(10px, 2vw, 12px)", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.05em" }}>{item.label}</span>
@@ -479,7 +479,7 @@ export default function RateCalculator() {
         </div>
 
         {/* Universal Legal Disclaimer */}
-        <div className="no-print" style={{ marginTop: "40px", padding: "20px", background: "rgba(0,0,0,0.3)", borderRadius: "12px", border: "1px dashed var(--border-color)", textAlign: "center" }}>
+        <div className="no-print" style={{ marginTop: "40px", padding: "20px", background: "var(--glass-bg)", borderRadius: "12px", border: "1px dashed var(--border-color)", textAlign: "center" }}>
           <p style={{ color: "var(--text-secondary)", fontSize: "12px", lineHeight: "1.6", margin: 0, fontFamily: "'DM Sans',sans-serif" }}>
             <strong>Disclaimer:</strong> All calculators and tools on KaroTools.in are provided for educational and informational purposes only. While we strive to keep the logic updated with the applicable tax rates where verified (FY 2026-27), the results generated are estimates and do not constitute professional financial, legal, or tax advice. We strongly recommend consulting a certified Chartered Accountant or legal professional before making any business decisions or filing your taxes. KaroTools is not responsible for any financial loss, penalties, or compliance errors resulting from the use of this website.
           </p>

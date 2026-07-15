@@ -63,7 +63,7 @@ export default function Guide3() {
           <h2 id="what-is" style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "16px", marginBottom: "8px" }}>
             What is Section 44ADA?
           </h2>
-          <div style={{ background: "rgba(0,0,0,0.2)", padding: "16px", borderRadius: "12px", borderLeft: "4px solid #6366f1", marginBottom: "8px" }}>
+          <div style={{ background: "var(--glass-bg)", padding: "16px", borderRadius: "12px", borderLeft: "4px solid #6366f1", marginBottom: "8px" }}>
             <p style={{ margin: 0, fontSize: "16px", lineHeight: "1.6" }}>Section 44ADA is a presumptive taxation scheme for Indian professionals. It assumes 50% of your gross receipts are business expenses, allowing you to pay tax only on the remaining 50% profit without maintaining detailed books of accounts.</p>
           </div>
           <p>

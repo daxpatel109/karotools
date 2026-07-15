@@ -179,7 +179,7 @@ export default function SIPCalculator() {
             
             <div style={{ position: "relative", zIndex: 2 }}>
               <h3 style={{ fontSize: "16px", color: "#34d399", fontWeight: "700", marginBottom: "8px", letterSpacing: "0.05em" }}>ESTIMATED TOTAL VALUE</h3>
-              <div style={{ fontSize: "clamp(32px, 8vw, 48px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#fff", marginBottom: "40px", lineHeight: 1.1, wordBreak: "break-all" }}>
+              <div style={{ fontSize: "clamp(32px, 8vw, 48px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginBottom: "40px", lineHeight: 1.1, wordBreak: "break-all" }}>
                 {formatINR(results.totalValue)}
               </div>
 
@@ -253,7 +253,7 @@ export default function SIPCalculator() {
         </div>
 
         {/* Universal Legal Disclaimer */}
-        <div style={{ marginTop: "40px", padding: "20px", background: "rgba(0,0,0,0.3)", borderRadius: "12px", border: "1px dashed var(--border-color)", textAlign: "center" }}>
+        <div style={{ marginTop: "40px", padding: "20px", background: "var(--glass-bg)", borderRadius: "12px", border: "1px dashed var(--border-color)", textAlign: "center" }}>
           <p style={{ color: "var(--text-secondary)", fontSize: "12px", lineHeight: "1.6", margin: 0, fontFamily: "'DM Sans',sans-serif" }}>
             <strong>Disclaimer:</strong> All calculators and tools on KaroTools.in are provided for educational and informational purposes only. While we strive to keep the logic updated with the applicable tax rates where verified (FY 2026-27), the results generated are estimates and do not constitute professional financial, legal, or tax advice. We strongly recommend consulting a certified Chartered Accountant or legal professional before making any business decisions or filing your taxes. KaroTools is not responsible for any financial loss, penalties, or compliance errors resulting from the use of this website.
           </p>

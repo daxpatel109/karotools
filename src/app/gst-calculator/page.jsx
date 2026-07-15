@@ -82,7 +82,7 @@ export default function Page() {
           <p style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: 1.8, marginBottom: "16px" }}>
             The KaroTools GST Calculator helps you add GST to a base amount or remove GST from an inclusive price using the selected Indian GST rate. To add GST, it calculates the GST amount and adds it to the base amount. To remove GST, it calculates the base amount first and separates the GST amount. Read our <Link href="/guides/gst-for-freelancers-india" style={{ color: "#38bdf8", textDecoration: "none" }}>GST Guide for Freelancers</Link> for more details.
           </p>
-          <div style={{ background: "rgba(0,0,0,0.2)", border: "1px solid var(--glass-bg)", padding: "16px", borderRadius: "8px" }}>
+          <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-bg)", padding: "16px", borderRadius: "8px" }}>
             <p style={{ color: "var(--text-primary)", fontSize: "14px", fontFamily: "monospace", margin: "0 0 8px 0" }}>Base Amount = Gross Price × 100 / (100 + GST Rate)</p>
             <p style={{ color: "var(--text-primary)", fontSize: "14px", fontFamily: "monospace", margin: "0 0 8px 0" }}>GST Amount = Gross Price - Base Amount</p>
             <p style={{ color: "var(--text-primary)", fontSize: "14px", fontFamily: "monospace", margin: "0" }}>Final Price = Base Amount + GST Amount</p>

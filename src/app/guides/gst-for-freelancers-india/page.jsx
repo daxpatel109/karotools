@@ -100,7 +100,7 @@ export default function Guide1() {
           <h2 id="when-to-register" style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "16px", marginBottom: "8px" }}>
             When Should Freelancers Register for GST?
           </h2>
-          <div style={{ background: "rgba(0,0,0,0.2)", padding: "16px", borderRadius: "12px", borderLeft: "4px solid #0076ff", marginBottom: "16px" }}>
+          <div style={{ background: "var(--glass-bg)", padding: "16px", borderRadius: "12px", borderLeft: "4px solid #0076ff", marginBottom: "16px" }}>
             <p style={{ margin: 0, fontSize: "16px", lineHeight: "1.6" }}>Freelancers in India must register for GST when their aggregate annual turnover exceeds ₹20 Lakhs (₹10 Lakhs in special category states) or if they provide OIDAR services to unregistered entities.</p>
           </div>
           <p>

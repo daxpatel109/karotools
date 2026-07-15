@@ -181,7 +181,7 @@ export default function LateGSTPenalty() {
               <>
                 <div style={{ textAlign: "center", marginBottom: "36px" }}>
                   <p style={{ fontSize: "14px", fontWeight: "700", color: "#ef4444", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "12px" }}>Total Days Delayed</p>
-                  <h2 style={{ fontSize: "48px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#fff", lineHeight: 1 }}>
+                  <h2 style={{ fontSize: "48px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", lineHeight: 1 }}>
                     {result.days} <span style={{ fontSize: "24px", color: "var(--text-secondary)", fontWeight: "600" }}>Days</span>
                   </h2>
                 </div>
@@ -199,7 +199,7 @@ export default function LateGSTPenalty() {
 
                 <div style={{ background: "linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(245, 158, 11, 0.1))", border: "1px solid rgba(239, 68, 68, 0.3)", borderRadius: "20px", padding: "32px", textAlign: "center", boxShadow: "0 20px 40px rgba(239, 68, 68, 0.1)" }}>
                   <p style={{ color: "#fca5a5", fontSize: "14px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "8px" }}>Total Amount Payable</p>
-                  <p style={{ fontSize: "56px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#fff", lineHeight: 1, letterSpacing: "-0.02em" }}>
+                  <p style={{ fontSize: "56px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", lineHeight: 1, letterSpacing: "-0.02em" }}>
                     ₹{fmt(result.total)}
                   </p>
                 </div>

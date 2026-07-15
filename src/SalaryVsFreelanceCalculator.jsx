@@ -103,12 +103,12 @@ export default function SalaryVsFreelanceCalculator() {
             <div style={{ display: "grid", gap: "20px" }}>
               <div>
                 <label style={{ display: "block", fontSize: "13px", fontWeight: "700", color: "var(--text-secondary)", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "8px" }}>In-Hand Monthly Salary (₹)</label>
-                <input type="number" inputMode="decimal" value={monthlySalary} onChange={(e) => setMonthlySalary(e.target.value)} style={{ width: "100%", padding: "14px 16px", background: "rgba(0,0,0,0.3)", border: "1px solid var(--border-color)", borderRadius: "12px", color: "var(--text-primary)", fontSize: "16px", fontWeight: "600", outline: "none", transition: "border-color 0.2s" }} onFocus={(e) => e.target.style.borderColor = "#10b981"} onBlur={(e) => e.target.style.borderColor = "var(--border-color)"} />
+                <input type="number" inputMode="decimal" value={monthlySalary} onChange={(e) => setMonthlySalary(e.target.value)} style={{ width: "100%", padding: "14px 16px", background: "var(--glass-bg)", border: "1px solid var(--border-color)", borderRadius: "12px", color: "var(--text-primary)", fontSize: "16px", fontWeight: "600", outline: "none", transition: "border-color 0.2s" }} onFocus={(e) => e.target.style.borderColor = "#10b981"} onBlur={(e) => e.target.style.borderColor = "var(--border-color)"} />
               </div>
 
               <div>
                 <label style={{ display: "block", fontSize: "13px", fontWeight: "700", color: "var(--text-secondary)", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "8px" }}>Annual Bonus (₹)</label>
-                <input type="number" inputMode="decimal" value={annualBonus} onChange={(e) => setAnnualBonus(e.target.value)} style={{ width: "100%", padding: "14px 16px", background: "rgba(0,0,0,0.3)", border: "1px solid var(--border-color)", borderRadius: "12px", color: "var(--text-primary)", fontSize: "16px", fontWeight: "600", outline: "none" }} onFocus={(e) => e.target.style.borderColor = "#10b981"} onBlur={(e) => e.target.style.borderColor = "var(--border-color)"} />
+                <input type="number" inputMode="decimal" value={annualBonus} onChange={(e) => setAnnualBonus(e.target.value)} style={{ width: "100%", padding: "14px 16px", background: "var(--glass-bg)", border: "1px solid var(--border-color)", borderRadius: "12px", color: "var(--text-primary)", fontSize: "16px", fontWeight: "600", outline: "none" }} onFocus={(e) => e.target.style.borderColor = "#10b981"} onBlur={(e) => e.target.style.borderColor = "var(--border-color)"} />
               </div>
 
               <div style={{ borderTop: "1px solid var(--glass-bg)", margin: "8px 0" }}></div>
@@ -142,15 +142,15 @@ export default function SalaryVsFreelanceCalculator() {
               
               <div style={{ marginBottom: "32px" }}>
                 <div style={{ fontSize: "13px", color: "var(--text-secondary)", marginBottom: "4px" }}>Target Hourly Rate</div>
-                <div style={{ fontSize: "clamp(36px, 8vw, 48px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "#fff", lineHeight: "1", wordBreak: "break-all" }}>₹{fmt(hourlyRate)}<span style={{ fontSize: "16px", color: "var(--text-secondary)", fontWeight: "600" }}>/hr</span></div>
+                <div style={{ fontSize: "clamp(36px, 8vw, 48px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", lineHeight: "1", wordBreak: "break-all" }}>₹{fmt(hourlyRate)}<span style={{ fontSize: "16px", color: "var(--text-secondary)", fontWeight: "600" }}>/hr</span></div>
               </div>
 
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))", gap: "16px", marginBottom: "32px" }}>
-                <div style={{ background: "rgba(0,0,0,0.3)", padding: "16px", borderRadius: "16px" }}>
+                <div style={{ background: "var(--glass-bg)", padding: "16px", borderRadius: "16px" }}>
                   <div style={{ fontSize: "12px", color: "var(--text-secondary)", marginBottom: "4px" }}>Daily Rate</div>
                   <div style={{ fontSize: "clamp(18px, 5vw, 20px)", fontWeight: "800", color: "var(--text-primary)", fontFamily: "'Plus Jakarta Sans',sans-serif", wordBreak: "break-all" }}>₹{fmt(dailyRate)}</div>
                 </div>
-                <div style={{ background: "rgba(0,0,0,0.3)", padding: "16px", borderRadius: "16px" }}>
+                <div style={{ background: "var(--glass-bg)", padding: "16px", borderRadius: "16px" }}>
                   <div style={{ fontSize: "12px", color: "var(--text-secondary)", marginBottom: "4px" }}>Monthly Target</div>
                   <div style={{ fontSize: "clamp(18px, 5vw, 20px)", fontWeight: "800", color: "var(--text-primary)", fontFamily: "'Plus Jakarta Sans',sans-serif", wordBreak: "break-all" }}>₹{fmt(targetMonthlyRevenue)}</div>
                 </div>
@@ -185,7 +185,7 @@ export default function SalaryVsFreelanceCalculator() {
         </div>
 
         {/* Universal Legal Disclaimer */}
-        <div style={{ marginTop: "40px", padding: "20px", background: "rgba(0,0,0,0.3)", borderRadius: "12px", border: "1px dashed var(--border-color)", textAlign: "center" }}>
+        <div style={{ marginTop: "40px", padding: "20px", background: "var(--glass-bg)", borderRadius: "12px", border: "1px dashed var(--border-color)", textAlign: "center" }}>
           <p style={{ color: "var(--text-secondary)", fontSize: "12px", lineHeight: "1.6", margin: 0, fontFamily: "'DM Sans',sans-serif" }}>
             <strong>Disclaimer:</strong> All calculators and tools on KaroTools.in are provided for educational and informational purposes only. While we strive to keep the logic updated with the applicable tax rates where verified (FY 2026-27), the results generated are estimates and do not constitute professional financial, legal, or tax advice. We strongly recommend consulting a certified Chartered Accountant or legal professional before making any business decisions or filing your taxes. KaroTools is not responsible for any financial loss, penalties, or compliance errors resulting from the use of this website.
           </p>

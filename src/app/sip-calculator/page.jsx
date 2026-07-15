@@ -16,7 +16,7 @@ export default function Page() {
           <p style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: 1.8, marginBottom: "16px" }}>
             The KaroTools SIP Calculator helps you forecast the future value of your mutual fund investments. It uses the compound interest formula to calculate wealth accumulation over time based on your monthly investment, expected return rate, and time horizon. Plan your retirement using our <Link href="/fire-calculator" style={{ color: "#38bdf8", textDecoration: "none" }}>FIRE Calculator</Link>.
           </p>
-          <div style={{ background: "rgba(0,0,0,0.2)", border: "1px solid var(--glass-bg)", padding: "16px", borderRadius: "8px" }}>
+          <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-bg)", padding: "16px", borderRadius: "8px" }}>
             <p style={{ color: "var(--text-primary)", fontSize: "14px", fontFamily: "monospace", margin: "0 0 8px 0" }}>FV = P × [((1 + r)ⁿ - 1) / r] × (1 + r)</p>
             <p style={{ color: "var(--text-primary)", fontSize: "14px", fontFamily: "monospace", margin: "0" }}>Where P = SIP Amount, r = Monthly Rate of Return, n = Total Months</p>
           </div>

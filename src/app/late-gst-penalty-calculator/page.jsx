@@ -39,7 +39,7 @@ export default function Page() {
           <p style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: 1.8, marginBottom: "16px" }}>
             The KaroTools Late GST Penalty Calculator helps Indian businesses compute exact late fees and interest for delayed GSTR-1 and GSTR-3B filings. It calculates daily late fees (₹50 for normal returns, ₹20 for Nil returns) and computes Section 50 interest at 18% per annum on the unpaid tax liability. Read our <Link href="/guides/gst-for-freelancers-india" style={{ color: "#38bdf8", textDecoration: "none" }}>GST Guide</Link> for more details.
           </p>
-          <div style={{ background: "rgba(0,0,0,0.2)", border: "1px solid var(--glass-bg)", padding: "16px", borderRadius: "8px" }}>
+          <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-bg)", padding: "16px", borderRadius: "8px" }}>
             <p style={{ color: "var(--text-primary)", fontSize: "14px", fontFamily: "monospace", margin: "0 0 8px 0" }}>Penalty = Days Delayed × Daily Late Fee</p>
             <p style={{ color: "var(--text-primary)", fontSize: "14px", fontFamily: "monospace", margin: "0" }}>Interest = Net Tax Liability × 18% × (Days Delayed / 365)</p>
           </div>

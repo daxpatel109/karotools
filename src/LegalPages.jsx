@@ -217,11 +217,11 @@ export function ContactUs() {
 
         <h2 style={h2Style}>Frequently Asked Questions</h2>
         <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-          <div style={{ background: "rgba(0,0,0,0.2)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "12px", padding: "20px" }}>
+          <div style={{ background: "var(--glass-bg)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "12px", padding: "20px" }}>
             <h3 style={{ fontSize: "16px", fontWeight: "700", color: "var(--text-primary)", marginBottom: "8px" }}>How quickly do you resolve bug reports?</h3>
             <p style={{ fontSize: "15px", color: "var(--text-secondary)", lineHeight: 1.6, margin: 0 }}>Critical calculation errors are triaged and patched within 24 hours. UI/UX issues are generally resolved in our weekly deployment cycle.</p>
           </div>
-          <div style={{ background: "rgba(0,0,0,0.2)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "12px", padding: "20px" }}>
+          <div style={{ background: "var(--glass-bg)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "12px", padding: "20px" }}>
             <h3 style={{ fontSize: "16px", fontWeight: "700", color: "var(--text-primary)", marginBottom: "8px" }}>Do you offer phone support?</h3>
             <p style={{ fontSize: "15px", color: "var(--text-secondary)", lineHeight: 1.6, margin: 0 }}>Currently, we offer strictly email-based support to ensure we can maintain our tools as a 100% free service for all Indian freelancers.</p>
           </div>

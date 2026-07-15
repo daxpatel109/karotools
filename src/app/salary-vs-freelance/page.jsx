@@ -16,7 +16,7 @@ export default function Page() {
           <p style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: 1.8, marginBottom: "16px" }}>
             The KaroTools Salary vs Freelance Calculator helps professionals in India compare their full-time CTC with equivalent freelance rates. It calculates the premium needed to cover self-employment taxes, lost benefits (like PF and health insurance), and unpaid time off. Try our <Link href="/freelance-rate-calculator" style={{ color: "#38bdf8", textDecoration: "none" }}>Freelance Rate Calculator</Link> to build custom rates from scratch.
           </p>
-          <div style={{ background: "rgba(0,0,0,0.2)", border: "1px solid var(--glass-bg)", padding: "16px", borderRadius: "8px" }}>
+          <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-bg)", padding: "16px", borderRadius: "8px" }}>
             <p style={{ color: "var(--text-primary)", fontSize: "14px", fontFamily: "monospace", margin: "0 0 8px 0" }}>Adjusted Freelance Target = CTC + Value of Benefits + Tax Differential</p>
             <p style={{ color: "var(--text-primary)", fontSize: "14px", fontFamily: "monospace", margin: "0" }}>Equivalent Hourly Rate = Adjusted Freelance Target / Billable Hours</p>
           </div>

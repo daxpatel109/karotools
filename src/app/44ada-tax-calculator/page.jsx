@@ -48,7 +48,7 @@ export default function Page() {
           <p style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: 1.8, marginBottom: "16px" }}>
             Compute tax under Section 44ADA for FY 2026-27. It assumes 50% profit, applies the latest slabs, and factors Section 87A. Read our <Link href="/guides/section-44ada-vs-normal" style={{ color: "#38bdf8", textDecoration: "none" }}>44ADA Guide</Link>.
           </p>
-          <div style={{ background: "rgba(0,0,0,0.2)", border: "1px solid var(--glass-bg)", padding: "16px", borderRadius: "8px" }}>
+          <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-bg)", padding: "16px", borderRadius: "8px" }}>
             <p style={{ color: "var(--text-primary)", fontSize: "14px", fontFamily: "monospace", margin: "0 0 8px 0" }}>Taxable Income = Gross Receipts × 50%</p>
             <p style={{ color: "var(--text-primary)", fontSize: "14px", fontFamily: "monospace", margin: "0" }}>Final Tax = Tax on Slabs + 4% Health & Education Cess</p>
           </div>

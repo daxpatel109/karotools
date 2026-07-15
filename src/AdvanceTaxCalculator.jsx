@@ -110,13 +110,13 @@ export default function AdvanceTaxCalculator() {
           <div style={{ display: "grid", gap: "24px", marginBottom: "32px" }}>
             <div>
               <label style={{ display: "block", fontSize: "13px", fontWeight: "700", color: "var(--text-secondary)", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "8px" }}>Total Estimated Tax Liability (₹)</label>
-              <input type="number" inputMode="decimal" placeholder="e.g. 50000" value={totalTax} onChange={(e) => setTotalTax(e.target.value)} style={{ width: "100%", padding: "16px 20px", background: "rgba(0,0,0,0.3)", border: "1px solid var(--border-color)", borderRadius: "12px", color: "var(--text-primary)", fontSize: "18px", fontWeight: "600", outline: "none", transition: "border-color 0.2s" }} onFocus={(e) => e.target.style.borderColor = "#f59e0b"} onBlur={(e) => e.target.style.borderColor = "var(--border-color)"} />
+              <input type="number" inputMode="decimal" placeholder="e.g. 50000" value={totalTax} onChange={(e) => setTotalTax(e.target.value)} style={{ width: "100%", padding: "16px 20px", background: "var(--glass-bg)", border: "1px solid var(--border-color)", borderRadius: "12px", color: "var(--text-primary)", fontSize: "18px", fontWeight: "600", outline: "none", transition: "border-color 0.2s" }} onFocus={(e) => e.target.style.borderColor = "#f59e0b"} onBlur={(e) => e.target.style.borderColor = "var(--border-color)"} />
               <p style={{ fontSize: "12px", color: "var(--text-secondary)", marginTop: "8px" }}>The total tax you expect to pay for the entire financial year.</p>
             </div>
 
             <div>
               <label style={{ display: "block", fontSize: "13px", fontWeight: "700", color: "var(--text-secondary)", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "8px" }}>TDS Already Deducted (₹)</label>
-              <input type="number" inputMode="decimal" placeholder="e.g. 10000" value={tds} onChange={(e) => setTds(e.target.value)} style={{ width: "100%", padding: "16px 20px", background: "rgba(0,0,0,0.3)", border: "1px solid var(--border-color)", borderRadius: "12px", color: "var(--text-primary)", fontSize: "18px", fontWeight: "600", outline: "none", transition: "border-color 0.2s" }} onFocus={(e) => e.target.style.borderColor = "#f59e0b"} onBlur={(e) => e.target.style.borderColor = "var(--border-color)"} />
+              <input type="number" inputMode="decimal" placeholder="e.g. 10000" value={tds} onChange={(e) => setTds(e.target.value)} style={{ width: "100%", padding: "16px 20px", background: "var(--glass-bg)", border: "1px solid var(--border-color)", borderRadius: "12px", color: "var(--text-primary)", fontSize: "18px", fontWeight: "600", outline: "none", transition: "border-color 0.2s" }} onFocus={(e) => e.target.style.borderColor = "#f59e0b"} onBlur={(e) => e.target.style.borderColor = "var(--border-color)"} />
               <p style={{ fontSize: "12px", color: "var(--text-secondary)", marginTop: "8px" }}>Any Tax Deducted at Source (TDS) or TCS collected so far.</p>
             </div>
 
@@ -189,7 +189,7 @@ export default function AdvanceTaxCalculator() {
         </div>
 
         {/* Universal Legal Disclaimer */}
-        <div style={{ marginTop: "40px", padding: "20px", background: "rgba(0,0,0,0.3)", borderRadius: "12px", border: "1px dashed var(--border-color)", textAlign: "center" }}>
+        <div style={{ marginTop: "40px", padding: "20px", background: "var(--glass-bg)", borderRadius: "12px", border: "1px dashed var(--border-color)", textAlign: "center" }}>
           <p style={{ color: "var(--text-secondary)", fontSize: "12px", lineHeight: "1.6", margin: 0, fontFamily: "'DM Sans',sans-serif" }}>
             <strong>Disclaimer:</strong> All calculators and tools on KaroTools.in are provided for educational and informational purposes only. While we strive to keep the logic updated with the applicable tax rates where verified (FY 2026-27), the results generated are estimates and do not constitute professional financial, legal, or tax advice. We strongly recommend consulting a certified Chartered Accountant or legal professional before making any business decisions or filing your taxes. KaroTools is not responsible for any financial loss, penalties, or compliance errors resulting from the use of this website.
           </p>

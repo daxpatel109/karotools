@@ -16,7 +16,7 @@ export default function Page() {
           <p style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: 1.8, marginBottom: "16px" }}>
             The KaroTools Advance Tax Calculator helps you determine your quarterly tax installments for FY 2026-27. It automatically calculates your total tax liability, subtracts any TDS, and divides the remaining amount into 15%, 45%, 75%, and 100% milestones based on government deadlines. Read our <Link href="/blog/advance-tax-for-freelancers-india" style={{ color: "#38bdf8", textDecoration: "none" }}>Advance Tax Guide</Link> for more details.
           </p>
-          <div style={{ background: "rgba(0,0,0,0.2)", border: "1px solid var(--glass-bg)", padding: "16px", borderRadius: "8px" }}>
+          <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-bg)", padding: "16px", borderRadius: "8px" }}>
             <p style={{ color: "var(--text-primary)", fontSize: "14px", fontFamily: "monospace", margin: "0 0 8px 0" }}>Net Tax Payable = Total Tax - TDS Deducted</p>
             <p style={{ color: "var(--text-primary)", fontSize: "14px", fontFamily: "monospace", margin: "0" }}>Q1 Installment = Net Tax Payable × 15%</p>
           </div>

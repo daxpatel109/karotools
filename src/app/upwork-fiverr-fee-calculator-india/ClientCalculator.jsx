@@ -215,7 +215,7 @@ export default function ClientCalculator() {
             <span style={{ fontSize: "14px", opacity: 0.9 }}>Gross Project Value</span>
             <span style={{ fontSize: "16px", fontWeight: "600" }}>₹{Math.round(grossINR).toLocaleString("en-IN")}</span>
           </div>
-          <div style={{ fontSize: "14px", marginTop: "12px", background: "rgba(0,0,0,0.2)", padding: "10px 14px", borderRadius: "8px" }}>
+          <div style={{ fontSize: "14px", marginTop: "12px", background: "var(--glass-bg)", padding: "10px 14px", borderRadius: "8px" }}>
             Estimated deduction: <strong>{effectiveDeductionPercent.toFixed(1)}%</strong> of gross project value
           </div>
         </div>

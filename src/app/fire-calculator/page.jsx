@@ -74,7 +74,7 @@ export default function FIRECalculatorPage() {
   };
 
   return (
-    <div style={{ minHeight: "100vh", background: "var(--bg-primary)", fontFamily: "'DM Sans', sans-serif", color: "var(--text-primary)", selectionColor: "#fff", selectionBackground: "#0076ff" }}>
+    <div style={{ minHeight: "100vh", background: "var(--bg-primary)", fontFamily: "'DM Sans', sans-serif", color: "var(--text-primary)", selectionColor: "var(--text-primary)", selectionBackground: "#0076ff" }}>
       
       <style dangerouslySetInnerHTML={{ __html: `
         ::selection { background: rgba(0,118,255, 0.4); color: white; }
@@ -173,7 +173,7 @@ export default function FIRECalculatorPage() {
             <p style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: 1.8, marginBottom: "16px" }}>
               The KaroTools FIRE Calculator helps you calculate the exact corpus you need to retire early in India. It projects your future expenses using inflation, calculates the compounding of your current investments and monthly SIPs, and applies a Safe Withdrawal Rate (SWR) to find your target. Compare your timeline with our <Link href="/sip-calculator" style={{ color: "#38bdf8", textDecoration: "none" }}>SIP Calculator</Link>.
             </p>
-            <div style={{ background: "rgba(0,0,0,0.2)", border: "1px solid var(--glass-bg)", padding: "16px", borderRadius: "8px" }}>
+            <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-bg)", padding: "16px", borderRadius: "8px" }}>
               <p style={{ color: "var(--text-primary)", fontSize: "14px", fontFamily: "monospace", margin: "0 0 8px 0" }}>FIRE Target = Annual Expenses at Retirement / Safe Withdrawal Rate</p>
               <p style={{ color: "var(--text-primary)", fontSize: "14px", fontFamily: "monospace", margin: "0" }}>Annual Expenses at Retirement = Current Expenses × (1 + Inflation Rate) ^ Years</p>
             </div>
@@ -192,7 +192,7 @@ export default function FIRECalculatorPage() {
         ])} />
         
         {/* Universal Legal Disclaimer */}
-        <div style={{ marginTop: "40px", padding: "20px", background: "rgba(0,0,0,0.3)", borderRadius: "12px", border: "1px dashed var(--border-color)", textAlign: "center" }}>
+        <div style={{ marginTop: "40px", padding: "20px", background: "var(--glass-bg)", borderRadius: "12px", border: "1px dashed var(--border-color)", textAlign: "center" }}>
           <p style={{ color: "var(--text-secondary)", fontSize: "12px", lineHeight: "1.6", margin: 0, fontFamily: "'DM Sans',sans-serif" }}>
             <strong>Disclaimer:</strong> This FIRE Calculator is for educational and informational purposes only. Results are based on assumptions entered by the user and should not be treated as investment, tax, retirement, or financial advice. Please consult a qualified financial advisor before making major financial decisions.
           </p>

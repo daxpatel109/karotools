@@ -519,7 +519,7 @@ export default function InvoiceGenerator() {
               <div className="items-wrapper">
                 <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                   {items.map((item, i) => (
-                    <div key={i} style={{ background: "rgba(0,0,0,0.3)", padding: "16px", borderRadius: "12px", border: "1px solid var(--glass-bg)" }}>
+                    <div key={i} style={{ background: "var(--glass-bg)", padding: "16px", borderRadius: "12px", border: "1px solid var(--glass-bg)" }}>
                       <div className="items-grid">
                         <div><label style={lbl}>Description</label><input value={item.desc} onChange={e => updateItem(i, "desc", e.target.value)} style={inp}/></div>
                         <div className="items-row-2">

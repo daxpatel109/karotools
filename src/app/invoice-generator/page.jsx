@@ -68,7 +68,7 @@ export default function Page() {
           <p style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: 1.8, marginBottom: "16px" }}>
             The KaroTools GST Invoice Generator helps you create professional tax invoices instantly. It automatically calculates CGST and SGST for local sales, or IGST for inter-state sales based on the GST rate you select. Once your details are filled, you can download a compliant PDF. Learn more in our <Link href="/guides/gst-invoice-format-excel" style={{ color: "#38bdf8", textDecoration: "none" }}>GST Invoice Format Guide</Link>.
           </p>
-          <div style={{ background: "rgba(0,0,0,0.2)", border: "1px solid var(--glass-bg)", padding: "16px", borderRadius: "8px" }}>
+          <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-bg)", padding: "16px", borderRadius: "8px" }}>
             <p style={{ color: "var(--text-primary)", fontSize: "14px", fontFamily: "monospace", margin: "0 0 8px 0" }}>Intra-state Tax = CGST (Rate/2) + SGST (Rate/2)</p>
             <p style={{ color: "var(--text-primary)", fontSize: "14px", fontFamily: "monospace", margin: "0" }}>Inter-state Tax = IGST (Full Rate)</p>
           </div>

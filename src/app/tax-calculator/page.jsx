@@ -31,7 +31,7 @@ export default function Page() {
           <p style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: 1.8, marginBottom: "16px" }}>
             The KaroTools Tax Calculator Hub helps Indian freelancers find their exact tax liability for FY 2026-27. It automatically applies the New Tax Regime slabs and calculates Section 87A rebates. If you are eligible, it allows you to compute presumptive tax under Section 44ADA. See our <Link href="/guides/section-44ada-vs-normal" style={{ color: "#38bdf8", textDecoration: "none" }}>Section 44ADA Guide</Link> for detailed comparisons.
           </p>
-          <div style={{ background: "rgba(0,0,0,0.2)", border: "1px solid var(--glass-bg)", padding: "16px", borderRadius: "8px", marginBottom: "32px" }}>
+          <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-bg)", padding: "16px", borderRadius: "8px", marginBottom: "32px" }}>
             <p style={{ color: "var(--text-primary)", fontSize: "14px", fontFamily: "monospace", margin: "0 0 8px 0" }}>44ADA Taxable Income = Gross Receipts × 50%</p>
             <p style={{ color: "var(--text-primary)", fontSize: "14px", fontFamily: "monospace", margin: "0" }}>Normal Taxable Income = Gross Receipts - Actual Expenses</p>
           </div>

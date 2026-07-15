@@ -69,7 +69,7 @@ export default function BlogPost() {
             <h2 id="what-is" style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "16px", marginBottom: "8px" }}>
               What is a proforma invoice?
             </h2>
-            <div style={{ background: "rgba(0,0,0,0.2)", padding: "16px", borderRadius: "12px", borderLeft: "4px solid #38bdf8", marginBottom: "24px" }}>
+            <div style={{ background: "var(--glass-bg)", padding: "16px", borderRadius: "12px", borderLeft: "4px solid #38bdf8", marginBottom: "24px" }}>
               <p style={{ margin: 0, fontSize: "16px", lineHeight: "1.6" }}>A proforma invoice is a preliminary bill shared before a sale is finalized. It helps explain price, items, taxes, and terms before issuing a final invoice.</p>
             </div>
             <p style={{ marginBottom: "20px" }}>
@@ -148,7 +148,7 @@ export default function BlogPost() {
             </p>
 
             <div style={{ backgroundColor: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)", borderRadius: "16px", padding: "32px", marginTop: "48px", textAlign: "center", marginBottom: "48px" }}>
-              <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#fff", marginBottom: "16px" }}>Create your Proforma Invoice for Free</h3>
+              <h3 style={{ fontSize: "20px", fontWeight: "700", color: "var(--text-primary)", marginBottom: "16px" }}>Create your Proforma Invoice for Free</h3>
               <p style={{ color: "var(--text-secondary)", marginBottom: "24px", fontSize: "15px" }}>
                 Generate a beautiful, watermark-free PDF in seconds. Completely free and runs securely in your browser.
               </p>

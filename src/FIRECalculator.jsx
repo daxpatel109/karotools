@@ -146,37 +146,37 @@ export default function FIRECalculator() {
               <label htmlFor="fire-age-input" style={{ display: "block", fontSize: "13px", color: "var(--text-secondary)", marginBottom: "8px", fontWeight: "600" }}>Current Age</label>
               <input id="fire-age-input" type="number" inputMode="decimal" min="18" max="80" value={age} onChange={(e) => setAge(e.target.value)}
                 aria-label="Current Age"
-                style={{ width: "100%", background: "rgba(0,0,0,0.3)", border: "1px solid var(--border-color)", borderRadius: "12px", padding: "12px 16px", color: "#fff", fontSize: "16px", outline: "none" }} />
+                style={{ width: "100%", background: "var(--glass-bg)", border: "1px solid var(--border-color)", borderRadius: "12px", padding: "12px 16px", color: "var(--text-primary)", fontSize: "16px", outline: "none" }} />
             </div>
             <div className="input-group">
               <label htmlFor="fire-expenses-input" style={{ display: "block", fontSize: "13px", color: "var(--text-secondary)", marginBottom: "8px", fontWeight: "600" }}>Monthly Exp (₹)</label>
               <input id="fire-expenses-input" type="number" inputMode="decimal" min="0" max="10000000" value={monthlyExpenses} onChange={(e) => setMonthlyExpenses(e.target.value)}
                 aria-label="Monthly Expenses in INR"
-                style={{ width: "100%", background: "rgba(0,0,0,0.3)", border: "1px solid var(--border-color)", borderRadius: "12px", padding: "12px 16px", color: "#fff", fontSize: "16px", outline: "none" }} />
+                style={{ width: "100%", background: "var(--glass-bg)", border: "1px solid var(--border-color)", borderRadius: "12px", padding: "12px 16px", color: "var(--text-primary)", fontSize: "16px", outline: "none" }} />
             </div>
             <div className="input-group">
               <label htmlFor="fire-corpus-input" style={{ display: "block", fontSize: "13px", color: "var(--text-secondary)", marginBottom: "8px", fontWeight: "600" }}>Current Corpus (₹)</label>
               <input id="fire-corpus-input" type="number" inputMode="decimal" min="0" max="1000000000" value={corpus} onChange={(e) => setCorpus(e.target.value)}
                 aria-label="Current Corpus in INR"
-                style={{ width: "100%", background: "rgba(0,0,0,0.3)", border: "1px solid var(--border-color)", borderRadius: "12px", padding: "12px 16px", color: "#fff", fontSize: "16px", outline: "none" }} />
+                style={{ width: "100%", background: "var(--glass-bg)", border: "1px solid var(--border-color)", borderRadius: "12px", padding: "12px 16px", color: "var(--text-primary)", fontSize: "16px", outline: "none" }} />
             </div>
             <div className="input-group">
               <label htmlFor="fire-sip-input" style={{ display: "block", fontSize: "13px", color: "var(--text-secondary)", marginBottom: "8px", fontWeight: "600" }}>Monthly SIP (₹)</label>
               <input id="fire-sip-input" type="number" inputMode="decimal" min="0" max="10000000" value={sip} onChange={(e) => setSip(e.target.value)}
                 aria-label="Monthly SIP Investment in INR"
-                style={{ width: "100%", background: "rgba(0,0,0,0.3)", border: "1px solid var(--border-color)", borderRadius: "12px", padding: "12px 16px", color: "#fff", fontSize: "16px", outline: "none" }} />
+                style={{ width: "100%", background: "var(--glass-bg)", border: "1px solid var(--border-color)", borderRadius: "12px", padding: "12px 16px", color: "var(--text-primary)", fontSize: "16px", outline: "none" }} />
             </div>
             <div className="input-group">
               <label htmlFor="fire-roi-input" style={{ display: "block", fontSize: "13px", color: "var(--text-secondary)", marginBottom: "8px", fontWeight: "600" }}>Nominal ROI (%)</label>
               <input id="fire-roi-input" type="number" inputMode="decimal" min="0" max="30" value={roi} onChange={(e) => setRoi(e.target.value)}
                 aria-label="Expected Nominal Rate of Return percentage"
-                style={{ width: "100%", background: "rgba(0,0,0,0.3)", border: "1px solid var(--border-color)", borderRadius: "12px", padding: "12px 16px", color: "#fff", fontSize: "16px", outline: "none" }} />
+                style={{ width: "100%", background: "var(--glass-bg)", border: "1px solid var(--border-color)", borderRadius: "12px", padding: "12px 16px", color: "var(--text-primary)", fontSize: "16px", outline: "none" }} />
             </div>
             <div className="input-group">
               <label htmlFor="fire-inflation-input" style={{ display: "block", fontSize: "13px", color: "var(--text-secondary)", marginBottom: "8px", fontWeight: "600" }}>Inflation (%)</label>
               <input id="fire-inflation-input" type="number" inputMode="decimal" min="0" max="20" value={inflation} onChange={(e) => setInflation(e.target.value)}
                 aria-label="Expected Inflation Rate percentage"
-                style={{ width: "100%", background: "rgba(0,0,0,0.3)", border: "1px solid var(--border-color)", borderRadius: "12px", padding: "12px 16px", color: "#fff", fontSize: "16px", outline: "none" }} />
+                style={{ width: "100%", background: "var(--glass-bg)", border: "1px solid var(--border-color)", borderRadius: "12px", padding: "12px 16px", color: "var(--text-primary)", fontSize: "16px", outline: "none" }} />
             </div>
           </div>
 
@@ -200,7 +200,7 @@ export default function FIRECalculator() {
             <h2 style={{ fontSize: "18px", color: "var(--text-secondary)", fontWeight: "600", marginBottom: "12px" }}>
               {isAlreadyFire ? "🎉 You have already reached FIRE today" : "You will reach FIRE at Age"}
             </h2>
-            <div style={{ fontSize: "clamp(48px, 8vw, 64px)", fontWeight: "800", color: "#fff", lineHeight: 1, textShadow: "0 4px 24px rgba(0,118,255,0.4)", marginBottom: "16px" }}>
+            <div style={{ fontSize: "clamp(48px, 8vw, 64px)", fontWeight: "800", color: "var(--text-primary)", lineHeight: 1, textShadow: "0 4px 24px rgba(0,118,255,0.4)", marginBottom: "16px" }}>
               {isAlreadyFire ? "🔥" : (fireAge !== null ? fireAge : "85+")}
             </div>
             <p style={{ fontSize: "15px", color: "var(--text-primary)" }}>

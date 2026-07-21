@@ -1,67 +1,42 @@
 "use client";
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import Navbar from "./components/Navbar";
 import { useParams } from "next/navigation";
 import { sendGAEvent } from "@next/third-parties/google";
+import { calculateGST } from "./lib/gstCalculatorMath.js";
 
 export default function GSTCalculator() {
   const params = useParams();
   const keyword = params?.keyword;
 
-  let seoTitle = "Free Online GST Calculator India | KaroTools";
   let seoH1 = "GST Calculator";
-  let seoDesc = "Calculate IGST, CGST, and SGST instantly. A free, accurate, and fast GST calculator built for Indian freelancers and small businesses.";
-  
+
   if (keyword === "reverse-gst-calculator") {
-    seoTitle = "Reverse GST Calculator India | KaroTools";
     seoH1 = "Reverse GST Calculator";
-    seoDesc = "Calculate Reverse GST instantly to find the exact base amount before tax. Perfect for Indian freelancers and businesses.";
   } else if (keyword === "18-percent-gst-calculator") {
-    seoTitle = "18% GST Calculator India | KaroTools";
     seoH1 = "18% GST Calculator";
-    seoDesc = "Calculate 18% GST exactly. Instantly find CGST, SGST, and IGST for the 18 percent tax slab in India.";
   } else if (keyword === "gst-calculator-for-freelancers") {
-    seoTitle = "GST Calculator for Indian Freelancers | KaroTools";
     seoH1 = "Freelance GST Calculator";
   } else if (keyword === "inclusive-exclusive-gst-calculator") {
-    seoTitle = "Inclusive & Exclusive GST Calculator | KaroTools";
     seoH1 = "Inclusive/Exclusive GST Calculator";
   }
 
   const [amount, setAmount] = useState("");
-  const [gstRate, setGstRate] = useState(18);
+  const [gstRate, setGstRate] = useState(keyword === "18-percent-gst-calculator" ? 18 : 18);
   const [customRate, setCustomRate] = useState("");
   const [isCustom, setIsCustom] = useState(false);
   const [cessRate, setCessRate] = useState(0);
-  const [type, setType] = useState("exclusive");
+  const [type, setType] = useState(keyword === "reverse-gst-calculator" ? "inclusive" : "exclusive");
   const [transactionType, setTransactionType] = useState("intra");
   const [roundOff, setRoundOff] = useState(false);
   const [copied, setCopied] = useState(false);
-  const [result, setResult] = useState(null);
   const [history, setHistory] = useState([]);
   const [preset, setPreset] = useState(null);
 
   const activeRate = isCustom ? (customRate === "" ? NaN : Number(customRate)) : Number(gstRate);
 
-  // Auto-configure tool based on keyword
-  useEffect(() => {
-    if (keyword === "reverse-gst-calculator") {
-      setType("inclusive");
-    } else if (keyword === "18-percent-gst-calculator") {
-      setGstRate(18);
-      setIsCustom(false);
-    }
-  }, [keyword]);
-
-  // Product-category presets removed per legal constraints
-
-  // SERP SEO & Schema Injection (Only for dynamic keyword routes)
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    // Client-side DOM modifications removed. Metadata and JSON-LD 
-    // are exclusively handled by the server component in page.jsx.
-  }, [keyword]);
+  // Client-side DOM modifications removed. Metadata and JSON-LD
+  // are exclusively handled by the server component in page.jsx.
 
   // Save to Local Storage
   useEffect(() => {
@@ -76,44 +51,52 @@ export default function GSTCalculator() {
     if (preset) localStorage.setItem("gst_preset", preset); else localStorage.removeItem("gst_preset");
   }, [amount, gstRate, customRate, isCustom, cessRate, type, transactionType, roundOff, preset]);
 
-  useEffect(() => {
-    if (amount === "") { 
-      setResult(null); 
-      return; 
-    }
-
-    import("./lib/gstCalculatorMath.js").then(({ calculateGST }) => {
-      const r = calculateGST({
-        inputStr: amount,
-        rateStr: isCustom ? customRate : gstRate.toString(),
-        cessRateStr: cessRate.toString(),
-        isInclusive: type === "inclusive",
-        isInterState: transactionType === "inter",
-        isWholeRupee: roundOff
-      });
-      
-      if (r) {
-        // Compute visual breakdown percentages based on float conversion of display values
-        const baseNum = parseFloat(r.taxable);
-        const gstNum = parseFloat(r.totalGst);
-        const cessNum = parseFloat(r.cess);
-        const totalNum = parseFloat(r.final);
-
-        setResult({
-          ...r,
-          base: r.taxable,
-          gst: r.totalGst,
-          total: r.final,
-          basePercent: totalNum > 0 ? Math.round((baseNum / totalNum) * 100) : 0,
-          gstPercent: totalNum > 0 ? Math.round((gstNum / totalNum) * 100) : 0,
-          cessPercent: totalNum > 0 ? Math.round((cessNum / totalNum) * 100) : 0,
-        });
-      } else {
-        setResult(null);
-      }
+  let result = null;
+  if (amount !== "") {
+    const r = calculateGST({
+      inputStr: amount,
+      rateStr: isCustom ? customRate : gstRate.toString(),
+      cessRateStr: cessRate.toString(),
+      isInclusive: type === "inclusive",
+      isInterState: transactionType === "inter",
+      isWholeRupee: roundOff
     });
 
-    // Fire event once per successful calculation update (debounced essentially by the user stopping typing)
+    if (r) {
+      const baseNum = parseFloat(r.taxable);
+      const gstNum = parseFloat(r.totalGst);
+      const cessNum = parseFloat(r.cess);
+      const totalNum = parseFloat(r.final);
+
+      const getDisplayPercent = (partNum) => {
+        if (totalNum <= 0) return "0";
+        if (partNum === 0) return "0";
+        const exactPercent = (partNum / totalNum) * 100;
+        if (exactPercent < 1) {
+          let str = exactPercent.toFixed(2);
+          if (str === "0.00") return "<0.01";
+          return str.replace(/\.?0+$/, "");
+        }
+        return Math.round(exactPercent).toString();
+      };
+
+      result = {
+        ...r,
+        base: r.taxable,
+        gst: r.totalGst,
+        total: r.final,
+        basePercent: getDisplayPercent(baseNum),
+        gstPercent: getDisplayPercent(gstNum),
+        cessPercent: getDisplayPercent(cessNum),
+        baseBarWidth: totalNum > 0 ? (baseNum === 0 ? 0 : Math.max(1, (baseNum / totalNum) * 100)) : 0,
+        gstBarWidth: totalNum > 0 ? (gstNum === 0 ? 0 : Math.max(1, (gstNum / totalNum) * 100)) : 0,
+        cessBarWidth: totalNum > 0 ? (cessNum === 0 ? 0 : Math.max(1, (cessNum / totalNum) * 100)) : 0,
+      };
+    }
+  }
+
+  useEffect(() => {
+    if (amount === "") return;
     const timeoutId = setTimeout(() => {
       if (type === "exclusive") {
         sendGAEvent("event", "gst_calculator_used", { tool_name: "GST Calculator", gst_rate: activeRate });
@@ -122,7 +105,7 @@ export default function GSTCalculator() {
       }
     }, 1000);
     return () => clearTimeout(timeoutId);
-  }, [amount, activeRate, type, roundOff, cessRate]);
+  }, [amount, activeRate, type, roundOff, cessRate, transactionType, isCustom, customRate, gstRate]);
 
   const addToHistory = () => {
     if (!result) return;
@@ -130,7 +113,17 @@ export default function GSTCalculator() {
       amount: amount,
       rate: activeRate,
       type,
+      taxable: result.taxable,
+      cgst: result.cgst,
+      sgst: result.sgst,
+      igst: result.igst,
+      totalGst: result.totalGst,
+      cess: result.cess,
+      adjustment: result.adjustment,
+      hasAdjustment: result.hasAdjustment,
       total: result.total,
+      supplyType: transactionType,
+      roundOff: roundOff,
       time: new Date().toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit" })
     };
     setHistory(prev => {
@@ -154,13 +147,15 @@ export default function GSTCalculator() {
       transactionType === "intra"
         ? `CGST: ₹${result.cgst} | SGST: ₹${result.sgst}`
         : `IGST: ₹${result.igst}`,
+      cessRate > 0 ? `Cess: ₹${result.cess}` : null,
+      result.hasAdjustment ? `Rounding Adjustment: ₹${result.adjustment}` : null,
       `Total: ₹${result.total}`,
-    ].join("\n");
-    
+    ].filter(Boolean).join("\n");
+
     navigator.clipboard.writeText(lines)
       .then(() => {
         setCopied(true);
-        addToHistory(); 
+        addToHistory();
         setTimeout(() => setCopied(false), 2000);
       })
       .catch(() => alert("Failed to copy to clipboard. Please check browser permissions."));
@@ -171,7 +166,6 @@ export default function GSTCalculator() {
   const clearAll = () => {
     setAmount("");
     setCustomRate("");
-    setResult(null);
     setHistory([]);
     setGstRate(18);
     setType("exclusive");
@@ -185,15 +179,15 @@ export default function GSTCalculator() {
 
   return (
     <div style={{ minHeight: "100vh", background: "var(--bg-primary)", fontFamily: "'DM Sans', sans-serif", color: "var(--text-primary)", selectionColor: "var(--text-primary)", selectionBackground: "#0076ff" }}>
-      
+
       <style dangerouslySetInnerHTML={{ __html: `
         ::selection { background: rgba(0,118,255, 0.4); color: white; }
         ::-moz-selection { background: rgba(0,118,255, 0.4); color: white; }
-        
+
         @keyframes fadeIn { from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)} }
         @keyframes countUp { from{opacity:0;transform:scale(0.95)}to{opacity:1;transform:scale(1)} }
         @keyframes glowPulse { 0%{box-shadow: 0 0 40px rgba(0,118,255, 0.15)} 50%{box-shadow: 0 0 60px rgba(0,118,255, 0.3)} 100%{box-shadow: 0 0 40px rgba(0,118,255, 0.15)} }
-        
+
         input[type=number]::-webkit-outer-spin-button,
         input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
         input[type=number] { -moz-appearance: textfield; }
@@ -333,12 +327,12 @@ export default function GSTCalculator() {
             <label style={{ display: "block", fontWeight: "700", color: "var(--text-primary)", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Amount (₹)</label>
             <div className="input-glow" style={{ borderRadius: "16px", border: "1px solid var(--border-color)", background: "var(--glass-bg)", display: "flex", alignItems: "center", padding: "4px 20px" }}>
               <span style={{ fontSize: "24px", color: "var(--text-secondary)", fontWeight: "500", marginRight: "12px" }}>₹</span>
-              <input type="number" inputMode="decimal" value={amount} 
+              <input type="number" inputMode="decimal" value={amount}
                 onWheel={(e) => e.target.blur()}
                 onChange={e => {
                   const val = e.target.value;
                   if (val === "" || Number(val) >= 0) setAmount(val);
-                }} 
+                }}
                 placeholder="0.00"
                 style={{ width: "100%", padding: "18px 0", background: "transparent", border: "none", fontSize: "28px", color: "var(--text-primary)", outline: "none", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", letterSpacing: "-0.02em" }}
               />
@@ -349,11 +343,11 @@ export default function GSTCalculator() {
             <label style={{ display: "block", fontWeight: "700", color: "var(--text-primary)", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Select a percentage</label>
             <div className="responsive-grid-rates">
               {[0, 0.25, 1.5, 3, 5, 12, 18, 28, 40].map(rate => (
-                <button key={rate} onClick={() => { 
-                  setGstRate(rate); 
-                  setIsCustom(false); 
-                  setPreset(null); 
-                  setCustomRate(""); 
+                <button key={rate} onClick={() => {
+                  setGstRate(rate);
+                  setIsCustom(false);
+                  setPreset(null);
+                  setCustomRate("");
                   sendGAEvent("event", "gst_rate_changed", { new_rate: rate });
                 }}
                   className="interactive-btn"
@@ -368,7 +362,7 @@ export default function GSTCalculator() {
                   {rate}%
                 </button>
               ))}
-              
+
               <button onClick={() => { setIsCustom(true); setPreset(null); }}
                 className="interactive-btn"
                 style={{
@@ -382,16 +376,16 @@ export default function GSTCalculator() {
                 Custom
               </button>
             </div>
-            
+
             {isCustom && (
               <div style={{ marginTop: "16px", animation: "fadeIn 0.3s ease" }}>
                 <div className="input-glow" style={{ borderRadius: "14px", border: "1px solid rgba(56, 189, 248, 0.4)", background: "rgba(0,118,255, 0.05)", display: "flex", alignItems: "center", padding: "0 16px" }}>
-                  <input type="number" inputMode="decimal" value={customRate} 
+                  <input type="number" inputMode="decimal" value={customRate}
                     onWheel={(e) => e.target.blur()}
                     onChange={e => {
                       const val = e.target.value;
                       if (val === "" || (Number(val) >= 0 && Number(val) <= 100)) setCustomRate(val);
-                    }} 
+                    }}
                     placeholder="Enter custom percentage (e.g., 3)"
                     style={{ width: "100%", padding: "16px 0", background: "transparent", border: "none", fontSize: "16px", color: "var(--text-primary)", outline: "none", fontWeight: "600" }} />
                   <span style={{ color: "#38bdf8", fontWeight: "700" }}>%</span>
@@ -408,12 +402,12 @@ export default function GSTCalculator() {
           <div style={{ marginBottom: "32px" }}>
             <label style={{ display: "block", fontWeight: "700", color: "var(--text-primary)", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Compensation Cess (Optional)</label>
             <div className="input-glow" style={{ borderRadius: "16px", border: "1px solid var(--border-color)", background: "var(--glass-bg)", display: "flex", alignItems: "center", padding: "4px 20px" }}>
-              <input type="number" inputMode="decimal" value={cessRate === 0 ? "" : cessRate} 
+              <input type="number" inputMode="decimal" value={cessRate === 0 ? "" : cessRate}
                 onWheel={(e) => e.target.blur()}
                 onChange={e => {
                   const val = e.target.value;
                   if (val === "" || Number(val) >= 0) setCessRate(val === "" ? 0 : Number(val));
-                }} 
+                }}
                 placeholder="0"
                 style={{ width: "100%", padding: "14px 0", background: "transparent", border: "none", fontSize: "18px", color: "var(--text-primary)", outline: "none", fontWeight: "600", fontFamily: "'Plus Jakarta Sans',sans-serif" }}
               />
@@ -536,7 +530,7 @@ export default function GSTCalculator() {
                           <svg width="14" height="14" fill="none" stroke="var(--text-secondary)" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4m0-4h.01"></path></svg>
                         </span>
                       </span>
-                    ), value: result.cgst, color: "#5eead4", icon: "🏛" }, 
+                    ), value: result.cgst, color: "#5eead4", icon: "🏛" },
                     { label: (
                       <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
                         SGST
@@ -571,14 +565,14 @@ export default function GSTCalculator() {
             <div className="glass-panel" style={{ borderRadius: "20px", padding: "28px", marginBottom: "24px" }}>
               <p style={{ color: "var(--text-primary)", fontSize: "13px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "20px" }}>Visual Breakdown</p>
               <div style={{ height: "14px", borderRadius: "8px", overflow: "hidden", display: "flex", gap: "4px", background: "var(--glass-bg)", boxShadow: "inset 0 2px 4px rgba(0,0,0,0.2)" }}>
-                <div style={{ width: result.basePercent + "%", background: "linear-gradient(90deg, #2563eb, #60a5fa)", borderRadius: "8px", transition: "width 0.8s cubic-bezier(0.16, 1, 0.3, 1)", position: "relative", overflow: "hidden" }}>
+                <div style={{ width: result.baseBarWidth + "%", background: "linear-gradient(90deg, #2563eb, #60a5fa)", borderRadius: "8px", transition: "width 0.8s cubic-bezier(0.16, 1, 0.3, 1)", position: "relative", overflow: "hidden" }}>
                   <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, background: "linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)" }}/>
                 </div>
-                <div style={{ width: result.gstPercent + "%", background: "linear-gradient(90deg, #0076ff, #00c6ff)", borderRadius: "8px", transition: "width 0.8s cubic-bezier(0.16, 1, 0.3, 1)", position: "relative", overflow: "hidden" }}>
+                <div style={{ width: result.gstBarWidth + "%", background: "linear-gradient(90deg, #0076ff, #00c6ff)", borderRadius: "8px", transition: "width 0.8s cubic-bezier(0.16, 1, 0.3, 1)", position: "relative", overflow: "hidden" }}>
                   <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, background: "linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)" }}/>
                 </div>
                 {cessRate > 0 && (
-                  <div style={{ width: result.cessPercent + "%", background: "linear-gradient(90deg, #ef4444, #f87171)", borderRadius: "8px", transition: "width 0.8s cubic-bezier(0.16, 1, 0.3, 1)", position: "relative", overflow: "hidden" }}>
+                  <div style={{ width: result.cessBarWidth + "%", background: "linear-gradient(90deg, #ef4444, #f87171)", borderRadius: "8px", transition: "width 0.8s cubic-bezier(0.16, 1, 0.3, 1)", position: "relative", overflow: "hidden" }}>
                     <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, background: "linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)" }}/>
                   </div>
                 )}
@@ -623,7 +617,7 @@ export default function GSTCalculator() {
                 }}>
                 💾 Save Result
               </button>
-              
+
               <button onClick={copyResult} className="interactive-btn"
                 style={{
                   width: "100%", padding: "18px",
@@ -636,7 +630,7 @@ export default function GSTCalculator() {
                 }}>
                 {copied ? "✓ Copied!" : "📋 Copy Result"}
               </button>
-              
+
               <button
                 onClick={clearAll}
                 className="interactive-btn"
@@ -665,6 +659,9 @@ export default function GSTCalculator() {
                   <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
                     <span style={{ color: "var(--text-primary)", fontSize: "15px", fontWeight: "600" }}>₹{fmt(h.amount)} <span style={{ color: "var(--text-secondary)", fontWeight: "400" }}>@ {h.rate}%</span></span>
                     <span style={{ color: "var(--text-secondary)", fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.05em" }}>{h.type} • {h.time}</span>
+                    {h.hasAdjustment && (
+                      <span style={{ color: "#cbd5e1", fontSize: "11px", marginTop: "2px" }}>Adj: ₹{h.adjustment}</span>
+                    )}
                   </div>
                   <span style={{ color: "#bae6fd", fontWeight: "800", fontSize: "18px", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>₹{fmt(h.total)}</span>
                 </div>

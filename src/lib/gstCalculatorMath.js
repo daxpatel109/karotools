@@ -1,84 +1,100 @@
 // src/lib/gstCalculatorMath.js
 
-export function calculateGST({ inputStr, rateStr, cessRateStr, isInclusive, isInterState, isWholeRupee }) {
-  // Reject invalid or negative inputs
-  const inputNum = parseFloat(inputStr);
-  const rateNum = parseFloat(rateStr);
-  const cessNum = parseFloat(cessRateStr || '0');
+export function parseMoney(str) {
+  if (typeof str !== 'string') return null;
+  if (!/^\d+(\.\d{1,2})?$/.test(str)) return null;
+  const parts = str.split('.');
+  return BigInt(parts[0] + (parts[1] || '').padEnd(2, '0'));
+}
 
-  if (isNaN(inputNum) || inputNum < 0 || isNaN(rateNum) || rateNum < 0 || isNaN(cessNum) || cessNum < 0) {
+export function parseRate(str) {
+  if (typeof str !== 'string') return null;
+  if (!/^\d+(\.\d{1,2})?$/.test(str)) return null;
+  const parts = str.split('.');
+  return BigInt(parts[0] + (parts[1] || '').padEnd(2, '0'));
+}
+
+export function roundDivision(num, den) {
+  if (den <= 0n) throw new Error("Denominator must be > 0");
+  const q = num / den;
+  const r = num % den;
+  // Tie-breaking: round half up for non-negative numbers
+  if (r * 2n >= den) {
+    return q + 1n;
+  }
+  return q;
+}
+
+export function calculateGST({ inputStr, rateStr, cessRateStr, isInclusive, isInterState, isWholeRupee }) {
+  const enteredPaise = parseMoney(inputStr);
+  const gstRateBps = parseRate(rateStr);
+  const cessRateBps = parseRate(cessRateStr || "0");
+
+  if (enteredPaise === null || gstRateBps === null || cessRateBps === null) {
     return null;
   }
-  
-  if (inputNum === 0) {
-    return {
-      taxable: "0.00",
-      cgst: "0.00",
-      sgst: "0.00",
-      igst: "0.00",
-      cess: "0.00",
-      totalGst: "0.00",
-      adjustment: "0.00",
-      final: "0.00",
-      hasAdjustment: false
-    };
+
+  const RATE_DENOMINATOR = 10000n;
+
+  let enteredUnit = enteredPaise;
+  if (isWholeRupee) {
+    enteredUnit = roundDivision(enteredPaise, 100n);
   }
 
-  // Convert to basis points and integer scale
-  const scale = isWholeRupee ? 1 : 100;
-  const toInt = (val) => Math.round(val * scale);
-  
-  // Rate as a decimal factor
-  const rateFactor = rateNum / 100;
-  const cessFactor = cessNum / 100;
-
-  const inputInt = toInt(inputNum);
-  let taxableInt;
+  let taxableUnit;
   if (isInclusive) {
-    // Math.round logic on floating point result, but based strictly on scaled integer input representation
-    taxableInt = toInt(inputNum / (1 + rateFactor + cessFactor));
+    taxableUnit = roundDivision(enteredUnit * RATE_DENOMINATOR, RATE_DENOMINATOR + gstRateBps + cessRateBps);
   } else {
-    taxableInt = inputInt;
+    taxableUnit = enteredUnit;
   }
 
-  let cgstInt = 0;
-  let sgstInt = 0;
-  let igstInt = 0;
-  
-  const cessInt = Math.round(taxableInt * cessFactor);
+  let cgstUnit = 0n;
+  let sgstUnit = 0n;
+  let igstUnit = 0n;
 
   if (isInterState) {
-    igstInt = Math.round(taxableInt * rateFactor);
+    igstUnit = roundDivision(taxableUnit * gstRateBps, RATE_DENOMINATOR);
   } else {
-    cgstInt = Math.round(taxableInt * (rateFactor / 2));
-    sgstInt = cgstInt; // Invariant constraint
+    cgstUnit = roundDivision(taxableUnit * gstRateBps, 20000n);
+    sgstUnit = cgstUnit;
   }
 
-  const totalGstInt = igstInt + cgstInt + sgstInt;
-  
-  let finalTotalInt = taxableInt + totalGstInt + cessInt;
-  let adjustmentInt = 0;
+  const totalGstUnit = igstUnit + cgstUnit + sgstUnit;
+  const cessUnit = roundDivision(taxableUnit * cessRateBps, RATE_DENOMINATOR);
+  const calculatedTotalUnit = taxableUnit + totalGstUnit + cessUnit;
+
+  let adjustmentUnit = 0n;
+  let finalTotalUnit = calculatedTotalUnit;
 
   if (isInclusive) {
-    adjustmentInt = inputInt - finalTotalInt;
-    finalTotalInt += adjustmentInt;
+    adjustmentUnit = enteredUnit - calculatedTotalUnit;
+    finalTotalUnit = calculatedTotalUnit + adjustmentUnit;
   }
 
-  const fmt = (valInt) => {
-    // Prevent negative zero (-0.00)
-    const normalized = valInt === 0 ? 0 : valInt;
-    return (normalized / scale).toFixed(isWholeRupee ? 0 : 2);
+  const formatOutput = (unit) => {
+    const isNeg = unit < 0n;
+    const abs = isNeg ? -unit : unit;
+    if (isWholeRupee) {
+      const s = abs.toString();
+      return (s === "0") ? "0" : (isNeg ? "-" + s : s);
+    } else {
+      const s = abs.toString().padStart(3, '0');
+      const intPart = s.slice(0, -2) || "0";
+      const decPart = s.slice(-2);
+      const res = `${intPart}.${decPart}`;
+      return (res === "0.00") ? "0.00" : (isNeg ? "-" + res : res);
+    }
   };
 
   return {
-    taxable: fmt(taxableInt),
-    cgst: fmt(cgstInt),
-    sgst: fmt(sgstInt),
-    igst: fmt(igstInt),
-    cess: fmt(cessInt),
-    totalGst: fmt(totalGstInt),
-    adjustment: fmt(adjustmentInt),
-    final: fmt(finalTotalInt),
-    hasAdjustment: adjustmentInt !== 0
+    taxable: formatOutput(taxableUnit),
+    cgst: formatOutput(cgstUnit),
+    sgst: formatOutput(sgstUnit),
+    igst: formatOutput(igstUnit),
+    cess: formatOutput(cessUnit),
+    totalGst: formatOutput(totalGstUnit),
+    adjustment: formatOutput(adjustmentUnit),
+    final: formatOutput(finalTotalUnit),
+    hasAdjustment: adjustmentUnit !== 0n
   };
 }

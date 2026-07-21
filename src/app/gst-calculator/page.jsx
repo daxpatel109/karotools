@@ -47,11 +47,11 @@ export default function Page() {
     },
     {
       question: "Is GST mandatory for freelancers in India?",
-      answer: "GST registration depends on your total turnover and supply type. For domestic services, the threshold is typically ₹20 Lakhs (or ₹10 Lakhs in special category states). However, if you export freelance services (like to US or EU clients), you are generally making zero-rated supplies but mandatory registration rules may still apply regardless of turnover. Always consult a tax professional for export compliance."
+      answer: "Not automatically. GST registration depends on aggregate turnover, the nature and location of supplies, whether a supply qualifies as an export of services, and any applicable compulsory-registration provisions or notifications. Check current CBIC/GST guidance or consult a qualified professional for your circumstances."
     },
     {
       question: "What is the GST registration threshold for freelancers?",
-      answer: "The GST registration threshold for service-based freelancers is ₹20 Lakhs per year for normal states, and ₹10 Lakhs per year for special category states. If you cross this threshold, you must register for a GSTIN and charge 18% GST on your domestic invoices."
+      answer: "There is no single answer that applies to every freelancer. Threshold exemptions and compulsory-registration rules can depend on the supplier’s location, aggregate turnover, supply type and applicable notifications. Do not use this calculator to decide whether registration is required. Verify the current rules through official CBIC/GST sources or consult a qualified professional."
     }
   ];
 

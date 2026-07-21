@@ -47,7 +47,7 @@ export default function Page() {
     },
     {
       question: "Is GST mandatory for freelancers in India?",
-      answer: "No, GST is not mandatory for all freelancers in India. You only need to register for and charge GST if your total freelance income exceeds ₹20 Lakhs in a financial year (or ₹10 Lakhs in special category states). However, if you export freelance services to clients outside India (like Upwork or Fiverr), GST registration is mandatory regardless of your income."
+      answer: "GST registration depends on your total turnover and supply type. For domestic services, the threshold is typically ₹20 Lakhs (or ₹10 Lakhs in special category states). However, if you export freelance services (like to US or EU clients), you are generally making zero-rated supplies but mandatory registration rules may still apply regardless of turnover. Always consult a tax professional for export compliance."
     },
     {
       question: "What is the GST registration threshold for freelancers?",

@@ -54,65 +54,14 @@ export default function GSTCalculator() {
     }
   }, [keyword]);
 
-  const presets = [
-    { label: "🍽 Restaurant", rate: 5 },
-    { label: "👔 Clothing", rate: 12 },
-    { label: "💻 Electronics", rate: 18 },
-    { label: "🚗 Luxury", rate: 28 },
-    { label: "💊 Medicine", rate: 5 },
-    { label: "🏠 Real Estate", rate: 12 },
-    { label: "🥛 Milk/Food", rate: 0 },
-    { label: "🥇 Gold", rate: 3 },
-  ];
+  // Product-category presets removed per legal constraints
 
   // SERP SEO & Schema Injection (Only for dynamic keyword routes)
   useEffect(() => {
     window.scrollTo(0, 0);
-    if (!keyword) return;
-
-    document.title = seoTitle;
-    
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.name = "description";
-      document.head.appendChild(metaDescription);
-    }
-    metaDescription.content = seoDesc;
-
-    const schemaScript = document.createElement('script');
-    schemaScript.type = 'application/ld+json';
-    schemaScript.innerHTML = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "KaroTools GST Calculator",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "WebBrowser",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
-      "description": "Calculate IGST, CGST, and SGST instantly with this free GST Calculator."
-    });
-    document.head.appendChild(schemaScript);
-
-    // FAQ Schema
-    const faqSchemaScript = document.createElement('script');
-    faqSchemaScript.type = 'application/ld+json';
-    faqSchemaScript.innerHTML = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        { "@type": "Question", "name": "What are GST slabs in India 2026?", "acceptedAnswer": { "@type": "Answer", "text": "India has 6 GST slabs: 0%, 0.25%, 3%, 5%, 12%, 18%, and 28%." } },
-        { "@type": "Question", "name": "What is GST on restaurant food?", "acceptedAnswer": { "@type": "Answer", "text": "Restaurant GST is 5% for non-AC restaurants and standalone restaurants. AC restaurants in hotels with room tariff below ₹7500 also charge 5%. No ITC is available." } },
-        { "@type": "Question", "name": "What is GST on gold in India?", "acceptedAnswer": { "@type": "Answer", "text": "GST on gold is 3% on the value of gold, plus 5% on making charges." } },
-        { "@type": "Question", "name": "What is IGST vs CGST/SGST?", "acceptedAnswer": { "@type": "Answer", "text": "For intra-state transactions, GST splits equally into CGST (Central) + SGST (State). For inter-state transactions, IGST (Integrated GST) is charged." } }
-      ]
-    });
-    document.head.appendChild(faqSchemaScript);
-
-    return () => {
-      if (document.head.contains(schemaScript)) document.head.removeChild(schemaScript);
-      if (document.head.contains(faqSchemaScript)) document.head.removeChild(faqSchemaScript);
-    };
-  }, [keyword, seoTitle, seoDesc]);
+    // Client-side DOM modifications removed. Metadata and JSON-LD 
+    // are exclusively handled by the server component in page.jsx.
+  }, [keyword]);
 
   // Save to Local Storage
   useEffect(() => {
@@ -128,46 +77,41 @@ export default function GSTCalculator() {
   }, [amount, gstRate, customRate, isCustom, cessRate, type, transactionType, roundOff, preset]);
 
   useEffect(() => {
-    const amt = parseFloat(amount);
-    
-    if (amount === "" || isNaN(amt) || amt <= 0 || isNaN(activeRate) || activeRate < 0 || activeRate > 100) { 
+    if (amount === "") { 
       setResult(null); 
       return; 
     }
 
-    let base, gst, cess, total;
-    if (type === "exclusive") {
-      base = amt;
-      gst = (amt * activeRate) / 100;
-      cess = (amt * cessRate) / 100;
-      total = amt + gst + cess;
-    } else {
-      total = amt;
-      base = (amt * 100) / (100 + activeRate + cessRate);
-      gst = (base * activeRate) / 100;
-      cess = (base * cessRate) / 100;
-    }
+    import("./lib/gstCalculatorMath.js").then(({ calculateGST }) => {
+      const r = calculateGST({
+        inputStr: amount,
+        rateStr: isCustom ? customRate : gstRate.toString(),
+        cessRateStr: cessRate.toString(),
+        isInclusive: type === "inclusive",
+        isInterState: transactionType === "inter",
+        isWholeRupee: roundOff
+      });
+      
+      if (r) {
+        // Compute visual breakdown percentages based on float conversion of display values
+        const baseNum = parseFloat(r.taxable);
+        const gstNum = parseFloat(r.totalGst);
+        const cessNum = parseFloat(r.cess);
+        const totalNum = parseFloat(r.final);
 
-    if (roundOff) {
-      base = Math.round(base);
-      gst = Math.round(gst);
-      cess = Math.round(cess);
-      total = Math.round(total);
-    }
-
-    const r = {
-      base: base.toFixed(roundOff ? 0 : 2),
-      gst: gst.toFixed(roundOff ? 0 : 2),
-      cess: cess.toFixed(roundOff ? 0 : 2),
-      total: total.toFixed(roundOff ? 0 : 2),
-      cgst: (gst / 2).toFixed(roundOff ? 0 : 2),
-      sgst: (gst / 2).toFixed(roundOff ? 0 : 2),
-      igst: gst.toFixed(roundOff ? 0 : 2),
-      basePercent: total > 0 ? Math.round((base / total) * 100) : 0,
-      gstPercent: total > 0 ? Math.round((gst / total) * 100) : 0,
-      cessPercent: total > 0 ? Math.round((cess / total) * 100) : 0,
-    };
-    setResult(r);
+        setResult({
+          ...r,
+          base: r.taxable,
+          gst: r.totalGst,
+          total: r.final,
+          basePercent: totalNum > 0 ? Math.round((baseNum / totalNum) * 100) : 0,
+          gstPercent: totalNum > 0 ? Math.round((gstNum / totalNum) * 100) : 0,
+          cessPercent: totalNum > 0 ? Math.round((cessNum / totalNum) * 100) : 0,
+        });
+      } else {
+        setResult(null);
+      }
+    });
 
     // Fire event once per successful calculation update (debounced essentially by the user stopping typing)
     const timeoutId = setTimeout(() => {
@@ -379,43 +323,8 @@ export default function GSTCalculator() {
           </div>
           <h1 className="gradient-text" style={{ fontSize: "42px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "12px", letterSpacing: "-0.02em" }}>{seoH1}</h1>
 
-          {/* COMPLIANCE BADGE */}
-          <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "rgba(16, 185, 129, 0.1)", border: "1px solid rgba(16, 185, 129, 0.2)", color: "#10b981", padding: "6px 12px", borderRadius: "100px", fontSize: "13px", fontWeight: "600", marginBottom: "32px" }}>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 6L9 17l-5-5"/></svg>
-            Updated for GST Calculations
-          </div>
-
-          <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "rgba(16, 185, 129, 0.1)", border: "1px solid rgba(16, 185, 129, 0.2)", color: "#10b981", padding: "6px 12px", borderRadius: "100px", fontSize: "13px", fontWeight: "600", marginBottom: "32px" }}>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 6L9 17l-5-5"/></svg>
-            FY 2026-27 Compliant
-          </div>
-
-          <p style={{ color: "var(--text-secondary)", fontSize: "16px", fontWeight: "400", letterSpacing: "0.01em" }}>Professional GST calculation for Indian businesses • All slabs supported</p>
-        </div>
-
-        <div style={{ marginBottom: "24px", animation: "fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1)" }}>
-          <p style={{ color: "var(--text-secondary)", fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "12px", marginLeft: "4px" }}>Quick Presets</p>
-          <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
-            {presets.map(p => (
-              <button key={p.label} onClick={() => { 
-                setPreset(p.label); 
-                setGstRate(p.rate); 
-                setIsCustom(false); 
-                setCustomRate(""); 
-                sendGAEvent("event", "gst_rate_changed", { new_rate: p.rate, preset: p.label });
-              }}
-                className="preset-btn"
-                style={{
-                  border: "1px solid",
-                  borderColor: preset === p.label ? "rgba(56, 189, 248, 0.6)" : "var(--glass-border)",
-                  background: preset === p.label ? "rgba(0,118,255, 0.15)" : "var(--glass-bg)",
-                  color: preset === p.label ? "#bae6fd" : "var(--text-secondary)",
-                  boxShadow: preset === p.label ? "0 0 20px rgba(0,118,255, 0.15)" : "none",
-                }}>
-                {p.label} <span style={{ opacity: 0.6, marginLeft: "4px" }}>· {p.rate}%</span>
-              </button>
-            ))}
-          </div>
+          {/* COMPLIANCE BADGES REMOVED PER CONSTRAINTS */}
+          <p style={{ color: "var(--text-secondary)", fontSize: "16px", fontWeight: "400", letterSpacing: "0.01em" }}>Professional GST calculation for Indian businesses</p>
         </div>
 
         <div className="glass-panel" style={{ borderRadius: "28px", padding: "40px", marginBottom: "32px", animation: "fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1)" }}>
@@ -437,9 +346,9 @@ export default function GSTCalculator() {
           </div>
 
           <div style={{ marginBottom: "32px" }}>
-            <label style={{ display: "block", fontWeight: "700", color: "var(--text-primary)", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>GST Rate</label>
+            <label style={{ display: "block", fontWeight: "700", color: "var(--text-primary)", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Select a percentage</label>
             <div className="responsive-grid-rates">
-              {[0, 3, 5, 12, 18, 28].map(rate => (
+              {[0, 0.25, 1.5, 3, 5, 12, 18, 28, 40].map(rate => (
                 <button key={rate} onClick={() => { 
                   setGstRate(rate); 
                   setIsCustom(false); 
@@ -489,6 +398,11 @@ export default function GSTCalculator() {
                 </div>
               </div>
             )}
+            <div style={{ marginTop: "16px", padding: "12px", background: "rgba(239, 68, 68, 0.05)", borderLeft: "3px solid #ef4444", borderRadius: "0 8px 8px 0" }}>
+              <p style={{ color: "var(--text-secondary)", fontSize: "12px", lineHeight: "1.5" }}>
+                <strong>Warning:</strong> This calculator performs arithmetic using the percentage you select. It does not determine which GST rate legally applies to your supply. Verify the HSN/SAC, supply conditions, transaction date and current official notification.
+              </p>
+            </div>
           </div>
 
           <div style={{ marginBottom: "32px" }}>
@@ -639,7 +553,10 @@ export default function GSTCalculator() {
                         <svg width="14" height="14" fill="none" stroke="var(--text-secondary)" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4m0-4h.01"></path></svg>
                       </span>
                     </span>
-                  ), value: result.igst, color: "#fcd34d", icon: "🌐" }])
+                  ), value: result.igst, color: "#fcd34d", icon: "🌐" }]),
+                ...(result.adjustment && result.adjustment !== "0.00" && result.adjustment !== "0"
+                  ? [{ label: "Rounding Adjustment", value: result.adjustment, color: "#cbd5e1", icon: "⚖️" }]
+                  : [])
               ].map((item, idx) => (
                 <div key={item.label} className="breakdown-card glass-panel" style={{ borderRadius: "20px", padding: "24px", display: "flex", flexDirection: "column", justifyContent: "space-between", animation: `fadeIn 0.5s ease ${(idx + 1) * 0.1}s both` }}>
                   <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "16px" }}>

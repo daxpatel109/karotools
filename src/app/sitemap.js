@@ -32,7 +32,6 @@ export default function sitemap() {
 
   const sitemapItems = routes.map((route) => ({
     url: `${baseUrl}${route.path}`,
-    lastModified: new Date().toISOString(),
     changeFrequency: route.freq,
     priority: route.priority,
   }));
@@ -44,12 +43,18 @@ export default function sitemap() {
     // Exclude redirected routes explicitly
     if (post.path === '/guides/gst-return-due-dates-calendar') return;
     
-    sitemapItems.push({
+    const item = {
       url: `${baseUrl}${post.path}`,
-      lastModified: getSafeISODate(post.date) || new Date().toISOString(),
       changeFrequency: "monthly",
       priority: 0.7,
-    });
+    };
+
+    const validDate = getSafeISODate(post.date);
+    if (validDate) {
+      item.lastModified = validDate;
+    }
+
+    sitemapItems.push(item);
   });
 
   return sitemapItems;

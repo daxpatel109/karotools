@@ -21,7 +21,7 @@ export const metadata = generateMetadata({
 });
 
 export default function GuidesIndex() {
-  const posts = getMdxPages('guides').sort((a, b) => new Date(b.date) - new Date(a.date));
+  const posts = getMdxPages('guides');
 
   return (
     <div style={{ minHeight: "100vh", background: "var(--bg-primary)", fontFamily: "'DM Sans', sans-serif", color: "var(--text-primary)" }}>

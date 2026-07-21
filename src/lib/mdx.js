@@ -26,7 +26,7 @@ export function getMdxPages(directory) {
           slug: dir.name,
           title: titleMatch[1],
           description: descMatch[1],
-          date: dateMatch ? dateMatch[1] : new Date().toISOString(),
+          date: dateMatch ? dateMatch[1] : undefined,
           path: `/${directory}/${dir.name}`,
           category: directory === 'blog' ? 'Tax & Compliance' : 'Practical Guide',
           readTime: Math.max(1, Math.ceil(content.split(' ').length / 200)) + " min read"
@@ -48,7 +48,7 @@ export function getMdxPages(directory) {
           slug: dir.name,
           title: titleMatch[1],
           description: descMatch ? descMatch[1] : "",
-          date: dateMatch ? dateMatch[1] : new Date('2026-06-15').toISOString(), // Fallback date
+          date: dateMatch ? dateMatch[1] : undefined,
           path: `/${directory}/${dir.name}`,
           category: directory === 'blog' ? 'Tax & Compliance' : 'Practical Guide',
           readTime: Math.max(1, Math.ceil(content.split(' ').length / 200)) + " min read"
@@ -57,5 +57,9 @@ export function getMdxPages(directory) {
     }
   }
   
-  return posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+  return posts.sort((a, b) => {
+    const timeA = a.date ? new Date(a.date).getTime() : 0;
+    const timeB = b.date ? new Date(b.date).getTime() : 0;
+    return timeB - timeA;
+  });
 }

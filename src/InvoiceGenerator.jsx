@@ -7,6 +7,7 @@ import jsPDF from "jspdf";
 import { QRCodeCanvas } from "qrcode.react";
 import { sendGAEvent } from "@next/third-parties/google";
 import { calcLineItem, calcInvoiceTotals, fmtINRString } from "./lib/invoiceMath";
+import { buildUpiPaymentUri } from "./lib/upiPaymentUri";
 
 const emptyItem = () => ({ desc: "", hsn: "", qty: 1, rate: "", discount: 0, gst: 18 });
 
@@ -738,10 +739,25 @@ export default function InvoiceGenerator() {
                       {finalNotes}
                     </p>
                   </div>
-                  {bank.upi && calculatedTotals.finalTotalStr !== "0.00" && (
+                  {bank.upi && (
                     <div style={{ textAlign: "center", background: "#fff", padding: "10px", borderRadius: "8px", border: "1px solid var(--text-primary)" }}>
-                      <QRCodeCanvas value={`upi://pay?pa=${bank.upi}&pn=${seller.name || "Business"}&am=${calculatedTotals.finalTotalStr}&cu=INR`} size={80} />
-                      <div style={{ fontSize: "9px", color: "var(--text-secondary)", marginTop: "6px", fontWeight: "700", textTransform: "uppercase" }}>Scan to Pay</div>
+                      {(() => {
+                        const upiRes = buildUpiPaymentUri({
+                          payeeAddress: bank.upi,
+                          payeeName: seller.name,
+                          amount: calculatedTotals.finalTotalStr
+                        });
+                        if (!upiRes.valid) {
+                          return <div style={{ fontSize: "10px", color: "red" }}>QR Disabled: {upiRes.error}</div>;
+                        }
+                        return (
+                          <>
+                            <QRCodeCanvas value={upiRes.uri} size={80} />
+                            <div style={{ fontSize: "9px", color: "var(--text-secondary)", marginTop: "6px", fontWeight: "700", textTransform: "uppercase" }}>Scan to Pay</div>
+                            <div style={{ fontSize: "8px", color: "var(--text-secondary)", marginTop: "4px" }}>UPI payment QR — not an e-invoice IRN QR code.</div>
+                          </>
+                        );
+                      })()}
                     </div>
                   )}
                 </div>

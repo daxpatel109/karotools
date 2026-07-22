@@ -6,6 +6,7 @@ import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { QRCodeCanvas } from "qrcode.react";
 import { sendGAEvent } from "@next/third-parties/google";
+import { calcLineItem, calcInvoiceTotals, fmtINRString } from "./lib/invoiceMath";
 
 const emptyItem = () => ({ desc: "", hsn: "", qty: 1, rate: "", discount: 0, gst: 18 });
 
@@ -15,7 +16,7 @@ const genInvoiceNo = () => {
   return `INV-${y}-${n}`;
 };
 
-const fmtINR = (n) => Number(n || 0).toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const fmtINR = (n) => fmtINRString(n);
 
 const INDIAN_STATES = [
   "Select State", "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", 
@@ -174,6 +175,9 @@ export default function InvoiceGenerator() {
     }
   };
 
+  const lineResults = items.map(item => calcLineItem(item.qty, item.rate, item.discount, item.gst, transType === "inter", item.desc, item.hsn));
+  const calculatedTotals = calcInvoiceTotals(lineResults);
+
   const exportCSV = () => {
     sendGAEvent("event", "invoice_csv_exported", { tool_name: "Invoice Generator" });
     const rows = [
@@ -181,14 +185,16 @@ export default function InvoiceGenerator() {
       ["Invoice Date", invoice.date],
       ["Seller Name", seller.name],
       ["Buyer Name", buyer.name],
-      ["Taxable Amount", totals.base.toFixed(2)],
-      ["Total Amount", totals.total.toFixed(2)],
+      ["Taxable Amount", calculatedTotals.baseStr],
+      ["Total Amount", calculatedTotals.finalTotalStr],
       [""],
       ["Description", "HSN/SAC", "Qty", "Rate", "GST %", "Total"]
     ];
-    items.forEach(item => {
-      const c = calcItem(item);
-      rows.push([item.desc, item.hsn, item.qty, item.rate, item.gst, c.total.toFixed(2)]);
+    items.forEach((item, i) => {
+      const c = lineResults[i];
+      if (!c.isBlank) {
+        rows.push([item.desc, item.hsn, item.qty, item.rate, item.gst, c.valid ? c.finalTotalStr : "Invalid"]);
+      }
     });
 
     const csvContent = "data:text/csv;charset=utf-8," + rows.map(e => e.join(",")).join("\n");
@@ -202,28 +208,25 @@ export default function InvoiceGenerator() {
   };
 
   // Dynamic Notes Injection for MSME
-  const defaultNotes = "Payment due within 15 days. Thank you for your business!";
   const msmeWarning = "\n\nAs per Section 43B(h) of the MSME Act, payments delayed beyond 45 days attract compound interest at 3x the RBI bank rate, and the buyer will forfeit tax deductions on this invoice amount.";
   
   const updateItem = (i, k, v) => { const u = [...items]; u[i] = { ...u[i], [k]: v }; setItems(u); };
   const addItem = () => setItems([...items, emptyItem()]);
   const removeItem = (i) => items.length > 1 && setItems(items.filter((_, idx) => idx !== i));
 
-  const calcItem = (item) => {
-    const grossBase = (parseFloat(item.qty) || 0) * (parseFloat(item.rate) || 0);
-    const discountAmt = (grossBase * (parseFloat(item.discount) || 0)) / 100;
-    const taxableBase = grossBase - discountAmt;
-    const gstAmt = (taxableBase * item.gst) / 100;
-    return { grossBase, discountAmt, taxableBase, gstAmt, total: taxableBase + gstAmt };
-  };
-
-  const totals = items.reduce((a, item) => {
-    const c = calcItem(item);
-    return { gross: a.gross + c.grossBase, discount: a.discount + c.discountAmt, base: a.base + c.taxableBase, gst: a.gst + c.gstAmt, total: a.total + c.total };
-  }, { gross: 0, discount: 0, base: 0, gst: 0, total: 0 });
+  // Calculations moved to pure invoiceMath module
 
   const downloadPDF = async () => {
     if (!previewRef.current || isExporting) return;
+    const hasMeaningfulItem = items.some((item, i) => {
+      const c = lineResults[i];
+      return c.valid && (c.grossBaseStr !== "0.00" || item.desc.trim() !== "");
+    });
+
+    if (calculatedTotals.hasInvalid || !hasMeaningfulItem) {
+      alert("Please add at least one valid item before generating the PDF.");
+      return;
+    }
     sendGAEvent("event", "invoice_generated", { tool_name: "Invoice Generator" });
     setIsExporting(true);
     
@@ -518,7 +521,9 @@ export default function InvoiceGenerator() {
 
               <div className="items-wrapper">
                 <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-                  {items.map((item, i) => (
+                  {items.map((item, i) => {
+                    const c = lineResults[i];
+                    return (
                     <div key={i} style={{ background: "var(--glass-bg)", padding: "16px", borderRadius: "12px", border: "1px solid var(--glass-bg)" }}>
                       <div className="items-grid">
                         <div><label style={lbl}>Description</label><input value={item.desc} onChange={e => updateItem(i, "desc", e.target.value)} style={inp}/></div>
@@ -542,7 +547,7 @@ export default function InvoiceGenerator() {
                               type="number" inputMode="decimal" 
                               list={`gst-list-${i}`}
                               value={item.gst === 0 && item.gst !== "" ? 0 : item.gst} 
-                              onChange={e => updateItem(i, "gst", e.target.value === "" ? "" : parseFloat(e.target.value))} 
+                              onChange={e => updateItem(i, "gst", e.target.value)}
                               style={inp}
                             />
                             <datalist id={`gst-list-${i}`}>
@@ -551,9 +556,10 @@ export default function InvoiceGenerator() {
                           </div>
                           <button aria-label="Remove item" onClick={() => removeItem(i)} style={{ padding: "12px 16px", background: "rgba(244,63,94,0.1)", color: "#fb7185", border: "none", borderRadius: "8px", cursor: "pointer", height: "45px", display: "flex", alignItems: "center", justifyContent: "center" }}>✕</button>
                         </div>
+                        {!c.valid && <div style={{ color: "#fb7185", fontSize: "12px", marginTop: "4px", fontWeight: "600" }}>⚠️ {c.error}</div>}
                       </div>
                     </div>
-                  ))}
+                  )})}
                 </div>
               </div>
               <button onClick={addItem} style={{ width: "100%", padding: "12px", marginTop: "16px", background: "rgba(0,118,255,0.1)", border: "1px dashed rgba(0,118,255,0.3)", borderRadius: "8px", color: "#38bdf8", fontWeight: "600", cursor: "pointer" }}>+ Add Item</button>
@@ -660,7 +666,8 @@ export default function InvoiceGenerator() {
                   </thead>
                   <tbody>
                     {items.map((item, i) => {
-                      const c = calcItem(item);
+                      const c = lineResults[i];
+                      if (c.isBlank) return null;
                       return (
                         <tr key={i} style={{ borderBottom: "1px solid var(--text-primary)" }}>
                           <td style={{ padding: "16px 8px", fontSize: "13px", color: "var(--bg-tertiary)" }}>{item.desc || "-"}</td>
@@ -675,7 +682,7 @@ export default function InvoiceGenerator() {
                           ) : (
                             <td style={{ padding: "16px 8px", fontSize: "13px", color: "#475569", textAlign: "right" }}>{item.gst}%</td>
                           )}
-                          <td style={{ padding: "16px 8px", fontSize: "13px", color: "var(--bg-tertiary)", fontWeight: "600", textAlign: "right" }}>{fmtINR(c.total)}</td>
+                          <td style={{ padding: "16px 8px", fontSize: "13px", color: "var(--bg-tertiary)", fontWeight: "600", textAlign: "right" }}>{c.valid ? `₹${fmtINR(c.finalTotalStr)}` : "Error"}</td>
                         </tr>
                       );
                     })}
@@ -700,25 +707,25 @@ export default function InvoiceGenerator() {
                   <div style={{ width: "40%" }}>
                     <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px", fontSize: "13px", color: "#475569" }}>
                       <span>Taxable Amount</span>
-                      <span>₹{fmtINR(totals.base)}</span>
+                      <span>₹{fmtINR(calculatedTotals.baseStr)}</span>
                     </div>
                     {transType === "intra" ? (
                       <>
                         <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px", fontSize: "13px", color: "#475569" }}>
-                          <span>CGST</span><span>₹{fmtINR(totals.gst / 2)}</span>
+                          <span>CGST</span><span>₹{fmtINR(calculatedTotals.cgstStr)}</span>
                         </div>
                         <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px", fontSize: "13px", color: "#475569" }}>
-                          <span>SGST</span><span>₹{fmtINR(totals.gst / 2)}</span>
+                          <span>SGST</span><span>₹{fmtINR(calculatedTotals.sgstStr)}</span>
                         </div>
                       </>
                     ) : (
                       <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px", fontSize: "13px", color: "#475569" }}>
-                        <span>IGST</span><span>₹{fmtINR(totals.gst)}</span>
+                        <span>IGST</span><span>₹{fmtINR(calculatedTotals.igstStr)}</span>
                       </div>
                     )}
                     <div style={{ display: "flex", justifyContent: "space-between", marginTop: "12px", paddingTop: "12px", borderTop: "2px solid var(--text-primary)", fontSize: "18px", fontWeight: "800", color: "var(--bg-tertiary)" }}>
                       <span>Total Amount</span>
-                      <span>₹{fmtINR(totals.total)}</span>
+                      <span>₹{fmtINR(calculatedTotals.finalTotalStr)}</span>
                     </div>
                   </div>
                 </div>
@@ -731,9 +738,9 @@ export default function InvoiceGenerator() {
                       {finalNotes}
                     </p>
                   </div>
-                  {bank.upi && totals.total > 0 && (
+                  {bank.upi && calculatedTotals.finalTotalStr !== "0.00" && (
                     <div style={{ textAlign: "center", background: "#fff", padding: "10px", borderRadius: "8px", border: "1px solid var(--text-primary)" }}>
-                      <QRCodeCanvas value={`upi://pay?pa=${bank.upi}&pn=${seller.name || "Business"}&am=${totals.total}&cu=INR`} size={80} />
+                      <QRCodeCanvas value={`upi://pay?pa=${bank.upi}&pn=${seller.name || "Business"}&am=${calculatedTotals.finalTotalStr}&cu=INR`} size={80} />
                       <div style={{ fontSize: "9px", color: "var(--text-secondary)", marginTop: "6px", fontWeight: "700", textTransform: "uppercase" }}>Scan to Pay</div>
                     </div>
                   )}

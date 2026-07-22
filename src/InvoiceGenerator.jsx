@@ -8,6 +8,7 @@ import { QRCodeCanvas } from "qrcode.react";
 import { sendGAEvent } from "@next/third-parties/google";
 import { calcLineItem, calcInvoiceTotals, fmtINRString } from "./lib/invoiceMath";
 import { buildUpiPaymentUri } from "./lib/upiPaymentUri";
+import { calculatePdfSlices } from "./lib/pdfPagination";
 
 const emptyItem = () => ({ desc: "", hsn: "", qty: 1, rate: "", discount: 0, gst: 18 });
 
@@ -240,18 +241,74 @@ export default function InvoiceGenerator() {
     await new Promise(r => setTimeout(r, 50));
 
     try {
-      // Temporarily scale up for high-res PDF
       const canvas = await html2canvas(previewRef.current, { scale: 3, useCORS: true });
-      const imgData = canvas.toDataURL("image/jpeg", 0.98);
+      if (canvas.width === 0 || canvas.height === 0) {
+        throw new Error("Invalid canvas dimensions");
+      }
+
+      const containerRect = previewRef.current.getBoundingClientRect();
+      const scaleToCanvas = canvas.height / containerRect.height;
+
+      const elements = Array.from(previewRef.current.querySelectorAll('[data-pdf-boundary]'));
+      const boundaries = elements.map(el => {
+        const rect = el.getBoundingClientRect();
+        return {
+          type: el.getAttribute('data-pdf-boundary'),
+          top: (rect.top - containerRect.top) * scaleToCanvas,
+          bottom: (rect.bottom - containerRect.top) * scaleToCanvas,
+        };
+      });
+
+      const slices = calculatePdfSlices({
+        canvasWidthPx: canvas.width,
+        canvasHeightPx: canvas.height,
+        pdfPageWidthMm: 210,
+        pdfPageHeightMm: 297,
+        marginTopMm: 10,
+        marginBottomMm: 10,
+        marginLeftMm: 10,
+        marginRightMm: 10,
+        boundaries: boundaries
+      });
+
+      if (!slices || slices.length === 0) {
+        throw new Error("Could not calculate PDF slices");
+      }
+
       const pdf = new jsPDF("p", "mm", "a4");
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-      pdf.addImage(imgData, "JPEG", 0, 0, pdfWidth, pdfHeight);
+
+      for (let i = 0; i < slices.length; i++) {
+        const slice = slices[i];
+        if (i > 0) {
+          pdf.addPage();
+          pdf.setFontSize(9);
+          pdf.setTextColor(150, 150, 150);
+          pdf.text(`Invoice ${invoice.number || '0001'} — continued`, 10, 8);
+        }
+
+        const sliceCanvas = document.createElement("canvas");
+        sliceCanvas.width = canvas.width;
+        sliceCanvas.height = slice.sourceHeight;
+        const ctx = sliceCanvas.getContext("2d");
+
+        ctx.drawImage(
+          canvas,
+          0, slice.sourceY, canvas.width, slice.sourceHeight,
+          0, 0, sliceCanvas.width, sliceCanvas.height
+        );
+
+        const imgData = sliceCanvas.toDataURL("image/jpeg", 0.98);
+        pdf.addImage(imgData, "JPEG", slice.destinationX, slice.destinationY, slice.destinationWidth, slice.destinationHeight);
+
+        sliceCanvas.width = 0;
+        sliceCanvas.height = 0;
+      }
+
       pdf.save(`INV-${invoice.number || '0001'}.pdf`);
       sendGAEvent("event", "invoice_pdf_downloaded", { tool_name: "Invoice Generator" });
-    } catch (e) {
-      console.error(e);
-      alert("Error generating PDF. Please try again.");
+    } catch {
+      console.error("PDF Generation Error");
+      alert("Error generating PDF. Please ensure all details are filled correctly and try again.");
     } finally {
       // Restore transform
       if (a4Container) a4Container.style.transform = originalTransform;
@@ -606,7 +663,7 @@ export default function InvoiceGenerator() {
                 <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "8px", background: "linear-gradient(90deg, #0076ff, #00c6ff)" }} />
                 
                 {/* Invoice Header */}
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "40px", marginTop: "10px" }}>
+                <div data-pdf-boundary="header" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "40px", marginTop: "10px" }}>
                   <div style={{ flex: 1 }}>
                     {seller.logo ? (
                       <img src={seller.logo} alt="Company Logo" style={{ maxHeight: "80px", maxWidth: "250px", objectFit: "contain", marginBottom: "16px" }} />
@@ -641,7 +698,7 @@ export default function InvoiceGenerator() {
 
                 {/* Items Table */}
                 <table style={{ width: "100%", borderCollapse: "collapse", marginBottom: "40px" }}>
-                  <thead>
+                  <thead data-pdf-boundary="table-header">
                     <tr>
                       <th style={{ padding: "12px 8px", background: "var(--text-primary)", color: "#475569", fontSize: "12px", textTransform: "uppercase", borderBottom: "2px solid var(--text-primary)", textAlign: "left" }}>Description</th>
                       <th style={{ padding: "12px 8px", background: "var(--text-primary)", color: "#475569", fontSize: "12px", textTransform: "uppercase", borderBottom: "2px solid var(--text-primary)", textAlign: "left" }}>
@@ -670,7 +727,7 @@ export default function InvoiceGenerator() {
                       const c = lineResults[i];
                       if (c.isBlank) return null;
                       return (
-                        <tr key={i} style={{ borderBottom: "1px solid var(--text-primary)" }}>
+                        <tr data-pdf-boundary="item-row" key={i} style={{ borderBottom: "1px solid var(--text-primary)" }}>
                           <td style={{ padding: "16px 8px", fontSize: "13px", color: "var(--bg-tertiary)" }}>{item.desc || "-"}</td>
                           <td style={{ padding: "16px 8px", fontSize: "13px", color: "#475569" }}>{item.hsn || "-"}</td>
                           <td style={{ padding: "16px 8px", fontSize: "13px", color: "#475569", textAlign: "right" }}>{item.qty}</td>
@@ -691,7 +748,7 @@ export default function InvoiceGenerator() {
                 </table>
 
                 {/* Totals & Bank Layout */}
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "40px" }}>
+                <div data-pdf-boundary="totals-bank" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "40px" }}>
                   
                   {/* Bank Details */}
                   <div style={{ width: "50%", paddingRight: "40px" }}>
@@ -732,7 +789,7 @@ export default function InvoiceGenerator() {
                 </div>
 
                 {/* Terms / MSME Rule */}
-                <div style={{ padding: "20px", background: seller.udyam ? "rgba(0,118,255,0.05)" : "var(--text-primary)", border: seller.udyam ? "1px solid rgba(0,118,255,0.2)" : "1px solid var(--text-primary)", borderRadius: "8px", marginBottom: "60px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <div data-pdf-boundary="terms-qr" style={{ padding: "20px", background: seller.udyam ? "rgba(0,118,255,0.05)" : "var(--text-primary)", border: seller.udyam ? "1px solid rgba(0,118,255,0.2)" : "1px solid var(--text-primary)", borderRadius: "8px", marginBottom: "60px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                   <div style={{ flex: 1, paddingRight: "20px" }}>
                     <div style={{ fontSize: "11px", color: seller.udyam ? "#0076ff" : "var(--text-secondary)", fontWeight: "700", textTransform: "uppercase", marginBottom: "8px" }}>Terms & Conditions</div>
                     <p style={{ fontSize: "12px", color: "#475569", margin: 0, whiteSpace: "pre-wrap", lineHeight: "1.6" }}>
@@ -763,7 +820,7 @@ export default function InvoiceGenerator() {
                 </div>
 
                 {/* Signature Block */}
-                <div style={{ position: "absolute", bottom: "30mm", right: "20mm", textAlign: "center", width: "200px" }}>
+                <div data-pdf-boundary="signature" style={{ position: "absolute", bottom: "30mm", right: "20mm", textAlign: "center", width: "200px" }}>
                   <div style={{ borderBottom: "1px solid var(--bg-tertiary)", height: "40px", marginBottom: "8px" }}></div>
                   <div style={{ fontSize: "12px", color: "var(--bg-tertiary)", fontWeight: "700" }}>Authorized Signatory</div>
                   <div style={{ fontSize: "10px", color: "var(--text-secondary)" }}>For {seller.name || "Company Name"}</div>

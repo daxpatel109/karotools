@@ -66,24 +66,6 @@ export default function InvoiceGenerator() {
       document.head.appendChild(metaDescription);
     }
     metaDescription.content = "Create a GST-compliant invoice online and download PDF instantly. Free invoice generator for Indian freelancers and small businesses.";
-
-    // FAQ Schema
-    const faqSchemaScript = document.createElement('script');
-    faqSchemaScript.type = 'application/ld+json';
-    faqSchemaScript.innerHTML = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        { "@type": "Question", "name": "Is this GST invoice legally valid?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, if you enter your correct GSTIN and business details, this format is fully compliant with Indian GST laws." } },
-        { "@type": "Question", "name": "Can I download the invoice as PDF?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, you can instantly download a crisp A4 size PDF of your invoice." } },
-        { "@type": "Question", "name": "Is my data stored?", "acceptedAnswer": { "@type": "Answer", "text": "No. All data is stored locally in your browser for your convenience. We do not save your invoices on our servers." } }
-      ]
-    });
-    document.head.appendChild(faqSchemaScript);
-
-    return () => {
-      if (document.head.contains(faqSchemaScript)) document.head.removeChild(faqSchemaScript);
-    };
   }, []);
 
   // Track start event once per load
@@ -122,29 +104,6 @@ export default function InvoiceGenerator() {
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) { meta = document.createElement('meta'); meta.name = "description"; document.head.appendChild(meta); }
     meta.content = "Create professional GST invoices instantly with built-in MSME 45-day payment rule protections. Download as PDF. Free for Indian freelancers.";
-
-    // JSON-LD FAQ Schema natively injected
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        { "@type": "Question", "name": "What is the MSME 45-day payment rule?", "acceptedAnswer": { "@type": "Answer", "text": "Under Section 43B(h) of the Income Tax Act, buyers must pay MSME registered businesses within 45 days. If delayed, the buyer cannot claim the expense for tax deductions and must pay compound interest to the MSME." } },
-        { "@type": "Question", "name": "How does this generator enforce MSME rules?", "acceptedAnswer": { "@type": "Answer", "text": "When you enter your Udyam Registration Number, this generator automatically injects a legally-backed warning onto the invoice footer reminding the client of the 45-day payment mandate." } },
-        { "@type": "Question", "name": "What is CGST, SGST and IGST?", "acceptedAnswer": { "@type": "Answer", "text": "CGST and SGST are applied to transactions within the same state (intra-state). IGST is applied when the buyer and seller are in different states (inter-state)." } }
-      ]
-    };
-    let script = document.getElementById("faq-schema-inv");
-    if (!script) {
-      script = document.createElement("script");
-      script.id = "faq-schema-inv";
-      script.type = "application/ld+json";
-      document.head.appendChild(script);
-    }
-    script.innerText = JSON.stringify(faqSchema);
-
-    return () => {
-      if (script) document.head.removeChild(script);
-    };
   }, []);
 
   // Auto-detect Intra/Inter state based on State Dropdown (Overrides GSTIN prefix logic)

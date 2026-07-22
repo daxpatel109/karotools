@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export const metadata = generateMetadata({
   title: "Free GST Invoice Generator | KaroTools",
-  description: "Create professional GST-compliant invoices with logo and PDF download. Free invoice generator for Indian freelancers.",
+  description: "Create professional GST invoices with logo and PDF download. Free invoice generator for Indian freelancers.",
   path: "/invoice-generator",
   keywords: [
     "free gst invoice generator india",
@@ -25,7 +25,7 @@ export default function Page() {
     },
     {
       question: "What details are mandatory in a GST invoice?",
-      answer: "A legally valid GST invoice must include your GSTIN, the buyer's GSTIN (if applicable), invoice number, date, HSN/SAC codes for items, and a clear breakdown of CGST, SGST, or IGST depending on the place of supply."
+      answer: "Rule 46 of the CGST Rules prescribes particulars for a GST tax invoice. The particulars applicable to a transaction can include supplier and recipient details, invoice number and date, HSN/SAC, description, quantity and UQC for goods, taxable value, tax rate and amount, place of supply for inter-State supplies, reverse-charge indication, and signature or digital signature subject to applicable requirements. KaroTools provides invoice-formatting fields but does not verify legal completeness."
     },
     {
       question: "When should I charge IGST instead of CGST/SGST?",
@@ -58,7 +58,7 @@ export default function Page() {
           </div>
           <div style={{ background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.2)", borderRadius: "16px", padding: "24px" }}>
             <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#10b981", marginBottom: "8px" }}>GST Invoice Format</h3>
-            <p style={{ color: "var(--text-secondary)", fontSize: "15px", marginBottom: "16px" }}>Understand the required fields required for a compliant GST invoice.</p>
+            <p style={{ color: "var(--text-secondary)", fontSize: "15px", marginBottom: "16px" }}>Understand the prescribed particulars for a GST invoice.</p>
             <Link href="/guides/gst-invoice-format-excel" style={{ color: "#10b981", fontWeight: "600", fontSize: "15px", textDecoration: "none" }}>See Invoice Format →</Link>
           </div>
         </div>
@@ -66,7 +66,7 @@ export default function Page() {
         <div className="glass-panel" style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: "24px", padding: "32px", marginBottom: "40px" }}>
           <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginBottom: "16px" }}>How does the GST Invoice Generator work?</h2>
           <p style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: 1.8, marginBottom: "16px" }}>
-            The KaroTools GST Invoice Generator helps you create professional tax invoices instantly. It automatically calculates CGST and SGST for local sales, or IGST for inter-state sales based on the GST rate you select. Once your details are filled, you can download a compliant PDF. Learn more in our <Link href="/guides/gst-invoice-format-excel" style={{ color: "#38bdf8", textDecoration: "none" }}>GST Invoice Format Guide</Link>.
+            The KaroTools GST Invoice Generator helps you create professional tax invoices instantly. It automatically calculates CGST and SGST for local sales, or IGST for inter-state sales based on the GST rate you select. Once your details are filled, you can download a professionally formatted PDF. Learn more in our <Link href="/guides/gst-invoice-format-excel" style={{ color: "#38bdf8", textDecoration: "none" }}>GST Invoice Format Guide</Link>.
           </p>
           <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-bg)", padding: "16px", borderRadius: "8px" }}>
             <p style={{ color: "var(--text-primary)", fontSize: "14px", fontFamily: "monospace", margin: "0 0 8px 0" }}>Intra-state Tax = CGST (Rate/2) + SGST (Rate/2)</p>
@@ -82,12 +82,12 @@ export default function Page() {
           
           <h2 style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "20px", color: "var(--text-primary)" }}>Free GST Invoice Generator India</h2>
           <p style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: 1.8, marginBottom: "24px" }}>
-            Creating a professional tax invoice shouldn't be complicated. Our free GST Invoice Generator allows you to instantly generate a legally compliant bill without needing complex accounting software or struggling with a <Link href="/guides/gst-invoice-format-excel" style={{ color: "#38bdf8", textDecoration: "none" }}>GST invoice format in Excel</Link>. Simply fill in your details, add your items, and click generate!
+            Creating a professional tax invoice shouldn't be complicated. Our free GST Invoice Generator allows you to instantly generate a professionally formatted invoice without needing complex accounting software or struggling with a <Link href="/guides/gst-invoice-format-excel" style={{ color: "#38bdf8", textDecoration: "none" }}>GST invoice format in Excel</Link>. Simply fill in your details, add your items, and click generate!
           </p>
 
           <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "20px", color: "var(--text-primary)" }}>What Details Are Required in a GST Invoice?</h2>
           <p style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: 1.8, marginBottom: "16px" }}>
-            If you have recently completed your <Link href="/blog/how-to-register-gst-online" style={{ color: "#38bdf8", textDecoration: "none" }}>GST registration</Link>, it's critical to format your bills correctly. Under Indian law, your tax invoice must include:
+            If you have recently completed your <Link href="/blog/how-to-register-gst-online" style={{ color: "#38bdf8", textDecoration: "none" }}>GST registration</Link>, it's critical to format your bills correctly. Rule 46 of the CGST Rules prescribes invoice particulars applicable to the transaction, including:
           </p>
           <ul style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: 1.8, marginBottom: "32px", paddingLeft: "20px" }}>
             <li>Your Business Name, Address, and <strong>GSTIN</strong></li>
@@ -132,7 +132,7 @@ export default function Page() {
       <SchemaScript schema={generateSoftwareSchema({
         name: "KaroTools GST Invoice Generator",
         url: "https://karotools.in/invoice-generator",
-        description: "Create professional GST-compliant invoices instantly with auto-calculated CGST, SGST, and IGST. Download as PDF."
+        description: "Create professional GST invoices instantly with auto-calculated CGST, SGST, and IGST. Download as PDF."
       })} />
       <SchemaScript schema={generateBreadcrumbSchema([
         { name: "Home", url: "https://karotools.in" },

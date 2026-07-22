@@ -611,8 +611,13 @@ export default function InvoiceGenerator() {
           <div className="canvas-area">
             
             <button onClick={downloadPDF} disabled={isExporting} style={{ position: "sticky", top: "0px", zIndex: 10, width: "100%", maxWidth: "794px", padding: "18px", background: "linear-gradient(135deg, #0076ff, #00c6ff)", color: "white", fontSize: "16px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", borderRadius: "14px", border: "1px solid rgba(255,255,255,0.2)", cursor: isExporting ? "wait" : "pointer", display: "flex", justifyContent: "center", alignItems: "center", gap: "12px", boxShadow: "0 10px 30px rgba(0,118,255,0.3), inset 0 2px 4px rgba(255,255,255,0.3)", transition: "all 0.2s" }} onMouseEnter={e => {e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 15px 35px rgba(0,118,255,0.4), inset 0 2px 4px rgba(255,255,255,0.3)";}} onMouseLeave={e => {e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 10px 30px rgba(0,118,255,0.3), inset 0 2px 4px rgba(255,255,255,0.3)";}}>
-              {isExporting ? "⏳ Generating High-Res PDF..." : "📥 Download Legal PDF"}
+              {isExporting ? "⏳ Generating High-Res PDF..." : "📥 Download PDF"}
             </button>
+
+            <div style={{ marginTop: "12px", marginBottom: "24px", maxWidth: "794px", fontSize: "12px", color: "var(--text-secondary)", lineHeight: 1.5, textAlign: "justify" }}>
+              <strong>Disclaimer:</strong> KaroTools formats an invoice using the information you provide. It does not verify GST registration, tax rates, HSN/SAC classification, place of supply, reverse-charge treatment or whether e-invoicing applies. Review the invoice and current official requirements before issuing it.<br/><br/>
+              KaroTools does not generate an Invoice Reference Number (IRN) or an IRN QR code. If e-invoicing applies to your transaction under current GST rules, complete the e-invoice process separately through an authorised Invoice Registration Portal (IRP).
+            </div>
 
             <div className="a4-preview-wrapper">
               <div className="a4-scale-container">
@@ -770,7 +775,7 @@ export default function InvoiceGenerator() {
                           <>
                             <QRCodeCanvas value={upiRes.uri} size={80} />
                             <div style={{ fontSize: "9px", color: "var(--text-secondary)", marginTop: "6px", fontWeight: "700", textTransform: "uppercase" }}>Scan to Pay</div>
-                            <div style={{ fontSize: "8px", color: "var(--text-secondary)", marginTop: "4px" }}>UPI payment QR — not an e-invoice IRN QR code.</div>
+                            <div style={{ fontSize: "8px", color: "var(--text-secondary)", marginTop: "4px" }}>The optional UPI QR code is only for payment. It is not an e-invoice IRN QR code.</div>
                           </>
                         );
                       })()}

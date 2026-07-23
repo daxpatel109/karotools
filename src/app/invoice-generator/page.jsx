@@ -105,7 +105,7 @@ export default function Page() {
 
           <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "20px", color: "var(--text-primary)" }}>GST Invoice Format for Freelancers and Small Businesses</h2>
           <p style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: 1.8, marginBottom: "24px" }}>
-            Whether you are a freelance designer, developer, or a small shop owner, this tool automatically generates the perfect GST bill format. It calculates totals, subtracts discounts, and breaks down the taxes. If you only know the final total price and need to extract the base amount for the invoice, you can use our <Link href="/gst-calculator" style={{ color: "#38bdf8", textDecoration: "none" }}>Reverse GST Calculator</Link> first.
+            Whether you are a freelance designer, developer, or a small shop owner, this tool creates a structured GST invoice format using the information you provide. It calculates totals, subtracts discounts, and breaks down the taxes. If you only know the final total price and need to extract the base amount for the invoice, you can use our <Link href="/gst-calculator" style={{ color: "#38bdf8", textDecoration: "none" }}>Reverse GST Calculator</Link> first.
           </p>
 
         </div>
@@ -124,9 +124,9 @@ export default function Page() {
         </div>
 
         {/* DISCLAIMER */}
-        <TaxDisclaimer />
-
-      </article>
+        <TaxDisclaimer customText="This invoice generator and guide is for general informational purposes only. Verify applicable requirements through official CBIC/GST sources or consult a qualified professional." />
+  
+        </article>
 
       <SchemaScript schema={generateFAQSchema(faqs)} />
       <SchemaScript schema={generateSoftwareSchema({

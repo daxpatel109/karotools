@@ -10,7 +10,7 @@ import { calcLineItem, calcInvoiceTotals, fmtINRString } from "./lib/invoiceMath
 import { buildUpiPaymentUri } from "./lib/upiPaymentUri";
 import { calculatePdfSlices } from "./lib/pdfPagination";
 
-const emptyItem = () => ({ desc: "", hsn: "", qty: 1, rate: "", discount: 0, gst: 18 });
+const emptyItem = () => ({ desc: "", hsn: "", qty: 1, rate: "", discount: 0, gst: 18, uqc: "" });
 
 const genInvoiceNo = () => {
   const y = new Date().getFullYear();
@@ -30,24 +30,41 @@ const INDIAN_STATES = [
 
 export default function InvoiceGenerator() {
   const [invoice, setInvoice] = useState(() => {
-    const saved = typeof window !== 'undefined' ? localStorage.getItem("inv_data_v2") : null;
-    return saved ? JSON.parse(saved).invoice : { number: genInvoiceNo(), date: new Date().toISOString().split("T")[0], due: "", notes: "Payment due within 15 days. Thank you for your business!" };
+    const savedStr = typeof window !== 'undefined' ? localStorage.getItem("inv_data_v2") : null;
+    let parsed = null;
+    try { parsed = savedStr ? JSON.parse(savedStr) : null; } catch { /* ignore */ }
+    const def = { number: genInvoiceNo(), date: new Date().toISOString().split("T")[0], due: "", notes: "Payment due within 15 days. Thank you for your business!", reverseCharge: "No", signatoryName: "" };
+    return { ...def, ...(parsed && parsed.invoice ? parsed.invoice : {}) };
   });
   const [seller, setSeller] = useState(() => {
-    const saved = typeof window !== 'undefined' ? localStorage.getItem("inv_data_v2") : null;
-    return saved ? JSON.parse(saved).seller : { name: "", address: "", state: "Select State", gstin: "", pan: "", udyam: "", phone: "", email: "", logo: "" };
+    const savedStr = typeof window !== 'undefined' ? localStorage.getItem("inv_data_v2") : null;
+    let parsed = null;
+    try { parsed = savedStr ? JSON.parse(savedStr) : null; } catch { /* ignore */ }
+    const def = { name: "", address: "", state: "Select State", gstin: "", pan: "", udyam: "", phone: "", email: "", logo: "" };
+    return { ...def, ...(parsed && parsed.seller ? parsed.seller : {}) };
   });
   const [buyer, setBuyer] = useState(() => {
-    const saved = typeof window !== 'undefined' ? localStorage.getItem("inv_data_v2") : null;
-    return saved ? JSON.parse(saved).buyer : { name: "", address: "", state: "Select State", gstin: "", phone: "", email: "" };
+    const savedStr = typeof window !== 'undefined' ? localStorage.getItem("inv_data_v2") : null;
+    let parsed = null;
+    try { parsed = savedStr ? JSON.parse(savedStr) : null; } catch { /* ignore */ }
+    const def = { name: "", address: "", state: "Select State", gstin: "", phone: "", email: "", deliveryAddressToggle: false, deliveryAddress: "" };
+    return { ...def, ...(parsed && parsed.buyer ? parsed.buyer : {}) };
   });
   const [bank, setBank] = useState(() => {
-    const saved = typeof window !== 'undefined' ? localStorage.getItem("inv_data_v2") : null;
-    return saved ? JSON.parse(saved).bank : { accName: "", accNo: "", ifsc: "", upi: "" };
+    const savedStr = typeof window !== 'undefined' ? localStorage.getItem("inv_data_v2") : null;
+    let parsed = null;
+    try { parsed = savedStr ? JSON.parse(savedStr) : null; } catch { /* ignore */ }
+    const def = { accName: "", accNo: "", ifsc: "", upi: "" };
+    return { ...def, ...(parsed && parsed.bank ? parsed.bank : {}) };
   });
   const [items, setItems] = useState(() => {
-    const saved = typeof window !== 'undefined' ? localStorage.getItem("inv_data_v2") : null;
-    return saved ? JSON.parse(saved).items : [emptyItem()];
+    const savedStr = typeof window !== 'undefined' ? localStorage.getItem("inv_data_v2") : null;
+    let parsed = null;
+    try { parsed = savedStr ? JSON.parse(savedStr) : null; } catch { /* ignore */ }
+    if (parsed && Array.isArray(parsed.items) && parsed.items.length > 0) {
+      return parsed.items.map(item => ({ ...emptyItem(), ...item }));
+    }
+    return [emptyItem()];
   });
   const [transType, setTransType] = useState("intra");
   const [isExporting, setIsExporting] = useState(false);
@@ -186,6 +203,11 @@ export default function InvoiceGenerator() {
 
     if (calculatedTotals.hasInvalid || !hasMeaningfulItem) {
       alert("Please add at least one valid item before generating the PDF.");
+      return;
+    }
+    
+    if (buyer.deliveryAddressToggle && !buyer.deliveryAddress.trim()) {
+      alert("Enter the delivery address or turn off 'Delivery address is different'.");
       return;
     }
     sendGAEvent("event", "invoice_generated", { tool_name: "Invoice Generator" });
@@ -451,7 +473,7 @@ export default function InvoiceGenerator() {
             GST Invoice Fields Included
           </div>
 
-              <p style={{ color: "var(--text-secondary)", fontSize: "14px", margin: 0 }}>Configure your beautiful, legal-grade invoice.</p>
+              <p style={{ color: "var(--text-secondary)", fontSize: "14px", margin: 0 }}>Configure your professional invoice.</p>
             </div>
 
             <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", marginBottom: "40px", gap: "16px", paddingBottom: "24px", borderBottom: "1px solid var(--glass-bg)" }}>
@@ -471,9 +493,17 @@ export default function InvoiceGenerator() {
             <div style={sec}>
               <h2 style={{ fontSize: "18px", fontWeight: "700", color: "var(--text-primary)", marginBottom: "20px" }}>1. Invoice Details</h2>
               <div className="split-3-col">
-                <div><label style={lbl}>Invoice No</label><input value={invoice.number} onChange={e => setInvoice({...invoice, number: e.target.value})} style={inp}/></div>
-                <div><label style={lbl}>Invoice Date</label><input type="date" value={invoice.date} onChange={e => setInvoice({...invoice, date: e.target.value})} style={inp}/></div>
-                <div><label style={lbl}>Due Date</label><input type="date" value={invoice.due} onChange={e => setInvoice({...invoice, due: e.target.value})} style={inp}/></div>
+                <div><label htmlFor="inv-no" style={lbl}>Invoice No</label><input id="inv-no" value={invoice.number} onChange={e => setInvoice({...invoice, number: e.target.value})} style={inp}/></div>
+                <div><label htmlFor="inv-date" style={lbl}>Invoice Date</label><input id="inv-date" type="date" value={invoice.date} onChange={e => setInvoice({...invoice, date: e.target.value})} style={inp}/></div>
+                <div><label htmlFor="inv-due" style={lbl}>Due Date</label><input id="inv-due" type="date" value={invoice.due} onChange={e => setInvoice({...invoice, due: e.target.value})} style={inp}/></div>
+              </div>
+              <div style={{ marginTop: "16px" }}>
+                <label htmlFor="inv-reverse-charge" style={lbl}>Tax payable on reverse charge?</label>
+                <select id="inv-reverse-charge" aria-describedby="rev-charge-help" value={invoice.reverseCharge} onChange={e => setInvoice({...invoice, reverseCharge: e.target.value})} style={{...inp, width: "120px", cursor: "pointer"}}>
+                  <option value="No">No</option>
+                  <option value="Yes">Yes</option>
+                </select>
+                <div id="rev-charge-help" style={{ fontSize: "12px", color: "var(--text-secondary)", marginTop: "4px" }}>This selection records the invoice treatment only. Verify whether reverse charge applies to the transaction.</div>
               </div>
             </div>
 
@@ -521,6 +551,16 @@ export default function InvoiceGenerator() {
                     <div><label style={lbl}>Email (Optional)</label><input value={buyer.email} onChange={e => setBuyer({...buyer, email: e.target.value})} style={inp}/></div>
                     <div><label style={lbl}>Phone (Optional)</label><input value={buyer.phone} onChange={e => setBuyer({...buyer, phone: e.target.value})} style={inp}/></div>
                   </div>
+                  <div style={{ display: "flex", alignItems: "center", gap: "8px", marginTop: "4px" }}>
+                    <input type="checkbox" id="delivery-toggle" checked={buyer.deliveryAddressToggle} onChange={e => setBuyer({...buyer, deliveryAddressToggle: e.target.checked})} style={{ width: "16px", height: "16px", cursor: "pointer" }} />
+                    <label htmlFor="delivery-toggle" style={{ fontSize: "14px", color: "var(--text-secondary)", cursor: "pointer", userSelect: "none" }}>Delivery address is different</label>
+                  </div>
+                  {buyer.deliveryAddressToggle && (
+                    <div>
+                      <label htmlFor="delivery-address" style={lbl}>Delivery Address</label>
+                      <textarea id="delivery-address" value={buyer.deliveryAddress} onChange={e => setBuyer({...buyer, deliveryAddress: e.target.value})} style={{...inp, height: "80px", resize: "none"}}/>
+                    </div>
+                  )}
                 </div>
             </div>
 
@@ -554,7 +594,14 @@ export default function InvoiceGenerator() {
                             </label>
                             <input value={item.hsn} onChange={e => updateItem(i, "hsn", e.target.value)} style={inp}/>
                           </div>
-                          <div><label style={lbl}>Qty</label><input type="number" inputMode="decimal" value={item.qty} onChange={e => updateItem(i, "qty", e.target.value)} style={inp}/></div>
+                          <div style={{ display: "flex", gap: "12px" }}>
+                            <div style={{ flex: 1 }}><label style={lbl}>Qty</label><input type="number" inputMode="decimal" value={item.qty} onChange={e => updateItem(i, "qty", e.target.value)} style={inp}/></div>
+                            <div style={{ flex: 1 }}>
+                              <label htmlFor={`uqc-${i}`} style={lbl}>Unit/UQC</label>
+                              <input id={`uqc-${i}`} aria-describedby={`uqc-help-${i}`} value={item.uqc} onChange={e => updateItem(i, "uqc", e.target.value)} style={inp} maxLength={10} placeholder="e.g. NOS"/>
+                            </div>
+                          </div>
+                          <div id={`uqc-help-${i}`} style={{ fontSize: "11px", color: "var(--text-secondary)", marginTop: "4px", gridColumn: "1 / -1" }}>Enter the applicable unit/UQC for goods. It may be left blank where not applicable.</div>
                         </div>
                         <div className="items-row-3">
                           <div><label style={lbl}>Rate</label><input type="number" inputMode="decimal" value={item.rate} onChange={e => updateItem(i, "rate", e.target.value)} style={inp}/></div>
@@ -594,7 +641,12 @@ export default function InvoiceGenerator() {
               </div>
               <div style={sec}>
                 <h2 style={{ fontSize: "18px", fontWeight: "700", color: "var(--text-primary)", marginBottom: "20px" }}>6. Terms & Notes</h2>
-                <textarea value={invoice.notes} onChange={e => setInvoice({...invoice, notes: e.target.value})} style={{...inp, height: "160px", resize: "none"}} />
+                <textarea value={invoice.notes} onChange={e => setInvoice({...invoice, notes: e.target.value})} style={{...inp, height: "160px", resize: "none", marginBottom: "16px"}} />
+                <div>
+                  <label htmlFor="signatory-name" style={lbl}>Authorised Signatory Name</label>
+                  <input id="signatory-name" aria-describedby="signatory-help" value={invoice.signatoryName} onChange={e => setInvoice({...invoice, signatoryName: e.target.value})} style={inp}/>
+                  <div id="signatory-help" style={{ fontSize: "11px", color: "var(--text-secondary)", marginTop: "4px" }}>A typed name is not a digital signature. Sign or digitally sign the invoice separately where required.</div>
+                </div>
               </div>
             </div>
 
@@ -639,6 +691,9 @@ export default function InvoiceGenerator() {
                       <div><div style={{ fontSize: "11px", color: "var(--text-secondary)", fontWeight: "700", textTransform: "uppercase" }}>Invoice Date</div><div style={{ fontSize: "14px", fontWeight: "600", color: "var(--bg-tertiary)" }}>{invoice.date || "-"}</div></div>
                       {invoice.due && <div><div style={{ fontSize: "11px", color: "var(--text-secondary)", fontWeight: "700", textTransform: "uppercase" }}>Due Date</div><div style={{ fontSize: "14px", fontWeight: "600", color: "var(--bg-tertiary)" }}>{invoice.due}</div></div>}
                     </div>
+                    <div style={{ marginTop: "12px", fontSize: "12px", color: "#475569", fontWeight: "600" }}>
+                      Tax payable on reverse charge: {invoice.reverseCharge === "Yes" ? "Yes" : "No"}
+                    </div>
                   </div>
                   <div style={{ textAlign: "right" }}>
                     <h2 style={{ fontSize: "24px", fontWeight: "700", margin: "0 0 4px 0", color: "var(--bg-tertiary)" }}>{seller.name || "Your Business Name"}</h2>
@@ -650,14 +705,22 @@ export default function InvoiceGenerator() {
                   </div>
                 </div>
 
-                {/* Bill To */}
-                <div style={{ marginBottom: "40px", padding: "20px", background: "var(--text-primary)", borderRadius: "8px", borderLeft: "4px solid #0076ff" }}>
-                  <div style={{ fontSize: "11px", color: "var(--text-secondary)", fontWeight: "700", textTransform: "uppercase", marginBottom: "8px" }}>Bill To</div>
-                  <h3 style={{ fontSize: "16px", fontWeight: "700", margin: "0 0 4px 0", color: "var(--bg-tertiary)" }}>{buyer.name || "Client Name"}</h3>
-                  {buyer.address && <p style={{ fontSize: "13px", color: "#475569", margin: "0 0 4px 0", whiteSpace: "pre-wrap" }}>{buyer.address}</p>}
-                  {buyer.state !== "Select State" && <p style={{ fontSize: "13px", color: "#475569", margin: "0 0 2px 0" }}><strong>State:</strong> {buyer.state}</p>}
-                  {buyer.gstin && <p style={{ fontSize: "13px", color: "#475569", margin: "0 0 2px 0" }}><strong>GSTIN:</strong> {buyer.gstin}</p>}
-                  {buyer.email && <p style={{ fontSize: "13px", color: "#475569", margin: "0" }}><strong>Email:</strong> {buyer.email}</p>}
+                {/* Bill To & Delivery */}
+                <div style={{ display: "flex", gap: "20px", marginBottom: "40px" }}>
+                  <div style={{ flex: 1, padding: "20px", background: "var(--text-primary)", borderRadius: "8px", borderLeft: "4px solid #0076ff" }}>
+                    <div style={{ fontSize: "11px", color: "var(--text-secondary)", fontWeight: "700", textTransform: "uppercase", marginBottom: "8px" }}>Bill To</div>
+                    <h3 style={{ fontSize: "16px", fontWeight: "700", margin: "0 0 4px 0", color: "var(--bg-tertiary)" }}>{buyer.name || "Client Name"}</h3>
+                    {buyer.address && <p style={{ fontSize: "13px", color: "#475569", margin: "0 0 4px 0", whiteSpace: "pre-wrap" }}>{buyer.address}</p>}
+                    {buyer.state !== "Select State" && <p style={{ fontSize: "13px", color: "#475569", margin: "0 0 2px 0" }}><strong>State:</strong> {buyer.state}</p>}
+                    {buyer.gstin && <p style={{ fontSize: "13px", color: "#475569", margin: "0 0 2px 0" }}><strong>GSTIN:</strong> {buyer.gstin}</p>}
+                    {buyer.email && <p style={{ fontSize: "13px", color: "#475569", margin: "0" }}><strong>Email:</strong> {buyer.email}</p>}
+                  </div>
+                  {buyer.deliveryAddressToggle && buyer.deliveryAddress && (
+                    <div style={{ flex: 1, padding: "20px", background: "var(--text-primary)", borderRadius: "8px", borderLeft: "4px solid #10b981" }}>
+                      <div style={{ fontSize: "11px", color: "var(--text-secondary)", fontWeight: "700", textTransform: "uppercase", marginBottom: "8px" }}>Delivery Address</div>
+                      <p style={{ fontSize: "13px", color: "#475569", margin: "0", whiteSpace: "pre-wrap" }}>{buyer.deliveryAddress}</p>
+                    </div>
+                  )}
                 </div>
 
                 {/* Items Table */}
@@ -694,7 +757,7 @@ export default function InvoiceGenerator() {
                         <tr data-pdf-boundary="item-row" key={i} style={{ borderBottom: "1px solid var(--text-primary)" }}>
                           <td style={{ padding: "16px 8px", fontSize: "13px", color: "var(--bg-tertiary)" }}>{item.desc || "-"}</td>
                           <td style={{ padding: "16px 8px", fontSize: "13px", color: "#475569" }}>{item.hsn || "-"}</td>
-                          <td style={{ padding: "16px 8px", fontSize: "13px", color: "#475569", textAlign: "right" }}>{item.qty}</td>
+                          <td style={{ padding: "16px 8px", fontSize: "13px", color: "#475569", textAlign: "right" }}>{item.qty}{item.uqc && item.uqc.trim() !== "" ? ` ${item.uqc.trim()}` : ""}</td>
                           <td style={{ padding: "16px 8px", fontSize: "13px", color: "#475569", textAlign: "right" }}>{fmtINR(item.rate)}</td>
                           {transType === "intra" ? (
                             <>
@@ -785,8 +848,10 @@ export default function InvoiceGenerator() {
 
                 {/* Signature Block */}
                 <div data-pdf-boundary="signature" style={{ position: "absolute", bottom: "30mm", right: "20mm", textAlign: "center", width: "200px" }}>
-                  <div style={{ borderBottom: "1px solid var(--bg-tertiary)", height: "40px", marginBottom: "8px" }}></div>
-                  <div style={{ fontSize: "12px", color: "var(--bg-tertiary)", fontWeight: "700" }}>Authorized Signatory</div>
+                  <div style={{ borderBottom: "1px solid var(--bg-tertiary)", height: "40px", marginBottom: "8px", display: "flex", alignItems: "flex-end", justifyContent: "center" }}>
+                    {invoice.signatoryName && <span style={{ fontSize: "16px", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--bg-tertiary)", marginBottom: "4px", fontWeight: "600" }}>{invoice.signatoryName}</span>}
+                  </div>
+                  <div style={{ fontSize: "12px", color: "var(--bg-tertiary)", fontWeight: "700" }}>Authorised Signatory</div>
                   <div style={{ fontSize: "10px", color: "var(--text-secondary)" }}>For {seller.name || "Company Name"}</div>
                 </div>
 

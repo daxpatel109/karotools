@@ -136,7 +136,7 @@ export default function ToolsPage() {
                   transition: "all 0.2s ease-in-out",
                   cursor: "pointer"
                 }}>
-                  <h2 style={{ fontSize: "20px", fontWeight: "700", color: "#ec4899", marginBottom: "12px", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>Upwork/Fiverr Fee Calculator</h2>
+                  <h2 style={{ fontSize: "20px", fontWeight: "700", color: "#ec4899", marginBottom: "12px", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>Fiverr Fee Calculator India</h2>
                   <p style={{ fontSize: "15px", color: "var(--text-secondary)", lineHeight: "1.6", margin: 0 }}>
                     Calculate your exact take-home pay in INR after platform fees, currency conversion, and withdrawal charges.
                   </p>

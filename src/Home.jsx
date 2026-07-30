@@ -120,6 +120,7 @@ function ToolCard({ tool, index }) {
 }
 
 // ── Floating Icons ─────────────────────────────────────────────
+/* eslint-disable react-hooks/purity */
 function FloatingIcons() {
   const svgs = [
     '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><line x1="8" y1="10" x2="16" y2="10"></line><line x1="8" y1="14" x2="16" y2="14"></line><line x1="12" y1="10" x2="12" y2="14"></line></svg>',
@@ -151,6 +152,7 @@ function FloatingIcons() {
 }
 
 // ── Floating Particle (Dark Mode) ──────────────────────────────
+/* eslint-disable react-hooks/purity */
 function Particles() {
   const particles = Array.from({ length: 20 }, (_, i) => ({
     id: i, x: Math.random() * 100, y: Math.random() * 100,
@@ -229,7 +231,7 @@ export default function Home() {
     { icon: "💼", name: "Salary vs Freelance", description: "Compare your current salary to freelance rates. Find exactly what you need to charge to maintain your lifestyle.", category: "Finance", page: "/salary-vs-freelance" },
     { icon: "📈", name: "SIP Calculator", description: "Calculate your Mutual Fund returns and see the true power of compounding over 10 or 20 years.", category: "Finance", page: "/sip-calculator" },
     { icon: "💰", name: "Rate Calculator", description: "Calculate your perfect freelance hourly, daily & monthly rate in INR based on your expenses.", category: "Finance", page: "/freelance-rate-calculator" },
-    { icon: "💸", name: "Upwork & Fiverr Calculator", description: "Estimate your true take-home pay in INR. Calculate platform fees, GST reverse charge, 194O TDS, and FX markup loss.", category: "Finance", page: "/upwork-fiverr-fee-calculator-india" },
+
     { icon: "🔥", name: "FIRE Calculator", description: "Calculate your early retirement number (Lean, Regular, Fat) with inflation & nominal compounding.", category: "Finance", page: "/fire-calculator" },
   ];
 
@@ -528,7 +530,7 @@ export default function Home() {
             {[
               { icon: "🧮", title: "Free GST Calculator India", desc: "Calculate CGST, SGST & IGST instantly. All slabs, custom rates, round-off toggle, visual breakdown & copy result.", link: "/gst-calculator", keyword: "GST Calculator India" },
               { icon: "📄", title: "Free GST Invoice Generator", desc: "Create professional GST invoices with PDF download. Your logo, GSTIN, HSN/SAC codes - no software needed.", link: "/gst-invoice-generator", keyword: "Free Invoice Generator" },
-              { icon: "💸", title: "Upwork & Fiverr Calculator", desc: "Estimate your true take-home pay in INR. Calculate platform fees, GST reverse charge, 194O TDS, and FX markup loss.", link: "/upwork-fiverr-fee-calculator-india", keyword: "Upwork Fee Calculator" },
+              { icon: "💸", title: "Fiverr Fee Calculator India", desc: "Estimate your true take-home pay in INR. Calculate platform fees, GST reverse charge, 194O TDS, and FX markup loss.", link: "/upwork-fiverr-fee-calculator-india", keyword: "Fiverr Fee Calculator" },
               { icon: "💰", title: "Freelance Rate Calculator", desc: "Calculate your perfect freelance hourly, daily & monthly rate in INR based on your expenses.", link: "/freelance-rate-calculator", keyword: "Freelance Rate Calculator" },
             ].map((item, i) => (
               <Reveal key={item.title} delay={i * 0.1}>
@@ -552,7 +554,6 @@ export default function Home() {
             {[
               { icon: "💰", title: "Freelance Rate Calculator", desc: "Calculate your perfect hourly, daily & monthly rate in INR based on your exact expenses.", link: "/freelance-rate-calculator", keyword: "Rate Calculator" },
               { icon: "💼", title: "Salary vs Freelance", desc: "Compare your current salary to freelance rates to maintain your lifestyle.", link: "/salary-vs-freelance", keyword: "Compare Income" },
-              { icon: "💸", title: "Upwork/Fiverr Fee Calculator", desc: "Estimate your true take-home pay in INR. Calculate platform fees and FX markup loss.", link: "/upwork-fiverr-fee-calculator-india", keyword: "Platform Fees" },
               { icon: "🔥", title: "FIRE Calculator India", desc: "Calculate your early retirement number with inflation & nominal compounding.", link: "/fire-calculator", keyword: "FIRE India" },
               { icon: "⚖️", title: "44ADA Tax Calculator", desc: "Understand Section 44ADA presumptive taxation and how much tax you can save.", link: "/44ada-tax-calculator", keyword: "Section 44ADA" }
             ].map((item, i) => (

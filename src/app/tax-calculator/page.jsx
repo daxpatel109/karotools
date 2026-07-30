@@ -24,6 +24,11 @@ export default function Page() {
             <p style={{ color: "var(--text-secondary)", fontSize: "15px", marginBottom: "16px" }}>Calculate your taxes specifically using the 50% presumptive scheme.</p>
             <Link href="/44ada-tax-calculator" style={{ color: "#a78bfa", fontWeight: "600", fontSize: "15px", textDecoration: "none" }}>Open 44ADA Calculator →</Link>
           </div>
+          <div style={{ background: "rgba(236,72,153,0.05)", border: "1px solid rgba(236,72,153,0.2)", borderRadius: "16px", padding: "24px" }}>
+            <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#ec4899", marginBottom: "8px" }}>Fiverr Fee Calculator</h3>
+            <p style={{ color: "var(--text-secondary)", fontSize: "15px", marginBottom: "16px" }}>Estimate your final take-home pay after platform fees and conversion.</p>
+            <Link href="/upwork-fiverr-fee-calculator-india" style={{ color: "#ec4899", fontWeight: "600", fontSize: "15px", textDecoration: "none" }}>Calculate Payout →</Link>
+          </div>
         </div>
 
         <div className="glass-panel" style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: "24px", padding: "32px", marginBottom: "40px" }}>

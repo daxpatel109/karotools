@@ -1,13 +1,13 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState } from "react";
 
 export default function ClientCalculator() {
   // Inputs
   const [amount, setAmount] = useState(500);
   const [currency, setCurrency] = useState("USD");
-  const [platform, setPlatform] = useState("Upwork");
-  const [platformFeePercent, setPlatformFeePercent] = useState(10);
+  const [platform, setPlatform] = useState("Fiverr");
+  const [platformFeePercent, setPlatformFeePercent] = useState(20);
   const [gstinProvided, setGstinProvided] = useState(false);
   const [gstPercent, setGstPercent] = useState(18);
   const [withholdingEnabled, setWithholdingEnabled] = useState(false);
@@ -114,7 +114,7 @@ export default function ClientCalculator() {
         {/* Basic Inputs */}
         <div style={{ display: "grid", gap: "20px" }}>
           <div>
-            <label style={{ display: "block", fontSize: "14px", color: "var(--text-secondary)", marginBottom: "8px" }}>Project Amount</label>
+            <label style={{ display: "block", fontSize: "14px", color: "var(--text-secondary)", marginBottom: "8px" }}>{platform === "Custom" ? "Order" : platform + " order"} value</label>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
               <input type="number" inputMode="decimal" value={amount} onChange={(e) => setAmount(e.target.value)} style={{ flex: "1 1 120px", minWidth: 0, background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "16px" }} />
               <select value={currency} onChange={(e) => handleCurrencyChange(e.target.value)} style={{ width: "100px", minWidth: 0, background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "16px" }}>
@@ -142,7 +142,7 @@ export default function ClientCalculator() {
           </div>
 
           <div>
-            <label style={{ display: "block", fontSize: "14px", color: "var(--text-secondary)", marginBottom: "8px" }}>Platform Fee % (Editable assumption)</label>
+            <label style={{ display: "block", fontSize: "14px", color: "var(--text-secondary)", marginBottom: "8px" }}>{platform === "Custom" ? "Platform" : platform} Fee % (Editable assumption)</label>
             <input type="number" inputMode="decimal" step="0.1" value={platformFeePercent} onChange={(e) => setPlatformFeePercent(e.target.value)} style={{ width: "100%", minWidth: 0, background: "var(--bg-primary)", border: "1px solid var(--border-color)", color: "var(--text-primary)", padding: "12px 16px", borderRadius: "8px", fontSize: "16px" }} />
           </div>
 
@@ -226,7 +226,7 @@ export default function ClientCalculator() {
           
           <div style={{ display: "grid", gap: "16px" }}>
             <div style={{ display: "flex", justifyContent: "space-between", gap: "12px", borderBottom: "1px solid var(--border-color)", paddingBottom: "12px" }}>
-              <span style={{ color: "var(--text-secondary)", fontSize: "15px", flex: 1 }}>Platform Fee Estimate</span>
+              <span style={{ color: "var(--text-secondary)", fontSize: "15px", flex: 1 }}>{platform === "Custom" ? "Platform" : platform} Fee Estimate</span>
               <div style={{ textAlign: "right", flexShrink: 0 }}>
                 <div style={{ color: "#ef4444", fontWeight: "600" }}>-₹{Math.round(platformFeeINR).toLocaleString("en-IN")}</div>
                 <div style={{ fontSize: "12px", color: "var(--text-secondary)" }}>({platformFeeForeign.toFixed(2)} {currency})</div>
@@ -301,9 +301,9 @@ export default function ClientCalculator() {
         )}
 
         <div style={{ fontSize: "12px", color: "var(--text-secondary, #94a3b8)", lineHeight: "1.6", padding: "16px", border: "1px solid rgba(255,255,255,0.05)", borderRadius: "8px" }}>
-          <strong>Assumptions used:</strong> Platform fee ({numPlatformFee}%), GST estimate on platform fees ({numGst}%), GSTIN provided ({gstinProvided ? "Yes" : "No"}), Indian withholding ({numWithholding}%), Payout method ({payoutMethod}), Exchange rate ({numExchangeRate}), FX markup ({numFxMarkup}%), Withdrawal fee ({numWithdrawalFee}), Bank receiving fee ({numBankReceivingFee}).
+          <strong>Assumptions used:</strong> The {numPlatformFee}% value is the {platform} platform-fee assumption. GST, withholding, withdrawal, banking and currency-conversion deductions are calculated separately according to the options selected. GST estimate on platform fees ({numGst}%), GSTIN provided ({gstinProvided ? "Yes" : "No"}), Indian withholding ({numWithholding}%), Payout method ({payoutMethod}), Exchange rate ({numExchangeRate}), FX markup ({numFxMarkup}%), Withdrawal fee ({numWithdrawalFee}), Bank receiving fee ({numBankReceivingFee}).
           <br /><br />
-          <em>Disclaimer: This calculator is an estimate only. It does not determine tax filing liability, GST compliance, or actual remittance compliance. Please verify platform fees, payout charges, exchange rates, and tax treatment with official sources or a tax professional.</em>
+          <em>Disclaimer: This calculator provides an estimate only. Actual payout may vary because of platform pricing, exchange rates, withdrawal charges, payment-provider fees, bank charges and applicable taxes.</em>
         </div>
 
       </div>

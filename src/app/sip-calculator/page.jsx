@@ -21,12 +21,26 @@ export default function Page() {
             <p style={{ color: "var(--text-primary)", fontSize: "14px", fontFamily: "monospace", margin: "0" }}>Where P = SIP Amount, r = Monthly Rate of Return, n = Total Months</p>
           </div>
         </div>
+
+        <div className="glass-panel" style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: "24px", padding: "32px", marginBottom: "40px" }}>
+          <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginBottom: "16px" }}>Nominal Returns vs Inflation</h2>
+          <p style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: 1.8, marginBottom: "16px" }}>
+            When planning long-term investments, it is crucial to understand the difference between <strong>nominal returns</strong> (the percentage growth of your portfolio) and <strong>real purchasing power</strong>.
+          </p>
+          <p style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: 1.8, marginBottom: "16px" }}>
+            Inflation silently erodes the value of money over time. For example, if your mutual fund grows by 12% annually (nominal return) but inflation is at 6%, your <strong>real return</strong> is approximately 6%. This means your actual purchasing power only grows by 6% per year.
+          </p>
+          <p style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: 1.8, marginBottom: "0", background: "rgba(56, 189, 248, 0.05)", borderLeft: "4px solid #38bdf8", padding: "12px", borderRadius: "4px" }}>
+            <strong>Wealth Building Tip:</strong> Always factor in an average inflation rate (historically 6-7% in India) when looking at your final SIP maturity amount. ₹1 Crore after 20 years will not have the same purchasing power as ₹1 Crore today.
+          </p>
+        </div>
       </div>
 
       <SchemaScript schema={generateSoftwareSchema({
         name: "KaroTools SIP Calculator",
         url: "https://karotools.in/sip-calculator",
-        description: "Calculate mutual fund SIP returns and compound interest growth for investments in India."
+        description: "Calculate mutual fund SIP returns and compound interest growth for investments in India.",
+        dateModified: "2026-08-10"
       })} />
       <SchemaScript schema={generateBreadcrumbSchema([
         { name: "Home", url: "https://karotools.in" },

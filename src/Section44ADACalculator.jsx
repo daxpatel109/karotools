@@ -165,8 +165,7 @@ export default function Section44ADACalculator() {
             <span style={{ fontSize: "12px", color: "#34d399", fontWeight: "700", letterSpacing: "0.08em" }}>🇮🇳 AS PER NEW TAX REGIME</span>
           </div>
           <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "16px", color: "var(--text-primary)", lineHeight: 1.1 }}>
-            Freelance Tax Calculator <br />
-            <span style={{ background: "linear-gradient(135deg,#34d399,#10b981)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>44ADA vs Actual Expenses</span>
+            Section 44ADA Calculator for Freelancers — Calculate Presumptive Tax
           </h1>
 
           {/* COMPLIANCE BADGE */}

@@ -16,8 +16,8 @@ export function generateFAQSchema(faqs) {
   };
 }
 
-export function generateSoftwareSchema({ name, url, description }) {
-  return {
+export function generateSoftwareSchema({ name, url, description, dateModified }) {
+  const schema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": name,
@@ -31,6 +31,13 @@ export function generateSoftwareSchema({ name, url, description }) {
       "priceCurrency": "INR"
     }
   };
+  
+  if (dateModified) {
+    const isoMod = getSafeISODate(dateModified);
+    if (isoMod) schema.dateModified = isoMod;
+  }
+  
+  return schema;
 }
 
 export function generateBreadcrumbSchema(items) {

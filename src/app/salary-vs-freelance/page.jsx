@@ -26,7 +26,8 @@ export default function Page() {
       <SchemaScript schema={generateSoftwareSchema({
         name: "KaroTools Salary vs Freelance Calculator",
         url: "https://karotools.in/salary-vs-freelance",
-        description: "Compare your full-time salary with equivalent freelance rates in India. Calculates the premium needed to cover taxes and lost benefits."
+        description: "Compare your full-time salary with equivalent freelance rates in India. Calculates the premium needed to cover taxes and lost benefits.",
+        dateModified: "2026-08-10"
       })} />
       <SchemaScript schema={generateBreadcrumbSchema([
         { name: "Home", url: "https://karotools.in" },

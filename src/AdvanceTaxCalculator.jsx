@@ -109,19 +109,19 @@ export default function AdvanceTaxCalculator() {
         <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-bg)", borderRadius: "24px", padding: "32px", boxShadow: "0 20px 40px rgba(0,0,0,0.4)" }}>
           <div style={{ display: "grid", gap: "24px", marginBottom: "32px" }}>
             <div>
-              <label style={{ display: "block", fontSize: "13px", fontWeight: "700", color: "var(--text-secondary)", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "8px" }}>Total Estimated Tax Liability (₹)</label>
-              <input type="number" inputMode="decimal" placeholder="e.g. 50000" value={totalTax} onChange={(e) => setTotalTax(e.target.value)} style={{ width: "100%", padding: "16px 20px", background: "var(--glass-bg)", border: "1px solid var(--border-color)", borderRadius: "12px", color: "var(--text-primary)", fontSize: "18px", fontWeight: "600", outline: "none", transition: "border-color 0.2s" }} onFocus={(e) => e.target.style.borderColor = "#f59e0b"} onBlur={(e) => e.target.style.borderColor = "var(--border-color)"} />
+              <label htmlFor="adv-total-tax" style={{ display: "block", fontSize: "13px", fontWeight: "700", color: "var(--text-secondary)", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "8px" }}>Total Estimated Tax Liability (₹)</label>
+              <input id="adv-total-tax" type="number" inputMode="decimal" placeholder="e.g. 50000" value={totalTax} onChange={(e) => setTotalTax(e.target.value)} style={{ width: "100%", padding: "16px 20px", background: "var(--glass-bg)", border: "1px solid var(--border-color)", borderRadius: "12px", color: "var(--text-primary)", fontSize: "18px", fontWeight: "600", outline: "none", transition: "border-color 0.2s" }} onFocus={(e) => e.target.style.borderColor = "#f59e0b"} onBlur={(e) => e.target.style.borderColor = "var(--border-color)"} />
               <p style={{ fontSize: "12px", color: "var(--text-secondary)", marginTop: "8px" }}>The total tax you expect to pay for the entire financial year.</p>
             </div>
 
             <div>
-              <label style={{ display: "block", fontSize: "13px", fontWeight: "700", color: "var(--text-secondary)", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "8px" }}>TDS Already Deducted (₹)</label>
-              <input type="number" inputMode="decimal" placeholder="e.g. 10000" value={tds} onChange={(e) => setTds(e.target.value)} style={{ width: "100%", padding: "16px 20px", background: "var(--glass-bg)", border: "1px solid var(--border-color)", borderRadius: "12px", color: "var(--text-primary)", fontSize: "18px", fontWeight: "600", outline: "none", transition: "border-color 0.2s" }} onFocus={(e) => e.target.style.borderColor = "#f59e0b"} onBlur={(e) => e.target.style.borderColor = "var(--border-color)"} />
+              <label htmlFor="adv-tds" style={{ display: "block", fontSize: "13px", fontWeight: "700", color: "var(--text-secondary)", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "8px" }}>TDS Already Deducted (₹)</label>
+              <input id="adv-tds" type="number" inputMode="decimal" placeholder="e.g. 10000" value={tds} onChange={(e) => setTds(e.target.value)} style={{ width: "100%", padding: "16px 20px", background: "var(--glass-bg)", border: "1px solid var(--border-color)", borderRadius: "12px", color: "var(--text-primary)", fontSize: "18px", fontWeight: "600", outline: "none", transition: "border-color 0.2s" }} onFocus={(e) => e.target.style.borderColor = "#f59e0b"} onBlur={(e) => e.target.style.borderColor = "var(--border-color)"} />
               <p style={{ fontSize: "12px", color: "var(--text-secondary)", marginTop: "8px" }}>Any Tax Deducted at Source (TDS) or TCS collected so far.</p>
             </div>
 
-            <label style={{ display: "flex", alignItems: "flex-start", gap: "12px", cursor: "pointer", background: "rgba(245,158,11,0.05)", border: "1px solid rgba(245,158,11,0.2)", padding: "20px", borderRadius: "12px" }}>
-              <input type="checkbox" checked={isPresumptive} onChange={(e) => setIsPresumptive(e.target.checked)} style={{ marginTop: "4px", width: "18px", height: "18px", accentColor: "#f59e0b" }} />
+            <label htmlFor="adv-presumptive" style={{ display: "flex", alignItems: "flex-start", gap: "12px", cursor: "pointer", background: "rgba(245,158,11,0.05)", border: "1px solid rgba(245,158,11,0.2)", padding: "20px", borderRadius: "12px" }}>
+              <input id="adv-presumptive" type="checkbox" checked={isPresumptive} onChange={(e) => setIsPresumptive(e.target.checked)} style={{ marginTop: "4px", width: "18px", height: "18px", accentColor: "#f59e0b" }} />
               <div>
                 <span style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "15px", fontWeight: "700", color: "var(--text-primary)", marginBottom: "4px" }}>
                   Opting for Presumptive Taxation?

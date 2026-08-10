@@ -5,8 +5,8 @@ import Link from "next/link";
 import { generateMetadata } from "../../lib/seo";
 
 export const metadata = generateMetadata({
-  title: "Best Free 44ADA Tax Calculator FY 2026-27 – KaroTools",
-  description: "Calculate your estimated income tax under Section 44ADA (Presumptive Taxation) for Indian freelancers using the New Tax Regime.",
+  title: "44ADA Calculator for Freelancers India | KaroTools",
+  description: "Calculate taxable income and estimated tax under Section 44ADA for eligible freelancers and professionals in India.",
   path: "/44ada-tax-calculator"
 });
 
@@ -32,9 +32,9 @@ export default function Page() {
         {/* Related Guides / Tools CTA */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "16px", marginBottom: "40px" }}>
           <div style={{ background: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)", borderRadius: "16px", padding: "24px" }}>
-            <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#38bdf8", marginBottom: "8px" }}>Section 44ADA Guide</h3>
+            <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#38bdf8", marginBottom: "8px" }}>Compare Taxation Methods</h3>
             <p style={{ color: "var(--text-secondary)", fontSize: "15px", marginBottom: "16px" }}>Read our complete guide comparing normal taxation with presumptive taxation.</p>
-            <Link href="/guides/section-44ada-vs-normal" style={{ color: "#38bdf8", fontWeight: "600", fontSize: "15px", textDecoration: "none" }}>Read the Guide →</Link>
+            <Link href="/guides/section-44ada-vs-normal" style={{ color: "#38bdf8", fontWeight: "600", fontSize: "15px", textDecoration: "none" }}>compare 44ADA with normal taxation →</Link>
           </div>
           <div style={{ background: "rgba(124,58,237,0.05)", border: "1px solid rgba(124,58,237,0.2)", borderRadius: "16px", padding: "24px" }}>
             <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#a78bfa", marginBottom: "8px" }}>General Tax Calculator</h3>
@@ -42,21 +42,32 @@ export default function Page() {
             <Link href="/tax-calculator" style={{ color: "#a78bfa", fontWeight: "600", fontSize: "15px", textDecoration: "none" }}>Open Tax Calculator →</Link>
           </div>
           <div style={{ background: "rgba(236,72,153,0.05)", border: "1px solid rgba(236,72,153,0.2)", borderRadius: "16px", padding: "24px" }}>
-            <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#ec4899", marginBottom: "8px" }}>Fiverr Fee Calculator</h3>
-            <p style={{ color: "var(--text-secondary)", fontSize: "15px", marginBottom: "16px" }}>Estimate your final take-home pay after platform fees and conversion.</p>
-            <Link href="/upwork-fiverr-fee-calculator-india" style={{ color: "#ec4899", fontWeight: "600", fontSize: "15px", textDecoration: "none" }}>Calculate Payout →</Link>
+            <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#ec4899", marginBottom: "8px" }}>44ADA Eligibility</h3>
+            <p style={{ color: "var(--text-secondary)", fontSize: "15px", marginBottom: "16px" }}>Learn about the ₹50L/₹75L limits and check if your profession qualifies.</p>
+            <Link href="/blog/section-44ada-freelancers" style={{ color: "#ec4899", fontWeight: "600", fontSize: "15px", textDecoration: "none" }}>read our guide to Section 44ADA eligibility →</Link>
           </div>
         </div>
 
         <div className="glass-panel" style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: "24px", padding: "32px", marginBottom: "40px" }}>
           <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginBottom: "16px" }}>How does the 44ADA Tax Calculator work?</h2>
           <p style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: 1.8, marginBottom: "16px" }}>
-            Compute tax under Section 44ADA for FY 2026-27. It assumes 50% profit, applies the latest slabs, and factors Section 87A. Read our <Link href="/guides/section-44ada-vs-normal" style={{ color: "#38bdf8", textDecoration: "none" }}>44ADA Guide</Link>.
+            Compute tax under Section 44ADA for FY 2026-27. It assumes 50% profit, applies the latest slabs, and factors Section 87A. To understand how this compares to maintaining books of accounts, <Link href="/guides/section-44ada-vs-normal" style={{ color: "#38bdf8", textDecoration: "none" }}>compare 44ADA with normal taxation</Link>.
           </p>
           <div style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-bg)", padding: "16px", borderRadius: "8px" }}>
             <p style={{ color: "var(--text-primary)", fontSize: "14px", fontFamily: "monospace", margin: "0 0 8px 0" }}>Taxable Income = Gross Receipts × 50%</p>
             <p style={{ color: "var(--text-primary)", fontSize: "14px", fontFamily: "monospace", margin: "0" }}>Final Tax = Tax on Slabs + 4% Health & Education Cess</p>
           </div>
+        </div>
+
+        <div className="glass-panel" style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: "24px", padding: "32px", marginBottom: "40px" }}>
+          <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginBottom: "16px" }}>Assumptions & Methodology</h2>
+          <ul style={{ color: "var(--text-secondary)", fontSize: "15px", lineHeight: 1.8, paddingLeft: "20px", marginBottom: "0" }}>
+            <li style={{ marginBottom: "8px" }}><strong>Presumptive Rate:</strong> Assumes exactly 50% of gross receipts as taxable income under Section 44ADA.</li>
+            <li style={{ marginBottom: "8px" }}><strong>Tax Slabs:</strong> Applies the New Tax Regime slab rates for FY 2026-27 (AY 2027-28) by default, as it is the default regime.</li>
+            <li style={{ marginBottom: "8px" }}><strong>Rebates & Cess:</strong> Includes Section 87A rebate and the mandatory 4% Health & Education Cess.</li>
+            <li style={{ marginBottom: "8px" }}><strong>Limitations:</strong> This tool is an estimator and assumes you satisfy all eligibility criteria for Section 44ADA. It does not account for other sources of income (like capital gains).</li>
+            <li style={{ marginBottom: "0" }}><strong>Sources:</strong> Rules and limits are based on the Income Tax Act, 1961, as published by the <a href="https://incometaxindia.gov.in" target="_blank" rel="noopener noreferrer" style={{ color: "#38bdf8", textDecoration: "none" }}>Income Tax Department</a>.</li>
+          </ul>
         </div>
         {/* FAQ SECTION */}
         <div style={{ marginBottom: "40px" }}>
@@ -77,7 +88,8 @@ export default function Page() {
       <SchemaScript schema={generateSoftwareSchema({
         name: "KaroTools 44ADA Tax Calculator",
         url: "https://karotools.in/44ada-tax-calculator",
-        description: "Calculate your estimated income tax under Section 44ADA (Presumptive Taxation) for Indian freelancers using the New Tax Regime."
+        description: "Calculate your estimated income tax under Section 44ADA (Presumptive Taxation) for Indian freelancers using the New Tax Regime.",
+        dateModified: "2026-08-10"
       })} />
       <SchemaScript schema={generateBreadcrumbSchema([
         { name: "Home", url: "https://karotools.in" },

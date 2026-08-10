@@ -98,7 +98,7 @@ export default function BlogPost() {
               <span style={{ backgroundColor: "rgba(56,189,248,0.1)", color: "#38bdf8", padding: "4px 12px", borderRadius: "100px", fontSize: "12px", fontWeight: "600", textTransform: "uppercase" }}>GST Guide</span>
             </div>
             <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans', sans-serif", lineHeight: "1.1", marginBottom: "24px", color: "#fff" }}>
-              GST Registration Limit for Freelancers in India: The ₹20 Lakh Threshold Explained
+              GST Registration Threshold in India — 2026 Rules for Freelancers
             </h1>
             <p style={{ fontSize: "18px", color: "var(--text-primary)", lineHeight: "1.6", marginBottom: "24px" }}>
               Do you really need to register for GST and charge clients 18%? Here's the complete, plain-English answer for Indian freelancers — including rules for international clients.
@@ -317,7 +317,7 @@ export default function BlogPost() {
             </tbody>
           </table>
 
-          <p>Need to generate a proper GST invoice with correct CGST/SGST/IGST split? Use our free <Link href="/gst-invoice-generator" style={{ color: "#38bdf8" }}>GST Invoice Generator</Link> — it auto-detects the tax type based on your client's state and creates a PDF in seconds.</p>
+          <p>Need to generate a proper GST invoice with correct CGST/SGST/IGST split? Use our free <Link href="/invoice-generator" style={{ color: "#38bdf8" }}>GST Invoice Generator</Link> — it auto-detects the tax type based on your client's state and creates a PDF in seconds.</p>
 
           <div className={styles.linkCards}>
             <Link href="/blog/section-44ada-freelancers" className={styles.linkCard}>
@@ -390,3 +390,4 @@ export default function BlogPost() {
 </div>
   );
 }
+

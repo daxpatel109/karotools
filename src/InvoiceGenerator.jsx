@@ -29,43 +29,27 @@ const INDIAN_STATES = [
 ];
 
 export default function InvoiceGenerator() {
-  const [invoice, setInvoice] = useState(() => {
-    const savedStr = typeof window !== 'undefined' ? localStorage.getItem("inv_data_v2") : null;
+  const [invoice, setInvoice] = useState({ number: "", date: "", due: "", notes: "Payment due within 15 days. Thank you for your business!", reverseCharge: "No", signatoryName: "" });
+  const [seller, setSeller] = useState({ name: "", address: "", state: "Select State", gstin: "", pan: "", udyam: "", phone: "", email: "", logo: "" });
+  const [buyer, setBuyer] = useState({ name: "", address: "", state: "Select State", gstin: "", phone: "", email: "", deliveryAddressToggle: false, deliveryAddress: "" });
+  const [bank, setBank] = useState({ accName: "", accNo: "", ifsc: "", upi: "" });
+  const [items, setItems] = useState([emptyItem()]);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const savedStr = localStorage.getItem("inv_data_v2");
     let parsed = null;
     try { parsed = savedStr ? JSON.parse(savedStr) : null; } catch { /* ignore */ }
-    const def = { number: genInvoiceNo(), date: new Date().toISOString().split("T")[0], due: "", notes: "Payment due within 15 days. Thank you for your business!", reverseCharge: "No", signatoryName: "" };
-    return { ...def, ...(parsed && parsed.invoice ? parsed.invoice : {}) };
-  });
-  const [seller, setSeller] = useState(() => {
-    const savedStr = typeof window !== 'undefined' ? localStorage.getItem("inv_data_v2") : null;
-    let parsed = null;
-    try { parsed = savedStr ? JSON.parse(savedStr) : null; } catch { /* ignore */ }
-    const def = { name: "", address: "", state: "Select State", gstin: "", pan: "", udyam: "", phone: "", email: "", logo: "" };
-    return { ...def, ...(parsed && parsed.seller ? parsed.seller : {}) };
-  });
-  const [buyer, setBuyer] = useState(() => {
-    const savedStr = typeof window !== 'undefined' ? localStorage.getItem("inv_data_v2") : null;
-    let parsed = null;
-    try { parsed = savedStr ? JSON.parse(savedStr) : null; } catch { /* ignore */ }
-    const def = { name: "", address: "", state: "Select State", gstin: "", phone: "", email: "", deliveryAddressToggle: false, deliveryAddress: "" };
-    return { ...def, ...(parsed && parsed.buyer ? parsed.buyer : {}) };
-  });
-  const [bank, setBank] = useState(() => {
-    const savedStr = typeof window !== 'undefined' ? localStorage.getItem("inv_data_v2") : null;
-    let parsed = null;
-    try { parsed = savedStr ? JSON.parse(savedStr) : null; } catch { /* ignore */ }
-    const def = { accName: "", accNo: "", ifsc: "", upi: "" };
-    return { ...def, ...(parsed && parsed.bank ? parsed.bank : {}) };
-  });
-  const [items, setItems] = useState(() => {
-    const savedStr = typeof window !== 'undefined' ? localStorage.getItem("inv_data_v2") : null;
-    let parsed = null;
-    try { parsed = savedStr ? JSON.parse(savedStr) : null; } catch { /* ignore */ }
-    if (parsed && Array.isArray(parsed.items) && parsed.items.length > 0) {
-      return parsed.items.map(item => ({ ...emptyItem(), ...item }));
+    
+    setInvoice({ ...({ number: genInvoiceNo(), date: new Date().toISOString().split("T")[0], due: "", notes: "Payment due within 15 days. Thank you for your business!", reverseCharge: "No", signatoryName: "" }), ...(parsed?.invoice || {}) });
+    setSeller({ ...({ name: "", address: "", state: "Select State", gstin: "", pan: "", udyam: "", phone: "", email: "", logo: "" }), ...(parsed?.seller || {}) });
+    setBuyer({ ...({ name: "", address: "", state: "Select State", gstin: "", phone: "", email: "", deliveryAddressToggle: false, deliveryAddress: "" }), ...(parsed?.buyer || {}) });
+    setBank({ ...({ accName: "", accNo: "", ifsc: "", upi: "" }), ...(parsed?.bank || {}) });
+    if (parsed?.items && Array.isArray(parsed.items) && parsed.items.length > 0) {
+      setItems(parsed.items.map(item => ({ ...emptyItem(), ...item })));
     }
-    return [emptyItem()];
-  });
+    setIsLoaded(true);
+  }, []);
   const [transType, setTransType] = useState("intra");
   const [isExporting, setIsExporting] = useState(false);
   const [sidebarWidth, setSidebarWidth] = useState(480);
@@ -112,8 +96,10 @@ export default function InvoiceGenerator() {
   }, [isDragging]);
 
   useEffect(() => {
-    localStorage.setItem("inv_data_v2", JSON.stringify({ invoice, seller, buyer, bank, items }));
-  }, [invoice, seller, buyer, bank, items]);
+    if (isLoaded) {
+      localStorage.setItem("inv_data_v2", JSON.stringify({ invoice, seller, buyer, bank, items }));
+    }
+  }, [invoice, seller, buyer, bank, items, isLoaded]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -464,7 +450,7 @@ export default function InvoiceGenerator() {
             <div style={{ marginBottom: "40px" }}>
               <span style={{ background: "rgba(0,118,255,0.1)", color: "#38bdf8", padding: "6px 14px", borderRadius: "50px", fontSize: "11px", fontWeight: "700", letterSpacing: "0.05em", border: "1px solid rgba(0,118,255,0.2)" }}>PRO WORKSPACE</span>
               <h1 style={{ fontSize: "28px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", margin: "16px 0 8px 0", color: "var(--text-primary)", letterSpacing: "-0.5px" }}>
-                Invoice Editor
+                GST Invoice Generator — Create GST Invoices Online for Free
               </h1>
 
           {/* COMPLIANCE BADGE */}
@@ -511,45 +497,45 @@ export default function InvoiceGenerator() {
               <h2 style={{ fontSize: "18px", fontWeight: "700", color: "var(--text-primary)", marginBottom: "20px" }}>2. Your Details</h2>
                 <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                   <div>
-                    <label style={lbl}>Company Logo (Optional)</label>
-                    <input type="file" accept="image/*" onChange={handleLogoUpload} style={{ ...inp, padding: "8px" }} />
+                    <label htmlFor="seller-logo" style={lbl}>Company Logo (Optional)</label>
+                    <input id="seller-logo" type="file" accept="image/*" onChange={handleLogoUpload} style={{ ...inp, padding: "8px" }} />
                     {seller.logo && <div style={{ marginTop: "8px", color: "#38bdf8", fontSize: "12px" }}>Logo uploaded successfully.</div>}
                   </div>
-                  <div><label style={lbl}>Business Name *</label><input value={seller.name} onChange={e => setSeller({...seller, name: e.target.value})} style={inp}/></div>
-                  <div><label style={lbl}>Address</label><textarea value={seller.address} onChange={e => setSeller({...seller, address: e.target.value})} style={{...inp, height: "80px", resize: "none"}}/></div>
+                  <div><label htmlFor="seller-name" style={lbl}>Business Name *</label><input id="seller-name" value={seller.name} onChange={e => setSeller({...seller, name: e.target.value})} style={inp}/></div>
+                  <div><label htmlFor="seller-address" style={lbl}>Address</label><textarea id="seller-address" value={seller.address} onChange={e => setSeller({...seller, address: e.target.value})} style={{...inp, height: "80px", resize: "none"}}/></div>
                   <div>
-                    <label style={lbl}>State (For GST Split)</label>
-                    <select value={seller.state} onChange={e => setSeller({...seller, state: e.target.value})} style={inp}>
+                    <label htmlFor="seller-state" style={lbl}>State (For GST Split)</label>
+                    <select id="seller-state" value={seller.state} onChange={e => setSeller({...seller, state: e.target.value})} style={inp}>
                       {INDIAN_STATES.map(s => <option key={s} value={s}>{s}</option>)}
                     </select>
                   </div>
                   <div className="split-2-col">
-                    <div><label style={lbl}>GSTIN (Optional)</label><input value={seller.gstin} onChange={e => setSeller({...seller, gstin: e.target.value})} style={inp} maxLength={15}/></div>
-                    <div><label style={lbl}>PAN (Optional)</label><input value={seller.pan} onChange={e => setSeller({...seller, pan: e.target.value})} style={inp} maxLength={10}/></div>
+                    <div><label htmlFor="seller-gstin" style={lbl}>GSTIN (Optional)</label><input id="seller-gstin" value={seller.gstin} onChange={e => setSeller({...seller, gstin: e.target.value})} style={inp} maxLength={15}/></div>
+                    <div><label htmlFor="seller-pan" style={lbl}>PAN (Optional)</label><input id="seller-pan" value={seller.pan} onChange={e => setSeller({...seller, pan: e.target.value})} style={inp} maxLength={10}/></div>
                   </div>
                   <div className="split-2-col">
-                    <div><label style={lbl}>Email (Optional)</label><input value={seller.email} onChange={e => setSeller({...seller, email: e.target.value})} style={inp}/></div>
-                    <div><label style={lbl}>Phone (Optional)</label><input value={seller.phone} onChange={e => setSeller({...seller, phone: e.target.value})} style={inp}/></div>
+                    <div><label htmlFor="seller-email" style={lbl}>Email (Optional)</label><input id="seller-email" value={seller.email} onChange={e => setSeller({...seller, email: e.target.value})} style={inp}/></div>
+                    <div><label htmlFor="seller-phone" style={lbl}>Phone (Optional)</label><input id="seller-phone" value={seller.phone} onChange={e => setSeller({...seller, phone: e.target.value})} style={inp}/></div>
                   </div>
-                  <div><label style={lbl}>Udyam Registration No (Optional)</label><input value={seller.udyam} onChange={e => setSeller({...seller, udyam: e.target.value})} style={inp} placeholder="Activates MSME 45-day rule"/></div>
+                  <div><label htmlFor="seller-udyam" style={lbl}>Udyam Registration No (Optional)</label><input id="seller-udyam" value={seller.udyam} onChange={e => setSeller({...seller, udyam: e.target.value})} style={inp} placeholder="Activates MSME 45-day rule"/></div>
                 </div>
             </div>
 
             <div style={sec}>
               <h2 style={{ fontSize: "18px", fontWeight: "700", color: "var(--text-primary)", marginBottom: "20px" }}>3. Client Details</h2>
                 <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-                  <div><label style={lbl}>Client Name *</label><input value={buyer.name} onChange={e => setBuyer({...buyer, name: e.target.value})} style={inp}/></div>
-                  <div><label style={lbl}>Address</label><textarea value={buyer.address} onChange={e => setBuyer({...buyer, address: e.target.value})} style={{...inp, height: "80px", resize: "none"}}/></div>
+                  <div><label htmlFor="buyer-name" style={lbl}>Client Name *</label><input id="buyer-name" value={buyer.name} onChange={e => setBuyer({...buyer, name: e.target.value})} style={inp}/></div>
+                  <div><label htmlFor="buyer-address" style={lbl}>Address</label><textarea id="buyer-address" value={buyer.address} onChange={e => setBuyer({...buyer, address: e.target.value})} style={{...inp, height: "80px", resize: "none"}}/></div>
                   <div>
-                    <label style={lbl}>State (For GST Split)</label>
-                    <select value={buyer.state} onChange={e => setBuyer({...buyer, state: e.target.value})} style={inp}>
+                    <label htmlFor="buyer-state" style={lbl}>State (For GST Split)</label>
+                    <select id="buyer-state" value={buyer.state} onChange={e => setBuyer({...buyer, state: e.target.value})} style={inp}>
                       {INDIAN_STATES.map(s => <option key={s} value={s}>{s}</option>)}
                     </select>
                   </div>
-                  <div><label style={lbl}>GSTIN (Optional)</label><input value={buyer.gstin} onChange={e => setBuyer({...buyer, gstin: e.target.value})} style={inp} maxLength={15}/></div>
+                  <div><label htmlFor="buyer-gstin" style={lbl}>GSTIN (Optional)</label><input id="buyer-gstin" value={buyer.gstin} onChange={e => setBuyer({...buyer, gstin: e.target.value})} style={inp} maxLength={15}/></div>
                   <div className="split-2-col">
-                    <div><label style={lbl}>Email (Optional)</label><input value={buyer.email} onChange={e => setBuyer({...buyer, email: e.target.value})} style={inp}/></div>
-                    <div><label style={lbl}>Phone (Optional)</label><input value={buyer.phone} onChange={e => setBuyer({...buyer, phone: e.target.value})} style={inp}/></div>
+                    <div><label htmlFor="buyer-email" style={lbl}>Email (Optional)</label><input id="buyer-email" value={buyer.email} onChange={e => setBuyer({...buyer, email: e.target.value})} style={inp}/></div>
+                    <div><label htmlFor="buyer-phone" style={lbl}>Phone (Optional)</label><input id="buyer-phone" value={buyer.phone} onChange={e => setBuyer({...buyer, phone: e.target.value})} style={inp}/></div>
                   </div>
                   <div style={{ display: "flex", alignItems: "center", gap: "8px", marginTop: "4px" }}>
                     <input type="checkbox" id="delivery-toggle" checked={buyer.deliveryAddressToggle} onChange={e => setBuyer({...buyer, deliveryAddressToggle: e.target.checked})} style={{ width: "16px", height: "16px", cursor: "pointer" }} />
@@ -568,8 +554,8 @@ export default function InvoiceGenerator() {
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
                 <h2 style={{ fontSize: "18px", fontWeight: "700", color: "var(--text-primary)", margin: 0 }}>4. Items</h2>
                 <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                  <label style={{ fontSize: "12px", color: "var(--text-secondary)" }}>Tax Type:</label>
-                  <select value={transType} onChange={e => setTransType(e.target.value)} style={{...inp, width: "auto", padding: "6px 12px", cursor: "pointer"}}>
+                  <label htmlFor="trans-type" style={{ fontSize: "12px", color: "var(--text-secondary)" }}>Tax Type:</label>
+                  <select id="trans-type" value={transType} onChange={e => setTransType(e.target.value)} style={{...inp, width: "auto", padding: "6px 12px", cursor: "pointer"}}>
                     <option value="intra">Intra-state (CGST + SGST)</option>
                     <option value="inter">Inter-state (IGST)</option>
                   </select>
@@ -583,19 +569,19 @@ export default function InvoiceGenerator() {
                     return (
                     <div key={i} style={{ background: "var(--glass-bg)", padding: "16px", borderRadius: "12px", border: "1px solid var(--glass-bg)" }}>
                       <div className="items-grid">
-                        <div><label style={lbl}>Description</label><input value={item.desc} onChange={e => updateItem(i, "desc", e.target.value)} style={inp}/></div>
+                        <div><label htmlFor={`item-desc-${i}`} style={lbl}>Description</label><input id={`item-desc-${i}`} value={item.desc} onChange={e => updateItem(i, "desc", e.target.value)} style={inp}/></div>
                         <div className="items-row-2">
                           <div>
-                            <label style={{ ...lbl, display: "flex", alignItems: "center", gap: "6px" }}>
+                            <label htmlFor={`item-hsn-${i}`} style={{ ...lbl, display: "flex", alignItems: "center", gap: "6px" }}>
                               HSN/SAC
                               <span className="tooltip-container" tabIndex="0" title="Harmonized System of Nomenclature (HSN) or Service Accounting Code (SAC).">
                                 <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4m0-4h.01"></path></svg>
                               </span>
                             </label>
-                            <input value={item.hsn} onChange={e => updateItem(i, "hsn", e.target.value)} style={inp}/>
+                            <input id={`item-hsn-${i}`} value={item.hsn} onChange={e => updateItem(i, "hsn", e.target.value)} style={inp}/>
                           </div>
                           <div style={{ display: "flex", gap: "12px" }}>
-                            <div style={{ flex: 1 }}><label style={lbl}>Qty</label><input type="number" inputMode="decimal" value={item.qty} onChange={e => updateItem(i, "qty", e.target.value)} style={inp}/></div>
+                            <div style={{ flex: 1 }}><label htmlFor={`item-qty-${i}`} style={lbl}>Qty</label><input id={`item-qty-${i}`} type="number" inputMode="decimal" value={item.qty} onChange={e => updateItem(i, "qty", e.target.value)} style={inp}/></div>
                             <div style={{ flex: 1 }}>
                               <label htmlFor={`uqc-${i}`} style={lbl}>Unit/UQC</label>
                               <input id={`uqc-${i}`} aria-describedby={`uqc-help-${i}`} value={item.uqc} onChange={e => updateItem(i, "uqc", e.target.value)} style={inp} maxLength={10} placeholder="e.g. NOS"/>
@@ -604,10 +590,11 @@ export default function InvoiceGenerator() {
                           <div id={`uqc-help-${i}`} style={{ fontSize: "11px", color: "var(--text-secondary)", marginTop: "4px", gridColumn: "1 / -1" }}>Enter the applicable unit/UQC for goods. It may be left blank where not applicable.</div>
                         </div>
                         <div className="items-row-3">
-                          <div><label style={lbl}>Rate</label><input type="number" inputMode="decimal" value={item.rate} onChange={e => updateItem(i, "rate", e.target.value)} style={inp}/></div>
+                          <div><label htmlFor={`item-rate-${i}`} style={lbl}>Rate</label><input id={`item-rate-${i}`} type="number" inputMode="decimal" value={item.rate} onChange={e => updateItem(i, "rate", e.target.value)} style={inp}/></div>
                           <div>
-                            <label style={lbl}>GST %</label>
+                            <label htmlFor={`item-gst-${i}`} style={lbl}>GST %</label>
                             <input 
+                              id={`item-gst-${i}`}
                               type="number" inputMode="decimal" 
                               list={`gst-list-${i}`}
                               value={item.gst === 0 && item.gst !== "" ? 0 : item.gst} 
@@ -633,15 +620,15 @@ export default function InvoiceGenerator() {
               <div style={sec}>
                 <h2 style={{ fontSize: "18px", fontWeight: "700", color: "var(--text-primary)", marginBottom: "20px" }}>5. Bank Details</h2>
                 <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-                  <div><label style={lbl}>Account Name</label><input value={bank.accName} onChange={e => setBank({...bank, accName: e.target.value})} style={inp}/></div>
-                  <div><label style={lbl}>Account Number</label><input value={bank.accNo} onChange={e => setBank({...bank, accNo: e.target.value})} style={inp}/></div>
-                  <div><label style={lbl}>IFSC Code</label><input value={bank.ifsc} onChange={e => setBank({...bank, ifsc: e.target.value})} style={inp}/></div>
-                  <div><label style={lbl}>UPI ID (Optional)</label><input value={bank.upi} onChange={e => setBank({...bank, upi: e.target.value})} style={inp}/></div>
+                  <div><label htmlFor="bank-name" style={lbl}>Account Name</label><input id="bank-name" value={bank.accName} onChange={e => setBank({...bank, accName: e.target.value})} style={inp}/></div>
+                  <div><label htmlFor="bank-accno" style={lbl}>Account Number</label><input id="bank-accno" value={bank.accNo} onChange={e => setBank({...bank, accNo: e.target.value})} style={inp}/></div>
+                  <div><label htmlFor="bank-ifsc" style={lbl}>IFSC Code</label><input id="bank-ifsc" value={bank.ifsc} onChange={e => setBank({...bank, ifsc: e.target.value})} style={inp}/></div>
+                  <div><label htmlFor="bank-upi" style={lbl}>UPI ID (Optional)</label><input id="bank-upi" value={bank.upi} onChange={e => setBank({...bank, upi: e.target.value})} style={inp}/></div>
                 </div>
               </div>
               <div style={sec}>
                 <h2 style={{ fontSize: "18px", fontWeight: "700", color: "var(--text-primary)", marginBottom: "20px" }}>6. Terms & Notes</h2>
-                <textarea value={invoice.notes} onChange={e => setInvoice({...invoice, notes: e.target.value})} style={{...inp, height: "160px", resize: "none", marginBottom: "16px"}} />
+                <textarea aria-label="Terms & Notes" value={invoice.notes} onChange={e => setInvoice({...invoice, notes: e.target.value})} style={{...inp, height: "160px", resize: "none", marginBottom: "16px"}} />
                 <div>
                   <label htmlFor="signatory-name" style={lbl}>Authorised Signatory Name</label>
                   <input id="signatory-name" aria-describedby="signatory-help" value={invoice.signatoryName} onChange={e => setInvoice({...invoice, signatoryName: e.target.value})} style={inp}/>

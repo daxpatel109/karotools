@@ -1,5 +1,5 @@
 import { SchemaScript, generateBreadcrumbSchema, generateArticleSchema } from "../../../lib/schema";
-export const metadata = { title: "Complete GST Guide For Indian Freelancers — KaroTools", description: "A comprehensive guide to GST for Indian freelancers. Learn about registration limits, composition schemes, invoicing, and return filing.", alternates: { canonical: "https://karotools.in/guides/gst-for-freelancers-india" }  };
+export const metadata = { title: "GST for Freelancers in India | Registration, Rates & Rules — KaroTools", description: "Learn when freelancers need GST registration, how GST applies to freelance services, applicable rates, invoices and key GST rules in India.", alternates: { canonical: "https://karotools.in/guides/gst-for-freelancers-india" }  };
 import Link from "next/link";
 import React from "react";
 
@@ -63,7 +63,7 @@ export default function Guide1() {
 
         {/* Title */}
         <h1 style={{ fontSize: "clamp(36px, 5vw, 56px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", lineHeight: 1.15, marginBottom: "32px", color: "var(--text-primary)", letterSpacing: "-0.02em" }}>
-          The Complete Guide to GST for Freelancers in India
+          GST for Freelancers in India — Registration, Rates & Rules
         </h1>
 
             <div style={{ display: "flex", gap: "16px", fontSize: "14px", color: "var(--text-secondary)", alignItems: "center", marginBottom: "24px" }}>
@@ -201,7 +201,7 @@ export default function Guide1() {
             <p style={{ color: "var(--text-secondary)", fontSize: "16px", marginBottom: "20px" }}>
               Don't pay for expensive invoicing software. Use our generator to create legally perfect PDF invoices in seconds.
             </p>
-            <Link href="/gst-invoice-generator" style={{ display: "inline-block", background: "linear-gradient(135deg, #f59e0b, #d97706)", color: "#fff", padding: "12px 24px", borderRadius: "10px", textDecoration: "none", fontWeight: "700", fontSize: "15px" }}>
+            <Link href="/invoice-generator" style={{ display: "inline-block", background: "linear-gradient(135deg, #f59e0b, #d97706)", color: "#fff", padding: "12px 24px", borderRadius: "10px", textDecoration: "none", fontWeight: "700", fontSize: "15px" }}>
               Use Free GST Invoice Generator
             </Link>
           </div>
@@ -296,3 +296,4 @@ export default function Guide1() {
 </div>
   );
 }
+

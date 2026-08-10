@@ -1,0 +1,111 @@
+import { generateMetadata } from "../../../lib/seo";
+import { SchemaScript, generateArticleSchema, generateBreadcrumbSchema } from "../../../lib/schema";
+
+export const metadata = generateMetadata({
+  title: "GST State Codes List India (01 to 38) | Complete Reference",
+  description: "A complete and updated reference list of all GST state codes in India (01 to 38). Use this list to correctly format your GSTINs and invoices.",
+  path: "/guides/gst-state-codes-india",
+  keywords: ["GST state codes list", "GST state code India", "GST code 07", "GST state code Maharashtra", "GST state code Karnataka", "GSTIN format"]
+});
+
+export default function Page({ children }) {
+  return (
+    <div style={{ background: "var(--bg-primary)", minHeight: "100vh" }}>
+      <article style={{ maxWidth: "820px", margin: "0 auto", padding: "60px 24px 100px", color: "var(--text-primary)", fontFamily: "'DM Sans', sans-serif" }}>
+        
+        <div style={{ marginBottom: "40px", textAlign: "center" }}>
+          <h1 style={{ fontSize: "36px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginBottom: "16px", letterSpacing: "-0.5px" }}>
+            GST State Codes List India (01 to 38)
+          </h1>
+          <p style={{ fontSize: "18px", color: "var(--text-secondary)", maxWidth: "600px", margin: "0 auto" }}>
+            The definitive reference for all Indian GST state and union territory codes.
+          </p>
+        </div>
+
+        <div className="glass-panel" style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: "24px", padding: "40px", marginBottom: "40px" }}>
+          
+          <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "16px" }}>What is a GST State Code?</h2>
+          <p style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: 1.8, marginBottom: "24px" }}>
+            In India, every Goods and Services Tax Identification Number (GSTIN) is a 15-digit alphanumeric code. The very first two digits of this GSTIN represent the <strong>GST State Code</strong>. Knowing the correct state code is essential for verifying a GSTIN and generating correct invoices, especially when determining whether to charge IGST (inter-state) or CGST/SGST (intra-state).
+          </p>
+
+          <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "16px" }}>Complete List of GST State Codes</h2>
+          <div style={{ overflowX: "auto", marginBottom: "32px" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse", color: "var(--text-secondary)", fontSize: "16px", textAlign: "left", border: "1px solid var(--glass-border)", borderRadius: "8px", overflow: "hidden" }}>
+              <thead>
+                <tr style={{ background: "rgba(255,255,255,0.05)", borderBottom: "1px solid var(--glass-border)" }}>
+                  <th style={{ padding: "12px 16px", fontWeight: "700", color: "var(--text-primary)" }}>State Code</th>
+                  <th style={{ padding: "12px 16px", fontWeight: "700", color: "var(--text-primary)" }}>State / Union Territory</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}><td style={{ padding: "10px 16px", fontWeight: "600", color: "var(--text-primary)" }}>01</td><td style={{ padding: "10px 16px" }}>Jammu and Kashmir</td></tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}><td style={{ padding: "10px 16px", fontWeight: "600", color: "var(--text-primary)" }}>02</td><td style={{ padding: "10px 16px" }}>Himachal Pradesh</td></tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}><td style={{ padding: "10px 16px", fontWeight: "600", color: "var(--text-primary)" }}>03</td><td style={{ padding: "10px 16px" }}>Punjab</td></tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}><td style={{ padding: "10px 16px", fontWeight: "600", color: "var(--text-primary)" }}>04</td><td style={{ padding: "10px 16px" }}>Chandigarh</td></tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}><td style={{ padding: "10px 16px", fontWeight: "600", color: "var(--text-primary)" }}>05</td><td style={{ padding: "10px 16px" }}>Uttarakhand</td></tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}><td style={{ padding: "10px 16px", fontWeight: "600", color: "var(--text-primary)" }}>06</td><td style={{ padding: "10px 16px" }}>Haryana</td></tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}><td style={{ padding: "10px 16px", fontWeight: "600", color: "var(--text-primary)" }}>07</td><td style={{ padding: "10px 16px" }}>Delhi</td></tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}><td style={{ padding: "10px 16px", fontWeight: "600", color: "var(--text-primary)" }}>08</td><td style={{ padding: "10px 16px" }}>Rajasthan</td></tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}><td style={{ padding: "10px 16px", fontWeight: "600", color: "var(--text-primary)" }}>09</td><td style={{ padding: "10px 16px" }}>Uttar Pradesh</td></tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}><td style={{ padding: "10px 16px", fontWeight: "600", color: "var(--text-primary)" }}>10</td><td style={{ padding: "10px 16px" }}>Bihar</td></tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}><td style={{ padding: "10px 16px", fontWeight: "600", color: "var(--text-primary)" }}>11</td><td style={{ padding: "10px 16px" }}>Sikkim</td></tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}><td style={{ padding: "10px 16px", fontWeight: "600", color: "var(--text-primary)" }}>12</td><td style={{ padding: "10px 16px" }}>Arunachal Pradesh</td></tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}><td style={{ padding: "10px 16px", fontWeight: "600", color: "var(--text-primary)" }}>13</td><td style={{ padding: "10px 16px" }}>Nagaland</td></tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}><td style={{ padding: "10px 16px", fontWeight: "600", color: "var(--text-primary)" }}>14</td><td style={{ padding: "10px 16px" }}>Manipur</td></tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}><td style={{ padding: "10px 16px", fontWeight: "600", color: "var(--text-primary)" }}>15</td><td style={{ padding: "10px 16px" }}>Mizoram</td></tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}><td style={{ padding: "10px 16px", fontWeight: "600", color: "var(--text-primary)" }}>16</td><td style={{ padding: "10px 16px" }}>Tripura</td></tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}><td style={{ padding: "10px 16px", fontWeight: "600", color: "var(--text-primary)" }}>17</td><td style={{ padding: "10px 16px" }}>Meghalaya</td></tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}><td style={{ padding: "10px 16px", fontWeight: "600", color: "var(--text-primary)" }}>18</td><td style={{ padding: "10px 16px" }}>Assam</td></tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}><td style={{ padding: "10px 16px", fontWeight: "600", color: "var(--text-primary)" }}>19</td><td style={{ padding: "10px 16px" }}>West Bengal</td></tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}><td style={{ padding: "10px 16px", fontWeight: "600", color: "var(--text-primary)" }}>20</td><td style={{ padding: "10px 16px" }}>Jharkhand</td></tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}><td style={{ padding: "10px 16px", fontWeight: "600", color: "var(--text-primary)" }}>21</td><td style={{ padding: "10px 16px" }}>Odisha</td></tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}><td style={{ padding: "10px 16px", fontWeight: "600", color: "var(--text-primary)" }}>22</td><td style={{ padding: "10px 16px" }}>Chhattisgarh</td></tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}><td style={{ padding: "10px 16px", fontWeight: "600", color: "var(--text-primary)" }}>23</td><td style={{ padding: "10px 16px" }}>Madhya Pradesh</td></tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}><td style={{ padding: "10px 16px", fontWeight: "600", color: "var(--text-primary)" }}>24</td><td style={{ padding: "10px 16px" }}>Gujarat</td></tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}><td style={{ padding: "10px 16px", fontWeight: "600", color: "var(--text-primary)" }}>26</td><td style={{ padding: "10px 16px" }}>Dadra and Nagar Haveli and Daman and Diu</td></tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}><td style={{ padding: "10px 16px", fontWeight: "600", color: "var(--text-primary)" }}>27</td><td style={{ padding: "10px 16px" }}>Maharashtra</td></tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}><td style={{ padding: "10px 16px", fontWeight: "600", color: "var(--text-primary)" }}>29</td><td style={{ padding: "10px 16px" }}>Karnataka</td></tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}><td style={{ padding: "10px 16px", fontWeight: "600", color: "var(--text-primary)" }}>30</td><td style={{ padding: "10px 16px" }}>Goa</td></tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}><td style={{ padding: "10px 16px", fontWeight: "600", color: "var(--text-primary)" }}>31</td><td style={{ padding: "10px 16px" }}>Lakshadweep</td></tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}><td style={{ padding: "10px 16px", fontWeight: "600", color: "var(--text-primary)" }}>32</td><td style={{ padding: "10px 16px" }}>Kerala</td></tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}><td style={{ padding: "10px 16px", fontWeight: "600", color: "var(--text-primary)" }}>33</td><td style={{ padding: "10px 16px" }}>Tamil Nadu</td></tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}><td style={{ padding: "10px 16px", fontWeight: "600", color: "var(--text-primary)" }}>34</td><td style={{ padding: "10px 16px" }}>Puducherry</td></tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}><td style={{ padding: "10px 16px", fontWeight: "600", color: "var(--text-primary)" }}>35</td><td style={{ padding: "10px 16px" }}>Andaman and Nicobar Islands</td></tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}><td style={{ padding: "10px 16px", fontWeight: "600", color: "var(--text-primary)" }}>36</td><td style={{ padding: "10px 16px" }}>Telangana</td></tr>
+                <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}><td style={{ padding: "10px 16px", fontWeight: "600", color: "var(--text-primary)" }}>37</td><td style={{ padding: "10px 16px" }}>Andhra Pradesh</td></tr>
+                <tr><td style={{ padding: "10px 16px", fontWeight: "600", color: "var(--text-primary)" }}>38</td><td style={{ padding: "10px 16px" }}>Ladakh</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p style={{ fontSize: "14px", color: "var(--text-secondary)", fontStyle: "italic", marginBottom: "24px" }}>
+            Note: Code 26 represents the merged Union Territories of Dadra and Nagar Haveli and Daman and Diu.
+          </p>
+          
+          <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "16px" }}>Related Resources</h2>
+          <ul style={{ listStyleType: "none", padding: 0, display: "grid", gap: "12px" }}>
+            <li><a href="/gst-calculator" style={{ color: "#38bdf8", textDecoration: "none" }}>→ Use the free GST Calculator</a></li>
+            <li><a href="/invoice-generator" style={{ color: "#38bdf8", textDecoration: "none" }}>→ Generate a GST Invoice online</a></li>
+          </ul>
+
+        </div>
+        {children}
+      </article>
+
+      <SchemaScript schema={generateArticleSchema({
+        title: "GST State Codes List India (01 to 38)",
+        description: "A complete and updated reference list of all GST state codes in India (01 to 38).",
+        url: "https://karotools.in/guides/gst-state-codes-india",
+        datePublished: "2026-08-10",
+        dateModified: "2026-08-10",
+        authorName: "KaroTools"
+      })} />
+      <SchemaScript schema={generateBreadcrumbSchema([
+        { name: "Home", url: "https://karotools.in" },
+        { name: "Guides", url: "https://karotools.in/guides" },
+        { name: "GST State Codes", url: "https://karotools.in/guides/gst-state-codes-india" }
+      ])} />
+    </div>
+  );
+}

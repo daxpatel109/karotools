@@ -184,7 +184,8 @@ export default function FIRECalculatorPage() {
         <SchemaScript schema={generateSoftwareSchema({
           name: "KaroTools FIRE Calculator",
           url: "https://karotools.in/fire-calculator",
-          description: "Calculate your Financial Independence and Retire Early (FIRE) number in India based on inflation, SIPs, and SWR."
+          description: "Calculate your Financial Independence and Retire Early (FIRE) number in India based on inflation, SIPs, and SWR.",
+          dateModified: "2026-08-10"
         })} />
         <SchemaScript schema={generateBreadcrumbSchema([
           { name: "Home", url: "https://karotools.in" },

@@ -237,7 +237,7 @@ export default function BlogPost() {
           <p>One underrated risk for Indian freelancers is delayed payments. If you work with MSME-registered businesses (most startups and small companies qualify), the law requires them to pay you within 45 days of delivery under the <Link href="/blog/msme-45-day-rule" style={{ color: "#38bdf8" }}>MSME 45-Day Payment Rule (Section 43B(h))</Link>. Knowing this rule — and mentioning it in your freelance contracts — dramatically improves your payment speed. Use the <Link href="/contract-generator" style={{ color: "#38bdf8" }}>KaroTools Contract Generator</Link> to include a compliant payment clause in your agreements.</p>
 
           <h3>Invoicing Your Clients Professionally</h3>
-          <p>Once you've calculated your rate, the next step is collecting what you've earned — professionally. A proper GST invoice builds trust, satisfies your compliance obligations, and protects you in case of payment disputes. The <Link href="/gst-invoice-generator" style={{ color: "#38bdf8" }}>KaroTools GST Invoice Generator</Link> lets you create fully compliant invoices with GSTIN validation, HSN/SAC codes, CGST/SGST breakdown, and PDF download — all free, no login required.</p>
+          <p>Once you've calculated your rate, the next step is collecting what you've earned — professionally. A proper GST invoice builds trust, satisfies your compliance obligations, and protects you in case of payment disputes. The <Link href="/invoice-generator" style={{ color: "#38bdf8" }}>KaroTools GST Invoice Generator</Link> lets you create fully compliant invoices with GSTIN validation, HSN/SAC codes, CGST/SGST breakdown, and PDF download — all free, no login required.</p>
 
           <div className={styles.linkCards}>
             <Link href="/blog/msme-45-day-rule" className={styles.linkCard}>
@@ -318,3 +318,4 @@ export default function BlogPost() {
 </div>
   );
 }
+

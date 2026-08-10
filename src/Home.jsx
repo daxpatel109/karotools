@@ -225,7 +225,7 @@ export default function Home() {
 
   const tools = [
     { icon: "🧮", name: "GST Calculator", description: "Live GST calculation for all slabs — 5%, 12%, 18%, 28%. CGST, SGST & IGST with custom rates and presets.", category: "Finance", page: "/gst-calculator" },
-    { icon: "📄", name: "Invoice Generator", description: "Professional GST invoices with PDF download. GSTIN validation, HSN/SAC codes, logo upload, signature area.", category: "Finance", page: "/gst-invoice-generator" },
+    { icon: "📄", name: "Invoice Generator", description: "Professional GST invoices with PDF download. GSTIN validation, HSN/SAC codes, logo upload, signature area.", category: "Finance", page: "/invoice-generator" },
     { icon: "🏛️", name: "Tax Calculator Hub", description: "Choose the right income tax calculator: Section 44ADA, Normal Regime, or Advance Tax.", category: "Finance", page: "/tax-calculator" },
     { icon: "⚠️", name: "Late GST Penalty", description: "Calculate late filing fees (₹50/day) and 18% interest on delayed GST payments instantly.", category: "Finance", page: "/late-gst-penalty-calculator" },
     { icon: "💼", name: "Salary vs Freelance", description: "Compare your current salary to freelance rates. Find exactly what you need to charge to maintain your lifestyle.", category: "Finance", page: "/salary-vs-freelance" },
@@ -529,7 +529,7 @@ export default function Home() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(300px, 100%), 1fr))", gap: 20 }}>
             {[
               { icon: "🧮", title: "Free GST Calculator India", desc: "Calculate CGST, SGST & IGST instantly. All slabs, custom rates, round-off toggle, visual breakdown & copy result.", link: "/gst-calculator", keyword: "GST Calculator India" },
-              { icon: "📄", title: "Free GST Invoice Generator", desc: "Create professional GST invoices with PDF download. Your logo, GSTIN, HSN/SAC codes - no software needed.", link: "/gst-invoice-generator", keyword: "Free Invoice Generator" },
+              { icon: "📄", title: "Free GST Invoice Generator", desc: "Create professional GST invoices with PDF download. Your logo, GSTIN, HSN/SAC codes - no software needed.", link: "/invoice-generator", keyword: "Free Invoice Generator" },
               { icon: "💰", title: "Freelance Rate Calculator", desc: "Calculate your perfect freelance hourly, daily & monthly rate in INR based on your expenses.", link: "/freelance-rate-calculator", keyword: "Freelance Rate Calculator" },
             ].map((item, i) => (
               <Reveal key={item.title} delay={i * 0.1}>
@@ -636,7 +636,7 @@ export default function Home() {
                   🧮 GST Calculator →
                 </button>
               </Link>
-              <Link href="/gst-invoice-generator" style={{ textDecoration: 'none' }}>
+              <Link href="/invoice-generator" style={{ textDecoration: 'none' }}>
                 <button className="cta-btn-secondary" style={{ padding: "15px 32px", background: "rgba(255,255,255,0.15)", border: "1px solid rgba(255,255,255,0.3)", borderRadius: 12, color: "#ffffff", fontSize: 16, fontWeight: 600, cursor: "pointer", transition: "all 0.3s" }}>
                   📄 Invoice Generator →
                 </button>
@@ -720,4 +720,5 @@ export default function Home() {
     </div>
   );
 }
+
 

@@ -129,16 +129,18 @@ export default function RateCalculator() {
 
   // 🚀 FLUID HYBRID INPUT
   const HybridInput = ({ label, value, setter, min, max, step, prefix = "", suffix = "", color = "#0076ff" }) => {
+    const inputId = `input-${label.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()}`;
     const percentage = Math.max(0, Math.min(100, ((value - min) / (max - min)) * 100));
 
     return (
       <div className="glass-panel hybrid-input-card no-print" style={{ borderRadius: "20px", padding: "clamp(16px, 3vw, 24px)", transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px", flexWrap: "wrap", gap: "16px" }}>
-          <label style={{ fontSize: "13px", fontWeight: "700", color: "var(--text-primary)", textTransform: "uppercase", letterSpacing: "0.08em", flex: "1 1 120px", wordWrap: "break-word" }}>{label}</label>
+          <label htmlFor={inputId} style={{ fontSize: "13px", fontWeight: "700", color: "var(--text-primary)", textTransform: "uppercase", letterSpacing: "0.08em", flex: "1 1 120px", wordWrap: "break-word" }}>{label}</label>
           
           <div className="input-focus-wrap" style={{ display: "flex", alignItems: "center", background: "var(--bg-tertiary)", border: "1px solid var(--glass-border)", borderRadius: "12px", padding: "8px 16px", transition: "all 0.3s ease", boxShadow: "inset 0 2px 4px rgba(0,0,0,0.2)", flex: "1 1 auto", minWidth: "160px" }}>
             {prefix && <span style={{ color: "var(--text-secondary)", fontWeight: "700", marginRight: "6px", fontSize: "16px" }}>{prefix}</span>}
             <input 
+              id={inputId}
               type="number" inputMode="decimal" 
               value={value === 0 ? "" : value} 
               onChange={(e) => setter(e.target.value === "" ? 0 : Number(e.target.value))}
@@ -154,6 +156,7 @@ export default function RateCalculator() {
         
         <div style={{ position: "relative", width: "100%", padding: "10px 0" }}>
           <input 
+            aria-label={`${label} slider`}
             type="range" 
             min={min} 
             max={max} 
@@ -309,7 +312,7 @@ export default function RateCalculator() {
           <div style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "72px", height: "72px", borderRadius: "24px", background: "linear-gradient(135deg, var(--glass-bg), rgba(255,255,255,0.01))", border: "1px solid var(--border-color)", marginBottom: "20px", boxShadow: "0 12px 32px rgba(0,0,0,0.2)" }}>
             <span style={{ fontSize: "36px", filter: "drop-shadow(0 4px 12px rgba(0,0,0,0.3))" }}>💎</span>
           </div>
-          <h1 style={{ fontSize: "clamp(32px, 6vw, 48px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "12px", letterSpacing: "-0.02em", background: "linear-gradient(135deg, #ffffff 0%, #38bdf8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Rate & Tier Matrix</h1>
+          <h1 style={{ fontSize: "clamp(32px, 6vw, 48px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "12px", letterSpacing: "-0.02em", background: "linear-gradient(135deg, #ffffff 0%, #38bdf8 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Freelance Rate Calculator — Calculate Your Ideal Hourly Rate</h1>
 
           <p style={{ color: "var(--text-secondary)", fontSize: "clamp(14px, 3vw, 16px)", fontWeight: "400", letterSpacing: "0.01em" }}>Design your financial baseline and auto-generate client packages.</p>
         </div>

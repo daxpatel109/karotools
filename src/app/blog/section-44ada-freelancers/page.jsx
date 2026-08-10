@@ -106,7 +106,7 @@ export default function BlogPost() {
               <span style={{ backgroundColor: "rgba(52,211,153,0.1)", color: "#34d399", padding: "4px 12px", borderRadius: "100px", fontSize: "12px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "0.06em", border: "1px solid rgba(52,211,153,0.2)" }}>🇮🇳 TAX SAVING GUIDE</span>
             </div>
             <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans', sans-serif", lineHeight: "1.1", marginBottom: "24px", color: "#fff", letterSpacing: "-0.5px" }}>
-              Section 44ADA for Freelancers: The Complete Tax Saving Guide for FY 2026-27
+              Section 44ADA for Freelancers — Eligibility, Limits & Tax Calculation
             </h1>
             <p style={{ fontSize: "18px", color: "var(--text-primary)", lineHeight: "1.6", marginBottom: "24px" }}>
               Eligible Indian freelancers and professionals can legally declare only 50% of their gross professional receipts as taxable income under Section 44ADA. Here is who qualifies, how the ₹50 lakh / ₹75 lakh limit works, how much tax you may save, and how to file correctly.
@@ -378,7 +378,7 @@ export default function BlogPost() {
             <h3>Create Clean Freelance Invoices</h3>
             <p>Even under 44ADA, income proof matters. Create professional invoices for Indian clients and keep your payment records clean.</p>
             <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap", marginTop: "16px" }}>
-              <Link href="/gst-invoice-generator" className={styles.ctaBtn}>Open Invoice Generator →</Link>
+              <Link href="/invoice-generator" className={styles.ctaBtn}>Open Invoice Generator →</Link>
             </div>
           </div>
 
@@ -481,3 +481,4 @@ export default function BlogPost() {
 </div>
   );
 }
+

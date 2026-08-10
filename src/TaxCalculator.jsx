@@ -48,7 +48,7 @@ export default function TaxCalculatorHub() {
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: "64px" }}>
           <h1 style={{ fontSize: "clamp(36px, 6vw, 56px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "16px", color: "var(--text-primary)", lineHeight: 1.1 }}>
-            Income Tax <span style={{ background: "linear-gradient(135deg,#0076ff,#005ae6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Calculators</span>
+            Income Tax Calculator for Freelancers in India
           </h1>
 
           {/* COMPLIANCE BADGE */}

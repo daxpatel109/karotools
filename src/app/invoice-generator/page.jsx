@@ -5,8 +5,8 @@ import { generateFAQSchema, SchemaScript, generateSoftwareSchema, generateBreadc
 import Link from "next/link";
 
 export const metadata = generateMetadata({
-  title: "Free GST Invoice Generator | KaroTools",
-  description: "Create professional GST invoices with logo and PDF download. Free invoice generator for Indian freelancers.",
+  title: "GST Invoice Generator India | Free Online Tool — KaroTools",
+  description: "Create professional GST invoices online for free. Add customer, service, tax and payment details without signing up.",
   path: "/invoice-generator",
   keywords: [
     "free gst invoice generator india",
@@ -50,7 +50,7 @@ export default function Page() {
       <div style={{ maxWidth: "820px", margin: "40px auto 0", padding: "0 24px", position: "relative", zIndex: 1 }}>
         
         {/* Related Guides / Tools CTA */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "16px", marginBottom: "40px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "16px", marginBottom: "40px" }}>
           <div style={{ background: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)", borderRadius: "16px", padding: "24px" }}>
             <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#38bdf8", marginBottom: "8px" }}>Proforma Invoice Guide</h3>
             <p style={{ color: "var(--text-secondary)", fontSize: "15px", marginBottom: "16px" }}>Learn what a proforma invoice is and when freelancers should send one.</p>
@@ -60,6 +60,11 @@ export default function Page() {
             <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#10b981", marginBottom: "8px" }}>GST Invoice Format</h3>
             <p style={{ color: "var(--text-secondary)", fontSize: "15px", marginBottom: "16px" }}>Understand the prescribed particulars for a GST invoice.</p>
             <Link href="/guides/gst-invoice-format-excel" style={{ color: "#10b981", fontWeight: "600", fontSize: "15px", textDecoration: "none" }}>See Invoice Format →</Link>
+          </div>
+          <div style={{ background: "rgba(244,63,94,0.05)", border: "1px solid rgba(244,63,94,0.2)", borderRadius: "16px", padding: "24px" }}>
+            <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#f43f5e", marginBottom: "8px" }}>GST State Codes</h3>
+            <p style={{ color: "var(--text-secondary)", fontSize: "15px", marginBottom: "16px" }}>Find the correct state code for your customer's GSTIN.</p>
+            <Link href="/guides/gst-state-codes-india" style={{ color: "#f43f5e", fontWeight: "600", fontSize: "15px", textDecoration: "none" }}>Find State Codes →</Link>
           </div>
         </div>
 
@@ -132,7 +137,8 @@ export default function Page() {
       <SchemaScript schema={generateSoftwareSchema({
         name: "KaroTools GST Invoice Generator",
         url: "https://karotools.in/invoice-generator",
-        description: "Create professional GST invoices instantly with auto-calculated CGST, SGST, and IGST. Download as PDF."
+        description: "Create professional GST invoices instantly with auto-calculated CGST, SGST, and IGST. Download as PDF.",
+        dateModified: "2026-08-10"
       })} />
       <SchemaScript schema={generateBreadcrumbSchema([
         { name: "Home", url: "https://karotools.in" },

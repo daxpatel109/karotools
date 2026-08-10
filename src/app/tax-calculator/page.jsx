@@ -2,7 +2,7 @@ import TaxCalculator from "../../TaxCalculator";
 import { SchemaScript, generateSoftwareSchema, generateBreadcrumbSchema, generateFAQSchema } from "../../lib/schema";
 import Link from "next/link";
 
-export const metadata = { title: "Best Income Tax Calculators For FY 2026-27 – KaroTools", description: "Choose the right tax calculator for your freelance business. Section 44ADA (Presumptive), Normal Regime (>75L), or Advance Tax liability.", alternates: { canonical: "https://karotools.in/tax-calculator" }  };
+export const metadata = { title: "Income Tax Calculator India FY 2026-27 | KaroTools", description: "Calculate your income tax for FY 2026-27 with our free India tax calculator. Estimate tax liability and understand your applicable tax calculation.", alternates: { canonical: "https://karotools.in/tax-calculator" }  };
 
 export default function Page() {
   return (
@@ -41,6 +41,15 @@ export default function Page() {
             <p style={{ color: "var(--text-primary)", fontSize: "14px", fontFamily: "monospace", margin: "0" }}>Normal Taxable Income = Gross Receipts - Actual Expenses</p>
           </div>
           
+          <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginBottom: "16px", marginTop: "32px" }}>Assumptions & Methodology</h2>
+          <ul style={{ color: "var(--text-secondary)", fontSize: "15px", lineHeight: 1.8, paddingLeft: "20px", marginBottom: "32px" }}>
+            <li style={{ marginBottom: "8px" }}><strong>Tax Slabs:</strong> Applies the latest New Tax Regime slab rates for FY 2026-27 (AY 2027-28) as per the Finance Act.</li>
+            <li style={{ marginBottom: "8px" }}><strong>Rebates:</strong> Automatically calculates Section 87A rebate for net taxable income up to ₹7,00,000 in the New Tax Regime.</li>
+            <li style={{ marginBottom: "8px" }}><strong>Cess & Surcharge:</strong> Includes the mandatory 4% Health & Education Cess. Surcharge is applied automatically if income crosses ₹50 Lakhs.</li>
+            <li style={{ marginBottom: "8px" }}><strong>Limitations:</strong> This tool provides an estimate based on basic inputs. It does not account for complex capital gains, foreign assets, or intricate set-offs of carried forward losses.</li>
+            <li style={{ marginBottom: "8px" }}><strong>Sources:</strong> Calculations are based on guidelines published by the <a href="https://incometaxindia.gov.in" target="_blank" rel="noopener noreferrer" style={{ color: "#38bdf8", textDecoration: "none" }}>Income Tax Department of India</a>.</li>
+          </ul>
+
           <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginBottom: "24px", marginTop: "32px" }}>Frequently Asked Questions</h2>
 
           <h3 style={{ fontSize: "20px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginBottom: "16px" }}>What is the difference between Old and New Tax Regimes?</h3>
@@ -63,7 +72,8 @@ export default function Page() {
       <SchemaScript schema={generateSoftwareSchema({
         name: "KaroTools Income Tax Calculators",
         url: "https://karotools.in/tax-calculator",
-        description: "Income tax calculator hub for Indian freelancers. Compute tax liability for FY 2026-27 under Normal Regime or Section 44ADA."
+        description: "Income tax calculator hub for Indian freelancers. Compute tax liability for FY 2026-27 under Normal Regime or Section 44ADA.",
+        dateModified: "2026-08-10"
       })} />
       <SchemaScript schema={generateBreadcrumbSchema([
         { name: "Home", url: "https://karotools.in" },

@@ -398,7 +398,7 @@ export default function BlogPost() {
           </div>
 
           <h3>Managing Your GST and Invoice Compliance Alongside Advance Tax</h3>
-          <p>Advance tax is just one part of a freelancer's annual compliance checklist. If your income crosses ₹20 lakhs, you also need to manage <Link href="/blog/gst-registration-threshold" style={{ color: "#38bdf8" }}>GST registration and quarterly/monthly GSTR filings</Link>. Each time you issue an invoice to an Indian client, a properly formatted GST invoice is required. The <Link href="/gst-invoice-generator" style={{ color: "#38bdf8" }}>KaroTools GST Invoice Generator</Link> creates compliant invoices with GSTIN validation, HSN/SAC codes, and CGST/SGST breakdown instantly — no account needed.</p>
+          <p>Advance tax is just one part of a freelancer's annual compliance checklist. If your income crosses ₹20 lakhs, you also need to manage <Link href="/blog/gst-registration-threshold" style={{ color: "#38bdf8" }}>GST registration and quarterly/monthly GSTR filings</Link>. Each time you issue an invoice to an Indian client, a properly formatted GST invoice is required. The <Link href="/invoice-generator" style={{ color: "#38bdf8" }}>KaroTools GST Invoice Generator</Link> creates compliant invoices with GSTIN validation, HSN/SAC codes, and CGST/SGST breakdown instantly — no account needed.</p>
 
           <p>And if you're still figuring out how much to charge your clients in the first place, start with the <Link href="/salary-vs-freelance" style={{ color: "#38bdf8" }}>Salary vs Freelance Calculator</Link> to find your correct hourly rate — the one that actually accounts for your tax obligations and business expenses. Undercharging is what forces freelancers into tight cash flow that makes advance tax payments feel painful.</p>
 
@@ -474,3 +474,4 @@ export default function BlogPost() {
 </div>
   );
 }
+

@@ -4,21 +4,21 @@ import Link from "next/link";
 import Navbar from "../../components/Navbar";
 
 export const metadata = {
-  title: "Fiverr Fee Calculator India 2026 | Fees & INR Payout",
-  description: "Calculate Fiverr fees, seller deductions and estimated take-home payout in INR. Free Fiverr Fee Calculator for Indian freelancers with Upwork comparison.",
+  title: "Upwork & Fiverr Fee Calculator India | KaroTools",
+  description: "Calculate Upwork and Fiverr fees and see how much you actually take home as an Indian freelancer. Compare platform fees and your net earnings.",
   alternates: {
     canonical: "https://karotools.in/upwork-fiverr-fee-calculator-india",
   },
   openGraph: {
-    title: "Fiverr Fee Calculator India 2026 | Fees & INR Payout",
-    description: "Calculate Fiverr fees, seller deductions and estimated take-home payout in INR. Free Fiverr Fee Calculator for Indian freelancers with Upwork comparison.",
+    title: "Upwork & Fiverr Fee Calculator India | KaroTools",
+    description: "Calculate Upwork and Fiverr fees and see how much you actually take home as an Indian freelancer. Compare platform fees and your net earnings.",
     url: "https://karotools.in/upwork-fiverr-fee-calculator-india",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fiverr Fee Calculator India 2026 | Fees & INR Payout",
-    description: "Calculate Fiverr fees, seller deductions and estimated take-home payout in INR. Free Fiverr Fee Calculator for Indian freelancers with Upwork comparison.",
+    title: "Upwork & Fiverr Fee Calculator India | KaroTools",
+    description: "Calculate Upwork and Fiverr fees and see how much you actually take home as an Indian freelancer. Compare platform fees and your net earnings.",
   },
 };
 
@@ -65,7 +65,8 @@ export default function Page() {
         name: "Fiverr Fee Calculator India",
         description: metadata.description,
         url: "https://karotools.in/upwork-fiverr-fee-calculator-india",
-        category: "FinanceApplication"
+        category: "FinanceApplication",
+        dateModified: "2026-08-10"
       })} />
       <SchemaScript schema={generateBreadcrumbSchema([
         { name: "Home", url: "https://karotools.in" },
@@ -78,7 +79,7 @@ export default function Page() {
       {/* Header */}
       <div style={{ textAlign: "center", padding: "60px 24px 20px" }}>
         <h1 style={{ fontSize: "36px", fontWeight: "800", color: "var(--text-primary)", marginBottom: "16px", letterSpacing: "-0.5px" }}>
-          Fiverr Fee Calculator India
+          Upwork & Fiverr Fee Calculator for India — Calculate Your Take-Home Pay
         </h1>
         <p style={{ fontSize: "18px", color: "var(--text-secondary)", maxWidth: "600px", margin: "0 auto" }}>
           Calculate Fiverr seller fees, estimated deductions and your take-home payout in INR.
@@ -97,50 +98,35 @@ export default function Page() {
       {/* SEO Content Section */}
       <div style={{ maxWidth: "820px", margin: "40px auto 0", padding: "0 24px 100px", position: "relative", zIndex: 1, fontFamily: "var(--font-inter, sans-serif)", lineHeight: "1.7", color: "var(--text-secondary)" }}>
         
-        {/* Example Section */}
+        {/* Structure updated per Priority 3 */}
         <h2 style={{ fontSize: "24px", fontWeight: "700", color: "var(--text-primary)", marginTop: "40px", marginBottom: "16px" }}>
-          Fiverr Fee Calculation Example in INR
+          How the Upwork and Fiverr Fee Calculator Works
         </h2>
-        <div style={{ background: "var(--bg-secondary)", padding: "20px", borderRadius: "12px", border: "1px solid var(--border-color)", marginBottom: "20px" }}>
-          <h3 style={{ margin: "0 0 16px 0", fontSize: "16px", color: "var(--text-primary)" }}>Fiverr Platform-Fee-Only Example</h3>
-          <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gap: "12px" }}>
-            <li style={{ display: "flex", justifyContent: "space-between" }}><span>Order value:</span> <strong style={{ color: "var(--text-primary)" }}>₹10,000</strong></li>
-            <li style={{ display: "flex", justifyContent: "space-between" }}><span>Fiverr platform-fee assumption (20%):</span> <strong style={{ color: "#ef4444" }}>-₹2,000</strong></li>
-            <li style={{ display: "flex", justifyContent: "space-between", borderTop: "1px solid var(--border-color)", paddingTop: "12px" }}><span>Amount after platform fee only:</span> <strong style={{ color: "var(--text-primary)", fontSize: "18px" }}>₹8,000</strong></li>
-          </ul>
-        </div>
-        <p style={{ fontSize: "14px", color: "var(--text-secondary)", background: "rgba(56, 189, 248, 0.05)", borderLeft: "4px solid #38bdf8", padding: "12px", borderRadius: "4px" }}>
-          <strong>Note:</strong> The final amount credited to your bank account may differ because of currency conversion, withdrawal fees, payment-provider charges and applicable taxes. GST, withholding, and FX markup are not included in this simplified example.
-        </p>
-
-        <h2 style={{ fontSize: "24px", fontWeight: "700", color: "var(--text-primary)", marginTop: "40px", marginBottom: "16px" }}>
-          How Fiverr Fees Work for Indian Freelancers
-        </h2>
-        <p>
-          Fiverr deducts platform fees directly from your seller earnings. This calculator estimates the amount remaining after these platform deductions. The actual amount you receive in INR can be further affected by the currency conversion rate applied at the time of withdrawal. Furthermore, your chosen withdrawal provider (such as Payoneer or direct bank transfer) may apply additional fixed or percentage-based charges. Finally, your tax treatment depends heavily on your individual circumstances. Always verify current platform pricing on the official Fiverr website and consult a qualified professional for tax-specific advice.
-        </p>
-
-        <h2 style={{ fontSize: "24px", fontWeight: "700", color: "var(--text-primary)", marginTop: "40px", marginBottom: "16px" }}>
-          How to Use the Fiverr Fee Calculator
-        </h2>
-        <ol style={{ paddingLeft: "24px", display: "grid", gap: "8px" }}>
-          <li><strong>Select Fiverr</strong> as your platform from the dropdown.</li>
+        <ol style={{ paddingLeft: "24px", display: "grid", gap: "8px", marginBottom: "24px" }}>
+          <li><strong>Select your platform</strong> (Upwork or Fiverr) from the dropdown.</li>
           <li><strong>Enter the order value</strong> of your project.</li>
           <li><strong>Choose the relevant currency</strong> where available (typically USD).</li>
-          <li><strong>Review the estimated platform deduction</strong> based on the default assumption.</li>
+          <li><strong>Review the estimated platform deduction</strong> based on the platform's standard fee structure.</li>
           <li><strong>Check the estimated amount after fees</strong> to see your net project earnings.</li>
           <li><strong>Review the estimated INR payout and assumptions</strong> including any manual exchange rates and withdrawal fees you have entered.</li>
         </ol>
 
         <h2 style={{ fontSize: "24px", fontWeight: "700", color: "var(--text-primary)", marginTop: "40px", marginBottom: "16px" }}>
-          Fiverr USD to INR Payout Calculation
+          Upwork Fees for Indian Freelancers
         </h2>
-        <p>
-          To calculate how a USD order value is converted into an INR estimate, this tool multiplies your earnings after platform fees by your manually entered exchange rate. This exchange rate is strictly an estimate. The actual provider rate you receive during withdrawal will likely include a hidden spread (FX markup) that differs from the live market rate. Additional bank or payment-provider charges may also reduce your final payout. You must manually enter the current exchange rate you expect from your provider, as this calculator does not fetch live rates.
+        <p style={{ marginBottom: "24px" }}>
+          Upwork deducts platform fees directly from your seller earnings. As of recent updates, Upwork generally applies a flat 10% fee on freelancer earnings. This calculator estimates the amount remaining after these platform deductions. Your chosen withdrawal provider (such as Payoneer, PayPal, or direct bank transfer) may apply additional fixed or percentage-based charges. Always verify current platform pricing on the official Upwork website.
         </p>
 
         <h2 style={{ fontSize: "24px", fontWeight: "700", color: "var(--text-primary)", marginTop: "40px", marginBottom: "16px" }}>
-          Fiverr Fees vs Upwork Fees
+          Fiverr Fees for Indian Freelancers
+        </h2>
+        <p style={{ marginBottom: "24px" }}>
+          Fiverr deducts platform fees directly from your seller earnings, typically applying a flat 20% platform fee. This calculator estimates the amount remaining after these platform deductions. The actual amount you receive in INR can be further affected by the currency conversion rate applied at the time of withdrawal, plus any provider-specific withdrawal fees. Always verify current platform pricing on the official Fiverr website.
+        </p>
+
+        <h2 style={{ fontSize: "24px", fontWeight: "700", color: "var(--text-primary)", marginTop: "40px", marginBottom: "16px" }}>
+          Upwork vs Fiverr: Fee Comparison
         </h2>
         <div style={{ overflowX: "auto", marginBottom: "24px" }}>
           <table style={{ width: "100%", minWidth: "600px", borderCollapse: "collapse", border: "1px solid var(--border-color)" }}>
@@ -151,7 +137,6 @@ export default function Page() {
                 <th style={{ padding: "12px", borderBottom: "1px solid var(--border-color)" }}>Example Project Value</th>
                 <th style={{ padding: "12px", borderBottom: "1px solid var(--border-color)" }}>Estimated Platform Fee</th>
                 <th style={{ padding: "12px", borderBottom: "1px solid var(--border-color)" }}>Estimated Amount After Platform Fee</th>
-                <th style={{ padding: "12px", borderBottom: "1px solid var(--border-color)" }}>Best Use</th>
               </tr>
             </thead>
             <tbody>
@@ -161,7 +146,6 @@ export default function Page() {
                 <td style={{ padding: "12px", borderBottom: "1px solid var(--border-color)" }}>$100</td>
                 <td style={{ padding: "12px", borderBottom: "1px solid var(--border-color)" }}>$20</td>
                 <td style={{ padding: "12px", borderBottom: "1px solid var(--border-color)" }}>$80</td>
-                <td style={{ padding: "12px", borderBottom: "1px solid var(--border-color)" }}>Estimating gig earnings and custom offers.</td>
               </tr>
               <tr style={{ background: "var(--bg-secondary)" }}>
                 <td style={{ padding: "12px", borderBottom: "1px solid var(--border-color)" }}><strong>Upwork</strong></td>
@@ -169,20 +153,34 @@ export default function Page() {
                 <td style={{ padding: "12px", borderBottom: "1px solid var(--border-color)" }}>$100</td>
                 <td style={{ padding: "12px", borderBottom: "1px solid var(--border-color)" }}>$10</td>
                 <td style={{ padding: "12px", borderBottom: "1px solid var(--border-color)" }}>$90</td>
-                <td style={{ padding: "12px", borderBottom: "1px solid var(--border-color)" }}>Estimating hourly or fixed-price contracts.</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <p style={{ fontSize: "14px", color: "var(--text-secondary)" }}>
+        <p style={{ fontSize: "14px", color: "var(--text-secondary)", marginBottom: "24px" }}>
           <em>Note: Both calculations are estimates based on the default assumptions in this calculator. You can use the tool above to run exact scenarios by adjusting these numbers.</em>
         </p>
 
         <h2 style={{ fontSize: "24px", fontWeight: "700", color: "var(--text-primary)", marginTop: "40px", marginBottom: "16px" }}>
-          Fiverr Fee Calculator for Indian Sellers
+          How Much Do You Take Home?
         </h2>
-        <p>
-          Indian freelancers need to carefully estimate their platform deductions because the advertised gig price is rarely the final amount deposited into an Indian bank account. By calculating platform deductions, currency conversion spreads, and withdrawal costs, you can better estimate your final INR bank payout. This helps in accurate tax planning, setting profitable project pricing, and ensuring you hit your target take-home income goals.
+        <p style={{ marginBottom: "24px" }}>
+          Indian freelancers need to carefully estimate their platform deductions because the advertised gig price is rarely the final amount deposited into an Indian bank account. To calculate how a USD order value is converted into an INR estimate, this tool multiplies your earnings after platform fees by your manually entered exchange rate. This exchange rate is strictly an estimate. The actual provider rate you receive during withdrawal will likely include a hidden spread (FX markup) that differs from the live market rate. Additional bank or payment-provider charges may also reduce your final payout.
+        </p>
+
+        <h2 style={{ fontSize: "24px", fontWeight: "700", color: "var(--text-primary)", marginTop: "40px", marginBottom: "16px" }}>
+          Example Calculation
+        </h2>
+        <div style={{ background: "var(--bg-secondary)", padding: "20px", borderRadius: "12px", border: "1px solid var(--border-color)", marginBottom: "20px" }}>
+          <h3 style={{ margin: "0 0 16px 0", fontSize: "16px", color: "var(--text-primary)" }}>Fiverr Platform-Fee-Only Example</h3>
+          <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gap: "12px" }}>
+            <li style={{ display: "flex", justifyContent: "space-between" }}><span>Order value:</span> <strong style={{ color: "var(--text-primary)" }}>₹10,000</strong></li>
+            <li style={{ display: "flex", justifyContent: "space-between" }}><span>Fiverr platform-fee assumption (20%):</span> <strong style={{ color: "#ef4444" }}>-₹2,000</strong></li>
+            <li style={{ display: "flex", justifyContent: "space-between", borderTop: "1px solid var(--border-color)", paddingTop: "12px" }}><span>Amount after platform fee only:</span> <strong style={{ color: "var(--text-primary)", fontSize: "18px" }}>₹8,000</strong></li>
+          </ul>
+        </div>
+        <p style={{ fontSize: "14px", color: "var(--text-secondary)", background: "rgba(56, 189, 248, 0.05)", borderLeft: "4px solid #38bdf8", padding: "12px", borderRadius: "4px", marginBottom: "24px" }}>
+          <strong>Note:</strong> The final amount credited to your bank account may differ because of currency conversion, withdrawal fees, payment-provider charges and applicable taxes. GST, withholding, and FX markup are not included in this simplified example.
         </p>
 
         {/* Methodology & Sources Section */}
@@ -228,6 +226,7 @@ export default function Page() {
           <li><Link href="/44ada-tax-calculator" style={{ color: "#38bdf8", textDecoration: "none" }}>→ Section 44ADA calculator</Link></li>
           <li><Link href="/gst-calculator" style={{ color: "#38bdf8", textDecoration: "none" }}>→ GST calculator</Link></li>
           <li><Link href="/invoice-generator" style={{ color: "#38bdf8", textDecoration: "none" }}>→ Invoice generator</Link></li>
+          <li><Link href="/tools/tax-calendar-india-2026" style={{ color: "#38bdf8", textDecoration: "none" }}>→ Freelancer tax calendar</Link></li>
         </ul>
 
       </div>

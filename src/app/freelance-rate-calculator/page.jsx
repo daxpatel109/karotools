@@ -3,8 +3,8 @@ import Link from "next/link";
 import RateCalculator from "../../RateCalculator";
 
 export const metadata = {
-  title: "Freelance Hourly Rate Calculator with Tax and GST | KaroTools",
-  description: "Calculate your optimal freelance hourly rate with tax, GST, and business expenses. Find your exact target rate in INR instantly.",
+  title: "Freelance Rate Calculator India | Calculate Your Hourly Rate — KaroTools",
+  description: "Calculate your ideal freelance hourly rate based on your income goal, expenses, working hours and target take-home pay. Free for Indian freelancers.",
   alternates: {
     canonical: "https://karotools.in/freelance-rate-calculator",
   },
@@ -37,7 +37,19 @@ export default function Page() {
             <p style={{ color: "var(--text-primary)", fontSize: "14px", fontFamily: "monospace", margin: "0" }}>Hourly Rate = Total Target Income / Total Billable Hours</p>
           </div>
         </div>
-        
+        <div className="glass-panel" style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: "24px", padding: "32px", marginBottom: "40px" }}>
+          <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginBottom: "16px" }}>Billable vs Non-Billable Hours</h2>
+          <p style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: 1.8, marginBottom: "16px" }}>
+            The biggest mistake new freelancers make is assuming they can bill for every hour they work. In reality, a significant portion of your time is spent on administrative tasks, marketing, client acquisition, and learning.
+          </p>
+          <ul style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: 1.8, paddingLeft: "20px", marginBottom: "0" }}>
+            <li style={{ marginBottom: "8px" }}><strong>Billable Hours:</strong> Time spent directly working on client projects that you can invoice for (e.g., coding, designing, writing).</li>
+            <li style={{ marginBottom: "8px" }}><strong>Non-Billable Hours:</strong> Time spent running your business (e.g., replying to emails, drafting proposals, doing accounting, scrolling LinkedIn for leads).</li>
+          </ul>
+          <p style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: 1.8, marginTop: "16px", marginBottom: "0", background: "rgba(56, 189, 248, 0.05)", borderLeft: "4px solid #38bdf8", padding: "12px", borderRadius: "4px" }}>
+            <strong>Pro Tip:</strong> Most full-time freelancers only average around 4 to 5 billable hours per day. Your hourly rate must be high enough to cover the non-billable hours as well.
+          </p>
+        </div>
         {/* FAQ SECTION */}
         <div style={{ marginBottom: "40px" }}>
           <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "24px", color: "var(--text-primary)" }}>Frequently Asked Questions</h2>
@@ -58,7 +70,8 @@ export default function Page() {
       <SchemaScript schema={generateSoftwareSchema({
         name: "KaroTools Freelance Rate Calculator",
         url: "https://karotools.in/freelance-rate-calculator",
-        description: "Calculate your optimal freelance hourly and daily rates based on expenses, taxes, and billable hours."
+        description: "Calculate your optimal freelance hourly and daily rates based on expenses, taxes, and billable hours.",
+        dateModified: "2026-08-10"
       })} />
       <SchemaScript schema={generateBreadcrumbSchema([
         { name: "Home", url: "https://karotools.in" },

@@ -1,8 +1,8 @@
 import { generateMetadata } from "../../../lib/seo";
 
 export const metadata = generateMetadata({
-  title: "GST Registration Limit for Freelancers India (2026)",
-  description: "Should Indian freelancers register for GST? Learn the ₹20 lakh GST registration limit, international client rules, and LUT filing for FY 2026-27.",
+  title: "GST Registration Threshold India 2026 | KaroTools",
+  description: "Understand the GST registration threshold in India, including turnover limits, eligibility and important considerations for freelancers and service providers.",
   path: "/blog/gst-registration-threshold"
 });
 

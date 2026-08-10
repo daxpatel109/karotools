@@ -105,9 +105,9 @@ export default function Guide3() {
           </table>
           
           <div style={{ background: "rgba(124,58,237,0.05)", border: "1px solid rgba(124,58,237,0.2)", borderRadius: "16px", padding: "24px", marginTop: "24px", marginBottom: "24px" }}>
-            <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#a78bfa", marginBottom: "12px" }}>Compare your taxes instantly</h3>
-            <p style={{ color: "var(--text-secondary)", fontSize: "15px", marginBottom: "16px" }}>Use our advanced tax calculator to compare your liability under the old and new tax regimes.</p>
-            <Link href="/44ada-tax-calculator" style={{ display: "inline-block", background: "linear-gradient(135deg, #8b5cf6, #6d28d9)", color: "#fff", padding: "12px 24px", borderRadius: "10px", textDecoration: "none", fontWeight: "700", fontSize: "15px" }}>Open Tax Calculator</Link>
+            <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#a78bfa", marginBottom: "12px" }}>Calculate Your Presumptive Tax</h3>
+            <p style={{ color: "var(--text-secondary)", fontSize: "15px", marginBottom: "16px" }}>Use our specialized calculator to find your exact tax liability under the presumptive scheme.</p>
+            <Link href="/44ada-tax-calculator" style={{ display: "inline-block", background: "linear-gradient(135deg, #8b5cf6, #6d28d9)", color: "#fff", padding: "12px 24px", borderRadius: "10px", textDecoration: "none", fontWeight: "700", fontSize: "15px" }}>Use the 44ADA calculator</Link>
           </div>
 
           <h2 id="magic" style={{ fontSize: "28px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans',sans-serif", color: "var(--text-primary)", marginTop: "32px", marginBottom: "16px" }}>
@@ -119,7 +119,7 @@ export default function Guide3() {
             <strong>Total Revenue / 2 = Taxable Profit</strong>
           </p>
           <p>
-            You do <strong>not</strong> need to maintain detailed books of accounts. You do <strong>not</strong> need to prove your expenses with receipts. The government simply accepts that 50% of your gross receipts were expenses, and you only pay tax on the remaining 50%.
+            You do <strong>not</strong> need to maintain detailed books of accounts. You do <strong>not</strong> need to prove your expenses with receipts. The government simply accepts that 50% of your gross receipts were expenses, and you only pay tax on the remaining 50%. If you want to check the specific conditions for who qualifies, <Link href="/blog/section-44ada-freelancers" style={{ color: "#38bdf8", textDecoration: "none" }}>read our guide to Section 44ADA eligibility</Link>.
           </p>
           
           <div style={{ background: "rgba(0,90,230,0.05)", border: "1px solid rgba(0,90,230,0.2)", borderRadius: "16px", padding: "24px", marginTop: "24px", marginBottom: "24px" }}>
@@ -128,7 +128,7 @@ export default function Guide3() {
               See exactly how much you can save. Enter your total revenue and let our tool apply the presumptive taxation treatment and the latest tax slabs automatically.
             </p>
             <Link href="/44ada-tax-calculator" style={{ display: "inline-block", background: "linear-gradient(135deg, #005ae6, #6d28d9)", color: "#fff", padding: "12px 24px", borderRadius: "10px", textDecoration: "none", fontWeight: "700", fontSize: "15px" }}>
-              Open Section 44ADA Calculator →
+              Use the 44ADA calculator →
             </Link>
           </div>
 
@@ -242,7 +242,7 @@ export default function Guide3() {
 
     
       <SchemaScript schema={generateBreadcrumbSchema([{name: "Home", url: "https://karotools.in"}, {name: "section 44ada vs normal", url: "https://karotools.in/guides/section-44ada-vs-normal"}])} />
-      <SchemaScript schema={generateArticleSchema({title: "Section 44ADA vs Normal Taxation for Freelancers", description: "Compare Section 44ADA presumptive taxation with the normal taxation scheme. Find out which is better for your freelance income.", url: "https://karotools.in/guides/section-44ada-vs-normal", datePublished: "2026-06-18"})} />
+      <SchemaScript schema={generateArticleSchema({title: "Section 44ADA vs Normal Taxation for Freelancers", description: "Compare Section 44ADA presumptive taxation with the normal taxation scheme. Find out which is better for your freelance income.", url: "https://karotools.in/guides/section-44ada-vs-normal", datePublished: "2026-06-18", dateModified: "2026-08-10"})} />
       <SchemaScript schema={generateFAQSchema([
         {
           question: "What is the limit for Section 44ADA?",

@@ -76,13 +76,21 @@ export default function Page() {
             </p>
           </div>
 
+          <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "20px", color: "var(--text-primary)" }}>Assumptions & Methodology</h2>
+          <ul style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: 1.8, paddingLeft: "20px", marginBottom: "32px" }}>
+            <li style={{ marginBottom: "8px" }}><strong>Calculation logic:</strong> Computes late fee based on days delayed. Normal returns calculate at ₹50/day. Nil returns calculate at ₹20/day.</li>
+            <li style={{ marginBottom: "8px" }}><strong>Interest rules:</strong> Interest is calculated at exactly 18% per annum, applied strictly to the unpaid net tax liability entered by the user. Formula: <code style={{ color: "var(--text-primary)", background: "#1e293b", padding: "2px 6px", borderRadius: "4px" }}>Net Tax Liability × 18% × (Days Delayed / 365)</code>.</li>
+            <li style={{ marginBottom: "8px" }}><strong>Limitations & Maximum caps:</strong> The calculator does not currently cap the maximum penalty based on aggregate turnover (e.g., ₹2,000 / ₹5,000 / ₹10,000 limits depending on AATO). It outputs the uncapped calculation for standard days delayed.</li>
+            <li style={{ marginBottom: "8px" }}><strong>Sources:</strong> Calculations are based on Section 47 (Late Fee) and Section 50 (Interest on delayed payment) of the CGST Act, 2017, as well as notifications issued by the <a href="https://www.cbic.gov.in/" target="_blank" rel="noopener noreferrer" style={{ color: "#38bdf8", textDecoration: "none" }}>Central Board of Indirect Taxes and Customs (CBIC)</a>.</li>
+          </ul>
+
           <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "20px", color: "var(--text-primary)" }}>Helpful Tools for Freelancers</h2>
           <p style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: 1.8, marginBottom: "16px" }}>
             Avoid penalties by ensuring your invoices are correct and calculating your GST accurately before filing:
           </p>
           <ul style={{ color: "#38bdf8", fontSize: "16px", lineHeight: 1.8 }}>
             <li style={{ marginBottom: "8px" }}><Link href="/gst-calculator" style={{ color: "#38bdf8", textDecoration: "none", fontWeight: "600" }}>Free GST Calculator</Link> — Calculate inclusive and exclusive GST amounts.</li>
-            <li><Link href="/gst-invoice-generator" style={{ color: "#38bdf8", textDecoration: "none", fontWeight: "600" }}>Free GST Invoice Generator</Link> — Create professional, compliant invoices in seconds.</li>
+            <li><Link href="/invoice-generator" style={{ color: "#38bdf8", textDecoration: "none", fontWeight: "600" }}>Free GST Invoice Generator</Link> — Create professional, compliant invoices in seconds.</li>
           </ul>
         </div>
 
@@ -108,7 +116,8 @@ export default function Page() {
       <SchemaScript schema={generateSoftwareSchema({
         name: "KaroTools Late GST Penalty Calculator",
         url: "https://karotools.in/late-gst-penalty-calculator",
-        description: "Calculate GST late fees and 18% interest on delayed GSTR-1, GSTR-3B, or Nil returns."
+        description: "Calculate GST late fees and 18% interest on delayed GSTR-1, GSTR-3B, or Nil returns.",
+        dateModified: "2026-08-10"
       })} />
       <SchemaScript schema={generateBreadcrumbSchema([
         { name: "Home", url: "https://karotools.in" },

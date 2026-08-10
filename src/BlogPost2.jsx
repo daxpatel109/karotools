@@ -153,7 +153,7 @@ export default function BlogPost2() {
             To perfectly utilize Section 44ADA for freelancers, you need to ensure a paper trail. Even though you don't need expense receipts, you <strong>must</strong> have proof of income.
           </p>
           <p style={pStyle}>
-            Never accept money blindly into your bank account. For every single payment you receive, generate a professional invoice. If you don't have an invoicing tool, use a free <Link href="/gst-invoice-generator" style={{ color: "#0076ff", textDecoration: "none" }}>professional invoice generator</Link> to create legally compliant PDFs. If your clients are in India, you also need to track whether you cross the ₹20 Lakh GST threshold. (You can check your liability with our <Link href="/gst-calculator" style={{ color: "#0076ff", textDecoration: "none" }}>GST calculator</Link>).
+            Never accept money blindly into your bank account. For every single payment you receive, generate a professional invoice. If you don't have an invoicing tool, use a free <Link href="/invoice-generator" style={{ color: "#0076ff", textDecoration: "none" }}>professional invoice generator</Link> to create legally compliant PDFs. If your clients are in India, you also need to track whether you cross the ₹20 Lakh GST threshold. (You can check your liability with our <Link href="/gst-calculator" style={{ color: "#0076ff", textDecoration: "none" }}>GST calculator</Link>).
           </p>
 
           <hr style={{ border: "none", borderTop: "1px solid var(--border-color)", margin: "64px 0" }} />
@@ -206,3 +206,4 @@ export default function BlogPost2() {
     </div>
   );
 }
+

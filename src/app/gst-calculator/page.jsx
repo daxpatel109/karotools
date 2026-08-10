@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export const metadata = generateMetadata({
   title: "GST Calculator for Freelancers in India | Free Tool — KaroTools",
-  description: "Calculate GST on freelance payments in seconds. Add or remove 18% GST and check your CGST, SGST, or IGST amount instantly — free and easy to use.",
+  description: "Calculate GST on freelance payments in seconds. Add or remove 18% GST and check your CGST, SGST or IGST amount for free.",
   path: "/gst-calculator",
   keywords: [
     "how to remove gst from price",
@@ -63,8 +63,20 @@ export default function Page() {
       {/* AEO Answer Block */}
       <div style={{ maxWidth: "820px", margin: "40px auto 0", padding: "0 24px", position: "relative", zIndex: 1 }}>
         
+        {/* Quick Answer AEO Block */}
+        <div style={{ background: "rgba(56, 189, 248, 0.05)", borderLeft: "4px solid #38bdf8", padding: "24px", borderRadius: "0 12px 12px 0", marginBottom: "40px" }}>
+          <h2 style={{ fontSize: "20px", fontWeight: "800", color: "var(--text-primary)", margin: "0 0 12px 0", fontFamily: "'Plus Jakarta Sans',sans-serif" }}>How to Calculate GST (Direct Formula)</h2>
+          <p style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: 1.6, margin: "0 0 16px 0" }}>
+            To add GST to a base price, multiply the base amount by the GST rate percentage. For example, to add 18% GST, multiply the base price by 1.18. To remove GST from a total price (reverse GST calculation), divide the total amount by 1.18. According to Indian tax law, this calculation applies regardless of whether the tax is split into CGST and SGST or kept as IGST.
+          </p>
+          <div style={{ background: "var(--bg-primary)", padding: "16px", borderRadius: "8px", border: "1px solid var(--glass-border)" }}>
+            <p style={{ color: "var(--text-primary)", fontSize: "15px", fontFamily: "monospace", margin: "0 0 8px 0", fontWeight: "600" }}>Adding GST: Base Price × (1 + (GST Rate / 100))</p>
+            <p style={{ color: "var(--text-primary)", fontSize: "15px", fontFamily: "monospace", margin: "0", fontWeight: "600" }}>Removing GST: Total Price / (1 + (GST Rate / 100))</p>
+          </div>
+        </div>
+
         {/* Related Guides / Tools CTA */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "16px", marginBottom: "40px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "16px", marginBottom: "40px" }}>
           <div style={{ background: "rgba(56,189,248,0.05)", border: "1px solid rgba(56,189,248,0.2)", borderRadius: "16px", padding: "24px" }}>
             <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#38bdf8", marginBottom: "8px" }}>Complete GST Guide</h3>
             <p style={{ color: "var(--text-secondary)", fontSize: "15px", marginBottom: "16px" }}>Learn when freelancers need to register for GST and how it works.</p>
@@ -74,6 +86,11 @@ export default function Page() {
             <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#a78bfa", marginBottom: "8px" }}>HSN & SAC Codes</h3>
             <p style={{ color: "var(--text-secondary)", fontSize: "15px", marginBottom: "16px" }}>Find the correct SAC code for your freelance services to use on invoices.</p>
             <Link href="/guides/hsn-sac-codes-freelancers" style={{ color: "#a78bfa", fontWeight: "600", fontSize: "15px", textDecoration: "none" }}>Find SAC Codes →</Link>
+          </div>
+          <div style={{ background: "rgba(244,63,94,0.05)", border: "1px solid rgba(244,63,94,0.2)", borderRadius: "16px", padding: "24px" }}>
+            <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#f43f5e", marginBottom: "8px" }}>Tax Calendar 2026</h3>
+            <p style={{ color: "var(--text-secondary)", fontSize: "15px", marginBottom: "16px" }}>Check all upcoming GST and Advance Tax deadlines for freelancers.</p>
+            <Link href="/tools/tax-calendar-india-2026" style={{ color: "#f43f5e", fontWeight: "600", fontSize: "15px", textDecoration: "none" }}>Check Deadlines →</Link>
           </div>
         </div>
 
@@ -150,6 +167,14 @@ export default function Page() {
             3. You are filing returns and need to verify tax amounts to avoid a <Link href="/late-gst-penalty-calculator" style={{ color: "#38bdf8", textDecoration: "none" }}>Late GST Penalty</Link>.
           </p>
 
+          <h2 style={{ fontSize: "24px", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", marginBottom: "20px", color: "var(--text-primary)" }}>Assumptions & Methodology</h2>
+          <ul style={{ color: "var(--text-secondary)", fontSize: "16px", lineHeight: 1.8, paddingLeft: "20px", marginBottom: "24px" }}>
+            <li style={{ marginBottom: "8px" }}><strong>Calculation:</strong> Uses standard percentage mathematics to compute exclusive (Base + Tax) and inclusive (Reverse GST) amounts.</li>
+            <li style={{ marginBottom: "8px" }}><strong>Tax Split:</strong> By default, intra-state transactions split the GST equally into CGST and SGST (e.g., 9% each for an 18% rate), while inter-state applies the full rate to IGST.</li>
+            <li style={{ marginBottom: "8px" }}><strong>Limitations:</strong> Does not calculate or offset Input Tax Credit (ITC). Does not calculate TDS/TCS under GST. It assumes you already know the correct GST rate for your good/service (HSN/SAC).</li>
+            <li style={{ marginBottom: "8px" }}><strong>Sources:</strong> Calculation formulas and logic are based on the Central Goods and Services Tax Act, 2017, and guidance provided on the <a href="https://www.gst.gov.in/" target="_blank" rel="noopener noreferrer" style={{ color: "#38bdf8", textDecoration: "none" }}>official GST Portal</a> and by the <a href="https://www.cbic.gov.in/" target="_blank" rel="noopener noreferrer" style={{ color: "#38bdf8", textDecoration: "none" }}>Central Board of Indirect Taxes and Customs (CBIC)</a>.</li>
+          </ul>
+
         </div>
 
         {/* FAQ SECTION */}
@@ -174,7 +199,8 @@ export default function Page() {
       <SchemaScript schema={generateSoftwareSchema({
         name: "KaroTools GST Calculator",
         url: "https://karotools.in/gst-calculator",
-        description: "Free online GST calculator for India. Add or remove GST from prices instantly with CGST/SGST/IGST breakdown."
+        description: "Free online GST calculator for India. Add or remove GST from prices instantly with CGST/SGST/IGST breakdown.",
+        dateModified: "2026-08-10"
       })} />
       <SchemaScript schema={generateBreadcrumbSchema([
         { name: "Home", url: "https://karotools.in" },

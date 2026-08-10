@@ -4,8 +4,6 @@ import { SchemaScript, generateBreadcrumbSchema } from "../../../lib/schema";
 import Link from "next/link";
 import styles from "./blog.module.css";
 
-
-
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
@@ -132,7 +130,7 @@ export default function BlogPost() {
               <span style={{ backgroundColor: "rgba(56,189,248,0.1)", color: "#38bdf8", padding: "4px 12px", borderRadius: "100px", fontSize: "12px", fontWeight: "600", textTransform: "uppercase" }}>Complete Guide</span>
             </div>
             <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", fontWeight: "800", fontFamily: "'Plus Jakarta Sans', sans-serif", lineHeight: "1.1", marginBottom: "24px", color: "#fff" }}>
-              How to Make GST Invoice Online Free in 2026 — Step-by-Step Guide
+              How to Make a GST Invoice Online in India
             </h1>
             <p style={{ fontSize: "18px", color: "var(--text-primary)", lineHeight: "1.6", marginBottom: "24px" }}>
               No software. No signup. No cost. Create a professional, GST-compliant invoice in under 2 minutes — made for Indian freelancers & small businesses.
@@ -255,7 +253,7 @@ export default function BlogPost() {
               <div className={styles.stepNum}>1</div>
               <div className={styles.stepContent}>
                 <h3>Open the Free GST Invoice Generator</h3>
-                <p>Go to <Link href="/gst-invoice-generator" style={{color: "#38bdf8"}}>karotools.in/gst-invoice-generator</Link>. The tool loads instantly in your browser — no login, no popup. You are ready to start filling in your invoice details right away.</p>
+                <p>Go to <Link href="/invoice-generator" style={{color: "#38bdf8"}}>karotools.in/invoice-generator</Link>. The tool loads instantly in your browser — no login, no popup. You are ready to start filling in your invoice details right away.</p>
               </div>
             </div>
             <div className={styles.step}>
@@ -291,7 +289,7 @@ export default function BlogPost() {
           <div className={styles.ctaBlock}>
             <h3>Ready to Make Your First GST Invoice?</h3>
             <p>Free, instant, no signup. Trusted by thousands of Indian freelancers every month.</p>
-            <Link href="/gst-invoice-generator" className={styles.ctaBtn}>📄 Create GST Invoice Free →</Link>
+            <Link href="/invoice-generator" className={styles.ctaBtn}>📄 Create GST Invoice Free →</Link>
           </div>
 
           <h3 id="gst-rate">Choosing the Right GST Rate for Your Services</h3>
@@ -377,7 +375,7 @@ export default function BlogPost() {
           <div className={styles.ctaBlock}>
             <h3>🚀 Start Using KaroTools — 100% Free, Forever</h3>
             <p>Join thousands of Indian freelancers who already make GST invoice online free — saving hours and getting paid faster.</p>
-            <Link href="/gst-invoice-generator" className={styles.ctaBtn}>📄 Create Your GST Invoice Now →</Link>
+            <Link href="/invoice-generator" className={styles.ctaBtn}>📄 Create Your GST Invoice Now →</Link>
           </div>
 
           <h3>Final Thoughts</h3>
@@ -417,3 +415,4 @@ export default function BlogPost() {
     </div>
   );
 }
+

@@ -126,30 +126,30 @@ export default function LateGSTPenalty() {
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px", marginBottom: "32px" }}>
             {/* Due Date */}
             <div>
-              <label style={{ display: "block", fontWeight: "700", color: "var(--text-primary)", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Due Date</label>
+              <label htmlFor="late-due-date" style={{ display: "block", fontWeight: "700", color: "var(--text-primary)", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Due Date</label>
               <div className="input-glow" style={{ borderRadius: "16px", border: "1px solid var(--border-color)", background: "var(--glass-bg)", display: "flex", alignItems: "center", padding: "12px 20px" }}>
                 <span style={{ fontSize: "20px", marginRight: "12px" }}>📅</span>
-                <input type="date" value={dueDate} onChange={e => setDueDate(e.target.value)} style={{ width: "100%", background: "transparent", border: "none", fontSize: "18px", color: "var(--text-primary)", outline: "none", fontWeight: "600", fontFamily: "'DM Sans',sans-serif" }} />
+                <input id="late-due-date" type="date" value={dueDate} onChange={e => setDueDate(e.target.value)} style={{ width: "100%", background: "transparent", border: "none", fontSize: "18px", color: "var(--text-primary)", outline: "none", fontWeight: "600", fontFamily: "'DM Sans',sans-serif" }} />
               </div>
             </div>
 
             {/* Filing Date */}
             <div>
-              <label style={{ display: "block", fontWeight: "700", color: "var(--text-primary)", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Actual Filing Date</label>
+              <label htmlFor="late-filing-date" style={{ display: "block", fontWeight: "700", color: "var(--text-primary)", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Actual Filing Date</label>
               <div className="input-glow" style={{ borderRadius: "16px", border: "1px solid var(--border-color)", background: "var(--glass-bg)", display: "flex", alignItems: "center", padding: "12px 20px" }}>
                 <span style={{ fontSize: "20px", marginRight: "12px" }}>📝</span>
-                <input type="date" value={filingDate} onChange={e => setFilingDate(e.target.value)} style={{ width: "100%", background: "transparent", border: "none", fontSize: "18px", color: "var(--text-primary)", outline: "none", fontWeight: "600", fontFamily: "'DM Sans',sans-serif" }} />
+                <input id="late-filing-date" type="date" value={filingDate} onChange={e => setFilingDate(e.target.value)} style={{ width: "100%", background: "transparent", border: "none", fontSize: "18px", color: "var(--text-primary)", outline: "none", fontWeight: "600", fontFamily: "'DM Sans',sans-serif" }} />
               </div>
             </div>
           </div>
 
           <div style={{ marginBottom: "32px" }}>
-            <label style={{ display: "block", fontWeight: "700", color: "var(--text-primary)", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Return Type</label>
-            <div style={{ display: "flex", background: "var(--glass-bg)", borderRadius: "16px", padding: "6px", border: "1px solid var(--glass-border)" }}>
-              <button onClick={() => setIsNil(false)} style={{ flex: 1, padding: "14px", background: !isNil ? "linear-gradient(135deg, var(--border-color), var(--glass-bg))" : "transparent", border: "none", borderRadius: "12px", color: !isNil ? "#fff" : "var(--text-secondary)", fontWeight: "700", fontSize: "15px", cursor: "pointer", transition: "all 0.3s", boxShadow: !isNil ? "0 4px 12px rgba(0,0,0,0.1)" : "none" }}>
+            <label id="return-type-label" style={{ display: "block", fontWeight: "700", color: "var(--text-primary)", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Return Type</label>
+            <div role="radiogroup" aria-labelledby="return-type-label" style={{ display: "flex", background: "var(--glass-bg)", borderRadius: "16px", padding: "6px", border: "1px solid var(--glass-border)" }}>
+              <button role="radio" aria-checked={!isNil} onClick={() => setIsNil(false)} style={{ flex: 1, padding: "14px", background: !isNil ? "linear-gradient(135deg, var(--border-color), var(--glass-bg))" : "transparent", border: "none", borderRadius: "12px", color: !isNil ? "#fff" : "var(--text-secondary)", fontWeight: "700", fontSize: "15px", cursor: "pointer", transition: "all 0.3s", boxShadow: !isNil ? "0 4px 12px rgba(0,0,0,0.1)" : "none" }}>
                 Normal Return (₹50/day)
               </button>
-              <button onClick={() => setIsNil(true)} style={{ flex: 1, padding: "14px", background: isNil ? "linear-gradient(135deg, var(--border-color), var(--glass-bg))" : "transparent", border: "none", borderRadius: "12px", color: isNil ? "#fff" : "var(--text-secondary)", fontWeight: "700", fontSize: "15px", cursor: "pointer", transition: "all 0.3s", boxShadow: isNil ? "0 4px 12px rgba(0,0,0,0.1)" : "none" }}>
+              <button role="radio" aria-checked={isNil} onClick={() => setIsNil(true)} style={{ flex: 1, padding: "14px", background: isNil ? "linear-gradient(135deg, var(--border-color), var(--glass-bg))" : "transparent", border: "none", borderRadius: "12px", color: isNil ? "#fff" : "var(--text-secondary)", fontWeight: "700", fontSize: "15px", cursor: "pointer", transition: "all 0.3s", boxShadow: isNil ? "0 4px 12px rgba(0,0,0,0.1)" : "none" }}>
                 Nil Return (₹20/day)
               </button>
             </div>
@@ -157,10 +157,10 @@ export default function LateGSTPenalty() {
 
           {!isNil && (
             <div>
-              <label style={{ display: "block", fontWeight: "700", color: "var(--text-primary)", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Net Tax Liability (₹)</label>
+              <label htmlFor="late-liability" style={{ display: "block", fontWeight: "700", color: "var(--text-primary)", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Net Tax Liability (₹)</label>
               <div className="input-glow" style={{ borderRadius: "16px", border: "1px solid var(--border-color)", background: "var(--glass-bg)", display: "flex", alignItems: "center", padding: "8px 20px" }}>
                 <span style={{ fontSize: "24px", color: "var(--text-secondary)", fontWeight: "500", marginRight: "12px" }}>₹</span>
-                <input type="number" inputMode="decimal" value={liability} onChange={e => setLiability(e.target.value)} placeholder="0.00" style={{ width: "100%", padding: "14px 0", background: "transparent", border: "none", fontSize: "28px", color: "var(--text-primary)", outline: "none", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", letterSpacing: "-0.02em" }} />
+                <input id="late-liability" type="number" inputMode="decimal" value={liability} onChange={e => setLiability(e.target.value)} placeholder="0.00" style={{ width: "100%", padding: "14px 0", background: "transparent", border: "none", fontSize: "28px", color: "var(--text-primary)", outline: "none", fontWeight: "800", fontFamily: "'Plus Jakarta Sans',sans-serif", letterSpacing: "-0.02em" }} />
               </div>
               <p style={{ marginTop: "12px", fontSize: "13px", color: "var(--text-secondary)" }}>*Interest of 18% p.a. is calculated on this unpaid tax amount.</p>
             </div>

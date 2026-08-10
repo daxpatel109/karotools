@@ -326,7 +326,7 @@ export default function BlogPost() {
           </div>
 
           <div className={styles.highlightBox} style={{ borderLeft: "4px solid #c084fc" }}>
-            <p style={{ color: "#c084fc" }}>💡 <strong>Pro Tip:</strong> Start adding your Udyam Registration Number (URN) to every invoice you send. This one change signals to the client's finance team that the MSME 45-day payment rule applies, and their accounts payable department will automatically flag your invoice for priority processing to avoid a tax disallowance. Use our <Link href="/gst-invoice-generator" style={{ color: "#c084fc", textDecoration: "underline" }}>free GST Invoice Generator</Link> which has a built-in Udyam/MSME number field.</p>
+            <p style={{ color: "#c084fc" }}>💡 <strong>Pro Tip:</strong> Start adding your Udyam Registration Number (URN) to every invoice you send. This one change signals to the client's finance team that the MSME 45-day payment rule applies, and their accounts payable department will automatically flag your invoice for priority processing to avoid a tax disallowance. Use our <Link href="/invoice-generator" style={{ color: "#c084fc", textDecoration: "underline" }}>free GST Invoice Generator</Link> which has a built-in Udyam/MSME number field.</p>
           </div>
 
           <h2 id="payment-timeline">⏱ The Payment Timeline: Day-by-Day What Happens</h2>
@@ -461,3 +461,4 @@ export default function BlogPost() {
 </div>
   );
 }
+

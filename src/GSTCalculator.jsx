@@ -324,10 +324,10 @@ export default function GSTCalculator() {
         <div className="glass-panel" style={{ borderRadius: "28px", padding: "40px", marginBottom: "32px", animation: "fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1)" }}>
 
           <div style={{ marginBottom: "32px" }}>
-            <label style={{ display: "block", fontWeight: "700", color: "var(--text-primary)", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Amount (₹)</label>
+            <label htmlFor="gst-amount" style={{ display: "block", fontWeight: "700", color: "var(--text-primary)", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Amount (₹)</label>
             <div className="input-glow" style={{ borderRadius: "16px", border: "1px solid var(--border-color)", background: "var(--glass-bg)", display: "flex", alignItems: "center", padding: "4px 20px" }}>
               <span style={{ fontSize: "24px", color: "var(--text-secondary)", fontWeight: "500", marginRight: "12px" }}>₹</span>
-              <input type="number" inputMode="decimal" value={amount}
+              <input id="gst-amount" type="number" inputMode="decimal" value={amount}
                 onWheel={(e) => e.target.blur()}
                 onChange={e => {
                   const val = e.target.value;
@@ -379,8 +379,9 @@ export default function GSTCalculator() {
 
             {isCustom && (
               <div style={{ marginTop: "16px", animation: "fadeIn 0.3s ease" }}>
+                <label htmlFor="gst-custom-rate" style={{ display: "none" }}>Custom GST Rate</label>
                 <div className="input-glow" style={{ borderRadius: "14px", border: "1px solid rgba(56, 189, 248, 0.4)", background: "rgba(0,118,255, 0.05)", display: "flex", alignItems: "center", padding: "0 16px" }}>
-                  <input type="number" inputMode="decimal" value={customRate}
+                  <input id="gst-custom-rate" aria-label="Custom GST Rate" type="number" inputMode="decimal" value={customRate}
                     onWheel={(e) => e.target.blur()}
                     onChange={e => {
                       const val = e.target.value;
@@ -400,9 +401,9 @@ export default function GSTCalculator() {
           </div>
 
           <div style={{ marginBottom: "32px" }}>
-            <label style={{ display: "block", fontWeight: "700", color: "var(--text-primary)", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Compensation Cess (Optional)</label>
+            <label htmlFor="gst-cess-rate" style={{ display: "block", fontWeight: "700", color: "var(--text-primary)", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Compensation Cess (Optional)</label>
             <div className="input-glow" style={{ borderRadius: "16px", border: "1px solid var(--border-color)", background: "var(--glass-bg)", display: "flex", alignItems: "center", padding: "4px 20px" }}>
-              <input type="number" inputMode="decimal" value={cessRate === 0 ? "" : cessRate}
+              <input id="gst-cess-rate" type="number" inputMode="decimal" value={cessRate === 0 ? "" : cessRate}
                 onWheel={(e) => e.target.blur()}
                 onChange={e => {
                   const val = e.target.value;

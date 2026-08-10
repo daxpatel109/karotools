@@ -5,8 +5,8 @@ import { generateFAQSchema, SchemaScript, generateSoftwareSchema, generateBreadc
 import Link from "next/link";
 
 export const metadata = generateMetadata({
-  title: "Reverse GST Calculator India: How to Remove GST from Price",
-  description: "Learn how to remove GST from a price or calculate GST inclusive price. Free reverse GST calculator India for 18%, 12%, and 5% tax slabs.",
+  title: "GST Calculator for Freelancers in India | Free Tool — KaroTools",
+  description: "Calculate GST on freelance payments in seconds. Add or remove 18% GST and check your CGST, SGST, or IGST amount instantly — free and easy to use.",
   path: "/gst-calculator",
   keywords: [
     "how to remove gst from price",

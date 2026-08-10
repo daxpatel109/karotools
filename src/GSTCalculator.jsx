@@ -9,7 +9,7 @@ export default function GSTCalculator() {
   const params = useParams();
   const keyword = params?.keyword;
 
-  let seoH1 = "GST Calculator";
+  let seoH1 = "GST Calculator for Freelancers — Add or Remove GST";
 
   if (keyword === "reverse-gst-calculator") {
     seoH1 = "Reverse GST Calculator";

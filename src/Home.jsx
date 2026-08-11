@@ -661,7 +661,15 @@ export default function Home() {
 </div>
               </div>
               <p style={{ fontSize: 14, color: "var(--text-secondary)", lineHeight: 1.75, maxWidth: 300 }}>Free online GST calculator, invoice generator and business tools for Indian freelancers and small businesses. No login required.</p>
-              <p style={{ fontSize: 12, color: "var(--text-secondary)", marginTop: 16 }}>© 2026 KaroTools.in — Made with ❤️ in India 🇮🇳</p>
+              <div style={{ display: "flex", gap: "16px", marginTop: "24px" }}>
+                <a href="https://www.instagram.com/karotools.in/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style={{ color: "var(--text-secondary)", transition: "color 0.2s" }} className="footer-link">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61590877226968" target="_blank" rel="noopener noreferrer" aria-label="Facebook" style={{ color: "var(--text-secondary)", transition: "color 0.2s" }} className="footer-link">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                </a>
+              </div>
+              <p style={{ fontSize: 12, color: "var(--text-secondary)", marginTop: 24 }}>© 2026 KaroTools.in — Made with ❤️ in India 🇮🇳</p>
               {/* Buy Me A Coffee / UPI Link - Hidden for now
               <a href="https://buymeacoffee.com/" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: 24, padding: "10px 20px", background: "#f59e0b", color: "#1e293b", fontWeight: 800, fontFamily: "'Plus Jakarta Sans',sans-serif", borderRadius: 12, textDecoration: "none", fontSize: 14, boxShadow: "0 4px 14px rgba(245,158,11,0.2)" }}>
                 ☕ Buy Me A Coffee

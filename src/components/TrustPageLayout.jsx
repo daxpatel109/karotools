@@ -197,7 +197,8 @@ export default function TrustPageLayout({
             justifyContent: "center",
             gap: "24px",
             fontSize: "14px",
-            fontWeight: "500"
+            fontWeight: "500",
+            marginBottom: "32px"
           }}>
             <Link href="/about" className="trust-link" style={{ color: "var(--text-secondary)", textDecoration: "none" }}>About</Link>
             <Link href="/methodology" className="trust-link" style={{ color: "var(--text-secondary)", textDecoration: "none" }}>Methodology</Link>
@@ -206,6 +207,15 @@ export default function TrustPageLayout({
             <Link href="/disclaimer" className="trust-link" style={{ color: "var(--text-secondary)", textDecoration: "none" }}>Disclaimer</Link>
             <Link href="/privacy-policy" className="trust-link" style={{ color: "var(--text-secondary)", textDecoration: "none" }}>Privacy Policy</Link>
             <Link href="/contact" className="trust-link" style={{ color: "var(--text-secondary)", textDecoration: "none" }}>Contact</Link>
+          </div>
+
+          <div style={{ display: "flex", justifyContent: "center", gap: "16px", marginBottom: "16px" }}>
+            <a href="https://www.instagram.com/karotools.in/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style={{ color: "var(--text-secondary)" }} className="trust-link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61590877226968" target="_blank" rel="noopener noreferrer" aria-label="Facebook" style={{ color: "var(--text-secondary)" }} className="trust-link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
           </div>
         </div>
 

@@ -202,7 +202,7 @@ function PopularToolCard({ item, index }) {
 }
 
 // ── Main Home ─────────────────────────────────────────────────────
-export default function Home() {
+export default function Home({ children }) {
   const [search, setSearch] = useState("");
   const [scrolled, setScrolled] = useState(false);
   const [activeFilter, setActiveFilter] = useState("All");
@@ -645,6 +645,9 @@ export default function Home() {
           </div>
         </Reveal>
       </section>
+
+      {/* ── PAGE CONTENT PASSED FROM page.jsx ────────────────── */}
+      {children}
 
       {/* ── FOOTER ──────────────────────────────────────────── */}
       <footer style={{ position: "relative", zIndex: 1, borderTop: "1px solid var(--glass-bg)", padding: "56px 5vw 32px" }}>

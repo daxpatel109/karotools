@@ -27,8 +27,8 @@ export const metadata = {
 export default function Page() {
   return (
     <>
-      <Home />
-      <div style={{ background: "var(--bg-primary)", color: "var(--text-primary)", padding: "0 24px 64px 24px", fontFamily: "'Inter', sans-serif" }}>
+      <Home>
+        <div style={{ background: "var(--bg-primary)", color: "var(--text-primary)", padding: "0 24px 64px 24px", fontFamily: "'Inter', sans-serif" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           
           {/* AEO Block */}
@@ -92,6 +92,7 @@ export default function Page() {
 
         </div>
       </div>
+      </Home>
       <SchemaScript schema={generateOrganizationSchema()} />
     </>
   );

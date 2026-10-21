@@ -71,6 +71,7 @@ export default function RootLayout({ children }) {
         
         <style dangerouslySetInnerHTML={{ __html: `
           .adsbygoogle { min-height: 100px !important; display: block; }
+          .google-anno-skip { break-inside: avoid; }
         `}} />
 
         <script dangerouslySetInnerHTML={{

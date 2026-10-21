@@ -178,7 +178,7 @@ export default function Section44ADACalculator() {
           </p>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(350px, 100%), 1fr))", gap: "32px" }}>
+        <div className="google-anno-skip" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(350px, 100%), 1fr))", gap: "32px" }}>
           
           {/* Input Section */}
           <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
@@ -382,6 +382,37 @@ export default function Section44ADACalculator() {
                       </div>
                     );
                   })()}
+                </div>
+
+                {/* Assisted Filing Affiliate / Partner CTA */}
+                <div style={{ marginTop: "20px", background: "rgba(16, 185, 129, 0.08)", border: "1px solid rgba(16, 185, 129, 0.2)", borderRadius: "16px", padding: "20px" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "12px" }}>
+                    <div>
+                      <h4 style={{ margin: "0 0 4px 0", fontSize: "15px", fontWeight: "700", color: "#10b981" }}>
+                        Need help filing your ITR-4?
+                      </h4>
+                      <p style={{ margin: 0, fontSize: "13px", color: "var(--text-secondary)" }}>
+                        Get your Section 44ADA return verified and filed by a tax expert.
+                      </p>
+                    </div>
+                    <a
+                      href={process.env.NEXT_PUBLIC_AFFILIATE_TAX_URL || "https://cleartax.in"}
+                      target="_blank"
+                      rel="noopener noreferrer sponsored"
+                      style={{
+                        background: "#10b981",
+                        color: "#0f172a",
+                        fontWeight: "700",
+                        fontSize: "13px",
+                        padding: "8px 16px",
+                        borderRadius: "8px",
+                        textDecoration: "none",
+                        whiteSpace: "nowrap"
+                      }}
+                    >
+                      File with Expert →
+                    </a>
+                  </div>
                 </div>
 
               </div>

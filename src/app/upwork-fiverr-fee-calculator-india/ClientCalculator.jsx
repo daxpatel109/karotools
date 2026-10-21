@@ -106,7 +106,7 @@ export default function ClientCalculator() {
   const potentialSavings = maxINR - estimatedFinalINR;
 
   return (
-    <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "clamp(20px, 5vw, 40px) clamp(16px, 4vw, 24px)", display: "flex", flexWrap: "wrap", gap: "clamp(16px, 4vw, 32px)", fontFamily: "var(--font-inter, sans-serif)", overflowX: "hidden" }}>
+    <div className="google-anno-skip" style={{ maxWidth: "1200px", margin: "0 auto", padding: "clamp(20px, 5vw, 40px) clamp(16px, 4vw, 24px)", display: "flex", flexWrap: "wrap", gap: "clamp(16px, 4vw, 32px)", fontFamily: "var(--font-inter, sans-serif)", overflowX: "hidden" }}>
       {/* Input Section */}
       <div style={{ flex: "1 1 320px", background: "var(--bg-secondary)", padding: "clamp(16px, 5vw, 32px)", borderRadius: "16px", border: "1px solid var(--border-color)", minWidth: 0 }}>
         <h2 style={{ fontSize: "20px", fontWeight: "700", color: "var(--text-primary)", marginBottom: "24px" }}>Project & Fee Assumptions</h2>
@@ -278,24 +278,51 @@ export default function ClientCalculator() {
           </div>
         </div>
 
-        {/* Savings Card */}
+        {/* Savings Card & Smart Routing */}
         {potentialSavings > 50 && (
-          <div style={{ background: "rgba(16, 185, 129, 0.1)", border: "1px solid rgba(16, 185, 129, 0.2)", padding: "20px", borderRadius: "12px" }}>
+          <div style={{ background: "rgba(16, 185, 129, 0.08)", border: "1px solid rgba(16, 185, 129, 0.25)", padding: "20px", borderRadius: "12px" }}>
             <h3 style={{ color: "#10b981", fontSize: "16px", fontWeight: "700", marginBottom: "8px", display: "flex", alignItems: "center", gap: "8px" }}>
               <span role="img" aria-label="bulb">💡</span> What you could save
             </h3>
-            <p style={{ color: "var(--text-secondary, #94a3b8)", fontSize: "14px", lineHeight: "1.5" }}>
-              You could save approximately <strong>₹{Math.round(potentialSavings).toLocaleString("en-IN")}</strong> compared with this payout method, based on the lowest estimated payout-cost method.
+            <p style={{ color: "var(--text-secondary, #94a3b8)", fontSize: "14px", lineHeight: "1.5", marginBottom: "14px" }}>
+              You could save approximately <strong style={{ color: "#34d399" }}>₹{Math.round(potentialSavings).toLocaleString("en-IN")}</strong> by switching to a low-markup payout channel (like Wise or Skydo) instead of higher markup bank/PayPal transfers.
             </p>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", alignItems: "center", paddingTop: "8px", borderTop: "1px solid rgba(16, 185, 129, 0.15)" }}>
+              <a
+                href={process.env.NEXT_PUBLIC_AFFILIATE_FOREX_URL || "https://wise.com"}
+                target="_blank"
+                rel="noopener noreferrer sponsored"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  background: "#10b981",
+                  color: "#0f172a",
+                  fontWeight: "700",
+                  fontSize: "13px",
+                  padding: "8px 14px",
+                  borderRadius: "8px",
+                  textDecoration: "none"
+                }}
+              >
+                Compare Payout Channels →
+              </a>
+              <span style={{ fontSize: "12px", color: "var(--text-secondary, #94a3b8)" }}>
+                Zero hidden FX fees • Real mid-market rates
+              </span>
+            </div>
           </div>
         )}
         {potentialSavings <= 50 && (
-          <div style={{ background: "rgba(16, 185, 129, 0.1)", border: "1px solid rgba(16, 185, 129, 0.2)", padding: "20px", borderRadius: "12px" }}>
+          <div style={{ background: "rgba(16, 185, 129, 0.08)", border: "1px solid rgba(16, 185, 129, 0.2)", padding: "20px", borderRadius: "12px" }}>
             <h3 style={{ color: "#10b981", fontSize: "16px", fontWeight: "700", marginBottom: "8px", display: "flex", alignItems: "center", gap: "8px" }}>
               <span role="img" aria-label="check">✅</span> Optimal Payout Method
             </h3>
-            <p style={{ color: "var(--text-secondary, #94a3b8)", fontSize: "14px", lineHeight: "1.5" }}>
+            <p style={{ color: "var(--text-secondary, #94a3b8)", fontSize: "14px", lineHeight: "1.5", marginBottom: "10px" }}>
               This appears to be the lowest estimated payout-cost method based on your assumptions.
+            </p>
+            <p style={{ fontSize: "12px", color: "var(--text-secondary, #94a3b8)", margin: 0 }}>
+              💡 Invoicing international clients directly? Use our free <a href="/invoice-generator" style={{ color: "#38bdf8", textDecoration: "underline" }}>GST Invoice Generator</a> with export LUT declaration to retain 100% of your earnings.
             </p>
           </div>
         )}

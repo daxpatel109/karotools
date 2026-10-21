@@ -442,7 +442,7 @@ export default function InvoiceGenerator() {
       {/* Navbar */}
       <Navbar />
 
-      <div className="workspace-layout">
+      <div className="workspace-layout google-anno-skip">
           
           {/* LEFT: Editor Sidebar */}
           <div className="editor-sidebar" style={{ "--sidebar-width": `${sidebarWidth}px` }}>

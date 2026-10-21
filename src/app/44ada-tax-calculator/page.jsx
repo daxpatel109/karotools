@@ -46,6 +46,18 @@ export default function Page() {
             <p style={{ color: "var(--text-secondary)", fontSize: "15px", marginBottom: "16px" }}>Learn about the ₹50L/₹75L limits and check if your profession qualifies.</p>
             <Link href="/blog/section-44ada-freelancers" style={{ color: "#ec4899", fontWeight: "600", fontSize: "15px", textDecoration: "none" }}>read our guide to Section 44ADA eligibility →</Link>
           </div>
+          <div style={{ background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.2)", borderRadius: "16px", padding: "24px" }}>
+            <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#10b981", marginBottom: "8px" }}>Need ITR-4 Filing Help?</h3>
+            <p style={{ color: "var(--text-secondary)", fontSize: "15px", marginBottom: "16px" }}>Consult a certified tax expert or e-file your presumptive return seamlessly.</p>
+            <a
+              href={process.env.NEXT_PUBLIC_AFFILIATE_TAX_URL || "https://cleartax.in"}
+              target="_blank"
+              rel="noopener noreferrer sponsored"
+              style={{ color: "#10b981", fontWeight: "600", fontSize: "15px", textDecoration: "none" }}
+            >
+              Get Assisted Filing Support →
+            </a>
+          </div>
         </div>
 
         <div className="glass-panel" style={{ background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: "24px", padding: "32px", marginBottom: "40px" }}>

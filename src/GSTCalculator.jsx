@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import Navbar from "./components/Navbar";
 import { useParams } from "next/navigation";
 import { sendGAEvent } from "@next/third-parties/google";
@@ -321,7 +322,7 @@ export default function GSTCalculator() {
           <p style={{ color: "var(--text-secondary)", fontSize: "16px", fontWeight: "400", letterSpacing: "0.01em" }}>Professional GST calculation for Indian businesses</p>
         </div>
 
-        <div className="glass-panel" style={{ borderRadius: "28px", padding: "40px", marginBottom: "32px", animation: "fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1)" }}>
+        <div className="glass-panel google-anno-skip" style={{ borderRadius: "28px", padding: "40px", marginBottom: "32px", animation: "fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1)" }}>
 
           <div style={{ marginBottom: "32px" }}>
             <label htmlFor="gst-amount" style={{ display: "block", fontWeight: "700", color: "var(--text-primary)", marginBottom: "12px", fontSize: "13px", letterSpacing: "0.1em", textTransform: "uppercase" }}>Amount (₹)</label>
@@ -644,6 +645,16 @@ export default function GSTCalculator() {
                 }}>
                 🗑 Clear All
               </button>
+            </div>
+
+            {/* Bridge to Free Invoice Generator */}
+            <div style={{ marginTop: "24px", textAlign: "center", background: "rgba(0,118,255,0.05)", border: "1px dashed rgba(56,189,248,0.25)", borderRadius: "16px", padding: "18px" }}>
+              <p style={{ margin: "0 0 8px 0", fontSize: "14px", color: "var(--text-secondary)" }}>
+                Need to bill this amount to a client?
+              </p>
+              <Link href="/invoice-generator" style={{ color: "#38bdf8", fontWeight: "700", fontSize: "14px", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "6px" }}>
+                Generate Free GST Invoice with UPI QR →
+              </Link>
             </div>
           </div>
         )}

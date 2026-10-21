@@ -35,6 +35,22 @@ export default function InvoiceGenerator() {
   const [bank, setBank] = useState({ accName: "", accNo: "", ifsc: "", upi: "" });
   const [items, setItems] = useState([emptyItem()]);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [currency, setCurrency] = useState("INR");
+  const [isExportLUT, setIsExportLUT] = useState(false);
+  const [lutArn, setLutArn] = useState("");
+  const [savedClients, setSavedClients] = useState([]);
+  const [selectedClientId, setSelectedClientId] = useState("");
+  const [saveNotification, setSaveNotification] = useState("");
+
+  const CURRENCY_SYMBOLS = {
+    INR: "₹",
+    USD: "$",
+    EUR: "€",
+    GBP: "£",
+    AED: "AED ",
+    CAD: "C$"
+  };
+  const currSymbol = CURRENCY_SYMBOLS[currency] || "₹";
 
   useEffect(() => {
     const savedStr = localStorage.getItem("inv_data_v2");
@@ -48,6 +64,13 @@ export default function InvoiceGenerator() {
     if (parsed?.items && Array.isArray(parsed.items) && parsed.items.length > 0) {
       setItems(parsed.items.map(item => ({ ...emptyItem(), ...item })));
     }
+    if (parsed?.currency) setCurrency(parsed.currency);
+    if (parsed?.isExportLUT !== undefined) setIsExportLUT(parsed.isExportLUT);
+    if (parsed?.lutArn) setLutArn(parsed.lutArn);
+    try {
+      const rawClients = localStorage.getItem("inv_saved_clients");
+      if (rawClients) setSavedClients(JSON.parse(rawClients));
+    } catch { /* ignore */ }
     setIsLoaded(true);
   }, []);
   const [transType, setTransType] = useState("intra");
@@ -97,9 +120,9 @@ export default function InvoiceGenerator() {
 
   useEffect(() => {
     if (isLoaded) {
-      localStorage.setItem("inv_data_v2", JSON.stringify({ invoice, seller, buyer, bank, items }));
+      localStorage.setItem("inv_data_v2", JSON.stringify({ invoice, seller, buyer, bank, items, currency, isExportLUT, lutArn }));
     }
-  }, [invoice, seller, buyer, bank, items, isLoaded]);
+  }, [invoice, seller, buyer, bank, items, currency, isExportLUT, lutArn, isLoaded]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -139,7 +162,68 @@ export default function InvoiceGenerator() {
     }
   };
 
-  const lineResults = items.map(item => calcLineItem(item.qty, item.rate, item.discount, item.gst, transType === "inter", item.desc, item.hsn));
+  const handleSaveClient = () => {
+    if (!buyer.name || !buyer.name.trim()) {
+      alert("Please enter a Client Name before saving.");
+      return;
+    }
+    const newClient = {
+      id: "client_" + Date.now(),
+      name: buyer.name.trim(),
+      address: buyer.address || "",
+      state: buyer.state || "Select State",
+      gstin: buyer.gstin || "",
+      email: buyer.email || "",
+      phone: buyer.phone || "",
+      deliveryAddressToggle: !!buyer.deliveryAddressToggle,
+      deliveryAddress: buyer.deliveryAddress || ""
+    };
+    const existingIndex = savedClients.findIndex(c => c.name.toLowerCase() === newClient.name.toLowerCase());
+    let updated;
+    if (existingIndex >= 0) {
+      updated = [...savedClients];
+      updated[existingIndex] = { ...newClient, id: savedClients[existingIndex].id };
+    } else {
+      updated = [...savedClients, newClient];
+    }
+    setSavedClients(updated);
+    setSelectedClientId(existingIndex >= 0 ? savedClients[existingIndex].id : newClient.id);
+    localStorage.setItem("inv_saved_clients", JSON.stringify(updated));
+    setSaveNotification(`Saved "${newClient.name}"!`);
+    setTimeout(() => setSaveNotification(""), 3500);
+  };
+
+  const handleSelectClient = (id) => {
+    setSelectedClientId(id);
+    if (!id) return;
+    const found = savedClients.find(c => c.id === id);
+    if (found) {
+      setBuyer({
+        name: found.name,
+        address: found.address,
+        state: found.state,
+        gstin: found.gstin,
+        email: found.email,
+        phone: found.phone,
+        deliveryAddressToggle: found.deliveryAddressToggle,
+        deliveryAddress: found.deliveryAddress
+      });
+    }
+  };
+
+  const handleDeleteClient = () => {
+    if (!selectedClientId) return;
+    const found = savedClients.find(c => c.id === selectedClientId);
+    if (!found) return;
+    if (window.confirm(`Delete "${found.name}" from your saved clients?`)) {
+      const updated = savedClients.filter(c => c.id !== selectedClientId);
+      setSavedClients(updated);
+      setSelectedClientId("");
+      localStorage.setItem("inv_saved_clients", JSON.stringify(updated));
+    }
+  };
+
+  const lineResults = items.map(item => calcLineItem(item.qty, item.rate, item.discount, isExportLUT ? 0 : item.gst, transType === "inter" || isExportLUT, item.desc, item.hsn));
   const calculatedTotals = calcInvoiceTotals(lineResults);
 
   const exportCSV = () => {
@@ -478,6 +562,58 @@ export default function InvoiceGenerator() {
 
             <div style={sec}>
               <h2 style={{ fontSize: "18px", fontWeight: "700", color: "var(--text-primary)", marginBottom: "20px" }}>1. Invoice Details</h2>
+              
+              {/* Currency & Export under LUT Bar */}
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "16px", marginBottom: "20px", padding: "16px", background: "var(--glass-bg)", borderRadius: "12px", border: "1px solid var(--border-color)", alignItems: "flex-start" }}>
+                <div style={{ flex: "1 1 180px", minWidth: "160px" }}>
+                  <label htmlFor="inv-currency" style={lbl}>Currency</label>
+                  <select
+                    id="inv-currency"
+                    value={currency}
+                    onChange={e => setCurrency(e.target.value)}
+                    style={{ ...inp, padding: "10px 14px", cursor: "pointer" }}
+                  >
+                    <option value="INR">INR (₹) - Indian Rupee</option>
+                    <option value="USD">USD ($) - US Dollar</option>
+                    <option value="EUR">EUR (€) - Euro</option>
+                    <option value="GBP">GBP (£) - British Pound</option>
+                    <option value="AED">AED - UAE Dirham</option>
+                    <option value="CAD">CAD (C$) - Canadian Dollar</option>
+                  </select>
+                </div>
+
+                <div style={{ flex: "2 1 240px", paddingTop: "4px" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                    <input
+                      type="checkbox"
+                      id="export-lut-toggle"
+                      checked={isExportLUT}
+                      onChange={e => setIsExportLUT(e.target.checked)}
+                      style={{ width: "16px", height: "16px", cursor: "pointer" }}
+                    />
+                    <label htmlFor="export-lut-toggle" style={{ fontSize: "13px", fontWeight: "600", color: isExportLUT ? "#38bdf8" : "var(--text-primary)", cursor: "pointer", userSelect: "none" }}>
+                      Export of Services under LUT (Zero GST)
+                    </label>
+                  </div>
+                  <div style={{ fontSize: "11px", color: "var(--text-secondary)", marginTop: "4px", paddingLeft: "24px", lineHeight: "1.4" }}>
+                    Applies 0% IGST & adds statutory export declaration under Rule 96A
+                  </div>
+                </div>
+              </div>
+
+              {isExportLUT && (
+                <div style={{ marginBottom: "20px", padding: "14px 16px", background: "rgba(0,118,255,0.06)", border: "1px dashed rgba(56,189,248,0.3)", borderRadius: "10px" }}>
+                  <label htmlFor="lut-arn" style={{ ...lbl, color: "#38bdf8" }}>LUT ARN / Reference No (Optional)</label>
+                  <input
+                    id="lut-arn"
+                    placeholder="e.g. AD240124000123A (From GST Portal)"
+                    value={lutArn}
+                    onChange={e => setLutArn(e.target.value)}
+                    style={{ ...inp, padding: "10px 14px" }}
+                  />
+                </div>
+              )}
+
               <div className="split-3-col">
                 <div><label htmlFor="inv-no" style={lbl}>Invoice No</label><input id="inv-no" value={invoice.number} onChange={e => setInvoice({...invoice, number: e.target.value})} style={inp}/></div>
                 <div><label htmlFor="inv-date" style={lbl}>Invoice Date</label><input id="inv-date" type="date" value={invoice.date} onChange={e => setInvoice({...invoice, date: e.target.value})} style={inp}/></div>
@@ -522,7 +658,52 @@ export default function InvoiceGenerator() {
             </div>
 
             <div style={sec}>
-              <h2 style={{ fontSize: "18px", fontWeight: "700", color: "var(--text-primary)", marginBottom: "20px" }}>3. Client Details</h2>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px", flexWrap: "wrap", gap: "10px" }}>
+                <h2 style={{ fontSize: "18px", fontWeight: "700", color: "var(--text-primary)", margin: 0 }}>3. Client Details</h2>
+                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                  {saveNotification && (
+                    <span style={{ fontSize: "12px", color: "#34d399", fontWeight: "600", background: "rgba(16,185,129,0.1)", padding: "4px 8px", borderRadius: "6px" }}>
+                      ✓ {saveNotification}
+                    </span>
+                  )}
+                  <button
+                    type="button"
+                    onClick={handleSaveClient}
+                    style={{ background: "rgba(16,185,129,0.1)", border: "1px solid rgba(16,185,129,0.3)", color: "#34d399", padding: "6px 12px", borderRadius: "8px", fontSize: "12px", fontWeight: "600", cursor: "pointer", display: "inline-flex", alignItems: "center", gap: "4px" }}
+                    title="Save this client to browser storage for 1-click loading next time"
+                  >
+                    💾 Save Client
+                  </button>
+                </div>
+              </div>
+
+              {savedClients.length > 0 && (
+                <div style={{ marginBottom: "16px", padding: "12px 14px", background: "rgba(0,118,255,0.05)", borderRadius: "10px", border: "1px solid rgba(0,118,255,0.15)", display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap" }}>
+                  <label htmlFor="saved-client-select" style={{ fontSize: "12px", color: "var(--text-secondary)", fontWeight: "600", flexShrink: 0 }}>Preset:</label>
+                  <select
+                    id="saved-client-select"
+                    value={selectedClientId}
+                    onChange={e => handleSelectClient(e.target.value)}
+                    style={{ ...inp, width: "auto", flex: "1 1 180px", padding: "6px 10px", fontSize: "12px" }}
+                  >
+                    <option value="">-- Load a saved client --</option>
+                    {savedClients.map(c => (
+                      <option key={c.id} value={c.id}>{c.name} {c.state && c.state !== "Select State" ? `(${c.state})` : ""}</option>
+                    ))}
+                  </select>
+                  {selectedClientId && (
+                    <button
+                      type="button"
+                      onClick={handleDeleteClient}
+                      style={{ background: "rgba(244,63,94,0.1)", border: "1px solid rgba(244,63,94,0.2)", color: "#fb7185", padding: "6px 10px", borderRadius: "8px", fontSize: "12px", cursor: "pointer" }}
+                      title="Delete selected client preset"
+                    >
+                      🗑
+                    </button>
+                  )}
+                </div>
+              )}
+
                 <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                   <div><label htmlFor="buyer-name" style={lbl}>Client Name *</label><input id="buyer-name" value={buyer.name} onChange={e => setBuyer({...buyer, name: e.target.value})} style={inp}/></div>
                   <div><label htmlFor="buyer-address" style={lbl}>Address</label><textarea id="buyer-address" value={buyer.address} onChange={e => setBuyer({...buyer, address: e.target.value})} style={{...inp, height: "80px", resize: "none"}}/></div>
@@ -592,14 +773,15 @@ export default function InvoiceGenerator() {
                         <div className="items-row-3">
                           <div><label htmlFor={`item-rate-${i}`} style={lbl}>Rate</label><input id={`item-rate-${i}`} type="number" inputMode="decimal" value={item.rate} onChange={e => updateItem(i, "rate", e.target.value)} style={inp}/></div>
                           <div>
-                            <label htmlFor={`item-gst-${i}`} style={lbl}>GST %</label>
+                            <label htmlFor={`item-gst-${i}`} style={lbl}>GST % {isExportLUT && "(0% LUT)"}</label>
                             <input 
                               id={`item-gst-${i}`}
                               type="number" inputMode="decimal" 
                               list={`gst-list-${i}`}
-                              value={item.gst === 0 && item.gst !== "" ? 0 : item.gst} 
+                              value={isExportLUT ? 0 : (item.gst === 0 && item.gst !== "" ? 0 : item.gst)} 
                               onChange={e => updateItem(i, "gst", e.target.value)}
-                              style={inp}
+                              disabled={isExportLUT}
+                              style={{ ...inp, opacity: isExportLUT ? 0.7 : 1 }}
                             />
                             <datalist id={`gst-list-${i}`}>
                               {[0, 5, 12, 18, 28].map(r => <option key={r} value={r} />)}
@@ -692,6 +874,20 @@ export default function InvoiceGenerator() {
                   </div>
                 </div>
 
+                {/* Statutory Export LUT Banner */}
+                {isExportLUT && (
+                  <div data-pdf-boundary="lut-banner" style={{ background: "rgba(0,118,255,0.06)", border: "1px solid rgba(0,118,255,0.35)", borderRadius: "6px", padding: "10px 14px", marginBottom: "24px", textAlign: "center" }}>
+                    <div style={{ fontSize: "11px", fontWeight: "800", color: "#0076ff", letterSpacing: "0.04em", textTransform: "uppercase" }}>
+                      SUPPLY MEANT FOR EXPORT UNDER BOND OR LETTER OF UNDERTAKING (LUT) WITHOUT PAYMENT OF INTEGRATED TAX (IGST)
+                    </div>
+                    {lutArn && (
+                      <div style={{ fontSize: "11px", color: "#475569", marginTop: "3px", fontWeight: "600" }}>
+                        LUT ARN: {lutArn}
+                      </div>
+                    )}
+                  </div>
+                )}
+
                 {/* Bill To & Delivery */}
                 <div style={{ display: "flex", gap: "20px", marginBottom: "40px" }}>
                   <div style={{ flex: 1, padding: "20px", background: "var(--text-primary)", borderRadius: "8px", borderLeft: "4px solid #0076ff" }}>
@@ -724,8 +920,10 @@ export default function InvoiceGenerator() {
                         </span>
                       </th>
                       <th style={{ padding: "12px 8px", background: "var(--text-primary)", color: "#475569", fontSize: "12px", textTransform: "uppercase", borderBottom: "2px solid var(--text-primary)", textAlign: "right" }}>Qty</th>
-                      <th style={{ padding: "12px 8px", background: "var(--text-primary)", color: "#475569", fontSize: "12px", textTransform: "uppercase", borderBottom: "2px solid var(--text-primary)", textAlign: "right" }}>Rate (₹)</th>
-                      {transType === "intra" ? (
+                      <th style={{ padding: "12px 8px", background: "var(--text-primary)", color: "#475569", fontSize: "12px", textTransform: "uppercase", borderBottom: "2px solid var(--text-primary)", textAlign: "right" }}>Rate ({currSymbol.trim()})</th>
+                      {isExportLUT ? (
+                        <th style={{ padding: "12px 8px", background: "var(--text-primary)", color: "#475569", fontSize: "12px", textTransform: "uppercase", borderBottom: "2px solid var(--text-primary)", textAlign: "right" }}>IGST (0%)</th>
+                      ) : transType === "intra" ? (
                         <>
                           <th style={{ padding: "12px 8px", background: "var(--text-primary)", color: "#475569", fontSize: "12px", textTransform: "uppercase", borderBottom: "2px solid var(--text-primary)", textAlign: "right" }}>CGST</th>
                           <th style={{ padding: "12px 8px", background: "var(--text-primary)", color: "#475569", fontSize: "12px", textTransform: "uppercase", borderBottom: "2px solid var(--text-primary)", textAlign: "right" }}>SGST</th>
@@ -733,7 +931,7 @@ export default function InvoiceGenerator() {
                       ) : (
                         <th style={{ padding: "12px 8px", background: "var(--text-primary)", color: "#475569", fontSize: "12px", textTransform: "uppercase", borderBottom: "2px solid var(--text-primary)", textAlign: "right" }}>IGST</th>
                       )}
-                      <th style={{ padding: "12px 8px", background: "var(--text-primary)", color: "#475569", fontSize: "12px", textTransform: "uppercase", borderBottom: "2px solid var(--text-primary)", textAlign: "right" }}>Total (₹)</th>
+                      <th style={{ padding: "12px 8px", background: "var(--text-primary)", color: "#475569", fontSize: "12px", textTransform: "uppercase", borderBottom: "2px solid var(--text-primary)", textAlign: "right" }}>Total ({currSymbol.trim()})</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -746,7 +944,9 @@ export default function InvoiceGenerator() {
                           <td style={{ padding: "16px 8px", fontSize: "13px", color: "#475569" }}>{item.hsn || "-"}</td>
                           <td style={{ padding: "16px 8px", fontSize: "13px", color: "#475569", textAlign: "right" }}>{item.qty}{item.uqc && item.uqc.trim() !== "" ? ` ${item.uqc.trim()}` : ""}</td>
                           <td style={{ padding: "16px 8px", fontSize: "13px", color: "#475569", textAlign: "right" }}>{fmtINR(item.rate)}</td>
-                          {transType === "intra" ? (
+                          {isExportLUT ? (
+                            <td style={{ padding: "16px 8px", fontSize: "13px", color: "#475569", textAlign: "right" }}>0% (LUT)</td>
+                          ) : transType === "intra" ? (
                             <>
                               <td style={{ padding: "16px 8px", fontSize: "13px", color: "#475569", textAlign: "right" }}>{item.gst / 2}%</td>
                               <td style={{ padding: "16px 8px", fontSize: "13px", color: "#475569", textAlign: "right" }}>{item.gst / 2}%</td>
@@ -754,7 +954,7 @@ export default function InvoiceGenerator() {
                           ) : (
                             <td style={{ padding: "16px 8px", fontSize: "13px", color: "#475569", textAlign: "right" }}>{item.gst}%</td>
                           )}
-                          <td style={{ padding: "16px 8px", fontSize: "13px", color: "var(--bg-tertiary)", fontWeight: "600", textAlign: "right" }}>{c.valid ? `₹${fmtINR(c.finalTotalStr)}` : "Error"}</td>
+                          <td style={{ padding: "16px 8px", fontSize: "13px", color: "var(--bg-tertiary)", fontWeight: "600", textAlign: "right" }}>{c.valid ? `${currSymbol}${fmtINR(c.finalTotalStr)}` : "Error"}</td>
                         </tr>
                       );
                     })}
@@ -779,25 +979,29 @@ export default function InvoiceGenerator() {
                   <div style={{ width: "40%" }}>
                     <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px", fontSize: "13px", color: "#475569" }}>
                       <span>Taxable Amount</span>
-                      <span>₹{fmtINR(calculatedTotals.baseStr)}</span>
+                      <span>{currSymbol}{fmtINR(calculatedTotals.baseStr)}</span>
                     </div>
-                    {transType === "intra" ? (
+                    {isExportLUT ? (
+                      <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px", fontSize: "13px", color: "#475569" }}>
+                        <span>IGST (0% under LUT)</span><span>{currSymbol}0.00</span>
+                      </div>
+                    ) : transType === "intra" ? (
                       <>
                         <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px", fontSize: "13px", color: "#475569" }}>
-                          <span>CGST</span><span>₹{fmtINR(calculatedTotals.cgstStr)}</span>
+                          <span>CGST</span><span>{currSymbol}{fmtINR(calculatedTotals.cgstStr)}</span>
                         </div>
                         <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px", fontSize: "13px", color: "#475569" }}>
-                          <span>SGST</span><span>₹{fmtINR(calculatedTotals.sgstStr)}</span>
+                          <span>SGST</span><span>{currSymbol}{fmtINR(calculatedTotals.sgstStr)}</span>
                         </div>
                       </>
                     ) : (
                       <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px", fontSize: "13px", color: "#475569" }}>
-                        <span>IGST</span><span>₹{fmtINR(calculatedTotals.igstStr)}</span>
+                        <span>IGST</span><span>{currSymbol}{fmtINR(calculatedTotals.igstStr)}</span>
                       </div>
                     )}
                     <div style={{ display: "flex", justifyContent: "space-between", marginTop: "12px", paddingTop: "12px", borderTop: "2px solid var(--text-primary)", fontSize: "18px", fontWeight: "800", color: "var(--bg-tertiary)" }}>
                       <span>Total Amount</span>
-                      <span>₹{fmtINR(calculatedTotals.finalTotalStr)}</span>
+                      <span>{currSymbol}{fmtINR(calculatedTotals.finalTotalStr)}</span>
                     </div>
                   </div>
                 </div>
@@ -810,7 +1014,7 @@ export default function InvoiceGenerator() {
                       {finalNotes}
                     </p>
                   </div>
-                  {bank.upi && (
+                  {bank.upi && currency === "INR" && (
                     <div style={{ textAlign: "center", background: "#fff", padding: "10px", borderRadius: "8px", border: "1px solid var(--text-primary)" }}>
                       {(() => {
                         const upiRes = buildUpiPaymentUri({
